@@ -349,7 +349,7 @@ struct ipa_buf *ipa_euicc_transceive_es10x(struct ipa_context *ctx, const struct
 	}
 
 	IPA_LOGP(SEUICC, LDEBUG, "received %zu bytes from eUICC (buffer size: %zu bytes)\n", es10x_res->len,
-		 es10x_req->data_len);
+		 es10x_res->data_len);
 
 	return es10x_res;
 }
