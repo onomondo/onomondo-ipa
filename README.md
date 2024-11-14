@@ -1,7 +1,7 @@
 ﻿# onomondo-ipa
-onomondo-ipa is a C based IPAd (IoT Profile Assistant in the IoT Device, see also SGP.31) implementation. The IPAd is an
-element in the 3GPP IoT eSIM system as described in SGP.31 and SGP.32. It interfaces between the eUICC on the one hand
-side, and the eIM (via HTTPS) on the other side. The implementation presented here can run on a regular linux PC or used
+onomondo-ipa is a C based IoT Profile Assistant in the IoT Device (IPAd, see also SGP.31) implementation. The IPAd is an
+element in the 3GPP IoT eSIM system as described in SGP.31 and SGP.32. It interfaces between the eUICC on side, 
+and the eIM (via HTTPS) on the other side. The implementation presented here can run on a regular Linux host. It can also be used
 as a library to add IPAd functionality to an IoT device that runs an RTOS.
 
 Interfaces
@@ -27,8 +27,8 @@ Installation
 
 The IPAd core implementation (libasn, libipa) written in a way so that it has no dependencies other than a c99 compliant
 C-compiler. However, onomondo-ipa still requires platform dependent modules that allow it to make HTTP(s) requests and
-to access the eUICC via some sort of smartcard reader. This repository ships with a sample implementation where those
-platform depended modules that can run on a standard Linux system:
+to access the eUICC via some sort of smart card reader. This repository ships with a sample implementation of those
+platform-dependent modules that can run on a standard Linux system:
 
 * `http.c`: Contains a libcurl based implementation to make HTTP(s) requests.
 * `scard.c`: Contains a libpcsclite based implementation to access the eUICC.
@@ -40,33 +40,36 @@ On a Debian GNU/Linux system the following packages are required:
 * `build-essential`
 * `cmake`
 
-On a debian system, the standard `apt-get install ...` command can be used to install those dependencies.
+On a Debian system, the standard `apt-get install ...` command can be used to install those dependencies.
 
 ### Building
 
-To compile the IPAd the run the following four steps:
+Run the following steps to compile the IPAd:
 
 ```
-mkdir build
-cd build
-cmake -DENABLE_SANITIZE=ON -DSHOW_ASN_OUTPUT=ON ../
-make
+cmake -S . -B build -DENABLE_SANITIZE=ON -DSHOW_ASN_OUTPUT=ON
+cmake --build build
 ```
 
 #### Options
 
-* `-DENABLE_SANITIZE`: This feature is entirely optional and results in a build with AddressSanitizer, which helps to
+* `-DENABLE_SANITIZE`
+this feature is entirely optional and results in a build with AddressSanitizer, which helps to
 find out-of-bounds memory accesses during development and testing.
-* `-DSHOW_ASN_OUTPUT`: enables decoded printing of the ASN.1 encoded messages that are exchanged between eIM and eUICC.
+* `-DSHOW_ASN_OUTPUT`
+enables decoded printing of the ASN.1 encoded messages that are exchanged between eIM and eUICC.
 The decoded ASN.1 output may result in large log output, so it is recommended to use this option only for
 development/testing. (The hexadecimal representation of messages is still printed)
-* `-DASN_EMIT_DEBUG`: The code that is used to encode/decode ASN.1 encoded messages has been generated using asn1c. This
+* `-DASN_EMIT_DEBUG`
+the code that is used to encode/decode ASN.1 encoded messages has been generated using asn1c. This
 ASN.1 compiler also adds debug messages, which can be enabled by adding this option.
-* `-DMEM_EMIT_DEBUG`: This option can be used to analyze the usage of heap memory. When this option is enabled IPA_ALLOC,
+* `-DMEM_EMIT_DEBUG`
+this option can be used to analyze the usage of heap memory. When this option is enabled IPA_ALLOC,
 IPA_ALLOC_N, IPA_REALLOC, and IPA_FREE will keep track on how much memory is currently allocated. The current memory
 usage and the peak memory usage is then displayed. The feature relies on the function malloc_usable_size(), which is a
 non standard API. However, the function is available on GNU LINUX and FreeBSD (see also man malloc_usable_size)
-* `-DM32`: Use this option to compile onomondo-ipa for 32-BIT x86 architectures,
+* `-DM32`
+use this option to compile onomondo-ipa for 32-BIT x86 architectures,
 see also GCC manual, section 3.19.54 x86 Options.
 
 
@@ -81,18 +84,18 @@ presented in `onomondo/ipad.h`.
 
 There are a number of commandline options supported. The most relevant options are:
 
-* `-r`: Specifies the PCSC reader number.
-* `-f`: Specifies the path to an initial eIM configuration file
-* `-I`: Omit verification of the SSL certificate of the eIM. This option makes the operation of onomondo-ipa insecure,
-but may be helpful for testing and debugging in lab setups.
-* `-E`: Enable the IoT eUICC emulation in case a regular consumer eUICC should be used.
+* `-r` specifies the PCSC reader number.
+* `-f` specifies the path to an initial eIM configuration file
+* `-I` omit verification of the SSL certificate of the eIM. This option makes the operation of onomondo-ipa insecure,
+but maybe helpful for testing and debugging in lab setups.
+* `-E` enable the IoT eUICC emulation in case a regular consumer eUICC should be used.
 
 (use option -h to query the full list of parameters)
 
 ### Initial setup
 
-During the first run, onomondo-ipa will create an nvstate.bin file in its working directory. This file is used to as a
-non volatile storage of data.
+During the first run, onomondo-ipa will create an `nvstate.bin` file in its working directory. 
+This file is used as non-volatile storage of data.
 
 In case the IoT eUICC is not yet provisioned with an eIM configuration, onomondo-ipa can be used to perform the
 provisioning. The configuration must be supplied as a file that contains an AddInitialEimRequest (see also GSMA SGP.32,
