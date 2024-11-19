@@ -100,16 +100,26 @@ struct ipa_esipa_auth_clnt_res *ipa_esipa_auth_clnt(struct ipa_context *ctx, con
 	IPA_LOGP_ESIPA("AuthenticateClient", LINFO, "Requesting client authentication\n");
 
 	esipa_req = enc_auth_clnt_req(req);
-	if (!esipa_req)
+	if (!esipa_req) {
+		IPA_LOGP_ESIPA("AuthenticateClient", LERROR, "failed to encode the AuthenticateClient request!\n");
 		goto error;
+	}
 
 	esipa_res = ipa_esipa_req(ctx, esipa_req, "AuthenticateClient");
-	if (!esipa_res)
+	if (!esipa_res) {
+		IPA_LOGP_ESIPA("AuthenticateClient", LERROR, "eIM response is NULL!\n");
 		goto error;
+	} else if (esipa_res->len == 0) {
+		IPA_LOGP_ESIPA("AuthenticateClient", LERROR, "eIM response is empty!\n");
+		goto error;
+	}
 
+	IPA_LOGP_ESIPA("AuthenticateClient", LINFO, "Decode the AuthenticateClient response\n");
 	res = dec_auth_clnt_res(esipa_res, req);
-	if (!res)
+	if (!res) {
+		IPA_LOGP_ESIPA("AuthenticateClient", LERROR, "failed to decode the AuthenticateClient response!\n");
 		goto error;
+	}
 
 error:
 	IPA_FREE(esipa_req);
