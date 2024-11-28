@@ -126,11 +126,11 @@ int eim_pkg_exec(struct ipa_context *ctx, const struct ipa_esipa_get_eim_pkg_res
 	}
 
 	IPA_FREE(allowed_ca_pkid);
-	IPA_LOGP(SIPA, LINFO, "eIM Package Execution succeeded!\n");
+	IPA_LOGP(SIPA, LINFO, "eIM Package Execution finished!\n");
 	return 0;
 error:
 	IPA_FREE(allowed_ca_pkid);
-	IPA_LOGP(SIPA, LINFO, "eIM Package Execution failed!\n");
+	IPA_LOGP(SIPA, LERROR, "eIM Package Execution failed!\n");
 	return rc;
 }
 
