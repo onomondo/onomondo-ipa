@@ -1,8 +1,9 @@
 #pragma once
 
 #include <stdint.h>
-struct ipa_buf;
+
 struct ipa_context;
+struct ipa_buf;
 
 struct ipa_proc_indirect_prfle_dwnlod_pars {
 	const char *ac;
