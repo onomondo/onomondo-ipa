@@ -177,7 +177,7 @@ static int ipa_asn1c_dump_consume(const void *buffer, size_t size, void *app_key
 		realloc_size =
 		    (((buf->printbuf_ptr - buf->printbuf) + size) / IPA_LEN_ASN1_PRINTER_BUF +
 		     1) * IPA_LEN_ASN1_PRINTER_BUF;
-		IPA_LOGP(SMAIN, LERROR,
+		IPA_LOGP(SMAIN, LDEBUG,
 			 "ASN.1 print buffer exhausted - allocating more space for up to %zu characters!\n",
 			 realloc_size);
 
