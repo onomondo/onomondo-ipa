@@ -123,7 +123,7 @@ struct ipa_buf *ipa_esipa_msg_to_eim_enc(const struct EsipaMessageFromIpaToEim *
 
 	rc = der_encode(&asn_DEF_EsipaMessageFromIpaToEim, msg_to_eim, ipa_asn1c_consume_bytes_cb, &buf_encoded);
 	if (rc.encoded <= 0) {
-		IPA_LOGP_ESIPA(function_name, LERROR, "cannot encode eIM request!\n");
+		IPA_LOGP_ESIPA(function_name, LERROR, "cannot encode eIM request! rc = %d\n", rc.encoded);
 		IPA_FREE(buf_encoded);
 		return NULL;
 	}
