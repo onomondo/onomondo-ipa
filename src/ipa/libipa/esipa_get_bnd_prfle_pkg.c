@@ -89,10 +89,12 @@ static struct ipa_esipa_get_bnd_prfle_pkg_res *dec_get_bnd_prfle_pkg_res(const s
 
 	switch (msg_to_ipa->choice.initiateAuthenticationResponseEsipa.present) {
 	case GetBoundProfilePackageResponseEsipa_PR_getBoundProfilePackageOkEsipa:
+		IPA_LOGP_ESIPA("GetBoundProfilePackage", LINFO, "GetBoundProfilePackageResponseEsipa_PR_getBoundProfilePackageOkEsipa\n");
 		res->get_bnd_prfle_pkg_ok =
 		    &msg_to_ipa->choice.getBoundProfilePackageResponseEsipa.choice.getBoundProfilePackageOkEsipa;
 		break;
 	case GetBoundProfilePackageResponseEsipa_PR_getBoundProfilePackageErrorEsipa:
+		IPA_LOGP_ESIPA("GetBoundProfilePackage", LERROR, "GetBoundProfilePackageResponseEsipa_PR_getBoundProfilePackageErrorEsipa\n");
 		res->get_bnd_prfle_pkg_err =
 		    msg_to_ipa->choice.getBoundProfilePackageResponseEsipa.choice.getBoundProfilePackageErrorEsipa;
 		IPA_LOGP_ESIPA("GetBoundProfilePackage", LERROR, "function failed with error code %ld=%s!\n",
@@ -119,16 +121,17 @@ struct ipa_esipa_get_bnd_prfle_pkg_res *ipa_esipa_get_bnd_prfle_pkg(struct ipa_c
 	struct ipa_buf *esipa_res = NULL;
 	struct ipa_esipa_get_bnd_prfle_pkg_res *res = NULL;
 
-	IPA_LOGP_ESIPA("GetBoundProfilePackage", LINFO, "Requesting bound profile package from eIM\n");
-
+	IPA_LOGP_ESIPA("GetBoundProfilePackage", LINFO, "Preparing encoded profile package request\n");
 	esipa_req = enc_get_bnd_prfle_pkg_req(req);
 	if (!esipa_req)
 		goto error;
 
+	IPA_LOGP_ESIPA("GetBoundProfilePackage", LINFO, "Requesting profile package from eIM\n");
 	esipa_res = ipa_esipa_req(ctx, esipa_req, "GetBoundProfilePackage");
 	if (!esipa_res)
 		goto error;
 
+	IPA_LOGP_ESIPA("GetBoundProfilePackage", LINFO, "Decoding profile package received from eIM\n");
 	res = dec_get_bnd_prfle_pkg_res(esipa_res);
 	if (!res)
 		goto error;
