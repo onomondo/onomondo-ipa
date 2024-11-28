@@ -38,7 +38,7 @@ int ipa_notif_delivery(struct ipa_context *ctx)
 	else if (!retr_notif_from_lst_res->sgp32_res)
 		goto error;
 
-	/* In this procedure we expect to get a notificationList, all other types of lists are not suitablie for this
+	/* In this procedure we expect to get a notificationList, all other types of lists are not suitable for this
 	 * procedure. */
 	else if (retr_notif_from_lst_res->sgp32_res->present !=
 		 SGP32_RetrieveNotificationsListResponse_PR_notificationList) {
@@ -75,7 +75,7 @@ int ipa_notif_delivery(struct ipa_context *ctx)
 		}
 	}
 
-	IPA_LOGP(SIPA, LERROR, "Notification Delivery to Notification Receivers Procedure succeeded!\n");
+	IPA_LOGP(SIPA, LDEBUG, "Notification Delivery to Notification Receivers Procedure succeeded!\n");
 	ipa_es10b_retr_notif_from_lst_res_free(retr_notif_from_lst_res);
 	return 0;
 error:
