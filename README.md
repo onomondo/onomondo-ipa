@@ -1,7 +1,10 @@
-﻿onomondo-ipa is a C based IoT Profile Assistant in the IoT Device (IPAd, see also SGP.31) implementation. The IPAd is an
+﻿# Onomondo IPA
+
+onomondo-ipa is a C-based IoT Profile Assistant in the IoT Device (IPAd, see also SGP.31) implementation. The IPAd is an
 element in the 3GPP IoT eSIM system as described in SGP.31 and SGP.32. It interfaces between the eUICC on one side, 
 and the eIM (via HTTPS) on the other side. The implementation presented here can run on a regular Linux host. It can also be used
 as a library to add IPAd functionality to an IoT device that runs an RTOS.
+
 
 Interfaces
 ----------
@@ -18,6 +21,7 @@ onomondo-ipa features an IoT eUICC emulation mode. This allows the usage of regu
 available. The emulation replaces missing IoT eUICC functionality by calling an appropriate consumer eUICC function
 as a replacement. In case no equivalent function is available, the function is emulated by onomondo-ipa directly. This
 is in particular the case for the functions related to the management of the eIM configuration.
+
 
 Installation
 ------------
@@ -58,7 +62,7 @@ find out-of-bounds memory accesses during development and testing.
 * `-DSHOW_ASN_OUTPUT`
 enables decoded printing of the ASN.1 encoded messages that are exchanged between eIM and eUICC.
 The decoded ASN.1 output may result in large log output, so it is recommended to use this option only for
-development/testing. (The hexadecimal representation of messages is still printed)
+development/testing (The hexadecimal representation of messages is still printed).
 * `-DASN_EMIT_DEBUG`
 the code that is used to encode/decode ASN.1 encoded messages has been generated using asn1c. This
 ASN.1 compiler also adds debug messages, which can be enabled by adding this option.
@@ -66,7 +70,7 @@ ASN.1 compiler also adds debug messages, which can be enabled by adding this opt
 this option can be used to analyze the usage of heap memory. When this option is enabled IPA_ALLOC,
 IPA_ALLOC_N, IPA_REALLOC, and IPA_FREE will keep track of how much memory is currently allocated. The current memory
 usage and the peak memory usage are then displayed. The feature relies on the function malloc_usable_size(), which is a
-non-standard API. However, the function is available on GNU LINUX and FreeBSD (see also man malloc_usable_size)
+non-standard API. However, the function is available on GNU LINUX and FreeBSD (see also man malloc_usable_size).
 * `-DM32`
 use this option to compile onomondo-ipa for 32-BIT x86 architectures,
 see also GCC manual, section 3.19.54 x86 Options.
@@ -79,19 +83,19 @@ Along with the platform dependent modules, a sample application (`main.c`) is al
 a fully functional IPAd that runs on a Linux system. However, its main purpose is to illustrate how to use the API
 presented in `onomondo/ipad.h`.
 
-### Commandline options
+### Command-Line Options
 
-There are a number of commandline options supported. The most relevant options are:
+There are a number of command-line options supported. The most relevant options are:
 
 * `-r` specifies the PCSC reader number.
-* `-f` specifies the path to an initial eIM configuration file
+* `-f` specifies the path to an initial eIM configuration file.
 * `-I` omit verification of the SSL certificate of the eIM. This option makes the operation of onomondo-ipa insecure,
 but may be helpful for testing and debugging in lab setups.
 * `-E` enable the IoT eUICC emulation in case a regular consumer eUICC should be used.
 
 (use option -h to query the full list of parameters)
 
-### Initial setup
+### Initial Setup
 
 During the first run, onomondo-ipa will create an `nvstate.bin` file in its working directory. 
 This file is used as non-volatile storage of data.
@@ -107,7 +111,7 @@ Example: load the initial eIM configuration onto the eUICC in PCSC reader 2
 ./src/ipa/ipa -r 2 -f ../contrib/sample_eim_cfg.ber
 ```
 
-### Querying eIM packages
+### Querying eIM Packages
 
 When onomondo-ipa is called without the `-f` parameter, it will read the eUICC configuration and the eidValue from the
 eUICC and use it to query the eIM for eIM packages. In case no eIM package is available (error code
