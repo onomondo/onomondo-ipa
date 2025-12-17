@@ -1,6 +1,9 @@
 /*
- * Author: Philipp Maier <pmaier@sysmocom.de> / sysmocom - s.f.m.c. GmbH
+ * Copyrighct (c) 2025 Onomondo ApS. All rights reserved.
  *
+ * SPDX-License-Identifier: AGPL-3.0-only
+ *
+ * Author: Philipp Maier <pmaier@sysmocom.de> / sysmocom - s.f.m.c. GmbH
  */
 
 #include <stdarg.h>

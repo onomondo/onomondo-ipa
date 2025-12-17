@@ -1,7 +1,11 @@
 /*
- * Author: Philipp Maier
- * See also: GSMA SGP.32, section 3.7: Notification Delivery to Notification Receivers
+ * Copyright (c) 2025 Onomondo ApS & sysmocom - s.f.m.c. GmbH. All rights reserved.
  *
+ * SPDX-License-Identifier: AGPL-3.0-only
+ *
+ * Author: Philipp Maier <pmaier@sysmocom.de> / sysmocom - s.f.m.c. GmbH
+ *
+ * See also: GSMA SGP.32, section 3.7: Notification Delivery to Notification Receivers
  */
 
 #include <stdio.h>

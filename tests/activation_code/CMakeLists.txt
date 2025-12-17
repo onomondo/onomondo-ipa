@@ -1,3 +1,6 @@
+# Copyright (c) 2025 Onomondo ApS & sysmocom - s.f.m.c. GmbH. All rights reserved.
+# SPDX-License-Identifier: AGPL-3.0-only
+
 add_executable(activation_code_test activation_code_test.c)
 set_property(TARGET activation_code_test PROPERTY C_STANDARD 99)
 target_compile_options(activation_code_test PRIVATE -Wall)

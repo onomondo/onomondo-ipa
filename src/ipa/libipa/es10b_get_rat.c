@@ -1,7 +1,11 @@
 /*
- * Author: Philipp Maier <pmaier@sysmocom.de> / sysmocom - s.f.m.c. GmbH
- * See also: GSMA SGP.22, 5.7.22: Function (ES10b): GetRAT
+ * Copyright (c) 2025 Onomondo ApS & sysmocom - s.f.m.c. GmbH. All rights reserved.
  *
+ * SPDX-License-Identifier: AGPL-3.0-only
+ *
+ * Author: Philipp Maier <pmaier@sysmocom.de> / sysmocom - s.f.m.c. GmbH
+ *
+ * See also: GSMA SGP.22, 5.7.22: Function (ES10b): GetRAT
  */
 
 #include <stdio.h>

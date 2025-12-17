@@ -1,7 +1,10 @@
 /*
+ * Copyright (c) 2025 Onomondo ApS & sysmocom - s.f.m.c. GmbH. All rights reserved.
+ *
+ * SPDX-License-Identifier: AGPL-3.0-only
+ *
  * Author: Philipp Maier <pmaier@sysmocom.de> / sysmocom - s.f.m.c. GmbH
  * Author: Harald Welte <hwelte@sysmocom.de> / sysmocom - s.f.m.c. GmbH
- *
  */
 
 #include <stdio.h>

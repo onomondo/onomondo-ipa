@@ -1,9 +1,13 @@
 /*
- * Author: Philipp Maier
+ * Copyright (c) 2025 Onomondo ApS & sysmocom - s.f.m.c. GmbH. All rights reserved.
+ *
+ * SPDX-License-Identifier: AGPL-3.0-only
+ *
+ * Author: Philipp Maier <pmaier@sysmocom.de> / sysmocom - s.f.m.c. GmbH
+ *
  * See also: GSMA SGP.32, section 2.11.1.2: IpaEuiccDataRequest
  * (This is not described in the procedure section, so it is not an official
  *  procedure in terms of SGP.32)
- *
  */
 
 #include <stdio.h>

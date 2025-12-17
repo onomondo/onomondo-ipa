@@ -1,3 +1,6 @@
+# Copyright (c) 2025 Onomondo ApS & sysmocom - s.f.m.c. GmbH. All rights reserved.
+# SPDX-License-Identifier: AGPL-3.0-only
+
 add_executable(bpp_segments_test bpp_segments_test.c)
 set_property(TARGET bpp_segments_test PROPERTY C_STANDARD 99)
 target_compile_options(bpp_segments_test PRIVATE -Wall)

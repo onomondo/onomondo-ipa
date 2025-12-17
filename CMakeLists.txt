@@ -1,3 +1,6 @@
+# Copyright (c) 2025 Onomondo ApS & sysmocom - s.f.m.c. GmbH. All rights reserved.
+# SPDX-License-Identifier: AGPL-3.0-only
+
 cmake_minimum_required(VERSION 3.13...3.19 FATAL_ERROR)
 project(ipa VERSION 1.0.0 LANGUAGES C)
 

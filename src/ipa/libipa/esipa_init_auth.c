@@ -1,7 +1,11 @@
 /*
- * Author: Philipp Maier <pmaier@sysmocom.de> / sysmocom - s.f.m.c. GmbH
- * See also: GSMA SGP.32, section 5.14.1: Function (ESipa): InitiateAuthentication
+ * Copyrighct (c) 2025 Onomondo ApS. All rights reserved.
  *
+ * SPDX-License-Identifier: AGPL-3.0-only
+ *
+ * Author: Philipp Maier <pmaier@sysmocom.de> / sysmocom - s.f.m.c. GmbH
+ *
+ * See also: GSMA SGP.32, section 5.14.1: Function (ESipa): InitiateAuthentication
  */
 
 #include <stdint.h>
