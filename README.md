@@ -126,3 +126,10 @@ Example: Query the eIM for eIM packages
 ```
 ./src/ipa/ipa -r 2
 ```
+
+License
+----------
+
+Copyright (c) 2025 Onomondo ApS & sysmocom - s.f.m.c. GmbH.
+
+Licensed under the GNU Affero General Public License v3.0 only.
