@@ -20,6 +20,16 @@
 #include <stdio.h>
 #include <errno.h>
 
+/* Zephyr: newlib does not provide timegm().
+ * On Zephyr there is no timezone offset, so mktime() == timegm(). */
+#ifdef __ZEPHYR__
+#include <time.h>  /* ensure mktime() prototype is visible under Zephyr/newlib */
+static time_t timegm(struct tm *tm)
+{
+	return mktime(tm);
+}
+#endif
+
 #if	defined(_WIN32)
 #pragma message( "PLEASE STOP AND READ!")
 #pragma message( "  localtime_r is implemented via localtime(), which may be not thread-safe.")
@@ -49,29 +59,27 @@ static struct tm *gmtime_r(const time_t *tloc, struct tm *result) {
 
 #endif	/* _WIN32 */
 
-#if	defined(sun) || defined(__sun) || defined(__solaris__)
-#define	_EMULATE_TIMEGM
-#endif
+// #if defined(sun) || defined(__sun) || defined(__solaris__)
+// #define    _EMULATE_TIMEGM
+// #endif
 
 /*
- * Where to look for offset from GMT, Phase I.
- * Several platforms are known.
+ * Where to look for offset from GMT.
+ * For embedded/Zephyr targets we always return 0 (assume UTC).
  */
-#if defined(__FreeBSD__) || defined(__OpenBSD__)    \
-	|| (defined(__GNUC__) && defined(__APPLE_CC__))	\
-	|| (defined __GLIBC__ && __GLIBC__ >= 2)
-#undef	HAVE_TM_GMTOFF
-#define	HAVE_TM_GMTOFF
-#endif	/* BSDs and newer glibc */
+// #if defined(__FreeBSD__) || defined(__OpenBSD__)    \
+//  || (defined(__GNUC__) && defined(__APPLE_CC__))     \
+//  || (defined __GLIBC__ && __GLIBC__ >= 2)
+// #undef  HAVE_TM_GMTOFF
+// #define HAVE_TM_GMTOFF
+// #endif  /* BSDs and newer glibc */
 
-/*
- * Where to look for offset from GMT, Phase II.
- */
-#ifdef	HAVE_TM_GMTOFF
-#define	GMTOFF(tm)	((tm).tm_gmtoff)
-#else	/* HAVE_TM_GMTOFF */
-#define	GMTOFF(tm)	(-timezone)
-#endif	/* HAVE_TM_GMTOFF */
+// #ifdef  HAVE_TM_GMTOFF
+// #define GMTOFF(tm)  ((tm).tm_gmtoff)
+// #else   /* HAVE_TM_GMTOFF */
+// #define GMTOFF(tm)  (-timezone)
+// #endif  /* HAVE_TM_GMTOFF */
+#define	GMTOFF(tm) (0)
 
 #if	defined(_WIN32)
 #pragma message( "PLEASE STOP AND READ!")

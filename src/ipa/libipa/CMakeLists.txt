@@ -1,7 +1,15 @@
 # Copyright (c) 2025 Onomondo ApS & sysmocom - s.f.m.c. GmbH. All rights reserved.
 # SPDX-License-Identifier: AGPL-3.0-only
 
-add_library(libipa STATIC
+if(DEFINED ENV{ZEPHYR_BASE})
+  # ── Zephyr / NCS build ────────────────────────────────────────────────────
+  zephyr_library()
+  zephyr_library_include_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/../libasn
+  )
+  # onomondo-ipa/include is already added globally by nrf-ipa/CMakeLists.txt.
+  zephyr_library_sources(
   activation_code.c
   bpp_segments.c
   es10a_get_euicc_cfg_addr.c
@@ -48,11 +56,18 @@ add_library(libipa STATIC
   proc_prfle_dwnld.c
   proc_prfle_inst.c
   utils.c
-)
-
-target_include_directories(libipa PUBLIC ${CMAKE_SOURCE_DIR}/include PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(libipa PUBLIC libasn)
-target_compile_options(libipa PRIVATE -Wall)
-if (M32)
-  set_target_properties(libipa PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
+  )
+else()
+  # ── Native Linux build ───────────────────────────────────────────────────
+  file(GLOB LIBIPA_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/*.c")
+  add_library(libipa STATIC ${LIBIPA_SRCS})
+  target_include_directories(libipa
+    PUBLIC  ${CMAKE_SOURCE_DIR}/include
+    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}
+  )
+  target_link_libraries(libipa PUBLIC libasn)
+  target_compile_options(libipa PRIVATE -Wall)
+  if(M32)
+    set_target_properties(libipa PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
+  endif()
 endif()

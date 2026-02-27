@@ -11,6 +11,28 @@
 extern "C" {
 #endif
 
+/* Minimal struct tm for embedded targets that do not provide <time.h> */
+#ifndef _STRUCT_TM_DEFINED
+#define _STRUCT_TM_DEFINED
+struct tm {
+	int tm_sec;
+	int tm_min;
+	int tm_hour;
+	int tm_mday;
+	int tm_mon;
+	int tm_year;
+	int tm_wday;
+	int tm_yday;
+	int tm_isdst;
+#ifdef __TM_GMTOFF
+	long __TM_GMTOFF;
+#endif
+#ifdef __TM_ZONE
+	const char *__TM_ZONE;
+#endif
+};
+#endif /* _STRUCT_TM_DEFINED */
+
 typedef OCTET_STRING_t GeneralizedTime_t;  /* Implemented via OCTET STRING */
 
 extern asn_TYPE_descriptor_t asn_DEF_GeneralizedTime;

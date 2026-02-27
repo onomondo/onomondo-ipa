@@ -7,6 +7,16 @@
 #include <asn_random_fill.h>
 #include <constr_TYPE.h>
 
+#include <stdlib.h>
+#ifdef __ZEPHYR__
+#include <zephyr/random/random.h>
+#define random() sys_rand32_get()
+#endif
+
+#ifndef RAND_MAX
+#define RAND_MAX 0xffffff
+#endif
+
 int
 asn_random_fill(const struct asn_TYPE_descriptor_s *td, void **struct_ptr,
                 size_t length) {
@@ -48,7 +58,7 @@ asn_random_between(intmax_t lb, intmax_t rb) {
 
         for(; got_entropy < range;) {
             got_entropy = (got_entropy << 24) | 0xffffff;
-            value = (value << 24) | (random() % 0xffffff);
+            value = (value << 24) | ((uint32_t)random() % 0xffffff);
         }
 
         return lb + (intmax_t)(value % (range + 1));

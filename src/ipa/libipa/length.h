@@ -11,10 +11,12 @@
 #define IPA_LEN_EID 16		/* bytes */
 
 /* This is the initial buffer size. The ASN.1 encoder will automatically re-alloc more memory if needed. */
-#define IPA_LEN_ASN1_ENCODER_BUF 5120	/* bytes */
+/* Reduced from 5120 for embedded targets with limited heap. */
+#define IPA_LEN_ASN1_ENCODER_BUF 256	/* bytes */
 
 /* This is the initial buffer size. The eUICC interface will automatically re-alloc more memory if needed. */
 #define IPA_LEN_EUICC_BUF 256 /* bytes */
 
 /* This is the initial buffer size. The ASN.1 printer will automatically re-alloc more memory if needed. */
-#define IPA_LEN_ASN1_PRINTER_BUF 10240	/* bytes */
+/* Reduced from 10240 for embedded targets with limited heap. */
+#define IPA_LEN_ASN1_PRINTER_BUF 128	/* bytes */
