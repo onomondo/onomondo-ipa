@@ -11,9 +11,22 @@
 extern "C" {
 #endif
 
-/* Minimal struct tm for embedded targets that do not provide <time.h> */
-#ifndef _STRUCT_TM_DEFINED
+/* Prefer system <time.h> when available; otherwise provide a minimal struct tm
+ * for embedded targets that do not provide <time.h>.
+ */
+#if defined(__has_include)
+#  if __has_include(<time.h>)
+#    include <time.h>
+#  endif
+#else
+/* Fallback: try including <time.h> on compilers without __has_include. */
+#  include <time.h>
+#endif
+
+/* If the system's <time.h> did not define struct tm, provide a minimal one. */
+#if !defined(__time_t_defined) && !defined(_STRUCT_TM_DEFINED)
 #define _STRUCT_TM_DEFINED
+/* Minimal struct tm definition used only when time.h is absent */
 struct tm {
 	int tm_sec;
 	int tm_min;
@@ -30,8 +43,7 @@ struct tm {
 #ifdef __TM_ZONE
 	const char *__TM_ZONE;
 #endif
-};
-#endif /* _STRUCT_TM_DEFINED */
+#endif /* !__time_t_defined && !_STRUCT_TM_DEFINED */
 
 typedef OCTET_STRING_t GeneralizedTime_t;  /* Implemented via OCTET STRING */
 
