@@ -67,8 +67,8 @@ static struct tm *gmtime_r(const time_t *tloc, struct tm *result) {
  * Where to look for offset from GMT.
  * For embedded/Zephyr targets we always return 0 (assume UTC).
  */
-// #if defined(__FreeBSD__) || defined(__OpenBSD__)    \
-//  || (defined(__GNUC__) && defined(__APPLE_CC__))     \
+// #if defined(__FreeBSD__) || defined(__OpenBSD__)
+//  || (defined(__GNUC__) && defined(__APPLE_CC__))
 //  || (defined __GLIBC__ && __GLIBC__ >= 2)
 // #undef  HAVE_TM_GMTOFF
 // #define HAVE_TM_GMTOFF
@@ -89,7 +89,7 @@ static struct tm *gmtime_r(const time_t *tloc, struct tm *result) {
 #pragma message( "  if you want to use asn_GT2time() or asn_UT2time().")
 #pragma message( "PLEASE STOP AND READ!")
 #else
-#if	(defined(_EMULATE_TIMEGM) || !defined(HAVE_TM_GMTOFF))
+#if	(defined(_EMULATE_TIMEGM) || !defined(HAVE_TM_GMTOFF)) && !defined(__ZEPHYR__)
 #warning "PLEASE STOP AND READ!"
 #warning "  timegm() is implemented via getenv(\"TZ\")/setenv(\"TZ\"), which may be not thread-safe."
 #warning "  "

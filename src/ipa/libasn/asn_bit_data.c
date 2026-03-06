@@ -41,7 +41,7 @@ asn_bit_data_string(asn_bit_data_t *pd) {
     snprintf(buf[n], sizeof(buf[n]),
              "{m=%" ASN_PRI_SIZE " span %" ASN_PRI_SIZE "[%" ASN_PRI_SIZE
              "..%" ASN_PRI_SIZE "] (%" ASN_PRI_SIZE ")}",
-             pd->moved, ((uintptr_t)(pd->buffer) & 0xf), pd->nboff, pd->nbits,
+             pd->moved, (size_t)((uintptr_t)(pd->buffer) & 0xf), pd->nboff, pd->nbits,
              pd->nbits - pd->nboff);
     return buf[n];
 }

@@ -358,7 +358,7 @@ struct ipa_buf *ipa_euicc_transceive_es10x(struct ipa_context *ctx, const struct
 }
 
 /* Send terminal capablilities, see also 3gpp TS 102.221 V16.2.0, section 11.1.19.2.4 */
-static int send_termcap(struct ipa_context *ctx)
+static int __attribute__((unused)) send_termcap(struct ipa_context *ctx)
 {
 	const uint8_t termcap[] = { 0xA9, 0x03, 0x83, 0x01, 0x07 };
 	int rc;
@@ -514,13 +514,13 @@ static int manage_channel(struct ipa_context *ctx, bool close)
 		goto exit;
 	}
 
-	/* 0x91XX is a SIM Toolkit proactive command notification — it means the SIM has a pending 
-	proactive command of XX bytes. Accepting it as "success" for MANAGE CHANNEL means a pending 
-	proactive command is silently dropped. On the nRF91, the modem should internally service the 
-	FETCH cycle for proactive commands via its own SIM Toolkit stack when using AT+CSIM 
-	(since CSIM is not channel-aware and the modem is a T=0 proxy). 
-	Whether a dropped proactive command here causes any operational issue depends on modem 
-	firmware behaviour. This is worth verifying empirically; if the proactive command is a REFRESH 
+	/* 0x91XX is a SIM Toolkit proactive command notification — it means the SIM has a pending
+	proactive command of XX bytes. Accepting it as "success" for MANAGE CHANNEL means a pending
+	proactive command is silently dropped. On the nRF91, the modem should internally service the
+	FETCH cycle for proactive commands via its own SIM Toolkit stack when using AT+CSIM
+	(since CSIM is not channel-aware and the modem is a T=0 proxy).
+	Whether a dropped proactive command here causes any operational issue depends on modem
+	firmware behaviour. This is worth verifying empirically; if the proactive command is a REFRESH
 	triggered during initialization, silently dropping it may cause a missed reboot signal. */
 	if ((res_apdu.sw) != 0x9000 && res_apdu.sw != 0x910F) {
 		IPA_LOGP(SEUICC, LERROR, "failed to %s logical channel %u, sw=%04x\n", close ? "close" : "open",
