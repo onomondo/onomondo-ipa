@@ -11,22 +11,25 @@
 extern "C" {
 #endif
 
-/* Prefer system <time.h> when available; otherwise provide a minimal struct tm
- * for embedded targets that do not provide <time.h>.
+/* Pull in the system <time.h> for struct tm and time_t.
+ *
+ * IMPORTANT: there is an ASN.1-generated libasn/time.h in this same
+ * directory that references GeneralizedTime_t.  Because the compiler has
+ * -I libasn/ near the top of its include search path, a plain
+ * #include <time.h> (and __has_include(<time.h>)) would resolve to THAT
+ * local file before GeneralizedTime_t is defined, causing a circular
+ * dependency and "unknown type name 'GeneralizedTime_t'" errors.
+ *
+ * include_next instructs GCC/Clang to skip the current directory and
+ * continue searching from the next entry on the include path, thereby
+ * reaching the real system <time.h>.  All compilers used to build this
+ * codebase (arm-zephyr-eabi-gcc, GCC, Clang) support include_next.
  */
-#if defined(__has_include)
-#  if __has_include(<time.h>)
-#    include <time.h>
-#  endif
+#if defined(__GNUC__) || defined(__clang__)
+#  include_next <time.h>
 #else
-/* Fallback: try including <time.h> on compilers without __has_include. */
-#  include <time.h>
-#endif
-
-/* If the system's <time.h> did not define struct tm, provide a minimal one. */
-#if !defined(__time_t_defined) && !defined(_STRUCT_TM_DEFINED)
-#define _STRUCT_TM_DEFINED
-/* Minimal struct tm definition used only when time.h is absent */
+/* Non-GCC/Clang fallback: include_next unavailable; provide a minimal
+ * struct tm so the function prototypes below compile. */
 struct tm {
 	int tm_sec;
 	int tm_min;
@@ -43,7 +46,9 @@ struct tm {
 #ifdef __TM_ZONE
 	const char *__TM_ZONE;
 #endif
-#endif /* !__time_t_defined && !_STRUCT_TM_DEFINED */
+};
+typedef long time_t;
+#endif
 
 typedef OCTET_STRING_t GeneralizedTime_t;  /* Implemented via OCTET STRING */
 
@@ -66,8 +71,6 @@ asn_random_fill_f  GeneralizedTime_random_fill;
 /***********************
  * Some handy helpers. *
  ***********************/
-
-struct tm;	/* <time.h> */
 
 /*
  * Convert a GeneralizedTime structure into time_t
