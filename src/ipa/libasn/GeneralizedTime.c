@@ -20,14 +20,18 @@
 #include <stdio.h>
 #include <errno.h>
 
-/* Zephyr: newlib does not provide timegm().
- * On Zephyr there is no timezone offset, so mktime() == timegm(). */
+/* Zephyr: libc has no timezone handling, so mktime() behaves as timegm().
+ * newlib provides no timegm(); picolibc declares and provides one. Define a
+ * locally named shim and redirect calls to it, so this file neither
+ * conflicts with libcs that provide timegm() nor depends on those that
+ * do not. */
 #ifdef __ZEPHYR__
-#include <time.h>  /* ensure mktime() prototype is visible under Zephyr/newlib */
-static time_t timegm(struct tm *tm)
+#include <time.h>  /* ensure mktime() prototype is visible */
+static time_t zephyr_timegm(struct tm *tm)
 {
 	return mktime(tm);
 }
+#define timegm zephyr_timegm
 #endif
 
 #if	defined(_WIN32)
