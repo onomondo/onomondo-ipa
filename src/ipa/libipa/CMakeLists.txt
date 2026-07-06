@@ -16,6 +16,7 @@ if(DEFINED ENV{ZEPHYR_BASE})
   es10b_add_init_eim.c
   es10b_auth_serv.c
   es10b_cancel_session.c
+  es10b_cfg_immediate_enable.c
   es10b_disable_emergency_prfle.c
   es10b_enable_emergency_prfle.c
   es10b_euicc_mem_rst.c
@@ -26,6 +27,7 @@ if(DEFINED ENV{ZEPHYR_BASE})
   es10b_get_euicc_chlg.c
   es10b_get_euicc_info.c
   es10b_get_rat.c
+  es10b_ipae_activation.c
   es10b_load_bnd_prfle_pkg.c
   es10b_load_euicc_pkg.c
   es10b_prep_dwnld.c

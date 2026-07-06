@@ -29,6 +29,8 @@
 #include "es10b_enable_emergency_prfle.h"
 #include "es10b_disable_emergency_prfle.h"
 #include "es10b_get_conn_params.h"
+#include "es10b_cfg_immediate_enable.h"
+#include "es10b_ipae_activation.h"
 #include "es10b_load_euicc_pkg.h"
 #include "proc_euicc_pkg_dwnld_exec.h"
 #include "proc_notif_delivery.h"
@@ -330,6 +332,36 @@ int ipa_euicc_disable_emergency_prfle(struct ipa_context *ctx)
 int ipa_euicc_get_conn_params(struct ipa_context *ctx, struct ipa_buf **http_params)
 {
 	return ipa_es10b_get_conn_params(ctx, http_params);
+}
+
+/*! configure immediate profile enabling (ES10b.ConfigureImmediateProfileEnabling, see SGP.32, section
+ *  5.9.17). The eUICC rejects this with associatedEimAlreadyExists as soon as it holds eIM
+ *  configuration data (an associated eIM configures this via the configureImmediateEnable PSMO
+ *  instead). Must not be called while ipa_poll is running.
+ *  \param[inout] ctx pointer to ipa_context.
+ *  \param[in] enable_flag activate (true) or deactivate (false) immediate profile enabling.
+ *  \param[in] smdp_oid OID of the default SM-DP+ (content octets), NULL = absent.
+ *  \param[in] smdp_address address of the default SM-DP+, NULL = absent.
+ *  \returns SGP.32 status code (0 = ok), negative on transport error. */
+int ipa_euicc_cfg_immediate_enable(struct ipa_context *ctx, bool enable_flag, const struct ipa_buf *smdp_oid,
+				   const char *smdp_address)
+{
+	struct ipa_es10b_cfg_immediate_enable_req cfg_immediate_enable_req = { 0 };
+	cfg_immediate_enable_req.immediate_enable_flag = enable_flag;
+	cfg_immediate_enable_req.smdp_oid = smdp_oid;
+	cfg_immediate_enable_req.smdp_address = smdp_address;
+	return ipa_es10b_cfg_immediate_enable(ctx, &cfg_immediate_enable_req);
+}
+
+/*! activate an IPA inside the eUICC (IpaeActivation, see SGP.32, section 3.8.4).
+ *  A Device using this library as its IPAd normally never sends this; it exists for Devices that
+ *  hand over profile management to an IPAe. Must not be called while ipa_poll is running.
+ *  \param[inout] ctx pointer to ipa_context.
+ *  \param[in] activate_ipae set the activateIpae option bit.
+ *  \returns SGP.32 status code (0 = ok), negative on transport error. */
+int ipa_euicc_ipae_activation(struct ipa_context *ctx, bool activate_ipae)
+{
+	return ipa_es10b_ipae_activation(ctx, activate_ipae);
 }
 
 static int check_canaries(struct ipa_context *ctx)

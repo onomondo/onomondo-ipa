@@ -21,6 +21,10 @@
 #include <DisableEmergencyProfileRequest.h>
 #include <GetConnectivityParametersRequest.h>
 #include <GetConnectivityParametersResponse.h>
+#include <ConfigureImmediateProfileEnablingRequest.h>
+#include <ConfigureImmediateProfileEnablingResponse.h>
+#include <IpaeActivationRequest.h>
+#include <IpaeActivationResponse.h>
 
 static uint8_t enc_buf[512];
 static size_t enc_len;
@@ -166,6 +170,69 @@ static void get_conn_params_response_decode_test(void)
 	ASN_STRUCT_FREE(asn_DEF_GetConnectivityParametersResponse, rsp);
 }
 
+/* ConfigureImmediateProfileEnablingRequest ('BF59') with all three optional fields present:
+ * immediateEnableFlag ('80' NULL), defaultSmdpOid ('81', OID 2.999) and defaultSmdpAddress ('82') */
+static void cfg_immediate_enable_request_test(void)
+{
+	struct ConfigureImmediateProfileEnablingRequest req = { 0 };
+	NULL_t enable_flag = 0;
+	OBJECT_IDENTIFIER_t smdp_oid = { 0 };
+	UTF8String_t smdp_address = { 0 };
+	uint8_t oid_2_999[] = { 0x88, 0x37 };
+
+	smdp_oid.buf = oid_2_999;
+	smdp_oid.size = sizeof(oid_2_999);
+	smdp_address.buf = (uint8_t *)"x";
+	smdp_address.size = 1;
+
+	req.immediateEnableFlag = &enable_flag;
+	req.defaultSmdpOid = &smdp_oid;
+	req.defaultSmdpAddress = &smdp_address;
+
+	enc_assert(&asn_DEF_ConfigureImmediateProfileEnablingRequest, &req, "BF5909800081028837820178");
+}
+
+/* Response decode: ConfigureImmediateProfileEnablingResponse with associatedEimAlreadyExists(2) */
+static void cfg_immediate_enable_response_decode_test(void)
+{
+	const uint8_t eim_exists[] = { 0xBF, 0x59, 0x03, 0x80, 0x01, 0x02 };
+	struct ConfigureImmediateProfileEnablingResponse *rsp = NULL;
+	asn_dec_rval_t rval;
+
+	rval = ber_decode(0, &asn_DEF_ConfigureImmediateProfileEnablingResponse, (void **)&rsp,
+			  eim_exists, sizeof(eim_exists));
+	assert(rval.code == RC_OK);
+	assert(rsp->configImmediateEnableResult ==
+	       ConfigureImmediateProfileEnablingResponse__configImmediateEnableResult_associatedEimAlreadyExists);
+	ASN_STRUCT_FREE(asn_DEF_ConfigureImmediateProfileEnablingResponse, rsp);
+}
+
+/* IpaeActivationRequest ('BF42') with the activateIpae(0) bit set */
+static void ipae_activation_request_test(void)
+{
+	struct IpaeActivationRequest req = { 0 };
+	uint8_t ipae_opt[1] = { 0x80 };
+
+	req.ipaeOption.buf = ipae_opt;
+	req.ipaeOption.size = 1;
+	req.ipaeOption.bits_unused = 7;
+
+	enc_assert(&asn_DEF_IpaeActivationRequest, &req, "BF420480020780");
+}
+
+/* Response decode: IpaeActivationResponse with notSupported(1) */
+static void ipae_activation_response_decode_test(void)
+{
+	const uint8_t not_supported[] = { 0xBF, 0x42, 0x03, 0x80, 0x01, 0x01 };
+	struct IpaeActivationResponse *rsp = NULL;
+	asn_dec_rval_t rval;
+
+	rval = ber_decode(0, &asn_DEF_IpaeActivationResponse, (void **)&rsp, not_supported, sizeof(not_supported));
+	assert(rval.code == RC_OK);
+	assert(rsp->ipaeActivationResult == IpaeActivationResponse__ipaeActivationResult_notSupported);
+	ASN_STRUCT_FREE(asn_DEF_IpaeActivationResponse, rsp);
+}
+
 int main(int argc, char **argv)
 {
 	(void)argc;
@@ -179,6 +246,10 @@ int main(int argc, char **argv)
 	enable_emergency_response_decode_test();
 	get_conn_params_request_test();
 	get_conn_params_response_decode_test();
+	cfg_immediate_enable_request_test();
+	cfg_immediate_enable_response_decode_test();
+	ipae_activation_request_test();
+	ipae_activation_response_decode_test();
 
 	printf("all v1.2 ES10b wire format checks passed\n");
 	return 0;

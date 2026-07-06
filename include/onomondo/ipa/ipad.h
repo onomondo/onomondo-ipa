@@ -99,6 +99,9 @@ int ipa_euicc_return_from_fallback(struct ipa_context *ctx);
 int ipa_euicc_enable_emergency_prfle(struct ipa_context *ctx);
 int ipa_euicc_disable_emergency_prfle(struct ipa_context *ctx);
 int ipa_euicc_get_conn_params(struct ipa_context *ctx, struct ipa_buf **http_params);
+int ipa_euicc_cfg_immediate_enable(struct ipa_context *ctx, bool enable_flag, const struct ipa_buf *smdp_oid,
+				   const char *smdp_address);
+int ipa_euicc_ipae_activation(struct ipa_context *ctx, bool activate_ipae);
 int ipa_poll(struct ipa_context *ctx);
 void ipa_close(struct ipa_context *ctx);
 struct ipa_buf *ipa_free_ctx(struct ipa_context *ctx);
