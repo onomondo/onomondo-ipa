@@ -233,15 +233,15 @@ struct EuiccResultData *iot_emo_do_getRAT_psmo(struct ipa_context *ctx, const st
 	return euicc_result_data;
 }
 
-struct EuiccResultData *iot_emo_do_configureAutoEnable_psmo(struct ipa_context *ctx, const struct Psmo__configureAutoEnable
-							    *configureAutoEnable_psmo)
+struct EuiccResultData *iot_emo_do_configureImmediateEnable_psmo(struct ipa_context *ctx, const struct Psmo__configureImmediateEnable
+							    *configureImmediateEnable_psmo)
 {
 	struct EuiccResultData *euicc_result_data = IPA_ALLOC_ZERO(struct EuiccResultData);
 
-	euicc_result_data->present = EuiccResultData_PR_configureAutoEnableResult;
+	euicc_result_data->present = EuiccResultData_PR_configureImmediateEnableResult;
 
 	/* Update autoEnableFlag */
-	if (configureAutoEnable_psmo->autoEnableFlag)
+	if (configureImmediateEnable_psmo->immediateEnableFlag)
 		ctx->nvstate.iot_euicc_emu.auto_enable.flag = true;
 	else
 		ctx->nvstate.iot_euicc_emu.auto_enable.flag = false;
@@ -249,17 +249,17 @@ struct EuiccResultData *iot_emo_do_configureAutoEnable_psmo(struct ipa_context *
 	/* Update smdpOid */
 	ipa_buf_free(ctx->nvstate.iot_euicc_emu.auto_enable.smdp_oid);
 	ctx->nvstate.iot_euicc_emu.auto_enable.smdp_oid = NULL;
-	if (configureAutoEnable_psmo->smdpOid)
-		ctx->nvstate.iot_euicc_emu.auto_enable.smdp_oid = IPA_BUF_FROM_ASN(configureAutoEnable_psmo->smdpOid);
+	if (configureImmediateEnable_psmo->defaultSmdpOid)
+		ctx->nvstate.iot_euicc_emu.auto_enable.smdp_oid = IPA_BUF_FROM_ASN(configureImmediateEnable_psmo->defaultSmdpOid);
 
 	/* Update smdpAddress */
 	ipa_buf_free(ctx->nvstate.iot_euicc_emu.auto_enable.smdp_address);
 	ctx->nvstate.iot_euicc_emu.auto_enable.smdp_address = NULL;
-	if (configureAutoEnable_psmo->smdpAddress)
+	if (configureImmediateEnable_psmo->defaultSmdpAddress)
 		ctx->nvstate.iot_euicc_emu.auto_enable.smdp_address =
-		    IPA_BUF_FROM_ASN(configureAutoEnable_psmo->smdpAddress);
+		    IPA_BUF_FROM_ASN(configureImmediateEnable_psmo->defaultSmdpAddress);
 
-	euicc_result_data->choice.configureAutoEnableResult = ConfigureAutoEnableResult_ok;
+	euicc_result_data->choice.configureImmediateEnableResult = ConfigureImmediateEnableResult_ok;
 
 	return euicc_result_data;
 }
@@ -505,7 +505,7 @@ struct EuiccResultData *iot_emo_do_listEim_eco(struct ipa_context *ctx, const st
 	eim_cfg_data = ipa_es10b_get_eim_cfg_data(ctx);
 	if (!eim_cfg_data) {
 		euicc_result_data->choice.listEimResult.present = ListEimResult_PR_listEimError;
-		euicc_result_data->choice.listEimResult.choice.listEimError = ListEimResult__listEimError_commandError;
+		euicc_result_data->choice.listEimResult.choice.listEimError = ListEimResult__listEimError_undefinedError;
 	} else {
 		euicc_result_data->choice.listEimResult.present = ListEimResult_PR_eimIdList;
 
@@ -564,9 +564,9 @@ struct ipa_es10b_load_euicc_pkg_res *load_euicc_pkg_iot_emu(struct ipa_context *
 	IPA_COPY_IPA_BUF_TO_ASN(&asn->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.eimId, &eim_id);
 	asn->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.counterValue =
 	    req->req.euiccPackageSigned.counterValue;
-	if (req->req.euiccPackageSigned.transactionId) {
-		asn->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.transactionId =
-		    ipa_asn1c_dup(&asn_DEF_TransactionId, req->req.euiccPackageSigned.transactionId);
+	if (req->req.euiccPackageSigned.eimTransactionId) {
+		asn->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.eimTransactionId =
+		    ipa_asn1c_dup(&asn_DEF_TransactionId, req->req.euiccPackageSigned.eimTransactionId);
 	}
 	asn->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.seqNumber = 0;
 	ipa_buf_assign(&euicc_sign_epr, euiccSignEPR_dummy, sizeof(euiccSignEPR_dummy));
@@ -594,9 +594,9 @@ struct ipa_es10b_load_euicc_pkg_res *load_euicc_pkg_iot_emu(struct ipa_context *
 			case Psmo_PR_getRAT:
 				psmo_result = iot_emo_do_getRAT_psmo(ctx, &psmo->choice.getRAT);
 				break;
-			case Psmo_PR_configureAutoEnable:
+			case Psmo_PR_configureImmediateEnable:
 				psmo_result =
-				    iot_emo_do_configureAutoEnable_psmo(ctx, &psmo->choice.configureAutoEnable);
+				    iot_emo_do_configureImmediateEnable_psmo(ctx, &psmo->choice.configureImmediateEnable);
 				break;
 			default:
 				IPA_LOGP_ES10X("LoadEuiccPackage", LERROR, "ignoring invalid or unsupported PSMO!\n");

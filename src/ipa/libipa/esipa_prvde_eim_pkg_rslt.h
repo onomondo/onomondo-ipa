@@ -13,10 +13,13 @@
 #include <ProfileDownloadTriggerResult.h>
 #include <EsipaMessageFromEimToIpa.h>
 #include <EimAcknowledgements.h>
+#include <TransactionId.h>
 struct ipa_context;
 
 struct ipa_esipa_prvde_eim_pkg_rslt_req {
 	long eim_pkg_err;
+	/* Optional eimTransactionId reported alongside eim_pkg_err (may be NULL) */
+	const TransactionId_t *eim_transaction_id;
 	const struct EuiccPackageResult *euicc_package_result;
 	struct SGP32_RetrieveNotificationsListResponse *sgp32_notification_list;
 	const struct IpaEuiccDataResponse *ipa_euicc_data_resp;

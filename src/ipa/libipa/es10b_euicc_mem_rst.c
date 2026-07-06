@@ -50,10 +50,10 @@ static const struct num_str_map sgp32_error_code_strings_resetEimResult[] = {
 	{ 0, NULL }
 };
 
-static const struct num_str_map sgp32_error_code_strings_resetAutoEnableConfigResult[] = {
-	{ SGP32_EuiccMemoryResetResponse__resetAutoEnableConfigResult_ok, "ok" },
-	{ SGP32_EuiccMemoryResetResponse__resetAutoEnableConfigResult_resetAECNotSupported, "nothingToDelete" },
-	{ SGP32_EuiccMemoryResetResponse__resetAutoEnableConfigResult_undefinedError, "eimResetNotSupported" },
+static const struct num_str_map sgp32_error_code_strings_resetImmediateEnableConfigResult[] = {
+	{ SGP32_EuiccMemoryResetResponse__resetImmediateEnableConfigResult_ok, "ok" },
+	{ SGP32_EuiccMemoryResetResponse__resetImmediateEnableConfigResult_resetIECNotSupported, "nothingToDelete" },
+	{ SGP32_EuiccMemoryResetResponse__resetImmediateEnableConfigResult_undefinedError, "eimResetNotSupported" },
 	{ 0, NULL }
 };
 
@@ -90,14 +90,14 @@ static int dec_euicc_mem_rst_res_sgp32(const struct ipa_buf *es10b_res)
 								  asn->resetResult, "(unknown)"));
 	}
 
-	if (asn->resetResult != SGP32_EuiccMemoryResetResponse__resetAutoEnableConfigResult_ok) {
+	if (asn->resetResult != SGP32_EuiccMemoryResetResponse__resetImmediateEnableConfigResult_ok) {
 		IPA_LOGP_ES10X("eUICCMemoryReset", LERROR, "function failed with error code %ld=%s!\n",
-			       asn->resetResult, ipa_str_from_num(sgp32_error_code_strings_resetAutoEnableConfigResult,
+			       asn->resetResult, ipa_str_from_num(sgp32_error_code_strings_resetImmediateEnableConfigResult,
 								  asn->resetResult, "(unknown)"));
 		rc = -EINVAL;
 	} else {
 		IPA_LOGP_ES10X("eUICCMemoryReset", LERROR, "function succeeded with status code %ld=%s!\n",
-			       asn->resetResult, ipa_str_from_num(sgp32_error_code_strings_resetAutoEnableConfigResult,
+			       asn->resetResult, ipa_str_from_num(sgp32_error_code_strings_resetImmediateEnableConfigResult,
 								  asn->resetResult, "(unknown)"));
 	}
 
@@ -140,7 +140,7 @@ int euicc_mem_rst(struct ipa_context *ctx, const struct ipa_es10b_euicc_mem_rst 
 
 	mem_rst_req.resetOptions.buf = rst_opt;
 	mem_rst_req.resetOptions.size = 1;
-	mem_rst_req.resetOptions.bits_unused = 3;
+	mem_rst_req.resetOptions.bits_unused = 1;
 
 	if (req->operatnl_profiles)
 		rst_opt[0] |= (1 << (7 - SGP32_EuiccMemoryResetRequest__resetOptions_deleteOperationalProfiles));
@@ -151,7 +151,7 @@ int euicc_mem_rst(struct ipa_context *ctx, const struct ipa_es10b_euicc_mem_rst 
 	if (req->eim_cfg_data)
 		rst_opt[0] |= (1 << (7 - SGP32_EuiccMemoryResetRequest__resetOptions_resetEimConfigData));
 	if (req->auto_enable_cfg)
-		rst_opt[0] |= (1 << (7 - SGP32_EuiccMemoryResetRequest__resetOptions_resetAutoEnableConfig));
+		rst_opt[0] |= (1 << (7 - SGP32_EuiccMemoryResetRequest__resetOptions_resetImmediateEnableConfig));
 
 	es10b_req = ipa_es10x_req_enc(&asn_DEF_SGP32_EuiccMemoryResetRequest, &mem_rst_req, "eUICCMemoryReset");
 	if (!es10b_req) {

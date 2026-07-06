@@ -24,7 +24,7 @@
 
 static const struct num_str_map error_code_strings[] = {
 	{ AddInitialEimResponse__addInitialEimError_insufficientMemory, "insufficientMemory" },
-	{ AddInitialEimResponse__addInitialEimError_unsignedEimConfigDisallowed, "unsignedEimConfigDisallowed" },
+	{ AddInitialEimResponse__addInitialEimError_associatedEimAlreadyExists, "associatedEimAlreadyExists" },
 	{ AddInitialEimResponse__addInitialEimError_ciPKUnknown, "ciPKUnknown" },
 	{ AddInitialEimResponse__addInitialEimError_invalidAssociationToken, "invalidAssociationToken" },
 	{ AddInitialEimResponse__addInitialEimError_counterValueOutOfRange, "counterValueOutOfRange" },

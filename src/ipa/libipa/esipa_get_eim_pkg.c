@@ -22,6 +22,9 @@
 
 static const struct num_str_map error_code_strings[] = {
 	{ GetEimPackageResponse__eimPackageError_noEimPackageAvailable, "noEimPackageAvailable" },
+	{ GetEimPackageResponse__eimPackageError_eidNotFound, "eidNotFound" },
+	{ GetEimPackageResponse__eimPackageError_invalidEid, "invalidEid" },
+	{ GetEimPackageResponse__eimPackageError_missingEid, "missingEid" },
 	{ GetEimPackageResponse__eimPackageError_undefinedError, "undefinedError" },
 	{ 0, NULL }
 };

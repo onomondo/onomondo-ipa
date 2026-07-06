@@ -21,42 +21,76 @@
 #include "esipa.h"
 #include "esipa_prvde_eim_pkg_rslt.h"
 
-static struct ipa_buf *enc_prvde_eim_pkg_rslt_req(const struct ipa_esipa_prvde_eim_pkg_rslt_req *req)
+/* Pick the bare notification list ('A0') out of the RetrieveNotificationsListResponse the eUICC
+ * returned. In SGP.32 v1.2 only the list itself is transferred to the eIM, no longer the whole
+ * BF2B response. */
+static void set_notification_list(struct PendingNotificationList *notification_list,
+				  const struct SGP32_RetrieveNotificationsListResponse *rsp)
+{
+	switch (rsp->present) {
+	case SGP32_RetrieveNotificationsListResponse_PR_notificationList:
+		notification_list->list.array = rsp->choice.notificationList.list.array;
+		notification_list->list.count = rsp->choice.notificationList.list.count;
+		notification_list->list.size = rsp->choice.notificationList.list.size;
+		break;
+	case SGP32_RetrieveNotificationsListResponse_PR_notificationAndEprList:
+		notification_list->list.array = rsp->choice.notificationAndEprList.notificationList.list.array;
+		notification_list->list.count = rsp->choice.notificationAndEprList.notificationList.list.count;
+		notification_list->list.size = rsp->choice.notificationAndEprList.notificationList.list.size;
+		break;
+	default:
+		/* No notifications to report (e.g. the eUICC answered with an error), the
+		 * notificationList stays empty. */
+		break;
+	}
+}
+
+static struct ipa_buf *enc_prvde_eim_pkg_rslt_req(struct ipa_context *ctx,
+						  const struct ipa_esipa_prvde_eim_pkg_rslt_req *req)
 {
 	struct EsipaMessageFromIpaToEim msg_to_eim = { 0 };
+	struct ProvideEimPackageResult *pkg_rslt = &msg_to_eim.choice.provideEimPackageResult;
+	OCTET_STRING_t eid_value = { 0 };
+	struct PendingNotificationList notification_list = { 0 };
 	struct ipa_buf *enc;
 
 	msg_to_eim.present = EsipaMessageFromIpaToEim_PR_provideEimPackageResult;
 
+	/* Identify the eUICC towards the eIM (optional in v1.2, but there is no reason to omit it) */
+	eid_value.buf = (uint8_t *)ctx->eid;
+	eid_value.size = sizeof(ctx->eid);
+	pkg_rslt->eidValue = &eid_value;
+
 	if (req->eim_pkg_err != 0) {
-		msg_to_eim.choice.provideEimPackageResult.present = ProvideEimPackageResult_PR_eimPackageError;
-		msg_to_eim.choice.provideEimPackageResult.choice.eimPackageError = req->eim_pkg_err;
+		pkg_rslt->eimPackageResult.present = EimPackageResult_PR_eimPackageResultResponseError;
+		pkg_rslt->eimPackageResult.choice.eimPackageResultResponseError.eimPackageResultErrorCode =
+		    req->eim_pkg_err;
+		pkg_rslt->eimPackageResult.choice.eimPackageResultResponseError.eimTransactionId =
+		    (TransactionId_t *)req->eim_transaction_id;
 	} else if (req->euicc_package_result && req->sgp32_notification_list) {
-		msg_to_eim.choice.provideEimPackageResult.present = ProvideEimPackageResult_PR_ePRAndNotifications;
-		msg_to_eim.choice.provideEimPackageResult.choice.ePRAndNotifications.euiccPackageResult =
+		pkg_rslt->eimPackageResult.present = EimPackageResult_PR_ePRAndNotifications;
+		pkg_rslt->eimPackageResult.choice.ePRAndNotifications.euiccPackageResult =
 		    *req->euicc_package_result;
-		msg_to_eim.choice.provideEimPackageResult.choice.ePRAndNotifications.notificationList =
-		    *req->sgp32_notification_list;
+		set_notification_list(&notification_list, req->sgp32_notification_list);
+		pkg_rslt->eimPackageResult.choice.ePRAndNotifications.notificationList = notification_list;
 	} else if (req->euicc_package_result) {
-		msg_to_eim.choice.provideEimPackageResult.present = ProvideEimPackageResult_PR_euiccPackageResult;
-		msg_to_eim.choice.provideEimPackageResult.choice.euiccPackageResult = *req->euicc_package_result;
+		pkg_rslt->eimPackageResult.present = EimPackageResult_PR_euiccPackageResult;
+		pkg_rslt->eimPackageResult.choice.euiccPackageResult = *req->euicc_package_result;
 	} else if (req->ipa_euicc_data_resp) {
-		msg_to_eim.choice.provideEimPackageResult.present = ProvideEimPackageResult_PR_ipaEuiccDataResponse;
-		msg_to_eim.choice.provideEimPackageResult.choice.ipaEuiccDataResponse = *req->ipa_euicc_data_resp;
+		pkg_rslt->eimPackageResult.present = EimPackageResult_PR_ipaEuiccDataResponse;
+		pkg_rslt->eimPackageResult.choice.ipaEuiccDataResponse = *req->ipa_euicc_data_resp;
 	} else if (req->prfle_dwnld_trig_req_rslt) {
-		msg_to_eim.choice.provideEimPackageResult.present =
-		    ProvideEimPackageResult_PR_profileDownloadTriggerResult;
-		msg_to_eim.choice.provideEimPackageResult.choice.profileDownloadTriggerResult =
-		    *req->prfle_dwnld_trig_req_rslt;
+		pkg_rslt->eimPackageResult.present = EimPackageResult_PR_profileDownloadTriggerResult;
+		pkg_rslt->eimPackageResult.choice.profileDownloadTriggerResult = *req->prfle_dwnld_trig_req_rslt;
 	} else {
 		/* The struct should at least contain one of the above information element. In case the caller fails
-		 * to fill out any of those, we fall back to setting eimPackageError to undefined. This will at least
+		 * to fill out any of those, we fall back to setting the error code to undefined. This will at least
 		 * tell the eIM that something is wrong. */
 		IPA_LOGP_ESIPA("ProvideEimPackageResult", LERROR,
-			       "empty provideEimPackageResult request, setting eimPackageError to undefined\n");
-		msg_to_eim.choice.provideEimPackageResult.present = ProvideEimPackageResult_PR_eimPackageError;
-		msg_to_eim.choice.provideEimPackageResult.choice.eimPackageError =
-		    ProvideEimPackageResult__eimPackageError_undefinedError;
+			       "empty provideEimPackageResult request, setting eimPackageResultErrorCode to undefined\n");
+		pkg_rslt->eimPackageResult.present = EimPackageResult_PR_eimPackageResultResponseError;
+		pkg_rslt->eimPackageResult.choice.eimPackageResultResponseError.eimPackageResultErrorCode =
+		    EimPackageResultErrorCode_undefinedError;
 	}
 
 	enc = ipa_esipa_msg_to_eim_enc(&msg_to_eim, "ProvideEimPackageResult");
@@ -78,8 +112,21 @@ struct ipa_esipa_prvde_eim_pkg_rslt_res *dec_prvde_eim_pkg_rslt_res(const struct
 	res = IPA_ALLOC_ZERO(struct ipa_esipa_prvde_eim_pkg_rslt_res);
 	res->msg_to_ipa = msg_to_ipa;
 
-	/* Optional, may be NULL */
-	res->eim_acknowledgements = msg_to_ipa->choice.provideEimPackageResultResponse.eimAcknowledgements;
+	switch (msg_to_ipa->choice.provideEimPackageResultResponse.present) {
+	case ProvideEimPackageResultResponse_PR_eimAcknowledgements:
+		res->eim_acknowledgements = &msg_to_ipa->choice.provideEimPackageResultResponse.choice.eimAcknowledgements;
+		break;
+	case ProvideEimPackageResultResponse_PR_emptyResponse:
+		/* Nothing to acknowledge */
+		break;
+	case ProvideEimPackageResultResponse_PR_provideEimPackageResultError:
+		IPA_LOGP_ESIPA("ProvideEimPackageResult", LERROR, "eIM reports error code %ld!\n",
+			       msg_to_ipa->choice.provideEimPackageResultResponse.choice.provideEimPackageResultError);
+		break;
+	default:
+		IPA_LOGP_ESIPA("ProvideEimPackageResult", LERROR, "unexpected response content!\n");
+		break;
+	}
 
 	return res;
 }
@@ -98,7 +145,7 @@ struct ipa_esipa_prvde_eim_pkg_rslt_res *ipa_esipa_prvde_eim_pkg_rslt(struct ipa
 	IPA_LOGP_ESIPA("ProvideEimPackageResult", LINFO,
 		       "Providing eUICC package result and eUICC notifications to eIM\n");
 
-	esipa_req = enc_prvde_eim_pkg_rslt_req(req);
+	esipa_req = enc_prvde_eim_pkg_rslt_req(ctx, req);
 	if (!esipa_req)
 		goto error;
 

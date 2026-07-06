@@ -115,6 +115,8 @@ int eim_pkg_exec(struct ipa_context *ctx, const struct ipa_esipa_get_eim_pkg_res
 
 		indirect_prfle_dwnlod_pars.allowed_ca = allowed_ca_pkid;
 		indirect_prfle_dwnlod_pars.tac = ctx->cfg->tac;
+		indirect_prfle_dwnlod_pars.eim_transaction_id =
+		    get_eim_pkg_res->dwnld_trigger_request->eimTransactionId;
 		indirect_prfle_dwnlod_pars.ac =
 		    IPA_STR_FROM_ASN(&get_eim_pkg_res->dwnld_trigger_request->profileDownloadData->
 				     choice.activationCode);

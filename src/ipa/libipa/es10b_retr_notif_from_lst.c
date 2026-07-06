@@ -156,51 +156,26 @@ static struct ipa_buf *enc_retr_notif_from_lst_req(const struct ipa_es10b_retr_n
 	struct RetrieveNotificationsListRequest__searchCriteria search_criteria = { 0 };
 	struct ipa_buf *es10b_req = NULL;
 
-	if (req->dr_search_criteria) {
-		/* Convert from foreigen searchCriteria (see comment in header file) */
-		switch (req->dr_search_criteria->present) {
-		case IpaEuiccDataRequest__searchCriteria_PR_seqNumber:
-			search_criteria.present = RetrieveNotificationsListRequest__searchCriteria_PR_seqNumber;
-			search_criteria.choice.seqNumber = req->dr_search_criteria->choice.seqNumber;
-			break;
-		case IpaEuiccDataRequest__searchCriteria_PR_profileManagementOperation:
-			search_criteria.present =
-			    RetrieveNotificationsListRequest__searchCriteria_PR_profileManagementOperation;
-			search_criteria.choice.profileManagementOperation =
-			    req->dr_search_criteria->choice.profileManagementOperation;
-			break;
-		case IpaEuiccDataRequest__searchCriteria_PR_euiccPackageResults:
-			IPA_LOGP_ES10X("RetrieveNotificationsList", LERROR,
-				       "unsupported euiccPackageResults searchCriteria in IpaEuiccDataRequest!\n");
-			search_criteria.present = RetrieveNotificationsListRequest__searchCriteria_PR_NOTHING;
-			break;
-		default:
-			IPA_LOGP_ES10X("RetrieveNotificationsList", LERROR,
-				       "empty searchCriteria in IpaEuiccDataRequest!\n");
-			search_criteria.present = RetrieveNotificationsListRequest__searchCriteria_PR_NOTHING;
-			break;
-		}
-	} else {
-		/* Use native search_criteria as provided by caller */
-		search_criteria.present = req->search_criteria.present;
-		switch (req->search_criteria.present) {
-		case SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_seqNumber:
-			search_criteria.choice.seqNumber = req->search_criteria.choice.seqNumber;
-			break;
-		case SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_profileManagementOperation:
-			search_criteria.choice.profileManagementOperation =
-			    req->search_criteria.choice.profileManagementOperation;
-			break;
-		case SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_euiccPackageResults:
-			IPA_LOGP_ES10X("RetrieveNotificationsList", LERROR,
-				       "unsupported euiccPackageResults searchCriteria!\n");
-			search_criteria.present = RetrieveNotificationsListRequest__searchCriteria_PR_NOTHING;
-			break;
-		default:
-			IPA_LOGP_ES10X("RetrieveNotificationsList", LERROR, "empty searchCriteria!\n");
-			search_criteria.present = RetrieveNotificationsListRequest__searchCriteria_PR_NOTHING;
-			break;
-		}
+	/* Convert the native (SGP.32) search_criteria to the SGP.22 format */
+	switch (req->search_criteria.present) {
+	case SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_seqNumber:
+		search_criteria.present = RetrieveNotificationsListRequest__searchCriteria_PR_seqNumber;
+		search_criteria.choice.seqNumber = req->search_criteria.choice.seqNumber;
+		break;
+	case SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_profileManagementOperation:
+		search_criteria.present =
+		    RetrieveNotificationsListRequest__searchCriteria_PR_profileManagementOperation;
+		search_criteria.choice.profileManagementOperation =
+		    req->search_criteria.choice.profileManagementOperation;
+		break;
+	case SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_euiccPackageResults:
+		IPA_LOGP_ES10X("RetrieveNotificationsList", LERROR,
+			       "unsupported euiccPackageResults searchCriteria!\n");
+		search_criteria.present = RetrieveNotificationsListRequest__searchCriteria_PR_NOTHING;
+		break;
+	default:
+		search_criteria.present = RetrieveNotificationsListRequest__searchCriteria_PR_NOTHING;
+		break;
 	}
 
 	if (search_criteria.present != RetrieveNotificationsListRequest__searchCriteria_PR_NOTHING)
@@ -216,35 +191,7 @@ static struct ipa_buf *enc_retr_notif_from_lst_req_sgp32(const struct ipa_es10b_
 	struct SGP32_RetrieveNotificationsListRequest__searchCriteria search_criteria = { 0 };
 	struct ipa_buf *es10b_req = NULL;
 
-	if (req->dr_search_criteria) {
-		/* Convert from foreigen searchCriteria (see comment in header file) */
-		switch (req->dr_search_criteria->present) {
-		case IpaEuiccDataRequest__searchCriteria_PR_seqNumber:
-			search_criteria.present = SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_seqNumber;
-			search_criteria.choice.seqNumber = req->dr_search_criteria->choice.seqNumber;
-			break;
-		case IpaEuiccDataRequest__searchCriteria_PR_profileManagementOperation:
-			search_criteria.present =
-			    SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_profileManagementOperation;
-			search_criteria.choice.profileManagementOperation =
-			    req->dr_search_criteria->choice.profileManagementOperation;
-			break;
-		case IpaEuiccDataRequest__searchCriteria_PR_euiccPackageResults:
-			search_criteria.present =
-			    SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_euiccPackageResults;
-			search_criteria.choice.euiccPackageResults =
-			    req->dr_search_criteria->choice.euiccPackageResults;
-			break;
-		default:
-			IPA_LOGP_ES10X("RetrieveNotificationsList", LERROR,
-				       "empty searchCriteria in IpaEuiccDataRequest!\n");
-			search_criteria.present = RetrieveNotificationsListRequest__searchCriteria_PR_NOTHING;
-			break;
-		}
-	} else {
-		/* Use native search_criteria as provided by caller */
-		search_criteria = req->search_criteria;
-	}
+	search_criteria = req->search_criteria;
 
 	if (search_criteria.present != SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_NOTHING)
 		asn.searchCriteria = &search_criteria;

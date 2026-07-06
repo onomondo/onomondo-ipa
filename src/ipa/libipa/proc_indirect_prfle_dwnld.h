@@ -7,6 +7,7 @@
 #pragma once
 
 #include <stdint.h>
+#include <TransactionId.h>
 
 struct ipa_context;
 struct ipa_buf;
@@ -15,6 +16,10 @@ struct ipa_proc_indirect_prfle_dwnlod_pars {
 	const char *ac;
 	const uint8_t *tac;
 	const struct ipa_buf *allowed_ca;
+
+	/* eimTransactionId from the ProfileDownloadTriggerRequest (may be NULL). It is echoed back to the
+	 * eIM in the ProfileDownloadTriggerResult so that the eIM can correlate the result to the trigger. */
+	const TransactionId_t *eim_transaction_id;
 };
 
 int ipa_proc_indirect_prfle_dwnlod(struct ipa_context *ctx, const struct ipa_proc_indirect_prfle_dwnlod_pars *pars);

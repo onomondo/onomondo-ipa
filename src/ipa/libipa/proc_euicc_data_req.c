@@ -106,15 +106,19 @@ int ipa_proc_euicc_data_req(struct ipa_context *ctx, const struct ipa_proc_euicc
 	struct ipa_es10b_get_certs_res *get_certs_res = NULL;
 	struct ipa_es10b_retr_notif_from_lst_req retr_notif_from_lst_req = { 0 };
 	struct ipa_es10b_retr_notif_from_lst_res *retr_notif_from_lst_res = NULL;
+	struct ipa_es10b_retr_notif_from_lst_req retr_epr_from_lst_req = { 0 };
+	struct ipa_es10b_retr_notif_from_lst_res *retr_epr_from_lst_res = NULL;
 	struct ipa_esipa_prvde_eim_pkg_rslt_req prvde_eim_pkg_rslt_req = { 0 };
 	struct ipa_esipa_prvde_eim_pkg_rslt_res *prvde_eim_pkg_rslt_res = NULL;
+	struct PendingNotificationList notifications_list = { 0 };
+	struct EuiccPackageResultList euicc_pkg_result_list = { 0 };
 
 	/* Final response */
 	struct IpaEuiccDataResponse ipa_euicc_data_response = { 0 };
 
 	/* Collect requested data */
 	tag_list = IPA_BUF_FROM_ASN(&pars->ipa_euicc_data_request->tagList);
-	if (ipa_tag_in_taglist(0x80, tag_list)) {
+	if (ipa_tag_in_taglist(0x81, tag_list)) {
 		IPA_LOGP(SIPA, LINFO, "eIM asks for Default SM-DP+ address\n");
 		euicc_cfg_addr = ipa_es10a_get_euicc_cfg_addr(ctx);
 		if (euicc_cfg_addr && euicc_cfg_addr->res->defaultDpAddress)
@@ -160,7 +164,7 @@ int ipa_proc_euicc_data_req(struct ipa_context *ctx, const struct ipa_proc_euicc
 
 	if (ipa_tag_in_taglist(0xA5, tag_list)) {
 		IPA_LOGP(SIPA, LINFO, "eIM asks for EUM certificate\n");
-		get_certs_req.req.euiccCiPKId = pars->ipa_euicc_data_request->euiccCiPKId;
+		get_certs_req.req.euiccCiPKId = pars->ipa_euicc_data_request->euiccCiPKIdentifierToBeUsed;
 		get_certs_res = ipa_es10b_get_certs(ctx, &get_certs_req);
 		if (get_certs_res && get_certs_res->eum_certificate && get_certs_res->euicc_certificate)
 			ipa_euicc_data_response.choice.ipaEuiccData.eumCertificate = get_certs_res->eum_certificate;
@@ -173,14 +177,14 @@ int ipa_proc_euicc_data_req(struct ipa_context *ctx, const struct ipa_proc_euicc
 			ipa_euicc_data_response.choice.ipaEuiccData.euiccCertificate = get_certs_res->euicc_certificate;
 		} else {
 			IPA_LOGP(SIPA, LINFO, "eIM asks for eUICC certificate\n");
-			get_certs_req.req.euiccCiPKId = pars->ipa_euicc_data_request->euiccCiPKId;
+			get_certs_req.req.euiccCiPKId = pars->ipa_euicc_data_request->euiccCiPKIdentifierToBeUsed;
 			get_certs_res = ipa_es10b_get_certs(ctx, &get_certs_req);
 			if (get_certs_res && get_certs_res->eum_certificate && get_certs_res->euicc_certificate)
 				ipa_euicc_data_response.choice.ipaEuiccData.euiccCertificate = get_certs_res->euicc_certificate;
 		}
 	}
 
-	if (ipa_tag_in_taglist(0x88, tag_list)) {
+	if (ipa_tag_in_taglist(0xA8, tag_list)) {
 		IPA_LOGP(SIPA, LINFO, "eIM asks for IPA Capabilities\n");
 		ipa_euicc_data_response.choice.ipaEuiccData.ipaCapabilities = make_ipa_capabilties();
 	} else {
@@ -194,14 +198,83 @@ int ipa_proc_euicc_data_req(struct ipa_context *ctx, const struct ipa_proc_euicc
 		ipa_euicc_data_response.choice.ipaEuiccData.deviceInfo = NULL;
 	}
 
-	if (ipa_tag_in_taglist(0xBF2B, tag_list)) {
-		IPA_LOGP(SIPA, LINFO, "eIM asks for List of Notifications and/or eUICC Package Results\n");
+	if (ipa_tag_in_taglist(0xA0, tag_list)) {
+		IPA_LOGP(SIPA, LINFO, "eIM asks for List of Notifications\n");
 
-		retr_notif_from_lst_req.dr_search_criteria = pars->ipa_euicc_data_request->searchCriteria;
+		if (pars->ipa_euicc_data_request->searchCriteriaNotification) {
+			switch (pars->ipa_euicc_data_request->searchCriteriaNotification->present) {
+			case IpaEuiccDataRequest__searchCriteriaNotification_PR_seqNumber:
+				retr_notif_from_lst_req.search_criteria.present =
+				    SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_seqNumber;
+				retr_notif_from_lst_req.search_criteria.choice.seqNumber =
+				    pars->ipa_euicc_data_request->searchCriteriaNotification->choice.seqNumber;
+				break;
+			case IpaEuiccDataRequest__searchCriteriaNotification_PR_profileManagementOperation:
+				retr_notif_from_lst_req.search_criteria.present =
+				    SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_profileManagementOperation;
+				retr_notif_from_lst_req.search_criteria.choice.profileManagementOperation =
+				    pars->ipa_euicc_data_request->searchCriteriaNotification->choice.profileManagementOperation;
+				break;
+			default:
+				break;
+			}
+		}
 		retr_notif_from_lst_res = ipa_es10b_retr_notif_from_lst(ctx, &retr_notif_from_lst_req);
-		if (retr_notif_from_lst_res && retr_notif_from_lst_res->sgp32_res)
-			ipa_euicc_data_response.choice.ipaEuiccData.notificationsList = retr_notif_from_lst_res->sgp32_res;
+		if (retr_notif_from_lst_res && retr_notif_from_lst_res->sgp32_res) {
+			struct SGP32_RetrieveNotificationsListResponse *nl = retr_notif_from_lst_res->sgp32_res;
+			/* The eUICC answers with a RetrieveNotificationsListResponse (BF2B). In the v1.2
+			 * IpaEuiccData only the bare notification list ('A0') is transferred. */
+			if (nl->present == SGP32_RetrieveNotificationsListResponse_PR_notificationList) {
+				notifications_list.list.array = nl->choice.notificationList.list.array;
+				notifications_list.list.count = nl->choice.notificationList.list.count;
+				notifications_list.list.size = nl->choice.notificationList.list.size;
+				ipa_euicc_data_response.choice.ipaEuiccData.notificationsList = &notifications_list;
+			} else if (nl->present == SGP32_RetrieveNotificationsListResponse_PR_notificationAndEprList) {
+				notifications_list.list.array =
+				    nl->choice.notificationAndEprList.notificationList.list.array;
+				notifications_list.list.count =
+				    nl->choice.notificationAndEprList.notificationList.list.count;
+				notifications_list.list.size =
+				    nl->choice.notificationAndEprList.notificationList.list.size;
+				ipa_euicc_data_response.choice.ipaEuiccData.notificationsList = &notifications_list;
+			} else {
+				IPA_LOGP(SIPA, LERROR, "eUICC returned no usable notification list\n");
+			}
+		}
 	}
+
+	if (ipa_tag_in_taglist(0xA2, tag_list)) {
+		IPA_LOGP(SIPA, LINFO, "eIM asks for List of eUICC Package Results\n");
+
+		if (pars->ipa_euicc_data_request->searchCriteriaEuiccPackageResult)
+			IPA_LOGP(SIPA, LINFO,
+				 "seqNumber filter in searchCriteriaEuiccPackageResult is not supported by the eUICC interface, returning all eUICC Package Results\n");
+		retr_epr_from_lst_req.search_criteria.present =
+		    SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_euiccPackageResults;
+		retr_epr_from_lst_res = ipa_es10b_retr_notif_from_lst(ctx, &retr_epr_from_lst_req);
+		if (retr_epr_from_lst_res && retr_epr_from_lst_res->sgp32_res) {
+			struct SGP32_RetrieveNotificationsListResponse *el = retr_epr_from_lst_res->sgp32_res;
+			if (el->present == SGP32_RetrieveNotificationsListResponse_PR_euiccPackageResultList) {
+				euicc_pkg_result_list.list.array = el->choice.euiccPackageResultList.list.array;
+				euicc_pkg_result_list.list.count = el->choice.euiccPackageResultList.list.count;
+				euicc_pkg_result_list.list.size = el->choice.euiccPackageResultList.list.size;
+				ipa_euicc_data_response.choice.ipaEuiccData.euiccPackageResultList = &euicc_pkg_result_list;
+			} else if (el->present == SGP32_RetrieveNotificationsListResponse_PR_notificationAndEprList) {
+				euicc_pkg_result_list.list.array =
+				    el->choice.notificationAndEprList.euiccPackageResultList.list.array;
+				euicc_pkg_result_list.list.count =
+				    el->choice.notificationAndEprList.euiccPackageResultList.list.count;
+				euicc_pkg_result_list.list.size =
+				    el->choice.notificationAndEprList.euiccPackageResultList.list.size;
+				ipa_euicc_data_response.choice.ipaEuiccData.euiccPackageResultList = &euicc_pkg_result_list;
+			} else {
+				IPA_LOGP(SIPA, LERROR, "eUICC returned no usable eUICC Package Result list\n");
+			}
+		}
+	}
+
+	/* Echo the eimTransactionId back to the eIM (if present) */
+	ipa_euicc_data_response.choice.ipaEuiccData.eimTransactionId = pars->ipa_euicc_data_request->eimTransactionId;
 
 	ipa_euicc_data_response.present = IpaEuiccDataResponse_PR_ipaEuiccData;
 	prvde_eim_pkg_rslt_req.ipa_euicc_data_resp = &ipa_euicc_data_response;
@@ -209,7 +282,7 @@ int ipa_proc_euicc_data_req(struct ipa_context *ctx, const struct ipa_proc_euicc
 	if (!prvde_eim_pkg_rslt_res)
 		goto error;
 
-	if (ipa_euicc_data_response.present == IpaEuiccDataResponse_PR_ipaEuiccDataError)
+	if (ipa_euicc_data_response.present == IpaEuiccDataResponse_PR_ipaEuiccDataResponseError)
 		IPA_LOGP(SIPA, LINFO, "IPA get EUICC data failed, eIM is informed about the failure!\n");
 	else
 		IPA_LOGP(SIPA, LINFO, "IPA get EUICC data succeeded!\n");

@@ -204,7 +204,7 @@ struct ipa_esipa_auth_clnt_res *ipa_proc_cmn_mtl_auth(struct ipa_context *ctx,
 	auth_serv_req.req.serverSignature1.size =
 	    ipa_strip_tlv_envelope(auth_serv_req.req.serverSignature1.buf, auth_serv_req.req.serverSignature1.size,
 				   0x5f37);
-	auth_serv_req.req.euiccCiPKIdToBeUsed = init_auth_res->init_auth_ok->euiccCiPKIdToBeUsed;
+	auth_serv_req.req.euiccCiPKIdToBeUsed = init_auth_res->init_auth_ok->euiccCiPKIdentifierToBeUsed;
 	auth_serv_req.req.euiccCiPKIdToBeUsed.size =
 	    ipa_strip_tlv_envelope(auth_serv_req.req.euiccCiPKIdToBeUsed.buf,
 				   auth_serv_req.req.euiccCiPKIdToBeUsed.size, 0x04);

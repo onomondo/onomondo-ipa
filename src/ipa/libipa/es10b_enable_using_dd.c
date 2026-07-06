@@ -5,7 +5,7 @@
  *
  * Author: Philipp Maier <pmaier@sysmocom.de> / sysmocom - s.f.m.c. GmbH
  *
- * See also: GSMA SGP.23, 5.9.15: Function (ES10b): EnableUsingDD
+ * See also: GSMA SGP.32 v1.2, 5.9.15: Function (ES10b): ImmediateEnable (EnableUsingDD before v1.2)
  */
 
 #include <stdio.h>
@@ -16,8 +16,8 @@
 #include <onomondo/ipa/utils.h>
 #include <onomondo/ipa/scard.h>
 #include <onomondo/ipa/log.h>
-#include <EnableUsingDDRequest.h>
-#include <EnableUsingDDResponse.h>
+#include <ImmediateEnableRequest.h>
+#include <ImmediateEnableResponse.h>
 #include "context.h"
 #include "length.h"
 #include "utils.h"
@@ -27,33 +27,33 @@
 #include "es10c_enable_prfle.h"
 
 static const struct num_str_map error_code_strings[] = {
-	{ EnableUsingDDResponse__enableUsingDDResult_ok, "ok" },
-	{ EnableUsingDDResponse__enableUsingDDResult_autoEnableNotAvailable, "autoEnableNotAvailable" },
-	{ EnableUsingDDResponse__enableUsingDDResult_noSessionContext, "noSessionContext" },
-	{ EnableUsingDDResponse__enableUsingDDResult_undefinedError, "undefinedError" },
+	{ ImmediateEnableResponse__immediateEnableResult_ok, "ok" },
+	{ ImmediateEnableResponse__immediateEnableResult_immediateEnableNotAvailable, "immediateEnableNotAvailable" },
+	{ ImmediateEnableResponse__immediateEnableResult_noSessionContext, "noSessionContext" },
+	{ ImmediateEnableResponse__immediateEnableResult_undefinedError, "undefinedError" },
 	{ 0, NULL }
 };
 
 static int dec_enable_using_dd_res(const struct ipa_buf *es10b_res)
 {
-	struct EnableUsingDDResponse *asn = NULL;
+	struct ImmediateEnableResponse *asn = NULL;
 	int rc;
 
-	asn = ipa_es10x_res_dec(&asn_DEF_EnableUsingDDResponse, es10b_res, "EnableUsingDD");
+	asn = ipa_es10x_res_dec(&asn_DEF_ImmediateEnableResponse, es10b_res, "ImmediateEnable");
 	if (!asn)
 		return -EINVAL;
 
-	rc = asn->enableUsingDDResult;
+	rc = asn->immediateEnableResult;
 
-	if (rc == EnableUsingDDResponse__enableUsingDDResult_ok) {
-		IPA_LOGP_ES10X("EnableUsingDD", LERROR, "function succeeded with status code %d=%s!\n",
+	if (rc == ImmediateEnableResponse__immediateEnableResult_ok) {
+		IPA_LOGP_ES10X("ImmediateEnable", LERROR, "function succeeded with status code %d=%s!\n",
 			       rc, ipa_str_from_num(error_code_strings, rc, "(unknown)"));
 	} else {
-		IPA_LOGP_ES10X("EnableUsingDD", LERROR, "function failed with error code %d=%s!\n",
+		IPA_LOGP_ES10X("ImmediateEnable", LERROR, "function failed with error code %d=%s!\n",
 			       rc, ipa_str_from_num(error_code_strings, rc, "(unknown)"));
 	}
 
-	ASN_STRUCT_FREE(asn_DEF_EnableUsingDDResponse, asn);
+	ASN_STRUCT_FREE(asn_DEF_ImmediateEnableResponse, asn);
 	return rc;
 }
 
@@ -61,18 +61,21 @@ int enable_using_dd(struct ipa_context *ctx)
 {
 	struct ipa_buf *es10b_req = NULL;
 	struct ipa_buf *es10b_res = NULL;
-	struct EnableUsingDDRequest enable_using_dd_req = { 0 };
+	struct ImmediateEnableRequest enable_using_dd_req = { 0 };
 	int rc = -EINVAL;
 
-	es10b_req = ipa_es10x_req_enc(&asn_DEF_EnableUsingDDRequest, &enable_using_dd_req, "EnableUsingDD");
+	/* Request an UICC REFRESH so the modem picks up the newly enabled profile */
+	enable_using_dd_req.refreshFlag = 0xff;
+
+	es10b_req = ipa_es10x_req_enc(&asn_DEF_ImmediateEnableRequest, &enable_using_dd_req, "ImmediateEnable");
 	if (!es10b_req) {
-		IPA_LOGP_ES10X("EnableUsingDD", LERROR, "unable to encode ES10b request\n");
+		IPA_LOGP_ES10X("ImmediateEnable", LERROR, "unable to encode ES10b request\n");
 		goto error;
 	}
 
 	es10b_res = ipa_euicc_transceive_es10x(ctx, es10b_req);
 	if (!es10b_res) {
-		IPA_LOGP_ES10X("EnableUsingDD", LERROR, "no ES10b response\n");
+		IPA_LOGP_ES10X("ImmediateEnable", LERROR, "no ES10b response\n");
 		goto error;
 	}
 
@@ -90,32 +93,32 @@ int enable_using_dd_emu(struct ipa_context *ctx)
 {
 	struct ipa_es10c_enable_prfle_req enable_prfle_req = { 0 };
 	struct ipa_es10c_enable_prfle_res *enable_prfle_res = NULL;
-	int rc = EnableUsingDDResponse__enableUsingDDResult_undefinedError;
+	int rc = ImmediateEnableResponse__immediateEnableResult_undefinedError;
 
 	/* Auto enable must be active */
 	if (ctx->nvstate.iot_euicc_emu.auto_enable.flag == false) {
-		rc = EnableUsingDDResponse__enableUsingDDResult_autoEnableNotAvailable;
+		rc = ImmediateEnableResponse__immediateEnableResult_immediateEnableNotAvailable;
 		goto error;
 	}
 
 	/* We also need either the smdp_oid or the smdp_address to verify against */
 	if (ctx->nvstate.iot_euicc_emu.auto_enable.smdp_oid == NULL &&
 	    ctx->nvstate.iot_euicc_emu.auto_enable.smdp_address == NULL) {
-		rc = EnableUsingDDResponse__enableUsingDDResult_autoEnableNotAvailable;
+		rc = ImmediateEnableResponse__immediateEnableResult_immediateEnableNotAvailable;
 		goto error;
 	}
 
 	/* Ensure the session context is present and complete */
 	if (ctx->iot_euicc_emu.auto_enable.smdp_address == NULL) {
-		rc = EnableUsingDDResponse__enableUsingDDResult_noSessionContext;
+		rc = ImmediateEnableResponse__immediateEnableResult_noSessionContext;
 		goto error;
 	}
 	if (ctx->iot_euicc_emu.auto_enable.smdp_oid == NULL) {
-		rc = EnableUsingDDResponse__enableUsingDDResult_noSessionContext;
+		rc = ImmediateEnableResponse__immediateEnableResult_noSessionContext;
 		goto error;
 	}
 	if (ctx->iot_euicc_emu.auto_enable.profile_aid == NULL) {
-		rc = EnableUsingDDResponse__enableUsingDDResult_noSessionContext;
+		rc = ImmediateEnableResponse__immediateEnableResult_noSessionContext;
 		goto error;
 	}
 
@@ -123,13 +126,13 @@ int enable_using_dd_emu(struct ipa_context *ctx)
 	if (ctx->nvstate.iot_euicc_emu.auto_enable.smdp_oid) {
 		if (ctx->nvstate.iot_euicc_emu.auto_enable.smdp_oid->len !=
 		    ctx->iot_euicc_emu.auto_enable.smdp_oid->len) {
-			rc = EnableUsingDDResponse__enableUsingDDResult_autoEnableNotAvailable;
+			rc = ImmediateEnableResponse__immediateEnableResult_immediateEnableNotAvailable;
 			goto error;
 		}
 		if (memcmp(ctx->nvstate.iot_euicc_emu.auto_enable.smdp_oid->data,
 			   ctx->iot_euicc_emu.auto_enable.smdp_oid->data,
 			   ctx->iot_euicc_emu.auto_enable.smdp_oid->len)) {
-			rc = EnableUsingDDResponse__enableUsingDDResult_autoEnableNotAvailable;
+			rc = ImmediateEnableResponse__immediateEnableResult_immediateEnableNotAvailable;
 			goto error;
 		}
 	}
@@ -138,13 +141,13 @@ int enable_using_dd_emu(struct ipa_context *ctx)
 	if (ctx->nvstate.iot_euicc_emu.auto_enable.smdp_address) {
 		if (ctx->nvstate.iot_euicc_emu.auto_enable.smdp_address->len !=
 		    ctx->iot_euicc_emu.auto_enable.smdp_address->len) {
-			rc = EnableUsingDDResponse__enableUsingDDResult_autoEnableNotAvailable;
+			rc = ImmediateEnableResponse__immediateEnableResult_immediateEnableNotAvailable;
 			goto error;
 		}
 		if (memcmp(ctx->nvstate.iot_euicc_emu.auto_enable.smdp_address->data,
 			   ctx->iot_euicc_emu.auto_enable.smdp_address->data,
 			   ctx->iot_euicc_emu.auto_enable.smdp_address->len)) {
-			rc = EnableUsingDDResponse__enableUsingDDResult_autoEnableNotAvailable;
+			rc = ImmediateEnableResponse__immediateEnableResult_immediateEnableNotAvailable;
 			goto error;
 		}
 	}
@@ -157,17 +160,17 @@ int enable_using_dd_emu(struct ipa_context *ctx)
 
 	enable_prfle_res = ipa_es10c_enable_prfle(ctx, &enable_prfle_req);
 	if (enable_prfle_res && enable_prfle_res->res->enableResult == EnableProfileResponse__enableResult_ok)
-		rc = EnableUsingDDResponse__enableUsingDDResult_ok;
+		rc = ImmediateEnableResponse__immediateEnableResult_ok;
 	else
-		rc = EnableUsingDDResponse__enableUsingDDResult_undefinedError;
+		rc = ImmediateEnableResponse__immediateEnableResult_undefinedError;
 
 error:
-	if (rc == EnableUsingDDResponse__enableUsingDDResult_ok) {
-		IPA_LOGP_ES10X("EnableUsingDD", LERROR,
+	if (rc == ImmediateEnableResponse__immediateEnableResult_ok) {
+		IPA_LOGP_ES10X("ImmediateEnable", LERROR,
 			       "IoT eUICC emulation active, function succeeded with status code %d=%s!\n", rc,
 			       ipa_str_from_num(error_code_strings, rc, "(unknown)"));
 	} else {
-		IPA_LOGP_ES10X("EnableUsingDD", LERROR,
+		IPA_LOGP_ES10X("ImmediateEnable", LERROR,
 			       "IoT eUICC emulation active, function failed with error code %d=%s!\n", rc,
 			       ipa_str_from_num(error_code_strings, rc, "(unknown)"));
 	}

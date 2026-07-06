@@ -27,7 +27,7 @@
 
 /* Return codes: < 0 = error, 0 = ok, 1 = Result was present, notification sent */
 static int handle_load_bnd_prfle_pkg_res(struct ipa_context *ctx, struct ipa_es10b_load_bnd_prfle_pkg_res *res,
-					 long *seq_number)
+					 long *seq_number, struct ProfileInstallationResult **pir)
 {
 	struct ipa_esipa_handle_notif_req handle_notif_req = { 0 };
 	int rc;
@@ -49,6 +49,11 @@ static int handle_load_bnd_prfle_pkg_res(struct ipa_context *ctx, struct ipa_es1
 	handle_notif_req.profile_installation_result = res->res;
 	rc = ipa_esipa_handle_notif(ctx, &handle_notif_req);
 	*seq_number = res->res->profileInstallationResultData.notificationMetadata.seqNumber;
+	if (pir) {
+		/* Hand the ProfileInstallationResult over to the caller (see header file) */
+		*pir = res->res;
+		res->res = NULL;
+	}
 	ipa_es10b_load_bnd_prfle_res_free(res);
 	if (rc < 0)
 		return -EINVAL;
@@ -80,7 +85,7 @@ int ipa_proc_prfle_inst(struct ipa_context *ctx, const struct ipa_proc_prfle_ins
 			IPA_LOGP(SIPA, LERROR, "failed to transfer ES8+ segments!\n");
 			goto error;
 		}
-		rc = handle_load_bnd_prfle_pkg_res(ctx, load_bnd_prfle_pkg_res, &seq_number);
+		rc = handle_load_bnd_prfle_pkg_res(ctx, load_bnd_prfle_pkg_res, &seq_number, pars->pir);
 		if (rc < 0) {
 			goto error;
 		} else if (rc == 0 && i == segments->count - 1) {
