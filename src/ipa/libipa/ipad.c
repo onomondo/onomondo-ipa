@@ -112,6 +112,16 @@ static void nvstate_deserialize(struct ipa_nvstate *nvstate, struct ipa_buf *nvs
 		return;
 	}
 
+	/* A blob from an older (smaller) nvstate layout must not be memcpy'd — that would read past the end of
+	 * the source buffer before the version check gets a chance to reject it. */
+	if (nvstate_bin->len < sizeof(*nvstate)) {
+		IPA_LOGP(SIPA, LERROR,
+			 "cannot deserialize non volatile state, blob too short (%zu bytes, expected at least %zu)\n",
+			 nvstate_bin->len, sizeof(*nvstate));
+		nvstate_reset(nvstate);
+		return;
+	}
+
 	/* deserialize statically allocated struct members and check version */
 	memcpy((uint8_t *) nvstate, nvstate_bin->data, sizeof(*nvstate));
 	nvstate_data = nvstate_bin->data + sizeof(*nvstate);

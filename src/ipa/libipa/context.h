@@ -10,7 +10,7 @@
 #include <onomondo/ipa/ipad.h>
 #include <onomondo/ipa/utils.h>
 
-#define IPA_NVSTATE_VERSION 3
+#define IPA_NVSTATE_VERSION 4
 
 /* Non volatile state: All struct members in this struct are automatically backed up to a non volatile memory location.
  * (see below). However, this only covers statically allocated struct members. When struct members contain a pointer
@@ -33,7 +33,23 @@ struct ipa_nvstate {
 			struct ipa_buf *smdp_oid;
 			struct ipa_buf *smdp_address;
 		} auto_enable;
+
+		/*! Fallback Mechanism state (set via setFallbackAttribute PSMO). A real IoT eUICC keeps the
+		 *  fallback attribute in the profile metadata (tag 9F26); consumer profiles have no such field,
+		 *  so the emulation keeps it here. A length of 0 means "not set". */
+		struct {
+			uint8_t fallback_iccid[IPA_LEN_ICCID];
+			uint8_t fallback_iccid_len;
+			/*! ICCID of the profile that was enabled before ExecuteFallbackMechanism switched to the
+			 *  fallback profile (the target of ReturnFromFallback). */
+			uint8_t return_iccid[IPA_LEN_ICCID];
+			uint8_t return_iccid_len;
+		} fallback;
 	} iot_euicc_emu;
+
+	/*! StateChangeCause value (see SGP.32, section 5.14.5) to report to the eIM on the next GetEimPackage
+	 *  poll. 0 = nothing pending (otherEim(0) is never self-reported by an IPAd). */
+	uint8_t pending_state_change_cause;
 
 } __attribute__((packed));
 
