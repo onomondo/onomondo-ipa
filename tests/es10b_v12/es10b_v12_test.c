@@ -16,6 +16,11 @@
 #include <ExecuteFallbackMechanismResponse.h>
 #include <ReturnFromFallbackRequest.h>
 #include <ReturnFromFallbackResponse.h>
+#include <EnableEmergencyProfileRequest.h>
+#include <EnableEmergencyProfileResponse.h>
+#include <DisableEmergencyProfileRequest.h>
+#include <GetConnectivityParametersRequest.h>
+#include <GetConnectivityParametersResponse.h>
 
 static uint8_t enc_buf[512];
 static size_t enc_len;
@@ -99,6 +104,68 @@ static void return_from_fallback_response_decode_test(void)
 	ASN_STRUCT_FREE(asn_DEF_ReturnFromFallbackResponse, rsp);
 }
 
+/* EnableEmergencyProfileRequest ('BF5B') / DisableEmergencyProfileRequest ('BF5C') */
+static void emergency_profile_request_test(void)
+{
+	struct EnableEmergencyProfileRequest enable_req = { 0 };
+	struct DisableEmergencyProfileRequest disable_req = { 0 };
+
+	enable_req.refreshFlag = 0xff;
+	enc_assert(&asn_DEF_EnableEmergencyProfileRequest, &enable_req, "BF5B038001FF");
+
+	disable_req.refreshFlag = 0;
+	enc_assert(&asn_DEF_DisableEmergencyProfileRequest, &disable_req, "BF5C03800100");
+}
+
+/* Response decode: EnableEmergencyProfileResponse with ecallNotAvailable(8) */
+static void enable_emergency_response_decode_test(void)
+{
+	const uint8_t not_available[] = { 0xBF, 0x5B, 0x03, 0x80, 0x01, 0x08 };
+	struct EnableEmergencyProfileResponse *rsp = NULL;
+	asn_dec_rval_t rval;
+
+	rval = ber_decode(0, &asn_DEF_EnableEmergencyProfileResponse, (void **)&rsp,
+			  not_available, sizeof(not_available));
+	assert(rval.code == RC_OK);
+	assert(rsp->enableEmergencyProfileResult ==
+	       EnableEmergencyProfileResponse__enableEmergencyProfileResult_ecallNotAvailable);
+	ASN_STRUCT_FREE(asn_DEF_EnableEmergencyProfileResponse, rsp);
+}
+
+/* GetConnectivityParametersRequest ('BF5F') is an empty SEQUENCE */
+static void get_conn_params_request_test(void)
+{
+	struct GetConnectivityParametersRequest req = { 0 };
+
+	enc_assert(&asn_DEF_GetConnectivityParametersRequest, &req, "BF5F00");
+}
+
+/* Response decode: GetConnectivityParametersResponse, both arms of the CHOICE */
+static void get_conn_params_response_decode_test(void)
+{
+	/* connectivityParameters ('A0') with httpParams ('81') = AA BB CC */
+	const uint8_t params[] = { 0xBF, 0x5F, 0x07, 0xA0, 0x05, 0x81, 0x03, 0xAA, 0xBB, 0xCC };
+	/* connectivityParametersError ('81') = parametersNotAvailable(1) */
+	const uint8_t error[] = { 0xBF, 0x5F, 0x03, 0x81, 0x01, 0x01 };
+	struct GetConnectivityParametersResponse *rsp = NULL;
+	asn_dec_rval_t rval;
+
+	rval = ber_decode(0, &asn_DEF_GetConnectivityParametersResponse, (void **)&rsp, params, sizeof(params));
+	assert(rval.code == RC_OK);
+	assert(rsp->present == GetConnectivityParametersResponse_PR_connectivityParameters);
+	assert(rsp->choice.connectivityParameters.httpParams);
+	assert(rsp->choice.connectivityParameters.httpParams->size == 3);
+	assert(memcmp(rsp->choice.connectivityParameters.httpParams->buf, "\xAA\xBB\xCC", 3) == 0);
+	ASN_STRUCT_FREE(asn_DEF_GetConnectivityParametersResponse, rsp);
+	rsp = NULL;
+
+	rval = ber_decode(0, &asn_DEF_GetConnectivityParametersResponse, (void **)&rsp, error, sizeof(error));
+	assert(rval.code == RC_OK);
+	assert(rsp->present == GetConnectivityParametersResponse_PR_connectivityParametersError);
+	assert(rsp->choice.connectivityParametersError == ConnectivityParametersError_parametersNotAvailable);
+	ASN_STRUCT_FREE(asn_DEF_GetConnectivityParametersResponse, rsp);
+}
+
 int main(int argc, char **argv)
 {
 	(void)argc;
@@ -108,6 +175,10 @@ int main(int argc, char **argv)
 	return_from_fallback_request_test();
 	exec_fallback_response_decode_test();
 	return_from_fallback_response_decode_test();
+	emergency_profile_request_test();
+	enable_emergency_response_decode_test();
+	get_conn_params_request_test();
+	get_conn_params_response_decode_test();
 
 	printf("all v1.2 ES10b wire format checks passed\n");
 	return 0;

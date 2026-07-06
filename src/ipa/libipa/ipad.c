@@ -26,6 +26,9 @@
 #include "es10b_euicc_mem_rst.h"
 #include "es10b_exec_fallback.h"
 #include "es10b_return_from_fallback.h"
+#include "es10b_enable_emergency_prfle.h"
+#include "es10b_disable_emergency_prfle.h"
+#include "es10b_get_conn_params.h"
 #include "es10b_load_euicc_pkg.h"
 #include "proc_euicc_pkg_dwnld_exec.h"
 #include "proc_notif_delivery.h"
@@ -295,6 +298,38 @@ int ipa_euicc_exec_fallback(struct ipa_context *ctx)
 int ipa_euicc_return_from_fallback(struct ipa_context *ctx)
 {
 	return ipa_es10b_return_from_fallback(ctx);
+}
+
+/*! enable the emergency profile (ES10b.EnableEmergencyProfile, see SGP.32, section 5.9.22).
+ *  On success the enabled profile has changed, so the API user must expect the network registration to
+ *  change. While the emergency profile is enabled the eUICC rejects eIM packages with ecallActive.
+ *  Must not be called while ipa_poll is running.
+ *  \param[inout] ctx pointer to ipa_context.
+ *  \returns SGP.32 status code (0 = ok), negative on transport error. */
+int ipa_euicc_enable_emergency_prfle(struct ipa_context *ctx)
+{
+	return ipa_es10b_enable_emergency_prfle(ctx);
+}
+
+/*! disable the emergency profile again (ES10b.DisableEmergencyProfile, see SGP.32, section 5.9.23).
+ *  Re-enables the profile that was enabled before the emergency profile was enabled. Must not be
+ *  called while ipa_poll is running.
+ *  \param[inout] ctx pointer to ipa_context.
+ *  \returns SGP.32 status code (0 = ok), negative on transport error. */
+int ipa_euicc_disable_emergency_prfle(struct ipa_context *ctx)
+{
+	return ipa_es10b_disable_emergency_prfle(ctx);
+}
+
+/*! read the HTTP/CoAP connectivity parameters of the enabled profile (ES10b.GetConnectivityParameters,
+ *  see SGP.32, section 5.9.24). Must not be called while ipa_poll is running.
+ *  \param[inout] ctx pointer to ipa_context.
+ *  \param[out] http_params connectivity parameters (SGP.02, table 95 coding; heap copy, the caller
+ *              must free it). Set to NULL when the profile carries no parameters.
+ *  \returns 0 on success, positive SGP.32 status code or negative on error. */
+int ipa_euicc_get_conn_params(struct ipa_context *ctx, struct ipa_buf **http_params)
+{
+	return ipa_es10b_get_conn_params(ctx, http_params);
 }
 
 static int check_canaries(struct ipa_context *ctx)
