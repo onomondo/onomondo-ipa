@@ -15,6 +15,7 @@
 #include <onomondo/ipa/mem.h>
 #include <onomondo/ipa/utils.h>
 #include <onomondo/ipa/log.h>
+#include <StateChangeCause.h>
 #include "context.h"
 #include "utils.h"
 #include "es10x.h"
@@ -41,8 +42,10 @@ static int handle_load_bnd_prfle_pkg_res(struct ipa_context *ctx, struct ipa_es1
 		return 0;
 	}
 
-	/* Instruct the eUICC to enable the newly installed profile (if configured and granted) */
-	ipa_es10b_enable_using_dd(ctx);
+	/* Instruct the eUICC to enable the newly installed profile (if configured and granted). When the
+	 * profile actually got enabled, report the state change to the eIM on the next poll. */
+	if (ipa_es10b_enable_using_dd(ctx) == 0)
+		ctx->nvstate.pending_state_change_cause = StateChangeCause_immediateEnableProfile;
 
 	/* A response is present, this is either the normal ending of the installation sequence or the eUICC has aborted
 	 * the installation. In both situations we forward the ProfileInstallationResult to the eIM. */

@@ -15,6 +15,7 @@
 #include <onomondo/ipa/log.h>
 #include <onomondo/ipa/ipad.h>
 #include <onomondo/ipa/utils.h>
+#include <StateChangeCause.h>
 #include "utils.h"
 #include "context.h"
 #include "euicc.h"
@@ -288,7 +289,10 @@ int ipa_euicc_mem_rst(struct ipa_context *ctx, bool operatnl_profiles, bool test
  *  \returns SGP.32 status code (0 = ok), negative on transport error. */
 int ipa_euicc_exec_fallback(struct ipa_context *ctx)
 {
-	return ipa_es10b_exec_fallback(ctx);
+	int rc = ipa_es10b_exec_fallback(ctx);
+	if (rc == 0)
+		ctx->nvstate.pending_state_change_cause = StateChangeCause_fallback;
+	return rc;
 }
 
 /*! undo a previous fallback (ES10b.ReturnFromFallback, see SGP.32, section 5.9.21).
@@ -299,7 +303,10 @@ int ipa_euicc_exec_fallback(struct ipa_context *ctx)
  *  \returns SGP.32 status code (0 = ok), negative on transport error. */
 int ipa_euicc_return_from_fallback(struct ipa_context *ctx)
 {
-	return ipa_es10b_return_from_fallback(ctx);
+	int rc = ipa_es10b_return_from_fallback(ctx);
+	if (rc == 0)
+		ctx->nvstate.pending_state_change_cause = StateChangeCause_fallback;
+	return rc;
 }
 
 /*! enable the emergency profile (ES10b.EnableEmergencyProfile, see SGP.32, section 5.9.22).
@@ -310,7 +317,10 @@ int ipa_euicc_return_from_fallback(struct ipa_context *ctx)
  *  \returns SGP.32 status code (0 = ok), negative on transport error. */
 int ipa_euicc_enable_emergency_prfle(struct ipa_context *ctx)
 {
-	return ipa_es10b_enable_emergency_prfle(ctx);
+	int rc = ipa_es10b_enable_emergency_prfle(ctx);
+	if (rc == 0)
+		ctx->nvstate.pending_state_change_cause = StateChangeCause_emergencyProfile;
+	return rc;
 }
 
 /*! disable the emergency profile again (ES10b.DisableEmergencyProfile, see SGP.32, section 5.9.23).
@@ -320,7 +330,10 @@ int ipa_euicc_enable_emergency_prfle(struct ipa_context *ctx)
  *  \returns SGP.32 status code (0 = ok), negative on transport error. */
 int ipa_euicc_disable_emergency_prfle(struct ipa_context *ctx)
 {
-	return ipa_es10b_disable_emergency_prfle(ctx);
+	int rc = ipa_es10b_disable_emergency_prfle(ctx);
+	if (rc == 0)
+		ctx->nvstate.pending_state_change_cause = StateChangeCause_emergencyProfile;
+	return rc;
 }
 
 /*! read the HTTP/CoAP connectivity parameters of the enabled profile (ES10b.GetConnectivityParameters,

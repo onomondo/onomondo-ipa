@@ -29,13 +29,22 @@ static const struct num_str_map error_code_strings[] = {
 	{ 0, NULL }
 };
 
-static struct ipa_buf *enc_get_eim_pkg_req(const uint8_t *eid_value)
+static struct ipa_buf *enc_get_eim_pkg_req(const uint8_t *eid_value, long state_change_cause)
 {
 	struct EsipaMessageFromIpaToEim msg_to_eim = { 0 };
+	NULL_t notify_state_change = 0;
+	StateChangeCause_t cause = state_change_cause;
 
 	msg_to_eim.present = EsipaMessageFromIpaToEim_PR_getEimPackageRequest;
 	msg_to_eim.choice.getEimPackageRequest.eidValue.buf = (uint8_t *) eid_value;
 	msg_to_eim.choice.getEimPackageRequest.eidValue.size = IPA_LEN_EID;
+
+	/* Notifying the eIM of a profile state change is optional (see SGP.32, section 5.14.5), but when
+	 * notifyStateChange is present, stateChangeCause is mandatory - both fields travel together. */
+	if (state_change_cause != 0) {
+		msg_to_eim.choice.getEimPackageRequest.notifyStateChange = &notify_state_change;
+		msg_to_eim.choice.getEimPackageRequest.stateChangeCause = &cause;
+	}
 
 	return ipa_esipa_msg_to_eim_enc(&msg_to_eim, "GetEimPackage");
 }
@@ -91,7 +100,7 @@ struct ipa_esipa_get_eim_pkg_res *ipa_esipa_get_eim_pkg(struct ipa_context *ctx,
 
 	IPA_LOGP_ESIPA("GetEimPackage", LINFO, "Requesting eIM package for eID: %s\n", ipa_hexdump(eid, IPA_LEN_EID));
 
-	esipa_req = enc_get_eim_pkg_req(eid);
+	esipa_req = enc_get_eim_pkg_req(eid, ctx->nvstate.pending_state_change_cause);
 	if (!esipa_req)
 		goto error;
 
@@ -102,6 +111,10 @@ struct ipa_esipa_get_eim_pkg_res *ipa_esipa_get_eim_pkg(struct ipa_context *ctx,
 	res = dec_get_eim_pkg_req(esipa_res);
 	if (!res)
 		goto error;
+
+	/* Any decoded eIM response proves the state change notification arrived; a transport failure
+	 * keeps the pending cause for the next poll. */
+	ctx->nvstate.pending_state_change_cause = 0;
 
 error:
 	IPA_FREE(esipa_req);

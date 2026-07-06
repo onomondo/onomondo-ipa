@@ -147,6 +147,27 @@ static void handle_notification_test(void)
 		   "BF3D15A013A111BF2F0A800107810206400C01615F3701EE");
 }
 
+/* GetEimPackageRequest: the v1.2 stateChangeCause ('81') must travel together with
+ * notifyStateChange ('80'); a plain poll carries neither */
+static void get_eim_package_request_test(void)
+{
+	struct EsipaMessageFromIpaToEim msg = { 0 };
+	NULL_t notify_state_change = 0;
+	StateChangeCause_t cause = StateChangeCause_fallback;
+
+	msg.present = EsipaMessageFromIpaToEim_PR_getEimPackageRequest;
+	msg.choice.getEimPackageRequest.eidValue.buf = (uint8_t *)eid;
+	msg.choice.getEimPackageRequest.eidValue.size = sizeof(eid);
+
+	enc_assert(&asn_DEF_EsipaMessageFromIpaToEim, &msg, "BF4F125A10000102030405060708090A0B0C0D0E0F");
+
+	msg.choice.getEimPackageRequest.notifyStateChange = &notify_state_change;
+	msg.choice.getEimPackageRequest.stateChangeCause = &cause;
+
+	enc_assert(&asn_DEF_EsipaMessageFromIpaToEim, &msg,
+		   "BF4F175A10000102030405060708090A0B0C0D0E0F8000810101");
+}
+
 /* ProvideEimPackageResultResponse: v1.2 CHOICE decode of all three alternatives */
 static void provide_eim_package_result_response_decode_test(void)
 {
@@ -194,6 +215,7 @@ int main(int argc, char **argv)
 	profile_download_trigger_result_error_test();
 	ipa_euicc_data_test();
 	handle_notification_test();
+	get_eim_package_request_test();
 	provide_eim_package_result_response_decode_test();
 
 	printf("all v1.2 ESipa wire format checks passed\n");
