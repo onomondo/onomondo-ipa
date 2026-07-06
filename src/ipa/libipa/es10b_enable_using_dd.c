@@ -30,6 +30,7 @@ static const struct num_str_map error_code_strings[] = {
 	{ ImmediateEnableResponse__immediateEnableResult_ok, "ok" },
 	{ ImmediateEnableResponse__immediateEnableResult_immediateEnableNotAvailable, "immediateEnableNotAvailable" },
 	{ ImmediateEnableResponse__immediateEnableResult_noSessionContext, "noSessionContext" },
+	{ ImmediateEnableResponse__immediateEnableResult_catBusy, "catBusy" },
 	{ ImmediateEnableResponse__immediateEnableResult_undefinedError, "undefinedError" },
 	{ 0, NULL }
 };
