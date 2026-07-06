@@ -30,7 +30,7 @@ struct EuiccResultData;
 typedef struct EuiccPackageResultDataSigned {
 	UTF8String_t	 eimId;
 	long	 counterValue;
-	TransactionId_t	*transactionId	/* OPTIONAL */;
+	TransactionId_t	*eimTransactionId	/* OPTIONAL */;
 	long	 seqNumber;
 	struct EuiccPackageResultDataSigned__euiccResult {
 		A_SEQUENCE_OF(struct EuiccResultData) list;

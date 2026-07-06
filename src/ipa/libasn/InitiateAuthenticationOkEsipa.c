@@ -35,14 +35,14 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationOkEsipa_1[] = {
 		0, 0, /* No default value */
 		"serverSignature1"
 		},
-	{ ATF_NOFLAGS, 0, offsetof(struct InitiateAuthenticationOkEsipa, euiccCiPKIdToBeUsed),
+	{ ATF_NOFLAGS, 0, offsetof(struct InitiateAuthenticationOkEsipa, euiccCiPKIdentifierToBeUsed),
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
 		0,
 		&asn_DEF_OCTET_STRING,
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccCiPKIdToBeUsed"
+		"euiccCiPKIdentifierToBeUsed"
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct InitiateAuthenticationOkEsipa, serverCertificate),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -77,7 +77,7 @@ static const ber_tlv_tag_t asn_DEF_InitiateAuthenticationOkEsipa_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (16 << 2))
 };
 static const asn_TYPE_tag2member_t asn_MAP_InitiateAuthenticationOkEsipa_tag2el_1[] = {
-    { (ASN_TAG_CLASS_UNIVERSAL | (4 << 2)), 3, 0, 0 }, /* euiccCiPKIdToBeUsed */
+    { (ASN_TAG_CLASS_UNIVERSAL | (4 << 2)), 3, 0, 0 }, /* euiccCiPKIdentifierToBeUsed */
     { (ASN_TAG_CLASS_UNIVERSAL | (12 << 2)), 5, 0, 0 }, /* matchingId */
     { (ASN_TAG_CLASS_UNIVERSAL | (16 << 2)), 1, 0, 1 }, /* serverSigned1 */
     { (ASN_TAG_CLASS_UNIVERSAL | (16 << 2)), 4, -1, 0 }, /* serverCertificate */

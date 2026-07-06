@@ -12,14 +12,37 @@
 #include <asn_application.h>
 
 /* Including external dependencies */
+#include <UTF8String.h>
+#include <constr_CHOICE.h>
 #include <constr_SEQUENCE.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+/* Dependencies */
+typedef enum GetEimConfigurationDataRequest__searchCriteria_PR {
+	GetEimConfigurationDataRequest__searchCriteria_PR_NOTHING,	/* No components present */
+	GetEimConfigurationDataRequest__searchCriteria_PR_eimId
+	/* Extensions may appear below */
+	
+} GetEimConfigurationDataRequest__searchCriteria_PR;
+
 /* GetEimConfigurationDataRequest */
 typedef struct GetEimConfigurationDataRequest {
+	struct GetEimConfigurationDataRequest__searchCriteria {
+		GetEimConfigurationDataRequest__searchCriteria_PR present;
+		union GetEimConfigurationDataRequest__searchCriteria_u {
+			UTF8String_t	 eimId;
+			/*
+			 * This type is extensible,
+			 * possible extensions are below.
+			 */
+		} choice;
+		
+		/* Context for parsing across buffer boundaries */
+		asn_struct_ctx_t _asn_ctx;
+	} *searchCriteria;
 	/*
 	 * This type is extensible,
 	 * possible extensions are below.

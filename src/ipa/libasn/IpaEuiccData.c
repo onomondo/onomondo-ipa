@@ -8,14 +8,32 @@
 #include "IpaEuiccData.h"
 
 asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
-	{ ATF_POINTER, 10, offsetof(struct IpaEuiccData, defaultSmdpAddress),
+	{ ATF_POINTER, 12, offsetof(struct IpaEuiccData, notificationsList),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
+		-1,	/* IMPLICIT tag at current level */
+		&asn_DEF_PendingNotificationList,
+		0,
+		{ 0, 0, 0 },
+		0, 0, /* No default value */
+		"notificationsList"
+		},
+	{ ATF_POINTER, 11, offsetof(struct IpaEuiccData, defaultSmdpAddress),
+		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
 		"defaultSmdpAddress"
+		},
+	{ ATF_POINTER, 10, offsetof(struct IpaEuiccData, euiccPackageResultList),
+		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
+		-1,	/* IMPLICIT tag at current level */
+		&asn_DEF_EuiccPackageResultList,
+		0,
+		{ 0, 0, 0 },
+		0, 0, /* No default value */
+		"euiccPackageResultList"
 		},
 	{ ATF_POINTER, 9, offsetof(struct IpaEuiccData, euiccInfo1),
 		(ASN_TAG_CLASS_CONTEXT | (32 << 2)),
@@ -71,7 +89,16 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		0, 0, /* No default value */
 		"euiccCertificate"
 		},
-	{ ATF_POINTER, 3, offsetof(struct IpaEuiccData, ipaCapabilities),
+	{ ATF_POINTER, 3, offsetof(struct IpaEuiccData, eimTransactionId),
+		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
+		-1,	/* IMPLICIT tag at current level */
+		&asn_DEF_TransactionId,
+		0,
+		{ 0, 0, 0 },
+		0, 0, /* No default value */
+		"eimTransactionId"
+		},
+	{ ATF_POINTER, 2, offsetof(struct IpaEuiccData, ipaCapabilities),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_IpaCapabilities,
@@ -80,7 +107,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		0, 0, /* No default value */
 		"ipaCapabilities"
 		},
-	{ ATF_POINTER, 2, offsetof(struct IpaEuiccData, deviceInfo),
+	{ ATF_POINTER, 1, offsetof(struct IpaEuiccData, deviceInfo),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_DeviceInfo,
@@ -89,40 +116,33 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		0, 0, /* No default value */
 		"deviceInfo"
 		},
-	{ ATF_POINTER, 1, offsetof(struct IpaEuiccData, notificationsList),
-		(ASN_TAG_CLASS_CONTEXT | (43 << 2)),
-		-1,	/* IMPLICIT tag at current level */
-		&asn_DEF_SGP32_RetrieveNotificationsListResponse,
-		0,
-		{ 0, 0, 0 },
-		0, 0, /* No default value */
-		"notificationsList"
-		},
 };
-static const int asn_MAP_IpaEuiccData_oms_1[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+static const int asn_MAP_IpaEuiccData_oms_1[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
 static const ber_tlv_tag_t asn_DEF_IpaEuiccData_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (16 << 2))
 };
 static const asn_TYPE_tag2member_t asn_MAP_IpaEuiccData_tag2el_1[] = {
-    { (ASN_TAG_CLASS_CONTEXT | (0 << 2)), 0, 0, 0 }, /* defaultSmdpAddress */
-    { (ASN_TAG_CLASS_CONTEXT | (3 << 2)), 3, 0, 0 }, /* rootSmdsAddress */
-    { (ASN_TAG_CLASS_CONTEXT | (4 << 2)), 4, 0, 0 }, /* associationToken */
-    { (ASN_TAG_CLASS_CONTEXT | (5 << 2)), 5, 0, 0 }, /* eumCertificate */
-    { (ASN_TAG_CLASS_CONTEXT | (6 << 2)), 6, 0, 0 }, /* euiccCertificate */
-    { (ASN_TAG_CLASS_CONTEXT | (8 << 2)), 7, 0, 0 }, /* ipaCapabilities */
-    { (ASN_TAG_CLASS_CONTEXT | (9 << 2)), 8, 0, 0 }, /* deviceInfo */
-    { (ASN_TAG_CLASS_CONTEXT | (32 << 2)), 1, 0, 0 }, /* euiccInfo1 */
-    { (ASN_TAG_CLASS_CONTEXT | (34 << 2)), 2, 0, 0 }, /* euiccInfo2 */
-    { (ASN_TAG_CLASS_CONTEXT | (43 << 2)), 9, 0, 0 } /* notificationsList */
+    { (ASN_TAG_CLASS_CONTEXT | (0 << 2)), 0, 0, 0 }, /* notificationsList */
+    { (ASN_TAG_CLASS_CONTEXT | (1 << 2)), 1, 0, 0 }, /* defaultSmdpAddress */
+    { (ASN_TAG_CLASS_CONTEXT | (2 << 2)), 2, 0, 0 }, /* euiccPackageResultList */
+    { (ASN_TAG_CLASS_CONTEXT | (3 << 2)), 5, 0, 0 }, /* rootSmdsAddress */
+    { (ASN_TAG_CLASS_CONTEXT | (4 << 2)), 6, 0, 0 }, /* associationToken */
+    { (ASN_TAG_CLASS_CONTEXT | (5 << 2)), 7, 0, 0 }, /* eumCertificate */
+    { (ASN_TAG_CLASS_CONTEXT | (6 << 2)), 8, 0, 0 }, /* euiccCertificate */
+    { (ASN_TAG_CLASS_CONTEXT | (7 << 2)), 9, 0, 0 }, /* eimTransactionId */
+    { (ASN_TAG_CLASS_CONTEXT | (8 << 2)), 10, 0, 0 }, /* ipaCapabilities */
+    { (ASN_TAG_CLASS_CONTEXT | (9 << 2)), 11, 0, 0 }, /* deviceInfo */
+    { (ASN_TAG_CLASS_CONTEXT | (32 << 2)), 3, 0, 0 }, /* euiccInfo1 */
+    { (ASN_TAG_CLASS_CONTEXT | (34 << 2)), 4, 0, 0 } /* euiccInfo2 */
 };
 asn_SEQUENCE_specifics_t asn_SPC_IpaEuiccData_specs_1 = {
 	sizeof(struct IpaEuiccData),
 	offsetof(struct IpaEuiccData, _asn_ctx),
 	asn_MAP_IpaEuiccData_tag2el_1,
-	10,	/* Count of tags in the map */
+	12,	/* Count of tags in the map */
 	asn_MAP_IpaEuiccData_oms_1,	/* Optional members */
-	10, 0,	/* Root/Additions */
-	10,	/* First extension addition */
+	12, 0,	/* Root/Additions */
+	12,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_IpaEuiccData = {
 	"IpaEuiccData",
@@ -136,7 +156,7 @@ asn_TYPE_descriptor_t asn_DEF_IpaEuiccData = {
 		/sizeof(asn_DEF_IpaEuiccData_tags_1[0]), /* 1 */
 	{ 0, 0, SEQUENCE_constraint },
 	asn_MBR_IpaEuiccData_1,
-	10,	/* Elements count */
+	12,	/* Elements count */
 	&asn_SPC_IpaEuiccData_specs_1	/* Additional specs */
 };
 

@@ -13,7 +13,7 @@
 
 /* Including external dependencies */
 #include "IpaEuiccData.h"
-#include <NativeInteger.h>
+#include "IpaEuiccDataResponseError.h"
 #include <constr_CHOICE.h>
 
 #ifdef __cplusplus
@@ -24,22 +24,17 @@ extern "C" {
 typedef enum IpaEuiccDataResponse_PR {
 	IpaEuiccDataResponse_PR_NOTHING,	/* No components present */
 	IpaEuiccDataResponse_PR_ipaEuiccData,
-	IpaEuiccDataResponse_PR_ipaEuiccDataError
+	IpaEuiccDataResponse_PR_ipaEuiccDataResponseError
 	/* Extensions may appear below */
 	
 } IpaEuiccDataResponse_PR;
-typedef enum IpaEuiccDataResponse__ipaEuiccDataError {
-	IpaEuiccDataResponse__ipaEuiccDataError_incorrectTagList	= 1,
-	IpaEuiccDataResponse__ipaEuiccDataError_euiccCiPKIdNotFound	= 5,
-	IpaEuiccDataResponse__ipaEuiccDataError_undefinedError	= 127
-} e_IpaEuiccDataResponse__ipaEuiccDataError;
 
 /* IpaEuiccDataResponse */
 typedef struct IpaEuiccDataResponse {
 	IpaEuiccDataResponse_PR present;
 	union IpaEuiccDataResponse_u {
 		IpaEuiccData_t	 ipaEuiccData;
-		long	 ipaEuiccDataError;
+		IpaEuiccDataResponseError_t	 ipaEuiccDataResponseError;
 		/*
 		 * This type is extensible,
 		 * possible extensions are below.

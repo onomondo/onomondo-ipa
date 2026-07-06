@@ -7,17 +7,120 @@
 
 #include "GetEimConfigurationDataRequest.h"
 
+static int
+memb_eimId_constraint_2(const asn_TYPE_descriptor_t *td, const void *sptr,
+			asn_app_constraint_failed_f *ctfailcb, void *app_key) {
+	const UTF8String_t *st = (const UTF8String_t *)sptr;
+	size_t size;
+	
+	if(!sptr) {
+		ASN__CTFAIL(app_key, td, sptr,
+			"%s: value not given (%s:%d)",
+			td->name, __FILE__, __LINE__);
+		return -1;
+	}
+	
+	size = UTF8String_length(st);
+	if((ssize_t)size < 0) {
+		ASN__CTFAIL(app_key, td, sptr,
+			"%s: UTF-8: broken encoding (%s:%d)",
+			td->name, __FILE__, __LINE__);
+		return -1;
+	}
+	
+	if((size >= 1 && size <= 128)) {
+		/* Constraint check succeeded */
+		return 0;
+	} else {
+		ASN__CTFAIL(app_key, td, sptr,
+			"%s: constraint failed (%s:%d)",
+			td->name, __FILE__, __LINE__);
+		return -1;
+	}
+}
+
+static asn_oer_constraints_t asn_OER_memb_eimId_constr_3 CC_NOTUSED = {
+	{ 0, 0 },
+	-1	/* (SIZE(0..MAX)) */};
+static asn_per_constraints_t asn_PER_memb_eimId_constr_3 CC_NOTUSED = {
+	{ APC_UNCONSTRAINED,	-1, -1,  0,  0 },
+	{ APC_UNCONSTRAINED,	-1, -1,  0,  0 },
+	0, 0	/* No PER value map */
+};
+static asn_oer_constraints_t asn_OER_type_searchCriteria_constr_2 CC_NOTUSED = {
+	{ 0, 0 },
+	-1};
+static asn_per_constraints_t asn_PER_type_searchCriteria_constr_2 CC_NOTUSED = {
+	{ APC_CONSTRAINED | APC_EXTENSIBLE,  0,  0,  0,  0 }	/* (0..0,...) */,
+	{ APC_UNCONSTRAINED,	-1, -1,  0,  0 },
+	0, 0	/* No PER value map */
+};
+static asn_TYPE_member_t asn_MBR_searchCriteria_2[] = {
+	{ ATF_NOFLAGS, 0, offsetof(struct GetEimConfigurationDataRequest__searchCriteria, choice.eimId),
+		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
+		-1,	/* IMPLICIT tag at current level */
+		&asn_DEF_UTF8String,
+		0,
+		{ &asn_OER_memb_eimId_constr_3, &asn_PER_memb_eimId_constr_3,  memb_eimId_constraint_2 },
+		0, 0, /* No default value */
+		"eimId"
+		},
+};
+static const asn_TYPE_tag2member_t asn_MAP_searchCriteria_tag2el_2[] = {
+    { (ASN_TAG_CLASS_CONTEXT | (0 << 2)), 0, 0, 0 } /* eimId */
+};
+static asn_CHOICE_specifics_t asn_SPC_searchCriteria_specs_2 = {
+	sizeof(struct GetEimConfigurationDataRequest__searchCriteria),
+	offsetof(struct GetEimConfigurationDataRequest__searchCriteria, _asn_ctx),
+	offsetof(struct GetEimConfigurationDataRequest__searchCriteria, present),
+	sizeof(((struct GetEimConfigurationDataRequest__searchCriteria *)0)->present),
+	asn_MAP_searchCriteria_tag2el_2,
+	1,	/* Count of tags in the map */
+	0, 0,
+	1	/* Extensions start */
+};
+static /* Use -fall-defs-global to expose */
+asn_TYPE_descriptor_t asn_DEF_searchCriteria_2 = {
+	"searchCriteria",
+	"searchCriteria",
+	&asn_OP_CHOICE,
+	0,	/* No effective tags (pointer) */
+	0,	/* No effective tags (count) */
+	0,	/* No tags (pointer) */
+	0,	/* No tags (count) */
+	{ &asn_OER_type_searchCriteria_constr_2, &asn_PER_type_searchCriteria_constr_2, CHOICE_constraint },
+	asn_MBR_searchCriteria_2,
+	1,	/* Elements count */
+	&asn_SPC_searchCriteria_specs_2	/* Additional specs */
+};
+
+static asn_TYPE_member_t asn_MBR_GetEimConfigurationDataRequest_1[] = {
+	{ ATF_POINTER, 1, offsetof(struct GetEimConfigurationDataRequest, searchCriteria),
+		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
+		+1,	/* EXPLICIT tag at current level */
+		&asn_DEF_searchCriteria_2,
+		0,
+		{ 0, 0, 0 },
+		0, 0, /* No default value */
+		"searchCriteria"
+		},
+};
+static const int asn_MAP_GetEimConfigurationDataRequest_oms_1[] = { 0 };
 static const ber_tlv_tag_t asn_DEF_GetEimConfigurationDataRequest_tags_1[] = {
 	(ASN_TAG_CLASS_CONTEXT | (85 << 2)),
 	(ASN_TAG_CLASS_UNIVERSAL | (16 << 2))
 };
+static const asn_TYPE_tag2member_t asn_MAP_GetEimConfigurationDataRequest_tag2el_1[] = {
+    { (ASN_TAG_CLASS_CONTEXT | (0 << 2)), 0, 0, 0 } /* searchCriteria */
+};
 static asn_SEQUENCE_specifics_t asn_SPC_GetEimConfigurationDataRequest_specs_1 = {
 	sizeof(struct GetEimConfigurationDataRequest),
 	offsetof(struct GetEimConfigurationDataRequest, _asn_ctx),
-	0,	/* No top level tags */
-	0,	/* No tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
-	-1,	/* First extension addition */
+	asn_MAP_GetEimConfigurationDataRequest_tag2el_1,
+	1,	/* Count of tags in the map */
+	asn_MAP_GetEimConfigurationDataRequest_oms_1,	/* Optional members */
+	1, 0,	/* Root/Additions */
+	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_GetEimConfigurationDataRequest = {
 	"GetEimConfigurationDataRequest",
@@ -30,7 +133,8 @@ asn_TYPE_descriptor_t asn_DEF_GetEimConfigurationDataRequest = {
 	sizeof(asn_DEF_GetEimConfigurationDataRequest_tags_1)
 		/sizeof(asn_DEF_GetEimConfigurationDataRequest_tags_1[0]), /* 2 */
 	{ 0, 0, SEQUENCE_constraint },
-	0, 0,	/* No members */
+	asn_MBR_GetEimConfigurationDataRequest_1,
+	1,	/* Elements count */
 	&asn_SPC_GetEimConfigurationDataRequest_specs_1	/* Additional specs */
 };
 

@@ -11,7 +11,7 @@ static asn_oer_constraints_t asn_OER_type_EuiccResultData_constr_1 CC_NOTUSED = 
 	{ 0, 0 },
 	-1};
 asn_per_constraints_t asn_PER_type_EuiccResultData_constr_1 CC_NOTUSED = {
-	{ APC_CONSTRAINED | APC_EXTENSIBLE,  4,  4,  0,  11 }	/* (0..11,...) */,
+	{ APC_CONSTRAINED | APC_EXTENSIBLE,  4,  4,  0,  14 }	/* (0..14,...) */,
 	{ APC_UNCONSTRAINED,	-1, -1,  0,  0 },
 	0, 0	/* No PER value map */
 };
@@ -61,14 +61,14 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		0, 0, /* No default value */
 		"getRATResult"
 		},
-	{ ATF_NOFLAGS, 0, offsetof(struct EuiccResultData, choice.configureAutoEnableResult),
+	{ ATF_NOFLAGS, 0, offsetof(struct EuiccResultData, choice.configureImmediateEnableResult),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
 		-1,	/* IMPLICIT tag at current level */
-		&asn_DEF_ConfigureAutoEnableResult,
+		&asn_DEF_ConfigureImmediateEnableResult,
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"configureAutoEnableResult"
+		"configureImmediateEnableResult"
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccResultData, choice.addEimResult),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -115,6 +115,24 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		0, 0, /* No default value */
 		"rollbackResult"
 		},
+	{ ATF_NOFLAGS, 0, offsetof(struct EuiccResultData, choice.setFallbackAttributeResult),
+		(ASN_TAG_CLASS_CONTEXT | (13 << 2)),
+		-1,	/* IMPLICIT tag at current level */
+		&asn_DEF_SetFallbackAttributeResult,
+		0,
+		{ 0, 0, 0 },
+		0, 0, /* No default value */
+		"setFallbackAttributeResult"
+		},
+	{ ATF_NOFLAGS, 0, offsetof(struct EuiccResultData, choice.unsetFallbackAttributeResult),
+		(ASN_TAG_CLASS_CONTEXT | (14 << 2)),
+		-1,	/* IMPLICIT tag at current level */
+		&asn_DEF_UnsetFallbackAttributeResult,
+		0,
+		{ 0, 0, 0 },
+		0, 0, /* No default value */
+		"unsetFallbackAttributeResult"
+		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccResultData, choice.processingTerminated),
 		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
 		0,
@@ -124,22 +142,34 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		0, 0, /* No default value */
 		"processingTerminated"
 		},
+	{ ATF_NOFLAGS, 0, offsetof(struct EuiccResultData, choice.setDefaultDpAddressResult),
+		(ASN_TAG_CLASS_CONTEXT | (101 << 2)),
+		-1,	/* IMPLICIT tag at current level */
+		&asn_DEF_SGP32_SetDefaultDpAddressResponse,
+		0,
+		{ 0, 0, 0 },
+		0, 0, /* No default value */
+		"setDefaultDpAddressResult"
+		},
 };
-static const unsigned asn_MAP_EuiccResultData_to_canonical_1[] = { 11, 0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 3 };
-static const unsigned asn_MAP_EuiccResultData_from_canonical_1[] = { 1, 2, 3, 11, 4, 5, 6, 7, 8, 9, 10, 0 };
+static const unsigned asn_MAP_EuiccResultData_to_canonical_1[] = { 13, 0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 3, 14 };
+static const unsigned asn_MAP_EuiccResultData_from_canonical_1[] = { 1, 2, 3, 13, 4, 5, 6, 7, 8, 9, 10, 11, 12, 0, 14 };
 static const asn_TYPE_tag2member_t asn_MAP_EuiccResultData_tag2el_1[] = {
-    { (ASN_TAG_CLASS_UNIVERSAL | (2 << 2)), 11, 0, 0 }, /* processingTerminated */
+    { (ASN_TAG_CLASS_UNIVERSAL | (2 << 2)), 13, 0, 0 }, /* processingTerminated */
     { (ASN_TAG_CLASS_CONTEXT | (3 << 2)), 0, 0, 0 }, /* enableResult */
     { (ASN_TAG_CLASS_CONTEXT | (4 << 2)), 1, 0, 0 }, /* disableResult */
     { (ASN_TAG_CLASS_CONTEXT | (5 << 2)), 2, 0, 0 }, /* deleteResult */
     { (ASN_TAG_CLASS_CONTEXT | (6 << 2)), 4, 0, 0 }, /* getRATResult */
-    { (ASN_TAG_CLASS_CONTEXT | (7 << 2)), 5, 0, 0 }, /* configureAutoEnableResult */
+    { (ASN_TAG_CLASS_CONTEXT | (7 << 2)), 5, 0, 0 }, /* configureImmediateEnableResult */
     { (ASN_TAG_CLASS_CONTEXT | (8 << 2)), 6, 0, 0 }, /* addEimResult */
     { (ASN_TAG_CLASS_CONTEXT | (9 << 2)), 7, 0, 0 }, /* deleteEimResult */
     { (ASN_TAG_CLASS_CONTEXT | (10 << 2)), 8, 0, 0 }, /* updateEimResult */
     { (ASN_TAG_CLASS_CONTEXT | (11 << 2)), 9, 0, 0 }, /* listEimResult */
     { (ASN_TAG_CLASS_CONTEXT | (12 << 2)), 10, 0, 0 }, /* rollbackResult */
-    { (ASN_TAG_CLASS_CONTEXT | (45 << 2)), 3, 0, 0 } /* listProfileInfoResult */
+    { (ASN_TAG_CLASS_CONTEXT | (13 << 2)), 11, 0, 0 }, /* setFallbackAttributeResult */
+    { (ASN_TAG_CLASS_CONTEXT | (14 << 2)), 12, 0, 0 }, /* unsetFallbackAttributeResult */
+    { (ASN_TAG_CLASS_CONTEXT | (45 << 2)), 3, 0, 0 }, /* listProfileInfoResult */
+    { (ASN_TAG_CLASS_CONTEXT | (101 << 2)), 14, 0, 0 } /* setDefaultDpAddressResult */
 };
 asn_CHOICE_specifics_t asn_SPC_EuiccResultData_specs_1 = {
 	sizeof(struct EuiccResultData),
@@ -147,10 +177,10 @@ asn_CHOICE_specifics_t asn_SPC_EuiccResultData_specs_1 = {
 	offsetof(struct EuiccResultData, present),
 	sizeof(((struct EuiccResultData *)0)->present),
 	asn_MAP_EuiccResultData_tag2el_1,
-	12,	/* Count of tags in the map */
+	15,	/* Count of tags in the map */
 	asn_MAP_EuiccResultData_to_canonical_1,
 	asn_MAP_EuiccResultData_from_canonical_1,
-	12	/* Extensions start */
+	15	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_EuiccResultData = {
 	"EuiccResultData",
@@ -162,7 +192,7 @@ asn_TYPE_descriptor_t asn_DEF_EuiccResultData = {
 	0,	/* No tags (count) */
 	{ &asn_OER_type_EuiccResultData_constr_1, &asn_PER_type_EuiccResultData_constr_1, CHOICE_constraint },
 	asn_MBR_EuiccResultData_1,
-	12,	/* Elements count */
+	15,	/* Elements count */
 	&asn_SPC_EuiccResultData_specs_1	/* Additional specs */
 };
 

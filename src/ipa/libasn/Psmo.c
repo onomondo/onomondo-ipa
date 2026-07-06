@@ -11,7 +11,7 @@ static asn_oer_constraints_t asn_OER_type_Psmo_constr_1 CC_NOTUSED = {
 	{ 0, 0 },
 	-1};
 asn_per_constraints_t asn_PER_type_Psmo_constr_1 CC_NOTUSED = {
-	{ APC_CONSTRAINED | APC_EXTENSIBLE,  3,  3,  0,  5 }	/* (0..5,...) */,
+	{ APC_CONSTRAINED | APC_EXTENSIBLE,  4,  4,  0,  8 }	/* (0..8,...) */,
 	{ APC_UNCONSTRAINED,	-1, -1,  0,  0 },
 	0, 0	/* No PER value map */
 };
@@ -184,69 +184,140 @@ asn_TYPE_descriptor_t asn_DEF_getRAT_13 = {
 	&asn_SPC_getRAT_specs_13	/* Additional specs */
 };
 
-static asn_TYPE_member_t asn_MBR_configureAutoEnable_15[] = {
-	{ ATF_POINTER, 3, offsetof(struct Psmo__configureAutoEnable, autoEnableFlag),
+static asn_TYPE_member_t asn_MBR_configureImmediateEnable_15[] = {
+	{ ATF_POINTER, 3, offsetof(struct Psmo__configureImmediateEnable, immediateEnableFlag),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"autoEnableFlag"
+		"immediateEnableFlag"
 		},
-	{ ATF_POINTER, 2, offsetof(struct Psmo__configureAutoEnable, smdpOid),
+	{ ATF_POINTER, 2, offsetof(struct Psmo__configureImmediateEnable, defaultSmdpOid),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OBJECT_IDENTIFIER,
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"smdpOid"
+		"defaultSmdpOid"
 		},
-	{ ATF_POINTER, 1, offsetof(struct Psmo__configureAutoEnable, smdpAddress),
+	{ ATF_POINTER, 1, offsetof(struct Psmo__configureImmediateEnable, defaultSmdpAddress),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"smdpAddress"
+		"defaultSmdpAddress"
 		},
 };
-static const int asn_MAP_configureAutoEnable_oms_15[] = { 0, 1, 2 };
-static const ber_tlv_tag_t asn_DEF_configureAutoEnable_tags_15[] = {
+static const int asn_MAP_configureImmediateEnable_oms_15[] = { 0, 1, 2 };
+static const ber_tlv_tag_t asn_DEF_configureImmediateEnable_tags_15[] = {
 	(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
 	(ASN_TAG_CLASS_UNIVERSAL | (16 << 2))
 };
-static const asn_TYPE_tag2member_t asn_MAP_configureAutoEnable_tag2el_15[] = {
-    { (ASN_TAG_CLASS_CONTEXT | (0 << 2)), 0, 0, 0 }, /* autoEnableFlag */
-    { (ASN_TAG_CLASS_CONTEXT | (1 << 2)), 1, 0, 0 }, /* smdpOid */
-    { (ASN_TAG_CLASS_CONTEXT | (2 << 2)), 2, 0, 0 } /* smdpAddress */
+static const asn_TYPE_tag2member_t asn_MAP_configureImmediateEnable_tag2el_15[] = {
+    { (ASN_TAG_CLASS_CONTEXT | (0 << 2)), 0, 0, 0 }, /* immediateEnableFlag */
+    { (ASN_TAG_CLASS_CONTEXT | (1 << 2)), 1, 0, 0 }, /* defaultSmdpOid */
+    { (ASN_TAG_CLASS_CONTEXT | (2 << 2)), 2, 0, 0 } /* defaultSmdpAddress */
 };
-static asn_SEQUENCE_specifics_t asn_SPC_configureAutoEnable_specs_15 = {
-	sizeof(struct Psmo__configureAutoEnable),
-	offsetof(struct Psmo__configureAutoEnable, _asn_ctx),
-	asn_MAP_configureAutoEnable_tag2el_15,
+static asn_SEQUENCE_specifics_t asn_SPC_configureImmediateEnable_specs_15 = {
+	sizeof(struct Psmo__configureImmediateEnable),
+	offsetof(struct Psmo__configureImmediateEnable, _asn_ctx),
+	asn_MAP_configureImmediateEnable_tag2el_15,
 	3,	/* Count of tags in the map */
-	asn_MAP_configureAutoEnable_oms_15,	/* Optional members */
+	asn_MAP_configureImmediateEnable_oms_15,	/* Optional members */
 	3, 0,	/* Root/Additions */
 	3,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
-asn_TYPE_descriptor_t asn_DEF_configureAutoEnable_15 = {
-	"configureAutoEnable",
-	"configureAutoEnable",
+asn_TYPE_descriptor_t asn_DEF_configureImmediateEnable_15 = {
+	"configureImmediateEnable",
+	"configureImmediateEnable",
 	&asn_OP_SEQUENCE,
-	asn_DEF_configureAutoEnable_tags_15,
-	sizeof(asn_DEF_configureAutoEnable_tags_15)
-		/sizeof(asn_DEF_configureAutoEnable_tags_15[0]) - 1, /* 1 */
-	asn_DEF_configureAutoEnable_tags_15,	/* Same as above */
-	sizeof(asn_DEF_configureAutoEnable_tags_15)
-		/sizeof(asn_DEF_configureAutoEnable_tags_15[0]), /* 2 */
+	asn_DEF_configureImmediateEnable_tags_15,
+	sizeof(asn_DEF_configureImmediateEnable_tags_15)
+		/sizeof(asn_DEF_configureImmediateEnable_tags_15[0]) - 1, /* 1 */
+	asn_DEF_configureImmediateEnable_tags_15,	/* Same as above */
+	sizeof(asn_DEF_configureImmediateEnable_tags_15)
+		/sizeof(asn_DEF_configureImmediateEnable_tags_15[0]), /* 2 */
 	{ 0, 0, SEQUENCE_constraint },
-	asn_MBR_configureAutoEnable_15,
+	asn_MBR_configureImmediateEnable_15,
 	3,	/* Elements count */
-	&asn_SPC_configureAutoEnable_specs_15	/* Additional specs */
+	&asn_SPC_configureImmediateEnable_specs_15	/* Additional specs */
+};
+
+static asn_TYPE_member_t asn_MBR_setFallbackAttribute_20[] = {
+	{ ATF_NOFLAGS, 0, offsetof(struct Psmo__setFallbackAttribute, iccid),
+		(ASN_TAG_CLASS_APPLICATION | (26 << 2)),
+		-1,	/* IMPLICIT tag at current level */
+		&asn_DEF_Iccid,
+		0,
+		{ 0, 0, 0 },
+		0, 0, /* No default value */
+		"iccid"
+		},
+};
+static const ber_tlv_tag_t asn_DEF_setFallbackAttribute_tags_20[] = {
+	(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
+	(ASN_TAG_CLASS_UNIVERSAL | (16 << 2))
+};
+static const asn_TYPE_tag2member_t asn_MAP_setFallbackAttribute_tag2el_20[] = {
+    { (ASN_TAG_CLASS_APPLICATION | (26 << 2)), 0, 0, 0 } /* iccid */
+};
+static asn_SEQUENCE_specifics_t asn_SPC_setFallbackAttribute_specs_20 = {
+	sizeof(struct Psmo__setFallbackAttribute),
+	offsetof(struct Psmo__setFallbackAttribute, _asn_ctx),
+	asn_MAP_setFallbackAttribute_tag2el_20,
+	1,	/* Count of tags in the map */
+	0, 0, 0,	/* Optional elements (not needed) */
+	1,	/* First extension addition */
+};
+static /* Use -fall-defs-global to expose */
+asn_TYPE_descriptor_t asn_DEF_setFallbackAttribute_20 = {
+	"setFallbackAttribute",
+	"setFallbackAttribute",
+	&asn_OP_SEQUENCE,
+	asn_DEF_setFallbackAttribute_tags_20,
+	sizeof(asn_DEF_setFallbackAttribute_tags_20)
+		/sizeof(asn_DEF_setFallbackAttribute_tags_20[0]) - 1, /* 1 */
+	asn_DEF_setFallbackAttribute_tags_20,	/* Same as above */
+	sizeof(asn_DEF_setFallbackAttribute_tags_20)
+		/sizeof(asn_DEF_setFallbackAttribute_tags_20[0]), /* 2 */
+	{ 0, 0, SEQUENCE_constraint },
+	asn_MBR_setFallbackAttribute_20,
+	1,	/* Elements count */
+	&asn_SPC_setFallbackAttribute_specs_20	/* Additional specs */
+};
+
+static const ber_tlv_tag_t asn_DEF_unsetFallbackAttribute_tags_23[] = {
+	(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
+	(ASN_TAG_CLASS_UNIVERSAL | (16 << 2))
+};
+static asn_SEQUENCE_specifics_t asn_SPC_unsetFallbackAttribute_specs_23 = {
+	sizeof(struct Psmo__unsetFallbackAttribute),
+	offsetof(struct Psmo__unsetFallbackAttribute, _asn_ctx),
+	0,	/* No top level tags */
+	0,	/* No tags in the map */
+	0, 0, 0,	/* Optional elements (not needed) */
+	-1,	/* First extension addition */
+};
+static /* Use -fall-defs-global to expose */
+asn_TYPE_descriptor_t asn_DEF_unsetFallbackAttribute_23 = {
+	"unsetFallbackAttribute",
+	"unsetFallbackAttribute",
+	&asn_OP_SEQUENCE,
+	asn_DEF_unsetFallbackAttribute_tags_23,
+	sizeof(asn_DEF_unsetFallbackAttribute_tags_23)
+		/sizeof(asn_DEF_unsetFallbackAttribute_tags_23[0]) - 1, /* 1 */
+	asn_DEF_unsetFallbackAttribute_tags_23,	/* Same as above */
+	sizeof(asn_DEF_unsetFallbackAttribute_tags_23)
+		/sizeof(asn_DEF_unsetFallbackAttribute_tags_23[0]), /* 2 */
+	{ 0, 0, SEQUENCE_constraint },
+	0, 0,	/* No members */
+	&asn_SPC_unsetFallbackAttribute_specs_23	/* Additional specs */
 };
 
 asn_TYPE_member_t asn_MBR_Psmo_1[] = {
@@ -295,25 +366,55 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		0, 0, /* No default value */
 		"getRAT"
 		},
-	{ ATF_NOFLAGS, 0, offsetof(struct Psmo, choice.configureAutoEnable),
+	{ ATF_NOFLAGS, 0, offsetof(struct Psmo, choice.configureImmediateEnable),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
 		0,
-		&asn_DEF_configureAutoEnable_15,
+		&asn_DEF_configureImmediateEnable_15,
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"configureAutoEnable"
+		"configureImmediateEnable"
+		},
+	{ ATF_NOFLAGS, 0, offsetof(struct Psmo, choice.setFallbackAttribute),
+		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
+		0,
+		&asn_DEF_setFallbackAttribute_20,
+		0,
+		{ 0, 0, 0 },
+		0, 0, /* No default value */
+		"setFallbackAttribute"
+		},
+	{ ATF_NOFLAGS, 0, offsetof(struct Psmo, choice.unsetFallbackAttribute),
+		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
+		0,
+		&asn_DEF_unsetFallbackAttribute_23,
+		0,
+		{ 0, 0, 0 },
+		0, 0, /* No default value */
+		"unsetFallbackAttribute"
+		},
+	{ ATF_NOFLAGS, 0, offsetof(struct Psmo, choice.setDefaultDpAddress),
+		(ASN_TAG_CLASS_CONTEXT | (101 << 2)),
+		-1,	/* IMPLICIT tag at current level */
+		&asn_DEF_SGP32_SetDefaultDpAddressRequest,
+		0,
+		{ 0, 0, 0 },
+		0, 0, /* No default value */
+		"setDefaultDpAddress"
 		},
 };
-static const unsigned asn_MAP_Psmo_to_canonical_1[] = { 0, 1, 2, 4, 5, 3 };
-static const unsigned asn_MAP_Psmo_from_canonical_1[] = { 0, 1, 2, 5, 3, 4 };
+static const unsigned asn_MAP_Psmo_to_canonical_1[] = { 0, 1, 2, 4, 5, 6, 7, 3, 8 };
+static const unsigned asn_MAP_Psmo_from_canonical_1[] = { 0, 1, 2, 7, 3, 4, 5, 6, 8 };
 static const asn_TYPE_tag2member_t asn_MAP_Psmo_tag2el_1[] = {
     { (ASN_TAG_CLASS_CONTEXT | (3 << 2)), 0, 0, 0 }, /* enable */
     { (ASN_TAG_CLASS_CONTEXT | (4 << 2)), 1, 0, 0 }, /* disable */
     { (ASN_TAG_CLASS_CONTEXT | (5 << 2)), 2, 0, 0 }, /* delete */
     { (ASN_TAG_CLASS_CONTEXT | (6 << 2)), 4, 0, 0 }, /* getRAT */
-    { (ASN_TAG_CLASS_CONTEXT | (7 << 2)), 5, 0, 0 }, /* configureAutoEnable */
-    { (ASN_TAG_CLASS_CONTEXT | (45 << 2)), 3, 0, 0 } /* listProfileInfo */
+    { (ASN_TAG_CLASS_CONTEXT | (7 << 2)), 5, 0, 0 }, /* configureImmediateEnable */
+    { (ASN_TAG_CLASS_CONTEXT | (8 << 2)), 6, 0, 0 }, /* setFallbackAttribute */
+    { (ASN_TAG_CLASS_CONTEXT | (9 << 2)), 7, 0, 0 }, /* unsetFallbackAttribute */
+    { (ASN_TAG_CLASS_CONTEXT | (45 << 2)), 3, 0, 0 }, /* listProfileInfo */
+    { (ASN_TAG_CLASS_CONTEXT | (101 << 2)), 8, 0, 0 } /* setDefaultDpAddress */
 };
 asn_CHOICE_specifics_t asn_SPC_Psmo_specs_1 = {
 	sizeof(struct Psmo),
@@ -321,10 +422,10 @@ asn_CHOICE_specifics_t asn_SPC_Psmo_specs_1 = {
 	offsetof(struct Psmo, present),
 	sizeof(((struct Psmo *)0)->present),
 	asn_MAP_Psmo_tag2el_1,
-	6,	/* Count of tags in the map */
+	9,	/* Count of tags in the map */
 	asn_MAP_Psmo_to_canonical_1,
 	asn_MAP_Psmo_from_canonical_1,
-	6	/* Extensions start */
+	9	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_Psmo = {
 	"Psmo",
@@ -336,7 +437,7 @@ asn_TYPE_descriptor_t asn_DEF_Psmo = {
 	0,	/* No tags (count) */
 	{ &asn_OER_type_Psmo_constr_1, &asn_PER_type_Psmo_constr_1, CHOICE_constraint },
 	asn_MBR_Psmo_1,
-	6,	/* Elements count */
+	9,	/* Elements count */
 	&asn_SPC_Psmo_specs_1	/* Additional specs */
 };
 

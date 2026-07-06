@@ -7,149 +7,61 @@
 
 #include "ProvideEimPackageResult.h"
 
-static asn_oer_constraints_t asn_OER_type_ProvideEimPackageResult_constr_1 CC_NOTUSED = {
-	{ 0, 0 },
-	-1};
-asn_per_constraints_t asn_PER_type_ProvideEimPackageResult_constr_1 CC_NOTUSED = {
-	{ APC_CONSTRAINED | APC_EXTENSIBLE,  3,  3,  0,  4 }	/* (0..4,...) */,
-	{ APC_UNCONSTRAINED,	-1, -1,  0,  0 },
-	0, 0	/* No PER value map */
-};
-static asn_TYPE_member_t asn_MBR_ePRAndNotifications_3[] = {
-	{ ATF_NOFLAGS, 0, offsetof(struct ProvideEimPackageResult__ePRAndNotifications, euiccPackageResult),
-		(ASN_TAG_CLASS_CONTEXT | (81 << 2)),
+asn_TYPE_member_t asn_MBR_ProvideEimPackageResult_1[] = {
+	{ ATF_POINTER, 1, offsetof(struct ProvideEimPackageResult, eidValue),
+		(ASN_TAG_CLASS_APPLICATION | (26 << 2)),
 		-1,	/* IMPLICIT tag at current level */
-		&asn_DEF_EuiccPackageResult,
+		&asn_DEF_Octet16,
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccPackageResult"
+		"eidValue"
 		},
-	{ ATF_NOFLAGS, 0, offsetof(struct ProvideEimPackageResult__ePRAndNotifications, notificationList),
-		(ASN_TAG_CLASS_CONTEXT | (43 << 2)),
-		-1,	/* IMPLICIT tag at current level */
-		&asn_DEF_SGP32_RetrieveNotificationsListResponse,
+	{ ATF_NOFLAGS, 0, offsetof(struct ProvideEimPackageResult, eimPackageResult),
+		-1 /* Ambiguous tag (CHOICE?) */,
+		0,
+		&asn_DEF_EimPackageResult,
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"notificationList"
+		"eimPackageResult"
 		},
 };
-static const ber_tlv_tag_t asn_DEF_ePRAndNotifications_tags_3[] = {
+static const int asn_MAP_ProvideEimPackageResult_oms_1[] = { 0 };
+static const ber_tlv_tag_t asn_DEF_ProvideEimPackageResult_tags_1[] = {
+	(ASN_TAG_CLASS_CONTEXT | (80 << 2)),
 	(ASN_TAG_CLASS_UNIVERSAL | (16 << 2))
 };
-static const asn_TYPE_tag2member_t asn_MAP_ePRAndNotifications_tag2el_3[] = {
-    { (ASN_TAG_CLASS_CONTEXT | (43 << 2)), 1, 0, 0 }, /* notificationList */
-    { (ASN_TAG_CLASS_CONTEXT | (81 << 2)), 0, 0, 0 } /* euiccPackageResult */
-};
-static asn_SEQUENCE_specifics_t asn_SPC_ePRAndNotifications_specs_3 = {
-	sizeof(struct ProvideEimPackageResult__ePRAndNotifications),
-	offsetof(struct ProvideEimPackageResult__ePRAndNotifications, _asn_ctx),
-	asn_MAP_ePRAndNotifications_tag2el_3,
-	2,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
-	2,	/* First extension addition */
-};
-static /* Use -fall-defs-global to expose */
-asn_TYPE_descriptor_t asn_DEF_ePRAndNotifications_3 = {
-	"ePRAndNotifications",
-	"ePRAndNotifications",
-	&asn_OP_SEQUENCE,
-	asn_DEF_ePRAndNotifications_tags_3,
-	sizeof(asn_DEF_ePRAndNotifications_tags_3)
-		/sizeof(asn_DEF_ePRAndNotifications_tags_3[0]), /* 1 */
-	asn_DEF_ePRAndNotifications_tags_3,	/* Same as above */
-	sizeof(asn_DEF_ePRAndNotifications_tags_3)
-		/sizeof(asn_DEF_ePRAndNotifications_tags_3[0]), /* 1 */
-	{ 0, 0, SEQUENCE_constraint },
-	asn_MBR_ePRAndNotifications_3,
-	2,	/* Elements count */
-	&asn_SPC_ePRAndNotifications_specs_3	/* Additional specs */
-};
-
-asn_TYPE_member_t asn_MBR_ProvideEimPackageResult_1[] = {
-	{ ATF_NOFLAGS, 0, offsetof(struct ProvideEimPackageResult, choice.euiccPackageResult),
-		(ASN_TAG_CLASS_CONTEXT | (81 << 2)),
-		-1,	/* IMPLICIT tag at current level */
-		&asn_DEF_EuiccPackageResult,
-		0,
-		{ 0, 0, 0 },
-		0, 0, /* No default value */
-		"euiccPackageResult"
-		},
-	{ ATF_NOFLAGS, 0, offsetof(struct ProvideEimPackageResult, choice.ePRAndNotifications),
-		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
-		0,
-		&asn_DEF_ePRAndNotifications_3,
-		0,
-		{ 0, 0, 0 },
-		0, 0, /* No default value */
-		"ePRAndNotifications"
-		},
-	{ ATF_NOFLAGS, 0, offsetof(struct ProvideEimPackageResult, choice.ipaEuiccDataResponse),
-		(ASN_TAG_CLASS_CONTEXT | (82 << 2)),
-		-1,	/* IMPLICIT tag at current level */
-		&asn_DEF_IpaEuiccDataResponse,
-		0,
-		{ 0, 0, 0 },
-		0, 0, /* No default value */
-		"ipaEuiccDataResponse"
-		},
-	{ ATF_NOFLAGS, 0, offsetof(struct ProvideEimPackageResult, choice.profileDownloadTriggerResult),
-		(ASN_TAG_CLASS_CONTEXT | (84 << 2)),
-		-1,	/* IMPLICIT tag at current level */
-		&asn_DEF_ProfileDownloadTriggerResult,
-		0,
-		{ 0, 0, 0 },
-		0, 0, /* No default value */
-		"profileDownloadTriggerResult"
-		},
-	{ ATF_NOFLAGS, 0, offsetof(struct ProvideEimPackageResult, choice.eimPackageError),
-		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
-		0,
-		&asn_DEF_NativeInteger,
-		0,
-		{ 0, 0, 0 },
-		0, 0, /* No default value */
-		"eimPackageError"
-		},
-};
-static const unsigned asn_MAP_ProvideEimPackageResult_to_canonical_1[] = { 4, 1, 0, 2, 3 };
-static const unsigned asn_MAP_ProvideEimPackageResult_from_canonical_1[] = { 2, 1, 3, 4, 0 };
-static const ber_tlv_tag_t asn_DEF_ProvideEimPackageResult_tags_1[] = {
-	(ASN_TAG_CLASS_CONTEXT | (80 << 2))
-};
 static const asn_TYPE_tag2member_t asn_MAP_ProvideEimPackageResult_tag2el_1[] = {
-    { (ASN_TAG_CLASS_UNIVERSAL | (2 << 2)), 4, 0, 0 }, /* eimPackageError */
     { (ASN_TAG_CLASS_UNIVERSAL | (16 << 2)), 1, 0, 0 }, /* ePRAndNotifications */
-    { (ASN_TAG_CLASS_CONTEXT | (81 << 2)), 0, 0, 0 }, /* euiccPackageResult */
-    { (ASN_TAG_CLASS_CONTEXT | (82 << 2)), 2, 0, 0 }, /* ipaEuiccDataResponse */
-    { (ASN_TAG_CLASS_CONTEXT | (84 << 2)), 3, 0, 0 } /* profileDownloadTriggerResult */
+    { (ASN_TAG_CLASS_APPLICATION | (26 << 2)), 0, 0, 0 }, /* eidValue */
+    { (ASN_TAG_CLASS_CONTEXT | (0 << 2)), 1, 0, 0 }, /* eimPackageResultResponseError */
+    { (ASN_TAG_CLASS_CONTEXT | (81 << 2)), 1, 0, 0 }, /* euiccPackageResult */
+    { (ASN_TAG_CLASS_CONTEXT | (82 << 2)), 1, 0, 0 }, /* ipaEuiccDataResponse */
+    { (ASN_TAG_CLASS_CONTEXT | (84 << 2)), 1, 0, 0 } /* profileDownloadTriggerResult */
 };
-asn_CHOICE_specifics_t asn_SPC_ProvideEimPackageResult_specs_1 = {
+asn_SEQUENCE_specifics_t asn_SPC_ProvideEimPackageResult_specs_1 = {
 	sizeof(struct ProvideEimPackageResult),
 	offsetof(struct ProvideEimPackageResult, _asn_ctx),
-	offsetof(struct ProvideEimPackageResult, present),
-	sizeof(((struct ProvideEimPackageResult *)0)->present),
 	asn_MAP_ProvideEimPackageResult_tag2el_1,
-	5,	/* Count of tags in the map */
-	asn_MAP_ProvideEimPackageResult_to_canonical_1,
-	asn_MAP_ProvideEimPackageResult_from_canonical_1,
-	5	/* Extensions start */
+	6,	/* Count of tags in the map */
+	asn_MAP_ProvideEimPackageResult_oms_1,	/* Optional members */
+	1, 0,	/* Root/Additions */
+	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ProvideEimPackageResult = {
 	"ProvideEimPackageResult",
 	"ProvideEimPackageResult",
-	&asn_OP_CHOICE,
+	&asn_OP_SEQUENCE,
 	asn_DEF_ProvideEimPackageResult_tags_1,
 	sizeof(asn_DEF_ProvideEimPackageResult_tags_1)
-		/sizeof(asn_DEF_ProvideEimPackageResult_tags_1[0]), /* 1 */
+		/sizeof(asn_DEF_ProvideEimPackageResult_tags_1[0]) - 1, /* 1 */
 	asn_DEF_ProvideEimPackageResult_tags_1,	/* Same as above */
 	sizeof(asn_DEF_ProvideEimPackageResult_tags_1)
-		/sizeof(asn_DEF_ProvideEimPackageResult_tags_1[0]), /* 1 */
-	{ &asn_OER_type_ProvideEimPackageResult_constr_1, &asn_PER_type_ProvideEimPackageResult_constr_1, CHOICE_constraint },
+		/sizeof(asn_DEF_ProvideEimPackageResult_tags_1[0]), /* 2 */
+	{ 0, 0, SEQUENCE_constraint },
 	asn_MBR_ProvideEimPackageResult_1,
-	5,	/* Elements count */
+	2,	/* Elements count */
 	&asn_SPC_ProvideEimPackageResult_specs_1	/* Additional specs */
 };
 

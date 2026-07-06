@@ -33,10 +33,10 @@ memb_rPLMN_constraint_1(const asn_TYPE_descriptor_t *td, const void *sptr,
 	}
 }
 
-static asn_oer_constraints_t asn_OER_memb_rPLMN_constr_4 CC_NOTUSED = {
+static asn_oer_constraints_t asn_OER_memb_rPLMN_constr_5 CC_NOTUSED = {
 	{ 0, 0 },
 	3	/* (SIZE(3..3)) */};
-static asn_per_constraints_t asn_PER_memb_rPLMN_constr_4 CC_NOTUSED = {
+static asn_per_constraints_t asn_PER_memb_rPLMN_constr_5 CC_NOTUSED = {
 	{ APC_UNCONSTRAINED,	-1, -1,  0,  0 },
 	{ APC_CONSTRAINED,	 0,  0,  3,  3 }	/* (SIZE(3..3)) */,
 	0, 0	/* No PER value map */
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_GetEimPackageRequest_1[] = {
 		0, 0, /* No default value */
 		"eidValue"
 		},
-	{ ATF_POINTER, 2, offsetof(struct GetEimPackageRequest, notifyStateChange),
+	{ ATF_POINTER, 3, offsetof(struct GetEimPackageRequest, notifyStateChange),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
@@ -60,17 +60,26 @@ asn_TYPE_member_t asn_MBR_GetEimPackageRequest_1[] = {
 		0, 0, /* No default value */
 		"notifyStateChange"
 		},
-	{ ATF_POINTER, 1, offsetof(struct GetEimPackageRequest, rPLMN),
+	{ ATF_POINTER, 2, offsetof(struct GetEimPackageRequest, stateChangeCause),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
+		-1,	/* IMPLICIT tag at current level */
+		&asn_DEF_StateChangeCause,
+		0,
+		{ 0, 0, 0 },
+		0, 0, /* No default value */
+		"stateChangeCause"
+		},
+	{ ATF_POINTER, 1, offsetof(struct GetEimPackageRequest, rPLMN),
+		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ &asn_OER_memb_rPLMN_constr_4, &asn_PER_memb_rPLMN_constr_4,  memb_rPLMN_constraint_1 },
+		{ &asn_OER_memb_rPLMN_constr_5, &asn_PER_memb_rPLMN_constr_5,  memb_rPLMN_constraint_1 },
 		0, 0, /* No default value */
 		"rPLMN"
 		},
 };
-static const int asn_MAP_GetEimPackageRequest_oms_1[] = { 1, 2 };
+static const int asn_MAP_GetEimPackageRequest_oms_1[] = { 1, 2, 3 };
 static const ber_tlv_tag_t asn_DEF_GetEimPackageRequest_tags_1[] = {
 	(ASN_TAG_CLASS_CONTEXT | (79 << 2)),
 	(ASN_TAG_CLASS_UNIVERSAL | (16 << 2))
@@ -78,16 +87,17 @@ static const ber_tlv_tag_t asn_DEF_GetEimPackageRequest_tags_1[] = {
 static const asn_TYPE_tag2member_t asn_MAP_GetEimPackageRequest_tag2el_1[] = {
     { (ASN_TAG_CLASS_APPLICATION | (26 << 2)), 0, 0, 0 }, /* eidValue */
     { (ASN_TAG_CLASS_CONTEXT | (0 << 2)), 1, 0, 0 }, /* notifyStateChange */
-    { (ASN_TAG_CLASS_CONTEXT | (1 << 2)), 2, 0, 0 } /* rPLMN */
+    { (ASN_TAG_CLASS_CONTEXT | (1 << 2)), 2, 0, 0 }, /* stateChangeCause */
+    { (ASN_TAG_CLASS_CONTEXT | (2 << 2)), 3, 0, 0 } /* rPLMN */
 };
 asn_SEQUENCE_specifics_t asn_SPC_GetEimPackageRequest_specs_1 = {
 	sizeof(struct GetEimPackageRequest),
 	offsetof(struct GetEimPackageRequest, _asn_ctx),
 	asn_MAP_GetEimPackageRequest_tag2el_1,
-	3,	/* Count of tags in the map */
+	4,	/* Count of tags in the map */
 	asn_MAP_GetEimPackageRequest_oms_1,	/* Optional members */
-	2, 0,	/* Root/Additions */
-	3,	/* First extension addition */
+	3, 0,	/* Root/Additions */
+	4,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_GetEimPackageRequest = {
 	"GetEimPackageRequest",
@@ -101,7 +111,7 @@ asn_TYPE_descriptor_t asn_DEF_GetEimPackageRequest = {
 		/sizeof(asn_DEF_GetEimPackageRequest_tags_1[0]), /* 2 */
 	{ 0, 0, SEQUENCE_constraint },
 	asn_MBR_GetEimPackageRequest_1,
-	3,	/* Elements count */
+	4,	/* Elements count */
 	&asn_SPC_GetEimPackageRequest_specs_1	/* Additional specs */
 };
 

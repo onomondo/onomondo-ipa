@@ -25,14 +25,14 @@ asn_TYPE_member_t asn_MBR_IpaEuiccDataResponse_1[] = {
 		0, 0, /* No default value */
 		"ipaEuiccData"
 		},
-	{ ATF_NOFLAGS, 0, offsetof(struct IpaEuiccDataResponse, choice.ipaEuiccDataError),
+	{ ATF_NOFLAGS, 0, offsetof(struct IpaEuiccDataResponse, choice.ipaEuiccDataResponseError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
 		-1,	/* IMPLICIT tag at current level */
-		&asn_DEF_NativeInteger,
+		&asn_DEF_IpaEuiccDataResponseError,
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ipaEuiccDataError"
+		"ipaEuiccDataResponseError"
 		},
 };
 static const ber_tlv_tag_t asn_DEF_IpaEuiccDataResponse_tags_1[] = {
@@ -40,7 +40,7 @@ static const ber_tlv_tag_t asn_DEF_IpaEuiccDataResponse_tags_1[] = {
 };
 static const asn_TYPE_tag2member_t asn_MAP_IpaEuiccDataResponse_tag2el_1[] = {
     { (ASN_TAG_CLASS_CONTEXT | (0 << 2)), 0, 0, 0 }, /* ipaEuiccData */
-    { (ASN_TAG_CLASS_CONTEXT | (1 << 2)), 1, 0, 0 } /* ipaEuiccDataError */
+    { (ASN_TAG_CLASS_CONTEXT | (1 << 2)), 1, 0, 0 } /* ipaEuiccDataResponseError */
 };
 asn_CHOICE_specifics_t asn_SPC_IpaEuiccDataResponse_specs_1 = {
 	sizeof(struct IpaEuiccDataResponse),

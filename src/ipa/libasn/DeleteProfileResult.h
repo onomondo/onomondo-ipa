@@ -23,6 +23,9 @@ typedef enum DeleteProfileResult {
 	DeleteProfileResult_ok	= 0,
 	DeleteProfileResult_iccidOrAidNotFound	= 1,
 	DeleteProfileResult_profileNotInDisabledState	= 2,
+	DeleteProfileResult_disallowedByPolicy	= 3,
+	DeleteProfileResult_rollbackNotAvailable	= 20,
+	DeleteProfileResult_returnFallbackProfile	= 21,
 	DeleteProfileResult_undefinedError	= 127
 } e_DeleteProfileResult;
 

@@ -19,7 +19,7 @@ static asn_TYPE_member_t asn_MBR_SGP32_EuiccMemoryResetRequest_1[] = {
 		},
 };
 static const ber_tlv_tag_t asn_DEF_SGP32_EuiccMemoryResetRequest_tags_1[] = {
-	(ASN_TAG_CLASS_CONTEXT | (52 << 2)),
+	(ASN_TAG_CLASS_CONTEXT | (100 << 2)),
 	(ASN_TAG_CLASS_UNIVERSAL | (16 << 2))
 };
 static const asn_TYPE_tag2member_t asn_MAP_SGP32_EuiccMemoryResetRequest_tag2el_1[] = {

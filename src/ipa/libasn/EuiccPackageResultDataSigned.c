@@ -7,6 +7,46 @@
 
 #include "EuiccPackageResultDataSigned.h"
 
+static int
+memb_eimId_constraint_1(const asn_TYPE_descriptor_t *td, const void *sptr,
+			asn_app_constraint_failed_f *ctfailcb, void *app_key) {
+	const UTF8String_t *st = (const UTF8String_t *)sptr;
+	size_t size;
+	
+	if(!sptr) {
+		ASN__CTFAIL(app_key, td, sptr,
+			"%s: value not given (%s:%d)",
+			td->name, __FILE__, __LINE__);
+		return -1;
+	}
+	
+	size = UTF8String_length(st);
+	if((ssize_t)size < 0) {
+		ASN__CTFAIL(app_key, td, sptr,
+			"%s: UTF-8: broken encoding (%s:%d)",
+			td->name, __FILE__, __LINE__);
+		return -1;
+	}
+	
+	if((size >= 1 && size <= 128)) {
+		/* Constraint check succeeded */
+		return 0;
+	} else {
+		ASN__CTFAIL(app_key, td, sptr,
+			"%s: constraint failed (%s:%d)",
+			td->name, __FILE__, __LINE__);
+		return -1;
+	}
+}
+
+static asn_oer_constraints_t asn_OER_memb_eimId_constr_2 CC_NOTUSED = {
+	{ 0, 0 },
+	-1	/* (SIZE(0..MAX)) */};
+static asn_per_constraints_t asn_PER_memb_eimId_constr_2 CC_NOTUSED = {
+	{ APC_UNCONSTRAINED,	-1, -1,  0,  0 },
+	{ APC_UNCONSTRAINED,	-1, -1,  0,  0 },
+	0, 0	/* No PER value map */
+};
 static asn_TYPE_member_t asn_MBR_euiccResult_6[] = {
 	{ ATF_POINTER, 0, 0,
 		-1 /* Ambiguous tag (CHOICE?) */,
@@ -49,7 +89,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageResultDataSigned_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		{ &asn_OER_memb_eimId_constr_2, &asn_PER_memb_eimId_constr_2,  memb_eimId_constraint_1 },
 		0, 0, /* No default value */
 		"eimId"
 		},
@@ -62,14 +102,14 @@ asn_TYPE_member_t asn_MBR_EuiccPackageResultDataSigned_1[] = {
 		0, 0, /* No default value */
 		"counterValue"
 		},
-	{ ATF_POINTER, 1, offsetof(struct EuiccPackageResultDataSigned, transactionId),
+	{ ATF_POINTER, 1, offsetof(struct EuiccPackageResultDataSigned, eimTransactionId),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_TransactionId,
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"transactionId"
+		"eimTransactionId"
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccPackageResultDataSigned, seqNumber),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -98,7 +138,7 @@ static const asn_TYPE_tag2member_t asn_MAP_EuiccPackageResultDataSigned_tag2el_1
     { (ASN_TAG_CLASS_UNIVERSAL | (16 << 2)), 4, 0, 0 }, /* euiccResult */
     { (ASN_TAG_CLASS_CONTEXT | (0 << 2)), 0, 0, 0 }, /* eimId */
     { (ASN_TAG_CLASS_CONTEXT | (1 << 2)), 1, 0, 0 }, /* counterValue */
-    { (ASN_TAG_CLASS_CONTEXT | (2 << 2)), 2, 0, 0 }, /* transactionId */
+    { (ASN_TAG_CLASS_CONTEXT | (2 << 2)), 2, 0, 0 }, /* eimTransactionId */
     { (ASN_TAG_CLASS_CONTEXT | (3 << 2)), 3, 0, 0 } /* seqNumber */
 };
 asn_SEQUENCE_specifics_t asn_SPC_EuiccPackageResultDataSigned_specs_1 = {

@@ -13,6 +13,7 @@
 
 /* Including external dependencies */
 #include <UTF8String.h>
+#include "TransactionId.h"
 #include <NativeInteger.h>
 #include <constr_SEQUENCE.h>
 
@@ -23,6 +24,7 @@ extern "C" {
 /* EuiccPackageErrorUnsigned */
 typedef struct EuiccPackageErrorUnsigned {
 	UTF8String_t	 eimId;
+	TransactionId_t	*eimTransactionId	/* OPTIONAL */;
 	long	*associationToken	/* OPTIONAL */;
 	/*
 	 * This type is extensible,
@@ -36,7 +38,7 @@ typedef struct EuiccPackageErrorUnsigned {
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_EuiccPackageErrorUnsigned;
 extern asn_SEQUENCE_specifics_t asn_SPC_EuiccPackageErrorUnsigned_specs_1;
-extern asn_TYPE_member_t asn_MBR_EuiccPackageErrorUnsigned_1[2];
+extern asn_TYPE_member_t asn_MBR_EuiccPackageErrorUnsigned_1[3];
 
 #ifdef __cplusplus
 }

@@ -17,7 +17,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationRequestEsipa_1[] = {
 		0, 0, /* No default value */
 		"euiccChallenge"
 		},
-	{ ATF_POINTER, 2, offsetof(struct InitiateAuthenticationRequestEsipa, smdpAddress),
+	{ ATF_POINTER, 3, offsetof(struct InitiateAuthenticationRequestEsipa, smdpAddress),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
@@ -26,7 +26,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationRequestEsipa_1[] = {
 		0, 0, /* No default value */
 		"smdpAddress"
 		},
-	{ ATF_POINTER, 1, offsetof(struct InitiateAuthenticationRequestEsipa, euiccInfo1),
+	{ ATF_POINTER, 2, offsetof(struct InitiateAuthenticationRequestEsipa, euiccInfo1),
 		(ASN_TAG_CLASS_CONTEXT | (32 << 2)),
 		0,
 		&asn_DEF_EUICCInfo1,
@@ -35,14 +35,24 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationRequestEsipa_1[] = {
 		0, 0, /* No default value */
 		"euiccInfo1"
 		},
+	{ ATF_POINTER, 1, offsetof(struct InitiateAuthenticationRequestEsipa, eimTransactionId),
+		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
+		-1,	/* IMPLICIT tag at current level */
+		&asn_DEF_TransactionId,
+		0,
+		{ 0, 0, 0 },
+		0, 0, /* No default value */
+		"eimTransactionId"
+		},
 };
-static const int asn_MAP_InitiateAuthenticationRequestEsipa_oms_1[] = { 1, 2 };
+static const int asn_MAP_InitiateAuthenticationRequestEsipa_oms_1[] = { 1, 2, 3 };
 static const ber_tlv_tag_t asn_DEF_InitiateAuthenticationRequestEsipa_tags_1[] = {
 	(ASN_TAG_CLASS_CONTEXT | (57 << 2)),
 	(ASN_TAG_CLASS_UNIVERSAL | (16 << 2))
 };
 static const asn_TYPE_tag2member_t asn_MAP_InitiateAuthenticationRequestEsipa_tag2el_1[] = {
     { (ASN_TAG_CLASS_CONTEXT | (1 << 2)), 0, 0, 0 }, /* euiccChallenge */
+    { (ASN_TAG_CLASS_CONTEXT | (2 << 2)), 3, 0, 0 }, /* eimTransactionId */
     { (ASN_TAG_CLASS_CONTEXT | (3 << 2)), 1, 0, 0 }, /* smdpAddress */
     { (ASN_TAG_CLASS_CONTEXT | (32 << 2)), 2, 0, 0 } /* euiccInfo1 */
 };
@@ -50,10 +60,10 @@ asn_SEQUENCE_specifics_t asn_SPC_InitiateAuthenticationRequestEsipa_specs_1 = {
 	sizeof(struct InitiateAuthenticationRequestEsipa),
 	offsetof(struct InitiateAuthenticationRequestEsipa, _asn_ctx),
 	asn_MAP_InitiateAuthenticationRequestEsipa_tag2el_1,
-	3,	/* Count of tags in the map */
+	4,	/* Count of tags in the map */
 	asn_MAP_InitiateAuthenticationRequestEsipa_oms_1,	/* Optional members */
-	2, 0,	/* Root/Additions */
-	3,	/* First extension addition */
+	3, 0,	/* Root/Additions */
+	4,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_InitiateAuthenticationRequestEsipa = {
 	"InitiateAuthenticationRequestEsipa",
@@ -67,7 +77,7 @@ asn_TYPE_descriptor_t asn_DEF_InitiateAuthenticationRequestEsipa = {
 		/sizeof(asn_DEF_InitiateAuthenticationRequestEsipa_tags_1[0]), /* 2 */
 	{ 0, 0, SEQUENCE_constraint },
 	asn_MBR_InitiateAuthenticationRequestEsipa_1,
-	3,	/* Elements count */
+	4,	/* Elements count */
 	&asn_SPC_InitiateAuthenticationRequestEsipa_specs_1	/* Additional specs */
 };
 

@@ -28,7 +28,7 @@ typedef struct EuiccPackageSigned {
 	UTF8String_t	 eimId;
 	Octet16_t	 eidValue;
 	long	 counterValue;
-	TransactionId_t	*transactionId	/* OPTIONAL */;
+	TransactionId_t	*eimTransactionId	/* OPTIONAL */;
 	EuiccPackage_t	 euiccPackage;
 	/*
 	 * This type is extensible,

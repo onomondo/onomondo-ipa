@@ -17,6 +17,7 @@
 #include <NativeInteger.h>
 #include "EimSupportedProtocol.h"
 #include "SubjectKeyIdentifier.h"
+#include <NULL.h>
 #include "SubjectPublicKeyInfo.h"
 #include "Certificate.h"
 #include <constr_CHOICE.h>
@@ -79,6 +80,7 @@ typedef struct EimConfigurationData {
 	} *trustedPublicKeyDataTls;
 	EimSupportedProtocol_t	*eimSupportedProtocol	/* OPTIONAL */;
 	SubjectKeyIdentifier_t	*euiccCiPKId	/* OPTIONAL */;
+	NULL_t	*indirectProfileDownload	/* OPTIONAL */;
 	/*
 	 * This type is extensible,
 	 * possible extensions are below.
@@ -91,7 +93,7 @@ typedef struct EimConfigurationData {
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_EimConfigurationData;
 extern asn_SEQUENCE_specifics_t asn_SPC_EimConfigurationData_specs_1;
-extern asn_TYPE_member_t asn_MBR_EimConfigurationData_1[9];
+extern asn_TYPE_member_t asn_MBR_EimConfigurationData_1[10];
 
 #ifdef __cplusplus
 }

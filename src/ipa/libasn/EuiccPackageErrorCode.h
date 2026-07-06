@@ -24,6 +24,7 @@ typedef enum EuiccPackageErrorCode {
 	EuiccPackageErrorCode_replayError	= 4,
 	EuiccPackageErrorCode_counterValueOutOfRange	= 6,
 	EuiccPackageErrorCode_sizeOverflow	= 15,
+	EuiccPackageErrorCode_ecallActive	= 104,
 	EuiccPackageErrorCode_undefinedError	= 127
 } e_EuiccPackageErrorCode;
 

@@ -14,6 +14,7 @@
 /* Including external dependencies */
 #include <UTF8String.h>
 #include <NativeInteger.h>
+#include "TransactionId.h"
 #include <constr_SEQUENCE.h>
 
 #ifdef __cplusplus
@@ -21,25 +22,28 @@ extern "C" {
 #endif
 
 /* Forward declarations */
+struct PendingNotificationList;
+struct EuiccPackageResultList;
 struct EUICCInfo1;
 struct SGP32_EUICCInfo2;
 struct Certificate;
 struct IpaCapabilities;
 struct DeviceInfo;
-struct SGP32_RetrieveNotificationsListResponse;
 
 /* IpaEuiccData */
 typedef struct IpaEuiccData {
+	struct PendingNotificationList	*notificationsList	/* OPTIONAL */;
 	UTF8String_t	*defaultSmdpAddress	/* OPTIONAL */;
+	struct EuiccPackageResultList	*euiccPackageResultList	/* OPTIONAL */;
 	struct EUICCInfo1	*euiccInfo1	/* OPTIONAL */;
 	struct SGP32_EUICCInfo2	*euiccInfo2	/* OPTIONAL */;
 	UTF8String_t	*rootSmdsAddress	/* OPTIONAL */;
 	long	*associationToken	/* OPTIONAL */;
 	struct Certificate	*eumCertificate	/* OPTIONAL */;
 	struct Certificate	*euiccCertificate	/* OPTIONAL */;
+	TransactionId_t	*eimTransactionId	/* OPTIONAL */;
 	struct IpaCapabilities	*ipaCapabilities	/* OPTIONAL */;
 	struct DeviceInfo	*deviceInfo	/* OPTIONAL */;
-	struct SGP32_RetrieveNotificationsListResponse	*notificationsList	/* OPTIONAL */;
 	/*
 	 * This type is extensible,
 	 * possible extensions are below.
@@ -52,19 +56,20 @@ typedef struct IpaEuiccData {
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_IpaEuiccData;
 extern asn_SEQUENCE_specifics_t asn_SPC_IpaEuiccData_specs_1;
-extern asn_TYPE_member_t asn_MBR_IpaEuiccData_1[10];
+extern asn_TYPE_member_t asn_MBR_IpaEuiccData_1[12];
 
 #ifdef __cplusplus
 }
 #endif
 
 /* Referred external types */
+#include "PendingNotificationList.h"
+#include "EuiccPackageResultList.h"
 #include "EUICCInfo1.h"
 #include "SGP32-EUICCInfo2.h"
 #include "Certificate.h"
 #include "IpaCapabilities.h"
 #include "DeviceInfo.h"
-#include "SGP32-RetrieveNotificationsListResponse.h"
 
 #endif	/* _IpaEuiccData_H_ */
 #include <asn_internal.h>

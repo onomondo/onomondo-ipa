@@ -5,27 +5,23 @@
  * 	`asn1c -fcompound-names -no-gen-example`
  */
 
-#ifndef	_ConfigureAutoProfileEnablingRequest_H_
-#define	_ConfigureAutoProfileEnablingRequest_H_
+#ifndef	_DisableEmergencyProfileRequest_H_
+#define	_DisableEmergencyProfileRequest_H_
 
 
 #include <asn_application.h>
 
 /* Including external dependencies */
-#include <NULL.h>
-#include <OBJECT_IDENTIFIER.h>
-#include <UTF8String.h>
+#include <BOOLEAN.h>
 #include <constr_SEQUENCE.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/* ConfigureAutoProfileEnablingRequest */
-typedef struct ConfigureAutoProfileEnablingRequest {
-	NULL_t	*autoEnableFlag	/* OPTIONAL */;
-	OBJECT_IDENTIFIER_t	*smdpOid	/* OPTIONAL */;
-	UTF8String_t	*smdpAddress	/* OPTIONAL */;
+/* DisableEmergencyProfileRequest */
+typedef struct DisableEmergencyProfileRequest {
+	BOOLEAN_t	 refreshFlag;
 	/*
 	 * This type is extensible,
 	 * possible extensions are below.
@@ -33,14 +29,14 @@ typedef struct ConfigureAutoProfileEnablingRequest {
 	
 	/* Context for parsing across buffer boundaries */
 	asn_struct_ctx_t _asn_ctx;
-} ConfigureAutoProfileEnablingRequest_t;
+} DisableEmergencyProfileRequest_t;
 
 /* Implementation */
-extern asn_TYPE_descriptor_t asn_DEF_ConfigureAutoProfileEnablingRequest;
+extern asn_TYPE_descriptor_t asn_DEF_DisableEmergencyProfileRequest;
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif	/* _ConfigureAutoProfileEnablingRequest_H_ */
+#endif	/* _DisableEmergencyProfileRequest_H_ */
 #include <asn_internal.h>

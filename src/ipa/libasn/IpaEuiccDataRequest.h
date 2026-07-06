@@ -13,10 +13,9 @@
 
 /* Including external dependencies */
 #include <OCTET_STRING.h>
-#include "SubjectKeyIdentifier.h"
+#include "TransactionId.h"
 #include <NativeInteger.h>
 #include "NotificationEvent.h"
-#include <NULL.h>
 #include <constr_CHOICE.h>
 #include <constr_SEQUENCE.h>
 
@@ -25,25 +24,29 @@ extern "C" {
 #endif
 
 /* Dependencies */
-typedef enum IpaEuiccDataRequest__searchCriteria_PR {
-	IpaEuiccDataRequest__searchCriteria_PR_NOTHING,	/* No components present */
-	IpaEuiccDataRequest__searchCriteria_PR_seqNumber,
-	IpaEuiccDataRequest__searchCriteria_PR_profileManagementOperation,
-	IpaEuiccDataRequest__searchCriteria_PR_euiccPackageResults
+typedef enum IpaEuiccDataRequest__searchCriteriaNotification_PR {
+	IpaEuiccDataRequest__searchCriteriaNotification_PR_NOTHING,	/* No components present */
+	IpaEuiccDataRequest__searchCriteriaNotification_PR_seqNumber,
+	IpaEuiccDataRequest__searchCriteriaNotification_PR_profileManagementOperation
 	/* Extensions may appear below */
 	
-} IpaEuiccDataRequest__searchCriteria_PR;
+} IpaEuiccDataRequest__searchCriteriaNotification_PR;
+typedef enum IpaEuiccDataRequest__searchCriteriaEuiccPackageResult_PR {
+	IpaEuiccDataRequest__searchCriteriaEuiccPackageResult_PR_NOTHING,	/* No components present */
+	IpaEuiccDataRequest__searchCriteriaEuiccPackageResult_PR_seqNumber
+	/* Extensions may appear below */
+	
+} IpaEuiccDataRequest__searchCriteriaEuiccPackageResult_PR;
 
 /* IpaEuiccDataRequest */
 typedef struct IpaEuiccDataRequest {
 	OCTET_STRING_t	 tagList;
-	SubjectKeyIdentifier_t	*euiccCiPKId	/* OPTIONAL */;
-	struct IpaEuiccDataRequest__searchCriteria {
-		IpaEuiccDataRequest__searchCriteria_PR present;
-		union IpaEuiccDataRequest__searchCriteria_u {
+	OCTET_STRING_t	*euiccCiPKIdentifierToBeUsed	/* OPTIONAL */;
+	struct IpaEuiccDataRequest__searchCriteriaNotification {
+		IpaEuiccDataRequest__searchCriteriaNotification_PR present;
+		union IpaEuiccDataRequest__searchCriteriaNotification_u {
 			long	 seqNumber;
 			NotificationEvent_t	 profileManagementOperation;
-			NULL_t	 euiccPackageResults;
 			/*
 			 * This type is extensible,
 			 * possible extensions are below.
@@ -52,7 +55,21 @@ typedef struct IpaEuiccDataRequest {
 		
 		/* Context for parsing across buffer boundaries */
 		asn_struct_ctx_t _asn_ctx;
-	} *searchCriteria;
+	} *searchCriteriaNotification;
+	struct IpaEuiccDataRequest__searchCriteriaEuiccPackageResult {
+		IpaEuiccDataRequest__searchCriteriaEuiccPackageResult_PR present;
+		union IpaEuiccDataRequest__searchCriteriaEuiccPackageResult_u {
+			long	 seqNumber;
+			/*
+			 * This type is extensible,
+			 * possible extensions are below.
+			 */
+		} choice;
+		
+		/* Context for parsing across buffer boundaries */
+		asn_struct_ctx_t _asn_ctx;
+	} *searchCriteriaEuiccPackageResult;
+	TransactionId_t	*eimTransactionId	/* OPTIONAL */;
 	/*
 	 * This type is extensible,
 	 * possible extensions are below.
@@ -65,7 +82,7 @@ typedef struct IpaEuiccDataRequest {
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_IpaEuiccDataRequest;
 extern asn_SEQUENCE_specifics_t asn_SPC_IpaEuiccDataRequest_specs_1;
-extern asn_TYPE_member_t asn_MBR_IpaEuiccDataRequest_1[3];
+extern asn_TYPE_member_t asn_MBR_IpaEuiccDataRequest_1[5];
 
 #ifdef __cplusplus
 }

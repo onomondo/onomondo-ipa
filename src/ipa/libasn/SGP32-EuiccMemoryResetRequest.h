@@ -24,8 +24,10 @@ typedef enum SGP32_EuiccMemoryResetRequest__resetOptions {
 	SGP32_EuiccMemoryResetRequest__resetOptions_deleteOperationalProfiles	= 0,
 	SGP32_EuiccMemoryResetRequest__resetOptions_deleteFieldLoadedTestProfiles	= 1,
 	SGP32_EuiccMemoryResetRequest__resetOptions_resetDefaultSmdpAddress	= 2,
-	SGP32_EuiccMemoryResetRequest__resetOptions_resetEimConfigData	= 3,
-	SGP32_EuiccMemoryResetRequest__resetOptions_resetAutoEnableConfig	= 4
+	SGP32_EuiccMemoryResetRequest__resetOptions_deletePreLoadedTestProfiles	= 3,
+	SGP32_EuiccMemoryResetRequest__resetOptions_deleteProvisioningProfiles	= 4,
+	SGP32_EuiccMemoryResetRequest__resetOptions_resetEimConfigData	= 5,
+	SGP32_EuiccMemoryResetRequest__resetOptions_resetImmediateEnableConfig	= 6
 } e_SGP32_EuiccMemoryResetRequest__resetOptions;
 
 /* SGP32-EuiccMemoryResetRequest */

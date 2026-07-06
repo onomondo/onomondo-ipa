@@ -34,6 +34,9 @@ typedef enum GetEimPackageResponse_PR {
 } GetEimPackageResponse_PR;
 typedef enum GetEimPackageResponse__eimPackageError {
 	GetEimPackageResponse__eimPackageError_noEimPackageAvailable	= 1,
+	GetEimPackageResponse__eimPackageError_eidNotFound	= 2,
+	GetEimPackageResponse__eimPackageError_invalidEid	= 3,
+	GetEimPackageResponse__eimPackageError_missingEid	= 4,
 	GetEimPackageResponse__eimPackageError_undefinedError	= 127
 } e_GetEimPackageResponse__eimPackageError;
 

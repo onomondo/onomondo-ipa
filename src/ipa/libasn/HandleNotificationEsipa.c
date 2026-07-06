@@ -26,7 +26,7 @@ asn_TYPE_member_t asn_MBR_HandleNotificationEsipa_1[] = {
 		"pendingNotification"
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct HandleNotificationEsipa, choice.provideEimPackageResult),
-		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
+		(ASN_TAG_CLASS_CONTEXT | (80 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ProvideEimPackageResult,
 		0,
@@ -40,7 +40,7 @@ static const ber_tlv_tag_t asn_DEF_HandleNotificationEsipa_tags_1[] = {
 };
 static const asn_TYPE_tag2member_t asn_MAP_HandleNotificationEsipa_tag2el_1[] = {
     { (ASN_TAG_CLASS_CONTEXT | (0 << 2)), 0, 0, 0 }, /* pendingNotification */
-    { (ASN_TAG_CLASS_CONTEXT | (1 << 2)), 1, 0, 0 } /* provideEimPackageResult */
+    { (ASN_TAG_CLASS_CONTEXT | (80 << 2)), 1, 0, 0 } /* provideEimPackageResult */
 };
 asn_CHOICE_specifics_t asn_SPC_HandleNotificationEsipa_specs_1 = {
 	sizeof(struct HandleNotificationEsipa),

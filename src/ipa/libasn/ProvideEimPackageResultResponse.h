@@ -12,22 +12,51 @@
 #include <asn_application.h>
 
 /* Including external dependencies */
+#include "EimAcknowledgements.h"
+#include <NativeInteger.h>
 #include <constr_SEQUENCE.h>
+#include <constr_CHOICE.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/* Forward declarations */
-struct EimAcknowledgements;
+/* Dependencies */
+typedef enum ProvideEimPackageResultResponse_PR {
+	ProvideEimPackageResultResponse_PR_NOTHING,	/* No components present */
+	ProvideEimPackageResultResponse_PR_eimAcknowledgements,
+	ProvideEimPackageResultResponse_PR_emptyResponse,
+	ProvideEimPackageResultResponse_PR_provideEimPackageResultError
+	/* Extensions may appear below */
+	
+} ProvideEimPackageResultResponse_PR;
+typedef enum ProvideEimPackageResultResponse__provideEimPackageResultError {
+	ProvideEimPackageResultResponse__provideEimPackageResultError_eidNotFound	= 2,
+	ProvideEimPackageResultResponse__provideEimPackageResultError_invalidEid	= 3,
+	ProvideEimPackageResultResponse__provideEimPackageResultError_missingEid	= 4,
+	ProvideEimPackageResultResponse__provideEimPackageResultError_undefinedError	= 127
+} e_ProvideEimPackageResultResponse__provideEimPackageResultError;
 
 /* ProvideEimPackageResultResponse */
 typedef struct ProvideEimPackageResultResponse {
-	struct EimAcknowledgements	*eimAcknowledgements	/* OPTIONAL */;
-	/*
-	 * This type is extensible,
-	 * possible extensions are below.
-	 */
+	ProvideEimPackageResultResponse_PR present;
+	union ProvideEimPackageResultResponse_u {
+		EimAcknowledgements_t	 eimAcknowledgements;
+		struct ProvideEimPackageResultResponse__emptyResponse {
+			/*
+			 * This type is extensible,
+			 * possible extensions are below.
+			 */
+			
+			/* Context for parsing across buffer boundaries */
+			asn_struct_ctx_t _asn_ctx;
+		} emptyResponse;
+		long	 provideEimPackageResultError;
+		/*
+		 * This type is extensible,
+		 * possible extensions are below.
+		 */
+	} choice;
 	
 	/* Context for parsing across buffer boundaries */
 	asn_struct_ctx_t _asn_ctx;
@@ -35,15 +64,13 @@ typedef struct ProvideEimPackageResultResponse {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_ProvideEimPackageResultResponse;
-extern asn_SEQUENCE_specifics_t asn_SPC_ProvideEimPackageResultResponse_specs_1;
-extern asn_TYPE_member_t asn_MBR_ProvideEimPackageResultResponse_1[1];
+extern asn_CHOICE_specifics_t asn_SPC_ProvideEimPackageResultResponse_specs_1;
+extern asn_TYPE_member_t asn_MBR_ProvideEimPackageResultResponse_1[3];
+extern asn_per_constraints_t asn_PER_type_ProvideEimPackageResultResponse_constr_1;
 
 #ifdef __cplusplus
 }
 #endif
-
-/* Referred external types */
-#include "EimAcknowledgements.h"
 
 #endif	/* _ProvideEimPackageResultResponse_H_ */
 #include <asn_internal.h>

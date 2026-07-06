@@ -9,8 +9,8 @@
 
 static asn_TYPE_member_t asn_MBR_SGP32_EuiccMemoryResetResponse_1[] = {
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_EuiccMemoryResetResponse, resetResult),
-		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
-		0,
+		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
+		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
 		{ 0, 0, 0 },
@@ -26,25 +26,25 @@ static asn_TYPE_member_t asn_MBR_SGP32_EuiccMemoryResetResponse_1[] = {
 		0, 0, /* No default value */
 		"resetEimResult"
 		},
-	{ ATF_POINTER, 1, offsetof(struct SGP32_EuiccMemoryResetResponse, resetAutoEnableConfigResult),
+	{ ATF_POINTER, 1, offsetof(struct SGP32_EuiccMemoryResetResponse, resetImmediateEnableConfigResult),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"resetAutoEnableConfigResult"
+		"resetImmediateEnableConfigResult"
 		},
 };
 static const int asn_MAP_SGP32_EuiccMemoryResetResponse_oms_1[] = { 1, 2 };
 static const ber_tlv_tag_t asn_DEF_SGP32_EuiccMemoryResetResponse_tags_1[] = {
-	(ASN_TAG_CLASS_CONTEXT | (52 << 2)),
+	(ASN_TAG_CLASS_CONTEXT | (100 << 2)),
 	(ASN_TAG_CLASS_UNIVERSAL | (16 << 2))
 };
 static const asn_TYPE_tag2member_t asn_MAP_SGP32_EuiccMemoryResetResponse_tag2el_1[] = {
-    { (ASN_TAG_CLASS_UNIVERSAL | (2 << 2)), 0, 0, 0 }, /* resetResult */
+    { (ASN_TAG_CLASS_CONTEXT | (0 << 2)), 0, 0, 0 }, /* resetResult */
     { (ASN_TAG_CLASS_CONTEXT | (1 << 2)), 1, 0, 0 }, /* resetEimResult */
-    { (ASN_TAG_CLASS_CONTEXT | (2 << 2)), 2, 0, 0 } /* resetAutoEnableConfigResult */
+    { (ASN_TAG_CLASS_CONTEXT | (2 << 2)), 2, 0, 0 } /* resetImmediateEnableConfigResult */
 };
 static asn_SEQUENCE_specifics_t asn_SPC_SGP32_EuiccMemoryResetResponse_specs_1 = {
 	sizeof(struct SGP32_EuiccMemoryResetResponse),

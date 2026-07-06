@@ -24,6 +24,7 @@ typedef enum SGP32_EuiccMemoryResetResponse__resetResult {
 	SGP32_EuiccMemoryResetResponse__resetResult_ok	= 0,
 	SGP32_EuiccMemoryResetResponse__resetResult_nothingToDelete	= 1,
 	SGP32_EuiccMemoryResetResponse__resetResult_catBusy	= 5,
+	SGP32_EuiccMemoryResetResponse__resetResult_ecallActive	= 104,
 	SGP32_EuiccMemoryResetResponse__resetResult_undefinedError	= 127
 } e_SGP32_EuiccMemoryResetResponse__resetResult;
 typedef enum SGP32_EuiccMemoryResetResponse__resetEimResult {
@@ -32,17 +33,17 @@ typedef enum SGP32_EuiccMemoryResetResponse__resetEimResult {
 	SGP32_EuiccMemoryResetResponse__resetEimResult_eimResetNotSupported	= 2,
 	SGP32_EuiccMemoryResetResponse__resetEimResult_undefinedError	= 127
 } e_SGP32_EuiccMemoryResetResponse__resetEimResult;
-typedef enum SGP32_EuiccMemoryResetResponse__resetAutoEnableConfigResult {
-	SGP32_EuiccMemoryResetResponse__resetAutoEnableConfigResult_ok	= 0,
-	SGP32_EuiccMemoryResetResponse__resetAutoEnableConfigResult_resetAECNotSupported	= 1,
-	SGP32_EuiccMemoryResetResponse__resetAutoEnableConfigResult_undefinedError	= 127
-} e_SGP32_EuiccMemoryResetResponse__resetAutoEnableConfigResult;
+typedef enum SGP32_EuiccMemoryResetResponse__resetImmediateEnableConfigResult {
+	SGP32_EuiccMemoryResetResponse__resetImmediateEnableConfigResult_ok	= 0,
+	SGP32_EuiccMemoryResetResponse__resetImmediateEnableConfigResult_resetIECNotSupported	= 1,
+	SGP32_EuiccMemoryResetResponse__resetImmediateEnableConfigResult_undefinedError	= 127
+} e_SGP32_EuiccMemoryResetResponse__resetImmediateEnableConfigResult;
 
 /* SGP32-EuiccMemoryResetResponse */
 typedef struct SGP32_EuiccMemoryResetResponse {
 	long	 resetResult;
 	long	*resetEimResult	/* OPTIONAL */;
-	long	*resetAutoEnableConfigResult	/* OPTIONAL */;
+	long	*resetImmediateEnableConfigResult	/* OPTIONAL */;
 	/*
 	 * This type is extensible,
 	 * possible extensions are below.

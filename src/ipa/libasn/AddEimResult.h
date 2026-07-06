@@ -30,6 +30,7 @@ typedef enum AddEimResult_PR {
 typedef enum AddEimResult__addEimResultCode {
 	AddEimResult__addEimResultCode_ok	= 0,
 	AddEimResult__addEimResultCode_insufficientMemory	= 1,
+	AddEimResult__addEimResultCode_associatedEimAlreadyExists	= 2,
 	AddEimResult__addEimResultCode_ciPKUnknown	= 3,
 	AddEimResult__addEimResultCode_invalidAssociationToken	= 5,
 	AddEimResult__addEimResultCode_counterValueOutOfRange	= 6,

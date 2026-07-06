@@ -40,7 +40,7 @@ memb_sasAcreditationNumber_constraint_1(const asn_TYPE_descriptor_t *td, const v
 }
 
 static int
-memb_rfu3_constraint_1(const asn_TYPE_descriptor_t *td, const void *sptr,
+memb_additionalEuiccInfo_constraint_1(const asn_TYPE_descriptor_t *td, const void *sptr,
 			asn_app_constraint_failed_f *ctfailcb, void *app_key) {
 	const OCTET_STRING_t *st = (const OCTET_STRING_t *)sptr;
 	size_t size;
@@ -73,10 +73,10 @@ static asn_per_constraints_t asn_PER_memb_sasAcreditationNumber_constr_21 CC_NOT
 	{ APC_UNCONSTRAINED,	-1, -1,  0,  0 },
 	0, 0	/* No PER value map */
 };
-static asn_oer_constraints_t asn_OER_memb_rfu3_constr_33 CC_NOTUSED = {
+static asn_oer_constraints_t asn_OER_memb_additionalEuiccInfo_constr_33 CC_NOTUSED = {
 	{ 0, 0 },
 	-1	/* (SIZE(0..32)) */};
-static asn_per_constraints_t asn_PER_memb_rfu3_constr_33 CC_NOTUSED = {
+static asn_per_constraints_t asn_PER_memb_additionalEuiccInfo_constr_33 CC_NOTUSED = {
 	{ APC_UNCONSTRAINED,	-1, -1,  0,  0 },
 	{ APC_CONSTRAINED,	 6,  6,  0,  32 }	/* (SIZE(0..32)) */,
 	0, 0	/* No PER value map */
@@ -192,7 +192,7 @@ asn_TYPE_descriptor_t asn_DEF_additionalEuiccProfilePackageVersions_28 = {
 	&asn_SPC_additionalEuiccProfilePackageVersions_specs_28	/* Additional specs */
 };
 
-static asn_TYPE_member_t asn_MBR_rfu2_31[] = {
+static asn_TYPE_member_t asn_MBR_euiccCiPKIdListForSigningV3_31[] = {
 	{ ATF_POINTER, 0, 0,
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
 		0,
@@ -203,30 +203,30 @@ static asn_TYPE_member_t asn_MBR_rfu2_31[] = {
 		""
 		},
 };
-static const ber_tlv_tag_t asn_DEF_rfu2_tags_31[] = {
+static const ber_tlv_tag_t asn_DEF_euiccCiPKIdListForSigningV3_tags_31[] = {
 	(ASN_TAG_CLASS_CONTEXT | (17 << 2)),
 	(ASN_TAG_CLASS_UNIVERSAL | (16 << 2))
 };
-static asn_SET_OF_specifics_t asn_SPC_rfu2_specs_31 = {
-	sizeof(struct SGP32_EUICCInfo2__rfu2),
-	offsetof(struct SGP32_EUICCInfo2__rfu2, _asn_ctx),
+static asn_SET_OF_specifics_t asn_SPC_euiccCiPKIdListForSigningV3_specs_31 = {
+	sizeof(struct SGP32_EUICCInfo2__euiccCiPKIdListForSigningV3),
+	offsetof(struct SGP32_EUICCInfo2__euiccCiPKIdListForSigningV3, _asn_ctx),
 	0,	/* XER encoding is XMLDelimitedItemList */
 };
 static /* Use -fall-defs-global to expose */
-asn_TYPE_descriptor_t asn_DEF_rfu2_31 = {
-	"rfu2",
-	"rfu2",
+asn_TYPE_descriptor_t asn_DEF_euiccCiPKIdListForSigningV3_31 = {
+	"euiccCiPKIdListForSigningV3",
+	"euiccCiPKIdListForSigningV3",
 	&asn_OP_SEQUENCE_OF,
-	asn_DEF_rfu2_tags_31,
-	sizeof(asn_DEF_rfu2_tags_31)
-		/sizeof(asn_DEF_rfu2_tags_31[0]) - 1, /* 1 */
-	asn_DEF_rfu2_tags_31,	/* Same as above */
-	sizeof(asn_DEF_rfu2_tags_31)
-		/sizeof(asn_DEF_rfu2_tags_31[0]), /* 2 */
+	asn_DEF_euiccCiPKIdListForSigningV3_tags_31,
+	sizeof(asn_DEF_euiccCiPKIdListForSigningV3_tags_31)
+		/sizeof(asn_DEF_euiccCiPKIdListForSigningV3_tags_31[0]) - 1, /* 1 */
+	asn_DEF_euiccCiPKIdListForSigningV3_tags_31,	/* Same as above */
+	sizeof(asn_DEF_euiccCiPKIdListForSigningV3_tags_31)
+		/sizeof(asn_DEF_euiccCiPKIdListForSigningV3_tags_31[0]), /* 2 */
 	{ 0, 0, SEQUENCE_OF_constraint },
-	asn_MBR_rfu2_31,
+	asn_MBR_euiccCiPKIdListForSigningV3_31,
 	1,	/* Single element */
-	&asn_SPC_rfu2_specs_31	/* Additional specs */
+	&asn_SPC_euiccCiPKIdListForSigningV3_specs_31	/* Additional specs */
 };
 
 asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
@@ -401,32 +401,32 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0, 0, /* No default value */
 		"ipaMode"
 		},
-	{ ATF_POINTER, 4, offsetof(struct SGP32_EUICCInfo2, rfu2),
+	{ ATF_POINTER, 4, offsetof(struct SGP32_EUICCInfo2, euiccCiPKIdListForSigningV3),
 		(ASN_TAG_CLASS_CONTEXT | (17 << 2)),
 		0,
-		&asn_DEF_rfu2_31,
+		&asn_DEF_euiccCiPKIdListForSigningV3_31,
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"rfu2"
+		"euiccCiPKIdListForSigningV3"
 		},
-	{ ATF_POINTER, 3, offsetof(struct SGP32_EUICCInfo2, rfu3),
+	{ ATF_POINTER, 3, offsetof(struct SGP32_EUICCInfo2, additionalEuiccInfo),
 		(ASN_TAG_CLASS_CONTEXT | (18 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ &asn_OER_memb_rfu3_constr_33, &asn_PER_memb_rfu3_constr_33,  memb_rfu3_constraint_1 },
+		{ &asn_OER_memb_additionalEuiccInfo_constr_33, &asn_PER_memb_additionalEuiccInfo_constr_33,  memb_additionalEuiccInfo_constraint_1 },
 		0, 0, /* No default value */
-		"rfu3"
+		"additionalEuiccInfo"
 		},
-	{ ATF_POINTER, 2, offsetof(struct SGP32_EUICCInfo2, rfu4),
+	{ ATF_POINTER, 2, offsetof(struct SGP32_EUICCInfo2, highestSvn),
 		(ASN_TAG_CLASS_CONTEXT | (19 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"rfu4"
+		"highestSvn"
 		},
 	{ ATF_POINTER, 1, offsetof(struct SGP32_EUICCInfo2, iotSpecificInfo),
 		(ASN_TAG_CLASS_CONTEXT | (20 << 2)),
@@ -462,9 +462,9 @@ static const asn_TYPE_tag2member_t asn_MAP_SGP32_EUICCInfo2_tag2el_1[] = {
     { (ASN_TAG_CLASS_CONTEXT | (14 << 2)), 16, 0, 0 }, /* treProductReference */
     { (ASN_TAG_CLASS_CONTEXT | (15 << 2)), 17, 0, 0 }, /* additionalEuiccProfilePackageVersions */
     { (ASN_TAG_CLASS_CONTEXT | (16 << 2)), 18, 0, 0 }, /* ipaMode */
-    { (ASN_TAG_CLASS_CONTEXT | (17 << 2)), 19, 0, 0 }, /* rfu2 */
-    { (ASN_TAG_CLASS_CONTEXT | (18 << 2)), 20, 0, 0 }, /* rfu3 */
-    { (ASN_TAG_CLASS_CONTEXT | (19 << 2)), 21, 0, 0 }, /* rfu4 */
+    { (ASN_TAG_CLASS_CONTEXT | (17 << 2)), 19, 0, 0 }, /* euiccCiPKIdListForSigningV3 */
+    { (ASN_TAG_CLASS_CONTEXT | (18 << 2)), 20, 0, 0 }, /* additionalEuiccInfo */
+    { (ASN_TAG_CLASS_CONTEXT | (19 << 2)), 21, 0, 0 }, /* highestSvn */
     { (ASN_TAG_CLASS_CONTEXT | (20 << 2)), 22, 0, 0 }, /* iotSpecificInfo */
     { (ASN_TAG_CLASS_CONTEXT | (25 << 2)), 11, 0, 0 } /* forbiddenProfilePolicyRules */
 };

@@ -26,9 +26,9 @@ static asn_TYPE_member_t asn_MBR_ePRAndNotifications_3[] = {
 		"euiccPackageResult"
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TransferEimPackageResponse__ePRAndNotifications, notificationList),
-		(ASN_TAG_CLASS_CONTEXT | (43 << 2)),
+		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
 		-1,	/* IMPLICIT tag at current level */
-		&asn_DEF_SGP32_RetrieveNotificationsListResponse,
+		&asn_DEF_PendingNotificationList,
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
@@ -39,7 +39,7 @@ static const ber_tlv_tag_t asn_DEF_ePRAndNotifications_tags_3[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (16 << 2))
 };
 static const asn_TYPE_tag2member_t asn_MAP_ePRAndNotifications_tag2el_3[] = {
-    { (ASN_TAG_CLASS_CONTEXT | (43 << 2)), 1, 0, 0 }, /* notificationList */
+    { (ASN_TAG_CLASS_CONTEXT | (0 << 2)), 1, 0, 0 }, /* notificationList */
     { (ASN_TAG_CLASS_CONTEXT | (81 << 2)), 0, 0, 0 } /* euiccPackageResult */
 };
 static asn_SEQUENCE_specifics_t asn_SPC_ePRAndNotifications_specs_3 = {

@@ -12,59 +12,22 @@
 #include <asn_application.h>
 
 /* Including external dependencies */
-#include "EuiccPackageResult.h"
-#include "IpaEuiccDataResponse.h"
-#include "ProfileDownloadTriggerResult.h"
-#include <NativeInteger.h>
-#include "SGP32-RetrieveNotificationsListResponse.h"
+#include "Octet16.h"
+#include "EimPackageResult.h"
 #include <constr_SEQUENCE.h>
-#include <constr_CHOICE.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/* Dependencies */
-typedef enum ProvideEimPackageResult_PR {
-	ProvideEimPackageResult_PR_NOTHING,	/* No components present */
-	ProvideEimPackageResult_PR_euiccPackageResult,
-	ProvideEimPackageResult_PR_ePRAndNotifications,
-	ProvideEimPackageResult_PR_ipaEuiccDataResponse,
-	ProvideEimPackageResult_PR_profileDownloadTriggerResult,
-	ProvideEimPackageResult_PR_eimPackageError
-	/* Extensions may appear below */
-	
-} ProvideEimPackageResult_PR;
-typedef enum ProvideEimPackageResult__eimPackageError {
-	ProvideEimPackageResult__eimPackageError_invalidPackageFormat	= 1,
-	ProvideEimPackageResult__eimPackageError_unknownPackage	= 2,
-	ProvideEimPackageResult__eimPackageError_undefinedError	= 127
-} e_ProvideEimPackageResult__eimPackageError;
-
 /* ProvideEimPackageResult */
 typedef struct ProvideEimPackageResult {
-	ProvideEimPackageResult_PR present;
-	union ProvideEimPackageResult_u {
-		EuiccPackageResult_t	 euiccPackageResult;
-		struct ProvideEimPackageResult__ePRAndNotifications {
-			EuiccPackageResult_t	 euiccPackageResult;
-			SGP32_RetrieveNotificationsListResponse_t	 notificationList;
-			/*
-			 * This type is extensible,
-			 * possible extensions are below.
-			 */
-			
-			/* Context for parsing across buffer boundaries */
-			asn_struct_ctx_t _asn_ctx;
-		} ePRAndNotifications;
-		IpaEuiccDataResponse_t	 ipaEuiccDataResponse;
-		ProfileDownloadTriggerResult_t	 profileDownloadTriggerResult;
-		long	 eimPackageError;
-		/*
-		 * This type is extensible,
-		 * possible extensions are below.
-		 */
-	} choice;
+	Octet16_t	*eidValue	/* OPTIONAL */;
+	EimPackageResult_t	 eimPackageResult;
+	/*
+	 * This type is extensible,
+	 * possible extensions are below.
+	 */
 	
 	/* Context for parsing across buffer boundaries */
 	asn_struct_ctx_t _asn_ctx;
@@ -72,9 +35,8 @@ typedef struct ProvideEimPackageResult {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_ProvideEimPackageResult;
-extern asn_CHOICE_specifics_t asn_SPC_ProvideEimPackageResult_specs_1;
-extern asn_TYPE_member_t asn_MBR_ProvideEimPackageResult_1[5];
-extern asn_per_constraints_t asn_PER_type_ProvideEimPackageResult_constr_1;
+extern asn_SEQUENCE_specifics_t asn_SPC_ProvideEimPackageResult_specs_1;
+extern asn_TYPE_member_t asn_MBR_ProvideEimPackageResult_1[2];
 
 #ifdef __cplusplus
 }

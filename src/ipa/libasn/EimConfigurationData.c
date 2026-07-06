@@ -7,6 +7,38 @@
 
 #include "EimConfigurationData.h"
 
+static int
+memb_eimId_constraint_1(const asn_TYPE_descriptor_t *td, const void *sptr,
+			asn_app_constraint_failed_f *ctfailcb, void *app_key) {
+	const UTF8String_t *st = (const UTF8String_t *)sptr;
+	size_t size;
+	
+	if(!sptr) {
+		ASN__CTFAIL(app_key, td, sptr,
+			"%s: value not given (%s:%d)",
+			td->name, __FILE__, __LINE__);
+		return -1;
+	}
+	
+	size = UTF8String_length(st);
+	if((ssize_t)size < 0) {
+		ASN__CTFAIL(app_key, td, sptr,
+			"%s: UTF-8: broken encoding (%s:%d)",
+			td->name, __FILE__, __LINE__);
+		return -1;
+	}
+	
+	if((size >= 1 && size <= 128)) {
+		/* Constraint check succeeded */
+		return 0;
+	} else {
+		ASN__CTFAIL(app_key, td, sptr,
+			"%s: constraint failed (%s:%d)",
+			td->name, __FILE__, __LINE__);
+		return -1;
+	}
+}
+
 static asn_oer_constraints_t asn_OER_type_eimPublicKeyData_constr_7 CC_NOTUSED = {
 	{ 0, 0 },
 	-1};
@@ -20,6 +52,14 @@ static asn_oer_constraints_t asn_OER_type_trustedPublicKeyDataTls_constr_11 CC_N
 	-1};
 static asn_per_constraints_t asn_PER_type_trustedPublicKeyDataTls_constr_11 CC_NOTUSED = {
 	{ APC_CONSTRAINED | APC_EXTENSIBLE,  1,  1,  0,  1 }	/* (0..1,...) */,
+	{ APC_UNCONSTRAINED,	-1, -1,  0,  0 },
+	0, 0	/* No PER value map */
+};
+static asn_oer_constraints_t asn_OER_memb_eimId_constr_2 CC_NOTUSED = {
+	{ 0, 0 },
+	-1	/* (SIZE(0..MAX)) */};
+static asn_per_constraints_t asn_PER_memb_eimId_constr_2 CC_NOTUSED = {
+	{ APC_UNCONSTRAINED,	-1, -1,  0,  0 },
 	{ APC_UNCONSTRAINED,	-1, -1,  0,  0 },
 	0, 0	/* No PER value map */
 };
@@ -127,11 +167,11 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		{ &asn_OER_memb_eimId_constr_2, &asn_PER_memb_eimId_constr_2,  memb_eimId_constraint_1 },
 		0, 0, /* No default value */
 		"eimId"
 		},
-	{ ATF_POINTER, 8, offsetof(struct EimConfigurationData, eimFqdn),
+	{ ATF_POINTER, 9, offsetof(struct EimConfigurationData, eimFqdn),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
@@ -140,7 +180,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0, 0, /* No default value */
 		"eimFqdn"
 		},
-	{ ATF_POINTER, 7, offsetof(struct EimConfigurationData, eimIdType),
+	{ ATF_POINTER, 8, offsetof(struct EimConfigurationData, eimIdType),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EimIdType,
@@ -149,7 +189,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0, 0, /* No default value */
 		"eimIdType"
 		},
-	{ ATF_POINTER, 6, offsetof(struct EimConfigurationData, counterValue),
+	{ ATF_POINTER, 7, offsetof(struct EimConfigurationData, counterValue),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
@@ -158,7 +198,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0, 0, /* No default value */
 		"counterValue"
 		},
-	{ ATF_POINTER, 5, offsetof(struct EimConfigurationData, associationToken),
+	{ ATF_POINTER, 6, offsetof(struct EimConfigurationData, associationToken),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
@@ -167,7 +207,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0, 0, /* No default value */
 		"associationToken"
 		},
-	{ ATF_POINTER, 4, offsetof(struct EimConfigurationData, eimPublicKeyData),
+	{ ATF_POINTER, 5, offsetof(struct EimConfigurationData, eimPublicKeyData),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_eimPublicKeyData_7,
@@ -176,7 +216,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0, 0, /* No default value */
 		"eimPublicKeyData"
 		},
-	{ ATF_POINTER, 3, offsetof(struct EimConfigurationData, trustedPublicKeyDataTls),
+	{ ATF_POINTER, 4, offsetof(struct EimConfigurationData, trustedPublicKeyDataTls),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_trustedPublicKeyDataTls_11,
@@ -185,7 +225,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0, 0, /* No default value */
 		"trustedPublicKeyDataTls"
 		},
-	{ ATF_POINTER, 2, offsetof(struct EimConfigurationData, eimSupportedProtocol),
+	{ ATF_POINTER, 3, offsetof(struct EimConfigurationData, eimSupportedProtocol),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EimSupportedProtocol,
@@ -194,7 +234,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0, 0, /* No default value */
 		"eimSupportedProtocol"
 		},
-	{ ATF_POINTER, 1, offsetof(struct EimConfigurationData, euiccCiPKId),
+	{ ATF_POINTER, 2, offsetof(struct EimConfigurationData, euiccCiPKId),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_SubjectKeyIdentifier,
@@ -203,8 +243,17 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0, 0, /* No default value */
 		"euiccCiPKId"
 		},
+	{ ATF_POINTER, 1, offsetof(struct EimConfigurationData, indirectProfileDownload),
+		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
+		-1,	/* IMPLICIT tag at current level */
+		&asn_DEF_NULL,
+		0,
+		{ 0, 0, 0 },
+		0, 0, /* No default value */
+		"indirectProfileDownload"
+		},
 };
-static const int asn_MAP_EimConfigurationData_oms_1[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+static const int asn_MAP_EimConfigurationData_oms_1[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 static const ber_tlv_tag_t asn_DEF_EimConfigurationData_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (16 << 2))
 };
@@ -217,16 +266,17 @@ static const asn_TYPE_tag2member_t asn_MAP_EimConfigurationData_tag2el_1[] = {
     { (ASN_TAG_CLASS_CONTEXT | (5 << 2)), 5, 0, 0 }, /* eimPublicKeyData */
     { (ASN_TAG_CLASS_CONTEXT | (6 << 2)), 6, 0, 0 }, /* trustedPublicKeyDataTls */
     { (ASN_TAG_CLASS_CONTEXT | (7 << 2)), 7, 0, 0 }, /* eimSupportedProtocol */
-    { (ASN_TAG_CLASS_CONTEXT | (8 << 2)), 8, 0, 0 } /* euiccCiPKId */
+    { (ASN_TAG_CLASS_CONTEXT | (8 << 2)), 8, 0, 0 }, /* euiccCiPKId */
+    { (ASN_TAG_CLASS_CONTEXT | (9 << 2)), 9, 0, 0 } /* indirectProfileDownload */
 };
 asn_SEQUENCE_specifics_t asn_SPC_EimConfigurationData_specs_1 = {
 	sizeof(struct EimConfigurationData),
 	offsetof(struct EimConfigurationData, _asn_ctx),
 	asn_MAP_EimConfigurationData_tag2el_1,
-	9,	/* Count of tags in the map */
+	10,	/* Count of tags in the map */
 	asn_MAP_EimConfigurationData_oms_1,	/* Optional members */
-	8, 0,	/* Root/Additions */
-	9,	/* First extension addition */
+	9, 0,	/* Root/Additions */
+	10,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EimConfigurationData = {
 	"EimConfigurationData",
@@ -240,7 +290,7 @@ asn_TYPE_descriptor_t asn_DEF_EimConfigurationData = {
 		/sizeof(asn_DEF_EimConfigurationData_tags_1[0]), /* 1 */
 	{ 0, 0, SEQUENCE_constraint },
 	asn_MBR_EimConfigurationData_1,
-	9,	/* Elements count */
+	10,	/* Elements count */
 	&asn_SPC_EimConfigurationData_specs_1	/* Additional specs */
 };
 

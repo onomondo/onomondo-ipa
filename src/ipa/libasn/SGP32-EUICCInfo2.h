@@ -83,14 +83,14 @@ typedef struct SGP32_EUICCInfo2 {
 		asn_struct_ctx_t _asn_ctx;
 	} *additionalEuiccProfilePackageVersions;
 	IpaMode_t	*ipaMode	/* OPTIONAL */;
-	struct SGP32_EUICCInfo2__rfu2 {
+	struct SGP32_EUICCInfo2__euiccCiPKIdListForSigningV3 {
 		A_SEQUENCE_OF(SubjectKeyIdentifier_t) list;
 		
 		/* Context for parsing across buffer boundaries */
 		asn_struct_ctx_t _asn_ctx;
-	} *rfu2;
-	OCTET_STRING_t	*rfu3	/* OPTIONAL */;
-	VersionType_t	*rfu4	/* OPTIONAL */;
+	} *euiccCiPKIdListForSigningV3;
+	OCTET_STRING_t	*additionalEuiccInfo	/* OPTIONAL */;
+	VersionType_t	*highestSvn	/* OPTIONAL */;
 	struct IoTSpecificInfo	*iotSpecificInfo	/* OPTIONAL */;
 	/*
 	 * This type is extensible,

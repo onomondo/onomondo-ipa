@@ -14,6 +14,7 @@
 /* Including external dependencies */
 #include "Octet16.h"
 #include <UTF8String.h>
+#include "TransactionId.h"
 #include <constr_SEQUENCE.h>
 
 #ifdef __cplusplus
@@ -28,6 +29,7 @@ typedef struct InitiateAuthenticationRequestEsipa {
 	Octet16_t	 euiccChallenge;
 	UTF8String_t	*smdpAddress	/* OPTIONAL */;
 	struct EUICCInfo1	*euiccInfo1	/* OPTIONAL */;
+	TransactionId_t	*eimTransactionId	/* OPTIONAL */;
 	/*
 	 * This type is extensible,
 	 * possible extensions are below.
@@ -40,7 +42,7 @@ typedef struct InitiateAuthenticationRequestEsipa {
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_InitiateAuthenticationRequestEsipa;
 extern asn_SEQUENCE_specifics_t asn_SPC_InitiateAuthenticationRequestEsipa_specs_1;
-extern asn_TYPE_member_t asn_MBR_InitiateAuthenticationRequestEsipa_1[3];
+extern asn_TYPE_member_t asn_MBR_InitiateAuthenticationRequestEsipa_1[4];
 
 #ifdef __cplusplus
 }

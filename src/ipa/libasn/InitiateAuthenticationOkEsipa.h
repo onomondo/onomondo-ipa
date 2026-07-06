@@ -31,7 +31,7 @@ typedef struct InitiateAuthenticationOkEsipa {
 	TransactionId_t	*transactionId	/* OPTIONAL */;
 	ServerSigned1_t	 serverSigned1;
 	OCTET_STRING_t	 serverSignature1;
-	OCTET_STRING_t	 euiccCiPKIdToBeUsed;
+	OCTET_STRING_t	 euiccCiPKIdentifierToBeUsed;
 	Certificate_t	 serverCertificate;
 	UTF8String_t	*matchingId	/* OPTIONAL */;
 	struct CtxParams1	*ctxParams1	/* OPTIONAL */;

@@ -17,13 +17,16 @@
 #include "DeleteProfileResult.h"
 #include "SGP32-ProfileInfoListResponse.h"
 #include "RulesAuthorisationTable.h"
-#include "ConfigureAutoEnableResult.h"
+#include "ConfigureImmediateEnableResult.h"
 #include "AddEimResult.h"
 #include "DeleteEimResult.h"
 #include "UpdateEimResult.h"
 #include "ListEimResult.h"
 #include "RollbackProfileResult.h"
+#include "SetFallbackAttributeResult.h"
+#include "UnsetFallbackAttributeResult.h"
 #include <NativeInteger.h>
+#include "SGP32-SetDefaultDpAddressResponse.h"
 #include <constr_CHOICE.h>
 
 #ifdef __cplusplus
@@ -38,13 +41,16 @@ typedef enum EuiccResultData_PR {
 	EuiccResultData_PR_deleteResult,
 	EuiccResultData_PR_listProfileInfoResult,
 	EuiccResultData_PR_getRATResult,
-	EuiccResultData_PR_configureAutoEnableResult,
+	EuiccResultData_PR_configureImmediateEnableResult,
 	EuiccResultData_PR_addEimResult,
 	EuiccResultData_PR_deleteEimResult,
 	EuiccResultData_PR_updateEimResult,
 	EuiccResultData_PR_listEimResult,
 	EuiccResultData_PR_rollbackResult,
-	EuiccResultData_PR_processingTerminated
+	EuiccResultData_PR_setFallbackAttributeResult,
+	EuiccResultData_PR_unsetFallbackAttributeResult,
+	EuiccResultData_PR_processingTerminated,
+	EuiccResultData_PR_setDefaultDpAddressResult
 	/* Extensions may appear below */
 	
 } EuiccResultData_PR;
@@ -64,13 +70,16 @@ typedef struct EuiccResultData {
 		DeleteProfileResult_t	 deleteResult;
 		SGP32_ProfileInfoListResponse_t	 listProfileInfoResult;
 		RulesAuthorisationTable_t	 getRATResult;
-		ConfigureAutoEnableResult_t	 configureAutoEnableResult;
+		ConfigureImmediateEnableResult_t	 configureImmediateEnableResult;
 		AddEimResult_t	 addEimResult;
 		DeleteEimResult_t	 deleteEimResult;
 		UpdateEimResult_t	 updateEimResult;
 		ListEimResult_t	 listEimResult;
 		RollbackProfileResult_t	 rollbackResult;
+		SetFallbackAttributeResult_t	 setFallbackAttributeResult;
+		UnsetFallbackAttributeResult_t	 unsetFallbackAttributeResult;
 		long	 processingTerminated;
+		SGP32_SetDefaultDpAddressResponse_t	 setDefaultDpAddressResult;
 		/*
 		 * This type is extensible,
 		 * possible extensions are below.
@@ -84,7 +93,7 @@ typedef struct EuiccResultData {
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_EuiccResultData;
 extern asn_CHOICE_specifics_t asn_SPC_EuiccResultData_specs_1;
-extern asn_TYPE_member_t asn_MBR_EuiccResultData_1[12];
+extern asn_TYPE_member_t asn_MBR_EuiccResultData_1[15];
 extern asn_per_constraints_t asn_PER_type_EuiccResultData_constr_1;
 
 #ifdef __cplusplus

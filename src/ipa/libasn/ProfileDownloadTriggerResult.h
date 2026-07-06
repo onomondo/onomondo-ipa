@@ -14,6 +14,7 @@
 /* Including external dependencies */
 #include "TransactionId.h"
 #include "SGP32-ProfileInstallationResult.h"
+#include <NativeInteger.h>
 #include <OCTET_STRING.h>
 #include <constr_SEQUENCE.h>
 #include <constr_CHOICE.h>
@@ -30,6 +31,10 @@ typedef enum ProfileDownloadTriggerResult__profileDownloadTriggerResultData_PR {
 	/* Extensions may appear below */
 	
 } ProfileDownloadTriggerResult__profileDownloadTriggerResultData_PR;
+typedef enum ProfileDownloadTriggerResult__profileDownloadTriggerResultData__profileDownloadError__profileDownloadErrorReason {
+	ProfileDownloadTriggerResult__profileDownloadTriggerResultData__profileDownloadError__profileDownloadErrorReason_ecallActive	= 104,
+	ProfileDownloadTriggerResult__profileDownloadTriggerResultData__profileDownloadError__profileDownloadErrorReason_undefinedError	= 127
+} e_ProfileDownloadTriggerResult__profileDownloadTriggerResultData__profileDownloadError__profileDownloadErrorReason;
 
 /* ProfileDownloadTriggerResult */
 typedef struct ProfileDownloadTriggerResult {
@@ -39,6 +44,7 @@ typedef struct ProfileDownloadTriggerResult {
 		union ProfileDownloadTriggerResult__profileDownloadTriggerResultData_u {
 			SGP32_ProfileInstallationResult_t	 profileInstallationResult;
 			struct ProfileDownloadTriggerResult__profileDownloadTriggerResultData__profileDownloadError {
+				long	 profileDownloadErrorReason;
 				OCTET_STRING_t	*errorResponse	/* OPTIONAL */;
 				/*
 				 * This type is extensible,

@@ -12,6 +12,7 @@
 #include <asn_application.h>
 
 /* Including external dependencies */
+#include "Octet16.h"
 #include "NotificationMetadata.h"
 #include <OCTET_STRING.h>
 #include <constr_SEQUENCE.h>
@@ -22,6 +23,7 @@ extern "C" {
 
 /* CompactOtherSignedNotification */
 typedef struct CompactOtherSignedNotification {
+	Octet16_t	*eidValue	/* OPTIONAL */;
 	NotificationMetadata_t	 tbsOtherNotification;
 	OCTET_STRING_t	 euiccNotificationSignature;
 	/*
@@ -36,7 +38,7 @@ typedef struct CompactOtherSignedNotification {
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_CompactOtherSignedNotification;
 extern asn_SEQUENCE_specifics_t asn_SPC_CompactOtherSignedNotification_specs_1;
-extern asn_TYPE_member_t asn_MBR_CompactOtherSignedNotification_1[2];
+extern asn_TYPE_member_t asn_MBR_CompactOtherSignedNotification_1[3];
 
 #ifdef __cplusplus
 }

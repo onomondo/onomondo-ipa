@@ -26,7 +26,7 @@ extern "C" {
 typedef struct EuiccPackageErrorDataSigned {
 	UTF8String_t	 eimId;
 	long	 counterValue;
-	TransactionId_t	*transactionId	/* OPTIONAL */;
+	TransactionId_t	*eimTransactionId	/* OPTIONAL */;
 	EuiccPackageErrorCode_t	 euiccPackageErrorCode;
 	/*
 	 * This type is extensible,

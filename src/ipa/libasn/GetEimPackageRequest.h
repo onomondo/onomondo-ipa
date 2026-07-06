@@ -14,6 +14,7 @@
 /* Including external dependencies */
 #include "Octet16.h"
 #include <NULL.h>
+#include "StateChangeCause.h"
 #include <OCTET_STRING.h>
 #include <constr_SEQUENCE.h>
 
@@ -25,6 +26,7 @@ extern "C" {
 typedef struct GetEimPackageRequest {
 	Octet16_t	 eidValue;
 	NULL_t	*notifyStateChange	/* OPTIONAL */;
+	StateChangeCause_t	*stateChangeCause	/* OPTIONAL */;
 	OCTET_STRING_t	*rPLMN	/* OPTIONAL */;
 	/*
 	 * This type is extensible,
@@ -38,7 +40,7 @@ typedef struct GetEimPackageRequest {
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_GetEimPackageRequest;
 extern asn_SEQUENCE_specifics_t asn_SPC_GetEimPackageRequest_specs_1;
-extern asn_TYPE_member_t asn_MBR_GetEimPackageRequest_1[3];
+extern asn_TYPE_member_t asn_MBR_GetEimPackageRequest_1[4];
 
 #ifdef __cplusplus
 }

@@ -12,6 +12,7 @@
 #include <asn_application.h>
 
 /* Including external dependencies */
+#include <NULL.h>
 #include "VersionType.h"
 #include <asn_SEQUENCE_OF.h>
 #include <constr_SEQUENCE_OF.h>
@@ -29,6 +30,8 @@ typedef struct IoTSpecificInfo {
 		/* Context for parsing across buffer boundaries */
 		asn_struct_ctx_t _asn_ctx;
 	} iotVersion;
+	NULL_t	*ecallSupported	/* OPTIONAL */;
+	NULL_t	*fallbackSupported	/* OPTIONAL */;
 	/*
 	 * This type is extensible,
 	 * possible extensions are below.
@@ -41,7 +44,7 @@ typedef struct IoTSpecificInfo {
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_IoTSpecificInfo;
 extern asn_SEQUENCE_specifics_t asn_SPC_IoTSpecificInfo_specs_1;
-extern asn_TYPE_member_t asn_MBR_IoTSpecificInfo_1[1];
+extern asn_TYPE_member_t asn_MBR_IoTSpecificInfo_1[3];
 
 #ifdef __cplusplus
 }

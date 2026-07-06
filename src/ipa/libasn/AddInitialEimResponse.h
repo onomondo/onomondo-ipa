@@ -39,10 +39,11 @@ typedef enum AddInitialEimResponse__addInitialEimOk__Member_PR {
 } AddInitialEimResponse__addInitialEimOk__Member_PR;
 typedef enum AddInitialEimResponse__addInitialEimError {
 	AddInitialEimResponse__addInitialEimError_insufficientMemory	= 1,
-	AddInitialEimResponse__addInitialEimError_unsignedEimConfigDisallowed	= 2,
+	AddInitialEimResponse__addInitialEimError_associatedEimAlreadyExists	= 2,
 	AddInitialEimResponse__addInitialEimError_ciPKUnknown	= 3,
 	AddInitialEimResponse__addInitialEimError_invalidAssociationToken	= 5,
 	AddInitialEimResponse__addInitialEimError_counterValueOutOfRange	= 6,
+	AddInitialEimResponse__addInitialEimError_commandError	= 7,
 	AddInitialEimResponse__addInitialEimError_undefinedError	= 127
 } e_AddInitialEimResponse__addInitialEimError;
 

@@ -8,6 +8,15 @@
 #include "CompactOtherSignedNotification.h"
 
 asn_TYPE_member_t asn_MBR_CompactOtherSignedNotification_1[] = {
+	{ ATF_POINTER, 1, offsetof(struct CompactOtherSignedNotification, eidValue),
+		(ASN_TAG_CLASS_APPLICATION | (26 << 2)),
+		-1,	/* IMPLICIT tag at current level */
+		&asn_DEF_Octet16,
+		0,
+		{ 0, 0, 0 },
+		0, 0, /* No default value */
+		"eidValue"
+		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CompactOtherSignedNotification, tbsOtherNotification),
 		(ASN_TAG_CLASS_CONTEXT | (47 << 2)),
 		0,
@@ -27,20 +36,23 @@ asn_TYPE_member_t asn_MBR_CompactOtherSignedNotification_1[] = {
 		"euiccNotificationSignature"
 		},
 };
+static const int asn_MAP_CompactOtherSignedNotification_oms_1[] = { 0 };
 static const ber_tlv_tag_t asn_DEF_CompactOtherSignedNotification_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (16 << 2))
 };
 static const asn_TYPE_tag2member_t asn_MAP_CompactOtherSignedNotification_tag2el_1[] = {
-    { (ASN_TAG_CLASS_APPLICATION | (55 << 2)), 1, 0, 0 }, /* euiccNotificationSignature */
-    { (ASN_TAG_CLASS_CONTEXT | (47 << 2)), 0, 0, 0 } /* tbsOtherNotification */
+    { (ASN_TAG_CLASS_APPLICATION | (26 << 2)), 0, 0, 0 }, /* eidValue */
+    { (ASN_TAG_CLASS_APPLICATION | (55 << 2)), 2, 0, 0 }, /* euiccNotificationSignature */
+    { (ASN_TAG_CLASS_CONTEXT | (47 << 2)), 1, 0, 0 } /* tbsOtherNotification */
 };
 asn_SEQUENCE_specifics_t asn_SPC_CompactOtherSignedNotification_specs_1 = {
 	sizeof(struct CompactOtherSignedNotification),
 	offsetof(struct CompactOtherSignedNotification, _asn_ctx),
 	asn_MAP_CompactOtherSignedNotification_tag2el_1,
-	2,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
-	2,	/* First extension addition */
+	3,	/* Count of tags in the map */
+	asn_MAP_CompactOtherSignedNotification_oms_1,	/* Optional members */
+	1, 0,	/* Root/Additions */
+	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CompactOtherSignedNotification = {
 	"CompactOtherSignedNotification",
@@ -54,7 +66,7 @@ asn_TYPE_descriptor_t asn_DEF_CompactOtherSignedNotification = {
 		/sizeof(asn_DEF_CompactOtherSignedNotification_tags_1[0]), /* 1 */
 	{ 0, 0, SEQUENCE_constraint },
 	asn_MBR_CompactOtherSignedNotification_1,
-	2,	/* Elements count */
+	3,	/* Elements count */
 	&asn_SPC_CompactOtherSignedNotification_specs_1	/* Additional specs */
 };
 

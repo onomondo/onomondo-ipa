@@ -13,6 +13,7 @@
 
 /* Including external dependencies */
 #include "ProfileInfoListRequest.h"
+#include "SGP32-SetDefaultDpAddressRequest.h"
 #include "Iccid.h"
 #include <NULL.h>
 #include <constr_SEQUENCE.h>
@@ -32,7 +33,10 @@ typedef enum Psmo_PR {
 	Psmo_PR_delete,
 	Psmo_PR_listProfileInfo,
 	Psmo_PR_getRAT,
-	Psmo_PR_configureAutoEnable
+	Psmo_PR_configureImmediateEnable,
+	Psmo_PR_setFallbackAttribute,
+	Psmo_PR_unsetFallbackAttribute,
+	Psmo_PR_setDefaultDpAddress
 	/* Extensions may appear below */
 	
 } Psmo_PR;
@@ -82,10 +86,10 @@ typedef struct Psmo {
 			/* Context for parsing across buffer boundaries */
 			asn_struct_ctx_t _asn_ctx;
 		} getRAT;
-		struct Psmo__configureAutoEnable {
-			NULL_t	*autoEnableFlag	/* OPTIONAL */;
-			OBJECT_IDENTIFIER_t	*smdpOid	/* OPTIONAL */;
-			UTF8String_t	*smdpAddress	/* OPTIONAL */;
+		struct Psmo__configureImmediateEnable {
+			NULL_t	*immediateEnableFlag	/* OPTIONAL */;
+			OBJECT_IDENTIFIER_t	*defaultSmdpOid	/* OPTIONAL */;
+			UTF8String_t	*defaultSmdpAddress	/* OPTIONAL */;
 			/*
 			 * This type is extensible,
 			 * possible extensions are below.
@@ -93,7 +97,27 @@ typedef struct Psmo {
 			
 			/* Context for parsing across buffer boundaries */
 			asn_struct_ctx_t _asn_ctx;
-		} configureAutoEnable;
+		} configureImmediateEnable;
+		struct Psmo__setFallbackAttribute {
+			Iccid_t	 iccid;
+			/*
+			 * This type is extensible,
+			 * possible extensions are below.
+			 */
+			
+			/* Context for parsing across buffer boundaries */
+			asn_struct_ctx_t _asn_ctx;
+		} setFallbackAttribute;
+		struct Psmo__unsetFallbackAttribute {
+			/*
+			 * This type is extensible,
+			 * possible extensions are below.
+			 */
+			
+			/* Context for parsing across buffer boundaries */
+			asn_struct_ctx_t _asn_ctx;
+		} unsetFallbackAttribute;
+		SGP32_SetDefaultDpAddressRequest_t	 setDefaultDpAddress;
 		/*
 		 * This type is extensible,
 		 * possible extensions are below.
@@ -107,7 +131,7 @@ typedef struct Psmo {
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_Psmo;
 extern asn_CHOICE_specifics_t asn_SPC_Psmo_specs_1;
-extern asn_TYPE_member_t asn_MBR_Psmo_1[6];
+extern asn_TYPE_member_t asn_MBR_Psmo_1[9];
 extern asn_per_constraints_t asn_PER_type_Psmo_constr_1;
 
 #ifdef __cplusplus

@@ -23,6 +23,9 @@ typedef enum EnableProfileResult {
 	EnableProfileResult_ok	= 0,
 	EnableProfileResult_iccidOrAidNotFound	= 1,
 	EnableProfileResult_profileNotInDisabledState	= 2,
+	EnableProfileResult_disallowedByPolicy	= 3,
+	EnableProfileResult_catBusy	= 5,
+	EnableProfileResult_rollbackNotAvailable	= 20,
 	EnableProfileResult_undefinedError	= 127
 } e_EnableProfileResult;
 

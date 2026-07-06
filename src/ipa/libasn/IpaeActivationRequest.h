@@ -5,21 +5,28 @@
  * 	`asn1c -fcompound-names -no-gen-example`
  */
 
-#ifndef	_EnableUsingDDRequest_H_
-#define	_EnableUsingDDRequest_H_
+#ifndef	_IpaeActivationRequest_H_
+#define	_IpaeActivationRequest_H_
 
 
 #include <asn_application.h>
 
 /* Including external dependencies */
+#include <BIT_STRING.h>
 #include <constr_SEQUENCE.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/* EnableUsingDDRequest */
-typedef struct EnableUsingDDRequest {
+/* Dependencies */
+typedef enum IpaeActivationRequest__ipaeOption {
+	IpaeActivationRequest__ipaeOption_activateIpae	= 0
+} e_IpaeActivationRequest__ipaeOption;
+
+/* IpaeActivationRequest */
+typedef struct IpaeActivationRequest {
+	BIT_STRING_t	 ipaeOption;
 	/*
 	 * This type is extensible,
 	 * possible extensions are below.
@@ -27,14 +34,14 @@ typedef struct EnableUsingDDRequest {
 	
 	/* Context for parsing across buffer boundaries */
 	asn_struct_ctx_t _asn_ctx;
-} EnableUsingDDRequest_t;
+} IpaeActivationRequest_t;
 
 /* Implementation */
-extern asn_TYPE_descriptor_t asn_DEF_EnableUsingDDRequest;
+extern asn_TYPE_descriptor_t asn_DEF_IpaeActivationRequest;
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif	/* _EnableUsingDDRequest_H_ */
+#endif	/* _IpaeActivationRequest_H_ */
 #include <asn_internal.h>

@@ -16,9 +16,18 @@ static asn_per_constraints_t asn_PER_type_profileDownloadTriggerResultData_const
 	0, 0	/* No PER value map */
 };
 static asn_TYPE_member_t asn_MBR_profileDownloadError_5[] = {
-	{ ATF_POINTER, 1, offsetof(struct ProfileDownloadTriggerResult__profileDownloadTriggerResultData__profileDownloadError, errorResponse),
+	{ ATF_NOFLAGS, 0, offsetof(struct ProfileDownloadTriggerResult__profileDownloadTriggerResultData__profileDownloadError, profileDownloadErrorReason),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
 		-1,	/* IMPLICIT tag at current level */
+		&asn_DEF_NativeInteger,
+		0,
+		{ 0, 0, 0 },
+		0, 0, /* No default value */
+		"profileDownloadErrorReason"
+		},
+	{ ATF_POINTER, 1, offsetof(struct ProfileDownloadTriggerResult__profileDownloadTriggerResultData__profileDownloadError, errorResponse),
+		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
+		0,
 		&asn_DEF_OCTET_STRING,
 		0,
 		{ 0, 0, 0 },
@@ -26,21 +35,22 @@ static asn_TYPE_member_t asn_MBR_profileDownloadError_5[] = {
 		"errorResponse"
 		},
 };
-static const int asn_MAP_profileDownloadError_oms_5[] = { 0 };
+static const int asn_MAP_profileDownloadError_oms_5[] = { 1 };
 static const ber_tlv_tag_t asn_DEF_profileDownloadError_tags_5[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (16 << 2))
 };
 static const asn_TYPE_tag2member_t asn_MAP_profileDownloadError_tag2el_5[] = {
-    { (ASN_TAG_CLASS_CONTEXT | (0 << 2)), 0, 0, 0 } /* errorResponse */
+    { (ASN_TAG_CLASS_UNIVERSAL | (4 << 2)), 1, 0, 0 }, /* errorResponse */
+    { (ASN_TAG_CLASS_CONTEXT | (0 << 2)), 0, 0, 0 } /* profileDownloadErrorReason */
 };
 static asn_SEQUENCE_specifics_t asn_SPC_profileDownloadError_specs_5 = {
 	sizeof(struct ProfileDownloadTriggerResult__profileDownloadTriggerResultData__profileDownloadError),
 	offsetof(struct ProfileDownloadTriggerResult__profileDownloadTriggerResultData__profileDownloadError, _asn_ctx),
 	asn_MAP_profileDownloadError_tag2el_5,
-	1,	/* Count of tags in the map */
+	2,	/* Count of tags in the map */
 	asn_MAP_profileDownloadError_oms_5,	/* Optional members */
 	1, 0,	/* Root/Additions */
-	1,	/* First extension addition */
+	2,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_profileDownloadError_5 = {
@@ -55,7 +65,7 @@ asn_TYPE_descriptor_t asn_DEF_profileDownloadError_5 = {
 		/sizeof(asn_DEF_profileDownloadError_tags_5[0]), /* 1 */
 	{ 0, 0, SEQUENCE_constraint },
 	asn_MBR_profileDownloadError_5,
-	1,	/* Elements count */
+	2,	/* Elements count */
 	&asn_SPC_profileDownloadError_specs_5	/* Additional specs */
 };
 

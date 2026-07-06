@@ -23,6 +23,8 @@ typedef enum DisableProfileResult {
 	DisableProfileResult_ok	= 0,
 	DisableProfileResult_iccidOrAidNotFound	= 1,
 	DisableProfileResult_profileNotInEnabledState	= 2,
+	DisableProfileResult_disallowedByPolicy	= 3,
+	DisableProfileResult_catBusy	= 5,
 	DisableProfileResult_undefinedError	= 127
 } e_DisableProfileResult;
 

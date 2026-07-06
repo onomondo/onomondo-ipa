@@ -30,7 +30,6 @@ typedef enum ListEimResult_PR {
 	
 } ListEimResult_PR;
 typedef enum ListEimResult__listEimError {
-	ListEimResult__listEimError_commandError	= 7,
 	ListEimResult__listEimError_undefinedError	= 127
 } e_ListEimResult__listEimError;
 
