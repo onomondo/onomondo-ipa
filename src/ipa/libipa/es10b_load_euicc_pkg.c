@@ -25,6 +25,8 @@
 #include "es10c_disable_prfle.h"
 #include "es10c_delete_prfle.h"
 #include "es10c_get_prfle_info.h"
+#include "es10b_exec_fallback.h"
+#include "es10a_set_default_dp_addr.h"
 #include "es10b_get_eim_cfg_data.h"
 #include "es10b_add_init_eim.h"
 #include "es10b_get_rat.h"
@@ -261,6 +263,135 @@ struct EuiccResultData *iot_emo_do_configureImmediateEnable_psmo(struct ipa_cont
 
 	euicc_result_data->choice.configureImmediateEnableResult = ConfigureImmediateEnableResult_ok;
 
+	return euicc_result_data;
+}
+
+/*! Pure decision logic of the emulated setFallbackAttribute PSMO (see SGP.32, section 3.4.6). The
+ *  check order matters: a target that already holds the attribute reports ok before the holder
+ *  checks run. The fallbackAllowed and emergency profile preconditions of a real eUICC are not
+ *  representable in consumer profile metadata, so the emulation is permissive there by construction.
+ *  \param[in] target_found the target ICCID exists on the eUICC.
+ *  \param[in] target_is_holder the target profile already holds the fallback attribute.
+ *  \param[in] holder_present some (other) profile currently holds the fallback attribute.
+ *  \param[in] holder_enabled that holder is the currently enabled profile.
+ *  \returns SetFallbackAttributeResult code. */
+long iot_emu_fallback_attr_set_check(bool target_found, bool target_is_holder, bool holder_present,
+				     bool holder_enabled)
+{
+	if (!target_found)
+		return SetFallbackAttributeResult_iccidOrAidNotFound;
+	if (target_is_holder)
+		return SetFallbackAttributeResult_ok;
+	if (holder_present && holder_enabled)
+		return SetFallbackAttributeResult_fallbackProfileEnabled;
+	/* No holder, or the holder is disabled: the attribute moves to the target (there is only one
+	 * fallback profile at any time). */
+	return SetFallbackAttributeResult_ok;
+}
+
+struct EuiccResultData *iot_emo_do_setFallbackAttribute_psmo(struct ipa_context *ctx, const struct Psmo__setFallbackAttribute
+							     *setFallbackAttribute_psmo)
+{
+	struct EuiccResultData *euicc_result_data = IPA_ALLOC_ZERO(struct EuiccResultData);
+	struct ipa_es10c_get_prfle_info_res *get_prfle_info_res = NULL;
+	const Iccid_t *target_iccid = &setFallbackAttribute_psmo->iccid;
+	bool target_found = false;
+	bool target_is_holder;
+	bool holder_present;
+	bool holder_enabled;
+	long rc = SetFallbackAttributeResult_undefinedError;
+	int i;
+
+	euicc_result_data->present = EuiccResultData_PR_setFallbackAttributeResult;
+
+	get_prfle_info_res = ipa_es10c_get_prfle_info(ctx, NULL);
+	if (!get_prfle_info_res || get_prfle_info_res->prfle_info_list_err != 0 ||
+	    target_iccid->size > IPA_LEN_ICCID)
+		goto done;
+
+	if (get_prfle_info_res->sgp32_res &&
+	    get_prfle_info_res->sgp32_res->present == SGP32_ProfileInfoListResponse_PR_profileInfoListOk) {
+		for (i = 0; i < get_prfle_info_res->sgp32_res->choice.profileInfoListOk.list.count; i++) {
+			if (IPA_ASN_STR_CMP(get_prfle_info_res->sgp32_res->choice.profileInfoListOk.list.array[i]->iccid,
+					    target_iccid)) {
+				target_found = true;
+				break;
+			}
+		}
+	}
+
+	target_is_holder = iot_emu_iccid_eq(target_iccid, ctx->nvstate.iot_euicc_emu.fallback.fallback_iccid,
+					    ctx->nvstate.iot_euicc_emu.fallback.fallback_iccid_len);
+	holder_present = iot_emu_fallback_prfle_exists(ctx, get_prfle_info_res);
+	holder_enabled = holder_present && get_prfle_info_res->currently_active_prfle &&
+	    iot_emu_iccid_eq(get_prfle_info_res->currently_active_prfle->iccid,
+			     ctx->nvstate.iot_euicc_emu.fallback.fallback_iccid,
+			     ctx->nvstate.iot_euicc_emu.fallback.fallback_iccid_len);
+
+	rc = iot_emu_fallback_attr_set_check(target_found, target_is_holder, holder_present, holder_enabled);
+	if (rc == SetFallbackAttributeResult_ok && !target_is_holder) {
+		memcpy(ctx->nvstate.iot_euicc_emu.fallback.fallback_iccid, target_iccid->buf, target_iccid->size);
+		ctx->nvstate.iot_euicc_emu.fallback.fallback_iccid_len = target_iccid->size;
+	}
+
+done:
+	euicc_result_data->choice.setFallbackAttributeResult = rc;
+	ipa_es10c_get_prfle_info_res_free(get_prfle_info_res);
+	return euicc_result_data;
+}
+
+struct EuiccResultData *iot_emo_do_unsetFallbackAttribute_psmo(struct ipa_context *ctx)
+{
+	struct EuiccResultData *euicc_result_data = IPA_ALLOC_ZERO(struct EuiccResultData);
+	struct ipa_es10c_get_prfle_info_res *get_prfle_info_res = NULL;
+	long rc = UnsetFallbackAttributeResult_undefinedError;
+
+	euicc_result_data->present = EuiccResultData_PR_unsetFallbackAttributeResult;
+
+	get_prfle_info_res = ipa_es10c_get_prfle_info(ctx, NULL);
+	if (!get_prfle_info_res || get_prfle_info_res->prfle_info_list_err != 0)
+		goto done;
+
+	/* See SGP.32, section 3.4.7: the attribute may only be removed while its holder is disabled */
+	if (!iot_emu_fallback_prfle_exists(ctx, get_prfle_info_res)) {
+		rc = UnsetFallbackAttributeResult_noFallbackAttribute;
+	} else if (get_prfle_info_res->currently_active_prfle &&
+		   iot_emu_iccid_eq(get_prfle_info_res->currently_active_prfle->iccid,
+				    ctx->nvstate.iot_euicc_emu.fallback.fallback_iccid,
+				    ctx->nvstate.iot_euicc_emu.fallback.fallback_iccid_len)) {
+		rc = UnsetFallbackAttributeResult_fallbackProfileEnabled;
+	} else {
+		ctx->nvstate.iot_euicc_emu.fallback.fallback_iccid_len = 0;
+		rc = UnsetFallbackAttributeResult_ok;
+	}
+
+done:
+	euicc_result_data->choice.unsetFallbackAttributeResult = rc;
+	ipa_es10c_get_prfle_info_res_free(get_prfle_info_res);
+	return euicc_result_data;
+}
+
+struct EuiccResultData *iot_emo_do_setDefaultDpAddress_psmo(struct ipa_context *ctx, const struct SGP32_SetDefaultDpAddressRequest
+							    *setDefaultDpAddress_psmo)
+{
+	struct EuiccResultData *euicc_result_data = IPA_ALLOC_ZERO(struct EuiccResultData);
+	long rc;
+
+	euicc_result_data->present = EuiccResultData_PR_setDefaultDpAddressResult;
+
+	if (ctx->nvstate.iot_euicc_emu.auto_enable.flag) {
+		/* See SGP.32, section 5.9.25: the eUICC rejects a default SM-DP+ address change while
+		 * immediate profile enabling is configured */
+		rc = SGP32_SetDefaultDpAddressResponse__setDefaultDpAddressResult_undefinedError;
+	} else if (ipa_es10a_set_default_dp_addr(ctx, &setDefaultDpAddress_psmo->defaultDpAddress) == 0) {
+		/* Forwarded to the consumer eUICC (an empty address removes the configured one), so the
+		 * default SM-DP+ address genuinely lives on the card */
+		rc = SGP32_SetDefaultDpAddressResponse__setDefaultDpAddressResult_ok;
+	} else {
+		rc = SGP32_SetDefaultDpAddressResponse__setDefaultDpAddressResult_undefinedError;
+	}
+
+	euicc_result_data->choice.setDefaultDpAddressResult.setDefaultDpAddressResult = rc;
 	return euicc_result_data;
 }
 
@@ -597,6 +728,17 @@ struct ipa_es10b_load_euicc_pkg_res *load_euicc_pkg_iot_emu(struct ipa_context *
 			case Psmo_PR_configureImmediateEnable:
 				psmo_result =
 				    iot_emo_do_configureImmediateEnable_psmo(ctx, &psmo->choice.configureImmediateEnable);
+				break;
+			case Psmo_PR_setFallbackAttribute:
+				psmo_result =
+				    iot_emo_do_setFallbackAttribute_psmo(ctx, &psmo->choice.setFallbackAttribute);
+				break;
+			case Psmo_PR_unsetFallbackAttribute:
+				psmo_result = iot_emo_do_unsetFallbackAttribute_psmo(ctx);
+				break;
+			case Psmo_PR_setDefaultDpAddress:
+				psmo_result =
+				    iot_emo_do_setDefaultDpAddress_psmo(ctx, &psmo->choice.setDefaultDpAddress);
 				break;
 			default:
 				IPA_LOGP_ES10X("LoadEuiccPackage", LERROR, "ignoring invalid or unsupported PSMO!\n");

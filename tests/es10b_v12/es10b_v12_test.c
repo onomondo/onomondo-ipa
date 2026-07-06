@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
+#include <stdbool.h>
 #include <ExecuteFallbackMechanismRequest.h>
 #include <ExecuteFallbackMechanismResponse.h>
 #include <ReturnFromFallbackRequest.h>
@@ -25,6 +26,21 @@
 #include <ConfigureImmediateProfileEnablingResponse.h>
 #include <IpaeActivationRequest.h>
 #include <IpaeActivationResponse.h>
+#include <SetDefaultDpAddressRequest.h>
+#include <SetFallbackAttributeResult.h>
+#include <onomondo/ipa/utils.h>
+#include <src/ipa/libipa/es10b_load_euicc_pkg.h>
+
+/* Using iot_emu_fallback_attr_set_check drags the eUICC transport into the link; the test never
+ * talks to a card, so a stub satisfies the smartcard backend the transport expects. */
+int ipa_scard_transceive(void *scard_ctx, struct ipa_buf *res, const struct ipa_buf *req)
+{
+	(void)scard_ctx;
+	(void)res;
+	(void)req;
+	assert(0);
+	return -1;
+}
 
 static uint8_t enc_buf[512];
 static size_t enc_len;
@@ -233,6 +249,39 @@ static void ipae_activation_response_decode_test(void)
 	ASN_STRUCT_FREE(asn_DEF_IpaeActivationResponse, rsp);
 }
 
+/* SGP.22 SetDefaultDpAddressRequest ('BF3F'), used by the setDefaultDpAddress PSMO emulation to
+ * forward the address to the consumer eUICC. An empty address removes the configured one. */
+static void set_default_dp_addr_request_test(void)
+{
+	struct SetDefaultDpAddressRequest req = { 0 };
+
+	req.defaultDpAddress.buf = (uint8_t *)"x";
+	req.defaultDpAddress.size = 1;
+	enc_assert(&asn_DEF_SetDefaultDpAddressRequest, &req, "BF3F03800178");
+
+	req.defaultDpAddress.buf = (uint8_t *)"";
+	req.defaultDpAddress.size = 0;
+	enc_assert(&asn_DEF_SetDefaultDpAddressRequest, &req, "BF3F028000");
+}
+
+/* Decision logic of the emulated setFallbackAttribute PSMO, in the check order of SGP.32,
+ * section 3.4.6 (in particular: a target that already holds the attribute reports ok BEFORE the
+ * holder-enabled check runs) */
+static void fallback_attr_set_check_test(void)
+{
+	/* target not found wins over everything */
+	assert(iot_emu_fallback_attr_set_check(false, false, false, false) == SetFallbackAttributeResult_iccidOrAidNotFound);
+	assert(iot_emu_fallback_attr_set_check(false, true, true, true) == SetFallbackAttributeResult_iccidOrAidNotFound);
+	/* idempotent: target already holds the attribute */
+	assert(iot_emu_fallback_attr_set_check(true, true, true, true) == SetFallbackAttributeResult_ok);
+	/* another profile holds the attribute and is enabled */
+	assert(iot_emu_fallback_attr_set_check(true, false, true, true) == SetFallbackAttributeResult_fallbackProfileEnabled);
+	/* another profile holds the attribute but is disabled: attribute moves */
+	assert(iot_emu_fallback_attr_set_check(true, false, true, false) == SetFallbackAttributeResult_ok);
+	/* no holder yet: plain set */
+	assert(iot_emu_fallback_attr_set_check(true, false, false, false) == SetFallbackAttributeResult_ok);
+}
+
 int main(int argc, char **argv)
 {
 	(void)argc;
@@ -250,6 +299,8 @@ int main(int argc, char **argv)
 	cfg_immediate_enable_response_decode_test();
 	ipae_activation_request_test();
 	ipae_activation_response_decode_test();
+	set_default_dp_addr_request_test();
+	fallback_attr_set_check_test();
 
 	printf("all v1.2 ES10b wire format checks passed\n");
 	return 0;

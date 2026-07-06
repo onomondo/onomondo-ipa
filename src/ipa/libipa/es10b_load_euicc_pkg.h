@@ -28,3 +28,8 @@ struct ipa_es10b_load_euicc_pkg_res {
 struct ipa_es10b_load_euicc_pkg_res *ipa_es10b_load_euicc_pkg(struct ipa_context *ctx,
 							      const struct ipa_es10b_load_euicc_pkg_req *req);
 void ipa_es10b_load_euicc_pkg_res_free(struct ipa_es10b_load_euicc_pkg_res *res);
+
+/* Pure decision logic of the emulated setFallbackAttribute PSMO (SGP.32, section 3.4.6), exposed for
+ * the unit test. Returns a SetFallbackAttributeResult code. */
+long iot_emu_fallback_attr_set_check(bool target_found, bool target_is_holder, bool holder_present,
+				     bool holder_enabled);
