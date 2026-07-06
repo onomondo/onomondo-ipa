@@ -17,6 +17,7 @@ if(DEFINED ENV{ZEPHYR_BASE})
   es10b_auth_serv.c
   es10b_cancel_session.c
   es10b_euicc_mem_rst.c
+  es10b_exec_fallback.c
   es10b_get_certs.c
   es10b_get_eim_cfg_data.c
   es10b_get_euicc_chlg.c
@@ -27,6 +28,7 @@ if(DEFINED ENV{ZEPHYR_BASE})
   es10b_prep_dwnld.c
   es10b_prfle_rollback.c
   es10b_retr_notif_from_lst.c
+  es10b_return_from_fallback.c
   es10b_rm_notif_from_lst.c
   es10c_delete_prfle.c
   es10c_disable_prfle.c

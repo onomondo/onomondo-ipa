@@ -24,6 +24,8 @@
 #include "es10b_get_eim_cfg_data.h"
 #include "es10b_add_init_eim.h"
 #include "es10b_euicc_mem_rst.h"
+#include "es10b_exec_fallback.h"
+#include "es10b_return_from_fallback.h"
 #include "es10b_load_euicc_pkg.h"
 #include "proc_euicc_pkg_dwnld_exec.h"
 #include "proc_notif_delivery.h"
@@ -271,6 +273,28 @@ int ipa_euicc_mem_rst(struct ipa_context *ctx, bool operatnl_profiles, bool test
 	euicc_mem_rst.eim_cfg_data = eim_cfg_data;
 	euicc_mem_rst.auto_enable_cfg = auto_enable_cfg;
 	return ipa_es10b_euicc_mem_rst(ctx, &euicc_mem_rst);
+}
+
+/*! trigger the eUICC Fallback Mechanism (ES10b.ExecuteFallbackMechanism, see SGP.32, section 5.9.20).
+ *  On success the enabled profile has changed, so the API user must expect the network registration to
+ *  change. When (e.g. on permanent loss of connectivity) and whether to fall back is the API user's
+ *  decision (see SGP.32, section 2.11.1.1.3). Must not be called while ipa_poll is running.
+ *  \param[inout] ctx pointer to ipa_context.
+ *  \returns SGP.32 status code (0 = ok), negative on transport error. */
+int ipa_euicc_exec_fallback(struct ipa_context *ctx)
+{
+	return ipa_es10b_exec_fallback(ctx);
+}
+
+/*! undo a previous fallback (ES10b.ReturnFromFallback, see SGP.32, section 5.9.21).
+ *  Re-enables the profile that was enabled before the Fallback Mechanism was executed. On success the
+ *  enabled profile has changed, so the API user must expect the network registration to change. Must
+ *  not be called while ipa_poll is running.
+ *  \param[inout] ctx pointer to ipa_context.
+ *  \returns SGP.32 status code (0 = ok), negative on transport error. */
+int ipa_euicc_return_from_fallback(struct ipa_context *ctx)
+{
+	return ipa_es10b_return_from_fallback(ctx);
 }
 
 static int check_canaries(struct ipa_context *ctx)

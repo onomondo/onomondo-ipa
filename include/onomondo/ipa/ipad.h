@@ -94,6 +94,8 @@ int eim_init(struct ipa_context *ctx);
 int ipa_add_init_eim_cfg(struct ipa_context *ctx, struct ipa_buf *cfg);
 int ipa_euicc_mem_rst(struct ipa_context *ctx, bool operatnl_profiles, bool test_profiles, bool default_smdp_addr,
 		      bool eim_cfg_data, bool auto_enable_cfg);
+int ipa_euicc_exec_fallback(struct ipa_context *ctx);
+int ipa_euicc_return_from_fallback(struct ipa_context *ctx);
 int ipa_poll(struct ipa_context *ctx);
 void ipa_close(struct ipa_context *ctx);
 struct ipa_buf *ipa_free_ctx(struct ipa_context *ctx);
