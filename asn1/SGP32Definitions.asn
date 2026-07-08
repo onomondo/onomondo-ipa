@@ -802,17 +802,9 @@ HandleNotificationEsipa ::= [61] CHOICE { -- Tag 'BF3D'
 
 -- Section 6.3.2.5
 -- ASN1START
--- The SGP.32 spec text leaves both components untagged, relying on the module's
--- AUTOMATIC TAGS. asn1c resolves the automatic tag on cancelSessionResponse as
--- IMPLICIT [1] (replacing the type's [65]), while other compilers (e.g. the
--- Erlang asn1 used by eIM implementations interoperating with IPAe eUICCs)
--- resolve it as EXPLICIT [1] wrapping the 'BF41' TLV — the X.680 31.2.7
--- tagged-CHOICE corner case. Spell the ecosystem encoding out with manual tags
--- so any compiler produces transactionId '80' and cancelSessionResponse
--- 'A1 { BF41 {...} }'.
 CancelSessionRequestEsipa ::= [65] SEQUENCE { -- Tag 'BF41'
-  transactionId [0] TransactionId,
-  cancelSessionResponse [1] EXPLICIT SGP32-CancelSessionResponse -- This is the response from ES10b.  CancelSession function, possibly in compact format
+  transactionId TransactionId,
+  cancelSessionResponse SGP32-CancelSessionResponse -- This is the response from ES10b.  CancelSession function, possibly in compact format
 }
 CancelSessionResponseEsipa ::= [65] CHOICE { -- Tag 'BF41'
   cancelSessionOk SGP32-CancelSessionOk,
