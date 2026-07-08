@@ -1,3 +1,15 @@
+-- Transcribed from GSMA SGP.32 v1.2 (sections 2.1.3 and 6.3); the "-- Section"
+-- markers below reference the spec. Intentional deltas from the spec text:
+--   * 15 imported SGP.22 types are renamed with an "SGP32-" prefix to avoid
+--     clashes with RSPDefinitions (namespacing only, wire-compatible).
+--   * Types the spec repeats from SGP.22 are resolved via IMPORTS instead of
+--     inline definitions (as the spec's own IMPORTS block intends).
+-- Encoding note (X.680 31.2.7): under AUTOMATIC TAGS, a component whose type
+-- is a *tagged* CHOICE (e.g. CancelSessionRequestEsipa.cancelSessionResponse,
+-- type tag [65]/'BF41') takes its automatic context tag IMPLICIT-ly: the wire
+-- carries 'A1' with the chosen alternative directly inside, NOT an embedded
+-- 'BF41'. Compilers that resolve this case as EXPLICIT deviate from X.680 and
+-- must pin manual tags on their side to interoperate.
 -- Section 2.1.3
 -- ASN1START
 SGP32Definitions {joint-iso-itu-t(2) international-organizations(23) gsma(146) rsp(1) asn1modules(1) sgp32v1(31)}

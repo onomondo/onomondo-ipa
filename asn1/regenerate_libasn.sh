@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# The committed libasn was generated with an asn1c that identifies as 0.9.29.
+# Different asn1c builds/forks — even ones reporting the same version — emit
+# cosmetically different code for EVERY file, drowning real changes in noise.
+# The version pin below is necessary but not sufficient: after regenerating,
+# ALWAYS review `git diff` and keep only the files whose change you intended,
+# reverting pure-noise rewrites of untouched types.
+EXPECTED_ASN1C_VERSION="0.9.29"
+ACTUAL_ASN1C_VERSION=$(asn1c -version 2>&1 | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -1)
+if [ "$ACTUAL_ASN1C_VERSION" != "$EXPECTED_ASN1C_VERSION" ]; then
+	echo "ERROR: asn1c $EXPECTED_ASN1C_VERSION required, found ${ACTUAL_ASN1C_VERSION:-none}." >&2
+	echo "Regenerating with a different asn1c rewrites all of libasn; aborting." >&2
+	exit 1
+fi
+
 cd ../src/ipa/libasn/
 
 # Remove an old implementation
