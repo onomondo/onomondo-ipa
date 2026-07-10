@@ -21,7 +21,9 @@ void ipa_bpp_segments_encode_test(char *test_vector_path)
 	size_t bpp_len;
 	asn_dec_rval_t rc;
 	struct BoundProfilePackage *bpp_dec = NULL;
-	struct ipa_bpp_segments *segments = NULL;
+	struct ipa_bpp_segment_iter iter;
+	struct ipa_buf *segment = NULL;
+	unsigned int i;
 
 	/* Load test BPP test vector from file */
 	assert(test_vector_path);
@@ -35,10 +37,15 @@ void ipa_bpp_segments_encode_test(char *test_vector_path)
 	rc = ber_decode(0, &asn_DEF_BoundProfilePackage, (void **)&bpp_dec, bpp, bpp_len);
 	assert(rc.code == RC_OK);
 
-	/* Generate BPP segments */
-	segments = ipa_bpp_segments_encode(bpp_dec);
-	assert(segments);
-	ipa_bpp_segments_free(segments);
+	/* Generate BPP segments (one at a time, like the profile installation procedure does) */
+	ipa_bpp_segment_iter_init(&iter, bpp_dec);
+	for (i = 0; i < iter.count; i++) {
+		segment = ipa_bpp_segment_iter_next(&iter);
+		assert(segment);
+		IPA_FREE(segment);
+	}
+	/* The iterator must report exhaustion once all segments were produced */
+	assert(!ipa_bpp_segment_iter_next(&iter));
 
 	ASN_STRUCT_FREE(asn_DEF_BoundProfilePackage, bpp_dec);
 }

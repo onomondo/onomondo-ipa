@@ -70,20 +70,26 @@ static int handle_load_bnd_prfle_pkg_res(struct ipa_context *ctx, struct ipa_es1
 int ipa_proc_prfle_inst(struct ipa_context *ctx, const struct ipa_proc_prfle_inst_pars *pars)
 {
 	struct ipa_es10b_load_bnd_prfle_pkg_res *load_bnd_prfle_pkg_res = NULL;
-	struct ipa_bpp_segments *segments = NULL;
+	struct ipa_bpp_segment_iter seg_iter;
+	struct ipa_buf *segment = NULL;
 	unsigned int i;
 	int rc;
 	long seq_number = -1;
 	bool sucess = true;
 
-	/* Step #3-#5 Split BPP into ES8+ segments and send the segments to eUICC */
-	segments = ipa_bpp_segments_encode(pars->bound_profile_package);
-	if (!segments)
-		goto error;
-	for (i = 0; i < segments->count; i++) {
+	/* Step #3-#5 Split BPP into ES8+ segments and send the segments to eUICC. The segments are encoded one at a
+	 * time and freed right after the eUICC has consumed them, so that only a single segment coexists with the
+	 * decoded BoundProfilePackage. */
+	ipa_bpp_segment_iter_init(&seg_iter, pars->bound_profile_package);
+	for (i = 0; i < seg_iter.count; i++) {
 		IPA_LOGP(SIPA, LDEBUG, "transferring ES8+ segments...\n");
-		load_bnd_prfle_pkg_res =
-		    ipa_es10b_load_bnd_prfle_pkg(ctx, segments->segment[i]->data, segments->segment[i]->len);
+		segment = ipa_bpp_segment_iter_next(&seg_iter);
+		if (!segment) {
+			IPA_LOGP(SIPA, LERROR, "failed to encode ES8+ segment!\n");
+			goto error;
+		}
+		load_bnd_prfle_pkg_res = ipa_es10b_load_bnd_prfle_pkg(ctx, segment->data, segment->len);
+		IPA_FREE(segment);
 		if (!load_bnd_prfle_pkg_res) {
 			IPA_LOGP(SIPA, LERROR, "failed to transfer ES8+ segments!\n");
 			goto error;
@@ -91,10 +97,10 @@ int ipa_proc_prfle_inst(struct ipa_context *ctx, const struct ipa_proc_prfle_ins
 		rc = handle_load_bnd_prfle_pkg_res(ctx, load_bnd_prfle_pkg_res, &seq_number, pars->pir);
 		if (rc < 0) {
 			goto error;
-		} else if (rc == 0 && i == segments->count - 1) {
+		} else if (rc == 0 && i == seg_iter.count - 1) {
 			IPA_LOGP(SIPA, LERROR, "eUICC didn't respond with ProfileInstallationResult!\n");
 			goto error;
-		} else if (rc == 1 && i != segments->count - 1) {
+		} else if (rc == 1 && i != seg_iter.count - 1) {
 			IPA_LOGP(SIPA, LERROR, "profile installation aborted by eUICC, notfication sent!\n");
 			sucess = false;
 			break;
@@ -111,14 +117,12 @@ int ipa_proc_prfle_inst(struct ipa_context *ctx, const struct ipa_proc_prfle_ins
 		goto error;
 	}
 
-	ipa_bpp_segments_free(segments);
 	if (sucess)
 		IPA_LOGP(SIPA, LINFO, "profile installation succeeded!\n");
 	else
 		IPA_LOGP(SIPA, LINFO, "profile installation aborted!\n");
 	return 0;
 error:
-	ipa_bpp_segments_free(segments);
 	IPA_LOGP(SIPA, LERROR, "profile installation failed!\n");
 	return -EINVAL;
 }

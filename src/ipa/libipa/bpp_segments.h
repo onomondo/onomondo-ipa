@@ -9,10 +9,15 @@
 #include <onomondo/ipa/utils.h>
 #include <BoundProfilePackage.h>
 
-struct ipa_bpp_segments {
-	struct ipa_buf **segment;
-	size_t count;
+/* The segments are produced one at a time so that the caller can free each
+ * segment right after it has been sent to the eUICC. Materializing all
+ * segments at once would hold a second copy of the profile in memory while
+ * the decoded BoundProfilePackage is still resident. */
+struct ipa_bpp_segment_iter {
+	const struct BoundProfilePackage *bpp;
+	unsigned int idx;
+	unsigned int count;
 };
 
-struct ipa_bpp_segments *ipa_bpp_segments_encode(const struct BoundProfilePackage *bpp);
-void ipa_bpp_segments_free(struct ipa_bpp_segments *segments);
+void ipa_bpp_segment_iter_init(struct ipa_bpp_segment_iter *iter, const struct BoundProfilePackage *bpp);
+struct ipa_buf *ipa_bpp_segment_iter_next(struct ipa_bpp_segment_iter *iter);

@@ -187,82 +187,50 @@ static struct ipa_buf *enc_each_of_sequenceOf86(const BoundProfilePackage_86tlv_
 	return one_86tlv_encoded;
 }
 
-struct ipa_bpp_segments *ipa_bpp_segments_encode(const struct BoundProfilePackage *bpp)
+/*! Initialize a BPP segment iterator.
+ *  \param[out] iter iterator state, lives on the caller's stack.
+ *  \param[in] bpp pointer to the decoded BoundProfilePackage; must stay valid
+ *  for the lifetime of the iterator. */
+void ipa_bpp_segment_iter_init(struct ipa_bpp_segment_iter *iter, const struct BoundProfilePackage *bpp)
 {
-	unsigned int i;
-	struct ipa_bpp_segments *segments = NULL;
-	struct ipa_buf *segment = NULL;
-	size_t segment_count = 3 + bpp->sequenceOf88.list.count + 2 + bpp->sequenceOf86.list.count;
-
-	segments = IPA_ALLOC_ZERO(struct ipa_bpp_segments);
-	segments->segment = IPA_ALLOC_N(sizeof(*segments->segment) * segment_count);
-	memset(segments->segment, 0, sizeof(*segments->segment) * segment_count);
-
-	segment = enc_init_sec_chan_req(bpp, &bpp->initialiseSecureChannelRequest);
-	if (!segment)
-		goto error;
-	segments->segment[segments->count] = segment;
-	segments->count++;
-
-	segment = enc_first_seq_of_87(&bpp->firstSequenceOf87);
-	if (!segment)
-		goto error;
-	segments->segment[segments->count] = segment;
-	segments->count++;
-
-	segment = enc_tag_and_len_of_sequenceOf88(&bpp->sequenceOf88);
-	if (!segment)
-		goto error;
-	segments->segment[segments->count] = segment;
-	segments->count++;
-
-	for (i = 0; i < bpp->sequenceOf88.list.count; i++) {
-		segment = enc_each_of_sequenceOf88(bpp->sequenceOf88.list.array[i], i);
-		if (!segment)
-			goto error;
-		segments->segment[segments->count] = segment;
-		segments->count++;
-	}
-
-	/* Optional */
-	if (bpp->secondSequenceOf87) {
-		segment = enc_second_seq_of_87(bpp->secondSequenceOf87);
-		if (!segment)
-			goto error;
-		segments->segment[segments->count] = segment;
-		segments->count++;
-	}
-
-	segment = enc_tag_and_len_of_sequenceOf86(&bpp->sequenceOf86);
-	if (!segment)
-		goto error;
-	segments->segment[segments->count] = segment;
-	segments->count++;
-
-	for (i = 0; i < bpp->sequenceOf86.list.count; i++) {
-		segment = enc_each_of_sequenceOf86(bpp->sequenceOf86.list.array[i], i);
-		if (!segment)
-			goto error;
-		segments->segment[segments->count] = segment;
-		segments->count++;
-	}
-
-	return segments;
-error:
-	ipa_bpp_segments_free(segments);
-	return NULL;
+	iter->bpp = bpp;
+	iter->idx = 0;
+	iter->count = 3 + (unsigned int)bpp->sequenceOf88.list.count + (bpp->secondSequenceOf87 ? 1 : 0) +
+		      1 + (unsigned int)bpp->sequenceOf86.list.count;
 }
 
-void ipa_bpp_segments_free(struct ipa_bpp_segments *segments)
+/*! Encode the next BPP segment (see GSMA SGP.22, section 2.5.5).
+ *  \param[inout] iter iterator state.
+ *  \returns newly allocated ipa_buf with the segment (caller frees), NULL on
+ *  encoding error or when iter->count segments have been produced. */
+struct ipa_buf *ipa_bpp_segment_iter_next(struct ipa_bpp_segment_iter *iter)
 {
-	unsigned int i;
+	const struct BoundProfilePackage *bpp = iter->bpp;
+	unsigned int n88 = (unsigned int)bpp->sequenceOf88.list.count;
+	unsigned int i = iter->idx;
 
-	if (!segments)
-		return;
+	if (i >= iter->count)
+		return NULL;
+	iter->idx++;
 
-	for (i = 0; i < segments->count; i++)
-		IPA_FREE(segments->segment[i]);
-	IPA_FREE(segments->segment);
-
-	IPA_FREE(segments);
+	if (i == 0)
+		return enc_init_sec_chan_req(bpp, &bpp->initialiseSecureChannelRequest);
+	if (i == 1)
+		return enc_first_seq_of_87(&bpp->firstSequenceOf87);
+	if (i == 2)
+		return enc_tag_and_len_of_sequenceOf88(&bpp->sequenceOf88);
+	i -= 3;
+	if (i < n88)
+		return enc_each_of_sequenceOf88(bpp->sequenceOf88.list.array[i], i);
+	i -= n88;
+	/* Optional */
+	if (bpp->secondSequenceOf87) {
+		if (i == 0)
+			return enc_second_seq_of_87(bpp->secondSequenceOf87);
+		i--;
+	}
+	if (i == 0)
+		return enc_tag_and_len_of_sequenceOf86(&bpp->sequenceOf86);
+	i--;
+	return enc_each_of_sequenceOf86(bpp->sequenceOf86.list.array[i], i);
 }
