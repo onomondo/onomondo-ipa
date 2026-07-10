@@ -395,10 +395,14 @@ bool ipa_tag_in_taglist(uint16_t tag, const struct ipa_buf *tag_list)
 	return false;
 }
 
+/* Returns the header length (offset to the value part), 0 on error. A valid
+ * BER TLV header is never shorter than 2 bytes, so 0 is unambiguous. */
 static size_t parse_btlv_hdr(size_t *len, uint16_t *tag, uint8_t *data, size_t data_len)
 {
 	uint8_t tag_len = 1;
-	uint16_t value_len = 0;
+	/* size_t, not uint16_t: the length field may carry up to 4 length
+	 * bytes, and outer BoundProfilePackage TLVs can exceed 64 KiB. */
+	size_t value_len = 0;
 	uint8_t len_bytes;
 	size_t skip_len = 0;
 	unsigned int i;
@@ -407,7 +411,7 @@ static size_t parse_btlv_hdr(size_t *len, uint16_t *tag, uint8_t *data, size_t d
 	if ((*data & 0x1f) == 0x1f)
 		tag_len = 2;
 	if (data_len < tag_len)
-		return -EINVAL;
+		return 0;
 	if (tag && tag_len == 1) {
 		*tag = *data;
 	} else if (tag && tag_len == 2) {
@@ -421,7 +425,7 @@ static size_t parse_btlv_hdr(size_t *len, uint16_t *tag, uint8_t *data, size_t d
 	/* decode length */
 	if (*data < 0x7f) {
 		if (data_len < 1)
-			return -EINVAL;
+			return 0;
 		value_len = *data;
 		data++;
 		data_len--;
@@ -429,9 +433,9 @@ static size_t parse_btlv_hdr(size_t *len, uint16_t *tag, uint8_t *data, size_t d
 	} else {
 		len_bytes = *data & 0x7f;
 		if (len_bytes == 0 || len_bytes > 4)
-			return -EINVAL;
+			return 0;
 		if (data_len < 1)
-			return -EINVAL;
+			return 0;
 		data++;
 		data_len--;
 		skip_len++;
@@ -439,7 +443,7 @@ static size_t parse_btlv_hdr(size_t *len, uint16_t *tag, uint8_t *data, size_t d
 		for (i = 0; i < len_bytes; i++) {
 			value_len <<= 8;
 			if (data_len < 1)
-				return -EINVAL;
+				return 0;
 			value_len |= *data;
 			data++;
 			data_len--;
@@ -456,7 +460,7 @@ static size_t parse_btlv_hdr(size_t *len, uint16_t *tag, uint8_t *data, size_t d
 /*! Parse a BER TLV tag from an ipa_buf.
  *  \param[out] len length as specified in the TLV header (caller may pass NULL if not interested).
  *  \param[out] tag tag value from the TLV header (caller may pass NULL if not interested).
- *  \returns total length of the TLV header (offset to the beginning of the value part), NULL on error. */
+ *  \returns total length of the TLV header (offset to the beginning of the value part), 0 on error. */
 size_t ipa_parse_btlv_hdr(size_t *len, uint16_t *tag, struct ipa_buf *buf)
 {
 	return parse_btlv_hdr(len, tag, buf->data, buf->len);
@@ -469,13 +473,14 @@ size_t ipa_parse_btlv_hdr(size_t *len, uint16_t *tag, struct ipa_buf *buf)
 int ipa_strip_tlv_envelope(uint8_t *data, size_t data_len, uint16_t envelope_tag)
 {
 	size_t chop_bytes = 0;
-	uint16_t tlv_tag;
+	uint16_t tlv_tag = 0;
 
 	chop_bytes = parse_btlv_hdr(NULL, &tlv_tag, data, data_len);
 
 	/* The header is invalid, this indicates that this buffer has no TLV header, so the envelope we looking for
-	 * is also not present. */
-	if (chop_bytes < 0)
+	 * is also not present. (parse_btlv_hdr returns 0 on error; the old < 0 check could never fire on the
+	 * unsigned return type, and tlv_tag was read uninitialized in that case.) */
+	if (chop_bytes == 0)
 		return data_len;
 
 	/* The header is valid, but the TLV tag does not match, so the envelope we

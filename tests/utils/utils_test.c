@@ -51,9 +51,45 @@ void ipa_tag_in_taglist_test(void)
 	IPA_FREE(tag_list);
 }
 
+void ipa_parse_btlv_hdr_test(void)
+{
+	/* short form: 5A len 0x10 */
+	uint8_t _short_form[] = { 0x5A, 0x10, 0xAA };
+	/* two-byte tag, long form 2 length bytes: BF36 len 0x1234 */
+	uint8_t _long_form[] = { 0xBF, 0x36, 0x82, 0x12, 0x34, 0xAA };
+	/* long form 3 length bytes: value length 0x012345 (> 64 KiB — used to
+	 * be silently truncated by the uint16_t length accumulator) */
+	uint8_t _len3_form[] = { 0xA1, 0x83, 0x01, 0x23, 0x45, 0xAA };
+	/* truncated: long form announcing 2 length bytes but only 1 present */
+	uint8_t _truncated[] = { 0x5A, 0x82, 0x01 };
+	struct ipa_buf *buf;
+	size_t len = 0;
+	uint16_t tag = 0;
+
+	buf = ipa_buf_alloc_data(sizeof(_short_form), _short_form);
+	assert(ipa_parse_btlv_hdr(&len, &tag, buf) == 2);
+	assert(tag == 0x5A && len == 0x10);
+	IPA_FREE(buf);
+
+	buf = ipa_buf_alloc_data(sizeof(_long_form), _long_form);
+	assert(ipa_parse_btlv_hdr(&len, &tag, buf) == 5);
+	assert(tag == 0xBF36 && len == 0x1234);
+	IPA_FREE(buf);
+
+	buf = ipa_buf_alloc_data(sizeof(_len3_form), _len3_form);
+	assert(ipa_parse_btlv_hdr(&len, &tag, buf) == 5);
+	assert(tag == 0xA1 && len == 0x012345);
+	IPA_FREE(buf);
+
+	buf = ipa_buf_alloc_data(sizeof(_truncated), _truncated);
+	assert(ipa_parse_btlv_hdr(&len, &tag, buf) == 0);
+	IPA_FREE(buf);
+}
+
 int main(int argc, char **argv)
 {
 	ipa_tag_in_taglist_test();
+	ipa_parse_btlv_hdr_test();
 	return 0;
 }
 
