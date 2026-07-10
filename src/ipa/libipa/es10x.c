@@ -66,14 +66,11 @@ struct ipa_buf *ipa_es10x_req_enc(const struct asn_TYPE_descriptor_s *td, const 
 				  const char *function_name)
 {
 	struct ipa_buf *es10x_req_encoded = NULL;
-	asn_enc_rval_t rc;
 
 	IPA_LOGP_ES10X(function_name, LDEBUG, "ES10x message that will be sent to eUICC:\n");
 	ipa_asn1c_dump(td, es10x_req_decoded, 1, SES10X, LDEBUG);
 
-	rc = der_encode(td, es10x_req_decoded, ipa_asn1c_consume_bytes_cb, &es10x_req_encoded);
-
-	if (rc.encoded <= 0) {
+	if (ipa_asn1c_der_encode(td, es10x_req_decoded, &es10x_req_encoded) != 0) {
 		IPA_LOGP_ES10X(function_name, LERROR, "cannot encode eUICC request!\n");
 		IPA_FREE(es10x_req_encoded);
 		return NULL;
