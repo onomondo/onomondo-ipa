@@ -15,7 +15,9 @@ struct ipa_buf;
 #define IPA_LOGP_ESIPA(func, level, fmt, args...) \
 	IPA_LOGP(SESIPA, level, "%s: " fmt, func, ## args)
 
-#define IPA_ESIPA_URL_MAXLEN 1024
+/* "https://" (8) + 253-char FQDN + ":port" (6) + SUFFIX + NUL; composition
+ * in ipa_esipa_get_eim_url() asserts before any overflow. */
+#define IPA_ESIPA_URL_MAXLEN 300
 
 char *ipa_esipa_get_eim_url(struct ipa_context *ctx);
 struct EsipaMessageFromEimToIpa *ipa_esipa_msg_to_ipa_dec(const struct ipa_buf *msg_to_ipa_encoded,

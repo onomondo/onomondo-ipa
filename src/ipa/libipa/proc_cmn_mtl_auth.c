@@ -69,7 +69,9 @@ static int check_certificate(const struct ipa_buf *allowed_ca, const Certificate
 	 * eSIM RootCA certificate. */
 	if (allowed_ca) {
 		const asn_oid_arc_t id_ce_authorityKeyIdentifier[4] = { 2, 5, 29, 35 };
-		asn_oid_arc_t extension_arcs[256];
+		/* Longest OID we match has 4 arcs; OBJECT_IDENTIFIER_get_arcs() returns the full arc count
+		 * even when the array is too small, so longer OIDs simply never match. */
+		asn_oid_arc_t extension_arcs[8];
 		size_t extension_arcs_len;
 		const struct Extensions *extensions;
 		bool allowed_ca_present = false;

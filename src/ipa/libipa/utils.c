@@ -38,7 +38,8 @@ const char *ipa_str_from_num(const struct num_str_map *map, long num, const char
  *  \param[in] data pointer to binary data.
  *  \param[in] len length of binary data.
  *  \returns pointer to generated human readable string. */
-#define IPA_HEXDUMP_MAX 4
+/* ring of 2: no call site evaluates more than two hexdumps per statement */
+#define IPA_HEXDUMP_MAX 2
 #define IPA_HEXDUMP_BUFSIZE 256
 char *ipa_hexdump(const uint8_t *data, size_t len)
 {
