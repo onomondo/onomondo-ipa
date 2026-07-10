@@ -194,10 +194,17 @@ struct EuiccResultData *iot_emo_do_listProfileInfo_psmo(struct ipa_context *ctx,
 		prfle_info_res->present = SGP32_ProfileInfoListResponse_PR_profileInfoListError;
 		prfle_info_res->choice.profileInfoListError = SGP32_ProfileInfoListError_undefinedError;
 		euicc_result_data->choice.listProfileInfoResult = *prfle_info_res;
+	} else if (!get_prfle_info_res->res) {
+		/* Native SGP.32 eUICC: sgp32_res is an independently decoded tree, so its contents can be
+		 * moved instead of deep-copied (the copy via ipa_asn1c_dup transiently held original + DER
+		 * buffer + duplicate at once -- ~3x the profile list, which scales with profile count). */
+		euicc_result_data->choice.listProfileInfoResult = *get_prfle_info_res->sgp32_res;
+		IPA_FREE(get_prfle_info_res->sgp32_res);	/* free outer shell only */
+		get_prfle_info_res->sgp32_res = NULL;
 	} else {
-		/* Place a full copy of the contents of get_prfle_info_res->sgp32_res into
-		 * euicc_result_data->choice.listProfileInfoResult. This is necessary because we want to free
-		 * get_prfle_info_res on return */
+		/* IoT eUICC emulation: sgp32_res shares its children with the SGP.22 tree (res), so moving
+		 * is not possible -- place a full copy of the contents of get_prfle_info_res->sgp32_res into
+		 * euicc_result_data->choice.listProfileInfoResult instead. */
 		prfle_info_res = ipa_asn1c_dup(&asn_DEF_SGP32_ProfileInfoListResponse, get_prfle_info_res->sgp32_res);
 		assert(prfle_info_res);
 		euicc_result_data->choice.listProfileInfoResult = *prfle_info_res;
@@ -212,7 +219,6 @@ struct EuiccResultData *iot_emo_do_getRAT_psmo(struct ipa_context *ctx, const st
 {
 	struct EuiccResultData *euicc_result_data = IPA_ALLOC_ZERO(struct EuiccResultData);
 	struct ipa_es10b_get_rat_res *get_rat_res = NULL;
-	struct ProfilePolicyAuthorisationRule *ppr_item;
 	unsigned int i;
 
 	euicc_result_data->present = EuiccResultData_PR_getRATResult;
@@ -225,9 +231,11 @@ struct EuiccResultData *iot_emo_do_getRAT_psmo(struct ipa_context *ctx, const st
 			       "IoT eUICC emulation active, getRAT PSMO failed, unable to retrieve RulesAuthorisationTable!\n");
 	} else {
 		for (i = 0; i < get_rat_res->res->rat.list.count; i++) {
-			ppr_item =
-			    ipa_asn1c_dup(&asn_DEF_ProfilePolicyAuthorisationRule, get_rat_res->res->rat.list.array[i]);
-			ASN_SEQUENCE_ADD(&euicc_result_data->choice.getRATResult.list, ppr_item);
+			/* Move each rule out of the response tree instead of duplicating it (SET_OF_free
+			 * skips NULLed slots, so the donor tree frees cleanly). */
+			ASN_SEQUENCE_ADD(&euicc_result_data->choice.getRATResult.list,
+					 get_rat_res->res->rat.list.array[i]);
+			get_rat_res->res->rat.list.array[i] = NULL;
 		}
 	}
 
