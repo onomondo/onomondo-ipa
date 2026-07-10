@@ -12,9 +12,15 @@
 #include <AuthenticateClientOkDPEsipa.h>
 #include <AuthenticateClientOkDSEsipa.h>
 struct ipa_context;
+struct ipa_es10b_auth_serv_res;
 
 struct ipa_esipa_auth_clnt_req {
 	struct AuthenticateClientRequestEsipa req;
+
+	/* Optional in/out: the AuthenticateServer result that req shallow-references. When set, it is
+	 * consumed (freed and NULLed) as soon as the request is encoded, so the ~1.5 kB response tree
+	 * (two certificates) is gone before the HTTP round-trip and the response decode. */
+	struct ipa_es10b_auth_serv_res **auth_serv_res;
 };
 
 struct ipa_esipa_auth_clnt_res {

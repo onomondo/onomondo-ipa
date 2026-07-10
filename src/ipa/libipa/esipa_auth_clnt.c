@@ -19,6 +19,7 @@
 #include "length.h"
 #include "context.h"
 #include "esipa.h"
+#include "es10b_auth_serv.h"
 #include "esipa_auth_clnt.h"
 
 static const struct num_str_map error_code_strings[] = {
@@ -107,6 +108,13 @@ struct ipa_esipa_auth_clnt_res *ipa_esipa_auth_clnt(struct ipa_context *ctx, con
 	if (!esipa_req) {
 		IPA_LOGP_ESIPA("AuthenticateClient", LERROR, "failed to encode the AuthenticateClient request!\n");
 		goto error;
+	}
+
+	/* req->req only shallow-references the AuthenticateServer result; with the request encoded it is
+	 * dead weight (the transactionId check after the response uses the caller's own copy). */
+	if (req->auth_serv_res) {
+		ipa_es10b_auth_serv_res_free(*req->auth_serv_res);
+		*req->auth_serv_res = NULL;
 	}
 
 	esipa_res = ipa_esipa_req(ctx, esipa_req, "AuthenticateClient");

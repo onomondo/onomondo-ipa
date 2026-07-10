@@ -235,6 +235,8 @@ struct ipa_esipa_auth_clnt_res *ipa_proc_cmn_mtl_auth(struct ipa_context *ctx,
 		auth_clnt_req.req.authenticateServerResponse.choice.authenticateResponseOk =
 		    *auth_serv_res->auth_serv_ok;
 	}
+	/* Let the function consume auth_serv_res once the request is encoded (see esipa_auth_clnt.h) */
+	auth_clnt_req.auth_serv_res = &auth_serv_res;
 	auth_clnt_res = ipa_esipa_auth_clnt(ctx, &auth_clnt_req);
 	if (!auth_clnt_res) {
 		exec_cmn_cancel_sess = true;
