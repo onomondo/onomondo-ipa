@@ -23,6 +23,9 @@ struct num_str_map {
 
 const char *ipa_str_from_num(const struct num_str_map *map, long num, const char *def);
 int ipa_asn1c_consume_bytes_cb(const void *buffer, size_t size, void *priv);
+struct ipa_buf *ipa_asn1c_enc_tlv_hdr(const struct asn_TYPE_descriptor_s *td, const void *struct_ptr);
+int ipa_asn1c_der_encode(const struct asn_TYPE_descriptor_s *td, const void *struct_ptr,
+			 struct ipa_buf **buf_encoded_ptr);
 void ipa_asn1c_dump(const struct asn_TYPE_descriptor_s *td, const void *struct_ptr, uint8_t indent,
 		    enum log_subsys log_subsys, enum log_level log_level);
 int ipa_cmp_case_insensitive(const char *str1, const char *str2, size_t len);

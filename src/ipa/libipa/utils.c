@@ -162,6 +162,107 @@ int ipa_asn1c_consume_bytes_cb(const void *buffer, size_t size, void *priv)
 	return 0;
 }
 
+/* Capture buffer for ipa_asn1c_capture_hdr_cb: large enough for any BER
+ * tag + length field we produce (tag <= 2 bytes, length <= 0x84 + 4 bytes). */
+struct ipa_asn1c_hdr_capture {
+	uint8_t data[16];
+	size_t len;
+};
+
+static int ipa_asn1c_capture_hdr_cb(const void *buffer, size_t size, void *priv)
+{
+	struct ipa_asn1c_hdr_capture *cap = priv;
+	size_t room = sizeof(cap->data) - cap->len;
+
+	if (size > room)
+		size = room;
+	memcpy(cap->data + cap->len, buffer, size);
+	cap->len += size;
+
+	/* Abort the encoder once the header is safely captured -- this is
+	 * what keeps the whole (potentially multi-kilobyte) value part from
+	 * ever being materialized. */
+	if (cap->len >= sizeof(cap->data))
+		return -1;
+	return 0;
+}
+
+/*! Encode only the tag and length field of a DER TLV.
+ *  \param[in] td asn1c type descriptor of the structure to encode.
+ *  \param[in] struct_ptr pointer to the structure to encode.
+ *  \returns pointer to a newly allocated ipa_buf holding exactly the TLV
+ *  header, NULL on error.
+ *
+ *  A DER encoder must emit the tag and length field first, so the encoding
+ *  is aborted right after the header bytes are captured. This avoids
+ *  buffering the complete TLV (the value part of a BoundProfilePackage is
+ *  several kilobytes) when only its header is needed. */
+struct ipa_buf *ipa_asn1c_enc_tlv_hdr(const struct asn_TYPE_descriptor_s *td, const void *struct_ptr)
+{
+	struct ipa_asn1c_hdr_capture cap = { 0 };
+	struct ipa_buf cap_buf;
+	size_t hdr_len;
+
+	/* rc is intentionally ignored: aborting from the callback makes
+	 * der_encode() report failure even though the header was emitted. */
+	der_encode(td, struct_ptr, ipa_asn1c_capture_hdr_cb, &cap);
+	if (cap.len == 0) {
+		IPA_LOGP(SIPA, LERROR, "cannot encode TLV header!\n");
+		return NULL;
+	}
+
+	cap_buf.data = cap.data;
+	cap_buf.data_len = sizeof(cap.data);
+	cap_buf.len = cap.len;
+	hdr_len = ipa_parse_btlv_hdr(NULL, NULL, &cap_buf);
+	if (hdr_len == 0 || hdr_len > cap.len) {
+		IPA_LOGP(SIPA, LERROR, "cannot parse encoded TLV header!\n");
+		return NULL;
+	}
+
+	return ipa_buf_alloc_data(hdr_len, cap.data);
+}
+
+/*! DER-encode a structure into an ipa_buf that is sized upfront (appending).
+ *  \param[in] td asn1c type descriptor of the structure to encode.
+ *  \param[in] struct_ptr pointer to the structure to encode.
+ *  \param[inout] buf_encoded_ptr pointer to a pointer to the destination
+ *  ipa_buf; *buf_encoded_ptr may be NULL, then a new buffer is allocated.
+ *  \returns 0 on success, -EINVAL on error.
+ *
+ *  A size-only encoder pass determines the exact space needed, so the
+ *  destination buffer is (re)allocated once instead of growing through
+ *  repeated reallocations (each of which briefly holds old + new buffer). */
+int ipa_asn1c_der_encode(const struct asn_TYPE_descriptor_s *td, const void *struct_ptr,
+			 struct ipa_buf **buf_encoded_ptr)
+{
+	struct ipa_buf *buf_encoded = *buf_encoded_ptr;
+	asn_enc_rval_t rc;
+	size_t used;
+
+	/* Size-only pass (no consume callback). */
+	rc = der_encode(td, struct_ptr, NULL, NULL);
+	if (rc.encoded <= 0)
+		return -EINVAL;
+
+	used = buf_encoded ? buf_encoded->len : 0;
+	if (!buf_encoded) {
+		buf_encoded = ipa_buf_alloc(rc.encoded);
+		assert(buf_encoded);
+		*buf_encoded_ptr = buf_encoded;
+	} else if (buf_encoded->data_len < used + rc.encoded) {
+		buf_encoded = ipa_buf_realloc(buf_encoded, used + rc.encoded);
+		assert(buf_encoded);
+		*buf_encoded_ptr = buf_encoded;
+	}
+
+	rc = der_encode(td, struct_ptr, ipa_asn1c_consume_bytes_cb, buf_encoded_ptr);
+	if (rc.encoded <= 0)
+		return -EINVAL;
+
+	return 0;
+}
+
 struct ipa_asn1c_dump_buf {
 	char *printbuf;
 	char *printbuf_ptr;
