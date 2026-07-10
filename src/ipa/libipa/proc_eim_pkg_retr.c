@@ -58,9 +58,11 @@ error:
 	return -EINVAL;
 }
 
-/* Relay package contents to suitable handler procedure */
-int eim_pkg_exec(struct ipa_context *ctx, const struct ipa_esipa_get_eim_pkg_res *get_eim_pkg_res)
+/* Relay package contents to suitable handler procedure. In the download-trigger case the response is consumed
+ * (freed and NULLed) before the download starts, so the tree does not stay resident for the whole download. */
+int eim_pkg_exec(struct ipa_context *ctx, struct ipa_esipa_get_eim_pkg_res **get_eim_pkg_res_ptr)
 {
+	const struct ipa_esipa_get_eim_pkg_res *get_eim_pkg_res = *get_eim_pkg_res_ptr;
 	struct ipa_buf *allowed_ca_pkid = NULL;
 	int rc = -EINVAL;
 
@@ -90,6 +92,8 @@ int eim_pkg_exec(struct ipa_context *ctx, const struct ipa_esipa_get_eim_pkg_res
 			goto error;
 	} else if (get_eim_pkg_res->dwnld_trigger_request) {
 		struct ipa_proc_indirect_prfle_dwnlod_pars indirect_prfle_dwnlod_pars = { 0 };
+		TransactionId_t eim_transaction_id = { 0 };
+		uint8_t eim_transaction_id_buf[16];
 		if (!get_eim_pkg_res->dwnld_trigger_request->profileDownloadData) {
 			/* In case the IPA capability eimDownloadDataHandling used, profileDownloadData would not be
 			 * present. However, this is feature this IPAd implementation does not support. */
@@ -115,11 +119,31 @@ int eim_pkg_exec(struct ipa_context *ctx, const struct ipa_esipa_get_eim_pkg_res
 
 		indirect_prfle_dwnlod_pars.allowed_ca = allowed_ca_pkid;
 		indirect_prfle_dwnlod_pars.tac = ctx->cfg->tac;
-		indirect_prfle_dwnlod_pars.eim_transaction_id =
-		    get_eim_pkg_res->dwnld_trigger_request->eimTransactionId;
+		/* The eimTransactionId (OPTIONAL) is copied to the stack; an absent one stays NULL and is
+		 * omitted from the ProfileDownloadTriggerResult, as before. (SGP.32 limits it to 16 bytes;
+		 * the value came from the network, so check it.) */
+		if (get_eim_pkg_res->dwnld_trigger_request->eimTransactionId) {
+			const TransactionId_t *txid = get_eim_pkg_res->dwnld_trigger_request->eimTransactionId;
+			if (txid->size > sizeof(eim_transaction_id_buf)) {
+				IPA_LOGP(SIPA, LERROR, "eimTransactionId exceeds 16 bytes -- cannot continue!\n");
+				rc = -EINVAL;
+				goto error;
+			}
+			memcpy(eim_transaction_id_buf, txid->buf, txid->size);
+			eim_transaction_id.buf = eim_transaction_id_buf;
+			eim_transaction_id.size = txid->size;
+			indirect_prfle_dwnlod_pars.eim_transaction_id = &eim_transaction_id;
+		}
 		indirect_prfle_dwnlod_pars.ac =
 		    IPA_STR_FROM_ASN(&get_eim_pkg_res->dwnld_trigger_request->profileDownloadData->
 				     choice.activationCode);
+
+		/* Everything needed from the eIM package is copied out now -- free the response tree so it
+		 * does not stay resident for the whole download. */
+		ipa_esipa_get_eim_pkg_free(*get_eim_pkg_res_ptr);
+		*get_eim_pkg_res_ptr = NULL;
+		get_eim_pkg_res = NULL;
+
 		rc = ipa_proc_indirect_prfle_dwnlod(ctx, &indirect_prfle_dwnlod_pars);
 		IPA_FREE((void *)indirect_prfle_dwnlod_pars.ac);
 		if (rc < 0)
@@ -165,7 +189,7 @@ int ipa_proc_eim_pkg_retr(struct ipa_context *ctx)
 	}
 
 	IPA_LOGP(SIPA, LINFO, "eIM Package Retrieval succeeded!\n");
-	rc = eim_pkg_exec(ctx, get_eim_pkg_res);
+	rc = eim_pkg_exec(ctx, &get_eim_pkg_res);
 	ipa_esipa_get_eim_pkg_free(get_eim_pkg_res);
 	ipa_esipa_close(ctx);
 	return rc;

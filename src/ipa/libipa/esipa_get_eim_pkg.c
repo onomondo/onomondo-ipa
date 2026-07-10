@@ -105,6 +105,8 @@ struct ipa_esipa_get_eim_pkg_res *ipa_esipa_get_eim_pkg(struct ipa_context *ctx,
 		goto error;
 
 	esipa_res = ipa_esipa_req(ctx, esipa_req, "GetEimPackage");
+	IPA_FREE(esipa_req);
+	esipa_req = NULL;
 	if (!esipa_res)
 		goto error;
 

@@ -6,13 +6,15 @@
 
 #pragma once
 
-#include <AuthenticateClientOkDPEsipa.h>
-
 struct ipa_context;
 struct ipa_esipa_get_bnd_prfle_pkg_res;
+struct ipa_esipa_auth_clnt_res;
 
 struct ipa_proc_prfle_dwnlod_pars {
-	const AuthenticateClientOkDPEsipa_t *auth_clnt_ok_dpe;
+	/* In/out: consumed (freed and NULLed) as soon as the eUICC has processed PrepareDownload, so that the
+	 * multi-kB AuthenticateClient response tree is gone before the even larger GetBoundProfilePackage
+	 * response is received and decoded. The caller must not rely on any pointer into it afterwards. */
+	struct ipa_esipa_auth_clnt_res **auth_clnt_res;
 };
 
 struct ipa_esipa_get_bnd_prfle_pkg_res *ipa_proc_prfle_dwnlod(struct ipa_context *ctx,

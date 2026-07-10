@@ -112,6 +112,8 @@ struct ipa_esipa_init_auth_res *ipa_esipa_init_auth(struct ipa_context *ctx, con
 		goto error;
 
 	esipa_res = ipa_esipa_req(ctx, esipa_req, "InitiateAuthentication");
+	IPA_FREE(esipa_req);
+	esipa_req = NULL;
 	if (!esipa_res)
 		goto error;
 

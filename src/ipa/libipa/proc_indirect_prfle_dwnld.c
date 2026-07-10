@@ -79,7 +79,9 @@ int ipa_proc_indirect_prfle_dwnlod(struct ipa_context *ctx, const struct ipa_pro
 	struct ipa_proc_prfle_dwnlod_pars prfle_dwnlod_pars = { 0 };
 	struct ipa_proc_prfle_inst_pars prfle_inst_pars = { 0 };
 	struct ProfileInstallationResult *pir = NULL;
+	uint8_t transaction_id[16];
 	bool installed = false;
+	int rc;
 
 	/* This procedure is called when the IPAd receives an eIM package with a download trigger request
 	 * (which contains the activation code) */
@@ -102,17 +104,29 @@ int ipa_proc_indirect_prfle_dwnlod(struct ipa_context *ctx, const struct ipa_pro
 		goto error;
 	}
 
+	/* The cancel-session paths below need the transactionId, but the AuthenticateClient response tree it lives
+	 * in is freed during the download sub-procedure (to reduce peak memory use) -- keep a copy on the stack.
+	 * (The field is OPTIONAL and SGP.22 limits it to 16 bytes; the value came from the network, so check it.) */
+	if (!auth_clnt_res->transaction_id ||
+	    auth_clnt_res->transaction_id->size > sizeof(transaction_id)) {
+		IPA_LOGP(SIPA, LERROR, "cannot continue, transactionId missing or exceeds 16 bytes!\n");
+		goto error;
+	}
+	memcpy(transaction_id, auth_clnt_res->transaction_id->buf, auth_clnt_res->transaction_id->size);
+	IPA_ASSIGN_BUF_TO_ASN(cmn_cancel_sess_pars.transaction_id, transaction_id,
+			      auth_clnt_res->transaction_id->size);
+
 	/* TODO: Check if ProfileMetadata contains Profile Policy Rulses (PPRs) and apply the PPRs as configured on the
 	 * eUICC. (This is an optional feature, which we currently do not support, see also proc_euicc_data_req.c) */
 
 	/* TODO: remove this part as it is not required (see also github issue #5) */
-	/* Execute sub procedure: Sub-procedure Profile Download and Installation – Download Confirmation */
-	prfle_dwnlod_pars.auth_clnt_ok_dpe = auth_clnt_res->auth_clnt_ok_dpe;
+	/* Execute sub procedure: Sub-procedure Profile Download and Installation – Download Confirmation
+	 * (this consumes auth_clnt_res, see proc_prfle_dwnld.h) */
+	prfle_dwnlod_pars.auth_clnt_res = &auth_clnt_res;
 	get_bnd_prfle_pkg_res = ipa_proc_prfle_dwnlod(ctx, &prfle_dwnlod_pars);
 	if (!get_bnd_prfle_pkg_res) {
 		IPA_LOGP(SIPA, LERROR, "sub procedure profile download has failed -- canceling session!\n");
 		cmn_cancel_sess_pars.reason = CancelSessionReason_loadBppExecutionError;
-		cmn_cancel_sess_pars.transaction_id = *auth_clnt_res->transaction_id;
 		ipa_proc_cmn_cancel_sess(ctx, &cmn_cancel_sess_pars);
 		goto error;
 	}
@@ -123,7 +137,6 @@ int ipa_proc_indirect_prfle_dwnlod(struct ipa_context *ctx, const struct ipa_pro
 	    && !ctx->cfg->prfle_inst_consent_cb(activation_code->sm_dp_plus_address, activation_code->ac_token)) {
 		IPA_LOGP(SIPA, LERROR, "no end user consent for profile installation -- canceling session!\n");
 		cmn_cancel_sess_pars.reason = CancelSessionReason_endUserRejection;
-		cmn_cancel_sess_pars.transaction_id = *auth_clnt_res->transaction_id;
 		ipa_proc_cmn_cancel_sess(ctx, &cmn_cancel_sess_pars);
 		goto error;
 	}
@@ -131,10 +144,16 @@ int ipa_proc_indirect_prfle_dwnlod(struct ipa_context *ctx, const struct ipa_pro
 	/* Execute sub procedure: Sub-procedure Profile Installation (See also section 3.1.3.3 of SGP.22) */
 	prfle_inst_pars.bound_profile_package = &get_bnd_prfle_pkg_res->get_bnd_prfle_pkg_ok->boundProfilePackage;
 	prfle_inst_pars.pir = &pir;
-	if (ipa_proc_prfle_inst(ctx, &prfle_inst_pars) < 0) {
+	rc = ipa_proc_prfle_inst(ctx, &prfle_inst_pars);
+
+	/* The decoded response tree holding the whole BoundProfilePackage is not needed beyond this point; free it
+	 * before the remaining HTTP exchanges (cancel session / download trigger result) run. */
+	ipa_esipa_get_bnd_prfle_pkg_res_free(get_bnd_prfle_pkg_res);
+	get_bnd_prfle_pkg_res = NULL;
+
+	if (rc < 0) {
 		IPA_LOGP(SIPA, LERROR, "sub procedure profile installation has failed -- canceling session!\n");
 		cmn_cancel_sess_pars.reason = CancelSessionReason_loadBppExecutionError;
-		cmn_cancel_sess_pars.transaction_id = *auth_clnt_res->transaction_id;
 		ipa_proc_cmn_cancel_sess(ctx, &cmn_cancel_sess_pars);
 	} else {
 		installed = true;

@@ -103,6 +103,8 @@ struct ipa_esipa_cancel_session_res *ipa_esipa_cancel_session(struct ipa_context
 		goto error;
 
 	esipa_res = ipa_esipa_req(ctx, esipa_req, "CancelSession");
+	IPA_FREE(esipa_req);
+	esipa_req = NULL;
 	if (!esipa_res)
 		goto error;
 

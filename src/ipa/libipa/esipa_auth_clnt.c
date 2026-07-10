@@ -110,6 +110,8 @@ struct ipa_esipa_auth_clnt_res *ipa_esipa_auth_clnt(struct ipa_context *ctx, con
 	}
 
 	esipa_res = ipa_esipa_req(ctx, esipa_req, "AuthenticateClient");
+	IPA_FREE(esipa_req);
+	esipa_req = NULL;
 	if (!esipa_res) {
 		IPA_LOGP_ESIPA("AuthenticateClient", LERROR, "eIM response is NULL!\n");
 		goto error;

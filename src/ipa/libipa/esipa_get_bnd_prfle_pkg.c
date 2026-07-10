@@ -132,6 +132,8 @@ struct ipa_esipa_get_bnd_prfle_pkg_res *ipa_esipa_get_bnd_prfle_pkg(struct ipa_c
 
 	IPA_LOGP_ESIPA("GetBoundProfilePackage", LINFO, "Requesting profile package from eIM\n");
 	esipa_res = ipa_esipa_req(ctx, esipa_req, "GetBoundProfilePackage");
+	IPA_FREE(esipa_req);
+	esipa_req = NULL;
 	if (!esipa_res)
 		goto error;
 

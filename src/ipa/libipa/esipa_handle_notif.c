@@ -80,6 +80,8 @@ int ipa_esipa_handle_notif(struct ipa_context *ctx, const struct ipa_esipa_handl
 		goto error;
 
 	esipa_res = ipa_esipa_req(ctx, esipa_req, "HandleNotification");
+	IPA_FREE(esipa_req);
+	esipa_req = NULL;
 	if (!esipa_res)
 		goto error;
 

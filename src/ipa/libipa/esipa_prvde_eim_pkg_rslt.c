@@ -150,6 +150,8 @@ struct ipa_esipa_prvde_eim_pkg_rslt_res *ipa_esipa_prvde_eim_pkg_rslt(struct ipa
 		goto error;
 
 	esipa_res = ipa_esipa_req(ctx, esipa_req, "ProvideEimPackageResult");
+	IPA_FREE(esipa_req);
+	esipa_req = NULL;
 	if (!esipa_res)
 		goto error;
 
