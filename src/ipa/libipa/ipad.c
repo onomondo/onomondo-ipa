@@ -183,7 +183,14 @@ int eim_init(struct ipa_context *ctx)
 
 	if (eim_cfg_data_item->eimFqdn)
 		ctx->eim_fqdn = IPA_STR_FROM_ASN(eim_cfg_data_item->eimFqdn);
+	else if (eim_cfg_data_item->eimIdType &&
+		 *eim_cfg_data_item->eimIdType == EimIdType_eimIdTypeFqdn)
+		/* SGP.32 2.11.1.1: when eimIdType is eimIdTypeFqdn the eimId is the FQDN and
+		 * eimFqdn SHALL NOT be provided (to avoid redundancy), so reuse the eimId. */
+		ctx->eim_fqdn = IPA_STR_FROM_ASN(&eim_cfg_data_item->eimId);
 	else
+		goto error;
+	if (!ctx->eim_fqdn)
 		goto error;
 
 	ipa_es10b_get_eim_cfg_data_free(eim_cfg_data);
