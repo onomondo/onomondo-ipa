@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
+#include <errno.h>
 #include <onomondo/ipa/mem.h>
 #include <onomondo/ipa/http.h>
 #include <onomondo/ipa/scard.h>
@@ -225,6 +226,7 @@ int ipa_init(struct ipa_context *ctx)
 int ipa_add_init_eim_cfg(struct ipa_context *ctx, struct ipa_buf *cfg)
 {
 	asn_dec_rval_t rc;
+	long err;
 	struct AddInitialEimRequest *eim_cfg_decoded = NULL;
 	struct ipa_es10b_add_init_eim_req add_init_eim_req = { 0 };
 	struct ipa_es10b_add_init_eim_res *add_init_eim_res = NULL;
@@ -247,10 +249,18 @@ int ipa_add_init_eim_cfg(struct ipa_context *ctx, struct ipa_buf *cfg)
 	/* Call ES10b function AddInitialEim */
 	add_init_eim_req.req = *eim_cfg_decoded;
 	add_init_eim_res = ipa_es10b_add_init_eim(ctx, &add_init_eim_req);
-
-	ipa_es10b_add_init_eim_res_free(add_init_eim_res);
 	ASN_STRUCT_FREE(asn_DEF_AddInitialEimRequest, eim_cfg_decoded);
-	return 0;
+
+	if (!add_init_eim_res) {
+		IPA_LOGP(SIPA, LERROR, "AddInitialEim failed: no response from eUICC\n");
+		return -EIO;
+	}
+
+	/* dec_add_init_eim_res() already logged the specific SGP.32 error; no caller
+	 * branches on the value, so a nonzero code just means the card rejected the seed. */
+	err = add_init_eim_res->add_init_eim_err;
+	ipa_es10b_add_init_eim_res_free(add_init_eim_res);
+	return err ? -EIO : 0;
 }
 
 /*! reset memory of the eUICC (eUICCMemoryReset).
