@@ -156,6 +156,13 @@ int eim_init(struct ipa_context *ctx)
 	struct ipa_es10b_eim_cfg_data *eim_cfg_data = NULL;
 	struct EimConfigurationData *eim_cfg_data_item = NULL;
 
+	/* Callers may retry after a failed attempt; drop any cached values so the
+	 * reassignment below cannot leak them (freed again in ipa_free_ctx). */
+	IPA_FREE(ctx->eim_id);
+	ctx->eim_id = NULL;
+	IPA_FREE(ctx->eim_fqdn);
+	ctx->eim_fqdn = NULL;
+
 	eim_cfg_data = ipa_es10b_get_eim_cfg_data(ctx);
 	if (!eim_cfg_data) {
 		IPA_LOGP(SIPA, LERROR, "cannot read EimConfigurationData from eUICC\n");
