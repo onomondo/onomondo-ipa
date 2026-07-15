@@ -1,0 +1,55 @@
+name: PR Commit Checks
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  pr-commit-checks:
+    if: ${{ github.event.pull_request.user.login != 'renovate[bot]' && github.event.pull_request.user.login != 'github-actions[bot]' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        if: always()
+        with:
+          fetch-depth: 0
+
+      - name: Check single commit
+        if: always()
+        env:
+          COMMITS: ${{ github.event.pull_request.commits }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          if [ "$COMMITS" -ne 1 ]; then
+            external_authors=$(git log "$BASE_SHA".."$HEAD_SHA" --format="%ae" | grep -vE "@onomondo\.com$" || true)
+            if [ -n "$external_authors" ]; then
+              echo "Error: PR must contain exactly 1 commit for external authors, found $COMMITS."
+              echo "External authors found:"
+              echo "$external_authors" | sort -u | sed 's/^/  /'
+              exit 1
+            fi
+          fi
+
+      - name: Check Signed-off-by
+        if: always()
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          missing=$(git log "$BASE_SHA".."$HEAD_SHA" --format="%H %s" | while read -r sha msg; do
+            if ! git log -1 --format="%B" "$sha" | grep -qiE "^Signed-off-by: .+ <.+>$"; then
+              echo "  $sha $msg"
+            fi
+          done)
+          if [ -n "$missing" ]; then
+            echo "Error: the following commit(s) are missing a Signed-off-by trailer:"
+            echo "$missing"
+            exit 1
+          fi
