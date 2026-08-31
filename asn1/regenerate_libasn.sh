@@ -55,3 +55,4 @@ echo 'endif()' >> CMakeLists.txt
 # Re-apply patches to generated sourcecode
 cd ../../../
 patch -p1 < ./asn1/0001-asn_internal-use-custom-memory-allocator-functions.patch
+patch -p1 < ./asn1/0004-OCTET_STRING-exact-fit-first-allocation.patch

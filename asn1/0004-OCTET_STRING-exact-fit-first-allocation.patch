@@ -1,0 +1,27 @@
+From: Benjamin Bruun <bb@onomondo.com>
+Subject: [PATCH] OCTET_STRING: exact-fit first allocation in APPEND
+
+The growth ladder started at 16 and doubled, so a complete primitive
+TLV decoded in a single append got up to 2x its size (a 1032 B ES8+
+segment string allocated 2048 B). First allocation is now exact
+(+1 for the nul); subsequent growth still doubles.
+---
+diff --git a/src/ipa/libasn/OCTET_STRING.c b/src/ipa/libasn/OCTET_STRING.c
+--- a/src/ipa/libasn/OCTET_STRING.c
++++ b/src/ipa/libasn/OCTET_STRING.c
+@@ -96,9 +96,12 @@
+ 		if((int)_es < 0) RETURN(RC_FAIL);			\
+ 		if(_ns <= _es) {					\
+ 			void *ptr;					\
+-			/* Be nice and round to the memory allocator */	\
+-			do { _ns = _ns ? _ns << 1 : 16; }		\
+-			    while(_ns <= _es);				\
++			/* First allocation: exact fit (+1 nul) — complete\
++			 * primitive TLVs arrive in a single append, and the\
++			 * power-of-two ladder wasted up to 2x on them.\
++			 * Subsequent growth still doubles. */\
++			if(_ns == 0) _ns = _es + 1;			\
++			else do { _ns <<= 1; } while(_ns <= _es);	\
+ 			/* int is really a typeof(st->size): */		\
+ 			if((int)_ns < 0) RETURN(RC_FAIL);		\
+ 			ptr = REALLOC(st->buf, _ns);			\
