@@ -427,7 +427,7 @@ static size_t parse_btlv_hdr(size_t *len, uint16_t *tag, uint8_t *data, size_t d
 	skip_len += tag_len;
 
 	/* decode length */
-	if (*data < 0x7f) {
+	if (*data <= 0x7f) {
 		if (data_len < 1)
 			return 0;
 		value_len = *data;

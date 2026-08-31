@@ -84,6 +84,14 @@ void ipa_parse_btlv_hdr_test(void)
 	buf = ipa_buf_alloc_data(sizeof(_truncated), _truncated);
 	assert(ipa_parse_btlv_hdr(&len, &tag, buf) == 0);
 	IPA_FREE(buf);
+
+	/* short form upper bound: 0x7F is a legal one-byte length (used to be
+	 * misrouted into the long-form branch and rejected) */
+	uint8_t _short_max[] = { 0x5A, 0x7F, 0xAA };
+	buf = ipa_buf_alloc_data(sizeof(_short_max), _short_max);
+	assert(ipa_parse_btlv_hdr(&len, &tag, buf) == 2);
+	assert(tag == 0x5A && len == 0x7F);
+	IPA_FREE(buf);
 }
 
 int main(int argc, char **argv)
