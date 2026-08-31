@@ -8,6 +8,11 @@ if(DEFINED ENV{ZEPHYR_BASE})
   zephyr_library_include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
   )
+  # Generated with -no-gen-OER -no-gen-PER: constr_TYPE.h gates the OER
+  # declarations behind ASN_DISABLE_OER_SUPPORT; the PER define strips the
+  # generated per-type constraint tables. Global, not library-scoped: libipa
+  # and the nrf-ipa port include libasn headers too.
+  zephyr_compile_definitions(ASN_DISABLE_OER_SUPPORT ASN_DISABLE_PER_SUPPORT)
   zephyr_library_sources(
 AccessDescription.c
 AccessDescription.h
@@ -108,7 +113,6 @@ ber_tlv_tag.c
 ber_tlv_tag.h
 BIT_STRING.c
 BIT_STRING.h
-BIT_STRING_oer.c
 BMPString.c
 BMPString.h
 BOOLEAN.c
@@ -211,17 +215,14 @@ constraints.c
 constraints.h
 constr_CHOICE.c
 constr_CHOICE.h
-constr_CHOICE_oer.c
 constr_SEQUENCE.c
 constr_SEQUENCE.h
-constr_SEQUENCE_oer.c
 constr_SEQUENCE_OF.c
 constr_SEQUENCE_OF.h
 constr_SET.c
 constr_SET.h
 constr_SET_OF.c
 constr_SET_OF.h
-constr_SET_OF_oer.c
 constr_TYPE.c
 constr_TYPE.h
 ControlReferenceTemplate.c
@@ -492,7 +493,6 @@ InitiateAuthenticationResponseEsipa.h
 InitiateAuthenticationResponse.h
 INTEGER.c
 INTEGER.h
-INTEGER_oer.c
 InvalidityDate.c
 InvalidityDate.h
 IotOptions.c
@@ -561,10 +561,8 @@ NameConstraints.h
 Name.h
 NativeEnumerated.c
 NativeEnumerated.h
-NativeEnumerated_oer.c
 NativeInteger.c
 NativeInteger.h
-NativeInteger_oer.c
 NetworkAddress.c
 NetworkAddress.h
 NoticeReference.c
@@ -601,18 +599,10 @@ Octet8.c
 Octet8.h
 OCTET_STRING.c
 OCTET_STRING.h
-OCTET_STRING_oer.c
 OctetTo16.c
 OctetTo16.h
-oer_decoder.c
-oer_decoder.h
-oer_encoder.c
-oer_encoder.h
-oer_support.c
-oer_support.h
 OPEN_TYPE.c
 OPEN_TYPE.h
-OPEN_TYPE_oer.c
 OperatorId.c
 OperatorId.h
 ORAddress.c
@@ -1017,6 +1007,7 @@ else()
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
   )
   target_compile_options(libasn PRIVATE -Wall)
+  target_compile_definitions(libasn PUBLIC ASN_DISABLE_OER_SUPPORT ASN_DISABLE_PER_SUPPORT)
   if(M32)
     set_target_properties(libasn PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
   endif()
