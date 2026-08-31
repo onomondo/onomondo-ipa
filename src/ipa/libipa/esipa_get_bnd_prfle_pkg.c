@@ -17,6 +17,7 @@
 #include <SGP32-PrepareDownloadResponse.h>
 #include <GetBoundProfilePackageRequestEsipa.h>
 #include <GetBoundProfilePackageResponseEsipa.h>
+#include <onomondo/ipa/utils.h>
 #include "utils.h"
 #include "length.h"
 #include "context.h"
@@ -77,40 +78,82 @@ static struct ipa_buf *enc_get_bnd_prfle_pkg_req(const struct ipa_esipa_get_bnd_
 	return ipa_esipa_msg_to_eim_enc(&msg_to_eim, "GetBoundProfilePackage");
 }
 
-static struct ipa_esipa_get_bnd_prfle_pkg_res *dec_get_bnd_prfle_pkg_res(const struct ipa_buf *msg_to_ipa_encoded)
-{
-	struct EsipaMessageFromEimToIpa *msg_to_ipa = NULL;
-	struct ipa_esipa_get_bnd_prfle_pkg_res *res = NULL;
+/* Wire tags on the GetBoundProfilePackage response path */
+#define TAG_GET_BPP_RESPONSE 0xBF3A /* EsipaMessageFromEimToIpa [58] */
+#define TAG_OK_SEQUENCE      0x30   /* GetBoundProfilePackageOkEsipa */
+#define TAG_ERROR_INTEGER    0x02   /* getBoundProfilePackageErrorEsipa */
+#define TAG_BPP              0xBF36 /* boundProfilePackage [54] */
 
-	msg_to_ipa =
-	    ipa_esipa_msg_to_ipa_dec(msg_to_ipa_encoded, "GetBoundProfilePackage",
-				     EsipaMessageFromEimToIpa_PR_getBoundProfilePackageResponseEsipa);
-	if (!msg_to_ipa)
-		return NULL;
+/* Locate the BoundProfilePackage inside the raw ESipa response instead of
+ * BER-decoding the whole message into an asn1c tree: only the BPP bytes are
+ * ever used, and the tree cost ~2x the wire size right at the heap peak.
+ * Takes ownership of esipa_res (it backs the returned slice). */
+static struct ipa_esipa_get_bnd_prfle_pkg_res *dec_get_bnd_prfle_pkg_res(struct ipa_buf *esipa_res)
+{
+	struct ipa_esipa_get_bnd_prfle_pkg_res *res;
+	const uint8_t *data = esipa_res->data;
+	size_t remaining = esipa_res->len;
+	uint16_t tag;
+	size_t val_len, hdr_len, off = 0;
 
 	res = IPA_ALLOC_ZERO(struct ipa_esipa_get_bnd_prfle_pkg_res);
-	res->msg_to_ipa = msg_to_ipa;
+	res->raw = esipa_res;
 
-	switch (msg_to_ipa->choice.getBoundProfilePackageResponseEsipa.present) {
-	case GetBoundProfilePackageResponseEsipa_PR_getBoundProfilePackageOkEsipa:
-		IPA_LOGP_ESIPA("GetBoundProfilePackage", LINFO, "GetBoundProfilePackageResponseEsipa_PR_getBoundProfilePackageOkEsipa\n");
-		res->get_bnd_prfle_pkg_ok =
-		    &msg_to_ipa->choice.getBoundProfilePackageResponseEsipa.choice.getBoundProfilePackageOkEsipa;
-		break;
-	case GetBoundProfilePackageResponseEsipa_PR_getBoundProfilePackageErrorEsipa:
-		IPA_LOGP_ESIPA("GetBoundProfilePackage", LERROR, "GetBoundProfilePackageResponseEsipa_PR_getBoundProfilePackageErrorEsipa\n");
-		res->get_bnd_prfle_pkg_err =
-		    msg_to_ipa->choice.getBoundProfilePackageResponseEsipa.choice.getBoundProfilePackageErrorEsipa;
-		IPA_LOGP_ESIPA("GetBoundProfilePackage", LERROR, "function failed with error code %ld=%s!\n",
-			       res->get_bnd_prfle_pkg_err, ipa_str_from_num(error_code_strings,
-									    res->get_bnd_prfle_pkg_err, "(unknown)"));
-		break;
-	default:
+	/* EsipaMessageFromEimToIpa: expect the GetBoundProfilePackage response */
+	hdr_len = ipa_tlv_hdr(data, remaining, &tag, &val_len);
+	if (!hdr_len || tag != TAG_GET_BPP_RESPONSE) {
 		IPA_LOGP_ESIPA("GetBoundProfilePackage", LERROR, "unexpected response content!\n");
-		res->get_bnd_prfle_pkg_err = -1;
-		break;
+		goto unexpected;
 	}
+	off = hdr_len;
+	remaining = hdr_len + val_len;
 
+	/* CHOICE: ok (SEQUENCE) or error code (INTEGER) */
+	hdr_len = ipa_tlv_hdr(data + off, remaining - off, &tag, &val_len);
+	if (!hdr_len) {
+		IPA_LOGP_ESIPA("GetBoundProfilePackage", LERROR, "unexpected response content!\n");
+		goto unexpected;
+	}
+	if (tag == TAG_ERROR_INTEGER) {
+		long err = 0;
+		size_t i;
+
+		if (val_len == 0 || val_len > sizeof(err)) {
+			IPA_LOGP_ESIPA("GetBoundProfilePackage", LERROR, "unexpected response content!\n");
+			goto unexpected;
+		}
+		for (i = 0; i < val_len; i++)
+			err = (err << 8) | data[off + hdr_len + i];
+		res->get_bnd_prfle_pkg_err = err;
+		IPA_LOGP_ESIPA("GetBoundProfilePackage", LERROR, "function failed with error code %ld=%s!\n",
+			       err, ipa_str_from_num(error_code_strings, err, "(unknown)"));
+		return res;
+	}
+	if (tag != TAG_OK_SEQUENCE) {
+		IPA_LOGP_ESIPA("GetBoundProfilePackage", LERROR, "unexpected response content!\n");
+		goto unexpected;
+	}
+	IPA_LOGP_ESIPA("GetBoundProfilePackage", LINFO,
+		       "GetBoundProfilePackageResponseEsipa_PR_getBoundProfilePackageOkEsipa\n");
+
+	/* GetBoundProfilePackageOkEsipa: [transactionId] boundProfilePackage */
+	off += hdr_len;
+	remaining = off + val_len;
+	while (off < remaining) {
+		hdr_len = ipa_tlv_hdr(data + off, remaining - off, &tag, &val_len);
+		if (!hdr_len)
+			break;
+		if (tag == TAG_BPP) {
+			res->bpp = data + off;
+			res->bpp_len = hdr_len + val_len;
+			return res;
+		}
+		off += hdr_len + val_len;
+	}
+	IPA_LOGP_ESIPA("GetBoundProfilePackage", LERROR, "response carries no BoundProfilePackage!\n");
+
+unexpected:
+	res->get_bnd_prfle_pkg_err = -1;
 	return res;
 }
 
@@ -137,20 +180,22 @@ struct ipa_esipa_get_bnd_prfle_pkg_res *ipa_esipa_get_bnd_prfle_pkg(struct ipa_c
 	if (!esipa_res)
 		goto error;
 
-	IPA_LOGP_ESIPA("GetBoundProfilePackage", LINFO, "Decoding profile package received from eIM\n");
-	res = dec_get_bnd_prfle_pkg_res(esipa_res);
-	if (!res)
-		goto error;
+	IPA_LOGP_ESIPA("GetBoundProfilePackage", LINFO, "Locating profile package received from eIM\n");
+	/* Ownership of esipa_res moves into the result: the BoundProfilePackage
+	 * stays a slice of the wire bytes all the way into the ES8+ transfer. */
+	return dec_get_bnd_prfle_pkg_res(esipa_res);
 
 error:
 	IPA_FREE(esipa_req);
-	IPA_FREE(esipa_res);
-	return res;
+	return NULL;
 }
 
 /*! Free results of function: (ESipa) GetBoundProfilePackage.
  *  \param[in] res pointer to function result. */
 void ipa_esipa_get_bnd_prfle_pkg_res_free(struct ipa_esipa_get_bnd_prfle_pkg_res *res)
 {
-	IPA_ESIPA_RES_FREE(res);
+	if (!res)
+		return;
+	IPA_FREE(res->raw);
+	IPA_FREE(res);
 }

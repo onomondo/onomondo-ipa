@@ -71,25 +71,25 @@ int ipa_proc_prfle_inst(struct ipa_context *ctx, const struct ipa_proc_prfle_ins
 {
 	struct ipa_es10b_load_bnd_prfle_pkg_res *load_bnd_prfle_pkg_res = NULL;
 	struct ipa_bpp_segment_iter seg_iter;
-	struct ipa_buf *segment = NULL;
+	struct ipa_buf segment;
 	unsigned int i;
 	int rc;
 	long seq_number = -1;
 	bool sucess = true;
 
-	/* Step #3-#5 Split BPP into ES8+ segments and send the segments to eUICC. The segments are encoded one at a
-	 * time and freed right after the eUICC has consumed them, so that only a single segment coexists with the
-	 * decoded BoundProfilePackage. */
-	ipa_bpp_segment_iter_init(&seg_iter, pars->bound_profile_package);
+	/* Step #3-#5 Split BPP into ES8+ segments and send the segments to eUICC. Every segment is a zero-copy
+	 * slice of the wire BoundProfilePackage, so nothing but the received buffer is resident. */
+	if (ipa_bpp_segment_iter_init(&seg_iter, pars->bpp, pars->bpp_len) < 0) {
+		IPA_LOGP(SIPA, LERROR, "malformed BoundProfilePackage!\n");
+		goto error;
+	}
 	for (i = 0; i < seg_iter.count; i++) {
 		IPA_LOGP(SIPA, LDEBUG, "transferring ES8+ segments...\n");
-		segment = ipa_bpp_segment_iter_next(&seg_iter);
-		if (!segment) {
-			IPA_LOGP(SIPA, LERROR, "failed to encode ES8+ segment!\n");
+		if (ipa_bpp_segment_iter_next(&seg_iter, &segment) != 1) {
+			IPA_LOGP(SIPA, LERROR, "failed to slice ES8+ segment!\n");
 			goto error;
 		}
-		load_bnd_prfle_pkg_res = ipa_es10b_load_bnd_prfle_pkg(ctx, segment->data, segment->len);
-		IPA_FREE(segment);
+		load_bnd_prfle_pkg_res = ipa_es10b_load_bnd_prfle_pkg(ctx, segment.data, segment.len);
 		if (!load_bnd_prfle_pkg_res) {
 			IPA_LOGP(SIPA, LERROR, "failed to transfer ES8+ segments!\n");
 			goto error;

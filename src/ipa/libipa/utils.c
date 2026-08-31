@@ -472,6 +472,16 @@ size_t ipa_parse_btlv_hdr(size_t *len, uint16_t *tag, struct ipa_buf *buf)
 	return parse_btlv_hdr(len, tag, buf->data, buf->len);
 }
 
+/*! Parse the TLV header at data and check that its value fits in len, so
+ *  callers can add header and value lengths without overflow.
+ *  \returns header length (offset to the value part), 0 on error. */
+size_t ipa_tlv_hdr(const uint8_t *data, size_t len, uint16_t *tag, size_t *val_len)
+{
+	size_t hdr_len = parse_btlv_hdr(val_len, tag, (uint8_t *)data, len);
+
+	return hdr_len && *val_len <= len - hdr_len ? hdr_len : 0;
+}
+
 /*! Strip a TLV envelope (if it is present) from a buffer.
  *  \param[inout] buf ipa_buf that contains the data to be stripped
  *  \param[in] envelope_tag tag of the envelope (as a verification so we won't strip random data).

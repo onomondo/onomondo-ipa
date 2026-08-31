@@ -4,233 +4,250 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  *
  * Author: Philipp Maier <pmaier@sysmocom.de> / sysmocom - s.f.m.c. GmbH
+ *
+ * The segmentation rules of GSMA SGP.22, section 2.5.5 map every segment onto
+ * a contiguous byte range of the BoundProfilePackage wire encoding, so the
+ * iterator slices the raw TLV instead of decoding a tree and re-encoding each
+ * segment (which briefly held the whole profile in memory twice).
  */
 
 #include <stdint.h>
 #include <string.h>
 #include <errno.h>
 #include <onomondo/ipa/log.h>
-#include <asn_application.h>
+#include <onomondo/ipa/utils.h>
 #include "utils.h"
-#include "es10x.h"
 #include "bpp_segments.h"
 
-/* See also GSMA SGP.22, section  2.5.5 (bullet point 1) */
-static struct ipa_buf *enc_init_sec_chan_req(const struct BoundProfilePackage *bpp,
-					     const struct InitialiseSecureChannelRequest *init_sec_chan_req)
+/* Wire tags of BoundProfilePackage and its children (SGP.22 section 2.5.5) */
+#define TAG_BPP      0xBF36
+#define TAG_ISCR     0xBF23 /* initialiseSecureChannelRequest */
+#define TAG_FIRST87  0xA0   /* firstSequenceOf87 */
+#define TAG_SEQ88    0xA1   /* sequenceOf88 */
+#define TAG_SECOND87 0xA2   /* secondSequenceOf87 (optional) */
+#define TAG_SEQ86    0xA3   /* sequenceOf86 */
+
+enum bpp_iter_state {
+	SEG_ISCR = 0,
+	SEG_FIRST87,
+	SEG_HDR88,
+	SEG_EACH88,
+	SEG_SECOND87,
+	SEG_HDR86,
+	SEG_EACH86,
+	SEG_DONE,
+};
+
+/* Validate a sequence region: every child must carry child_tag; returns the
+ * child count, negative on a malformed child. */
+static int count_children(const uint8_t *bpp, size_t body, size_t end, uint16_t child_tag)
 {
-	struct ipa_buf *init_sec_chan_req_encoded;
+	int n = 0;
+	size_t pos = body;
 
-	/* "Tag and length fields of the BoundProfilePackage TLV..." */
-	init_sec_chan_req_encoded = ipa_asn1c_enc_tlv_hdr(&asn_DEF_BoundProfilePackage, bpp);
-	if (!init_sec_chan_req_encoded) {
-		IPA_LOGP(SIPA, LDEBUG, "cannot re-encode BoundProfilePackage!\n");
-		return NULL;
+	while (pos < end) {
+		uint16_t tag;
+		size_t val_len;
+		size_t hdr_len = ipa_tlv_hdr(bpp + pos, end - pos, &tag, &val_len);
+
+		if (!hdr_len || tag != child_tag)
+			return -EINVAL;
+		pos += hdr_len + val_len;
+		n++;
 	}
-
-	/* "...plus the initialiseSecureChannelRequest TLV */
-	if (ipa_asn1c_der_encode(&asn_DEF_InitialiseSecureChannelRequest, init_sec_chan_req,
-				 &init_sec_chan_req_encoded) != 0) {
-		IPA_LOGP(SIPA, LERROR, "cannot encode segment for InitialiseSecureChannelRequest!\n");
-		IPA_FREE(init_sec_chan_req_encoded);
-		return NULL;
-	}
-
-	IPA_LOGP(SIPA, LDEBUG, "encoded InitialiseSecureChannelRequest segment:\n");
-	ipa_buf_hexdump_multiline(init_sec_chan_req_encoded, 32, 1, SIPA, LDEBUG);
-
-	return init_sec_chan_req_encoded;
+	return n;
 }
 
-/* See also GSMA SGP.22, section  2.5.5 (bullet point 2) */
-static struct ipa_buf *enc_first_seq_of_87(const struct BoundProfilePackage_FirstSequenceOf87 *first_seq_of_87)
+/* Parse the child TLV at *off, check its tag, advance *off past it and return
+ * its total length (header + value), 0 on error. */
+static size_t expect_child(const uint8_t *bpp, size_t *off, size_t end, uint16_t tag_wanted)
 {
-	struct ipa_buf *first_seq_of_87_encoded;
+	uint16_t tag;
+	size_t val_len;
+	size_t hdr_len;
 
-	/* "Tag and length fields of the FirstSequenceOf87 TLV" */
-	first_seq_of_87_encoded = ipa_asn1c_enc_tlv_hdr(&asn_DEF_BoundProfilePackage_FirstSequenceOf87,
-							first_seq_of_87);
-	if (!first_seq_of_87_encoded) {
-		IPA_LOGP(SIPA, LERROR, "cannot encode segment for FirstSequenceOf87 (tlv header)!\n");
-		return NULL;
-	}
+	if (*off >= end)
+		return 0;
+	hdr_len = ipa_tlv_hdr(bpp + *off, end - *off, &tag, &val_len);
+	if (!hdr_len || tag != tag_wanted)
+		return 0;
+	*off += hdr_len + val_len;
+	return hdr_len + val_len;
+}
 
-	/* plus the first '87' TLV */
-	if (first_seq_of_87->list.count < 1) {
-		IPA_LOGP(SIPA, LERROR, "cannot encode segment for FirstSequenceOf87 (empty sequence)!\n");
-		IPA_FREE(first_seq_of_87_encoded);
-		return NULL;
-	}
-	if (first_seq_of_87->list.count > 1) {
+/* Length of the "sequence tag+len + its first '87' TLV" segment, 0 if the
+ * sequence is empty or malformed. */
+static size_t first87_seg_len(const uint8_t *seq, size_t hdr_len, size_t val_len, const char *label)
+{
+	uint16_t tag;
+	size_t h87, v87;
+
+	h87 = ipa_tlv_hdr(seq + hdr_len, val_len, &tag, &v87);
+	if (!h87 || tag != 0x87)
+		return 0;
+	if (h87 + v87 < val_len) {
 		/* The spec explicitly states "first '87' TLV"! */
-		IPA_LOGP(SIPA, LDEBUG, "ignoring excess items in the FirstSequenceOf87!\n");
+		IPA_LOGP(SIPA, LDEBUG, "ignoring excess items in the %s!\n", label);
 	}
-
-	if (ipa_asn1c_der_encode(&asn_DEF_BoundProfilePackage_87tlv, first_seq_of_87->list.array[0],
-				 &first_seq_of_87_encoded) != 0) {
-		IPA_LOGP(SIPA, LERROR, "cannot encode segment for FirstSequenceOf87 (first 87 TLV)!\n");
-		IPA_FREE(first_seq_of_87_encoded);
-		return NULL;
-	}
-
-	IPA_LOGP(SIPA, LDEBUG, "encoded FirstSequenceOf87 segment:\n");
-	ipa_buf_hexdump_multiline(first_seq_of_87_encoded, 32, 1, SIPA, LDEBUG);
-
-	return first_seq_of_87_encoded;
+	return hdr_len + h87 + v87;
 }
 
-/* See also GSMA SGP.22, section  2.5.5 (bullet point 3) */
-static struct ipa_buf *enc_tag_and_len_of_sequenceOf88(const struct BoundProfilePackage_SequenceOf88 *seq_of_88)
+int ipa_bpp_segment_iter_init(struct ipa_bpp_segment_iter *iter, const uint8_t *bpp, size_t bpp_len)
 {
-	struct ipa_buf *seq_of_88_encoded;
+	uint16_t tag;
+	size_t val_len, hdr_len, tlv_len, off;
+	int n88, n86;
 
-	/* "Tag and length fields of the first sequenceOf87 TLV" */
-	seq_of_88_encoded = ipa_asn1c_enc_tlv_hdr(&asn_DEF_BoundProfilePackage_SequenceOf88, seq_of_88);
-	if (!seq_of_88_encoded) {
-		IPA_LOGP(SIPA, LERROR, "cannot encode segment for tag and length field of SequenceOf88!\n");
-		return NULL;
-	}
-
-	IPA_LOGP(SIPA, LDEBUG, "encoded tag and length field of SequenceOf88 segment: %s\n",
-		 ipa_buf_hexdump(seq_of_88_encoded));
-	return seq_of_88_encoded;
-}
-
-/* See also GSMA SGP.22, section  2.5.5 (bullet point 4) */
-static struct ipa_buf *enc_each_of_sequenceOf88(const BoundProfilePackage_88tlv_t * one_88tlv, unsigned int index)
-{
-	struct ipa_buf *one_88tlv_encoded = NULL;
-
-	/* "Each of the '88' TLVs" (= one per segment) */
-	if (ipa_asn1c_der_encode(&asn_DEF_BoundProfilePackage_88tlv, one_88tlv, &one_88tlv_encoded) != 0) {
-		IPA_LOGP(SIPA, LERROR, "cannot encode segment for '88' TLV %u!\n", index);
-		IPA_FREE(one_88tlv_encoded);
-		return NULL;
-	}
-
-	IPA_LOGP(SIPA, LDEBUG, "encoded '88' TLV segment %u:\n", index);
-	ipa_buf_hexdump_multiline(one_88tlv_encoded, 32, 1, SIPA, LDEBUG);
-
-	return one_88tlv_encoded;
-}
-
-/* See also GSMA SGP.22, section  2.5.5 (bullet point 5) */
-static struct ipa_buf *enc_second_seq_of_87(const struct BoundProfilePackage_SecondSequenceOf87 *second_seq_of_87)
-{
-	struct ipa_buf *second_seq_of_87_encoded;
-
-	/* "Tag and length fields of the SecondSequenceOf87 TLV" */
-	second_seq_of_87_encoded = ipa_asn1c_enc_tlv_hdr(&asn_DEF_BoundProfilePackage_SecondSequenceOf87,
-							 second_seq_of_87);
-	if (!second_seq_of_87_encoded) {
-		IPA_LOGP(SIPA, LERROR, "cannot encode segment for SecondSequenceOf87 (tlv header)!\n");
-		return NULL;
-	}
-
-	/* plus the first '87' TLV */
-	if (second_seq_of_87->list.count < 1) {
-		IPA_LOGP(SIPA, LERROR, "cannot encode segment for SecondSequenceOf87 (empty sequence)!\n");
-		IPA_FREE(second_seq_of_87_encoded);
-		return NULL;
-	}
-	if (second_seq_of_87->list.count > 1) {
-		/* The spec explicitly states "first '87' TLV"! */
-		IPA_LOGP(SIPA, LDEBUG, "ignoring excess items in the SecondSequenceOf87!\n");
-	}
-
-	if (ipa_asn1c_der_encode(&asn_DEF_BoundProfilePackage_87tlv, second_seq_of_87->list.array[0],
-				 &second_seq_of_87_encoded) != 0) {
-		IPA_LOGP(SIPA, LERROR, "cannot encode segment for SecondSequenceOf87 (first 87 TLV)!\n");
-		IPA_FREE(second_seq_of_87_encoded);
-		return NULL;
-	}
-
-	IPA_LOGP(SIPA, LDEBUG, "encoded SecondSequenceOf87 segment:\n");
-	ipa_buf_hexdump_multiline(second_seq_of_87_encoded, 32, 1, SIPA, LDEBUG);
-
-	return second_seq_of_87_encoded;
-}
-
-/* See also GSMA SGP.22, section  2.5.5 (bullet point 6) */
-static struct ipa_buf *enc_tag_and_len_of_sequenceOf86(const struct BoundProfilePackage_SequenceOf86 *seq_of_86)
-{
-	struct ipa_buf *seq_of_86_encoded;
-
-	/* "Tag and length fields of the first sequenceOf87 TLV" */
-	seq_of_86_encoded = ipa_asn1c_enc_tlv_hdr(&asn_DEF_BoundProfilePackage_SequenceOf86, seq_of_86);
-	if (!seq_of_86_encoded) {
-		IPA_LOGP(SIPA, LERROR, "cannot encode segment for tag and length field of SequenceOf86!\n");
-		return NULL;
-	}
-
-	IPA_LOGP(SIPA, LDEBUG, "encoded tag and length field of SequenceOf86 segment: %s\n",
-		 ipa_buf_hexdump(seq_of_86_encoded));
-
-	return seq_of_86_encoded;
-}
-
-/* See also GSMA SGP.22, section  2.5.5 (bullet point 7) */
-static struct ipa_buf *enc_each_of_sequenceOf86(const BoundProfilePackage_86tlv_t * one_86tlv, unsigned int index)
-{
-	struct ipa_buf *one_86tlv_encoded = NULL;
-
-	/* "Each of the '88' TLVs" (= one per segment) */
-	if (ipa_asn1c_der_encode(&asn_DEF_BoundProfilePackage_86tlv, one_86tlv, &one_86tlv_encoded) != 0) {
-		IPA_LOGP(SIPA, LERROR, "cannot encode segment for '86' TLV %u!\n", index);
-		IPA_FREE(one_86tlv_encoded);
-		return NULL;
-	}
-
-	IPA_LOGP(SIPA, LDEBUG, "encoded '86' TLV segment %u:\n", index);
-	ipa_buf_hexdump_multiline(one_86tlv_encoded, 32, 1, SIPA, LDEBUG);
-
-	return one_86tlv_encoded;
-}
-
-/*! Initialize a BPP segment iterator.
- *  \param[out] iter iterator state, lives on the caller's stack.
- *  \param[in] bpp pointer to the decoded BoundProfilePackage; must stay valid
- *  for the lifetime of the iterator. */
-void ipa_bpp_segment_iter_init(struct ipa_bpp_segment_iter *iter, const struct BoundProfilePackage *bpp)
-{
+	memset(iter, 0, sizeof(*iter));
 	iter->bpp = bpp;
-	iter->idx = 0;
-	iter->count = 3 + (unsigned int)bpp->sequenceOf88.list.count + (bpp->secondSequenceOf87 ? 1 : 0) +
-		      1 + (unsigned int)bpp->sequenceOf86.list.count;
+	iter->bpp_len = bpp_len;
+
+	/* Outer BoundProfilePackage TLV */
+	hdr_len = ipa_tlv_hdr(bpp, bpp_len, &tag, &val_len);
+	if (!hdr_len || tag != TAG_BPP || hdr_len + val_len != bpp_len) {
+		IPA_LOGP(SIPA, LERROR, "malformed BoundProfilePackage TLV!\n");
+		return -EINVAL;
+	}
+	off = hdr_len;
+
+	/* Segment: BPP tag+len + the InitialiseSecureChannelRequest TLV */
+	tlv_len = expect_child(bpp, &off, bpp_len, TAG_ISCR);
+	if (!tlv_len) {
+		IPA_LOGP(SIPA, LERROR, "malformed InitialiseSecureChannelRequest!\n");
+		return -EINVAL;
+	}
+	iter->seg0_len = off;
+
+	/* Segment: firstSequenceOf87 tag+len + its first '87' TLV */
+	iter->a0_off = off;
+	hdr_len = ipa_tlv_hdr(bpp + off, bpp_len - off, &tag, &val_len);
+	if (!hdr_len || tag != TAG_FIRST87) {
+		IPA_LOGP(SIPA, LERROR, "malformed FirstSequenceOf87!\n");
+		return -EINVAL;
+	}
+	iter->a0_seg_len = first87_seg_len(bpp + off, hdr_len, val_len, "FirstSequenceOf87");
+	if (!iter->a0_seg_len) {
+		IPA_LOGP(SIPA, LERROR, "cannot slice segment for FirstSequenceOf87 (empty sequence)!\n");
+		return -EINVAL;
+	}
+	off += hdr_len + val_len;
+
+	/* sequenceOf88: header segment + one segment per '88' TLV */
+	iter->a1_off = off;
+	hdr_len = ipa_tlv_hdr(bpp + off, bpp_len - off, &tag, &val_len);
+	if (!hdr_len || tag != TAG_SEQ88) {
+		IPA_LOGP(SIPA, LERROR, "malformed SequenceOf88!\n");
+		return -EINVAL;
+	}
+	iter->a1_body = off + hdr_len;
+	iter->a1_end = off + hdr_len + val_len;
+	n88 = count_children(bpp, iter->a1_body, iter->a1_end, 0x88);
+	if (n88 < 0) {
+		IPA_LOGP(SIPA, LERROR, "malformed '88' TLV in SequenceOf88!\n");
+		return -EINVAL;
+	}
+	off = iter->a1_end;
+
+	/* secondSequenceOf87 (optional): tag+len + its first '87' TLV */
+	hdr_len = ipa_tlv_hdr(bpp + off, bpp_len - off, &tag, &val_len);
+	if (hdr_len && tag == TAG_SECOND87) {
+		iter->a2_off = off;
+		iter->a2_seg_len = first87_seg_len(bpp + off, hdr_len, val_len, "SecondSequenceOf87");
+		if (!iter->a2_seg_len) {
+			IPA_LOGP(SIPA, LERROR, "cannot slice segment for SecondSequenceOf87 (empty sequence)!\n");
+			return -EINVAL;
+		}
+		off += hdr_len + val_len;
+	}
+
+	/* sequenceOf86: header segment + one segment per '86' TLV */
+	iter->a3_off = off;
+	hdr_len = ipa_tlv_hdr(bpp + off, bpp_len - off, &tag, &val_len);
+	if (!hdr_len || tag != TAG_SEQ86 || off + hdr_len + val_len != bpp_len) {
+		IPA_LOGP(SIPA, LERROR, "malformed SequenceOf86!\n");
+		return -EINVAL;
+	}
+	iter->a3_body = off + hdr_len;
+	iter->a3_end = off + hdr_len + val_len;
+	n86 = count_children(bpp, iter->a3_body, iter->a3_end, 0x86);
+	if (n86 < 0) {
+		IPA_LOGP(SIPA, LERROR, "malformed '86' TLV in SequenceOf86!\n");
+		return -EINVAL;
+	}
+
+	iter->count = 3 + (unsigned int)n88 + (iter->a2_off ? 1 : 0) + 1 + (unsigned int)n86;
+	iter->state = SEG_ISCR;
+	return 0;
 }
 
-/*! Encode the next BPP segment (see GSMA SGP.22, section 2.5.5).
- *  \param[inout] iter iterator state.
- *  \returns newly allocated ipa_buf with the segment (caller frees), NULL on
- *  encoding error or when iter->count segments have been produced. */
-struct ipa_buf *ipa_bpp_segment_iter_next(struct ipa_bpp_segment_iter *iter)
+/* Slice of the child TLV at iter->pos (tag validated by init); advances pos. */
+static void child_slice(struct ipa_bpp_segment_iter *iter, struct ipa_buf *view)
 {
-	const struct BoundProfilePackage *bpp = iter->bpp;
-	unsigned int n88 = (unsigned int)bpp->sequenceOf88.list.count;
-	unsigned int i = iter->idx;
+	uint16_t tag;
+	size_t val_len;
+	size_t hdr_len = ipa_tlv_hdr(iter->bpp + iter->pos, iter->bpp_len - iter->pos, &tag, &val_len);
 
-	if (i >= iter->count)
-		return NULL;
-	iter->idx++;
+	ipa_buf_assign(view, iter->bpp + iter->pos, hdr_len + val_len);
+	iter->pos += hdr_len + val_len;
+}
 
-	if (i == 0)
-		return enc_init_sec_chan_req(bpp, &bpp->initialiseSecureChannelRequest);
-	if (i == 1)
-		return enc_first_seq_of_87(&bpp->firstSequenceOf87);
-	if (i == 2)
-		return enc_tag_and_len_of_sequenceOf88(&bpp->sequenceOf88);
-	i -= 3;
-	if (i < n88)
-		return enc_each_of_sequenceOf88(bpp->sequenceOf88.list.array[i], i);
-	i -= n88;
-	/* Optional */
-	if (bpp->secondSequenceOf87) {
-		if (i == 0)
-			return enc_second_seq_of_87(bpp->secondSequenceOf87);
-		i--;
+int ipa_bpp_segment_iter_next(struct ipa_bpp_segment_iter *iter, struct ipa_buf *view)
+{
+	switch (iter->state) {
+	case SEG_ISCR:
+		ipa_buf_assign(view, iter->bpp, iter->seg0_len);
+		iter->state = SEG_FIRST87;
+		IPA_LOGP(SIPA, LDEBUG, "encoded InitialiseSecureChannelRequest segment:\n");
+		ipa_buf_hexdump_multiline(view, 32, 1, SIPA, LDEBUG);
+		break;
+	case SEG_FIRST87:
+		ipa_buf_assign(view, iter->bpp + iter->a0_off, iter->a0_seg_len);
+		iter->state = SEG_HDR88;
+		IPA_LOGP(SIPA, LDEBUG, "encoded FirstSequenceOf87 segment:\n");
+		ipa_buf_hexdump_multiline(view, 32, 1, SIPA, LDEBUG);
+		break;
+	case SEG_HDR88:
+		ipa_buf_assign(view, iter->bpp + iter->a1_off, iter->a1_body - iter->a1_off);
+		iter->pos = iter->a1_body;
+		iter->sub_idx = 0;
+		iter->state = iter->pos < iter->a1_end ? SEG_EACH88 : (iter->a2_off ? SEG_SECOND87 : SEG_HDR86);
+		IPA_LOGP(SIPA, LDEBUG, "encoded tag and length field of SequenceOf88 segment: %s\n",
+			 ipa_buf_hexdump(view));
+		break;
+	case SEG_EACH88:
+		child_slice(iter, view);
+		IPA_LOGP(SIPA, LDEBUG, "encoded '88' TLV segment %u:\n", iter->sub_idx);
+		ipa_buf_hexdump_multiline(view, 32, 1, SIPA, LDEBUG);
+		iter->sub_idx++;
+		if (iter->pos >= iter->a1_end)
+			iter->state = iter->a2_off ? SEG_SECOND87 : SEG_HDR86;
+		break;
+	case SEG_SECOND87:
+		ipa_buf_assign(view, iter->bpp + iter->a2_off, iter->a2_seg_len);
+		iter->state = SEG_HDR86;
+		IPA_LOGP(SIPA, LDEBUG, "encoded SecondSequenceOf87 segment:\n");
+		ipa_buf_hexdump_multiline(view, 32, 1, SIPA, LDEBUG);
+		break;
+	case SEG_HDR86:
+		ipa_buf_assign(view, iter->bpp + iter->a3_off, iter->a3_body - iter->a3_off);
+		iter->pos = iter->a3_body;
+		iter->sub_idx = 0;
+		iter->state = iter->pos < iter->a3_end ? SEG_EACH86 : SEG_DONE;
+		IPA_LOGP(SIPA, LDEBUG, "encoded tag and length field of SequenceOf86 segment: %s\n",
+			 ipa_buf_hexdump(view));
+		break;
+	case SEG_EACH86:
+		child_slice(iter, view);
+		IPA_LOGP(SIPA, LDEBUG, "encoded '86' TLV segment %u:\n", iter->sub_idx);
+		ipa_buf_hexdump_multiline(view, 32, 1, SIPA, LDEBUG);
+		iter->sub_idx++;
+		if (iter->pos >= iter->a3_end)
+			iter->state = SEG_DONE;
+		break;
+	case SEG_DONE:
+	default:
+		return 0;
 	}
-	if (i == 0)
-		return enc_tag_and_len_of_sequenceOf86(&bpp->sequenceOf86);
-	i--;
-	return enc_each_of_sequenceOf86(bpp->sequenceOf86.list.array[i], i);
+
+	return 1;
 }

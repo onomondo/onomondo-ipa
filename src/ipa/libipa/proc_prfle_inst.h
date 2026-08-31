@@ -12,7 +12,10 @@
 struct ipa_context;
 
 struct ipa_proc_prfle_inst_pars {
-	const struct BoundProfilePackage *bound_profile_package;
+	/* The BoundProfilePackage TLV as received on the wire; the ES8+
+	 * segments are contiguous slices of it (bpp_segments.h). */
+	const uint8_t *bpp;
+	size_t bpp_len;
 
 	/* Out parameter (optional): when non-NULL, the ProfileInstallationResult the eUICC generated is
 	 * stored here (ownership passes to the caller, free with ASN_STRUCT_FREE). The notification is

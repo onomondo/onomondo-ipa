@@ -64,7 +64,7 @@ struct ipa_esipa_get_bnd_prfle_pkg_res *ipa_proc_prfle_dwnlod(struct ipa_context
 		goto error;
 	else if (get_bnd_prfle_pkg_res->get_bnd_prfle_pkg_err)
 		goto error;
-	else if (!get_bnd_prfle_pkg_res->get_bnd_prfle_pkg_ok)
+	else if (!get_bnd_prfle_pkg_res->bpp)
 		goto error;
 
 	/* In case of error it is the responsibility of the caller to call the Common Cancel Session procedure.

@@ -31,6 +31,7 @@ void ipa_asn1c_dump(const struct asn_TYPE_descriptor_s *td, const void *struct_p
 int ipa_cmp_case_insensitive(const char *str1, const char *str2, size_t len);
 bool ipa_tag_in_taglist(uint16_t tag, const struct ipa_buf *tag_list);
 size_t ipa_parse_btlv_hdr(size_t *len, uint16_t *tag, struct ipa_buf *buf);
+size_t ipa_tlv_hdr(const uint8_t *data, size_t len, uint16_t *tag, size_t *val_len);
 int ipa_strip_tlv_envelope(uint8_t *data, size_t data_len, uint16_t envelope_tag);
 void *ipa_asn1c_dup(const struct asn_TYPE_descriptor_s *td, const void *struct_ptr);
 

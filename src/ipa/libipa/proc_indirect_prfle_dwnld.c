@@ -142,11 +142,12 @@ int ipa_proc_indirect_prfle_dwnlod(struct ipa_context *ctx, const struct ipa_pro
 	}
 
 	/* Execute sub procedure: Sub-procedure Profile Installation (See also section 3.1.3.3 of SGP.22) */
-	prfle_inst_pars.bound_profile_package = &get_bnd_prfle_pkg_res->get_bnd_prfle_pkg_ok->boundProfilePackage;
+	prfle_inst_pars.bpp = get_bnd_prfle_pkg_res->bpp;
+	prfle_inst_pars.bpp_len = get_bnd_prfle_pkg_res->bpp_len;
 	prfle_inst_pars.pir = &pir;
 	rc = ipa_proc_prfle_inst(ctx, &prfle_inst_pars);
 
-	/* The decoded response tree holding the whole BoundProfilePackage is not needed beyond this point; free it
+	/* The response buffer backing the BoundProfilePackage slices is not needed beyond this point; free it
 	 * before the remaining HTTP exchanges (cancel session / download trigger result) run. */
 	ipa_esipa_get_bnd_prfle_pkg_res_free(get_bnd_prfle_pkg_res);
 	get_bnd_prfle_pkg_res = NULL;

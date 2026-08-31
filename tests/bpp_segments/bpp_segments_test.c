@@ -7,6 +7,7 @@
  */
 
 #include <stdio.h>
+#include <errno.h>
 #include <stdbool.h>
 #include <onomondo/ipa/utils.h>
 #include <asn_application.h>
@@ -19,11 +20,10 @@ void ipa_bpp_segments_encode_test(char *test_vector_path)
 	uint8_t bpp[20480];
 	FILE *bpp_file = NULL;
 	size_t bpp_len;
-	asn_dec_rval_t rc;
-	struct BoundProfilePackage *bpp_dec = NULL;
 	struct ipa_bpp_segment_iter iter;
-	struct ipa_buf *segment = NULL;
+	struct ipa_buf segment;
 	unsigned int i;
+	int rc;
 
 	/* Load test BPP test vector from file */
 	assert(test_vector_path);
@@ -33,26 +33,38 @@ void ipa_bpp_segments_encode_test(char *test_vector_path)
 	fclose(bpp_file);
 	printf("bpp size: %zu\n", bpp_len);
 
-	/* Decode BPP test vector */
-	rc = ber_decode(0, &asn_DEF_BoundProfilePackage, (void **)&bpp_dec, bpp, bpp_len);
-	assert(rc.code == RC_OK);
-
-	/* Generate BPP segments (one at a time, like the profile installation procedure does) */
-	ipa_bpp_segment_iter_init(&iter, bpp_dec);
+	/* Slice BPP segments straight from the wire bytes (one at a time, like
+	 * the profile installation procedure does). Calls stay outside the
+	 * asserts: NDEBUG builds must still produce the segments (the golden
+	 * stderr comparison depends on it). */
+	rc = ipa_bpp_segment_iter_init(&iter, bpp, bpp_len);
+	assert(rc == 0);
 	for (i = 0; i < iter.count; i++) {
-		segment = ipa_bpp_segment_iter_next(&iter);
-		assert(segment);
-		IPA_FREE(segment);
+		rc = ipa_bpp_segment_iter_next(&iter, &segment);
+		assert(rc == 1);
 	}
 	/* The iterator must report exhaustion once all segments were produced */
-	assert(!ipa_bpp_segment_iter_next(&iter));
+	rc = ipa_bpp_segment_iter_next(&iter, &segment);
+	assert(rc == 0);
+	(void)rc;
+}
 
-	ASN_STRUCT_FREE(asn_DEF_BoundProfilePackage, bpp_dec);
+/* An '88' length that would wrap a 32-bit size_t must be rejected. */
+void ipa_bpp_segments_wrap_test(void)
+{
+	static const uint8_t bpp[] = { 0xBF, 0x36, 0x12, 0xBF, 0x23, 0x00, 0xA0, 0x03, 0x87, 0x01, 0x00,
+				       0xA1, 0x06, 0x88, 0x84, 0xFF, 0xFF, 0xFF, 0xFA, 0xA3, 0x00 };
+	struct ipa_bpp_segment_iter iter;
+	int rc = ipa_bpp_segment_iter_init(&iter, bpp, sizeof(bpp));
+
+	assert(rc == -EINVAL);
+	(void)rc;
 }
 
 int main(int argc, char **argv)
 {
 	ipa_bpp_segments_encode_test(argv[1]);
+	ipa_bpp_segments_wrap_test();
 	return 0;
 }
 

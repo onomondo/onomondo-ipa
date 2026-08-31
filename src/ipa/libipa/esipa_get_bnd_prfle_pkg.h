@@ -6,18 +6,23 @@
 
 #pragma once
 
+#include <stdint.h>
+#include <stddef.h>
 #include <PrepareDownloadResponse.h>
-#include <EsipaMessageFromEimToIpa.h>
-#include <GetBoundProfilePackageOkEsipa.h>
+#include <onomondo/ipa/utils.h>
 struct ipa_context;
 
 struct ipa_esipa_get_bnd_prfle_pkg_req {
 	const struct PrepareDownloadResponse *prep_dwnld_res;
 };
 
+/* The BoundProfilePackage is kept as a slice of the raw ESipa response — the
+ * ES8+ segmentation works on the wire bytes (bpp_segments.h), so the response
+ * is never decoded into an asn1c tree (which cost ~2x the wire size). */
 struct ipa_esipa_get_bnd_prfle_pkg_res {
-	struct EsipaMessageFromEimToIpa *msg_to_ipa;
-	struct GetBoundProfilePackageOkEsipa *get_bnd_prfle_pkg_ok;
+	struct ipa_buf *raw;  /* owned: the whole ESipa response */
+	const uint8_t *bpp;   /* view into raw: the BoundProfilePackage TLV; NULL on error */
+	size_t bpp_len;
 	long get_bnd_prfle_pkg_err;
 };
 
