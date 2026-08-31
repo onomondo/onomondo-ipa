@@ -96,9 +96,12 @@ asn_TYPE_descriptor_t asn_DEF_OCTET_STRING = {
 		if((int)_es < 0) RETURN(RC_FAIL);			\
 		if(_ns <= _es) {					\
 			void *ptr;					\
-			/* Be nice and round to the memory allocator */	\
-			do { _ns = _ns ? _ns << 1 : 16; }		\
-			    while(_ns <= _es);				\
+			/* First allocation: exact fit (+1 nul) — complete\
+			 * primitive TLVs arrive in a single append, and the\
+			 * power-of-two ladder wasted up to 2x on them.\
+			 * Subsequent growth still doubles. */\
+			if(_ns == 0) _ns = _es + 1;			\
+			else do { _ns <<= 1; } while(_ns <= _es);	\
 			/* int is really a typeof(st->size): */		\
 			if((int)_ns < 0) RETURN(RC_FAIL);		\
 			ptr = REALLOC(st->buf, _ns);			\
