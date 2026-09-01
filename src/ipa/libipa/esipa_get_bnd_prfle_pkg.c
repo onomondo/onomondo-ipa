@@ -25,21 +25,21 @@
 
 static const struct num_str_map error_code_strings[] = {
 	{ GetBoundProfilePackageResponseEsipa__getBoundProfilePackageErrorEsipa_euiccSignatureInvalid,
-	 "euiccSignatureInvalid" },
+	  "euiccSignatureInvalid" },
 	{ GetBoundProfilePackageResponseEsipa__getBoundProfilePackageErrorEsipa_confirmationCodeMissing,
-	 "confirmationCodeMissing" },
+	  "confirmationCodeMissing" },
 	{ GetBoundProfilePackageResponseEsipa__getBoundProfilePackageErrorEsipa_confirmationCodeRefused,
-	 "confirmationCodeRefused" },
+	  "confirmationCodeRefused" },
 	{ GetBoundProfilePackageResponseEsipa__getBoundProfilePackageErrorEsipa_confirmationCodeRetriesExceeded,
-	 "confirmationCodeRetriesExceeded" },
+	  "confirmationCodeRetriesExceeded" },
 	{ GetBoundProfilePackageResponseEsipa__getBoundProfilePackageErrorEsipa_bppRebindingRefused,
-	 "bppRebindingRefused" },
+	  "bppRebindingRefused" },
 	{ GetBoundProfilePackageResponseEsipa__getBoundProfilePackageErrorEsipa_downloadOrderExpired,
-	 "downloadOrderExpired" },
+	  "downloadOrderExpired" },
 	{ GetBoundProfilePackageResponseEsipa__getBoundProfilePackageErrorEsipa_profileMetadataMismatch,
-	 "profileMetadataMismatch" },
+	  "profileMetadataMismatch" },
 	{ GetBoundProfilePackageResponseEsipa__getBoundProfilePackageErrorEsipa_invalidTransactionId,
-	 "invalidTransactionId" },
+	  "invalidTransactionId" },
 	{ GetBoundProfilePackageResponseEsipa__getBoundProfilePackageErrorEsipa_undefinedError, "undefinedError" },
 	{ 0, NULL }
 };
@@ -53,19 +53,19 @@ static struct ipa_buf *enc_get_bnd_prfle_pkg_req(const struct ipa_esipa_get_bnd_
 	switch (req->prep_dwnld_res->present) {
 	case PrepareDownloadResponse_PR_downloadResponseOk:
 		msg_to_eim.choice.getBoundProfilePackageRequestEsipa.prepareDownloadResponse.present =
-		    SGP32_PrepareDownloadResponse_PR_downloadResponseOk;
+			SGP32_PrepareDownloadResponse_PR_downloadResponseOk;
 		msg_to_eim.choice.getBoundProfilePackageRequestEsipa.prepareDownloadResponse.choice.downloadResponseOk =
-		    req->prep_dwnld_res->choice.downloadResponseOk;
+			req->prep_dwnld_res->choice.downloadResponseOk;
 		msg_to_eim.choice.getBoundProfilePackageRequestEsipa.transactionId =
-		    req->prep_dwnld_res->choice.downloadResponseOk.euiccSigned2.transactionId;
+			req->prep_dwnld_res->choice.downloadResponseOk.euiccSigned2.transactionId;
 		break;
 	case PrepareDownloadResponse_PR_downloadResponseError:
 		msg_to_eim.choice.getBoundProfilePackageRequestEsipa.prepareDownloadResponse.present =
-		    SGP32_PrepareDownloadResponse_PR_downloadResponseError;
-		msg_to_eim.choice.getBoundProfilePackageRequestEsipa.prepareDownloadResponse.choice.
-		    downloadResponseError = req->prep_dwnld_res->choice.downloadResponseError;
+			SGP32_PrepareDownloadResponse_PR_downloadResponseError;
+		msg_to_eim.choice.getBoundProfilePackageRequestEsipa.prepareDownloadResponse.choice
+			.downloadResponseError = req->prep_dwnld_res->choice.downloadResponseError;
 		msg_to_eim.choice.getBoundProfilePackageRequestEsipa.transactionId =
-		    req->prep_dwnld_res->choice.downloadResponseError.transactionId;
+			req->prep_dwnld_res->choice.downloadResponseError.transactionId;
 		break;
 	default:
 		IPA_LOGP_ESIPA("GetBoundProfilePackage", LINFO,
@@ -82,9 +82,8 @@ static struct ipa_esipa_get_bnd_prfle_pkg_res *dec_get_bnd_prfle_pkg_res(const s
 	struct EsipaMessageFromEimToIpa *msg_to_ipa = NULL;
 	struct ipa_esipa_get_bnd_prfle_pkg_res *res = NULL;
 
-	msg_to_ipa =
-	    ipa_esipa_msg_to_ipa_dec(msg_to_ipa_encoded, "GetBoundProfilePackage",
-				     EsipaMessageFromEimToIpa_PR_getBoundProfilePackageResponseEsipa);
+	msg_to_ipa = ipa_esipa_msg_to_ipa_dec(msg_to_ipa_encoded, "GetBoundProfilePackage",
+					      EsipaMessageFromEimToIpa_PR_getBoundProfilePackageResponseEsipa);
 	if (!msg_to_ipa)
 		return NULL;
 
@@ -93,17 +92,19 @@ static struct ipa_esipa_get_bnd_prfle_pkg_res *dec_get_bnd_prfle_pkg_res(const s
 
 	switch (msg_to_ipa->choice.initiateAuthenticationResponseEsipa.present) {
 	case GetBoundProfilePackageResponseEsipa_PR_getBoundProfilePackageOkEsipa:
-		IPA_LOGP_ESIPA("GetBoundProfilePackage", LINFO, "GetBoundProfilePackageResponseEsipa_PR_getBoundProfilePackageOkEsipa\n");
+		IPA_LOGP_ESIPA("GetBoundProfilePackage", LINFO,
+			       "GetBoundProfilePackageResponseEsipa_PR_getBoundProfilePackageOkEsipa\n");
 		res->get_bnd_prfle_pkg_ok =
-		    &msg_to_ipa->choice.getBoundProfilePackageResponseEsipa.choice.getBoundProfilePackageOkEsipa;
+			&msg_to_ipa->choice.getBoundProfilePackageResponseEsipa.choice.getBoundProfilePackageOkEsipa;
 		break;
 	case GetBoundProfilePackageResponseEsipa_PR_getBoundProfilePackageErrorEsipa:
-		IPA_LOGP_ESIPA("GetBoundProfilePackage", LERROR, "GetBoundProfilePackageResponseEsipa_PR_getBoundProfilePackageErrorEsipa\n");
+		IPA_LOGP_ESIPA("GetBoundProfilePackage", LERROR,
+			       "GetBoundProfilePackageResponseEsipa_PR_getBoundProfilePackageErrorEsipa\n");
 		res->get_bnd_prfle_pkg_err =
-		    msg_to_ipa->choice.getBoundProfilePackageResponseEsipa.choice.getBoundProfilePackageErrorEsipa;
+			msg_to_ipa->choice.getBoundProfilePackageResponseEsipa.choice.getBoundProfilePackageErrorEsipa;
 		IPA_LOGP_ESIPA("GetBoundProfilePackage", LERROR, "function failed with error code %ld=%s!\n",
-			       res->get_bnd_prfle_pkg_err, ipa_str_from_num(error_code_strings,
-									    res->get_bnd_prfle_pkg_err, "(unknown)"));
+			       res->get_bnd_prfle_pkg_err,
+			       ipa_str_from_num(error_code_strings, res->get_bnd_prfle_pkg_err, "(unknown)"));
 		break;
 	default:
 		IPA_LOGP_ESIPA("GetBoundProfilePackage", LERROR, "unexpected response content!\n");

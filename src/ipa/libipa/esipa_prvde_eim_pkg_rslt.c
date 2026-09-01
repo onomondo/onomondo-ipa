@@ -34,9 +34,9 @@ static struct ipa_buf *enc_prvde_eim_pkg_rslt_req(const struct ipa_esipa_prvde_e
 	} else if (req->euicc_package_result && req->sgp32_notification_list) {
 		msg_to_eim.choice.provideEimPackageResult.present = ProvideEimPackageResult_PR_ePRAndNotifications;
 		msg_to_eim.choice.provideEimPackageResult.choice.ePRAndNotifications.euiccPackageResult =
-		    *req->euicc_package_result;
+			*req->euicc_package_result;
 		msg_to_eim.choice.provideEimPackageResult.choice.ePRAndNotifications.notificationList =
-		    *req->sgp32_notification_list;
+			*req->sgp32_notification_list;
 	} else if (req->euicc_package_result) {
 		msg_to_eim.choice.provideEimPackageResult.present = ProvideEimPackageResult_PR_euiccPackageResult;
 		msg_to_eim.choice.provideEimPackageResult.choice.euiccPackageResult = *req->euicc_package_result;
@@ -45,9 +45,9 @@ static struct ipa_buf *enc_prvde_eim_pkg_rslt_req(const struct ipa_esipa_prvde_e
 		msg_to_eim.choice.provideEimPackageResult.choice.ipaEuiccDataResponse = *req->ipa_euicc_data_resp;
 	} else if (req->prfle_dwnld_trig_req_rslt) {
 		msg_to_eim.choice.provideEimPackageResult.present =
-		    ProvideEimPackageResult_PR_profileDownloadTriggerResult;
+			ProvideEimPackageResult_PR_profileDownloadTriggerResult;
 		msg_to_eim.choice.provideEimPackageResult.choice.profileDownloadTriggerResult =
-		    *req->prfle_dwnld_trig_req_rslt;
+			*req->prfle_dwnld_trig_req_rslt;
 	} else {
 		/* The struct should at least contain one of the above information element. In case the caller fails
 		 * to fill out any of those, we fall back to setting eimPackageError to undefined. This will at least
@@ -56,7 +56,7 @@ static struct ipa_buf *enc_prvde_eim_pkg_rslt_req(const struct ipa_esipa_prvde_e
 			       "empty provideEimPackageResult request, setting eimPackageError to undefined\n");
 		msg_to_eim.choice.provideEimPackageResult.present = ProvideEimPackageResult_PR_eimPackageError;
 		msg_to_eim.choice.provideEimPackageResult.choice.eimPackageError =
-		    ProvideEimPackageResult__eimPackageError_undefinedError;
+			ProvideEimPackageResult__eimPackageError_undefinedError;
 	}
 
 	enc = ipa_esipa_msg_to_eim_enc(&msg_to_eim, "ProvideEimPackageResult");
@@ -69,9 +69,8 @@ struct ipa_esipa_prvde_eim_pkg_rslt_res *dec_prvde_eim_pkg_rslt_res(const struct
 	struct EsipaMessageFromEimToIpa *msg_to_ipa = NULL;
 	struct ipa_esipa_prvde_eim_pkg_rslt_res *res = NULL;
 
-	msg_to_ipa =
-	    ipa_esipa_msg_to_ipa_dec(msg_to_ipa_encoded, "ProvideEimPackageResult",
-				     EsipaMessageFromEimToIpa_PR_provideEimPackageResultResponse);
+	msg_to_ipa = ipa_esipa_msg_to_ipa_dec(msg_to_ipa_encoded, "ProvideEimPackageResult",
+					      EsipaMessageFromEimToIpa_PR_provideEimPackageResultResponse);
 	if (!msg_to_ipa)
 		return NULL;
 
@@ -88,8 +87,8 @@ struct ipa_esipa_prvde_eim_pkg_rslt_res *dec_prvde_eim_pkg_rslt_res(const struct
  *  \param[inout] ctx pointer to ipa_context.
  *  \param[in] req pointer to struct that holds the function parameters.
  *  \returns pointer newly allocated struct with function result, NULL on error. */
-struct ipa_esipa_prvde_eim_pkg_rslt_res *ipa_esipa_prvde_eim_pkg_rslt(struct ipa_context *ctx, const struct ipa_esipa_prvde_eim_pkg_rslt_req
-								      *req)
+struct ipa_esipa_prvde_eim_pkg_rslt_res *
+ipa_esipa_prvde_eim_pkg_rslt(struct ipa_context *ctx, const struct ipa_esipa_prvde_eim_pkg_rslt_req *req)
 {
 	struct ipa_buf *esipa_req = NULL;
 	struct ipa_buf *esipa_res = NULL;

@@ -72,7 +72,7 @@ int ipa_proc_eucc_pkg_dwnld_exec_onset(struct ipa_context *ctx, struct ipa_proc_
 	/* TODO: This should be a conditional step that is omitted when the eUICC package does not contain any PSMOs.
 	 * (it possibly does not hurt when the notification list is always included, even when it is empty.) */
 	retr_notif_from_lst_req.search_criteria.choice.seqNumber =
-	    res->load_euicc_pkg_res->res->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.seqNumber;
+		res->load_euicc_pkg_res->res->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.seqNumber;
 	retr_notif_from_lst_req.search_criteria.present = RetrieveNotificationsListRequest__searchCriteria_PR_seqNumber;
 	retr_notif_from_lst_res = ipa_es10b_retr_notif_from_lst(ctx, &retr_notif_from_lst_req);
 	if (!retr_notif_from_lst_res)
@@ -96,24 +96,27 @@ int ipa_proc_eucc_pkg_dwnld_exec_onset(struct ipa_context *ctx, struct ipa_proc_
 		 * The profile rollback can only be tried once and the eIM also must have allowed the profile rollback
 		 * maneuver explicitly.*/
 		if (!res->load_euicc_pkg_res->profile_changed) {
-			IPA_LOGP(SIPA, LERROR,
-				 "unable to send the EuiccPackageResult to the eIM. (active profile not changed, no profile rollback will be performed)\n");
+			IPA_LOGP(
+				SIPA, LERROR,
+				"unable to send the EuiccPackageResult to the eIM. (active profile not changed, no profile rollback will be performed)\n");
 			goto error;
 		} else if (!res->load_euicc_pkg_res->rollback_allowed) {
-			IPA_LOGP(SIPA, LERROR,
-				 "unable to send the EuiccPackageResult to the eIM. (profile rollback not allowed by eIM)\n");
+			IPA_LOGP(
+				SIPA, LERROR,
+				"unable to send the EuiccPackageResult to the eIM. (profile rollback not allowed by eIM)\n");
 			goto error;
 		} else if (res->prfle_rollback_res) {
-			IPA_LOGP(SIPA, LERROR,
-				 "unable to send the EuiccPackageResult to the eIM. (profile rollback already tried)\n");
+			IPA_LOGP(
+				SIPA, LERROR,
+				"unable to send the EuiccPackageResult to the eIM. (profile rollback already tried)\n");
 			goto error;
 		}
 
 		IPA_LOGP(SIPA, LERROR,
 			 "unable to send the EuiccPackageResult to the eIM. (attempting profile rollback)\n");
 		res->prfle_rollback_res = ipa_es10b_prfle_rollback(ctx, ctx->cfg->refresh_flag);
-		if (!res->prfle_rollback_res
-		    || res->prfle_rollback_res->res->cmdResult != ProfileRollbackResponse__cmdResult_ok) {
+		if (!res->prfle_rollback_res ||
+		    res->prfle_rollback_res->res->cmdResult != ProfileRollbackResponse__cmdResult_ok) {
 			IPA_LOGP(SIPA, LERROR, "profile rollback failed!\n");
 			goto error;
 		}
@@ -125,9 +128,9 @@ int ipa_proc_eucc_pkg_dwnld_exec_onset(struct ipa_context *ctx, struct ipa_proc_
 
 	/* Step #15-17 (ES10b.RemoveNotificationFromList) */
 	/* Remove the notification for the euiccPackageResult. */
-	rc = ipa_es10b_rm_notif_from_lst(ctx,
-					 res->load_euicc_pkg_res->res->choice.euiccPackageResultSigned.
-					 euiccPackageResultDataSigned.seqNumber);
+	rc = ipa_es10b_rm_notif_from_lst(
+		ctx,
+		res->load_euicc_pkg_res->res->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.seqNumber);
 	if (rc < 0)
 		goto error;
 	/* Remove the notifications that the eIM has requested to remove in the provideEimPackageResultResponse. */
@@ -144,8 +147,9 @@ error:
 	ipa_es10b_retr_notif_from_lst_res_free(retr_notif_from_lst_res);
 	ipa_esipa_prvde_eim_pkg_rslt_free(prvde_eim_pkg_rslt_res);
 	if (res->call_onset) {
-		IPA_LOGP(SIPA, LERROR,
-			 "Generic eUICC Package Download and Execution failed to provide the eIM package result to the eIM, retry in progress...\n");
+		IPA_LOGP(
+			SIPA, LERROR,
+			"Generic eUICC Package Download and Execution failed to provide the eIM package result to the eIM, retry in progress...\n");
 		return 0;
 	} else {
 		IPA_LOGP(SIPA, LERROR, "Generic eUICC Package Download and Execution failed!\n");
@@ -158,8 +162,8 @@ error:
  *  \param[inout] ctx pointer to ipa_context.
  *  \param[in] euicc_package_request pointer to struct that holds the EuiccPackageRequest.
  *  \returns struct with intermediate result on success, NULL on failure. */
-struct ipa_proc_eucc_pkg_dwnld_exec_res *ipa_proc_eucc_pkg_dwnld_exec(struct ipa_context *ctx, const struct EuiccPackageRequest
-								      *euicc_package_request)
+struct ipa_proc_eucc_pkg_dwnld_exec_res *
+ipa_proc_eucc_pkg_dwnld_exec(struct ipa_context *ctx, const struct EuiccPackageRequest *euicc_package_request)
 {
 	struct ipa_es10b_load_euicc_pkg_req load_euicc_pkg_req = { 0 };
 	struct ipa_proc_eucc_pkg_dwnld_exec_res *res = IPA_ALLOC_ZERO(struct ipa_proc_eucc_pkg_dwnld_exec_res);

@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
- #pragma once
+#pragma once
 
 struct ipa_context;
 

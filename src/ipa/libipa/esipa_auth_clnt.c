@@ -61,7 +61,7 @@ static struct ipa_esipa_auth_clnt_res *dec_auth_clnt_res(const struct ipa_buf *m
 	switch (msg_to_ipa->choice.authenticateClientResponseEsipa.present) {
 	case AuthenticateClientResponseEsipa_PR_authenticateClientOkDPEsipa:
 		res->auth_clnt_ok_dpe =
-		    &msg_to_ipa->choice.authenticateClientResponseEsipa.choice.authenticateClientOkDPEsipa;
+			&msg_to_ipa->choice.authenticateClientResponseEsipa.choice.authenticateClientOkDPEsipa;
 		res->transaction_id = res->auth_clnt_ok_dpe->transactionId;
 		if (!IPA_ASN_STR_CMP(res->transaction_id, &req->req.transactionId)) {
 			IPA_LOGP_ESIPA("AuthenticateClient", LERROR,
@@ -73,15 +73,15 @@ static struct ipa_esipa_auth_clnt_res *dec_auth_clnt_res(const struct ipa_buf *m
 		break;
 	case AuthenticateClientResponseEsipa_PR_authenticateClientOkDSEsipa:
 		res->auth_clnt_ok_dse =
-		    &msg_to_ipa->choice.authenticateClientResponseEsipa.choice.authenticateClientOkDSEsipa;
+			&msg_to_ipa->choice.authenticateClientResponseEsipa.choice.authenticateClientOkDSEsipa;
 		res->transaction_id = &res->auth_clnt_ok_dse->transactionId;
 		break;
 	case AuthenticateClientResponseEsipa_PR_authenticateClientErrorEsipa:
 		res->auth_clnt_err =
-		    msg_to_ipa->choice.authenticateClientResponseEsipa.choice.authenticateClientErrorEsipa;
+			msg_to_ipa->choice.authenticateClientResponseEsipa.choice.authenticateClientErrorEsipa;
 		IPA_LOGP_ESIPA("AuthenticateClient", LERROR, "function failed with error code %ld=%s!\n",
-			       res->auth_clnt_err, ipa_str_from_num(error_code_strings, res->auth_clnt_err,
-								    "(unknown)"));
+			       res->auth_clnt_err,
+			       ipa_str_from_num(error_code_strings, res->auth_clnt_err, "(unknown)"));
 		break;
 	default:
 		IPA_LOGP_ESIPA("AuthenticateClient", LERROR, "unexpected response content!\n");

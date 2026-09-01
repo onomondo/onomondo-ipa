@@ -62,7 +62,7 @@ int ipa_es10c_get_eid(struct ipa_context *ctx, uint8_t *eid)
 	struct GetEuiccDataRequest get_euicc_data_req = { 0 };
 	int rc = -EINVAL;
 
-	get_euicc_data_req.tagList.buf = (uint8_t *) "\x5A";
+	get_euicc_data_req.tagList.buf = (uint8_t *)"\x5A";
 	get_euicc_data_req.tagList.size = 1;
 	es10b_req = ipa_es10x_req_enc(&asn_DEF_GetEuiccDataRequest, &get_euicc_data_req, "GetEID");
 	if (!es10b_req) {

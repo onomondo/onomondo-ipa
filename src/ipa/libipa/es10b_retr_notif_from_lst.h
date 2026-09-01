@@ -34,6 +34,6 @@ struct ipa_es10b_retr_notif_from_lst_res {
 	 *  sgp32_res only, since it will always be populated, regardless of which eUICC type is used. */
 };
 
-struct ipa_es10b_retr_notif_from_lst_res *ipa_es10b_retr_notif_from_lst(struct ipa_context *ctx, const struct ipa_es10b_retr_notif_from_lst_req
-									*req);
+struct ipa_es10b_retr_notif_from_lst_res *
+ipa_es10b_retr_notif_from_lst(struct ipa_context *ctx, const struct ipa_es10b_retr_notif_from_lst_req *req);
 void ipa_es10b_retr_notif_from_lst_res_free(struct ipa_es10b_retr_notif_from_lst_res *res);

@@ -69,36 +69,38 @@ static int dec_euicc_mem_rst_res_sgp32(const struct ipa_buf *es10b_res)
 	if (asn->resetResult != SGP32_EuiccMemoryResetResponse__resetResult_ok &&
 	    asn->resetResult != SGP32_EuiccMemoryResetResponse__resetResult_nothingToDelete) {
 		IPA_LOGP_ES10X("eUICCMemoryReset", LERROR, "function failed with error code %ld=%s!\n",
-			       asn->resetResult, ipa_str_from_num(sgp32_error_code_strings_resetResult,
-								  asn->resetResult, "(unknown)"));
+			       asn->resetResult,
+			       ipa_str_from_num(sgp32_error_code_strings_resetResult, asn->resetResult, "(unknown)"));
 		rc = -EINVAL;
 	} else {
 		IPA_LOGP_ES10X("eUICCMemoryReset", LERROR, "function succeeded with status code %ld=%s!\n",
-			       asn->resetResult, ipa_str_from_num(sgp32_error_code_strings_resetResult,
-								  asn->resetResult, "(unknown)"));
+			       asn->resetResult,
+			       ipa_str_from_num(sgp32_error_code_strings_resetResult, asn->resetResult, "(unknown)"));
 	}
 
 	if (asn->resetResult != SGP32_EuiccMemoryResetResponse__resetEimResult_ok &&
 	    asn->resetResult != SGP32_EuiccMemoryResetResponse__resetEimResult_nothingToDelete) {
-		IPA_LOGP_ES10X("eUICCMemoryReset", LERROR, "function failed with error code %ld=%s!\n",
-			       asn->resetResult, ipa_str_from_num(sgp32_error_code_strings_resetEimResult,
-								  asn->resetResult, "(unknown)"));
+		IPA_LOGP_ES10X(
+			"eUICCMemoryReset", LERROR, "function failed with error code %ld=%s!\n", asn->resetResult,
+			ipa_str_from_num(sgp32_error_code_strings_resetEimResult, asn->resetResult, "(unknown)"));
 		rc = -EINVAL;
 	} else {
-		IPA_LOGP_ES10X("eUICCMemoryReset", LERROR, "function succeeded with status code %ld=%s!\n",
-			       asn->resetResult, ipa_str_from_num(sgp32_error_code_strings_resetEimResult,
-								  asn->resetResult, "(unknown)"));
+		IPA_LOGP_ES10X(
+			"eUICCMemoryReset", LERROR, "function succeeded with status code %ld=%s!\n", asn->resetResult,
+			ipa_str_from_num(sgp32_error_code_strings_resetEimResult, asn->resetResult, "(unknown)"));
 	}
 
 	if (asn->resetResult != SGP32_EuiccMemoryResetResponse__resetAutoEnableConfigResult_ok) {
 		IPA_LOGP_ES10X("eUICCMemoryReset", LERROR, "function failed with error code %ld=%s!\n",
-			       asn->resetResult, ipa_str_from_num(sgp32_error_code_strings_resetAutoEnableConfigResult,
-								  asn->resetResult, "(unknown)"));
+			       asn->resetResult,
+			       ipa_str_from_num(sgp32_error_code_strings_resetAutoEnableConfigResult, asn->resetResult,
+						"(unknown)"));
 		rc = -EINVAL;
 	} else {
 		IPA_LOGP_ES10X("eUICCMemoryReset", LERROR, "function succeeded with status code %ld=%s!\n",
-			       asn->resetResult, ipa_str_from_num(sgp32_error_code_strings_resetAutoEnableConfigResult,
-								  asn->resetResult, "(unknown)"));
+			       asn->resetResult,
+			       ipa_str_from_num(sgp32_error_code_strings_resetAutoEnableConfigResult, asn->resetResult,
+						"(unknown)"));
 	}
 
 	ASN_STRUCT_FREE(asn_DEF_EuiccMemoryResetResponse, asn);
@@ -117,13 +119,13 @@ static int dec_euicc_mem_rst_res(const struct ipa_buf *es10b_res)
 	if (asn->resetResult != EuiccMemoryResetResponse__resetResult_ok &&
 	    asn->resetResult != EuiccMemoryResetResponse__resetResult_nothingToDelete) {
 		IPA_LOGP_ES10X("eUICCMemoryReset", LERROR, "function failed with error code %ld=%s!\n",
-			       asn->resetResult, ipa_str_from_num(error_code_strings_resetResult, asn->resetResult,
-								  "(unknown)"));
+			       asn->resetResult,
+			       ipa_str_from_num(error_code_strings_resetResult, asn->resetResult, "(unknown)"));
 		rc = -EINVAL;
 	} else {
 		IPA_LOGP_ES10X("eUICCMemoryReset", LERROR, "function succeeded with status code %ld=%s!\n",
-			       asn->resetResult, ipa_str_from_num(error_code_strings_resetResult, asn->resetResult,
-								  "(unknown)"));
+			       asn->resetResult,
+			       ipa_str_from_num(error_code_strings_resetResult, asn->resetResult, "(unknown)"));
 	}
 
 	ASN_STRUCT_FREE(asn_DEF_EuiccMemoryResetResponse, asn);

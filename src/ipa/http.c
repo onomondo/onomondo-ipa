@@ -55,9 +55,10 @@ static size_t store_response_cb(void *ptr, size_t size, size_t nmemb, void *clie
 
 	if (buf->len + size * nmemb > buf->data_len) {
 		realloc_size = ((buf->len + size * nmemb) / IPA_LEN_HTTP_RESPONSE_BUF + 1) * IPA_LEN_HTTP_RESPONSE_BUF;
-		IPA_LOGP(SIPA, LDEBUG,
-			 "HTTP response buffer exhausted, reallocating more memory (have: %zu bytes, required: %zu bytes, will allocate: %zu bytes)\n",
-			 buf->data_len, buf->len + size * nmemb, realloc_size);
+		IPA_LOGP(
+			SIPA, LDEBUG,
+			"HTTP response buffer exhausted, reallocating more memory (have: %zu bytes, required: %zu bytes, will allocate: %zu bytes)\n",
+			buf->data_len, buf->len + size * nmemb, realloc_size);
 		buf = ipa_buf_realloc(buf, realloc_size);
 		assert(buf);
 		*(struct ipa_buf **)clientp = buf;

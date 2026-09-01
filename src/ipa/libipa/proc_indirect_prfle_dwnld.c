@@ -78,8 +78,8 @@ int ipa_proc_indirect_prfle_dwnlod(struct ipa_context *ctx, const struct ipa_pro
 
 	/* At this point we must ask the user for consent before we proceed with the profile installation. In case the
 	 * user does not consent, we must abort by calling the common cancel session procedure. */
-	if (ctx->cfg->prfle_inst_consent_cb
-	    && !ctx->cfg->prfle_inst_consent_cb(activation_code->sm_dp_plus_address, activation_code->ac_token)) {
+	if (ctx->cfg->prfle_inst_consent_cb &&
+	    !ctx->cfg->prfle_inst_consent_cb(activation_code->sm_dp_plus_address, activation_code->ac_token)) {
 		IPA_LOGP(SIPA, LERROR, "no end user consent for profile installation -- canceling session!\n");
 		cmn_cancel_sess_pars.reason = CancelSessionReason_endUserRejection;
 		cmn_cancel_sess_pars.transaction_id = *auth_clnt_res->transaction_id;

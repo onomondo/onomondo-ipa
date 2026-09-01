@@ -45,37 +45,39 @@ void convert_get_eim_cfg_data(struct ipa_es10b_eim_cfg_data *res)
 		 * res->eim_cfg_data_list before freeing struct ipa_es10b_eim_cfg_data. */
 
 		res->eim_cfg_data_list[i]->eim_id =
-		    IPA_STR_FROM_ASN(&res->res->eimConfigurationDataList.list.array[i]->eimId);
+			IPA_STR_FROM_ASN(&res->res->eimConfigurationDataList.list.array[i]->eimId);
 		if (res->res->eimConfigurationDataList.list.array[i]->eimFqdn)
 			res->eim_cfg_data_list[i]->eim_fqdn =
-			    IPA_STR_FROM_ASN(res->res->eimConfigurationDataList.list.array[i]->eimFqdn);
+				IPA_STR_FROM_ASN(res->res->eimConfigurationDataList.list.array[i]->eimFqdn);
 
 		if (res->res->eimConfigurationDataList.list.array[i]->eimIdType) {
 			res->eim_cfg_data_list[i]->eim_id_type = IPA_ALLOC(long);
 			*res->eim_cfg_data_list[i]->eim_id_type =
-			    *res->res->eimConfigurationDataList.list.array[i]->eimIdType;
+				*res->res->eimConfigurationDataList.list.array[i]->eimIdType;
 		}
 		if (res->res->eimConfigurationDataList.list.array[i]->counterValue) {
 			res->eim_cfg_data_list[i]->counter_value = IPA_ALLOC(long);
 			*res->eim_cfg_data_list[i]->counter_value =
-			    *res->res->eimConfigurationDataList.list.array[i]->counterValue;
+				*res->res->eimConfigurationDataList.list.array[i]->counterValue;
 		}
 		if (res->res->eimConfigurationDataList.list.array[i]->associationToken) {
 			res->eim_cfg_data_list[i]->association_token = IPA_ALLOC(long);
 			*res->eim_cfg_data_list[i]->association_token =
-			    *res->res->eimConfigurationDataList.list.array[i]->associationToken;
+				*res->res->eimConfigurationDataList.list.array[i]->associationToken;
 		}
 
 		if (res->res->eimConfigurationDataList.list.array[i]->eimPublicKeyData) {
 			switch (res->res->eimConfigurationDataList.list.array[i]->eimPublicKeyData->present) {
 			case EimConfigurationData__eimPublicKeyData_PR_eimPublicKey:
 				rc = der_encode(&asn_DEF_SubjectPublicKeyInfo,
-						&res->res->eimConfigurationDataList.list.array[i]->eimPublicKeyData->
-						choice.eimPublicKey, ipa_asn1c_consume_bytes_cb,
+						&res->res->eimConfigurationDataList.list.array[i]
+							 ->eimPublicKeyData->choice.eimPublicKey,
+						ipa_asn1c_consume_bytes_cb,
 						&res->eim_cfg_data_list[i]->eim_public_key_data.eim_public_key);
 				if (rc.encoded <= 0) {
-					IPA_LOGP_ES10X("GetEimConfigurationData", LERROR,
-						       "data format conversion failed, cannot re-encode eimPublicKey in eimPublicKeyData\n");
+					IPA_LOGP_ES10X(
+						"GetEimConfigurationData", LERROR,
+						"data format conversion failed, cannot re-encode eimPublicKey in eimPublicKeyData\n");
 					IPA_FREE(res->eim_cfg_data_list[i]->eim_public_key_data.eim_public_key);
 					res->eim_cfg_data_list[i]->eim_public_key_data.eim_public_key = NULL;
 					return;
@@ -83,12 +85,14 @@ void convert_get_eim_cfg_data(struct ipa_es10b_eim_cfg_data *res)
 				break;
 			case EimConfigurationData__eimPublicKeyData_PR_eimCertificate:
 				rc = der_encode(&asn_DEF_Certificate,
-						&res->res->eimConfigurationDataList.list.array[i]->eimPublicKeyData->
-						choice.eimCertificate, ipa_asn1c_consume_bytes_cb,
+						&res->res->eimConfigurationDataList.list.array[i]
+							 ->eimPublicKeyData->choice.eimCertificate,
+						ipa_asn1c_consume_bytes_cb,
 						&res->eim_cfg_data_list[i]->eim_public_key_data.eim_certificate);
 				if (rc.encoded <= 0) {
-					IPA_LOGP_ES10X("GetEimConfigurationData", LERROR,
-						       "data format conversion failed, cannot re-encode eimCertificate in eimPublicKeyData\n");
+					IPA_LOGP_ES10X(
+						"GetEimConfigurationData", LERROR,
+						"data format conversion failed, cannot re-encode eimCertificate in eimPublicKeyData\n");
 					IPA_FREE(res->eim_cfg_data_list[i]->eim_public_key_data.eim_certificate);
 					res->eim_cfg_data_list[i]->eim_public_key_data.eim_certificate = NULL;
 					return;
@@ -102,36 +106,38 @@ void convert_get_eim_cfg_data(struct ipa_es10b_eim_cfg_data *res)
 		if (res->res->eimConfigurationDataList.list.array[i]->trustedPublicKeyDataTls) {
 			switch (res->res->eimConfigurationDataList.list.array[i]->trustedPublicKeyDataTls->present) {
 			case EimConfigurationData__trustedPublicKeyDataTls_PR_trustedEimPkTls:
-				rc = der_encode(&asn_DEF_SubjectPublicKeyInfo,
-						&res->res->eimConfigurationDataList.list.array[i]->
-						trustedPublicKeyDataTls->choice.trustedEimPkTls,
-						ipa_asn1c_consume_bytes_cb,
-						&res->eim_cfg_data_list[i]->trusted_public_key_data_tls.
-						trusted_eim_pk_tls);
+				rc = der_encode(
+					&asn_DEF_SubjectPublicKeyInfo,
+					&res->res->eimConfigurationDataList.list.array[i]
+						 ->trustedPublicKeyDataTls->choice.trustedEimPkTls,
+					ipa_asn1c_consume_bytes_cb,
+					&res->eim_cfg_data_list[i]->trusted_public_key_data_tls.trusted_eim_pk_tls);
 				if (rc.encoded <= 0) {
-					IPA_LOGP_ES10X("GetEimConfigurationData", LERROR,
-						       "data format conversion failed, cannot re-encode trustedEimPkTls in trustedPublicKeyDataTls\n");
-					IPA_FREE(res->eim_cfg_data_list[i]->trusted_public_key_data_tls.
-						 trusted_eim_pk_tls);
+					IPA_LOGP_ES10X(
+						"GetEimConfigurationData", LERROR,
+						"data format conversion failed, cannot re-encode trustedEimPkTls in trustedPublicKeyDataTls\n");
+					IPA_FREE(res->eim_cfg_data_list[i]
+							 ->trusted_public_key_data_tls.trusted_eim_pk_tls);
 					res->eim_cfg_data_list[i]->trusted_public_key_data_tls.trusted_eim_pk_tls =
-					    NULL;
+						NULL;
 					return;
 				}
 				break;
 			case EimConfigurationData__trustedPublicKeyDataTls_PR_trustedCertificateTls:
-				rc = der_encode(&asn_DEF_Certificate,
-						&res->res->eimConfigurationDataList.list.array[i]->
-						trustedPublicKeyDataTls->choice.trustedCertificateTls,
-						ipa_asn1c_consume_bytes_cb,
-						&res->eim_cfg_data_list[i]->trusted_public_key_data_tls.
-						trusted_certificate_tls);
+				rc = der_encode(
+					&asn_DEF_Certificate,
+					&res->res->eimConfigurationDataList.list.array[i]
+						 ->trustedPublicKeyDataTls->choice.trustedCertificateTls,
+					ipa_asn1c_consume_bytes_cb,
+					&res->eim_cfg_data_list[i]->trusted_public_key_data_tls.trusted_certificate_tls);
 				if (rc.encoded <= 0) {
-					IPA_LOGP_ES10X("GetEimConfigurationData", LERROR,
-						       "data format conversion failed, cannot re-encode trustedCertificateTls in trustedPublicKeyDataTls\n");
-					IPA_FREE(res->eim_cfg_data_list[i]->trusted_public_key_data_tls.
-						 trusted_certificate_tls);
+					IPA_LOGP_ES10X(
+						"GetEimConfigurationData", LERROR,
+						"data format conversion failed, cannot re-encode trustedCertificateTls in trustedPublicKeyDataTls\n");
+					IPA_FREE(res->eim_cfg_data_list[i]
+							 ->trusted_public_key_data_tls.trusted_certificate_tls);
 					res->eim_cfg_data_list[i]->trusted_public_key_data_tls.trusted_certificate_tls =
-					    NULL;
+						NULL;
 					return;
 				}
 				break;
@@ -141,11 +147,11 @@ void convert_get_eim_cfg_data(struct ipa_es10b_eim_cfg_data *res)
 		}
 
 		if (res->res->eimConfigurationDataList.list.array[i]->eimSupportedProtocol)
-			res->eim_cfg_data_list[i]->eim_supported_protocol =
-			    IPA_BUF_FROM_ASN(res->res->eimConfigurationDataList.list.array[i]->eimSupportedProtocol);
+			res->eim_cfg_data_list[i]->eim_supported_protocol = IPA_BUF_FROM_ASN(
+				res->res->eimConfigurationDataList.list.array[i]->eimSupportedProtocol);
 		if (res->res->eimConfigurationDataList.list.array[i]->euiccCiPKId)
 			res->eim_cfg_data_list[i]->euicc_ci_pkid =
-			    IPA_BUF_FROM_ASN(res->res->eimConfigurationDataList.list.array[i]->euiccCiPKId);
+				IPA_BUF_FROM_ASN(res->res->eimConfigurationDataList.list.array[i]->euiccCiPKId);
 	}
 }
 
@@ -169,9 +175,8 @@ static struct ipa_es10b_eim_cfg_data *get_eim_cfg_data(struct ipa_context *ctx)
 	struct GetEimConfigurationDataRequest get_eim_cfg_data_req = { 0 };
 	int rc;
 
-	es10a_req =
-	    ipa_es10x_req_enc(&asn_DEF_GetEimConfigurationDataRequest, &get_eim_cfg_data_req,
-			      "GetEimConfigurationData");
+	es10a_req = ipa_es10x_req_enc(&asn_DEF_GetEimConfigurationDataRequest, &get_eim_cfg_data_req,
+				      "GetEimConfigurationData");
 	if (!es10a_req) {
 		IPA_LOGP_ES10X("GetEimConfigurationData", LERROR, "unable to encode ES10b request\n");
 		goto error;
@@ -309,8 +314,8 @@ struct EimConfigurationData *ipa_es10b_get_eim_cfg_data_filter(struct ipa_es10b_
 	}
 
 	for (i = 0; i < res->res->eimConfigurationDataList.list.count; i++) {
-		if (IPA_ASN_STR_CMP_BUF
-		    (&res->res->eimConfigurationDataList.list.array[i]->eimId, eim_id, strlen(eim_id))) {
+		if (IPA_ASN_STR_CMP_BUF(&res->res->eimConfigurationDataList.list.array[i]->eimId, eim_id,
+					strlen(eim_id))) {
 			return res->res->eimConfigurationDataList.list.array[i];
 		}
 	}

@@ -38,14 +38,14 @@ static struct ipa_buf *enc_cancel_session_req(const struct ipa_esipa_cancel_sess
 
 	if (req->cancel_session_ok) {
 		msg_to_eim.choice.cancelSessionRequestEsipa.cancelSessionResponse.present =
-		    SGP32_CancelSessionResponse_PR_cancelSessionResponseOk;
+			SGP32_CancelSessionResponse_PR_cancelSessionResponseOk;
 		msg_to_eim.choice.cancelSessionRequestEsipa.cancelSessionResponse.choice.cancelSessionResponseOk =
-		    *req->cancel_session_ok;
+			*req->cancel_session_ok;
 	} else {
 		msg_to_eim.choice.cancelSessionRequestEsipa.cancelSessionResponse.present =
-		    SGP32_CancelSessionResponse_PR_cancelSessionResponseError;
+			SGP32_CancelSessionResponse_PR_cancelSessionResponseError;
 		msg_to_eim.choice.cancelSessionRequestEsipa.cancelSessionResponse.choice.cancelSessionResponseError =
-		    req->cancel_session_err;
+			req->cancel_session_err;
 	}
 
 	/* Encode */
@@ -74,8 +74,8 @@ static struct ipa_esipa_cancel_session_res *dec_cancel_session_res(const struct 
 	case CancelSessionResponseEsipa_PR_cancelSessionError:
 		res->cancel_session_err = msg_to_ipa->choice.cancelSessionResponseEsipa.choice.cancelSessionError;
 		IPA_LOGP_ESIPA("CancelSession", LERROR, "function failed with error code %ld=%s!\n",
-			       res->cancel_session_err, ipa_str_from_num(error_code_strings, res->cancel_session_err,
-									 "(unknown)"));
+			       res->cancel_session_err,
+			       ipa_str_from_num(error_code_strings, res->cancel_session_err, "(unknown)"));
 		break;
 	default:
 		IPA_LOGP_ESIPA("CancelSession", LERROR, "unexpected response content!\n");

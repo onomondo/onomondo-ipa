@@ -47,8 +47,8 @@ static int dec_add_init_eim_res(struct ipa_es10b_add_init_eim_res *res, const st
 	case AddInitialEimResponse_PR_addInitialEimError:
 		res->add_init_eim_err = asn->choice.addInitialEimError;
 		IPA_LOGP_ES10X("AddInitialEim", LERROR, "function failed with error code %ld=%s!\n",
-			       res->add_init_eim_err, ipa_str_from_num(error_code_strings, res->add_init_eim_err,
-								       "(unknown)"));
+			       res->add_init_eim_err,
+			       ipa_str_from_num(error_code_strings, res->add_init_eim_err, "(unknown)"));
 		break;
 	default:
 		IPA_LOGP_ES10X("AddInitialEim", LERROR, "unexpected response content!\n");
@@ -162,7 +162,7 @@ struct AddInitialEimResponse *generate_add_init_eim_response(struct ipa_context 
 		if (req->eimConfigurationDataList.list.array[i]->associationToken) {
 			add_init_eim_item->present = AddInitialEimResponse__addInitialEimOk__Member_PR_associationToken;
 			add_init_eim_item->choice.associationToken =
-			    *req->eimConfigurationDataList.list.array[i]->associationToken;
+				*req->eimConfigurationDataList.list.array[i]->associationToken;
 		} else {
 			add_init_eim_item->present = AddInitialEimResponse__addInitialEimOk__Member_PR_addOk;
 			add_init_eim_item->choice.addOk = 0;
@@ -215,7 +215,7 @@ static struct ipa_es10b_add_init_eim_res *add_init_eim_iot_emu(struct ipa_contex
 	 * eIM configuration anyway, we decided to allow unconditional overwriting an existing eIM configuration. */
 	IPA_FREE(ctx->nvstate.iot_euicc_emu.eim_cfg_ber);
 	ctx->nvstate.iot_euicc_emu.eim_cfg_ber = eim_cfg_new;
-	eim_cfg_new = NULL;	/* Ownership is now at ctx->nvstate.iot_euicc_emu.eim_cfg_ber */
+	eim_cfg_new = NULL; /* Ownership is now at ctx->nvstate.iot_euicc_emu.eim_cfg_ber */
 	IPA_LOGP_ES10X("AddInitialEim", LINFO, "done, eIM configuration stored in memory.\n");
 
 	res->res = generate_add_init_eim_response(ctx, req_cfg_new_decoded);

@@ -49,8 +49,8 @@ static int dec_auth_serv_res(struct ipa_es10b_auth_serv_res *res, const struct i
 	case AuthenticateServerResponse_PR_authenticateResponseError:
 		res->auth_serv_err = asn->choice.authenticateResponseError.authenticateErrorCode;
 		IPA_LOGP_ES10X("AuthenticateServer", LERROR, "function failed with error code %ld=%s!\n",
-			       res->auth_serv_err, ipa_str_from_num(error_code_strings, res->auth_serv_err,
-								    "(unknown)"));
+			       res->auth_serv_err,
+			       ipa_str_from_num(error_code_strings, res->auth_serv_err, "(unknown)"));
 		break;
 	default:
 		IPA_LOGP_ES10X("AuthenticateServer", LERROR, "unexpected response content!\n");

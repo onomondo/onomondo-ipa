@@ -37,9 +37,8 @@ struct ipa_esipa_get_bnd_prfle_pkg_res *ipa_proc_prfle_dwnlod(struct ipa_context
 
 	prep_dwnld_req.req.smdpSigned2 = pars->auth_clnt_ok_dpe->smdpSigned2;
 	prep_dwnld_req.req.smdpSignature2 = pars->auth_clnt_ok_dpe->smdpSignature2;
-	prep_dwnld_req.req.smdpSignature2.size =
-	    ipa_strip_tlv_envelope(prep_dwnld_req.req.smdpSignature2.buf, prep_dwnld_req.req.smdpSignature2.size,
-				   0x5f37);
+	prep_dwnld_req.req.smdpSignature2.size = ipa_strip_tlv_envelope(prep_dwnld_req.req.smdpSignature2.buf,
+									prep_dwnld_req.req.smdpSignature2.size, 0x5f37);
 	prep_dwnld_req.req.hashCc = pars->auth_clnt_ok_dpe->hashCc;
 	prep_dwnld_req.req.smdpCertificate = pars->auth_clnt_ok_dpe->smdpCertificate;
 
