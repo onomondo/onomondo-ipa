@@ -35,11 +35,11 @@ static void collect_auto_enable_data_from_prfle_inst_rslt(struct ipa_context *ct
 	/* Collect smdpOid and smdpAddress so that we can verify later whether the auto enable is granted or not. */
 	ctx->iot_euicc_emu.auto_enable.smdp_oid = IPA_BUF_FROM_ASN(&prfle_inst_res_data->smdpOid);
 	ctx->iot_euicc_emu.auto_enable.smdp_address =
-	    IPA_BUF_FROM_ASN(&prfle_inst_res_data->notificationMetadata.notificationAddress);
+		IPA_BUF_FROM_ASN(&prfle_inst_res_data->notificationMetadata.notificationAddress);
 
 	/* Collect AID of the profile so that we later know which profile to enable. */
 	ctx->iot_euicc_emu.auto_enable.profile_aid =
-	    IPA_BUF_FROM_ASN(&prfle_inst_res_data->finalResult.choice.successResult.aid);
+		IPA_BUF_FROM_ASN(&prfle_inst_res_data->finalResult.choice.successResult.aid);
 }
 
 static int dec_prfle_inst_res(struct ipa_es10b_load_bnd_prfle_pkg_res *res, const struct ipa_buf *es10b_res)

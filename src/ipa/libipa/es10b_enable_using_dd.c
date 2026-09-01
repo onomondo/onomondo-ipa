@@ -46,11 +46,11 @@ static int dec_enable_using_dd_res(const struct ipa_buf *es10b_res)
 	rc = asn->enableUsingDDResult;
 
 	if (rc == EnableUsingDDResponse__enableUsingDDResult_ok) {
-		IPA_LOGP_ES10X("EnableUsingDD", LERROR, "function succeeded with status code %d=%s!\n",
-			       rc, ipa_str_from_num(error_code_strings, rc, "(unknown)"));
+		IPA_LOGP_ES10X("EnableUsingDD", LERROR, "function succeeded with status code %d=%s!\n", rc,
+			       ipa_str_from_num(error_code_strings, rc, "(unknown)"));
 	} else {
-		IPA_LOGP_ES10X("EnableUsingDD", LERROR, "function failed with error code %d=%s!\n",
-			       rc, ipa_str_from_num(error_code_strings, rc, "(unknown)"));
+		IPA_LOGP_ES10X("EnableUsingDD", LERROR, "function failed with error code %d=%s!\n", rc,
+			       ipa_str_from_num(error_code_strings, rc, "(unknown)"));
 	}
 
 	ASN_STRUCT_FREE(asn_DEF_EnableUsingDDResponse, asn);

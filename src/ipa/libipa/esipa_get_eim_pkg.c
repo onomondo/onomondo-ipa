@@ -31,7 +31,7 @@ static struct ipa_buf *enc_get_eim_pkg_req(const uint8_t *eid_value)
 	struct EsipaMessageFromIpaToEim msg_to_eim = { 0 };
 
 	msg_to_eim.present = EsipaMessageFromIpaToEim_PR_getEimPackageRequest;
-	msg_to_eim.choice.getEimPackageRequest.eidValue.buf = (uint8_t *) eid_value;
+	msg_to_eim.choice.getEimPackageRequest.eidValue.buf = (uint8_t *)eid_value;
 	msg_to_eim.choice.getEimPackageRequest.eidValue.size = IPA_LEN_EID;
 
 	return ipa_esipa_msg_to_eim_enc(&msg_to_eim, "GetEimPackage");
@@ -42,9 +42,8 @@ struct ipa_esipa_get_eim_pkg_res *dec_get_eim_pkg_req(const struct ipa_buf *msg_
 	struct EsipaMessageFromEimToIpa *msg_to_ipa = NULL;
 	struct ipa_esipa_get_eim_pkg_res *res = NULL;
 
-	msg_to_ipa =
-	    ipa_esipa_msg_to_ipa_dec(msg_to_ipa_encoded, "GetEimPackage",
-				     EsipaMessageFromEimToIpa_PR_getEimPackageResponse);
+	msg_to_ipa = ipa_esipa_msg_to_ipa_dec(msg_to_ipa_encoded, "GetEimPackage",
+					      EsipaMessageFromEimToIpa_PR_getEimPackageResponse);
 	if (!msg_to_ipa)
 		return NULL;
 
@@ -60,12 +59,12 @@ struct ipa_esipa_get_eim_pkg_res *dec_get_eim_pkg_req(const struct ipa_buf *msg_
 		break;
 	case GetEimPackageResponse_PR_profileDownloadTriggerRequest:
 		res->dwnld_trigger_request =
-		    &msg_to_ipa->choice.getEimPackageResponse.choice.profileDownloadTriggerRequest;
+			&msg_to_ipa->choice.getEimPackageResponse.choice.profileDownloadTriggerRequest;
 		break;
 	case GetEimPackageResponse_PR_eimPackageError:
 		res->eim_pkg_err = msg_to_ipa->choice.getEimPackageResponse.choice.eimPackageError;
-		IPA_LOGP_ESIPA("GetEimPackage", LERROR, "function failed with error code %ld=%s!\n",
-			       res->eim_pkg_err, ipa_str_from_num(error_code_strings, res->eim_pkg_err, "(unknown)"));
+		IPA_LOGP_ESIPA("GetEimPackage", LERROR, "function failed with error code %ld=%s!\n", res->eim_pkg_err,
+			       ipa_str_from_num(error_code_strings, res->eim_pkg_err, "(unknown)"));
 		break;
 	default:
 		IPA_LOGP_ESIPA("GetEimPackage", LERROR, "unexpected response content!\n");

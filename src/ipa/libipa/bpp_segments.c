@@ -116,7 +116,7 @@ static struct ipa_buf *enc_tag_and_len_of_sequenceOf88(const struct BoundProfile
 }
 
 /* See also GSMA SGP.22, section  2.5.5 (bullet point 4) */
-static struct ipa_buf *enc_each_of_sequenceOf88(const BoundProfilePackage_88tlv_t * one_88tlv, unsigned int index)
+static struct ipa_buf *enc_each_of_sequenceOf88(const BoundProfilePackage_88tlv_t *one_88tlv, unsigned int index)
 {
 	struct ipa_buf *one_88tlv_encoded = NULL;
 	asn_enc_rval_t rc;
@@ -203,7 +203,7 @@ static struct ipa_buf *enc_tag_and_len_of_sequenceOf86(const struct BoundProfile
 }
 
 /* See also GSMA SGP.22, section  2.5.5 (bullet point 7) */
-static struct ipa_buf *enc_each_of_sequenceOf86(const BoundProfilePackage_86tlv_t * one_86tlv, unsigned int index)
+static struct ipa_buf *enc_each_of_sequenceOf86(const BoundProfilePackage_86tlv_t *one_86tlv, unsigned int index)
 {
 	struct ipa_buf *one_86tlv_encoded = NULL;
 	asn_enc_rval_t rc;

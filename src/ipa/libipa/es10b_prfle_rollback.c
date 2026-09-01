@@ -43,8 +43,8 @@ static int dec_prfle_rollback_res(struct ipa_es10b_prfle_rollback_res *res, cons
 		return -EINVAL;
 
 	if (asn->cmdResult != ProfileRollbackResponse__cmdResult_ok) {
-		IPA_LOGP_ES10X("ProfileRollback", LERROR, "function failed with error code %ld=%s!\n",
-			       asn->cmdResult, ipa_str_from_num(error_code_strings, asn->cmdResult, "(unknown)"));
+		IPA_LOGP_ES10X("ProfileRollback", LERROR, "function failed with error code %ld=%s!\n", asn->cmdResult,
+			       ipa_str_from_num(error_code_strings, asn->cmdResult, "(unknown)"));
 	} else {
 		IPA_LOGP_ES10X("ProfileRollback", LERROR, "function succeeded with status code %ld=%s!\n",
 			       asn->cmdResult, ipa_str_from_num(error_code_strings, asn->cmdResult, "(unknown)"));
@@ -97,8 +97,9 @@ static void append_rollback_result(struct EuiccPackageResult *euicc_package_resu
 		euicc_result_data->choice.rollbackResult = RollbackProfileResult_ok;
 	else
 		euicc_result_data->choice.rollbackResult = RollbackProfileResult_undefinedError;
-	ASN_SEQUENCE_ADD(&euicc_package_result->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.
-			 euiccResult.list, euicc_result_data);
+	ASN_SEQUENCE_ADD(
+		&euicc_package_result->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.euiccResult.list,
+		euicc_result_data);
 }
 
 static struct ipa_es10b_prfle_rollback_res *prfle_rollback_emu(struct ipa_context *ctx, bool refresh_flag)
@@ -122,7 +123,8 @@ static struct ipa_es10b_prfle_rollback_res *prfle_rollback_emu(struct ipa_contex
 	/* An IoT eUICC would store a rollback ICCID internally. Here we have to rely on the rollback_euicc that we
 	 * have recorded before we attempted to select a different profile (via PSMO) */
 	enable_prfle_req.req.profileIdentifier.present = EnableProfileRequest__profileIdentifier_PR_iccid;
-	IPA_ASSIGN_IPA_BUF_TO_ASN(enable_prfle_req.req.profileIdentifier.choice.iccid, ctx->iot_euicc_emu.rollback_iccid);
+	IPA_ASSIGN_IPA_BUF_TO_ASN(enable_prfle_req.req.profileIdentifier.choice.iccid,
+				  ctx->iot_euicc_emu.rollback_iccid);
 
 	enable_prfle_req.req.refreshFlag = refresh_flag;
 	enable_prfle_res = ipa_es10c_enable_prfle(ctx, &enable_prfle_req);
@@ -144,14 +146,14 @@ static struct ipa_es10b_prfle_rollback_res *prfle_rollback_emu(struct ipa_contex
 			res->res->cmdResult = ProfileRollbackResponse__cmdResult_undefinedError;
 		}
 
-		if (ctx->proc_eucc_pkg_dwnld_exec_res && ctx->proc_eucc_pkg_dwnld_exec_res->load_euicc_pkg_res
-		    && ctx->proc_eucc_pkg_dwnld_exec_res->load_euicc_pkg_res->res) {
+		if (ctx->proc_eucc_pkg_dwnld_exec_res && ctx->proc_eucc_pkg_dwnld_exec_res->load_euicc_pkg_res &&
+		    ctx->proc_eucc_pkg_dwnld_exec_res->load_euicc_pkg_res->res) {
 			/* sneak into the cached results of the Generic eUICC Package Download and Execution procedure
 			 * and use the EuiccPackageResult that was generated while executing the LoadEuiccPackage
 			 * function. */
 			res->res->eUICCPackageResult =
-			    ipa_asn1c_dup(&asn_DEF_EuiccPackageResult,
-					  ctx->proc_eucc_pkg_dwnld_exec_res->load_euicc_pkg_res->res);
+				ipa_asn1c_dup(&asn_DEF_EuiccPackageResult,
+					      ctx->proc_eucc_pkg_dwnld_exec_res->load_euicc_pkg_res->res);
 
 			/* Append the result of this rollback maneuver */
 			append_rollback_result(res->res->eUICCPackageResult,

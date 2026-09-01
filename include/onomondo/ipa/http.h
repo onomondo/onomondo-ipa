@@ -10,7 +10,7 @@
 struct ipa_buf;
 
 /* This is the initial buffer size. The HTTP client will automatically re-alloc more memory if needed. */
-#define IPA_LEN_HTTP_RESPONSE_BUF 512	/* bytes */
+#define IPA_LEN_HTTP_RESPONSE_BUF 512 /* bytes */
 
 void *ipa_http_init(const char *cabundle, bool no_verif);
 struct ipa_buf *ipa_http_req(void *http_ctx, const struct ipa_buf *req, const char *url);

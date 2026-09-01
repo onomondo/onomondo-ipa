@@ -42,12 +42,12 @@ static int dec_disable_prfle_res(struct ipa_es10c_disable_prfle_res *res, const 
 
 	if (asn->disableResult != DisableProfileResponse__disableResult_ok) {
 		IPA_LOGP_ES10X("DisableProfile", LERROR, "function failed with error code %ld=%s!\n",
-			       asn->disableResult, ipa_str_from_num(error_code_strings, asn->disableResult,
-								    "(unknown)"));
+			       asn->disableResult,
+			       ipa_str_from_num(error_code_strings, asn->disableResult, "(unknown)"));
 	} else {
 		IPA_LOGP_ES10X("DisableProfile", LERROR, "function succeeded with status code %ld=%s!\n",
-			       asn->disableResult, ipa_str_from_num(error_code_strings, asn->disableResult,
-								    "(unknown)"));
+			       asn->disableResult,
+			       ipa_str_from_num(error_code_strings, asn->disableResult, "(unknown)"));
 	}
 
 	res->res = asn;

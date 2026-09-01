@@ -54,7 +54,7 @@ int ipa_es10b_get_euicc_chlg(struct ipa_context *ctx, uint8_t *euicc_chlg)
 	int rc = -EINVAL;
 
 	es10b_req =
-	    ipa_es10x_req_enc(&asn_DEF_GetEuiccChallengeRequest, &get_euicc_chlg_req, "GetEuiccChallengeRequest");
+		ipa_es10x_req_enc(&asn_DEF_GetEuiccChallengeRequest, &get_euicc_chlg_req, "GetEuiccChallengeRequest");
 	if (!es10b_req) {
 		IPA_LOGP_ES10X("GetEuiccChallengeRequest", LERROR, "unable to encode ES10b request\n");
 		goto error;

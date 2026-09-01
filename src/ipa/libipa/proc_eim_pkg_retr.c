@@ -71,7 +71,7 @@ int eim_pkg_exec(struct ipa_context *ctx, const struct ipa_esipa_get_eim_pkg_res
 		assert(!ctx->proc_eucc_pkg_dwnld_exec_res);
 
 		ctx->proc_eucc_pkg_dwnld_exec_res =
-		    ipa_proc_eucc_pkg_dwnld_exec(ctx, get_eim_pkg_res->euicc_package_request);
+			ipa_proc_eucc_pkg_dwnld_exec(ctx, get_eim_pkg_res->euicc_package_request);
 		if (!ctx->proc_eucc_pkg_dwnld_exec_res)
 			goto error;
 
@@ -93,8 +93,9 @@ int eim_pkg_exec(struct ipa_context *ctx, const struct ipa_esipa_get_eim_pkg_res
 		if (!get_eim_pkg_res->dwnld_trigger_request->profileDownloadData) {
 			/* In case the IPA capability eimDownloadDataHandling used, profileDownloadData would not be
 			 * present. However, this is feature this IPAd implementation does not support. */
-			IPA_LOGP(SIPA, LERROR,
-				 "the ProfileDownloadTriggerRequest does not contain ProfileDownloadData -- cannot continue!\n");
+			IPA_LOGP(
+				SIPA, LERROR,
+				"the ProfileDownloadTriggerRequest does not contain ProfileDownloadData -- cannot continue!\n");
 			rc = -EINVAL;
 			goto error;
 		}
@@ -115,9 +116,8 @@ int eim_pkg_exec(struct ipa_context *ctx, const struct ipa_esipa_get_eim_pkg_res
 
 		indirect_prfle_dwnlod_pars.allowed_ca = allowed_ca_pkid;
 		indirect_prfle_dwnlod_pars.tac = ctx->cfg->tac;
-		indirect_prfle_dwnlod_pars.ac =
-		    IPA_STR_FROM_ASN(&get_eim_pkg_res->dwnld_trigger_request->profileDownloadData->
-				     choice.activationCode);
+		indirect_prfle_dwnlod_pars.ac = IPA_STR_FROM_ASN(
+			&get_eim_pkg_res->dwnld_trigger_request->profileDownloadData->choice.activationCode);
 		rc = ipa_proc_indirect_prfle_dwnlod(ctx, &indirect_prfle_dwnlod_pars);
 		IPA_FREE((void *)indirect_prfle_dwnlod_pars.ac);
 		if (rc < 0)

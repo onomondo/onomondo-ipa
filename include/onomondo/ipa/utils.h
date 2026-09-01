@@ -19,24 +19,26 @@
 /*! Allocate memory for an object, ensure that the allocation was successful and that the memory is initialized.
  *  \param[in] obj description of the object to allocated (struct).
  *  \returns dynamically allocated memory of the object size. */
-#define IPA_ALLOC_ZERO(obj) ({ \
-	obj *__ptr; \
-	__ptr = IPA_ALLOC(obj); \
-	assert(__ptr); \
-	memset(__ptr, 0, sizeof(*__ptr)); \
-	__ptr; \
-})
+#define IPA_ALLOC_ZERO(obj)                       \
+	({                                        \
+		obj *__ptr;                       \
+		__ptr = IPA_ALLOC(obj);           \
+		assert(__ptr);                    \
+		memset(__ptr, 0, sizeof(*__ptr)); \
+		__ptr;                            \
+	})
 
 /*! Allocate N bytes of memory, ensure that the allocation was successful and that the memory is initialized.
  *  \param[in] n number of bytes to allocate.
  *  \returns N bytes of dynamically allocated memory. */
-#define IPA_ALLOC_N_ZERO(n) ({ \
-	void *__ptr; \
-	__ptr = IPA_ALLOC_N(n); \
-	assert(__ptr); \
-	memset(__ptr, 0, n); \
-	__ptr; \
-})
+#define IPA_ALLOC_N_ZERO(n)             \
+	({                              \
+		void *__ptr;            \
+		__ptr = IPA_ALLOC_N(n); \
+		assert(__ptr);          \
+		memset(__ptr, 0, n);    \
+		__ptr;                  \
+	})
 
 char *ipa_hexdump(const uint8_t *data, size_t len);
 
@@ -77,7 +79,7 @@ static inline struct ipa_buf *ipa_buf_alloc(size_t len)
 	assert(buf);
 
 	memset(buf, 0, sizeof(*buf));
-	buf->data = (uint8_t *) buf + sizeof(*buf);
+	buf->data = (uint8_t *)buf + sizeof(*buf);
 	buf->data_len = len;
 
 	/* A newly allocated ipa_buf naturally has 0 bytes of
@@ -95,7 +97,7 @@ static inline struct ipa_buf *ipa_buf_realloc(struct ipa_buf *buf, size_t len)
 	buf = IPA_REALLOC(buf, sizeof(*buf) + len);
 	assert(buf);
 
-	buf->data = (uint8_t *) buf + sizeof(*buf);
+	buf->data = (uint8_t *)buf + sizeof(*buf);
 	buf->data_len = len;
 	memset(buf->data + buf->len, 0, len - buf->len);
 
@@ -106,7 +108,7 @@ static inline struct ipa_buf *ipa_buf_realloc(struct ipa_buf *buf, size_t len)
  *  \param[in] name symbol name of the ipa_buf.
  *  \returns size size of the ipa_buf object. */
 #define IPA_BUF_STATIC(name, size) \
-	uint8_t __name_buf[size]; \
+	uint8_t __name_buf[size];  \
 	struct ipa_buf name = { __name_buf, size, 0 };
 
 /*! Allocate a new ipa_buf object and initialize it with data.
@@ -180,7 +182,7 @@ static inline void ipa_buf_assign(struct ipa_buf *buf, const uint8_t *data, size
 	 *  is a valid ipa_buf struct, however it must not be freed using
 	 *  ipa_buf_free(). */
 	memset(buf, 0, sizeof(*buf));
-	buf->data = (uint8_t *) data;
+	buf->data = (uint8_t *)data;
 	buf->data_len = len;
 	buf->len = len;
 }
@@ -204,7 +206,7 @@ static inline struct ipa_buf *ipa_buf_deserialize(uint8_t *data, size_t len)
 	/* First we allocate a new buffer from the data in the serialzed buffer. We cannot trust the data pointer since
 	 * this serialzed buffer may have come from a different process on a different machine, so we must calculate
 	 * the beginning of the data ourselves. We also must be suere to copy the complete memory. */
-	buf = ipa_buf_alloc_data(buf_serialized->data_len, (uint8_t *) buf_serialized + sizeof(*buf_serialized));
+	buf = ipa_buf_alloc_data(buf_serialized->data_len, (uint8_t *)buf_serialized + sizeof(*buf_serialized));
 
 	/* The original buffer may not have utilized all the available memory, so we restore the length. */
 	buf->len = buf_serialized->len;

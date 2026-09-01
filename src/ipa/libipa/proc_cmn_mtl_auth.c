@@ -39,9 +39,9 @@ static int restrict_euicc_info(struct ipa_es10b_euicc_info *euicc_info, const st
 		return 0;
 
 	for (i = asn->euiccCiPKIdListForVerification.list.count; i > 0; i--) {
-		if (asn->euiccCiPKIdListForVerification.list.array[i - 1]->size != allowed_ca->len
-		    || memcmp(asn->euiccCiPKIdListForVerification.list.array[i - 1]->buf, allowed_ca->data,
-			      allowed_ca->len)) {
+		if (asn->euiccCiPKIdListForVerification.list.array[i - 1]->size != allowed_ca->len ||
+		    memcmp(asn->euiccCiPKIdListForVerification.list.array[i - 1]->buf, allowed_ca->data,
+			   allowed_ca->len)) {
 			IPA_FREE(asn->euiccCiPKIdListForVerification.list.array[i - 1]->buf);
 			IPA_FREE(asn->euiccCiPKIdListForVerification.list.array[i - 1]);
 			asn_sequence_del(&asn->euiccCiPKIdListForVerification, i - 1, 0);
@@ -58,7 +58,7 @@ static int restrict_euicc_info(struct ipa_es10b_euicc_info *euicc_info, const st
 }
 
 /* Check the certificate for plausibility (see also GSMA SGP.22, section 3.0.1, step #10) */
-static int check_certificate(const struct ipa_buf *allowed_ca, const Certificate_t * certificate)
+static int check_certificate(const struct ipa_buf *allowed_ca, const Certificate_t *certificate)
 {
 	/* GSMA SGP.32, section 3.0.1, step 10 says:
 	 * "If there is a restriction to a single allowed eSIM CA RootCA public key identifier, verify that the Subject
@@ -86,14 +86,13 @@ static int check_certificate(const struct ipa_buf *allowed_ca, const Certificate
 		memcpy(allowed_ca_tlv->data + 4, allowed_ca->data, allowed_ca->len);
 		extensions = certificate->tbsCertificate.extensions;
 		for (i = 0; i < extensions->list.count; i++) {
-			extension_arcs_len =
-			    OBJECT_IDENTIFIER_get_arcs(&extensions->list.array[i]->extnID, extension_arcs,
-						       IPA_ARRAY_SIZE(extension_arcs));
+			extension_arcs_len = OBJECT_IDENTIFIER_get_arcs(&extensions->list.array[i]->extnID,
+									extension_arcs, IPA_ARRAY_SIZE(extension_arcs));
 			if (extension_arcs_len == IPA_ARRAY_SIZE(id_ce_authorityKeyIdentifier) &&
 			    memcmp(extension_arcs, id_ce_authorityKeyIdentifier,
 				   sizeof(id_ce_authorityKeyIdentifier)) == 0) {
-				if (IPA_ASN_STR_CMP_BUF
-				    (&extensions->list.array[i]->extnValue, allowed_ca_tlv->data, allowed_ca_tlv->len))
+				if (IPA_ASN_STR_CMP_BUF(&extensions->list.array[i]->extnValue, allowed_ca_tlv->data,
+							allowed_ca_tlv->len))
 					allowed_ca_present = true;
 			}
 		}
@@ -101,9 +100,10 @@ static int check_certificate(const struct ipa_buf *allowed_ca, const Certificate
 		IPA_FREE(allowed_ca_tlv);
 
 		if (!allowed_ca_present) {
-			IPA_LOGP(SIPA, LERROR,
-				 "the CA (authorityKeyIdentifier, 2.5.29.35) of the server certificate does not match the allowed eSIM Root CA (%s)!\n",
-				 ipa_buf_hexdump(allowed_ca));
+			IPA_LOGP(
+				SIPA, LERROR,
+				"the CA (authorityKeyIdentifier, 2.5.29.35) of the server certificate does not match the allowed eSIM Root CA (%s)!\n",
+				ipa_buf_hexdump(allowed_ca));
 			return -EINVAL;
 		}
 	}
@@ -128,7 +128,7 @@ static void gen_ctx_params_1(struct CtxParams1 *ctx_params_1, const uint8_t *tac
 		ctx_params_1->choice.ctxParamsForCommonAuthentication.matchingId = &matchingId;
 	}
 
-	IPA_ASSIGN_BUF_TO_ASN(ctx_params_1->choice.ctxParamsForCommonAuthentication.deviceInfo.tac, (uint8_t *) tac,
+	IPA_ASSIGN_BUF_TO_ASN(ctx_params_1->choice.ctxParamsForCommonAuthentication.deviceInfo.tac, (uint8_t *)tac,
 			      IPA_LEN_TAC);
 
 	/* TODO: the IMEI field is optional, do we need it?
@@ -149,7 +149,8 @@ struct ipa_esipa_auth_clnt_res *ipa_proc_cmn_mtl_auth(struct ipa_context *ctx,
 	struct ipa_es10b_euicc_info *euicc_info = NULL;
 	uint8_t euicc_challenge[IPA_LEN_SERV_CHLG];
 	struct ipa_esipa_init_auth_req init_auth_req = { 0 };
-	struct ipa_esipa_init_auth_res *init_auth_res = NULL;;
+	struct ipa_esipa_init_auth_res *init_auth_res = NULL;
+	;
 	struct ipa_es10b_auth_serv_req auth_serv_req = { 0 };
 	struct ipa_es10b_auth_serv_res *auth_serv_res = NULL;
 	struct ipa_esipa_auth_clnt_req auth_clnt_req = { 0 };
@@ -201,13 +202,11 @@ struct ipa_esipa_auth_clnt_res *ipa_proc_cmn_mtl_auth(struct ipa_context *ctx,
 	/* Step #11-#14 */
 	auth_serv_req.req.serverSigned1 = init_auth_res->init_auth_ok->serverSigned1;
 	auth_serv_req.req.serverSignature1 = init_auth_res->init_auth_ok->serverSignature1;
-	auth_serv_req.req.serverSignature1.size =
-	    ipa_strip_tlv_envelope(auth_serv_req.req.serverSignature1.buf, auth_serv_req.req.serverSignature1.size,
-				   0x5f37);
+	auth_serv_req.req.serverSignature1.size = ipa_strip_tlv_envelope(
+		auth_serv_req.req.serverSignature1.buf, auth_serv_req.req.serverSignature1.size, 0x5f37);
 	auth_serv_req.req.euiccCiPKIdToBeUsed = init_auth_res->init_auth_ok->euiccCiPKIdToBeUsed;
-	auth_serv_req.req.euiccCiPKIdToBeUsed.size =
-	    ipa_strip_tlv_envelope(auth_serv_req.req.euiccCiPKIdToBeUsed.buf,
-				   auth_serv_req.req.euiccCiPKIdToBeUsed.size, 0x04);
+	auth_serv_req.req.euiccCiPKIdToBeUsed.size = ipa_strip_tlv_envelope(
+		auth_serv_req.req.euiccCiPKIdToBeUsed.buf, auth_serv_req.req.euiccCiPKIdToBeUsed.size, 0x04);
 	auth_serv_req.req.serverCertificate = init_auth_res->init_auth_ok->serverCertificate;
 	gen_ctx_params_1(&auth_serv_req.req.ctxParams1, pars->tac, pars->ac_token);
 	auth_serv_res = ipa_es10b_auth_serv(ctx, &auth_serv_req);
@@ -222,16 +221,17 @@ struct ipa_esipa_auth_clnt_res *ipa_proc_cmn_mtl_auth(struct ipa_context *ctx,
 	IPA_ASSIGN_IPA_BUF_TO_ASN(auth_clnt_req.req.transactionId, &transaction_id);
 	if (auth_serv_res->auth_serv_err) {
 		auth_clnt_req.req.authenticateServerResponse.present =
-		    SGP32_AuthenticateServerResponse_PR_authenticateResponseError;
+			SGP32_AuthenticateServerResponse_PR_authenticateResponseError;
 		auth_clnt_req.req.authenticateServerResponse.choice.authenticateResponseError.authenticateErrorCode =
-		    auth_serv_res->auth_serv_err;
-		IPA_ASSIGN_IPA_BUF_TO_ASN(auth_clnt_req.req.authenticateServerResponse.choice.authenticateResponseError.
-					  transactionId, &transaction_id);
+			auth_serv_res->auth_serv_err;
+		IPA_ASSIGN_IPA_BUF_TO_ASN(
+			auth_clnt_req.req.authenticateServerResponse.choice.authenticateResponseError.transactionId,
+			&transaction_id);
 	} else if (auth_serv_res->auth_serv_ok) {
 		auth_clnt_req.req.authenticateServerResponse.present =
-		    SGP32_AuthenticateServerResponse_PR_authenticateResponseOk;
+			SGP32_AuthenticateServerResponse_PR_authenticateResponseOk;
 		auth_clnt_req.req.authenticateServerResponse.choice.authenticateResponseOk =
-		    *auth_serv_res->auth_serv_ok;
+			*auth_serv_res->auth_serv_ok;
 	}
 	auth_clnt_res = ipa_esipa_auth_clnt(ctx, &auth_clnt_req);
 	if (!auth_clnt_res) {

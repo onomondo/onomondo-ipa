@@ -149,9 +149,10 @@ int ipa_asn1c_consume_bytes_cb(const void *buffer, size_t size, void *priv)
 	 * results. */
 	if (buf_encoded->data_len < buf_encoded->len + size) {
 		realloc_size = ((buf_encoded->len + size) / IPA_LEN_ASN1_ENCODER_BUF + 1) * IPA_LEN_ASN1_ENCODER_BUF;
-		IPA_LOGP(SIPA, LDEBUG,
-			 "ASN.1 encoder buffer exhausted, reallocating more memory (have: %zu bytes, required: %zu bytes, will allocate: %zu bytes)\n",
-			 buf_encoded->data_len, buf_encoded->len + size, realloc_size);
+		IPA_LOGP(
+			SIPA, LDEBUG,
+			"ASN.1 encoder buffer exhausted, reallocating more memory (have: %zu bytes, required: %zu bytes, will allocate: %zu bytes)\n",
+			buf_encoded->data_len, buf_encoded->len + size, realloc_size);
 		buf_encoded = ipa_buf_realloc(buf_encoded, realloc_size);
 		assert(buf_encoded);
 		*buf_encoded_ptr = buf_encoded;
@@ -171,15 +172,13 @@ struct ipa_asn1c_dump_buf {
 #ifdef SHOW_ASN_OUTPUT
 static int ipa_asn1c_dump_consume(const void *buffer, size_t size, void *app_key)
 {
-
 	struct ipa_asn1c_dump_buf *buf = app_key;
 	size_t realloc_size;
 	size_t current_size;
 
 	if ((buf->printbuf_ptr - buf->printbuf) + size >= buf->printbuf_size) {
-		realloc_size =
-		    (((buf->printbuf_ptr - buf->printbuf) + size) / IPA_LEN_ASN1_PRINTER_BUF +
-		     1) * IPA_LEN_ASN1_PRINTER_BUF;
+		realloc_size = (((buf->printbuf_ptr - buf->printbuf) + size) / IPA_LEN_ASN1_PRINTER_BUF + 1) *
+			       IPA_LEN_ASN1_PRINTER_BUF;
 		IPA_LOGP(SMAIN, LDEBUG,
 			 "ASN.1 print buffer exhausted - allocating more space for up to %zu characters!\n",
 			 realloc_size);
@@ -448,7 +447,7 @@ size_t ipa_binary_from_hexstr(uint8_t *binary, size_t binary_len, const char *he
 				hex_digit_bin = 0xff;
 		}
 
-		binary[binary_count] = (uint8_t) hex_digit_bin & 0xff;
+		binary[binary_count] = (uint8_t)hex_digit_bin & 0xff;
 		binary_count++;
 
 		if (binary_count >= binary_len)
