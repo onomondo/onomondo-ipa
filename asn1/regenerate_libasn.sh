@@ -25,7 +25,7 @@ rm ./Makefile.am.libasncodec
 # Generate CMakeLists.txt
 echo "#CAUTION: autgenerated file, do not change, see "`basename $0` > CMakeLists.txt
 echo 'add_library(libasn STATIC' >> CMakeLists.txt
-ls -1 *.h *.c >> CMakeLists.txt
+printf '%s\n' *.h *.c | LC_ALL=C sort >> CMakeLists.txt
 echo ')' >> CMakeLists.txt
 echo 'target_include_directories(libasn PUBLIC ${CMAKE_SOURCE_DIR}/include PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})' >> CMakeLists.txt
 echo '# Generated with -no-gen-OER -no-gen-PER: constr_TYPE.h gates the OER' >> CMakeLists.txt
