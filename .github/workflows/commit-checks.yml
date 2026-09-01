@@ -1,0 +1,38 @@
+name: PR Commit Checks
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  pr-commit-checks:
+    if: ${{ github.event.pull_request.user.login != 'renovate[bot]' && github.event.pull_request.user.login != 'github-actions[bot]' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: always()
+        with:
+          fetch-depth: 0
+
+      - name: Check Signed-off-by
+        if: always()
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          missing=$(git log "$BASE_SHA".."$HEAD_SHA" --format="%H %s" | while read -r sha msg; do
+            if ! git log -1 --format="%B" "$sha" | grep -qiE "^Signed-off-by: .+ <.+>$"; then
+              echo "  $sha $msg"
+            fi
+          done)
+          if [ -n "$missing" ]; then
+            echo "Error: the following commit(s) are missing a Signed-off-by trailer:"
+            echo "$missing"
+            exit 1
+          fi
