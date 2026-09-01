@@ -1,0 +1,20 @@
+# yamllint config, shared by CI (.github/workflows/ci-lint.yml) and local runs
+# (`yamllint .`). Kept deliberately lenient — it guards structural hygiene
+# (indentation, trailing whitespace, EOF newline, duplicate keys), not style.
+extends: default
+
+ignore: |
+  build*/
+
+rules:
+  # The digest-pinned `container:`/`uses:` lines are intentionally long.
+  line-length: disable
+  # Workflows and configs don't start with `---`.
+  document-start: disable
+  # GitHub Actions' `on:` key trips the truthy rule.
+  truthy:
+    check-keys: false
+  # SHA-pinned actions carry a single-space `# vX` label (house convention).
+  comments:
+    min-spaces-from-content: 1
+  comments-indentation: disable
