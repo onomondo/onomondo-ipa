@@ -42,8 +42,8 @@ static int dec_enable_prfle_res(struct ipa_es10c_enable_prfle_res *res, const st
 		return -EINVAL;
 
 	if (asn->enableResult != EnableProfileResponse__enableResult_ok) {
-		IPA_LOGP_ES10X("EnableProfile", LERROR, "function failed with error code %ld=%s!\n",
-			       asn->enableResult, ipa_str_from_num(error_code_strings, asn->enableResult, "(unknown)"));
+		IPA_LOGP_ES10X("EnableProfile", LERROR, "function failed with error code %ld=%s!\n", asn->enableResult,
+			       ipa_str_from_num(error_code_strings, asn->enableResult, "(unknown)"));
 	} else {
 		IPA_LOGP_ES10X("EnableProfile", LERROR, "function succeeded with status code %ld=%s!\n",
 			       asn->enableResult, ipa_str_from_num(error_code_strings, asn->enableResult, "(unknown)"));

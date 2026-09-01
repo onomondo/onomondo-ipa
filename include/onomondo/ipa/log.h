@@ -14,28 +14,11 @@
  *  \param[in] level log level identifier.
  *  \param[in] fmt formtstring.
  *  \param[in] args formatstring arguments. */
-#define IPA_LOGP(subsys, level, fmt, args...) \
-	ipa_logp(subsys, level, __FILE__, __LINE__, fmt, ## args)
+#define IPA_LOGP(subsys, level, fmt, args...) ipa_logp(subsys, level, __FILE__, __LINE__, fmt, ##args)
 
-void ipa_logp(uint32_t subsys, uint32_t level, const char *file, int line,
-	      const char *format, ...)
-    __attribute__((format(printf, 5, 6)));
+void ipa_logp(uint32_t subsys, uint32_t level, const char *file, int line, const char *format, ...)
+	__attribute__((format(printf, 5, 6)));
 
-enum log_subsys {
-	SMAIN,
-	SHTTP,
-	SSCARD,
-	SIPA,
-	SES10X,
-	SES10B,
-	SEUICC,
-	SESIPA,
-	_NUM_LOG_SUBSYS
-};
+enum log_subsys { SMAIN, SHTTP, SSCARD, SIPA, SES10X, SES10B, SEUICC, SESIPA, _NUM_LOG_SUBSYS };
 
-enum log_level {
-	LERROR,
-	LINFO,
-	LDEBUG,
-	_NUM_LOG_LEVEL
-};
+enum log_level { LERROR, LINFO, LDEBUG, _NUM_LOG_LEVEL };

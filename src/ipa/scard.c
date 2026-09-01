@@ -19,12 +19,12 @@
 #include <onomondo/ipa/log.h>
 #include <onomondo/ipa/mem.h>
 
-#define PCSC_ERROR(reader_num, rv, text) \
-if (rv != SCARD_S_SUCCESS) { \
-	IPA_LOGP(SSCARD, LERROR, "PCSC reader #%d error: %s (%s,0x%lX)\n", \
-		 reader_num, pcsc_stringify_error(rv), text, rv); \
-	goto error; \
-}
+#define PCSC_ERROR(reader_num, rv, text)                                                       \
+	if (rv != SCARD_S_SUCCESS) {                                                           \
+		IPA_LOGP(SSCARD, LERROR, "PCSC reader #%d error: %s (%s,0x%lX)\n", reader_num, \
+			 pcsc_stringify_error(rv), text, rv);                                  \
+		goto error;                                                                    \
+	}
 
 struct scard_ctx {
 	bool initialized;
@@ -56,7 +56,7 @@ void *ipa_scard_init(unsigned int reader_num)
 	PCSC_ERROR(reader_num, rc, "SCardEstablishContext");
 
 	dwReaders = SCARD_AUTOALLOCATE;
-	rc = SCardListReaders(ctx->hContext, NULL, (LPSTR) & mszReaders, &dwReaders);
+	rc = SCardListReaders(ctx->hContext, NULL, (LPSTR)&mszReaders, &dwReaders);
 	PCSC_ERROR(reader_num, rc, "SCardListReaders");
 
 	num_readers = 0;
@@ -71,8 +71,8 @@ void *ipa_scard_init(unsigned int reader_num)
 	}
 
 	/* Initialize card */
-	rc = SCardConnect(ctx->hContext, reader_name, SCARD_SHARE_SHARED,
-			  SCARD_PROTOCOL_T0, &ctx->hCard, &ctx->dwActiveProtocol);
+	rc = SCardConnect(ctx->hContext, reader_name, SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0, &ctx->hCard,
+			  &ctx->dwActiveProtocol);
 	PCSC_ERROR(reader_num, rc, "SCardConnect");
 	ctx->pioSendPci = SCARD_PCI_T0;
 
@@ -107,7 +107,8 @@ int ipa_scard_transceive(void *scard_ctx, struct ipa_buf *res, const struct ipa_
 	IPA_LOGP(SSCARD, LDEBUG, "PCSC reader #%d TX: \n", ctx->reader_num);
 	ipa_buf_hexdump_multiline(req, 64, 1, SSCARD, LINFO);
 
-	rc = SCardTransmit(ctx->hCard, ctx->pioSendPci, req->data, req->len, &ctx->pioRecvPci, res->data, (LPDWORD) &res->len);
+	rc = SCardTransmit(ctx->hCard, ctx->pioSendPci, req->data, req->len, &ctx->pioRecvPci, res->data,
+			   (LPDWORD)&res->len);
 	PCSC_ERROR(ctx->reader_num, rc, "SCardEndTransaction");
 
 	if (res->len) {
@@ -132,8 +133,8 @@ int ipa_scard_reset(void *scard_ctx)
 	LONG rc;
 	assert(ctx);
 
-	rc = SCardReconnect(ctx->hCard, SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0,
-			    SCARD_RESET_CARD, &ctx->dwActiveProtocol);
+	rc = SCardReconnect(ctx->hCard, SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0, SCARD_RESET_CARD,
+			    &ctx->dwActiveProtocol);
 	PCSC_ERROR(ctx->reader_num, rc, "SCardReconnect");
 	IPA_LOGP(SSCARD, LINFO, "PCSC reader #%d card reset\n", ctx->reader_num);
 	return 0;
@@ -159,7 +160,7 @@ int ipa_scard_atr(void *scard_ctx, struct ipa_buf *atr)
 	assert(ctx);
 
 	atr->len = atr->data_len;
-	rc = SCardStatus(ctx->hCard, pbReader, &dwReaderLen, &dwState, &dwProt, atr->data, (LPDWORD) &atr->len);
+	rc = SCardStatus(ctx->hCard, pbReader, &dwReaderLen, &dwState, &dwProt, atr->data, (LPDWORD)&atr->len);
 	PCSC_ERROR(ctx->reader_num, rc, "SCardStatus");
 	IPA_LOGP(SSCARD, LINFO, "PCSC reader #%d ATR:%s\n", ctx->reader_num, ipa_buf_hexdump(atr));
 	return 0;

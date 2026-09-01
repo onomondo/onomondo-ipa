@@ -110,8 +110,8 @@ static int parse_res_apdu(struct res_apdu *res_apdu, const struct ipa_buf *res_e
 	return 0;
 }
 
-static int send_es10x_block(struct ipa_context *ctx, uint16_t *sw,
-			    const struct ipa_buf *es10x_req, size_t offset, uint8_t block_nr)
+static int send_es10x_block(struct ipa_context *ctx, uint16_t *sw, const struct ipa_buf *es10x_req, size_t offset,
+			    uint8_t block_nr)
 {
 	size_t len_req;
 	int rc;
@@ -138,7 +138,7 @@ static int send_es10x_block(struct ipa_context *ctx, uint16_t *sw,
 	if (len_req > MAX_BLOCKSIZE_TX)
 		req_apdu.lc = MAX_BLOCKSIZE_TX;
 	else
-		req_apdu.lc = (uint8_t) len_req;
+		req_apdu.lc = (uint8_t)len_req;
 	memcpy(req_apdu.data, es10x_req->data + offset, req_apdu.lc);
 
 	/* transceive block */
@@ -153,8 +153,8 @@ static int send_es10x_block(struct ipa_context *ctx, uint16_t *sw,
 	/* parse response */
 	rc = parse_res_apdu(&res_apdu, buf_res);
 	if (rc < 0) {
-		IPA_LOGP(SEUICC, LERROR,
-			 "invalid response while sending ES10x block %u, offset=%zu\n", block_nr, offset);
+		IPA_LOGP(SEUICC, LERROR, "invalid response while sending ES10x block %u, offset=%zu\n", block_nr,
+			 offset);
 		goto exit;
 	}
 	*sw = res_apdu.sw;
@@ -169,8 +169,8 @@ exit:
 	return rc;
 }
 
-static int recv_es10x_block(struct ipa_context *ctx, uint16_t *sw,
-			    struct ipa_buf **es10x_res, uint16_t block_len, uint8_t block_nr)
+static int recv_es10x_block(struct ipa_context *ctx, uint16_t *sw, struct ipa_buf **es10x_res, uint16_t block_len,
+			    uint8_t block_nr)
 {
 	int rc;
 	struct req_apdu req_apdu = { 0 };
@@ -218,8 +218,8 @@ static int recv_es10x_block(struct ipa_context *ctx, uint16_t *sw,
 	/* parse response */
 	rc = parse_res_apdu(&res_apdu, buf_res);
 	if (rc < 0) {
-		IPA_LOGP(SEUICC, LERROR,
-			 "invalid response while receiving ES10x block %u, offset=%zu\n", block_nr, es10x_res_ptr->len);
+		IPA_LOGP(SEUICC, LERROR, "invalid response while receiving ES10x block %u, offset=%zu\n", block_nr,
+			 es10x_res_ptr->len);
 		rc = -EINVAL;
 		goto exit;
 	}
@@ -233,9 +233,10 @@ static int recv_es10x_block(struct ipa_context *ctx, uint16_t *sw,
 	if (es10x_res_ptr->len + res_apdu.le > es10x_res_ptr->data_len) {
 		realloc_size = ((es10x_res_ptr->len + res_apdu.le) / IPA_LEN_EUICC_BUF + 1) * IPA_LEN_EUICC_BUF;
 
-		IPA_LOGP(SEUICC, LDEBUG,
-			 "eUICC response buffer exhausted, reallocating more memory (have: %zu bytes, required: %zu bytes, will allocate: %zu bytes)\n",
-			 es10x_res_ptr->data_len, es10x_res_ptr->len + res_apdu.le, realloc_size);
+		IPA_LOGP(
+			SEUICC, LDEBUG,
+			"eUICC response buffer exhausted, reallocating more memory (have: %zu bytes, required: %zu bytes, will allocate: %zu bytes)\n",
+			es10x_res_ptr->data_len, es10x_res_ptr->len + res_apdu.le, realloc_size);
 
 		/* Reallocate the buffer with enough space for one additional block of size MAX_BLOCKSIZE_RX */
 		es10x_res_ptr = ipa_buf_realloc(es10x_res_ptr, realloc_size);
@@ -246,8 +247,8 @@ static int recv_es10x_block(struct ipa_context *ctx, uint16_t *sw,
 	es10x_res_ptr->len += res_apdu.le;
 	*sw = res_apdu.sw;
 
-	IPA_LOGP(SEUICC, LINFO,
-		 "successfully received ES10x block %u, offset=%zu, sw=%04x\n", block_nr, es10x_res_ptr->len, *sw);
+	IPA_LOGP(SEUICC, LINFO, "successfully received ES10x block %u, offset=%zu, sw=%04x\n", block_nr,
+		 es10x_res_ptr->len, *sw);
 
 	/* Return how many data we have received. */
 	rc = res_apdu.le;
@@ -288,8 +289,8 @@ static int euicc_transceive_es10x(struct ipa_context *ctx, struct ipa_buf **es10
 		/* We can only transmit a maximum amount of 255 blocks in one
 		 * STORE DATA cycle. */
 		if (block_nr == 255) {
-			IPA_LOGP(SEUICC, LERROR,
-				 "ES10x request exceeds maximum transmission length (%zu)!\n", es10x_req->len);
+			IPA_LOGP(SEUICC, LERROR, "ES10x request exceeds maximum transmission length (%zu)!\n",
+				 es10x_req->len);
 			return -EINVAL;
 		}
 	}
@@ -409,8 +410,8 @@ exit:
 
 static int select_isd_r(struct ipa_context *ctx)
 {
-	const uint8_t aid_isd_r[] =
-	    { 0xA0, 0x00, 0x00, 0x05, 0x59, 0x10, 0x10, 0xFF, 0xFF, 0xFF, 0xFF, 0x89, 0x00, 0x00, 0x01, 0x00 };
+	const uint8_t aid_isd_r[] = { 0xA0, 0x00, 0x00, 0x05, 0x59, 0x10, 0x10, 0xFF,
+				      0xFF, 0xFF, 0xFF, 0x89, 0x00, 0x00, 0x01, 0x00 };
 
 	int rc;
 	struct req_apdu req_apdu = { 0 };
@@ -461,7 +462,6 @@ exit:
 	IPA_FREE(buf_req);
 	IPA_FREE(buf_res);
 	return rc;
-
 }
 
 static int manage_channel(struct ipa_context *ctx, bool close)

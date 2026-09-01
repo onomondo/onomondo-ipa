@@ -22,11 +22,10 @@
 #include "es10x.h"
 #include "es10c_get_prfle_info.h"
 
-static const struct num_str_map error_code_strings[] = {
-	{ ProfileInfoListError_incorrectInputValues, "incorrectInputValues" },
-	{ ProfileInfoListError_undefinedError, "undefinedError" },
-	{ 0, NULL }
-};
+static const struct num_str_map error_code_strings[] = { { ProfileInfoListError_incorrectInputValues,
+							   "incorrectInputValues" },
+							 { ProfileInfoListError_undefinedError, "undefinedError" },
+							 { 0, NULL } };
 
 static const struct num_str_map error_code_strings_sgp32[] = {
 	{ SGP32_ProfileInfoListError_incorrectInputValues, "incorrectInputValues" },
@@ -87,8 +86,8 @@ static int dec_get_prfle_info_res(struct ipa_es10c_get_prfle_info_res *res, cons
 	case ProfileInfoListResponse_PR_profileInfoListError:
 		res->prfle_info_list_err = asn->choice.profileInfoListError;
 		IPA_LOGP_ES10X("GetProfilesInfo", LERROR, "function failed with error code %ld=%s!\n",
-			       res->prfle_info_list_err, ipa_str_from_num(error_code_strings, res->prfle_info_list_err,
-									  "(unknown)"));
+			       res->prfle_info_list_err,
+			       ipa_str_from_num(error_code_strings, res->prfle_info_list_err, "(unknown)"));
 		break;
 	case ProfileInfoListResponse_PR_profileInfoListOk:
 		/* Nothing to do */
@@ -115,8 +114,8 @@ static int dec_get_prfle_info_res_sgp32(struct ipa_es10c_get_prfle_info_res *res
 	case SGP32_ProfileInfoListResponse_PR_profileInfoListError:
 		res->prfle_info_list_err = asn->choice.profileInfoListError;
 		IPA_LOGP_ES10X("GetProfilesInfo", LERROR, "function failed with error code %ld=%s!\n",
-			       res->prfle_info_list_err, ipa_str_from_num(error_code_strings_sgp32,
-									  res->prfle_info_list_err, "(unknown)"));
+			       res->prfle_info_list_err,
+			       ipa_str_from_num(error_code_strings_sgp32, res->prfle_info_list_err, "(unknown)"));
 		break;
 	case SGP32_ProfileInfoListResponse_PR_profileInfoListOk:
 		/* Nothing to do */
@@ -180,8 +179,9 @@ struct ipa_es10c_get_prfle_info_res *ipa_es10c_get_prfle_info(struct ipa_context
 	}
 
 	if (ctx->cfg->iot_euicc_emu_enabled) {
-		IPA_LOGP_ES10X("GetProfilesInfo", LINFO,
-			       "IoT eUICC emulation active, will derive SGP32_ProfileInfoListResponse from (SGP.22) ProfileInfoListResponse.\n");
+		IPA_LOGP_ES10X(
+			"GetProfilesInfo", LINFO,
+			"IoT eUICC emulation active, will derive SGP32_ProfileInfoListResponse from (SGP.22) ProfileInfoListResponse.\n");
 		rc = dec_get_prfle_info_res(res, es10c_res);
 	} else {
 		rc = dec_get_prfle_info_res_sgp32(res, es10c_res);

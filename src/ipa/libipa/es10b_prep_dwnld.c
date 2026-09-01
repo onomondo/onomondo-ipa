@@ -22,15 +22,14 @@
 #include "es10x.h"
 #include "es10b_prep_dwnld.h"
 
-static const struct num_str_map error_code_strings[] = {
-	{ DownloadErrorCode_invalidCertificate, "invalidCertificate" },
-	{ DownloadErrorCode_invalidSignature, "invalidSignature" },
-	{ DownloadErrorCode_unsupportedCurve, "unsupportedCurve" },
-	{ DownloadErrorCode_noSessionContext, "noSessionContext" },
-	{ DownloadErrorCode_invalidTransactionId, "invalidTransactionId" },
-	{ DownloadErrorCode_undefinedError, "undefinedError" },
-	{ 0, NULL }
-};
+static const struct num_str_map error_code_strings[] = { { DownloadErrorCode_invalidCertificate, "invalidCertificate" },
+							 { DownloadErrorCode_invalidSignature, "invalidSignature" },
+							 { DownloadErrorCode_unsupportedCurve, "unsupportedCurve" },
+							 { DownloadErrorCode_noSessionContext, "noSessionContext" },
+							 { DownloadErrorCode_invalidTransactionId,
+							   "invalidTransactionId" },
+							 { DownloadErrorCode_undefinedError, "undefinedError" },
+							 { 0, NULL } };
 
 static int dec_prep_dwnld_res(struct ipa_es10b_prep_dwnld_res *res, const struct ipa_buf *es10b_res)
 {
@@ -47,8 +46,8 @@ static int dec_prep_dwnld_res(struct ipa_es10b_prep_dwnld_res *res, const struct
 	case PrepareDownloadResponse_PR_downloadResponseError:
 		res->prep_dwnld_err = asn->choice.downloadResponseError.downloadErrorCode;
 		IPA_LOGP_ES10X("PrepareDownload", LERROR, "function failed with error code %ld=%s!\n",
-			       res->prep_dwnld_err, ipa_str_from_num(error_code_strings, res->prep_dwnld_err,
-								     "(unknown)"));
+			       res->prep_dwnld_err,
+			       ipa_str_from_num(error_code_strings, res->prep_dwnld_err, "(unknown)"));
 		break;
 	default:
 		IPA_LOGP_ES10X("PrepareDownload", LERROR, "unexpected response content!\n");

@@ -41,8 +41,9 @@ static void update_rollback_iccid(struct ipa_context *ctx)
 
 	if (get_prfle_info_res->res && get_prfle_info_res->currently_active_prfle) {
 		if (!get_prfle_info_res->currently_active_prfle->iccid) {
-			IPA_LOGP(SIPA, LERROR,
-				 "a profile is active, but it does not have an ICCID, cannot use this profile for rollback!\n");
+			IPA_LOGP(
+				SIPA, LERROR,
+				"a profile is active, but it does not have an ICCID, cannot use this profile for rollback!\n");
 			return;
 		}
 		IPA_FREE(ctx->iot_euicc_emu.rollback_iccid);
@@ -199,7 +200,7 @@ struct EuiccResultData *iot_emo_do_listProfileInfo_psmo(struct ipa_context *ctx,
 		prfle_info_res = ipa_asn1c_dup(&asn_DEF_SGP32_ProfileInfoListResponse, get_prfle_info_res->sgp32_res);
 		assert(prfle_info_res);
 		euicc_result_data->choice.listProfileInfoResult = *prfle_info_res;
-		IPA_FREE(prfle_info_res);	/* free outer shell only */
+		IPA_FREE(prfle_info_res); /* free outer shell only */
 	}
 
 	ipa_es10c_get_prfle_info_res_free(get_prfle_info_res);
@@ -219,12 +220,13 @@ struct EuiccResultData *iot_emo_do_getRAT_psmo(struct ipa_context *ctx, const st
 	if (!get_rat_res || !get_rat_res->res) {
 		/* The protocol does not allow to communicate an error back to the eIM. Errors are communicated
 		 * implicitly by sending back an empty RAT. */
-		IPA_LOGP_ES10X("LoadEuiccPackage", LERROR,
-			       "IoT eUICC emulation active, getRAT PSMO failed, unable to retrieve RulesAuthorisationTable!\n");
+		IPA_LOGP_ES10X(
+			"LoadEuiccPackage", LERROR,
+			"IoT eUICC emulation active, getRAT PSMO failed, unable to retrieve RulesAuthorisationTable!\n");
 	} else {
 		for (i = 0; i < get_rat_res->res->rat.list.count; i++) {
-			ppr_item =
-			    ipa_asn1c_dup(&asn_DEF_ProfilePolicyAuthorisationRule, get_rat_res->res->rat.list.array[i]);
+			ppr_item = ipa_asn1c_dup(&asn_DEF_ProfilePolicyAuthorisationRule,
+						 get_rat_res->res->rat.list.array[i]);
 			ASN_SEQUENCE_ADD(&euicc_result_data->choice.getRATResult.list, ppr_item);
 		}
 	}
@@ -233,8 +235,9 @@ struct EuiccResultData *iot_emo_do_getRAT_psmo(struct ipa_context *ctx, const st
 	return euicc_result_data;
 }
 
-struct EuiccResultData *iot_emo_do_configureAutoEnable_psmo(struct ipa_context *ctx, const struct Psmo__configureAutoEnable
-							    *configureAutoEnable_psmo)
+struct EuiccResultData *
+iot_emo_do_configureAutoEnable_psmo(struct ipa_context *ctx,
+				    const struct Psmo__configureAutoEnable *configureAutoEnable_psmo)
 {
 	struct EuiccResultData *euicc_result_data = IPA_ALLOC_ZERO(struct EuiccResultData);
 
@@ -257,7 +260,7 @@ struct EuiccResultData *iot_emo_do_configureAutoEnable_psmo(struct ipa_context *
 	ctx->nvstate.iot_euicc_emu.auto_enable.smdp_address = NULL;
 	if (configureAutoEnable_psmo->smdpAddress)
 		ctx->nvstate.iot_euicc_emu.auto_enable.smdp_address =
-		    IPA_BUF_FROM_ASN(configureAutoEnable_psmo->smdpAddress);
+			IPA_BUF_FROM_ASN(configureAutoEnable_psmo->smdpAddress);
 
 	euicc_result_data->choice.configureAutoEnableResult = ConfigureAutoEnableResult_ok;
 
@@ -280,8 +283,9 @@ struct EuiccResultData *iot_emo_do_addEim_eco(struct ipa_context *ctx, const str
 	/* Decode existing eIM configuration */
 	eim_cfg_data = ipa_es10b_get_eim_cfg_data(ctx);
 	if (!eim_cfg_data || !eim_cfg_data->res) {
-		IPA_LOGP_ES10X("LoadEuiccPackage", LERROR,
-			       "IoT eUICC emulation active, addEim eCO failed, unable to retrieve eimConfigurationData!\n");
+		IPA_LOGP_ES10X(
+			"LoadEuiccPackage", LERROR,
+			"IoT eUICC emulation active, addEim eCO failed, unable to retrieve eimConfigurationData!\n");
 		goto error;
 	}
 
@@ -290,11 +294,12 @@ struct EuiccResultData *iot_emo_do_addEim_eco(struct ipa_context *ctx, const str
 		eim_cfg_data_item = eim_cfg_data->res->eimConfigurationDataList.list.array[i];
 		ASN_SEQUENCE_ADD(&add_init_eim_req.req.eimConfigurationDataList.list, eim_cfg_data_item);
 		if (IPA_ASN_STR_CMP(&eim_cfg_data_item->eimId, &addEim_eco->eimId)) {
-			IPA_LOGP_ES10X("LoadEuiccPackage", LERROR,
-				       "IoT eUICC emulation active, addEim eCO failed, eIM with specified eimId already exists!\n");
+			IPA_LOGP_ES10X(
+				"LoadEuiccPackage", LERROR,
+				"IoT eUICC emulation active, addEim eCO failed, eIM with specified eimId already exists!\n");
 			euicc_result_data->choice.addEimResult.present = AddEimResult_PR_addEimResultCode;
 			euicc_result_data->choice.addEimResult.choice.addEimResultCode =
-			    AddEimResult__addEimResultCode_commandError;
+				AddEimResult__addEimResultCode_commandError;
 			goto error;
 		}
 	}
@@ -307,23 +312,25 @@ struct EuiccResultData *iot_emo_do_addEim_eco(struct ipa_context *ctx, const str
 	 * does not check if there is already an eIM configuration in place. It will just overwrite the existing
 	 * configuration with the one we have just assembled above. */
 	add_init_eim_res = ipa_es10b_add_init_eim(ctx, &add_init_eim_req);
-	if (!add_init_eim_res || add_init_eim_res->add_init_eim_err || !add_init_eim_res->res
-	    || add_init_eim_res->res->present != AddInitialEimResponse_PR_addInitialEimOk) {
-		IPA_LOGP_ES10X("LoadEuiccPackage", LERROR,
-			       "IoT eUICC emulation active, addEim eCO failed, unable to write eimConfigurationData!\n");
+	if (!add_init_eim_res || add_init_eim_res->add_init_eim_err || !add_init_eim_res->res ||
+	    add_init_eim_res->res->present != AddInitialEimResponse_PR_addInitialEimOk) {
+		IPA_LOGP_ES10X(
+			"LoadEuiccPackage", LERROR,
+			"IoT eUICC emulation active, addEim eCO failed, unable to write eimConfigurationData!\n");
 		goto error;
 	}
 
 	/* Look at the last item of the response list, there we will find the result for the eIM configuration
 	 * that we have just added. */
-	switch (add_init_eim_res->res->choice.addInitialEimOk.
-		list.array[add_init_eim_res->res->choice.addInitialEimOk.list.count - 1]->present) {
+	switch (add_init_eim_res->res->choice.addInitialEimOk.list
+			.array[add_init_eim_res->res->choice.addInitialEimOk.list.count - 1]
+			->present) {
 	case AddInitialEimResponse__addInitialEimOk__Member_PR_associationToken:
 		euicc_result_data->choice.addEimResult.present = AddEimResult_PR_associationToken;
 		euicc_result_data->choice.addEimResult.choice.associationToken =
-		    add_init_eim_res->res->choice.addInitialEimOk.list.array[add_init_eim_res->res->
-									     choice.addInitialEimOk.list.count -
-									     1]->choice.associationToken;
+			add_init_eim_res->res->choice.addInitialEimOk.list
+				.array[add_init_eim_res->res->choice.addInitialEimOk.list.count - 1]
+				->choice.associationToken;
 		break;
 	case AddInitialEimResponse__addInitialEimOk__Member_PR_addOk:
 		euicc_result_data->choice.addEimResult.present = AddEimResult_PR_addEimResultCode;
@@ -356,8 +363,9 @@ struct EuiccResultData *iot_emo_do_deleteEim_eco(struct ipa_context *ctx, const 
 	/* Decode existing eIM configuration */
 	eim_cfg_data = ipa_es10b_get_eim_cfg_data(ctx);
 	if (!eim_cfg_data || !eim_cfg_data->res) {
-		IPA_LOGP_ES10X("LoadEuiccPackage", LERROR,
-			       "IoT eUICC emulation active, deleteEim eCO failed, unable to retrieve eimConfigurationData!\n");
+		IPA_LOGP_ES10X(
+			"LoadEuiccPackage", LERROR,
+			"IoT eUICC emulation active, deleteEim eCO failed, unable to retrieve eimConfigurationData!\n");
 		goto error;
 	}
 
@@ -385,10 +393,11 @@ struct EuiccResultData *iot_emo_do_deleteEim_eco(struct ipa_context *ctx, const 
 	 * does not check if there is already an eIM configuration in place. It will just overwrite the existing
 	 * configuration with the one we have just assembled above. */
 	add_init_eim_res = ipa_es10b_add_init_eim(ctx, &add_init_eim_req);
-	if (!add_init_eim_res || add_init_eim_res->add_init_eim_err || !add_init_eim_res->res
-	    || add_init_eim_res->res->present != AddInitialEimResponse_PR_addInitialEimOk) {
-		IPA_LOGP_ES10X("LoadEuiccPackage", LERROR,
-			       "IoT eUICC emulation active, deleteEim eCO failed, unable to write eimConfigurationData!\n");
+	if (!add_init_eim_res || add_init_eim_res->add_init_eim_err || !add_init_eim_res->res ||
+	    add_init_eim_res->res->present != AddInitialEimResponse_PR_addInitialEimOk) {
+		IPA_LOGP_ES10X(
+			"LoadEuiccPackage", LERROR,
+			"IoT eUICC emulation active, deleteEim eCO failed, unable to write eimConfigurationData!\n");
 		goto error;
 	}
 
@@ -417,8 +426,9 @@ struct EuiccResultData *iot_emo_do_updateEim_eco(struct ipa_context *ctx,
 	/* Decode existing eIM configuration */
 	eim_cfg_data = ipa_es10b_get_eim_cfg_data(ctx);
 	if (!eim_cfg_data || !eim_cfg_data->res) {
-		IPA_LOGP_ES10X("LoadEuiccPackage", LERROR,
-			       "IoT eUICC emulation active, updateEim eCO failed, unable to retrieve eimConfigurationData!\n");
+		IPA_LOGP_ES10X(
+			"LoadEuiccPackage", LERROR,
+			"IoT eUICC emulation active, updateEim eCO failed, unable to retrieve eimConfigurationData!\n");
 		goto error;
 	}
 
@@ -449,7 +459,7 @@ struct EuiccResultData *iot_emo_do_updateEim_eco(struct ipa_context *ctx,
 				eim_cfg_data_item_updated->eimPublicKeyData = updateEim_eco->eimPublicKeyData;
 			if (updateEim_eco->trustedPublicKeyDataTls)
 				eim_cfg_data_item_updated->trustedPublicKeyDataTls =
-				    updateEim_eco->trustedPublicKeyDataTls;
+					updateEim_eco->trustedPublicKeyDataTls;
 			if (updateEim_eco->eimSupportedProtocol)
 				eim_cfg_data_item_updated->eimSupportedProtocol = updateEim_eco->eimSupportedProtocol;
 			if (updateEim_eco->euiccCiPKId)
@@ -474,10 +484,11 @@ struct EuiccResultData *iot_emo_do_updateEim_eco(struct ipa_context *ctx,
 	 * does not check if there is already an eIM configuration in place. It will just overwrite the existing
 	 * configuration with the one we have just assembled above. */
 	add_init_eim_res = ipa_es10b_add_init_eim(ctx, &add_init_eim_req);
-	if (!add_init_eim_res || add_init_eim_res->add_init_eim_err || !add_init_eim_res->res
-	    || add_init_eim_res->res->present != AddInitialEimResponse_PR_addInitialEimOk) {
-		IPA_LOGP_ES10X("LoadEuiccPackage", LERROR,
-			       "IoT eUICC emulation active, updateEim eCO failed, unable to write eimConfigurationData!\n");
+	if (!add_init_eim_res || add_init_eim_res->add_init_eim_err || !add_init_eim_res->res ||
+	    add_init_eim_res->res->present != AddInitialEimResponse_PR_addInitialEimOk) {
+		IPA_LOGP_ES10X(
+			"LoadEuiccPackage", LERROR,
+			"IoT eUICC emulation active, updateEim eCO failed, unable to write eimConfigurationData!\n");
 		goto error;
 	}
 
@@ -549,8 +560,9 @@ struct ipa_es10b_load_euicc_pkg_res *load_euicc_pkg_iot_emu(struct ipa_context *
 	unsigned int i;
 	const uint8_t euiccSignEPR_dummy[64] = { "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS" };
 
-	IPA_LOGP_ES10X("LoadEuiccPackage", LINFO,
-		       "IoT eUICC emulation active, executing ECOs and PSMOs by calling equivalent consumer eUICC ES10x functions...\n");
+	IPA_LOGP_ES10X(
+		"LoadEuiccPackage", LINFO,
+		"IoT eUICC emulation active, executing ECOs and PSMOs by calling equivalent consumer eUICC ES10x functions...\n");
 
 	/* Before executing an eUICC package, ensure that the rollback ICCID is up to date. */
 	update_rollback_iccid(ctx);
@@ -560,13 +572,13 @@ struct ipa_es10b_load_euicc_pkg_res *load_euicc_pkg_iot_emu(struct ipa_context *
 	asn = IPA_ALLOC_ZERO(struct EuiccPackageResult);
 	res->res = asn;
 	asn->present = EuiccPackageResult_PR_euiccPackageResultSigned;
-	ipa_buf_assign(&eim_id, (uint8_t *) ctx->eim_id, strlen(ctx->eim_id));
+	ipa_buf_assign(&eim_id, (uint8_t *)ctx->eim_id, strlen(ctx->eim_id));
 	IPA_COPY_IPA_BUF_TO_ASN(&asn->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.eimId, &eim_id);
 	asn->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.counterValue =
-	    req->req.euiccPackageSigned.counterValue;
+		req->req.euiccPackageSigned.counterValue;
 	if (req->req.euiccPackageSigned.transactionId) {
 		asn->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.transactionId =
-		    ipa_asn1c_dup(&asn_DEF_TransactionId, req->req.euiccPackageSigned.transactionId);
+			ipa_asn1c_dup(&asn_DEF_TransactionId, req->req.euiccPackageSigned.transactionId);
 	}
 	asn->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.seqNumber = 0;
 	ipa_buf_assign(&euicc_sign_epr, euiccSignEPR_dummy, sizeof(euiccSignEPR_dummy));
@@ -596,15 +608,16 @@ struct ipa_es10b_load_euicc_pkg_res *load_euicc_pkg_iot_emu(struct ipa_context *
 				break;
 			case Psmo_PR_configureAutoEnable:
 				psmo_result =
-				    iot_emo_do_configureAutoEnable_psmo(ctx, &psmo->choice.configureAutoEnable);
+					iot_emo_do_configureAutoEnable_psmo(ctx, &psmo->choice.configureAutoEnable);
 				break;
 			default:
 				IPA_LOGP_ES10X("LoadEuiccPackage", LERROR, "ignoring invalid or unsupported PSMO!\n");
 				break;
 			}
 			if (psmo_result)
-				ASN_SEQUENCE_ADD(&asn->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.
-						 euiccResult.list, psmo_result);
+				ASN_SEQUENCE_ADD(&asn->choice.euiccPackageResultSigned.euiccPackageResultDataSigned
+							  .euiccResult.list,
+						 psmo_result);
 		}
 		break;
 	case EuiccPackage_PR_ecoList:
@@ -629,8 +642,9 @@ struct ipa_es10b_load_euicc_pkg_res *load_euicc_pkg_iot_emu(struct ipa_context *
 				break;
 			}
 			if (eco_result)
-				ASN_SEQUENCE_ADD(&asn->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.
-						 euiccResult.list, eco_result);
+				ASN_SEQUENCE_ADD(&asn->choice.euiccPackageResultSigned.euiccPackageResultDataSigned
+							  .euiccResult.list,
+						 eco_result);
 		}
 		break;
 	default:
@@ -646,7 +660,7 @@ error:
 	asn = IPA_ALLOC_ZERO(struct EuiccPackageResult);
 	res->res = asn;
 	asn->present = EuiccPackageResult_PR_euiccPackageErrorUnsigned;
-	ipa_buf_assign(&eim_id, (uint8_t *) ctx->eim_id, strlen(ctx->eim_id));
+	ipa_buf_assign(&eim_id, (uint8_t *)ctx->eim_id, strlen(ctx->eim_id));
 	IPA_COPY_IPA_BUF_TO_ASN(&asn->choice.euiccPackageErrorUnsigned.eimId, &eim_id);
 	return res;
 }
@@ -663,7 +677,7 @@ static bool check_for_profile_change(const struct EuiccPackageResult *res)
 
 	for (i = 0; i < res->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.euiccResult.list.count; i++) {
 		euicc_result_data =
-		    res->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.euiccResult.list.array[i];
+			res->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.euiccResult.list.array[i];
 		switch (euicc_result_data->present) {
 		case EuiccResultData_PR_enableResult:
 			if (euicc_result_data->choice.enableResult == EnableProfileResult_ok)

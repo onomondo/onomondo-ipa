@@ -18,10 +18,9 @@ struct ipa_proc_eucc_pkg_dwnld_exec_res {
 	struct ipa_es10b_load_euicc_pkg_res *load_euicc_pkg_res;
 
 	struct ipa_es10b_prfle_rollback_res *prfle_rollback_res;
-
 };
 
-struct ipa_proc_eucc_pkg_dwnld_exec_res *ipa_proc_eucc_pkg_dwnld_exec(struct ipa_context *ctx, const struct EuiccPackageRequest
-								      *euicc_package_request);
+struct ipa_proc_eucc_pkg_dwnld_exec_res *
+ipa_proc_eucc_pkg_dwnld_exec(struct ipa_context *ctx, const struct EuiccPackageRequest *euicc_package_request);
 int ipa_proc_eucc_pkg_dwnld_exec_onset(struct ipa_context *ctx, struct ipa_proc_eucc_pkg_dwnld_exec_res *res);
 void ipa_proc_eucc_pkg_dwnld_exec_res_free(struct ipa_proc_eucc_pkg_dwnld_exec_res *res);

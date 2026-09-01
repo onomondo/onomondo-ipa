@@ -28,6 +28,6 @@ struct ipa_esipa_prvde_eim_pkg_rslt_res {
 	struct EimAcknowledgements *eim_acknowledgements;
 };
 
-struct ipa_esipa_prvde_eim_pkg_rslt_res *ipa_esipa_prvde_eim_pkg_rslt(struct ipa_context *ctx, const struct ipa_esipa_prvde_eim_pkg_rslt_req
-								      *req);
+struct ipa_esipa_prvde_eim_pkg_rslt_res *
+ipa_esipa_prvde_eim_pkg_rslt(struct ipa_context *ctx, const struct ipa_esipa_prvde_eim_pkg_rslt_req *req);
 void ipa_esipa_prvde_eim_pkg_rslt_free(struct ipa_esipa_prvde_eim_pkg_rslt_res *res);

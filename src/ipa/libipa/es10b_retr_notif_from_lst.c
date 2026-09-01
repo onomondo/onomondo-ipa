@@ -41,14 +41,14 @@ void convert_notification_list(struct SGP32_RetrieveNotificationsListResponse__n
 		switch (pending_notif_item->present) {
 		case PendingNotification_PR_profileInstallationResult:
 			profile_Installation_result_data =
-			    &pending_notif_item->choice.profileInstallationResult.profileInstallationResultData;
+				&pending_notif_item->choice.profileInstallationResult.profileInstallationResultData;
 			euicc_sign_PIR = &pending_notif_item->choice.profileInstallationResult.euiccSignPIR;
 
 			sgp32_pending_notif_item = IPA_ALLOC_ZERO(struct SGP32_PendingNotification);
 			ASN_SEQUENCE_ADD(&lst_out->list, sgp32_pending_notif_item);
 			sgp32_pending_notif_item->present = SGP32_PendingNotification_PR_profileInstallationResult;
 			sgp32_pending_notif_item->choice.profileInstallationResult.profileInstallationResultData =
-			    *profile_Installation_result_data;
+				*profile_Installation_result_data;
 			sgp32_pending_notif_item->choice.profileInstallationResult.euiccSignPIR = *euicc_sign_PIR;
 			break;
 		case PendingNotification_PR_otherSignedNotification:
@@ -108,8 +108,8 @@ static int dec_retr_notif_from_lst_res(struct ipa_es10b_retr_notif_from_lst_res 
 
 		res->notif_lst_result_err = asn->choice.notificationsListResultError;
 		IPA_LOGP_ES10X("RetrieveNotificationsList", LERROR, "function failed with error code %ld=%s!\n",
-			       res->notif_lst_result_err, ipa_str_from_num(error_code_strings,
-									   res->notif_lst_result_err, "(unknown)"));
+			       res->notif_lst_result_err,
+			       ipa_str_from_num(error_code_strings, res->notif_lst_result_err, "(unknown)"));
 		break;
 	default:
 		IPA_LOGP_ES10X("RetrieveNotificationsList", LERROR, "unexpected response content!\n");
@@ -125,8 +125,8 @@ static int dec_retr_notif_from_lst_res_sgp32(struct ipa_es10b_retr_notif_from_ls
 {
 	struct SGP32_RetrieveNotificationsListResponse *asn = NULL;
 
-	asn =
-	    ipa_es10x_res_dec(&asn_DEF_SGP32_RetrieveNotificationsListResponse, es10b_res, "RetrieveNotificationsList");
+	asn = ipa_es10x_res_dec(&asn_DEF_SGP32_RetrieveNotificationsListResponse, es10b_res,
+				"RetrieveNotificationsList");
 	if (!asn)
 		return -EINVAL;
 
@@ -134,8 +134,8 @@ static int dec_retr_notif_from_lst_res_sgp32(struct ipa_es10b_retr_notif_from_ls
 	case SGP32_RetrieveNotificationsListResponse_PR_notificationsListResultError:
 		res->notif_lst_result_err = asn->choice.notificationsListResultError;
 		IPA_LOGP_ES10X("RetrieveNotificationsList", LERROR, "function failed with error code %ld=%s!\n",
-			       res->notif_lst_result_err, ipa_str_from_num(error_code_strings_sgp32,
-									   res->notif_lst_result_err, "(unknown)"));
+			       res->notif_lst_result_err,
+			       ipa_str_from_num(error_code_strings_sgp32, res->notif_lst_result_err, "(unknown)"));
 	case SGP32_RetrieveNotificationsListResponse_PR_notificationList:
 	case SGP32_RetrieveNotificationsListResponse_PR_euiccPackageResultList:
 	case SGP32_RetrieveNotificationsListResponse_PR_notificationAndEprList:
@@ -165,9 +165,9 @@ static struct ipa_buf *enc_retr_notif_from_lst_req(const struct ipa_es10b_retr_n
 			break;
 		case IpaEuiccDataRequest__searchCriteria_PR_profileManagementOperation:
 			search_criteria.present =
-			    RetrieveNotificationsListRequest__searchCriteria_PR_profileManagementOperation;
+				RetrieveNotificationsListRequest__searchCriteria_PR_profileManagementOperation;
 			search_criteria.choice.profileManagementOperation =
-			    req->dr_search_criteria->choice.profileManagementOperation;
+				req->dr_search_criteria->choice.profileManagementOperation;
 			break;
 		case IpaEuiccDataRequest__searchCriteria_PR_euiccPackageResults:
 			IPA_LOGP_ES10X("RetrieveNotificationsList", LERROR,
@@ -189,7 +189,7 @@ static struct ipa_buf *enc_retr_notif_from_lst_req(const struct ipa_es10b_retr_n
 			break;
 		case SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_profileManagementOperation:
 			search_criteria.choice.profileManagementOperation =
-			    req->search_criteria.choice.profileManagementOperation;
+				req->search_criteria.choice.profileManagementOperation;
 			break;
 		case SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_euiccPackageResults:
 			IPA_LOGP_ES10X("RetrieveNotificationsList", LERROR,
@@ -225,15 +225,15 @@ static struct ipa_buf *enc_retr_notif_from_lst_req_sgp32(const struct ipa_es10b_
 			break;
 		case IpaEuiccDataRequest__searchCriteria_PR_profileManagementOperation:
 			search_criteria.present =
-			    SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_profileManagementOperation;
+				SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_profileManagementOperation;
 			search_criteria.choice.profileManagementOperation =
-			    req->dr_search_criteria->choice.profileManagementOperation;
+				req->dr_search_criteria->choice.profileManagementOperation;
 			break;
 		case IpaEuiccDataRequest__searchCriteria_PR_euiccPackageResults:
 			search_criteria.present =
-			    SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_euiccPackageResults;
+				SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_euiccPackageResults;
 			search_criteria.choice.euiccPackageResults =
-			    req->dr_search_criteria->choice.euiccPackageResults;
+				req->dr_search_criteria->choice.euiccPackageResults;
 			break;
 		default:
 			IPA_LOGP_ES10X("RetrieveNotificationsList", LERROR,
@@ -249,7 +249,7 @@ static struct ipa_buf *enc_retr_notif_from_lst_req_sgp32(const struct ipa_es10b_
 	if (search_criteria.present != SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_NOTHING)
 		asn.searchCriteria = &search_criteria;
 	es10b_req =
-	    ipa_es10x_req_enc(&asn_DEF_SGP32_RetrieveNotificationsListRequest, &asn, "RetrieveNotificationsList");
+		ipa_es10x_req_enc(&asn_DEF_SGP32_RetrieveNotificationsListRequest, &asn, "RetrieveNotificationsList");
 
 	return es10b_req;
 }
@@ -258,8 +258,8 @@ static struct ipa_buf *enc_retr_notif_from_lst_req_sgp32(const struct ipa_es10b_
  *  \param[inout] ctx pointer to ipa_context.
  *  \param[in] req pointer to struct that holds the function parameters.
  *  \returns pointer newly allocated struct with function result, NULL on error. */
-struct ipa_es10b_retr_notif_from_lst_res *ipa_es10b_retr_notif_from_lst(struct ipa_context *ctx, const struct ipa_es10b_retr_notif_from_lst_req
-									*req)
+struct ipa_es10b_retr_notif_from_lst_res *
+ipa_es10b_retr_notif_from_lst(struct ipa_context *ctx, const struct ipa_es10b_retr_notif_from_lst_req *req)
 {
 	struct ipa_buf *es10b_req = NULL;
 	struct ipa_buf *es10b_res = NULL;
@@ -282,8 +282,9 @@ struct ipa_es10b_retr_notif_from_lst_res *ipa_es10b_retr_notif_from_lst(struct i
 	}
 
 	if (ctx->cfg->iot_euicc_emu_enabled) {
-		IPA_LOGP_ES10X("RetrieveNotificationsList", LINFO,
-			       "IoT eUICC emulation active, will derive notificationList from (SGP.22) RetrieveNotificationsListResponse.\n");
+		IPA_LOGP_ES10X(
+			"RetrieveNotificationsList", LINFO,
+			"IoT eUICC emulation active, will derive notificationList from (SGP.22) RetrieveNotificationsListResponse.\n");
 		rc = dec_retr_notif_from_lst_res(res, es10b_res);
 	} else {
 		rc = dec_retr_notif_from_lst_res_sgp32(res, es10b_res);
