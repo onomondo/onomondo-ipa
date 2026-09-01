@@ -1,0 +1,47 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices"
+  ],
+  "timezone": "Europe/Copenhagen",
+  "dependencyDashboard": true,
+  "rebaseWhen": "never",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "minimumReleaseAge": null
+  },
+  "customManagers": [
+    {
+      "description": "A generic custom manager for updating any yaml fields ending by 'version:' (case insensitive)",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/.+\\.(?:yml|yaml)$/"
+      ],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?((?i)VERSION)\\s*:\\s*(?:'|\")(?<currentValue>[^(?:'|\")]+)(?:'|\")",
+        "# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?((?i)VERSION)\\s*:\\s*(?<currentValue>[^'\"\\s]+)"
+      ]
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "GitHub actions should wait 14 days; github-tags lacks releaseTimestamp, so treat timestamp-less releases as stable to avoid stalling stability-days forever.",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "minimumReleaseAge": "14 days",
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
+    },
+    {
+      "description": "Digest updates re-pin an already-released tag; the tag itself has been out for 14 days, so don't gate the pin on a nonexistent release age.",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchUpdateTypes": [
+        "digest",
+        "pinDigest"
+      ],
+      "minimumReleaseAge": null
+    }
+  ]
+}
