@@ -19,11 +19,10 @@ that checks the constraint. Fortunately we may remove this code manually
 since we do not need the constraint check anyway. Since this affects the
 generated code we must do this each time after we run asn1c.
 ---
- src/ipa/libasn/CertificateSerialNumber.c | 29 ++----------------------
- 1 file changed, 2 insertions(+), 27 deletions(-)
+ src/ipa/libasn/CertificateSerialNumber.c | 27 +--------------------------
+ 1 file changed, 1 insertion(+), 26 deletions(-)
 
 diff --git a/src/ipa/libasn/CertificateSerialNumber.c b/src/ipa/libasn/CertificateSerialNumber.c
-index 792c033..2a62b78 100644
 --- a/src/ipa/libasn/CertificateSerialNumber.c
 +++ b/src/ipa/libasn/CertificateSerialNumber.c
 @@ -10,32 +10,7 @@
@@ -60,15 +59,3 @@ index 792c033..2a62b78 100644
  }
  
  /*
-@@ -46,7 +21,7 @@ static asn_oer_constraints_t asn_OER_type_CertificateSerialNumber_constr_1 CC_NO
- 	{ 8, 1 }	/* (0..999999999999999999999999999999999999) */,
- 	-1};
- asn_per_constraints_t asn_PER_type_CertificateSerialNumber_constr_1 CC_NOTUSED = {
--	{ APC_CONSTRAINED,	 120, -1,  0,  999999999999999999999999999999999999 }	/* (0..999999999999999999999999999999999999) */,
-+	{ APC_CONSTRAINED,	 120, -1,  0,  0 },
- 	{ APC_UNCONSTRAINED,	-1, -1,  0,  0 },
- 	0, 0	/* No PER value map */
- };
--- 
-2.20.1
-

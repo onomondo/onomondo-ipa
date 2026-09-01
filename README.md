@@ -79,6 +79,10 @@ non-standard API. However, the function is available on GNU LINUX and FreeBSD (s
 use this option to compile onomondo-ipa for 32-BIT x86 architectures,
 see also GCC manual, section 3.19.54 x86 Options.
 
+libasn is generated without OER/PER support (see `asn1/regenerate_libasn.sh`). Code that includes its
+headers must define `ASN_DISABLE_OER_SUPPORT` and `ASN_DISABLE_PER_SUPPORT`; the `libasn` CMake target
+exports both, so linking it is enough.
+
 
 Usage
 -----
