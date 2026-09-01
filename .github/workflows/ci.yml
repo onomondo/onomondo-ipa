@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    strategy:
+      matrix:
+        compiler: [gcc, clang]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-gnutls-dev libpcsclite-dev
+
+      - name: Install clang
+        if: matrix.compiler == 'clang'
+        run: sudo apt-get install -y clang
+
+      - name: Configure and build
+        env:
+          CC: ${{ matrix.compiler }}
+          # UBSan on top of the ASan that ENABLE_SANITIZE enables; CFLAGS reaches
+          # both compile and link lines, and non-recoverable turns findings into
+          # test failures instead of log lines.
+          CFLAGS: -fsanitize=undefined -fno-sanitize-recover=all
+        run: |
+          cmake -S . -B build -DENABLE_SANITIZE=ON
+          cmake --build build
+
+      - name: Test
+        run: ctest --test-dir build --output-on-failure
