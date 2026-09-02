@@ -358,10 +358,11 @@ struct ipa_buf *ipa_euicc_transceive_es10x(struct ipa_context *ctx, const struct
 	return es10x_res;
 }
 
-/* Send terminal capablilities, see also 3gpp TS 102.221 V16.2.0, section 11.1.19.2.4 */
+/* Send TERMINAL CAPABILITY (ETSI TS 102 221, section 11.1.19): template tag A9, tag 84 = eUICC-related IoT
+ * Device capabilities with b1 = IPAd supported (SGP.32, section 3.8.2). */
 static int send_termcap(struct ipa_context *ctx)
 {
-	const uint8_t termcap[] = { 0xA9, 0x03, 0x83, 0x01, 0x07 };
+	const uint8_t termcap[] = { 0xA9, 0x03, 0x84, 0x01, 0x01 };
 	int rc;
 	struct req_apdu req_apdu = { 0 };
 	struct res_apdu res_apdu = { 0 };
@@ -371,7 +372,7 @@ static int send_termcap(struct ipa_context *ctx)
 	buf_res = ipa_buf_alloc(MAX_BLOCKSIZE_RX + 2);
 	assert(buf_res);
 
-	/* send TERMINAL CAPABILITIES */
+	/* send TERMINAL CAPABILITY */
 	req_apdu.cla = 0x80;
 	req_apdu.ins = 0xAA;
 	req_apdu.p1 = 0x00;
@@ -380,32 +381,31 @@ static int send_termcap(struct ipa_context *ctx)
 	memcpy(req_apdu.data, termcap, sizeof(termcap));
 	buf_req = format_req_apdu(&req_apdu);
 
+	/* Best effort throughout: SGP.32 mandates the command but leaves a rejection unspecified, some eUICCs
+	 * answer 6D00 (INS not supported) and some transports refuse to carry it at all (the nRF91 modem's
+	 * AT+CSIM), while ES10 works regardless. MANAGE CHANNEL right after this is the real link check. */
 	rc = ipa_scard_transceive(ctx->scard_ctx, buf_res, buf_req);
 	if (rc < 0) {
-		IPA_LOGP(SEUICC, LERROR, "unable to send TERMINAL CAPABILITIES due to communication error\n");
-		ctx->check_scard = true;
-		rc = -EIO;
+		IPA_LOGP(SEUICC, LINFO, "TERMINAL CAPABILITY not delivered (transport error), continuing\n");
 		goto exit;
 	}
 
 	rc = parse_res_apdu(&res_apdu, buf_res);
 	if (rc < 0) {
-		IPA_LOGP(SEUICC, LERROR, "invalid response while sending TERMINAL CAPABILITIES\n");
-		rc = -EINVAL;
+		IPA_LOGP(SEUICC, LINFO, "invalid response to TERMINAL CAPABILITY, continuing\n");
 		goto exit;
 	}
 
 	if ((res_apdu.sw & 0xFF00) != 0x9000) {
-		IPA_LOGP(SEUICC, LERROR, "failed to send TERMINAL CAPABILITIES, sw=%04x\n", res_apdu.sw);
-		rc = -EINVAL;
+		IPA_LOGP(SEUICC, LINFO, "eUICC rejected TERMINAL CAPABILITY, sw=%04x, continuing\n", res_apdu.sw);
 		goto exit;
 	}
 
-	IPA_LOGP(SEUICC, LINFO, "TERMINAL CAPABILITIES sent\n");
+	IPA_LOGP(SEUICC, LINFO, "TERMINAL CAPABILITY sent\n");
 exit:
 	IPA_FREE(buf_req);
 	IPA_FREE(buf_res);
-	return rc;
+	return 0;
 }
 
 static int select_isd_r(struct ipa_context *ctx)
