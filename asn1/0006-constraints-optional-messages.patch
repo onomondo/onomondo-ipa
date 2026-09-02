@@ -1,0 +1,27 @@
+From: Benjamin Bruun <bb@onomondo.com>
+Subject: [PATCH] constraints: allow compiling out the constraint messages
+
+ASN__CTFAIL only null-checks its callback at runtime, so every
+_constraint() still linked (the skeleton BIT STRING, OID and string checks
+the descriptors point at) keeps its format string, __FILE__ literal and
+td->name reference in rodata although nothing ever passes a callback.
+ASN_DISABLE_CONSTRAINT_MSG swallows the whole call.
+---
+diff --git a/src/ipa/libasn/constraints.h b/src/ipa/libasn/constraints.h
+--- a/src/ipa/libasn/constraints.h
++++ b/src/ipa/libasn/constraints.h
+@@ -53,7 +53,14 @@
+ /*
+  * Invoke the callback with a complete error message.
+  */
++#ifdef	ASN_DISABLE_CONSTRAINT_MSG
++/* Swallows the call and its arguments: the format strings, __FILE__ literals
++ * and td->name references in the skeleton _constraint() bodies vanish from
++ * the image. Nothing in this codebase ever passes a ctfailcb. */
++#define	ASN__CTFAIL(...)	do{}while(0)
++#else
+ #define	ASN__CTFAIL	if(ctfailcb) ctfailcb
++#endif
+ 
+ #ifdef __cplusplus
+ }

@@ -20,12 +20,25 @@ static const ber_tlv_tag_t asn_DEF_NativeEnumerated_tags[] = {
 };
 asn_TYPE_operation_t asn_OP_NativeEnumerated = {
 	NativeInteger_free,
+#ifdef	ASN_DISABLE_PRINT_SUPPORT
+	0,
+#else
 	NativeInteger_print,
+#endif	/* ASN_DISABLE_PRINT_SUPPORT */
+#ifdef	ASN_DISABLE_COMPARE_SUPPORT
+	0,
+#else
 	NativeInteger_compare,
+#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
 	NativeInteger_decode_ber,
 	NativeInteger_encode_der,
+#ifdef	ASN_DISABLE_XER_SUPPORT
+	0,
+	0,
+#else
 	NativeInteger_decode_xer,
 	NativeEnumerated_encode_xer,
+#endif	/* ASN_DISABLE_XER_SUPPORT */
 #ifdef	ASN_DISABLE_OER_SUPPORT
 	0,
 	0,
@@ -40,7 +53,11 @@ asn_TYPE_operation_t asn_OP_NativeEnumerated = {
 	NativeEnumerated_decode_uper,
 	NativeEnumerated_encode_uper,
 #endif	/* ASN_DISABLE_PER_SUPPORT */
+#ifdef	ASN_DISABLE_RFILL_SUPPORT
+	0,
+#else
 	NativeEnumerated_random_fill,
+#endif	/* ASN_DISABLE_RFILL_SUPPORT */
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_NativeEnumerated = {

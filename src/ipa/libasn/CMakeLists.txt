@@ -13,6 +13,14 @@ if(DEFINED ENV{ZEPHYR_BASE})
   # generated per-type constraint tables. Global, not library-scoped: libipa
   # and the nrf-ipa port include libasn headers too.
   zephyr_compile_definitions(ASN_DISABLE_OER_SUPPORT ASN_DISABLE_PER_SUPPORT)
+  # Wire codecs (BER/DER) are all the library consumes; XER, compare, random-fill
+  # and the constraint-failure message strings are compiled out. print_struct is
+  # the SHOW_ASN_OUTPUT debug facility.
+  zephyr_compile_definitions(ASN_DISABLE_XER_SUPPORT ASN_DISABLE_COMPARE_SUPPORT
+                             ASN_DISABLE_RFILL_SUPPORT ASN_DISABLE_CONSTRAINT_MSG)
+  if(NOT SHOW_ASN_OUTPUT)
+    zephyr_compile_definitions(ASN_DISABLE_PRINT_SUPPORT)
+  endif()
   zephyr_library_sources(
 AccessDescription.c
 AccessDescription.h
@@ -1008,6 +1016,13 @@ else()
   )
   target_compile_options(libasn PRIVATE -Wall)
   target_compile_definitions(libasn PUBLIC ASN_DISABLE_OER_SUPPORT ASN_DISABLE_PER_SUPPORT)
+  # Wire codecs (BER/DER) are all the library consumes; XER, compare, random-fill
+  # and the constraint-failure message strings (never consumed - no ctfailcb) are
+  # compiled out. print_struct is the SHOW_ASN_OUTPUT debug facility.
+  target_compile_definitions(libasn PUBLIC ASN_DISABLE_XER_SUPPORT ASN_DISABLE_COMPARE_SUPPORT ASN_DISABLE_RFILL_SUPPORT ASN_DISABLE_CONSTRAINT_MSG)
+  if(NOT SHOW_ASN_OUTPUT)
+    target_compile_definitions(libasn PUBLIC ASN_DISABLE_PRINT_SUPPORT)
+  endif()
   if(M32)
     set_target_properties(libasn PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
   endif()

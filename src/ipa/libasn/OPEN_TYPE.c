@@ -10,12 +10,25 @@
 
 asn_TYPE_operation_t asn_OP_OPEN_TYPE = {
 	OPEN_TYPE_free,
+#ifdef	ASN_DISABLE_PRINT_SUPPORT
+	0,
+#else
 	OPEN_TYPE_print,
+#endif	/* ASN_DISABLE_PRINT_SUPPORT */
+#ifdef	ASN_DISABLE_COMPARE_SUPPORT
+	0,
+#else
 	OPEN_TYPE_compare,
+#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
 	OPEN_TYPE_decode_ber,
 	OPEN_TYPE_encode_der,
+#ifdef	ASN_DISABLE_XER_SUPPORT
+	0,
+	0,
+#else
 	OPEN_TYPE_decode_xer,
 	OPEN_TYPE_encode_xer,
+#endif	/* ASN_DISABLE_XER_SUPPORT */
 	0, 0,	/* No OER support, use "-gen-OER" to enable */
 #ifdef ASN_DISABLE_PER_SUPPORT
 	0, 0,

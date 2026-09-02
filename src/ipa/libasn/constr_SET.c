@@ -1063,17 +1063,34 @@ SET_compare(const asn_TYPE_descriptor_t *td, const void *aptr,
 
 asn_TYPE_operation_t asn_OP_SET = {
 	SET_free,
+#ifdef	ASN_DISABLE_PRINT_SUPPORT
+	0,
+#else
 	SET_print,
+#endif	/* ASN_DISABLE_PRINT_SUPPORT */
+#ifdef	ASN_DISABLE_COMPARE_SUPPORT
+	0,
+#else
 	SET_compare,
+#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
 	SET_decode_ber,
 	SET_encode_der,
+#ifdef	ASN_DISABLE_XER_SUPPORT
+	0,
+	0,
+#else
 	SET_decode_xer,
 	SET_encode_xer,
+#endif	/* ASN_DISABLE_XER_SUPPORT */
 	0,	/* SET_decode_oer */
 	0,	/* SET_encode_oer */
 	0,	/* SET_decode_uper */
 	0,	/* SET_encode_uper */
+#ifdef	ASN_DISABLE_RFILL_SUPPORT
+	0,
+#else
 	SET_random_fill,
+#endif	/* ASN_DISABLE_RFILL_SUPPORT */
 	0	/* Use generic outmost tag fetcher */
 };
 

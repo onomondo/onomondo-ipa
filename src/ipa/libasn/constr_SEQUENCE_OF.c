@@ -258,12 +258,25 @@ SEQUENCE_OF_compare(const asn_TYPE_descriptor_t *td, const void *aptr,
 
 asn_TYPE_operation_t asn_OP_SEQUENCE_OF = {
 	SEQUENCE_OF_free,
+#ifdef	ASN_DISABLE_PRINT_SUPPORT
+	0,
+#else
 	SEQUENCE_OF_print,
+#endif	/* ASN_DISABLE_PRINT_SUPPORT */
+#ifdef	ASN_DISABLE_COMPARE_SUPPORT
+	0,
+#else
 	SEQUENCE_OF_compare,
+#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
 	SEQUENCE_OF_decode_ber,
 	SEQUENCE_OF_encode_der,
+#ifdef	ASN_DISABLE_XER_SUPPORT
+	0,
+	0,
+#else
 	SEQUENCE_OF_decode_xer,
 	SEQUENCE_OF_encode_xer,
+#endif	/* ASN_DISABLE_XER_SUPPORT */
 #ifdef	ASN_DISABLE_OER_SUPPORT
 	0,
 	0,
@@ -278,7 +291,11 @@ asn_TYPE_operation_t asn_OP_SEQUENCE_OF = {
 	SEQUENCE_OF_decode_uper, /* Same as SET OF decoder */
 	SEQUENCE_OF_encode_uper,
 #endif /* ASN_DISABLE_PER_SUPPORT */
+#ifdef	ASN_DISABLE_RFILL_SUPPORT
+	0,
+#else
 	SEQUENCE_OF_random_fill,
+#endif	/* ASN_DISABLE_RFILL_SUPPORT */
 	0	/* Use generic outmost tag fetcher */
 };
 
