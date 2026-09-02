@@ -35,6 +35,13 @@
 #define MAX_BLOCKSIZE_TX 255
 #define MAX_BLOCKSIZE_RX 256
 
+/* 9000, or 91XX with a proactive command pending, both indicate success (SGP.22, section 5.7.2; ETSI TS 102 221,
+ * section 10.2.1.1). */
+static bool sw_ok(uint16_t sw)
+{
+	return sw == 0x9000 || (sw & 0xff00) == 0x9100;
+}
+
 struct req_apdu {
 	uint8_t cla;
 	uint8_t ins;
@@ -277,10 +284,10 @@ static int euicc_transceive_es10x(struct ipa_context *ctx, struct ipa_buf **es10
 		if (offset >= es10x_req->len)
 			break;
 
-		/* The eUICC should ACK each block with SW=9000, the last block
+		/* The eUICC should ACK each block with SW=9000 (or 91XX), the last block
 		 * be confirmed with 61xx to indicate that response data is
 		 * available */
-		if (sw != 0x9000 && offset < es10x_req->len) {
+		if (!sw_ok(sw) && offset < es10x_req->len) {
 			IPA_LOGP(SEUICC, LERROR, "ES10x transmission aborted early by eUICC, sw=%04x\n", sw);
 			break;
 		}
@@ -296,7 +303,7 @@ static int euicc_transceive_es10x(struct ipa_context *ctx, struct ipa_buf **es10
 
 	/* When the transfer of the ES10x request is done, we expect the eUICC
 	 * to answer with a response. */
-	if (sw == 0x9000) {
+	if (sw_ok(sw)) {
 		IPA_LOGP(SEUICC, LINFO, "ES10x transmission successful, sw=%04x\n", sw);
 		return 0;
 	} else if ((sw & 0xff00) == 0x6100) {
@@ -314,7 +321,7 @@ static int euicc_transceive_es10x(struct ipa_context *ctx, struct ipa_buf **es10
 				return -EIO;
 			block_nr++;
 
-			if (sw == 0x9000) {
+			if (sw_ok(sw)) {
 				IPA_LOGP(SEUICC, LINFO, "ES10x transmission successful, sw=%04x\n", sw);
 				return 0;
 			}
@@ -394,7 +401,7 @@ static int __attribute__((unused)) send_termcap(struct ipa_context *ctx)
 		goto exit;
 	}
 
-	if ((res_apdu.sw & 0xFF00) != 0x9000) {
+	if (!sw_ok(res_apdu.sw)) {
 		IPA_LOGP(SEUICC, LERROR, "failed to send TERMINAL CAPABILITIES, sw=%04x\n", res_apdu.sw);
 		rc = -EINVAL;
 		goto exit;
@@ -514,15 +521,7 @@ static int manage_channel(struct ipa_context *ctx, bool close)
 		goto exit;
 	}
 
-	/* 0x91XX is a SIM Toolkit proactive command notification — it means the SIM has a pending
-	proactive command of XX bytes. Accepting it as "success" for MANAGE CHANNEL means a pending
-	proactive command is silently dropped. On the nRF91, the modem should internally service the
-	FETCH cycle for proactive commands via its own SIM Toolkit stack when using AT+CSIM
-	(since CSIM is not channel-aware and the modem is a T=0 proxy).
-	Whether a dropped proactive command here causes any operational issue depends on modem
-	firmware behaviour. This is worth verifying empirically; if the proactive command is a REFRESH
-	triggered during initialization, silently dropping it may cause a missed reboot signal. */
-	if ((res_apdu.sw) != 0x9000 && res_apdu.sw != 0x910F) {
+	if (!sw_ok(res_apdu.sw)) {
 		IPA_LOGP(SEUICC, LERROR, "failed to %s logical channel %u, sw=%04x\n", close ? "close" : "open",
 			 channel, res_apdu.sw);
 		rc = -EINVAL;
