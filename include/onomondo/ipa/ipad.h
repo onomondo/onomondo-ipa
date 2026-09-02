@@ -72,7 +72,8 @@ struct ipa_config {
 	/*! ID number of the cardreader that interfaces the eUICC */
 	unsigned int reader_num;
 
-	/*! Number of the logical channel that is used to communicate with the ISD-R */
+	/*! Logical channel towards the ISD-R: 0 uses the basic channel, any other value lets the eUICC assign a
+	 *  logical channel (MANAGE CHANNEL, GlobalPlatform Card Specification) */
 	uint8_t euicc_channel;
 
 	/*! Enable IoT eUICC emulation.

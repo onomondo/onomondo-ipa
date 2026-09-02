@@ -46,7 +46,8 @@ static void print_help(void)
 	printf(" -t TAC .............. set TAC (default: %s)\n", DEFAULT_TAC);
 	printf(" -e eimId ............ set preferred eIM (in case the eUICC has multiple)\n");
 	printf(" -r N ................ set reader number (default: %d)\n", DEFAULT_READER_NUMBER);
-	printf(" -c N ................ set logical channel number (default: %d)\n", DEFAULT_CHANNEL_NUMBER);
+	printf(" -c N ................ 0: basic channel, else eUICC-assigned logical channel (default: %d)\n",
+	       DEFAULT_CHANNEL_NUMBER);
 	printf(" -f PATH ............. set initial eIM configuration\n");
 	printf(" -m .................. reset eUICC memory\n");
 	printf(" -n PATH ............. path to nvstate file (default: %s)\n", DEFAULT_NVSTATE_PATH);
