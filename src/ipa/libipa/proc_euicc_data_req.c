@@ -132,7 +132,7 @@ int ipa_proc_euicc_data_req(struct ipa_context *ctx, const struct ipa_proc_euicc
 	if (ipa_tag_in_taglist(0xBF22, tag_list)) {
 		IPA_LOGP(SIPA, LINFO, "eIM asks for eUICCInfo2\n");
 		euicc_info_2 = ipa_es10b_get_euicc_info(ctx, true);
-		if (euicc_info_2 && !euicc_info_2->sgp32_euicc_info_2)
+		if (euicc_info_2 && euicc_info_2->sgp32_euicc_info_2)
 			ipa_euicc_data_response.choice.ipaEuiccData.euiccInfo2 = euicc_info_2->sgp32_euicc_info_2;
 	}
 
