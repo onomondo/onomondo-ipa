@@ -62,7 +62,7 @@ error:
 int eim_pkg_exec(struct ipa_context *ctx, const struct ipa_esipa_get_eim_pkg_res *get_eim_pkg_res)
 {
 	struct ipa_buf *allowed_ca_pkid = NULL;
-	int rc;
+	int rc = -EINVAL;
 
 	if (get_eim_pkg_res->euicc_package_request) {
 		/* This must not happen. The internal logic in ipad_poll must make sure that

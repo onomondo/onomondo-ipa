@@ -1,7 +1,7 @@
 # Copyright (c) 2025 Onomondo ApS & sysmocom - s.f.m.c. GmbH. All rights reserved.
 # SPDX-License-Identifier: AGPL-3.0-only
 
-add_library(libipa STATIC
+set(LIBIPA_SRCS
   activation_code.c
   bpp_segments.c
   es10a_get_euicc_cfg_addr.c
@@ -50,9 +50,19 @@ add_library(libipa STATIC
   utils.c
 )
 
-target_include_directories(libipa PUBLIC ${CMAKE_SOURCE_DIR}/include PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(libipa PUBLIC libasn)
-target_compile_options(libipa PRIVATE -Wall)
-if (M32)
-  set_target_properties(libipa PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
+if(TARGET zephyr_interface)
+  zephyr_library()
+  zephyr_library_sources(${LIBIPA_SRCS})
+  zephyr_library_include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+  # libasn after the system directories: on a case-insensitive filesystem a plain
+  # -I makes <time.h> resolve to the generated Time.h.
+  zephyr_library_compile_options(-idirafter ${CMAKE_CURRENT_SOURCE_DIR}/../libasn)
+else()
+  add_library(libipa STATIC ${LIBIPA_SRCS})
+  target_include_directories(libipa PUBLIC ${CMAKE_SOURCE_DIR}/include PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+  target_link_libraries(libipa PUBLIC libasn)
+  target_compile_options(libipa PRIVATE -Wall)
+  if (M32)
+    set_target_properties(libipa PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
+  endif()
 endif()

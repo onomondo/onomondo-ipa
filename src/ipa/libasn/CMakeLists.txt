@@ -1,5 +1,5 @@
 #CAUTION: autgenerated file, do not change, see regenerate_libasn.sh
-add_library(libasn STATIC
+set(LIBASN_SRCS
 ADFRFMAccess.c
 ADFRFMAccess.h
 ANY.c
@@ -928,19 +928,33 @@ xer_encoder.h
 xer_support.c
 xer_support.h
 )
-target_include_directories(libasn PUBLIC ${CMAKE_SOURCE_DIR}/include PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-# Generated with -no-gen-OER -no-gen-PER: constr_TYPE.h gates the OER
-# declarations behind ASN_DISABLE_OER_SUPPORT; the PER define strips the
-# generated per-type constraint tables. PUBLIC: libipa includes libasn headers.
-target_compile_definitions(libasn PUBLIC ASN_DISABLE_OER_SUPPORT ASN_DISABLE_PER_SUPPORT)
-# Wire codecs (BER/DER) are all the library consumes; XER, compare, random-fill
-# and the constraint-failure message strings (never consumed - no ctfailcb) are
-# compiled out. print_struct is the SHOW_ASN_OUTPUT debug facility.
-target_compile_definitions(libasn PUBLIC ASN_DISABLE_XER_SUPPORT ASN_DISABLE_COMPARE_SUPPORT ASN_DISABLE_RFILL_SUPPORT ASN_DISABLE_CONSTRAINT_MSG)
-if (NOT SHOW_ASN_OUTPUT)
-  target_compile_definitions(libasn PUBLIC ASN_DISABLE_PRINT_SUPPORT)
-endif()
-target_compile_options(libasn PRIVATE -Wall)
-if (M32)
-  set_target_properties(libasn PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
+# libasn after the system directories: on a case-insensitive filesystem a plain -I
+# makes <time.h> resolve to the generated Time.h.
+if(TARGET zephyr_interface)
+  zephyr_library()
+  zephyr_library_sources(${LIBASN_SRCS})
+  zephyr_library_compile_options(-idirafter ${CMAKE_CURRENT_SOURCE_DIR})
+  # Global, not library-scoped: libipa and the platform port include libasn headers.
+  zephyr_compile_definitions(ASN_DISABLE_OER_SUPPORT ASN_DISABLE_PER_SUPPORT)
+  zephyr_compile_definitions(ASN_DISABLE_XER_SUPPORT ASN_DISABLE_COMPARE_SUPPORT ASN_DISABLE_RFILL_SUPPORT ASN_DISABLE_CONSTRAINT_MSG)
+  zephyr_compile_definitions(ASN_DISABLE_PRINT_SUPPORT)
+else()
+  add_library(libasn STATIC ${LIBASN_SRCS})
+  target_include_directories(libasn PUBLIC ${CMAKE_SOURCE_DIR}/include)
+  target_compile_options(libasn PUBLIC -idirafter ${CMAKE_CURRENT_SOURCE_DIR})
+  # Generated with -no-gen-OER -no-gen-PER: constr_TYPE.h gates the OER
+  # declarations behind ASN_DISABLE_OER_SUPPORT; the PER define strips the
+  # generated per-type constraint tables. PUBLIC: libipa includes libasn headers.
+  target_compile_definitions(libasn PUBLIC ASN_DISABLE_OER_SUPPORT ASN_DISABLE_PER_SUPPORT)
+  # Wire codecs (BER/DER) are all the library consumes; XER, compare, random-fill
+  # and the constraint-failure message strings (never consumed - no ctfailcb) are
+  # compiled out. print_struct is the SHOW_ASN_OUTPUT debug facility.
+  target_compile_definitions(libasn PUBLIC ASN_DISABLE_XER_SUPPORT ASN_DISABLE_COMPARE_SUPPORT ASN_DISABLE_RFILL_SUPPORT ASN_DISABLE_CONSTRAINT_MSG)
+  if (NOT SHOW_ASN_OUTPUT)
+    target_compile_definitions(libasn PUBLIC ASN_DISABLE_PRINT_SUPPORT)
+  endif()
+  target_compile_options(libasn PRIVATE -Wall)
+  if (M32)
+    set_target_properties(libasn PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
+  endif()
 endif()
