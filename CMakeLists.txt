@@ -9,6 +9,7 @@ option(SHOW_ASN_OUTPUT "Show ASN.1 decoded output in the log" OFF)
 option(ASN_EMIT_DEBUG "Enable built-in debug output of asn1c" OFF)
 option(MEM_EMIT_DEBUG "Enable debug output for heap memory usage" OFF)
 option(M32 "Compile for 32 bit mode" OFF)
+option(ENABLE_FUZZ "Build tests/fuzz as libFuzzer binaries (clang)" OFF)
 
 if (ENABLE_SANITIZE)
   add_compile_options(-fsanitize=address)

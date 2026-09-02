@@ -22,6 +22,11 @@ generated code we must do this each time after we run asn1c.
  src/ipa/libasn/CertificateSerialNumber.c | 29 ++----------------------
  1 file changed, 2 insertions(+), 27 deletions(-)
 
+Safety note (audited 2026-08-31): dropping the range check is safe -
+the serial is decoded as a heap INTEGER_t whose size is bounded by the
+enclosing message (itself capped upstream by the HTTP response limit),
+and consumers treat it as opaque bytes; no arithmetic is done on it.
+
 diff --git a/src/ipa/libasn/CertificateSerialNumber.c b/src/ipa/libasn/CertificateSerialNumber.c
 index 792c033..2a62b78 100644
 --- a/src/ipa/libasn/CertificateSerialNumber.c

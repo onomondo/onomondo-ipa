@@ -1,0 +1,27 @@
+# Bounded libFuzzer smoke over the BER decoder's externally-reachable roots
+# (eIM responses, eUICC PDUs, profile packages are all remote input).
+name: libasn fuzz smoke
+
+on:
+  pull_request:
+    paths:
+      - 'src/ipa/libasn/**'
+      - 'tests/fuzz/**'
+      - '.github/workflows/fuzz-smoke.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  fuzz:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Build with libFuzzer + ASan
+        run: |
+          cmake -S . -B build -DCMAKE_C_COMPILER=clang -DENABLE_FUZZ=ON
+          cmake --build build -j"$(nproc)" --target fuzz_ber_decode
+      - name: Fuzz (60 s)
+        run: |
+          mkdir -p corpus-work && cp tests/fuzz/corpus/* corpus-work/
+          ./build/tests/fuzz/fuzz_ber_decode -max_total_time=60 -print_final_stats=1 corpus-work
