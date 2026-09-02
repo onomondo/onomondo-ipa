@@ -18,6 +18,10 @@
 #include "utils.h"
 #include "length.h"
 
+#if defined(SHOW_ASN_OUTPUT) && defined(ASN_DISABLE_PRINT_SUPPORT)
+#error "SHOW_ASN_OUTPUT needs libasn print support; do not define ASN_DISABLE_PRINT_SUPPORT with it"
+#endif
+
 /* \! Lookup a numeric value in a num to string map and return the corresponding string.
  *  \param[in] map pointer num to str map.
  *  \param[in] num numeric value of the string to look up.

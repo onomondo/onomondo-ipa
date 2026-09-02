@@ -13,12 +13,25 @@ asn_OCTET_STRING_specifics_t asn_SPC_ANY_specs = {
 };
 asn_TYPE_operation_t asn_OP_ANY = {
 	OCTET_STRING_free,
+#ifdef	ASN_DISABLE_PRINT_SUPPORT
+	0,
+#else
 	OCTET_STRING_print,
+#endif	/* ASN_DISABLE_PRINT_SUPPORT */
+#ifdef	ASN_DISABLE_COMPARE_SUPPORT
+	0,
+#else
 	OCTET_STRING_compare,
+#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
 	OCTET_STRING_decode_ber,
 	OCTET_STRING_encode_der,
+#ifdef	ASN_DISABLE_XER_SUPPORT
+	0,
+	0,
+#else
 	OCTET_STRING_decode_xer_hex,
 	ANY_encode_xer,
+#endif	/* ASN_DISABLE_XER_SUPPORT */
 #ifdef	ASN_DISABLE_OER_SUPPORT
 	0,
 	0,
