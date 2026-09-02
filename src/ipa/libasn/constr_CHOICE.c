@@ -1319,12 +1319,25 @@ CHOICE_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
 
 asn_TYPE_operation_t asn_OP_CHOICE = {
 	CHOICE_free,
+#ifdef	ASN_DISABLE_PRINT_SUPPORT
+	0,
+#else
 	CHOICE_print,
+#endif	/* ASN_DISABLE_PRINT_SUPPORT */
+#ifdef	ASN_DISABLE_COMPARE_SUPPORT
+	0,
+#else
 	CHOICE_compare,
+#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
 	CHOICE_decode_ber,
 	CHOICE_encode_der,
+#ifdef	ASN_DISABLE_XER_SUPPORT
+	0,
+	0,
+#else
 	CHOICE_decode_xer,
 	CHOICE_encode_xer,
+#endif	/* ASN_DISABLE_XER_SUPPORT */
 #ifdef	ASN_DISABLE_OER_SUPPORT
 	0,
 	0,
@@ -1339,6 +1352,10 @@ asn_TYPE_operation_t asn_OP_CHOICE = {
 	CHOICE_decode_uper,
 	CHOICE_encode_uper,
 #endif	/* ASN_DISABLE_PER_SUPPORT */
+#ifdef	ASN_DISABLE_RFILL_SUPPORT
+	0,
+#else
 	CHOICE_random_fill,
+#endif	/* ASN_DISABLE_RFILL_SUPPORT */
 	CHOICE_outmost_tag
 };

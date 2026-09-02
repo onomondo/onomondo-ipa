@@ -1,0 +1,1007 @@
+From: Benjamin Bruun <bb@onomondo.com>
+Subject: [PATCH] skeletons: gate the print/compare/XER/random-fill vtable slots
+
+The generated types reference their codecs only through the asn_OP_*
+vtables, so --gc-sections can drop a whole codec family once its slot
+is null - the same mechanism the OER/PER removal used. New guards:
+ASN_DISABLE_PRINT_SUPPORT, ASN_DISABLE_COMPARE_SUPPORT,
+ASN_DISABLE_XER_SUPPORT, ASN_DISABLE_RFILL_SUPPORT. Function bodies
+stay compiled; unreferenced ones are discarded at link time.
+---
+diff --git a/src/ipa/libasn/ANY.c b/src/ipa/libasn/ANY.c
+--- a/src/ipa/libasn/ANY.c
++++ b/src/ipa/libasn/ANY.c
+@@ -13,12 +13,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_ANY = {
+ 	OCTET_STRING_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	OCTET_STRING_decode_ber,
+ 	OCTET_STRING_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	OCTET_STRING_decode_xer_hex,
+ 	ANY_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+diff --git a/src/ipa/libasn/BIT_STRING.c b/src/ipa/libasn/BIT_STRING.c
+--- a/src/ipa/libasn/BIT_STRING.c
++++ b/src/ipa/libasn/BIT_STRING.c
+@@ -19,12 +19,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_BIT_STRING = {
+ 	OCTET_STRING_free,         /* Implemented in terms of OCTET STRING */
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	BIT_STRING_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	BIT_STRING_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	OCTET_STRING_decode_ber,   /* Implemented in terms of OCTET STRING */
+ 	OCTET_STRING_encode_der,   /* Implemented in terms of OCTET STRING */
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	OCTET_STRING_decode_xer_binary,
+ 	BIT_STRING_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -39,7 +52,11 @@
+ 	BIT_STRING_decode_uper,	/* Unaligned PER decoder */
+ 	BIT_STRING_encode_uper,	/* Unaligned PER encoder */
+ #endif  /* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	BIT_STRING_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_BIT_STRING = {
+diff --git a/src/ipa/libasn/BMPString.c b/src/ipa/libasn/BMPString.c
+--- a/src/ipa/libasn/BMPString.c
++++ b/src/ipa/libasn/BMPString.c
+@@ -25,12 +25,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_BMPString = {
+ 	OCTET_STRING_free,          /* Implemented in terms of OCTET STRING */
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	BMPString_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	OCTET_STRING_decode_ber,
+ 	OCTET_STRING_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	BMPString_decode_xer,		/* Convert from UTF-8 */
+ 	BMPString_encode_xer,		/* Convert to UTF-8 */
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -45,7 +58,11 @@
+ 	OCTET_STRING_decode_uper,
+ 	OCTET_STRING_encode_uper,
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_BMPString = {
+diff --git a/src/ipa/libasn/BOOLEAN.c b/src/ipa/libasn/BOOLEAN.c
+--- a/src/ipa/libasn/BOOLEAN.c
++++ b/src/ipa/libasn/BOOLEAN.c
+@@ -14,12 +14,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_BOOLEAN = {
+ 	BOOLEAN_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	BOOLEAN_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	BOOLEAN_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	BOOLEAN_decode_ber,
+ 	BOOLEAN_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	BOOLEAN_decode_xer,
+ 	BOOLEAN_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -34,7 +47,11 @@
+ 	BOOLEAN_decode_uper,	/* Unaligned PER decoder */
+ 	BOOLEAN_encode_uper,	/* Unaligned PER encoder */
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	BOOLEAN_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_BOOLEAN = {
+diff --git a/src/ipa/libasn/GeneralizedTime.c b/src/ipa/libasn/GeneralizedTime.c
+--- a/src/ipa/libasn/GeneralizedTime.c
++++ b/src/ipa/libasn/GeneralizedTime.c
+@@ -175,12 +175,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_GeneralizedTime = {
+ 	OCTET_STRING_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	GeneralizedTime_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	GeneralizedTime_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	OCTET_STRING_decode_ber,    /* Implemented in terms of OCTET STRING */
+ 	GeneralizedTime_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	OCTET_STRING_decode_xer_utf8,
+ 	GeneralizedTime_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -195,7 +208,11 @@
+ 	OCTET_STRING_decode_uper,
+ 	OCTET_STRING_encode_uper,
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	GeneralizedTime_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_GeneralizedTime = {
+diff --git a/src/ipa/libasn/IA5String.c b/src/ipa/libasn/IA5String.c
+--- a/src/ipa/libasn/IA5String.c
++++ b/src/ipa/libasn/IA5String.c
+@@ -19,12 +19,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_IA5String = {
+ 	OCTET_STRING_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_print_utf8,	/* ASCII subset */
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	OCTET_STRING_decode_ber,    /* Implemented in terms of OCTET STRING */
+ 	OCTET_STRING_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	OCTET_STRING_decode_xer_utf8,
+ 	OCTET_STRING_encode_xer_utf8,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -39,7 +52,11 @@
+ 	OCTET_STRING_decode_uper,
+ 	OCTET_STRING_encode_uper,
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_IA5String = {
+diff --git a/src/ipa/libasn/INTEGER.c b/src/ipa/libasn/INTEGER.c
+--- a/src/ipa/libasn/INTEGER.c
++++ b/src/ipa/libasn/INTEGER.c
+@@ -16,12 +16,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_INTEGER = {
+ 	INTEGER_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	INTEGER_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	INTEGER_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	ber_decode_primitive,
+ 	INTEGER_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	INTEGER_decode_xer,
+ 	INTEGER_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef  ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -36,7 +49,11 @@
+ 	INTEGER_decode_uper,	/* Unaligned PER decoder */
+ 	INTEGER_encode_uper,	/* Unaligned PER encoder */
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	INTEGER_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_INTEGER = {
+diff --git a/src/ipa/libasn/NULL.c b/src/ipa/libasn/NULL.c
+--- a/src/ipa/libasn/NULL.c
++++ b/src/ipa/libasn/NULL.c
+@@ -14,12 +14,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_NULL = {
+ 	NULL_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	NULL_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	NULL_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	NULL_decode_ber,
+ 	NULL_encode_der,	/* Special handling of DER encoding */
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	NULL_decode_xer,
+ 	NULL_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -34,7 +47,11 @@
+ 	NULL_decode_uper,	/* Unaligned PER decoder */
+ 	NULL_encode_uper,	/* Unaligned PER encoder */
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	NULL_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_NULL = {
+diff --git a/src/ipa/libasn/NativeEnumerated.c b/src/ipa/libasn/NativeEnumerated.c
+--- a/src/ipa/libasn/NativeEnumerated.c
++++ b/src/ipa/libasn/NativeEnumerated.c
+@@ -20,12 +20,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_NativeEnumerated = {
+ 	NativeInteger_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	NativeInteger_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	NativeInteger_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	NativeInteger_decode_ber,
+ 	NativeInteger_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	NativeInteger_decode_xer,
+ 	NativeEnumerated_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -40,7 +53,11 @@
+ 	NativeEnumerated_decode_uper,
+ 	NativeEnumerated_encode_uper,
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	NativeEnumerated_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_NativeEnumerated = {
+diff --git a/src/ipa/libasn/NativeInteger.c b/src/ipa/libasn/NativeInteger.c
+--- a/src/ipa/libasn/NativeInteger.c
++++ b/src/ipa/libasn/NativeInteger.c
+@@ -21,12 +21,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_NativeInteger = {
+ 	NativeInteger_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	NativeInteger_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	NativeInteger_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	NativeInteger_decode_ber,
+ 	NativeInteger_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	NativeInteger_decode_xer,
+ 	NativeInteger_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -41,7 +54,11 @@
+ 	NativeInteger_decode_uper,	/* Unaligned PER decoder */
+ 	NativeInteger_encode_uper,	/* Unaligned PER encoder */
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	NativeInteger_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_NativeInteger = {
+diff --git a/src/ipa/libasn/NumericString.c b/src/ipa/libasn/NumericString.c
+--- a/src/ipa/libasn/NumericString.c
++++ b/src/ipa/libasn/NumericString.c
+@@ -39,12 +39,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_NumericString = {
+ 	OCTET_STRING_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_print_utf8,   /* ASCII subset */
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	OCTET_STRING_decode_ber,    /* Implemented in terms of OCTET STRING */
+ 	OCTET_STRING_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	OCTET_STRING_decode_xer_utf8,
+ 	OCTET_STRING_encode_xer_utf8,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -59,7 +72,11 @@
+ 	OCTET_STRING_decode_uper,
+ 	OCTET_STRING_encode_uper,
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_NumericString = {
+diff --git a/src/ipa/libasn/OBJECT_IDENTIFIER.c b/src/ipa/libasn/OBJECT_IDENTIFIER.c
+--- a/src/ipa/libasn/OBJECT_IDENTIFIER.c
++++ b/src/ipa/libasn/OBJECT_IDENTIFIER.c
+@@ -17,12 +17,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_OBJECT_IDENTIFIER = {
+ 	ASN__PRIMITIVE_TYPE_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	OBJECT_IDENTIFIER_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_compare,   /* Implemented in terms of a string comparison */
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	ber_decode_primitive,
+ 	der_encode_primitive,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	OBJECT_IDENTIFIER_decode_xer,
+ 	OBJECT_IDENTIFIER_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -37,7 +50,11 @@
+ 	OCTET_STRING_decode_uper,
+ 	OCTET_STRING_encode_uper,
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	OBJECT_IDENTIFIER_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_OBJECT_IDENTIFIER = {
+diff --git a/src/ipa/libasn/OCTET_STRING.c b/src/ipa/libasn/OCTET_STRING.c
+--- a/src/ipa/libasn/OCTET_STRING.c
++++ b/src/ipa/libasn/OCTET_STRING.c
+@@ -22,12 +22,25 @@
+ 
+ asn_TYPE_operation_t asn_OP_OCTET_STRING = {
+ 	OCTET_STRING_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_print,	/* OCTET STRING generally means a non-ascii sequence */
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	OCTET_STRING_decode_ber,
+ 	OCTET_STRING_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	OCTET_STRING_decode_xer_hex,
+ 	OCTET_STRING_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -42,7 +55,11 @@
+ 	OCTET_STRING_decode_uper,	/* Unaligned PER decoder */
+ 	OCTET_STRING_encode_uper,	/* Unaligned PER encoder */
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_OCTET_STRING = {
+diff --git a/src/ipa/libasn/OPEN_TYPE.c b/src/ipa/libasn/OPEN_TYPE.c
+--- a/src/ipa/libasn/OPEN_TYPE.c
++++ b/src/ipa/libasn/OPEN_TYPE.c
+@@ -10,12 +10,25 @@
+ 
+ asn_TYPE_operation_t asn_OP_OPEN_TYPE = {
+ 	OPEN_TYPE_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	OPEN_TYPE_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	OPEN_TYPE_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	OPEN_TYPE_decode_ber,
+ 	OPEN_TYPE_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	OPEN_TYPE_decode_xer,
+ 	OPEN_TYPE_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ 	0, 0,	/* No OER support, use "-gen-OER" to enable */
+ #ifdef ASN_DISABLE_PER_SUPPORT
+ 	0, 0,
+diff --git a/src/ipa/libasn/PrintableString.c b/src/ipa/libasn/PrintableString.c
+--- a/src/ipa/libasn/PrintableString.c
++++ b/src/ipa/libasn/PrintableString.c
+@@ -49,12 +49,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_PrintableString = {
+ 	OCTET_STRING_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_print_utf8,	/* ASCII subset */
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	OCTET_STRING_decode_ber,      /* Implemented in terms of OCTET STRING */
+ 	OCTET_STRING_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	OCTET_STRING_decode_xer_utf8,
+ 	OCTET_STRING_encode_xer_utf8,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -69,7 +82,11 @@
+ 	OCTET_STRING_decode_uper,
+ 	OCTET_STRING_encode_uper,
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_PrintableString = {
+diff --git a/src/ipa/libasn/TeletexString.c b/src/ipa/libasn/TeletexString.c
+--- a/src/ipa/libasn/TeletexString.c
++++ b/src/ipa/libasn/TeletexString.c
+@@ -14,12 +14,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_TeletexString = {
+ 	OCTET_STRING_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_print,         /* non-ascii string */
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	OCTET_STRING_decode_ber,    /* Implemented in terms of OCTET STRING */
+ 	OCTET_STRING_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	OCTET_STRING_decode_xer_hex,
+ 	OCTET_STRING_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -34,7 +47,11 @@
+ 	OCTET_STRING_decode_uper,
+ 	OCTET_STRING_encode_uper,
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_TeletexString = {
+diff --git a/src/ipa/libasn/UTCTime.c b/src/ipa/libasn/UTCTime.c
+--- a/src/ipa/libasn/UTCTime.c
++++ b/src/ipa/libasn/UTCTime.c
+@@ -30,12 +30,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_UTCTime = {
+ 	OCTET_STRING_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	UTCTime_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	UTCTime_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	OCTET_STRING_decode_ber,    /* Implemented in terms of OCTET STRING */
+ 	OCTET_STRING_encode_der,    /* Implemented in terms of OCTET STRING */
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	OCTET_STRING_decode_xer_utf8,
+ 	UTCTime_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -50,7 +63,11 @@
+ 	OCTET_STRING_decode_uper,
+ 	OCTET_STRING_encode_uper,
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	UTCTime_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_UTCTime = {
+diff --git a/src/ipa/libasn/UTF8String.c b/src/ipa/libasn/UTF8String.c
+--- a/src/ipa/libasn/UTF8String.c
++++ b/src/ipa/libasn/UTF8String.c
+@@ -15,12 +15,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_UTF8String = {
+ 	OCTET_STRING_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	UTF8String_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	OCTET_STRING_decode_ber,    /* Implemented in terms of OCTET STRING */
+ 	OCTET_STRING_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	OCTET_STRING_decode_xer_utf8,
+ 	OCTET_STRING_encode_xer_utf8,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -35,7 +48,11 @@
+ 	OCTET_STRING_decode_uper,
+ 	OCTET_STRING_encode_uper,
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	UTF8String_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_UTF8String = {
+diff --git a/src/ipa/libasn/UniversalString.c b/src/ipa/libasn/UniversalString.c
+--- a/src/ipa/libasn/UniversalString.c
++++ b/src/ipa/libasn/UniversalString.c
+@@ -25,12 +25,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_UniversalString = {
+ 	OCTET_STRING_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	UniversalString_print,      /* Convert into UTF8 and print */
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	OCTET_STRING_decode_ber,
+ 	OCTET_STRING_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	UniversalString_decode_xer,	/* Convert from UTF-8 */
+ 	UniversalString_encode_xer,	/* Convert into UTF-8 */
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -45,7 +58,11 @@
+ 	OCTET_STRING_decode_uper,
+ 	OCTET_STRING_encode_uper,
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_UniversalString = {
+diff --git a/src/ipa/libasn/VisibleString.c b/src/ipa/libasn/VisibleString.c
+--- a/src/ipa/libasn/VisibleString.c
++++ b/src/ipa/libasn/VisibleString.c
+@@ -19,12 +19,25 @@
+ };
+ asn_TYPE_operation_t asn_OP_VisibleString = {
+ 	OCTET_STRING_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_print_utf8,   /* ASCII subset */
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	OCTET_STRING_decode_ber,    /* Implemented in terms of OCTET STRING */
+ 	OCTET_STRING_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	OCTET_STRING_decode_xer_utf8,
+ 	OCTET_STRING_encode_xer_utf8,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -39,7 +52,11 @@
+ 	OCTET_STRING_decode_uper,
+ 	OCTET_STRING_encode_uper,
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	OCTET_STRING_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_VisibleString = {
+diff --git a/src/ipa/libasn/constr_CHOICE.c b/src/ipa/libasn/constr_CHOICE.c
+--- a/src/ipa/libasn/constr_CHOICE.c
++++ b/src/ipa/libasn/constr_CHOICE.c
+@@ -1319,12 +1319,25 @@
+ 
+ asn_TYPE_operation_t asn_OP_CHOICE = {
+ 	CHOICE_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	CHOICE_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	CHOICE_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	CHOICE_decode_ber,
+ 	CHOICE_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	CHOICE_decode_xer,
+ 	CHOICE_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -1339,6 +1352,10 @@
+ 	CHOICE_decode_uper,
+ 	CHOICE_encode_uper,
+ #endif	/* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	CHOICE_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	CHOICE_outmost_tag
+ };
+diff --git a/src/ipa/libasn/constr_SEQUENCE.c b/src/ipa/libasn/constr_SEQUENCE.c
+--- a/src/ipa/libasn/constr_SEQUENCE.c
++++ b/src/ipa/libasn/constr_SEQUENCE.c
+@@ -1532,12 +1532,25 @@
+ 
+ asn_TYPE_operation_t asn_OP_SEQUENCE = {
+ 	SEQUENCE_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	SEQUENCE_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	SEQUENCE_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	SEQUENCE_decode_ber,
+ 	SEQUENCE_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	SEQUENCE_decode_xer,
+ 	SEQUENCE_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -1552,7 +1565,11 @@
+ 	SEQUENCE_decode_uper,
+ 	SEQUENCE_encode_uper,
+ #endif /* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	SEQUENCE_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ 
+diff --git a/src/ipa/libasn/constr_SEQUENCE_OF.c b/src/ipa/libasn/constr_SEQUENCE_OF.c
+--- a/src/ipa/libasn/constr_SEQUENCE_OF.c
++++ b/src/ipa/libasn/constr_SEQUENCE_OF.c
+@@ -258,12 +258,25 @@
+ 
+ asn_TYPE_operation_t asn_OP_SEQUENCE_OF = {
+ 	SEQUENCE_OF_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	SEQUENCE_OF_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	SEQUENCE_OF_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	SEQUENCE_OF_decode_ber,
+ 	SEQUENCE_OF_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	SEQUENCE_OF_decode_xer,
+ 	SEQUENCE_OF_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef	ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -278,7 +291,11 @@
+ 	SEQUENCE_OF_decode_uper, /* Same as SET OF decoder */
+ 	SEQUENCE_OF_encode_uper,
+ #endif /* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	SEQUENCE_OF_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ 
+diff --git a/src/ipa/libasn/constr_SET.c b/src/ipa/libasn/constr_SET.c
+--- a/src/ipa/libasn/constr_SET.c
++++ b/src/ipa/libasn/constr_SET.c
+@@ -1063,17 +1063,34 @@
+ 
+ asn_TYPE_operation_t asn_OP_SET = {
+ 	SET_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	SET_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	SET_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	SET_decode_ber,
+ 	SET_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	SET_decode_xer,
+ 	SET_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ 	0,	/* SET_decode_oer */
+ 	0,	/* SET_encode_oer */
+ 	0,	/* SET_decode_uper */
+ 	0,	/* SET_encode_uper */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	SET_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ 
+diff --git a/src/ipa/libasn/constr_SET_OF.c b/src/ipa/libasn/constr_SET_OF.c
+--- a/src/ipa/libasn/constr_SET_OF.c
++++ b/src/ipa/libasn/constr_SET_OF.c
+@@ -1182,12 +1182,25 @@
+ 
+ asn_TYPE_operation_t asn_OP_SET_OF = {
+ 	SET_OF_free,
++#ifdef	ASN_DISABLE_PRINT_SUPPORT
++	0,
++#else
+ 	SET_OF_print,
++#endif	/* ASN_DISABLE_PRINT_SUPPORT */
++#ifdef	ASN_DISABLE_COMPARE_SUPPORT
++	0,
++#else
+ 	SET_OF_compare,
++#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
+ 	SET_OF_decode_ber,
+ 	SET_OF_encode_der,
++#ifdef	ASN_DISABLE_XER_SUPPORT
++	0,
++	0,
++#else
+ 	SET_OF_decode_xer,
+ 	SET_OF_encode_xer,
++#endif	/* ASN_DISABLE_XER_SUPPORT */
+ #ifdef ASN_DISABLE_OER_SUPPORT
+ 	0,
+ 	0,
+@@ -1202,7 +1215,11 @@
+ 	SET_OF_decode_uper,
+ 	SET_OF_encode_uper,
+ #endif /* ASN_DISABLE_PER_SUPPORT */
++#ifdef	ASN_DISABLE_RFILL_SUPPORT
++	0,
++#else
+ 	SET_OF_random_fill,
++#endif	/* ASN_DISABLE_RFILL_SUPPORT */
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ 
