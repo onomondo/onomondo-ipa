@@ -81,7 +81,8 @@ see also GCC manual, section 3.19.54 x86 Options.
 
 libasn is generated without OER/PER support (see `asn1/regenerate_libasn.sh`). Code that includes its
 headers must define `ASN_DISABLE_OER_SUPPORT` and `ASN_DISABLE_PER_SUPPORT`; the `libasn` CMake target
-exports both, so linking it is enough.
+exports both, so linking it is enough. It is also generated with `-fno-constraints`: no constraint-checking
+code exists and `asn_check_constraints()` must not be called; libipa validates the sizes it relies on itself.
 
 
 Usage

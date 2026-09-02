@@ -12,7 +12,11 @@ rm -f *.h
 # X.691/X.696. The codecs hang off the per-type vtables and the tables off the
 # descriptors, so --gc-sections cannot drop them: 21.4 kB of dead device flash.
 # XER/print stay: host debug tooling (SHOW_ASN_OUTPUT) uses them.
-asn1c -fcompound-names -no-gen-example -no-gen-OER -no-gen-PER \
+# -fno-constraints: nothing calls asn_check_constraints(); BER decode and DER
+# encode never run the constraint functions, only the PER/OER codecs (no longer
+# generated) did. The generated bodies were dead code the linker kept through
+# the descriptors' general_constraints slots, which are now 0.
+asn1c -fcompound-names -no-gen-example -no-gen-OER -no-gen-PER -fno-constraints \
       ../../../asn1/PKIX1Explicit88.asn \
       ../../../asn1/PKIX1Implicit88.asn \
       ../../../asn1/PEDefinitions.asn \
@@ -40,5 +44,4 @@ echo 'endif()' >> CMakeLists.txt
 
 # Re-apply patches to generated sourcecode
 cd ../../../
-patch -p1 < ./asn1/0001-PKIX1Explicit88-remove-broken-constraint-check-in-Ce.patch
 patch -p1 < ./asn1/0001-asn_internal-use-custom-memory-allocator-functions.patch
