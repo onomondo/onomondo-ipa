@@ -47,6 +47,9 @@ struct ipa_context {
 	/*! sub-context of the smartcard connection towards the eUICC, */
 	void *scard_ctx;
 
+	/*! logical channel assigned by the eUICC in ipa_euicc_init_es10x (0 = basic channel) */
+	uint8_t channel;
+
 	/*! cached eID (read from eUICC when ipa_init is called) */
 	uint8_t eid[IPA_LEN_EID];
 

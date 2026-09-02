@@ -126,7 +126,7 @@ static int send_es10x_block(struct ipa_context *ctx, uint16_t *sw, const struct 
 	struct res_apdu res_apdu = { 0 };
 	struct ipa_buf *buf_req = NULL;
 	struct ipa_buf *buf_res = NULL;
-	uint8_t channel = ctx->cfg->euicc_channel;
+	uint8_t channel = ctx->channel;
 
 	buf_res = ipa_buf_alloc(MAX_BLOCKSIZE_TX + 2);
 	assert(buf_res);
@@ -184,7 +184,7 @@ static int recv_es10x_block(struct ipa_context *ctx, uint16_t *sw, struct ipa_bu
 	struct res_apdu res_apdu = { 0 };
 	struct ipa_buf *buf_req = NULL;
 	struct ipa_buf *buf_res = NULL;
-	uint8_t channel = ctx->cfg->euicc_channel;
+	uint8_t channel = ctx->channel;
 	struct ipa_buf *es10x_res_ptr = *es10x_res;
 	size_t realloc_size;
 
@@ -425,7 +425,7 @@ static int select_isd_r(struct ipa_context *ctx)
 	struct res_apdu res_apdu = { 0 };
 	struct ipa_buf *buf_req = NULL;
 	struct ipa_buf *buf_res = NULL;
-	uint8_t channel = ctx->cfg->euicc_channel;
+	uint8_t channel = ctx->channel;
 
 	/* We only support channel 0-3 */
 	assert(channel <= 3);
@@ -478,36 +478,39 @@ static int manage_channel(struct ipa_context *ctx, bool close)
 	struct res_apdu res_apdu = { 0 };
 	struct ipa_buf *buf_req = NULL;
 	struct ipa_buf *buf_res = NULL;
-	uint8_t channel = ctx->cfg->euicc_channel;
+	const char *verb = close ? "close" : "open";
 
-	/* We only support channel 0-3 */
-	assert(channel <= 3);
-
-	if (channel == 0) {
-		IPA_LOGP(SEUICC, LINFO, "using basic logical channel %u, no need to %s a channel\n", channel,
-			 close ? "close" : "open");
+	if (ctx->cfg->euicc_channel == 0) {
+		IPA_LOGP(SEUICC, LINFO, "using the basic logical channel, no need to %s a channel\n", verb);
+		ctx->channel = 0;
 		return 0;
 	}
+
+	if (close && ctx->channel == 0)
+		return 0;
 
 	buf_res = ipa_buf_alloc(MAX_BLOCKSIZE_RX + 2);
 	assert(buf_res);
 
-	/* MANAGE CHANNEL */
+	/* MANAGE CHANNEL (GlobalPlatform Card Specification, section 11.7): open lets the eUICC assign the channel
+	 * and returns its number in one byte, close names the channel in P2. */
 	req_apdu.cla = MANAGE_CHANNEL_CLA;
 	req_apdu.ins = MANAGE_CHANNEL_INS;
-	if (close)
+	if (close) {
 		req_apdu.p1 = 0x80;
-	else
+		req_apdu.p2 = ctx->channel;
+		req_apdu.le = 0;
+	} else {
 		req_apdu.p1 = 0x00;
-	req_apdu.p2 = channel;
+		req_apdu.p2 = 0x00;
+		req_apdu.le = 1;
+	}
 	req_apdu.lc = 0;
-	req_apdu.le = 0;
 	buf_req = format_req_apdu(&req_apdu);
 
 	rc = ipa_scard_transceive(ctx->scard_ctx, buf_res, buf_req);
 	if (rc < 0) {
-		IPA_LOGP(SEUICC, LERROR, "unable %s logical channel %u due to communication error with eUICC\n",
-			 close ? "close" : "open", channel);
+		IPA_LOGP(SEUICC, LERROR, "unable to %s logical channel due to communication error with eUICC\n", verb);
 		ctx->check_scard = true;
 		rc = -EIO;
 		goto exit;
@@ -515,20 +518,32 @@ static int manage_channel(struct ipa_context *ctx, bool close)
 
 	rc = parse_res_apdu(&res_apdu, buf_res);
 	if (rc < 0) {
-		IPA_LOGP(SEUICC, LERROR, "invalid response from eUICC, cannot %s logical channel %u\n",
-			 close ? "close" : "open", channel);
+		IPA_LOGP(SEUICC, LERROR, "invalid response from eUICC, cannot %s logical channel\n", verb);
 		rc = -EINVAL;
 		goto exit;
 	}
 
 	if (!sw_ok(res_apdu.sw)) {
-		IPA_LOGP(SEUICC, LERROR, "failed to %s logical channel %u, sw=%04x\n", close ? "close" : "open",
-			 channel, res_apdu.sw);
+		IPA_LOGP(SEUICC, LERROR, "failed to %s logical channel, sw=%04x\n", verb, res_apdu.sw);
 		rc = -EINVAL;
 		goto exit;
 	}
 
-	IPA_LOGP(SEUICC, LINFO, "logical channel %u %s\n", channel, close ? "closed" : "opened");
+	if (close) {
+		IPA_LOGP(SEUICC, LINFO, "logical channel %u closed\n", ctx->channel);
+		ctx->channel = 0;
+		goto exit;
+	}
+
+	/* The short CLA encoding used here carries channels 0-3 (ISO/IEC 7816-4, section 5.1.1) */
+	if (res_apdu.le != 1 || res_apdu.data[0] == 0 || res_apdu.data[0] > 3) {
+		IPA_LOGP(SEUICC, LERROR, "eUICC assigned an unusable logical channel (%u response bytes, channel %u)\n",
+			 res_apdu.le, res_apdu.data[0]);
+		rc = -EINVAL;
+		goto exit;
+	}
+	ctx->channel = res_apdu.data[0];
+	IPA_LOGP(SEUICC, LINFO, "logical channel %u opened\n", ctx->channel);
 exit:
 	IPA_FREE(buf_req);
 	IPA_FREE(buf_res);
