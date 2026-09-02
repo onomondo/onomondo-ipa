@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
+#include <errno.h>
 #include <onomondo/ipa/mem.h>
 #include <onomondo/ipa/http.h>
 #include <onomondo/ipa/scard.h>
@@ -139,6 +140,13 @@ int eim_init(struct ipa_context *ctx)
 	struct ipa_es10b_eim_cfg_data *eim_cfg_data = NULL;
 	struct EimConfigurationData *eim_cfg_data_item = NULL;
 
+	/* Callers may retry after a failed attempt; drop any cached values so the
+	 * reassignment below cannot leak them (freed again in ipa_free_ctx). */
+	IPA_FREE(ctx->eim_id);
+	ctx->eim_id = NULL;
+	IPA_FREE(ctx->eim_fqdn);
+	ctx->eim_fqdn = NULL;
+
 	eim_cfg_data = ipa_es10b_get_eim_cfg_data(ctx);
 	if (!eim_cfg_data) {
 		IPA_LOGP(SIPA, LERROR, "cannot read EimConfigurationData from eUICC\n");
@@ -158,7 +166,13 @@ int eim_init(struct ipa_context *ctx)
 
 	if (eim_cfg_data_item->eimFqdn)
 		ctx->eim_fqdn = IPA_STR_FROM_ASN(eim_cfg_data_item->eimFqdn);
+	else if (eim_cfg_data_item->eimIdType && *eim_cfg_data_item->eimIdType == EimIdType_eimIdTypeFqdn)
+		/* SGP.32 2.11.1.1: when eimIdType is eimIdTypeFqdn the eimId is the FQDN and
+		 * eimFqdn SHALL NOT be provided (to avoid redundancy), so reuse the eimId. */
+		ctx->eim_fqdn = IPA_STR_FROM_ASN(&eim_cfg_data_item->eimId);
 	else
+		goto error;
+	if (!ctx->eim_fqdn)
 		goto error;
 
 	ipa_es10b_get_eim_cfg_data_free(eim_cfg_data);
@@ -218,6 +232,7 @@ int ipa_init(struct ipa_context *ctx)
 int ipa_add_init_eim_cfg(struct ipa_context *ctx, struct ipa_buf *cfg)
 {
 	asn_dec_rval_t rc;
+	long err;
 	struct AddInitialEimRequest *eim_cfg_decoded = NULL;
 	struct ipa_es10b_add_init_eim_req add_init_eim_req = { 0 };
 	struct ipa_es10b_add_init_eim_res *add_init_eim_res = NULL;
@@ -240,10 +255,18 @@ int ipa_add_init_eim_cfg(struct ipa_context *ctx, struct ipa_buf *cfg)
 	/* Call ES10b function AddInitialEim */
 	add_init_eim_req.req = *eim_cfg_decoded;
 	add_init_eim_res = ipa_es10b_add_init_eim(ctx, &add_init_eim_req);
-
-	ipa_es10b_add_init_eim_res_free(add_init_eim_res);
 	ASN_STRUCT_FREE(asn_DEF_AddInitialEimRequest, eim_cfg_decoded);
-	return 0;
+
+	if (!add_init_eim_res) {
+		IPA_LOGP(SIPA, LERROR, "AddInitialEim failed: no response from eUICC\n");
+		return -EIO;
+	}
+
+	/* dec_add_init_eim_res() already logged the specific SGP.32 error; no caller
+	 * branches on the value, so a nonzero code just means the card rejected the seed. */
+	err = add_init_eim_res->add_init_eim_err;
+	ipa_es10b_add_init_eim_res_free(add_init_eim_res);
+	return err ? -EIO : 0;
 }
 
 /*! reset memory of the eUICC (eUICCMemoryReset).
