@@ -75,8 +75,16 @@ typedef	unsigned int	uint32_t;
 #else	/* !defined(__vxworks) */
 
 #include <inttypes.h>	/* C99 specifies this file */
+#ifdef __ZEPHYR__
+/* No netinet/in.h on Zephyr. */
+static inline uint32_t sys_ntohl(uint32_t l) {
+	return ((l << 24) & 0xff000000u) | ((l << 8) & 0x00ff0000u)
+	     | ((l >> 8) & 0x0000ff00u) | ((l >> 24) & 0x000000ffu);
+}
+#else
 #include <netinet/in.h> /* for ntohl() */
 #define	sys_ntohl(foo)	ntohl(foo)
+#endif
 #endif	/* defined(__vxworks) */
 
 #endif	/* _WIN32 */
@@ -103,7 +111,7 @@ typedef	unsigned int	uint32_t;
 
 #ifndef	MIN		/* Suitable for comparing primitive types (integers) */
 #if defined(__GNUC__)
-#define	MIN(a,b)	({ __typeof a _a = a; __typeof b _b = b;	\
+#define	MIN(a,b)	({ __typeof__(a) _a = (a); __typeof__(b) _b = (b);	\
 	((_a)<(_b)?(_a):(_b)); })
 #else	/* !__GNUC__ */
 #define	MIN(a,b)	((a)<(b)?(a):(b))	/* Unsafe variant */

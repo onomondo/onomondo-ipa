@@ -991,8 +991,11 @@ asn_imax2INTEGER(INTEGER_t *st, intmax_t value) {
 		break;
 	}
 	/* Copy the integer body */
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Warray-bounds"
 	for(bp = buf, pend1 += add; p != pend1; p += add)
 		*bp++ = *p;
+#pragma GCC diagnostic pop
 
 	if(st->buf) FREEMEM(st->buf);
 	st->buf = buf;

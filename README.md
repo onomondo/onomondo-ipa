@@ -88,6 +88,18 @@ hand should define the same set. libasn is also generated with `-fno-constraints
 code exists and `asn_check_constraints()` must not be called; libipa validates the sizes it relies on itself.
 
 
+Building as a Zephyr module
+----------------------------
+
+This tree also builds as a library inside a Zephyr application that
+`add_subdirectory()`s it, detected through the presence of the `zephyr_interface`
+target. In that mode, libasn and libipa are registered as Zephyr libraries with
+the same codec definitions as the native build described above; the host
+http/scard implementations, the CLI (`main.c`) and the tests are skipped, since
+a Zephyr platform port supplies `ipa_http_*`/`ipa_scard_*` itself and may also
+override the weak `ipa_port_*` allocator functions. The parent application
+gates inclusion of the sources behind `CONFIG_ONOMONDO_IPA`.
+
 Usage
 -----
 
