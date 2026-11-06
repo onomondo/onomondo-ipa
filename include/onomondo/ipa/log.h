@@ -9,13 +9,21 @@
 #include <stdio.h>
 #include <stdint.h>
 
+/* Calls above this level (-1: all) are compiled out with their strings. */
+#ifndef IPA_LOG_MAX_LEVEL
+#define IPA_LOG_MAX_LEVEL LDEBUG
+#endif
+
 /*! macro to print a log line.
  *  \param[in] subsys log subsystem identifier.
  *  \param[in] level log level identifier.
  *  \param[in] fmt formtstring.
  *  \param[in] args formatstring arguments. */
 #define IPA_LOGP(subsys, level, fmt, args...) \
-	ipa_logp(subsys, level, __FILE__, __LINE__, fmt, ## args)
+	do { \
+		if ((int)(level) <= IPA_LOG_MAX_LEVEL) \
+			ipa_logp(subsys, level, "", 0, fmt, ## args); \
+	} while (0)
 
 void ipa_logp(uint32_t subsys, uint32_t level, const char *file, int line,
 	      const char *format, ...)
