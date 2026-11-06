@@ -411,10 +411,12 @@ static size_t parse_btlv_hdr(size_t *len, uint16_t *tag, uint8_t *data, size_t d
 	size_t skip_len = 0;
 	unsigned int i;
 
-	/* decode tag */
+	/* decode tag; a header also needs at least one length byte */
+	if (data_len < 2)
+		return 0;
 	if ((*data & 0x1f) == 0x1f)
 		tag_len = 2;
-	if (data_len < tag_len)
+	if (data_len <= tag_len)
 		return 0;
 	if (tag && tag_len == 1) {
 		*tag = *data;
