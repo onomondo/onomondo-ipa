@@ -55,8 +55,7 @@ asn_TYPE_operation_t asn_OP_BOOLEAN = {
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_BOOLEAN = {
-	"BOOLEAN",
-	"BOOLEAN",
+	ASN_TYPE_NAME("BOOLEAN")
 	&asn_OP_BOOLEAN,
 	asn_DEF_BOOLEAN_tags,
 	sizeof(asn_DEF_BOOLEAN_tags) / sizeof(asn_DEF_BOOLEAN_tags[0]),

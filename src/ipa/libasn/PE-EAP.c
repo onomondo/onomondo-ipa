@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PE_EAP_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eap-header")
+		ASN_MEMBER_NAME("eap-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_EAP, templateID),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PE_EAP_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("templateID")
+		ASN_MEMBER_NAME("templateID")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_EAP, df_eap),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_PE_EAP_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("df-eap")
+		ASN_MEMBER_NAME("df-eap")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_EAP, ef_eapkeys),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_PE_EAP_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-eapkeys")
+		ASN_MEMBER_NAME("ef-eapkeys")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_EAP, ef_eapstatus),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_PE_EAP_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-eapstatus")
+		ASN_MEMBER_NAME("ef-eapstatus")
 		},
 	{ ATF_POINTER, 5, offsetof(struct PE_EAP, ef_puid),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_PE_EAP_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-puid")
+		ASN_MEMBER_NAME("ef-puid")
 		},
 	{ ATF_POINTER, 4, offsetof(struct PE_EAP, ef_ps),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_PE_EAP_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-ps")
+		ASN_MEMBER_NAME("ef-ps")
 		},
 	{ ATF_POINTER, 3, offsetof(struct PE_EAP, ef_curid),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_PE_EAP_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-curid")
+		ASN_MEMBER_NAME("ef-curid")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PE_EAP, ef_reid),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_PE_EAP_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-reid")
+		ASN_MEMBER_NAME("ef-reid")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_EAP, ef_realm),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
@@ -96,7 +96,7 @@ asn_TYPE_member_t asn_MBR_PE_EAP_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-realm")
+		ASN_MEMBER_NAME("ef-realm")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_EAP_tags_1[] = {
@@ -123,8 +123,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_EAP_specs_1 = {
 	10,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_EAP = {
-	ASN_NAME("PE-EAP"),
-	ASN_NAME("PE-EAP"),
+	ASN_TYPE_NAME("PE-EAP")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_EAP_tags_1,
 	sizeof(asn_DEF_PE_EAP_tags_1)

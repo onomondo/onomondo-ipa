@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_ControlRefTemplate_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("keyType")
+		ASN_MEMBER_NAME("keyType")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ControlRefTemplate, keyLen),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_ControlRefTemplate_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("keyLen")
+		ASN_MEMBER_NAME("keyLen")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ControlRefTemplate, hostId),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_ControlRefTemplate_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("hostId")
+		ASN_MEMBER_NAME("hostId")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ControlRefTemplate_tags_1[] = {
@@ -53,8 +53,7 @@ asn_SEQUENCE_specifics_t asn_SPC_ControlRefTemplate_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ControlRefTemplate = {
-	ASN_NAME("ControlRefTemplate"),
-	ASN_NAME("ControlRefTemplate"),
+	ASN_TYPE_NAME("ControlRefTemplate")
 	&asn_OP_SEQUENCE,
 	asn_DEF_ControlRefTemplate_tags_1,
 	sizeof(asn_DEF_ControlRefTemplate_tags_1)

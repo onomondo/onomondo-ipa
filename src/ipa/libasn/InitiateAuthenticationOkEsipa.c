@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationOkEsipa_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("transactionId")
+		ASN_MEMBER_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct InitiateAuthenticationOkEsipa, serverSigned1),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationOkEsipa_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("serverSigned1")
+		ASN_MEMBER_NAME("serverSigned1")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct InitiateAuthenticationOkEsipa, serverSignature1),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationOkEsipa_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("serverSignature1")
+		ASN_MEMBER_NAME("serverSignature1")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct InitiateAuthenticationOkEsipa, euiccCiPKIdentifierToBeUsed),
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationOkEsipa_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccCiPKIdentifierToBeUsed")
+		ASN_MEMBER_NAME("euiccCiPKIdentifierToBeUsed")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct InitiateAuthenticationOkEsipa, serverCertificate),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationOkEsipa_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("serverCertificate")
+		ASN_MEMBER_NAME("serverCertificate")
 		},
 	{ ATF_POINTER, 2, offsetof(struct InitiateAuthenticationOkEsipa, matchingId),
 		(ASN_TAG_CLASS_UNIVERSAL | (12 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationOkEsipa_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("matchingId")
+		ASN_MEMBER_NAME("matchingId")
 		},
 	{ ATF_POINTER, 1, offsetof(struct InitiateAuthenticationOkEsipa, ctxParams1),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationOkEsipa_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ctxParams1")
+		ASN_MEMBER_NAME("ctxParams1")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_InitiateAuthenticationOkEsipa_tags_1[] = {
@@ -93,8 +93,7 @@ asn_SEQUENCE_specifics_t asn_SPC_InitiateAuthenticationOkEsipa_specs_1 = {
 	7,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_InitiateAuthenticationOkEsipa = {
-	ASN_NAME("InitiateAuthenticationOkEsipa"),
-	ASN_NAME("InitiateAuthenticationOkEsipa"),
+	ASN_TYPE_NAME("InitiateAuthenticationOkEsipa")
 	&asn_OP_SEQUENCE,
 	asn_DEF_InitiateAuthenticationOkEsipa_tags_1,
 	sizeof(asn_DEF_InitiateAuthenticationOkEsipa_tags_1)

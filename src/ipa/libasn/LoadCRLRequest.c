@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_LoadCRLRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("crl")
+		ASN_MEMBER_NAME("crl")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_LoadCRLRequest_tags_1[] = {
@@ -34,8 +34,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_LoadCRLRequest_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_LoadCRLRequest = {
-	ASN_NAME("LoadCRLRequest"),
-	ASN_NAME("LoadCRLRequest"),
+	ASN_TYPE_NAME("LoadCRLRequest")
 	&asn_OP_SEQUENCE,
 	asn_DEF_LoadCRLRequest_tags_1,
 	sizeof(asn_DEF_LoadCRLRequest_tags_1)

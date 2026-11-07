@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CompactCancelSessionResponseOk_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("compactEuiccCancelSessionSigned")
+		ASN_MEMBER_NAME("compactEuiccCancelSessionSigned")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CompactCancelSessionResponseOk, euiccCancelSessionSignature),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_CompactCancelSessionResponseOk_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccCancelSessionSignature")
+		ASN_MEMBER_NAME("euiccCancelSessionSignature")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CompactCancelSessionResponseOk_tags_1[] = {
@@ -43,8 +43,7 @@ asn_SEQUENCE_specifics_t asn_SPC_CompactCancelSessionResponseOk_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CompactCancelSessionResponseOk = {
-	ASN_NAME("CompactCancelSessionResponseOk"),
-	ASN_NAME("CompactCancelSessionResponseOk"),
+	ASN_TYPE_NAME("CompactCancelSessionResponseOk")
 	&asn_OP_SEQUENCE,
 	asn_DEF_CompactCancelSessionResponseOk_tags_1,
 	sizeof(asn_DEF_CompactCancelSessionResponseOk_tags_1)

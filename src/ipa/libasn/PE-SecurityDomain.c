@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_keyList_4[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_keyList_tags_4[] = {
@@ -29,8 +29,7 @@ static asn_SET_OF_specifics_t asn_SPC_keyList_specs_4 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_keyList_4 = {
-	ASN_NAME("keyList"),
-	ASN_NAME("keyList"),
+	ASN_TYPE_NAME("keyList")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_keyList_tags_4,
 	sizeof(asn_DEF_keyList_tags_4)
@@ -52,7 +51,7 @@ static asn_TYPE_member_t asn_MBR_sdPersoData_6[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_sdPersoData_tags_6[] = {
@@ -66,8 +65,7 @@ static asn_SET_OF_specifics_t asn_SPC_sdPersoData_specs_6 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_sdPersoData_6 = {
-	ASN_NAME("sdPersoData"),
-	ASN_NAME("sdPersoData"),
+	ASN_TYPE_NAME("sdPersoData")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_sdPersoData_tags_6,
 	sizeof(asn_DEF_sdPersoData_tags_6)
@@ -89,7 +87,7 @@ static asn_TYPE_member_t asn_MBR_openPersoData_8[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("restrictParameter")
+		ASN_MEMBER_NAME("restrictParameter")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_SecurityDomain__openPersoData, contactlessProtocolParameters),
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
@@ -98,7 +96,7 @@ static asn_TYPE_member_t asn_MBR_openPersoData_8[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("contactlessProtocolParameters")
+		ASN_MEMBER_NAME("contactlessProtocolParameters")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_openPersoData_tags_8[] = {
@@ -119,8 +117,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_openPersoData_specs_8 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_openPersoData_8 = {
-	ASN_NAME("openPersoData"),
-	ASN_NAME("openPersoData"),
+	ASN_TYPE_NAME("openPersoData")
 	&asn_OP_SEQUENCE,
 	asn_DEF_openPersoData_tags_8,
 	sizeof(asn_DEF_openPersoData_tags_8)
@@ -142,7 +139,7 @@ static asn_TYPE_member_t asn_MBR_catTpParameters_12[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("catTpMaxSduSize")
+		ASN_MEMBER_NAME("catTpMaxSduSize")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_SecurityDomain__catTpParameters, catTpMaxPduSize),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -151,7 +148,7 @@ static asn_TYPE_member_t asn_MBR_catTpParameters_12[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("catTpMaxPduSize")
+		ASN_MEMBER_NAME("catTpMaxPduSize")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_catTpParameters_tags_12[] = {
@@ -172,8 +169,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_catTpParameters_specs_12 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_catTpParameters_12 = {
-	ASN_NAME("catTpParameters"),
-	ASN_NAME("catTpParameters"),
+	ASN_TYPE_NAME("catTpParameters")
 	&asn_OP_SEQUENCE,
 	asn_DEF_catTpParameters_tags_12,
 	sizeof(asn_DEF_catTpParameters_tags_12)
@@ -195,7 +191,7 @@ asn_TYPE_member_t asn_MBR_PE_SecurityDomain_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("sd-Header")
+		ASN_MEMBER_NAME("sd-Header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_SecurityDomain, instance),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -204,7 +200,7 @@ asn_TYPE_member_t asn_MBR_PE_SecurityDomain_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("instance")
+		ASN_MEMBER_NAME("instance")
 		},
 	{ ATF_POINTER, 4, offsetof(struct PE_SecurityDomain, keyList),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -213,7 +209,7 @@ asn_TYPE_member_t asn_MBR_PE_SecurityDomain_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("keyList")
+		ASN_MEMBER_NAME("keyList")
 		},
 	{ ATF_POINTER, 3, offsetof(struct PE_SecurityDomain, sdPersoData),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -222,7 +218,7 @@ asn_TYPE_member_t asn_MBR_PE_SecurityDomain_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("sdPersoData")
+		ASN_MEMBER_NAME("sdPersoData")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PE_SecurityDomain, openPersoData),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -231,7 +227,7 @@ asn_TYPE_member_t asn_MBR_PE_SecurityDomain_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("openPersoData")
+		ASN_MEMBER_NAME("openPersoData")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_SecurityDomain, catTpParameters),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -240,7 +236,7 @@ asn_TYPE_member_t asn_MBR_PE_SecurityDomain_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("catTpParameters")
+		ASN_MEMBER_NAME("catTpParameters")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_SecurityDomain_tags_1[] = {
@@ -263,8 +259,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_SecurityDomain_specs_1 = {
 	6,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_SecurityDomain = {
-	ASN_NAME("PE-SecurityDomain"),
-	ASN_NAME("PE-SecurityDomain"),
+	ASN_TYPE_NAME("PE-SecurityDomain")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_SecurityDomain_tags_1,
 	sizeof(asn_DEF_PE_SecurityDomain_tags_1)

@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_TS102226AdditionalContactlessParameters_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("protocolParameterData")
+		ASN_MEMBER_NAME("protocolParameterData")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_TS102226AdditionalContactlessParameters_tags_1[] = {
@@ -33,8 +33,7 @@ asn_SEQUENCE_specifics_t asn_SPC_TS102226AdditionalContactlessParameters_specs_1
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_TS102226AdditionalContactlessParameters = {
-	ASN_NAME("TS102226AdditionalContactlessParameters"),
-	ASN_NAME("TS102226AdditionalContactlessParameters"),
+	ASN_TYPE_NAME("TS102226AdditionalContactlessParameters")
 	&asn_OP_SEQUENCE,
 	asn_DEF_TS102226AdditionalContactlessParameters_tags_1,
 	sizeof(asn_DEF_TS102226AdditionalContactlessParameters_tags_1)

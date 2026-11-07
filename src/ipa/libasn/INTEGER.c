@@ -57,8 +57,7 @@ asn_TYPE_operation_t asn_OP_INTEGER = {
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_INTEGER = {
-	"INTEGER",
-	"INTEGER",
+	ASN_TYPE_NAME("INTEGER")
 	&asn_OP_INTEGER,
 	asn_DEF_INTEGER_tags,
 	sizeof(asn_DEF_INTEGER_tags) / sizeof(asn_DEF_INTEGER_tags[0]),

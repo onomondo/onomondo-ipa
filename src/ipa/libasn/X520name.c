@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_X520name_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("teletexString")
+		ASN_MEMBER_NAME("teletexString")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct X520name, choice.printableString),
 		(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_X520name_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("printableString")
+		ASN_MEMBER_NAME("printableString")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct X520name, choice.universalString),
 		(ASN_TAG_CLASS_UNIVERSAL | (28 << 2)),
@@ -33,7 +33,7 @@ static asn_TYPE_member_t asn_MBR_X520name_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("universalString")
+		ASN_MEMBER_NAME("universalString")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct X520name, choice.utf8String),
 		(ASN_TAG_CLASS_UNIVERSAL | (12 << 2)),
@@ -42,7 +42,7 @@ static asn_TYPE_member_t asn_MBR_X520name_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("utf8String")
+		ASN_MEMBER_NAME("utf8String")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct X520name, choice.bmpString),
 		(ASN_TAG_CLASS_UNIVERSAL | (30 << 2)),
@@ -51,7 +51,7 @@ static asn_TYPE_member_t asn_MBR_X520name_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("bmpString")
+		ASN_MEMBER_NAME("bmpString")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_X520name_tag2el_1[] = {
@@ -72,8 +72,7 @@ static asn_CHOICE_specifics_t asn_SPC_X520name_specs_1 = {
 	-1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_X520name = {
-	ASN_NAME("X520name"),
-	ASN_NAME("X520name"),
+	ASN_TYPE_NAME("X520name")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

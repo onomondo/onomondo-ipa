@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_HandleNotification_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("pendingNotification")
+		ASN_MEMBER_NAME("pendingNotification")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_HandleNotification_tags_1[] = {
@@ -34,8 +34,7 @@ asn_SEQUENCE_specifics_t asn_SPC_HandleNotification_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_HandleNotification = {
-	ASN_NAME("HandleNotification"),
-	ASN_NAME("HandleNotification"),
+	ASN_TYPE_NAME("HandleNotification")
 	&asn_OP_SEQUENCE,
 	asn_DEF_HandleNotification_tags_1,
 	sizeof(asn_DEF_HandleNotification_tags_1)

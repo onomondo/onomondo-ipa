@@ -15,8 +15,7 @@ static const ber_tlv_tag_t asn_DEF_TeletexOrganizationName_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (20 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_TeletexOrganizationName = {
-	ASN_NAME("TeletexOrganizationName"),
-	ASN_NAME("TeletexOrganizationName"),
+	ASN_TYPE_NAME("TeletexOrganizationName")
 	&asn_OP_TeletexString,
 	asn_DEF_TeletexOrganizationName_tags_1,
 	sizeof(asn_DEF_TeletexOrganizationName_tags_1)

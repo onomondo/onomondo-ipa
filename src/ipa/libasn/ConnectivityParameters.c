@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_ConnectivityParameters_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("httpParams")
+		ASN_MEMBER_NAME("httpParams")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ConnectivityParameters_tags_1[] = {
@@ -33,8 +33,7 @@ asn_SEQUENCE_specifics_t asn_SPC_ConnectivityParameters_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ConnectivityParameters = {
-	ASN_NAME("ConnectivityParameters"),
-	ASN_NAME("ConnectivityParameters"),
+	ASN_TYPE_NAME("ConnectivityParameters")
 	&asn_OP_SEQUENCE,
 	asn_DEF_ConnectivityParameters_tags_1,
 	sizeof(asn_DEF_ConnectivityParameters_tags_1)

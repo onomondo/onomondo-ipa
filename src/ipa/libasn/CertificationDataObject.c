@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CertificationDataObject_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("platformLabel")
+		ASN_MEMBER_NAME("platformLabel")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CertificationDataObject, discoveryBaseURL),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_CertificationDataObject_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("discoveryBaseURL")
+		ASN_MEMBER_NAME("discoveryBaseURL")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CertificationDataObject_tags_1[] = {
@@ -43,8 +43,7 @@ asn_SEQUENCE_specifics_t asn_SPC_CertificationDataObject_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CertificationDataObject = {
-	ASN_NAME("CertificationDataObject"),
-	ASN_NAME("CertificationDataObject"),
+	ASN_TYPE_NAME("CertificationDataObject")
 	&asn_OP_SEQUENCE,
 	asn_DEF_CertificationDataObject_tags_1,
 	sizeof(asn_DEF_CertificationDataObject_tags_1)

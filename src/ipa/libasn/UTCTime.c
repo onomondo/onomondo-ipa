@@ -73,8 +73,7 @@ asn_TYPE_operation_t asn_OP_UTCTime = {
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_UTCTime = {
-	"UTCTime",
-	"UTCTime",
+	ASN_TYPE_NAME("UTCTime")
 	&asn_OP_UTCTime,
 	asn_DEF_UTCTime_tags,
 	sizeof(asn_DEF_UTCTime_tags)

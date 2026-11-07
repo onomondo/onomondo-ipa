@@ -20,8 +20,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_GetEuiccChallengeRequest_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_GetEuiccChallengeRequest = {
-	ASN_NAME("GetEuiccChallengeRequest"),
-	ASN_NAME("GetEuiccChallengeRequest"),
+	ASN_TYPE_NAME("GetEuiccChallengeRequest")
 	&asn_OP_SEQUENCE,
 	asn_DEF_GetEuiccChallengeRequest_tags_1,
 	sizeof(asn_DEF_GetEuiccChallengeRequest_tags_1)

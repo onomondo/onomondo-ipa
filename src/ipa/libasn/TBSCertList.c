@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_Member_8[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("userCertificate")
+		ASN_MEMBER_NAME("userCertificate")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TBSCertList__revokedCertificates__Member, revocationDate),
 		-1 /* Ambiguous tag (CHOICE?) */,
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_Member_8[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("revocationDate")
+		ASN_MEMBER_NAME("revocationDate")
 		},
 	{ ATF_POINTER, 1, offsetof(struct TBSCertList__revokedCertificates__Member, crlEntryExtensions),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -33,7 +33,7 @@ static asn_TYPE_member_t asn_MBR_Member_8[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("crlEntryExtensions")
+		ASN_MEMBER_NAME("crlEntryExtensions")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_Member_tags_8[] = {
@@ -55,8 +55,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_Member_specs_8 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_Member_8 = {
-	ASN_NAME("SEQUENCE"),
-	ASN_NAME("SEQUENCE"),
+	ASN_TYPE_NAME("SEQUENCE")
 	&asn_OP_SEQUENCE,
 	asn_DEF_Member_tags_8,
 	sizeof(asn_DEF_Member_tags_8)
@@ -78,7 +77,7 @@ static asn_TYPE_member_t asn_MBR_revokedCertificates_7[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_revokedCertificates_tags_7[] = {
@@ -91,8 +90,7 @@ static asn_SET_OF_specifics_t asn_SPC_revokedCertificates_specs_7 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_revokedCertificates_7 = {
-	ASN_NAME("revokedCertificates"),
-	ASN_NAME("revokedCertificates"),
+	ASN_TYPE_NAME("revokedCertificates")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_revokedCertificates_tags_7,
 	sizeof(asn_DEF_revokedCertificates_tags_7)
@@ -114,7 +112,7 @@ asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("version")
+		ASN_MEMBER_NAME("version")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TBSCertList, signature),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -123,7 +121,7 @@ asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("signature")
+		ASN_MEMBER_NAME("signature")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TBSCertList, issuer),
 		-1 /* Ambiguous tag (CHOICE?) */,
@@ -132,7 +130,7 @@ asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("issuer")
+		ASN_MEMBER_NAME("issuer")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TBSCertList, thisUpdate),
 		-1 /* Ambiguous tag (CHOICE?) */,
@@ -141,7 +139,7 @@ asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("thisUpdate")
+		ASN_MEMBER_NAME("thisUpdate")
 		},
 	{ ATF_POINTER, 3, offsetof(struct TBSCertList, nextUpdate),
 		-1 /* Ambiguous tag (CHOICE?) */,
@@ -150,7 +148,7 @@ asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("nextUpdate")
+		ASN_MEMBER_NAME("nextUpdate")
 		},
 	{ ATF_POINTER, 2, offsetof(struct TBSCertList, revokedCertificates),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -159,7 +157,7 @@ asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("revokedCertificates")
+		ASN_MEMBER_NAME("revokedCertificates")
 		},
 	{ ATF_POINTER, 1, offsetof(struct TBSCertList, crlExtensions),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
@@ -168,7 +166,7 @@ asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("crlExtensions")
+		ASN_MEMBER_NAME("crlExtensions")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_TBSCertList_tags_1[] = {
@@ -194,8 +192,7 @@ asn_SEQUENCE_specifics_t asn_SPC_TBSCertList_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_TBSCertList = {
-	ASN_NAME("TBSCertList"),
-	ASN_NAME("TBSCertList"),
+	ASN_TYPE_NAME("TBSCertList")
 	&asn_OP_SEQUENCE,
 	asn_DEF_TBSCertList_tags_1,
 	sizeof(asn_DEF_TBSCertList_tags_1)

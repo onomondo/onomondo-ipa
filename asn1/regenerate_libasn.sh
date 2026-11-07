@@ -42,18 +42,21 @@ asn1c -fcompound-names -no-gen-example -no-gen-OER -no-gen-PER -fno-constraints 
       ../../../asn1/RSPDefinitions.asn \
       ../../../asn1/SGP32Definitions.asn
 
-# Type and member names feed only print, XER and ASN_DEBUG. ASN_NAME() (asn1/0011)
-# lets a build blank them with ASN_DISABLE_NAMES. Generated type files only; the
-# skeleton descriptors keep their literals. Every descriptor has a name and an XML
-# tag and every member entry a name, so the rewrite must hit exactly
-# 2 * descriptors + members lines.
+# Type and member names feed only print, XER and ASN_DEBUG. Each descriptor starts
+# with its name and its XML tag, and each member entry ends with its name.
+# ASN_TYPE_NAME() and ASN_MEMBER_NAME() (asn1/0014) let a build drop the name fields
+# with ASN_DISABLE_NAMES; XER is never built, so the XML tag line goes outright.
+# Generated type files only (asn1/0014 converts the skeleton descriptors); both
+# rewrites must hit every descriptor and member entry.
 GENERATED=$(grep -l 'From ASN.1 module' *.c)
-perl -pi -e 's/^(\t)"([^"]*)",$/$1ASN_NAME("$2"),/; s/^(\t\t)"([^"]*)"$/$1ASN_NAME("$2")/' $GENERATED
+perl -0pi -e 's/^(asn_TYPE_descriptor_t asn_DEF_\w+ = \{\n)\t("[^"]*"),\n\t"[^"]*",\n/$1\tASN_TYPE_NAME($2)\n/mg' $GENERATED
+perl -pi -e 's/^(\t\t)"([^"]*)"$/$1ASN_MEMBER_NAME("$2")/' $GENERATED
 DESCRIPTORS=$(cat $GENERATED | grep -c '^asn_TYPE_descriptor_t asn_DEF_' || true)
 MEMBERS=$(cat $GENERATED | grep -c $'^\t{ ATF_' || true)
-NAMES=$(cat $GENERATED | grep -c 'ASN_NAME(' || true)
-if [ "$NAMES" -ne $((2 * DESCRIPTORS + MEMBERS)) ]; then
-	echo "ERROR: ASN_NAME() rewrote $NAMES lines, expected $((2 * DESCRIPTORS + MEMBERS))." >&2
+TYPE_NAMES=$(cat $GENERATED | grep -c $'^\tASN_TYPE_NAME(' || true)
+MEMBER_NAMES=$(cat $GENERATED | grep -c $'^\t\tASN_MEMBER_NAME(' || true)
+if [ "$TYPE_NAMES" -ne "$DESCRIPTORS" ] || [ "$MEMBER_NAMES" -ne "$MEMBERS" ]; then
+	echo "ERROR: name rewrite hit $TYPE_NAMES of $DESCRIPTORS descriptors and $MEMBER_NAMES of $MEMBERS members." >&2
 	exit 1
 fi
 
@@ -116,3 +119,4 @@ patch -p1 < ./asn1/0010-SET_OF-fail-DER-encoding-on-allocation-failure.patch
 patch -p1 < ./asn1/0011-constr_TYPE-optional-names.patch
 patch -p1 < ./asn1/0012-skeletons-drop-encoding-constraints.patch
 patch -p1 < ./asn1/0013-skeletons-drop-PER-only-specifics-fields.patch
+patch -p1 < ./asn1/0014-skeletons-drop-name-fields.patch

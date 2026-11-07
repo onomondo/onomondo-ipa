@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CancelSessionResponseEs9_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("cancelSessionOk")
+		ASN_MEMBER_NAME("cancelSessionOk")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CancelSessionResponseEs9, choice.cancelSessionError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_CancelSessionResponseEs9_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("cancelSessionError")
+		ASN_MEMBER_NAME("cancelSessionError")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CancelSessionResponseEs9_tags_1[] = {
@@ -45,8 +45,7 @@ asn_CHOICE_specifics_t asn_SPC_CancelSessionResponseEs9_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_CancelSessionResponseEs9 = {
-	ASN_NAME("CancelSessionResponseEs9"),
-	ASN_NAME("CancelSessionResponseEs9"),
+	ASN_TYPE_NAME("CancelSessionResponseEs9")
 	&asn_OP_CHOICE,
 	asn_DEF_CancelSessionResponseEs9_tags_1,
 	sizeof(asn_DEF_CancelSessionResponseEs9_tags_1)

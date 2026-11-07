@@ -632,7 +632,7 @@ SEQUENCE_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
 	const asn_SEQUENCE_specifics_t *specs
 		= (const asn_SEQUENCE_specifics_t *)td->specifics;
 	asn_TYPE_member_t *elements = td->elements;
-	const char *xml_tag = opt_mname ? opt_mname : td->xml_tag;
+	const char *xml_tag = opt_mname ? opt_mname : ASN_NAME_OF(td);
 
 	/*
 	 * ... and parts of the structure being constructed.
@@ -695,7 +695,7 @@ SEQUENCE_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
 			} else {
 				/* Invoke the inner type decoder, m.b. multiple times */
 				tmprval = elm->type->op->xer_decoder(opt_codec_ctx,
-						elm->type, memb_ptr2, elm->name,
+						elm->type, memb_ptr2, ASN_NAME_OF(elm),
 						ptr, size);
 			}
 			XER_ADVANCE(tmprval.consumed);
@@ -798,7 +798,7 @@ SEQUENCE_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
 					edx_end = td->elements_count;
 				for(n = edx; n < edx_end; n++) {
 					elm = &td->elements[n];
-					tcv = xer_check_tag(ptr, ch_size, elm->name);
+					tcv = xer_check_tag(ptr, ch_size, ASN_NAME_OF(elm));
 					switch(tcv) {
 					case XCT_BOTH:
 					case XCT_OPENING:
@@ -882,7 +882,7 @@ SEQUENCE_encode_xer(const asn_TYPE_descriptor_t *td, const void *sptr,
         asn_enc_rval_t tmper;
         asn_TYPE_member_t *elm = &td->elements[edx];
         const void *memb_ptr;
-        const char *mname = elm->name;
+        const char *mname = ASN_NAME_OF(elm);
         unsigned int mlen = strlen(mname);
 
         if(elm->flags & ATF_POINTER) {
@@ -941,7 +941,7 @@ SEQUENCE_print(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
 	if(!sptr) return (cb("<absent>", 8, app_key) < 0) ? -1 : 0;
 
 	/* Dump preamble */
-	if(cb(td->name, strlen(td->name), app_key) < 0
+	if(cb(ASN_NAME_OF(td), strlen(ASN_NAME_OF(td)), app_key) < 0
 	|| cb(" ::= {", 6, app_key) < 0)
 		return -1;
 
@@ -964,7 +964,7 @@ SEQUENCE_print(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
 		_i_INDENT(1);
 
 		/* Print the member's name and stuff */
-		if(cb(elm->name, strlen(elm->name), app_key) < 0
+		if(cb(ASN_NAME_OF(elm), strlen(ASN_NAME_OF(elm)), app_key) < 0
 		|| cb(": ", 2, app_key) < 0)
 			return -1;
 

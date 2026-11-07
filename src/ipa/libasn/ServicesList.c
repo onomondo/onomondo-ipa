@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("contactless")
+		ASN_MEMBER_NAME("contactless")
 		},
 	{ ATF_POINTER, 29, offsetof(struct ServicesList, usim),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("usim")
+		ASN_MEMBER_NAME("usim")
 		},
 	{ ATF_POINTER, 28, offsetof(struct ServicesList, isim),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("isim")
+		ASN_MEMBER_NAME("isim")
 		},
 	{ ATF_POINTER, 27, offsetof(struct ServicesList, csim),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("csim")
+		ASN_MEMBER_NAME("csim")
 		},
 	{ ATF_POINTER, 26, offsetof(struct ServicesList, milenage),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("milenage")
+		ASN_MEMBER_NAME("milenage")
 		},
 	{ ATF_POINTER, 25, offsetof(struct ServicesList, tuak128),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("tuak128")
+		ASN_MEMBER_NAME("tuak128")
 		},
 	{ ATF_POINTER, 24, offsetof(struct ServicesList, cave),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("cave")
+		ASN_MEMBER_NAME("cave")
 		},
 	{ ATF_POINTER, 23, offsetof(struct ServicesList, gba_usim),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("gba-usim")
+		ASN_MEMBER_NAME("gba-usim")
 		},
 	{ ATF_POINTER, 22, offsetof(struct ServicesList, gba_isim),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("gba-isim")
+		ASN_MEMBER_NAME("gba-isim")
 		},
 	{ ATF_POINTER, 21, offsetof(struct ServicesList, mbms),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
@@ -96,7 +96,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("mbms")
+		ASN_MEMBER_NAME("mbms")
 		},
 	{ ATF_POINTER, 20, offsetof(struct ServicesList, eap),
 		(ASN_TAG_CLASS_CONTEXT | (10 << 2)),
@@ -105,7 +105,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eap")
+		ASN_MEMBER_NAME("eap")
 		},
 	{ ATF_POINTER, 19, offsetof(struct ServicesList, javacard),
 		(ASN_TAG_CLASS_CONTEXT | (11 << 2)),
@@ -114,7 +114,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("javacard")
+		ASN_MEMBER_NAME("javacard")
 		},
 	{ ATF_POINTER, 18, offsetof(struct ServicesList, multos),
 		(ASN_TAG_CLASS_CONTEXT | (12 << 2)),
@@ -123,7 +123,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("multos")
+		ASN_MEMBER_NAME("multos")
 		},
 	{ ATF_POINTER, 17, offsetof(struct ServicesList, multiple_usim),
 		(ASN_TAG_CLASS_CONTEXT | (13 << 2)),
@@ -132,7 +132,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("multiple-usim")
+		ASN_MEMBER_NAME("multiple-usim")
 		},
 	{ ATF_POINTER, 16, offsetof(struct ServicesList, multiple_isim),
 		(ASN_TAG_CLASS_CONTEXT | (14 << 2)),
@@ -141,7 +141,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("multiple-isim")
+		ASN_MEMBER_NAME("multiple-isim")
 		},
 	{ ATF_POINTER, 15, offsetof(struct ServicesList, multiple_csim),
 		(ASN_TAG_CLASS_CONTEXT | (15 << 2)),
@@ -150,7 +150,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("multiple-csim")
+		ASN_MEMBER_NAME("multiple-csim")
 		},
 	{ ATF_POINTER, 14, offsetof(struct ServicesList, tuak256),
 		(ASN_TAG_CLASS_CONTEXT | (16 << 2)),
@@ -159,7 +159,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("tuak256")
+		ASN_MEMBER_NAME("tuak256")
 		},
 	{ ATF_POINTER, 13, offsetof(struct ServicesList, usim_test_algorithm),
 		(ASN_TAG_CLASS_CONTEXT | (17 << 2)),
@@ -168,7 +168,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("usim-test-algorithm")
+		ASN_MEMBER_NAME("usim-test-algorithm")
 		},
 	{ ATF_POINTER, 12, offsetof(struct ServicesList, ber_tlv),
 		(ASN_TAG_CLASS_CONTEXT | (18 << 2)),
@@ -177,7 +177,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ber-tlv")
+		ASN_MEMBER_NAME("ber-tlv")
 		},
 	{ ATF_POINTER, 11, offsetof(struct ServicesList, dfLink),
 		(ASN_TAG_CLASS_CONTEXT | (19 << 2)),
@@ -186,7 +186,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("dfLink")
+		ASN_MEMBER_NAME("dfLink")
 		},
 	{ ATF_POINTER, 10, offsetof(struct ServicesList, cat_tp),
 		(ASN_TAG_CLASS_CONTEXT | (20 << 2)),
@@ -195,7 +195,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("cat-tp")
+		ASN_MEMBER_NAME("cat-tp")
 		},
 	{ ATF_POINTER, 9, offsetof(struct ServicesList, get_identity),
 		(ASN_TAG_CLASS_CONTEXT | (21 << 2)),
@@ -204,7 +204,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("get-identity")
+		ASN_MEMBER_NAME("get-identity")
 		},
 	{ ATF_POINTER, 8, offsetof(struct ServicesList, profile_a_x25519),
 		(ASN_TAG_CLASS_CONTEXT | (22 << 2)),
@@ -213,7 +213,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("profile-a-x25519")
+		ASN_MEMBER_NAME("profile-a-x25519")
 		},
 	{ ATF_POINTER, 7, offsetof(struct ServicesList, profile_b_p256),
 		(ASN_TAG_CLASS_CONTEXT | (23 << 2)),
@@ -222,7 +222,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("profile-b-p256")
+		ASN_MEMBER_NAME("profile-b-p256")
 		},
 	{ ATF_POINTER, 6, offsetof(struct ServicesList, suciCalculatorApi),
 		(ASN_TAG_CLASS_CONTEXT | (24 << 2)),
@@ -231,7 +231,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("suciCalculatorApi")
+		ASN_MEMBER_NAME("suciCalculatorApi")
 		},
 	{ ATF_POINTER, 5, offsetof(struct ServicesList, dns_resolution),
 		(ASN_TAG_CLASS_CONTEXT | (25 << 2)),
@@ -240,7 +240,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("dns-resolution")
+		ASN_MEMBER_NAME("dns-resolution")
 		},
 	{ ATF_POINTER, 4, offsetof(struct ServicesList, scp11ac),
 		(ASN_TAG_CLASS_CONTEXT | (26 << 2)),
@@ -249,7 +249,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("scp11ac")
+		ASN_MEMBER_NAME("scp11ac")
 		},
 	{ ATF_POINTER, 3, offsetof(struct ServicesList, scp11c_authorization_mechanism),
 		(ASN_TAG_CLASS_CONTEXT | (27 << 2)),
@@ -258,7 +258,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("scp11c-authorization-mechanism")
+		ASN_MEMBER_NAME("scp11c-authorization-mechanism")
 		},
 	{ ATF_POINTER, 2, offsetof(struct ServicesList, s16mode),
 		(ASN_TAG_CLASS_CONTEXT | (28 << 2)),
@@ -267,7 +267,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("s16mode")
+		ASN_MEMBER_NAME("s16mode")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ServicesList, eaka),
 		(ASN_TAG_CLASS_CONTEXT | (29 << 2)),
@@ -276,7 +276,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eaka")
+		ASN_MEMBER_NAME("eaka")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ServicesList_tags_1[] = {
@@ -323,8 +323,7 @@ asn_SEQUENCE_specifics_t asn_SPC_ServicesList_specs_1 = {
 	30,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ServicesList = {
-	ASN_NAME("ServicesList"),
-	ASN_NAME("ServicesList"),
+	ASN_TYPE_NAME("ServicesList")
 	&asn_OP_SEQUENCE,
 	asn_DEF_ServicesList_tags_1,
 	sizeof(asn_DEF_ServicesList_tags_1)

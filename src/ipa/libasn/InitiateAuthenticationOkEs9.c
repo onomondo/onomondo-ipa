@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationOkEs9_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("transactionId")
+		ASN_MEMBER_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct InitiateAuthenticationOkEs9, serverSigned1),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationOkEs9_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("serverSigned1")
+		ASN_MEMBER_NAME("serverSigned1")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct InitiateAuthenticationOkEs9, serverSignature1),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationOkEs9_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("serverSignature1")
+		ASN_MEMBER_NAME("serverSignature1")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct InitiateAuthenticationOkEs9, euiccCiPKIdToBeUsed),
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationOkEs9_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccCiPKIdToBeUsed")
+		ASN_MEMBER_NAME("euiccCiPKIdToBeUsed")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct InitiateAuthenticationOkEs9, serverCertificate),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationOkEs9_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("serverCertificate")
+		ASN_MEMBER_NAME("serverCertificate")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_InitiateAuthenticationOkEs9_tags_1[] = {
@@ -73,8 +73,7 @@ asn_SEQUENCE_specifics_t asn_SPC_InitiateAuthenticationOkEs9_specs_1 = {
 	5,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_InitiateAuthenticationOkEs9 = {
-	ASN_NAME("InitiateAuthenticationOkEs9"),
-	ASN_NAME("InitiateAuthenticationOkEs9"),
+	ASN_TYPE_NAME("InitiateAuthenticationOkEs9")
 	&asn_OP_SEQUENCE,
 	asn_DEF_InitiateAuthenticationOkEs9_tags_1,
 	sizeof(asn_DEF_InitiateAuthenticationOkEs9_tags_1)

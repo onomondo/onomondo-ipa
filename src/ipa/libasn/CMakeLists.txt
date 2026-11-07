@@ -21,9 +21,12 @@ if(DEFINED ENV{ZEPHYR_BASE})
   if(NOT SHOW_ASN_OUTPUT)
     zephyr_compile_definitions(ASN_DISABLE_PRINT_SUPPORT)
   endif()
-  # Blank the generated type and member names; constr_TYPE.h keeps them whenever
-  # print, XER or asn1c debug output is enabled.
-  zephyr_compile_definitions(ASN_DISABLE_NAMES)
+  # Drop the type and member name fields. This changes the table layout, so it is
+  # global; print needs the names, and asn1c debug output stops with an #error
+  # until it is removed.
+  if(NOT SHOW_ASN_OUTPUT)
+    zephyr_compile_definitions(ASN_DISABLE_NAMES)
+  endif()
   zephyr_library_sources(
 AccessDescription.c
 AccessDescription.h

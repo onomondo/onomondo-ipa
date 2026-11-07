@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateResponseOk_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccSigned1")
+		ASN_MEMBER_NAME("euiccSigned1")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateResponseOk, euiccSignature1),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateResponseOk_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccSignature1")
+		ASN_MEMBER_NAME("euiccSignature1")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateResponseOk, euiccCertificate),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateResponseOk_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccCertificate")
+		ASN_MEMBER_NAME("euiccCertificate")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateResponseOk, eumCertificate),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateResponseOk_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eumCertificate")
+		ASN_MEMBER_NAME("eumCertificate")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AuthenticateResponseOk_tags_1[] = {
@@ -63,8 +63,7 @@ asn_SEQUENCE_specifics_t asn_SPC_AuthenticateResponseOk_specs_1 = {
 	4,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_AuthenticateResponseOk = {
-	ASN_NAME("AuthenticateResponseOk"),
-	ASN_NAME("AuthenticateResponseOk"),
+	ASN_TYPE_NAME("AuthenticateResponseOk")
 	&asn_OP_SEQUENCE,
 	asn_DEF_AuthenticateResponseOk_tags_1,
 	sizeof(asn_DEF_AuthenticateResponseOk_tags_1)

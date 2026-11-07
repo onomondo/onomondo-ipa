@@ -524,7 +524,7 @@ SET_OF_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
 	const asn_SET_OF_specifics_t *specs = (const asn_SET_OF_specifics_t *)td->specifics;
 	const asn_TYPE_member_t *element = td->elements;
 	const char *elm_tag;
-	const char *xml_tag = opt_mname ? opt_mname : td->xml_tag;
+	const char *xml_tag = opt_mname ? opt_mname : ASN_NAME_OF(td);
 
 	/*
 	 * ... and parts of the structure being constructed.
@@ -547,8 +547,8 @@ SET_OF_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
 	if(specs->as_XMLValueList) {
 		elm_tag = (specs->as_XMLValueList == 1) ? 0 : "";
 	} else {
-		elm_tag = (*element->name)
-				? element->name : element->type->xml_tag;
+		elm_tag = (*ASN_NAME_OF(element))
+				? ASN_NAME_OF(element) : ASN_NAME_OF(element->type);
 	}
 
 	/*
@@ -708,7 +708,7 @@ SET_OF_encode_xer(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
 	const asn_TYPE_member_t *elm = td->elements;
     const asn_anonymous_set_ *list = _A_CSET_FROM_VOID(sptr);
     const char *mname = specs->as_XMLValueList
-		? 0 : ((*elm->name) ? elm->name : elm->type->xml_tag);
+		? 0 : ((*ASN_NAME_OF(elm)) ? ASN_NAME_OF(elm) : ASN_NAME_OF(elm->type));
 	size_t mlen = mname ? strlen(mname) : 0;
 	int xcan = (flags & XER_F_CANONICAL);
 	xer_tmp_enc_t *encs = 0;
@@ -752,7 +752,7 @@ SET_OF_encode_xer(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
 		if(tmper.encoded == -1) return tmper;
 		er.encoded += tmper.encoded;
 		if(tmper.encoded == 0 && specs->as_XMLValueList) {
-			const char *name = elm->type->xml_tag;
+			const char *name = ASN_NAME_OF(elm->type);
 			size_t len = strlen(name);
 			ASN__CALLBACK3("<", 1, name, len, "/>", 2);
 		}
@@ -809,7 +809,7 @@ SET_OF_print(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
 	if(!sptr) return (cb("<absent>", 8, app_key) < 0) ? -1 : 0;
 
 	/* Dump preamble */
-	if(cb(td->name, strlen(td->name), app_key) < 0
+	if(cb(ASN_NAME_OF(td), strlen(ASN_NAME_OF(td)), app_key) < 0
 	|| cb(" ::= {", 6, app_key) < 0)
 		return -1;
 

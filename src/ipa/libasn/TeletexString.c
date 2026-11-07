@@ -55,8 +55,7 @@ asn_TYPE_operation_t asn_OP_TeletexString = {
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_TeletexString = {
-	"TeletexString",
-	"TeletexString",
+	ASN_TYPE_NAME("TeletexString")
 	&asn_OP_TeletexString,
 	asn_DEF_TeletexString_tags,
 	sizeof(asn_DEF_TeletexString_tags)

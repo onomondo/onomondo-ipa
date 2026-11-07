@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PrivateDomainName_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("numeric")
+		ASN_MEMBER_NAME("numeric")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PrivateDomainName, choice.printable),
 		(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PrivateDomainName_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("printable")
+		ASN_MEMBER_NAME("printable")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_PrivateDomainName_tag2el_1[] = {
@@ -42,8 +42,7 @@ asn_CHOICE_specifics_t asn_SPC_PrivateDomainName_specs_1 = {
 	-1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_PrivateDomainName = {
-	ASN_NAME("PrivateDomainName"),
-	ASN_NAME("PrivateDomainName"),
+	ASN_TYPE_NAME("PrivateDomainName")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

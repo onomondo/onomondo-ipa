@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_notificationList_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_notificationList_tags_2[] = {
@@ -29,8 +29,7 @@ static asn_SET_OF_specifics_t asn_SPC_notificationList_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_notificationList_2 = {
-	ASN_NAME("notificationList"),
-	ASN_NAME("notificationList"),
+	ASN_TYPE_NAME("notificationList")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_notificationList_tags_2,
 	sizeof(asn_DEF_notificationList_tags_2)
@@ -52,7 +51,7 @@ static asn_TYPE_member_t asn_MBR_euiccPackageResultList_6[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_euiccPackageResultList_tags_6[] = {
@@ -66,8 +65,7 @@ static asn_SET_OF_specifics_t asn_SPC_euiccPackageResultList_specs_6 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_euiccPackageResultList_6 = {
-	ASN_NAME("euiccPackageResultList"),
-	ASN_NAME("euiccPackageResultList"),
+	ASN_TYPE_NAME("euiccPackageResultList")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_euiccPackageResultList_tags_6,
 	sizeof(asn_DEF_euiccPackageResultList_tags_6)
@@ -89,7 +87,7 @@ static asn_TYPE_member_t asn_MBR_notificationList_9[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_notificationList_tags_9[] = {
@@ -103,8 +101,7 @@ static asn_SET_OF_specifics_t asn_SPC_notificationList_specs_9 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_notificationList_9 = {
-	ASN_NAME("notificationList"),
-	ASN_NAME("notificationList"),
+	ASN_TYPE_NAME("notificationList")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_notificationList_tags_9,
 	sizeof(asn_DEF_notificationList_tags_9)
@@ -126,7 +123,7 @@ static asn_TYPE_member_t asn_MBR_euiccPackageResultList_11[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_euiccPackageResultList_tags_11[] = {
@@ -140,8 +137,7 @@ static asn_SET_OF_specifics_t asn_SPC_euiccPackageResultList_specs_11 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_euiccPackageResultList_11 = {
-	ASN_NAME("euiccPackageResultList"),
-	ASN_NAME("euiccPackageResultList"),
+	ASN_TYPE_NAME("euiccPackageResultList")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_euiccPackageResultList_tags_11,
 	sizeof(asn_DEF_euiccPackageResultList_tags_11)
@@ -163,7 +159,7 @@ static asn_TYPE_member_t asn_MBR_notificationAndEprList_8[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("notificationList")
+		ASN_MEMBER_NAME("notificationList")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_RetrieveNotificationsListResponse__notificationAndEprList, euiccPackageResultList),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -172,7 +168,7 @@ static asn_TYPE_member_t asn_MBR_notificationAndEprList_8[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccPackageResultList")
+		ASN_MEMBER_NAME("euiccPackageResultList")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_notificationAndEprList_tags_8[] = {
@@ -193,8 +189,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_notificationAndEprList_specs_8 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_notificationAndEprList_8 = {
-	ASN_NAME("notificationAndEprList"),
-	ASN_NAME("notificationAndEprList"),
+	ASN_TYPE_NAME("notificationAndEprList")
 	&asn_OP_SEQUENCE,
 	asn_DEF_notificationAndEprList_tags_8,
 	sizeof(asn_DEF_notificationAndEprList_tags_8)
@@ -216,7 +211,7 @@ static asn_TYPE_member_t asn_MBR_SGP32_RetrieveNotificationsListResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("notificationList")
+		ASN_MEMBER_NAME("notificationList")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_RetrieveNotificationsListResponse, choice.notificationsListResultError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -225,7 +220,7 @@ static asn_TYPE_member_t asn_MBR_SGP32_RetrieveNotificationsListResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("notificationsListResultError")
+		ASN_MEMBER_NAME("notificationsListResultError")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_RetrieveNotificationsListResponse, choice.euiccPackageResultList),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -234,7 +229,7 @@ static asn_TYPE_member_t asn_MBR_SGP32_RetrieveNotificationsListResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccPackageResultList")
+		ASN_MEMBER_NAME("euiccPackageResultList")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_RetrieveNotificationsListResponse, choice.notificationAndEprList),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -243,7 +238,7 @@ static asn_TYPE_member_t asn_MBR_SGP32_RetrieveNotificationsListResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("notificationAndEprList")
+		ASN_MEMBER_NAME("notificationAndEprList")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_SGP32_RetrieveNotificationsListResponse_tags_1[] = {
@@ -266,8 +261,7 @@ static asn_CHOICE_specifics_t asn_SPC_SGP32_RetrieveNotificationsListResponse_sp
 	4	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_SGP32_RetrieveNotificationsListResponse = {
-	ASN_NAME("SGP32-RetrieveNotificationsListResponse"),
-	ASN_NAME("SGP32-RetrieveNotificationsListResponse"),
+	ASN_TYPE_NAME("SGP32-RetrieveNotificationsListResponse")
 	&asn_OP_CHOICE,
 	asn_DEF_SGP32_RetrieveNotificationsListResponse_tags_1,
 	sizeof(asn_DEF_SGP32_RetrieveNotificationsListResponse_tags_1)

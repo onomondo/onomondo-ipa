@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_processData_11[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_processData_tags_11[] = {
@@ -28,8 +28,7 @@ static asn_SET_OF_specifics_t asn_SPC_processData_specs_11 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_processData_11 = {
-	ASN_NAME("processData"),
-	ASN_NAME("processData"),
+	ASN_TYPE_NAME("processData")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_processData_tags_11,
 	sizeof(asn_DEF_processData_tags_11)
@@ -51,7 +50,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("applicationLoadPackageAID")
+		ASN_MEMBER_NAME("applicationLoadPackageAID")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ApplicationInstance, classAID),
 		(ASN_TAG_CLASS_APPLICATION | (15 << 2)),
@@ -60,7 +59,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("classAID")
+		ASN_MEMBER_NAME("classAID")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ApplicationInstance, instanceAID),
 		(ASN_TAG_CLASS_APPLICATION | (15 << 2)),
@@ -69,7 +68,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("instanceAID")
+		ASN_MEMBER_NAME("instanceAID")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ApplicationInstance, extraditeSecurityDomainAID),
 		(ASN_TAG_CLASS_APPLICATION | (15 << 2)),
@@ -78,7 +77,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("extraditeSecurityDomainAID")
+		ASN_MEMBER_NAME("extraditeSecurityDomainAID")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ApplicationInstance, applicationPrivileges),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -87,7 +86,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("applicationPrivileges")
+		ASN_MEMBER_NAME("applicationPrivileges")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ApplicationInstance, lifeCycleState),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -96,7 +95,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("lifeCycleState")
+		ASN_MEMBER_NAME("lifeCycleState")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ApplicationInstance, applicationSpecificParametersC9),
 		(ASN_TAG_CLASS_PRIVATE | (9 << 2)),
@@ -105,7 +104,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("applicationSpecificParametersC9")
+		ASN_MEMBER_NAME("applicationSpecificParametersC9")
 		},
 	{ ATF_POINTER, 4, offsetof(struct ApplicationInstance, systemSpecificParameters),
 		(ASN_TAG_CLASS_PRIVATE | (15 << 2)),
@@ -114,7 +113,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("systemSpecificParameters")
+		ASN_MEMBER_NAME("systemSpecificParameters")
 		},
 	{ ATF_POINTER, 3, offsetof(struct ApplicationInstance, applicationParameters),
 		(ASN_TAG_CLASS_PRIVATE | (10 << 2)),
@@ -123,7 +122,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("applicationParameters")
+		ASN_MEMBER_NAME("applicationParameters")
 		},
 	{ ATF_POINTER, 2, offsetof(struct ApplicationInstance, processData),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -132,7 +131,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("processData")
+		ASN_MEMBER_NAME("processData")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ApplicationInstance, controlReferenceTemplate),
 		(ASN_TAG_CLASS_CONTEXT | (16 << 2)),
@@ -141,7 +140,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("controlReferenceTemplate")
+		ASN_MEMBER_NAME("controlReferenceTemplate")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ApplicationInstance_tags_1[] = {
@@ -169,8 +168,7 @@ asn_SEQUENCE_specifics_t asn_SPC_ApplicationInstance_specs_1 = {
 	11,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ApplicationInstance = {
-	ASN_NAME("ApplicationInstance"),
-	ASN_NAME("ApplicationInstance"),
+	ASN_TYPE_NAME("ApplicationInstance")
 	&asn_OP_SEQUENCE,
 	asn_DEF_ApplicationInstance_tags_1,
 	sizeof(asn_DEF_ApplicationInstance_tags_1)

@@ -19,8 +19,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_Dummy_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_Dummy = {
-	ASN_NAME("PE-Dummy"),
-	ASN_NAME("PE-Dummy"),
+	ASN_TYPE_NAME("PE-Dummy")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_Dummy_tags_1,
 	sizeof(asn_DEF_PE_Dummy_tags_1)

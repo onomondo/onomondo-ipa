@@ -63,8 +63,7 @@ asn_TYPE_operation_t asn_OP_OCTET_STRING = {
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_OCTET_STRING = {
-	"OCTET STRING",		/* Canonical name */
-	"OCTET_STRING",		/* XML tag name */
+	ASN_TYPE_NAME("OCTET STRING")		/* Canonical name */
 	&asn_OP_OCTET_STRING,
 	asn_DEF_OCTET_STRING_tags,
 	sizeof(asn_DEF_OCTET_STRING_tags)
@@ -1148,7 +1147,7 @@ OCTET_STRING__decode_xer(
 	const asn_OCTET_STRING_specifics_t *specs = td->specifics
 				? (const asn_OCTET_STRING_specifics_t *)td->specifics
 				: &asn_SPC_OCTET_STRING_specs;
-	const char *xml_tag = opt_mname ? opt_mname : td->xml_tag;
+	const char *xml_tag = opt_mname ? opt_mname : ASN_NAME_OF(td);
 	asn_struct_ctx_t *ctx;		/* Per-structure parser context */
 	asn_dec_rval_t rval;		/* Return value from the decoder */
 	int st_allocated;

@@ -205,7 +205,7 @@ OPEN_TYPE_xer_get(const asn_codec_ctx_t *opt_codec_ctx,
     /*
      * Wrapper value confirmed.
      */
-    switch(xer_check_tag(ptr, ch_size, elm->name)) {
+    switch(xer_check_tag(ptr, ch_size, ASN_NAME_OF(elm))) {
     case XCT_OPENING:
         ADVANCE(ch_size);
         break;
@@ -281,7 +281,7 @@ OPEN_TYPE_xer_get(const asn_codec_ctx_t *opt_codec_ctx,
     /*
      * Wrapper value confirmed.
      */
-    switch(xer_check_tag(ptr, ch_size, elm->name)) {
+    switch(xer_check_tag(ptr, ch_size, ASN_NAME_OF(elm))) {
     case XCT_CLOSING:
         ADVANCE(ch_size);
         break;

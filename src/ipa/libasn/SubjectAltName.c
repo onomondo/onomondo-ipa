@@ -15,8 +15,7 @@ static const ber_tlv_tag_t asn_DEF_SubjectAltName_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (16 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_SubjectAltName = {
-	ASN_NAME("SubjectAltName"),
-	ASN_NAME("SubjectAltName"),
+	ASN_TYPE_NAME("SubjectAltName")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_SubjectAltName_tags_1,
 	sizeof(asn_DEF_SubjectAltName_tags_1)

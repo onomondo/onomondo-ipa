@@ -16,8 +16,7 @@ static const ber_tlv_tag_t asn_DEF_Iccid_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (4 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_Iccid = {
-	ASN_NAME("Iccid"),
-	ASN_NAME("Iccid"),
+	ASN_TYPE_NAME("Iccid")
 	&asn_OP_OCTET_STRING,
 	asn_DEF_Iccid_tags_1,
 	sizeof(asn_DEF_Iccid_tags_1)

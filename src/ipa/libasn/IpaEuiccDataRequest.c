@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_searchCriteriaNotification_4[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("seqNumber")
+		ASN_MEMBER_NAME("seqNumber")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct IpaEuiccDataRequest__searchCriteriaNotification, choice.profileManagementOperation),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_searchCriteriaNotification_4[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("profileManagementOperation")
+		ASN_MEMBER_NAME("profileManagementOperation")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_searchCriteriaNotification_tag2el_4[] = {
@@ -43,8 +43,7 @@ static asn_CHOICE_specifics_t asn_SPC_searchCriteriaNotification_specs_4 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_searchCriteriaNotification_4 = {
-	ASN_NAME("searchCriteriaNotification"),
-	ASN_NAME("searchCriteriaNotification"),
+	ASN_TYPE_NAME("searchCriteriaNotification")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
@@ -64,7 +63,7 @@ static asn_TYPE_member_t asn_MBR_searchCriteriaEuiccPackageResult_8[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("seqNumber")
+		ASN_MEMBER_NAME("seqNumber")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_searchCriteriaEuiccPackageResult_tag2el_8[] = {
@@ -82,8 +81,7 @@ static asn_CHOICE_specifics_t asn_SPC_searchCriteriaEuiccPackageResult_specs_8 =
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_searchCriteriaEuiccPackageResult_8 = {
-	ASN_NAME("searchCriteriaEuiccPackageResult"),
-	ASN_NAME("searchCriteriaEuiccPackageResult"),
+	ASN_TYPE_NAME("searchCriteriaEuiccPackageResult")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
@@ -103,7 +101,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccDataRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("tagList")
+		ASN_MEMBER_NAME("tagList")
 		},
 	{ ATF_POINTER, 4, offsetof(struct IpaEuiccDataRequest, euiccCiPKIdentifierToBeUsed),
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
@@ -112,7 +110,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccDataRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccCiPKIdentifierToBeUsed")
+		ASN_MEMBER_NAME("euiccCiPKIdentifierToBeUsed")
 		},
 	{ ATF_POINTER, 3, offsetof(struct IpaEuiccDataRequest, searchCriteriaNotification),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -121,7 +119,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccDataRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("searchCriteriaNotification")
+		ASN_MEMBER_NAME("searchCriteriaNotification")
 		},
 	{ ATF_POINTER, 2, offsetof(struct IpaEuiccDataRequest, searchCriteriaEuiccPackageResult),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -130,7 +128,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccDataRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("searchCriteriaEuiccPackageResult")
+		ASN_MEMBER_NAME("searchCriteriaEuiccPackageResult")
 		},
 	{ ATF_POINTER, 1, offsetof(struct IpaEuiccDataRequest, eimTransactionId),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -139,7 +137,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccDataRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eimTransactionId")
+		ASN_MEMBER_NAME("eimTransactionId")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_IpaEuiccDataRequest_tags_1[] = {
@@ -162,8 +160,7 @@ asn_SEQUENCE_specifics_t asn_SPC_IpaEuiccDataRequest_specs_1 = {
 	5,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_IpaEuiccDataRequest = {
-	ASN_NAME("IpaEuiccDataRequest"),
-	ASN_NAME("IpaEuiccDataRequest"),
+	ASN_TYPE_NAME("IpaEuiccDataRequest")
 	&asn_OP_SEQUENCE,
 	asn_DEF_IpaEuiccDataRequest_tags_1,
 	sizeof(asn_DEF_IpaEuiccDataRequest_tags_1)

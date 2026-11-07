@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_SetNicknameRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("iccid")
+		ASN_MEMBER_NAME("iccid")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SetNicknameRequest, profileNickname),
 		(ASN_TAG_CLASS_CONTEXT | (16 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_SetNicknameRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("profileNickname")
+		ASN_MEMBER_NAME("profileNickname")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_SetNicknameRequest_tags_1[] = {
@@ -44,8 +44,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_SetNicknameRequest_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_SetNicknameRequest = {
-	ASN_NAME("SetNicknameRequest"),
-	ASN_NAME("SetNicknameRequest"),
+	ASN_TYPE_NAME("SetNicknameRequest")
 	&asn_OP_SEQUENCE,
 	asn_DEF_SetNicknameRequest_tags_1,
 	sizeof(asn_DEF_SetNicknameRequest_tags_1)

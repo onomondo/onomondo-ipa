@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_searchCriteria_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("isdpAid")
+		ASN_MEMBER_NAME("isdpAid")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileInfoListRequest__searchCriteria, choice.iccid),
 		(ASN_TAG_CLASS_APPLICATION | (26 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_searchCriteria_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("iccid")
+		ASN_MEMBER_NAME("iccid")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileInfoListRequest__searchCriteria, choice.profileClass),
 		(ASN_TAG_CLASS_CONTEXT | (21 << 2)),
@@ -33,7 +33,7 @@ static asn_TYPE_member_t asn_MBR_searchCriteria_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("profileClass")
+		ASN_MEMBER_NAME("profileClass")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_searchCriteria_tag2el_2[] = {
@@ -53,8 +53,7 @@ static asn_CHOICE_specifics_t asn_SPC_searchCriteria_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_searchCriteria_2 = {
-	ASN_NAME("searchCriteria"),
-	ASN_NAME("searchCriteria"),
+	ASN_TYPE_NAME("searchCriteria")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
@@ -74,7 +73,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfoListRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("searchCriteria")
+		ASN_MEMBER_NAME("searchCriteria")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ProfileInfoListRequest, tagList),
 		(ASN_TAG_CLASS_APPLICATION | (28 << 2)),
@@ -83,7 +82,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfoListRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("tagList")
+		ASN_MEMBER_NAME("tagList")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ProfileInfoListRequest_tags_1[] = {
@@ -103,8 +102,7 @@ asn_SEQUENCE_specifics_t asn_SPC_ProfileInfoListRequest_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ProfileInfoListRequest = {
-	ASN_NAME("ProfileInfoListRequest"),
-	ASN_NAME("ProfileInfoListRequest"),
+	ASN_TYPE_NAME("ProfileInfoListRequest")
 	&asn_OP_SEQUENCE,
 	asn_DEF_ProfileInfoListRequest_tags_1,
 	sizeof(asn_DEF_ProfileInfoListRequest_tags_1)

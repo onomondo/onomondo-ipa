@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GPROSE_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("df-5g-prose-header")
+		ASN_MEMBER_NAME("df-5g-prose-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_DF_5GPROSE, templateID),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GPROSE_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("templateID")
+		ASN_MEMBER_NAME("templateID")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_DF_5GPROSE, df_df_5g_prose),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GPROSE_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("df-df-5g-prose")
+		ASN_MEMBER_NAME("df-df-5g-prose")
 		},
 	{ ATF_POINTER, 6, offsetof(struct PE_DF_5GPROSE, ef_5g_prose_st),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GPROSE_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5g-prose-st")
+		ASN_MEMBER_NAME("ef-5g-prose-st")
 		},
 	{ ATF_POINTER, 5, offsetof(struct PE_DF_5GPROSE, ef_5g_prose_dd),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GPROSE_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5g-prose-dd")
+		ASN_MEMBER_NAME("ef-5g-prose-dd")
 		},
 	{ ATF_POINTER, 4, offsetof(struct PE_DF_5GPROSE, ef_5g_prose_dc),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GPROSE_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5g-prose-dc")
+		ASN_MEMBER_NAME("ef-5g-prose-dc")
 		},
 	{ ATF_POINTER, 3, offsetof(struct PE_DF_5GPROSE, ef_5g_prose_u2nru),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GPROSE_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5g-prose-u2nru")
+		ASN_MEMBER_NAME("ef-5g-prose-u2nru")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PE_DF_5GPROSE, ef_5g_prose_ru),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GPROSE_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5g-prose-ru")
+		ASN_MEMBER_NAME("ef-5g-prose-ru")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_DF_5GPROSE, ef_5g_prose_uir),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GPROSE_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5g-prose-uir")
+		ASN_MEMBER_NAME("ef-5g-prose-uir")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_DF_5GPROSE_tags_1[] = {
@@ -113,8 +113,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_DF_5GPROSE_specs_1 = {
 	9,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_DF_5GPROSE = {
-	ASN_NAME("PE-DF-5GPROSE"),
-	ASN_NAME("PE-DF-5GPROSE"),
+	ASN_TYPE_NAME("PE-DF-5GPROSE")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_DF_5GPROSE_tags_1,
 	sizeof(asn_DEF_PE_DF_5GPROSE_tags_1)

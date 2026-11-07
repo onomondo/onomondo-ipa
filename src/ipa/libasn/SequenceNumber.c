@@ -16,8 +16,7 @@ static const ber_tlv_tag_t asn_DEF_SequenceNumber_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (2 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_SequenceNumber = {
-	ASN_NAME("SequenceNumber"),
-	ASN_NAME("SequenceNumber"),
+	ASN_TYPE_NAME("SequenceNumber")
 	&asn_OP_NativeInteger,
 	asn_DEF_SequenceNumber_tags_1,
 	sizeof(asn_DEF_SequenceNumber_tags_1)

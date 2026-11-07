@@ -19,8 +19,7 @@ asn_SEQUENCE_specifics_t asn_SPC_SGP32_CancelSessionOk_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_SGP32_CancelSessionOk = {
-	ASN_NAME("SGP32-CancelSessionOk"),
-	ASN_NAME("SGP32-CancelSessionOk"),
+	ASN_TYPE_NAME("SGP32-CancelSessionOk")
 	&asn_OP_SEQUENCE,
 	asn_DEF_SGP32_CancelSessionOk_tags_1,
 	sizeof(asn_DEF_SGP32_CancelSessionOk_tags_1)

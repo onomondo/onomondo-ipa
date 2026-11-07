@@ -15,8 +15,7 @@ static const ber_tlv_tag_t asn_DEF_InvalidityDate_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (24 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_InvalidityDate = {
-	ASN_NAME("InvalidityDate"),
-	ASN_NAME("InvalidityDate"),
+	ASN_TYPE_NAME("InvalidityDate")
 	&asn_OP_GeneralizedTime,
 	asn_DEF_InvalidityDate_tags_1,
 	sizeof(asn_DEF_InvalidityDate_tags_1)

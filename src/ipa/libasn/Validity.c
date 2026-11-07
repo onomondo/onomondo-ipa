@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_Validity_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("notBefore")
+		ASN_MEMBER_NAME("notBefore")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct Validity, notAfter),
 		-1 /* Ambiguous tag (CHOICE?) */,
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_Validity_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("notAfter")
+		ASN_MEMBER_NAME("notAfter")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_Validity_tags_1[] = {
@@ -45,8 +45,7 @@ asn_SEQUENCE_specifics_t asn_SPC_Validity_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_Validity = {
-	ASN_NAME("Validity"),
-	ASN_NAME("Validity"),
+	ASN_TYPE_NAME("Validity")
 	&asn_OP_SEQUENCE,
 	asn_DEF_Validity_tags_1,
 	sizeof(asn_DEF_Validity_tags_1)

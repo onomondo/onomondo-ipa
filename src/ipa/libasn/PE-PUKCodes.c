@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_pukCodes_3[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_pukCodes_tags_3[] = {
@@ -29,8 +29,7 @@ static asn_SET_OF_specifics_t asn_SPC_pukCodes_specs_3 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_pukCodes_3 = {
-	ASN_NAME("pukCodes"),
-	ASN_NAME("pukCodes"),
+	ASN_TYPE_NAME("pukCodes")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_pukCodes_tags_3,
 	sizeof(asn_DEF_pukCodes_tags_3)
@@ -52,7 +51,7 @@ asn_TYPE_member_t asn_MBR_PE_PUKCodes_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("puk-Header")
+		ASN_MEMBER_NAME("puk-Header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_PUKCodes, pukCodes),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -61,7 +60,7 @@ asn_TYPE_member_t asn_MBR_PE_PUKCodes_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("pukCodes")
+		ASN_MEMBER_NAME("pukCodes")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_PUKCodes_tags_1[] = {
@@ -80,8 +79,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_PUKCodes_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_PUKCodes = {
-	ASN_NAME("PE-PUKCodes"),
-	ASN_NAME("PE-PUKCodes"),
+	ASN_TYPE_NAME("PE-PUKCodes")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_PUKCodes_tags_1,
 	sizeof(asn_DEF_PE_PUKCodes_tags_1)

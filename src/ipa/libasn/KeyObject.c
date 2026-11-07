@@ -37,7 +37,7 @@ static asn_TYPE_member_t asn_MBR_Member_8[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("keyType")
+		ASN_MEMBER_NAME("keyType")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct KeyObject__keyCompontents__Member, keyData),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -46,7 +46,7 @@ static asn_TYPE_member_t asn_MBR_Member_8[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("keyData")
+		ASN_MEMBER_NAME("keyData")
 		},
 	{ ATF_POINTER, 1, offsetof(struct KeyObject__keyCompontents__Member, macLength),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -56,7 +56,7 @@ static asn_TYPE_member_t asn_MBR_Member_8[] = {
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		&asn_DFL_11_cmp_8,	/* Compare DEFAULT 8 */
 		&asn_DFL_11_set_8,	/* Set DEFAULT 8 */
-		ASN_NAME("macLength")
+		ASN_MEMBER_NAME("macLength")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_Member_tags_8[] = {
@@ -77,8 +77,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_Member_specs_8 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_Member_8 = {
-	ASN_NAME("SEQUENCE"),
-	ASN_NAME("SEQUENCE"),
+	ASN_TYPE_NAME("SEQUENCE")
 	&asn_OP_SEQUENCE,
 	asn_DEF_Member_tags_8,
 	sizeof(asn_DEF_Member_tags_8)
@@ -100,7 +99,7 @@ static asn_TYPE_member_t asn_MBR_keyCompontents_7[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_keyCompontents_tags_7[] = {
@@ -113,8 +112,7 @@ static asn_SET_OF_specifics_t asn_SPC_keyCompontents_specs_7 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_keyCompontents_7 = {
-	ASN_NAME("keyCompontents"),
-	ASN_NAME("keyCompontents"),
+	ASN_TYPE_NAME("keyCompontents")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_keyCompontents_tags_7,
 	sizeof(asn_DEF_keyCompontents_tags_7)
@@ -136,7 +134,7 @@ asn_TYPE_member_t asn_MBR_KeyObject_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("keyUsageQualifier")
+		ASN_MEMBER_NAME("keyUsageQualifier")
 		},
 	{ ATF_POINTER, 1, offsetof(struct KeyObject, keyAccess),
 		(ASN_TAG_CLASS_CONTEXT | (22 << 2)),
@@ -145,7 +143,7 @@ asn_TYPE_member_t asn_MBR_KeyObject_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("keyAccess")
+		ASN_MEMBER_NAME("keyAccess")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct KeyObject, keyIdentifier),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -154,7 +152,7 @@ asn_TYPE_member_t asn_MBR_KeyObject_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("keyIdentifier")
+		ASN_MEMBER_NAME("keyIdentifier")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct KeyObject, keyVersionNumber),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -163,7 +161,7 @@ asn_TYPE_member_t asn_MBR_KeyObject_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("keyVersionNumber")
+		ASN_MEMBER_NAME("keyVersionNumber")
 		},
 	{ ATF_POINTER, 1, offsetof(struct KeyObject, keyCounterValue),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -172,7 +170,7 @@ asn_TYPE_member_t asn_MBR_KeyObject_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("keyCounterValue")
+		ASN_MEMBER_NAME("keyCounterValue")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct KeyObject, keyCompontents),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -181,7 +179,7 @@ asn_TYPE_member_t asn_MBR_KeyObject_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("keyCompontents")
+		ASN_MEMBER_NAME("keyCompontents")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_KeyObject_tags_1[] = {
@@ -204,8 +202,7 @@ asn_SEQUENCE_specifics_t asn_SPC_KeyObject_specs_1 = {
 	6,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_KeyObject = {
-	ASN_NAME("KeyObject"),
-	ASN_NAME("KeyObject"),
+	ASN_TYPE_NAME("KeyObject")
 	&asn_OP_SEQUENCE,
 	asn_DEF_KeyObject_tags_1,
 	sizeof(asn_DEF_KeyObject_tags_1)

@@ -55,8 +55,7 @@ asn_TYPE_operation_t asn_OP_NULL = {
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_NULL = {
-	"NULL",
-	"NULL",
+	ASN_TYPE_NAME("NULL")
 	&asn_OP_NULL,
 	asn_DEF_NULL_tags,
 	sizeof(asn_DEF_NULL_tags) / sizeof(asn_DEF_NULL_tags[0]),

@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_eimIdList_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_eimIdList_tags_2[] = {
@@ -29,8 +29,7 @@ static asn_SET_OF_specifics_t asn_SPC_eimIdList_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_eimIdList_2 = {
-	ASN_NAME("eimIdList"),
-	ASN_NAME("eimIdList"),
+	ASN_TYPE_NAME("eimIdList")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_eimIdList_tags_2,
 	sizeof(asn_DEF_eimIdList_tags_2)
@@ -52,7 +51,7 @@ asn_TYPE_member_t asn_MBR_ListEimResult_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eimIdList")
+		ASN_MEMBER_NAME("eimIdList")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ListEimResult, choice.listEimError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -61,7 +60,7 @@ asn_TYPE_member_t asn_MBR_ListEimResult_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("listEimError")
+		ASN_MEMBER_NAME("listEimError")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_ListEimResult_tag2el_1[] = {
@@ -79,8 +78,7 @@ asn_CHOICE_specifics_t asn_SPC_ListEimResult_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_ListEimResult = {
-	ASN_NAME("ListEimResult"),
-	ASN_NAME("ListEimResult"),
+	ASN_TYPE_NAME("ListEimResult")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

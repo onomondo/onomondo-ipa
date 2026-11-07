@@ -269,7 +269,9 @@ uper_open_type_skip(const asn_codec_ctx_t *ctx, asn_per_data_t *pd) {
     asn_TYPE_operation_t s_op;
 	asn_dec_rval_t rv;
 
+#if !defined(ASN_DISABLE_NAMES)
 	s_td.name = "<unknown extension>";
+#endif
 	s_td.op = &s_op;
     s_op.uper_decoder = uper_sot_suck;
 

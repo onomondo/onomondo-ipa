@@ -15,8 +15,7 @@ static const ber_tlv_tag_t asn_DEF_ExtensionORAddressComponents_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (17 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_ExtensionORAddressComponents = {
-	ASN_NAME("ExtensionORAddressComponents"),
-	ASN_NAME("ExtensionORAddressComponents"),
+	ASN_TYPE_NAME("ExtensionORAddressComponents")
 	&asn_OP_SET,
 	asn_DEF_ExtensionORAddressComponents_tags_1,
 	sizeof(asn_DEF_ExtensionORAddressComponents_tags_1)

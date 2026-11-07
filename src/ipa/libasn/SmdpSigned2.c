@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_SmdpSigned2_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("transactionId")
+		ASN_MEMBER_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SmdpSigned2, ccRequiredFlag),
 		(ASN_TAG_CLASS_UNIVERSAL | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_SmdpSigned2_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ccRequiredFlag")
+		ASN_MEMBER_NAME("ccRequiredFlag")
 		},
 	{ ATF_POINTER, 1, offsetof(struct SmdpSigned2, bppEuiccOtpk),
 		(ASN_TAG_CLASS_APPLICATION | (73 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_SmdpSigned2_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("bppEuiccOtpk")
+		ASN_MEMBER_NAME("bppEuiccOtpk")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_SmdpSigned2_tags_1[] = {
@@ -53,8 +53,7 @@ asn_SEQUENCE_specifics_t asn_SPC_SmdpSigned2_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_SmdpSigned2 = {
-	ASN_NAME("SmdpSigned2"),
-	ASN_NAME("SmdpSigned2"),
+	ASN_TYPE_NAME("SmdpSigned2")
 	&asn_OP_SEQUENCE,
 	asn_DEF_SmdpSigned2_tags_1,
 	sizeof(asn_DEF_SmdpSigned2_tags_1)

@@ -62,8 +62,7 @@ asn_TYPE_operation_t asn_OP_NativeInteger = {
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_NativeInteger = {
-	"INTEGER",			/* The ASN.1 type is still INTEGER */
-	"INTEGER",
+	ASN_TYPE_NAME("INTEGER")			/* The ASN.1 type is still INTEGER */
 	&asn_OP_NativeInteger,
 	asn_DEF_NativeInteger_tags,
 	sizeof(asn_DEF_NativeInteger_tags) / sizeof(asn_DEF_NativeInteger_tags[0]),

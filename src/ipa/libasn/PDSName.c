@@ -15,8 +15,7 @@ static const ber_tlv_tag_t asn_DEF_PDSName_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (19 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_PDSName = {
-	ASN_NAME("PDSName"),
-	ASN_NAME("PDSName"),
+	ASN_TYPE_NAME("PDSName")
 	&asn_OP_PrintableString,
 	asn_DEF_PDSName_tags_1,
 	sizeof(asn_DEF_PDSName_tags_1)

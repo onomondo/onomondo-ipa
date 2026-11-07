@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("transactionId")
+		ASN_MEMBER_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateClientRequest, authenticateServerResponse),
 		(ASN_TAG_CLASS_CONTEXT | (56 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("authenticateServerResponse")
+		ASN_MEMBER_NAME("authenticateServerResponse")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AuthenticateClientRequest_tags_1[] = {
@@ -44,8 +44,7 @@ asn_SEQUENCE_specifics_t asn_SPC_AuthenticateClientRequest_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_AuthenticateClientRequest = {
-	ASN_NAME("AuthenticateClientRequest"),
-	ASN_NAME("AuthenticateClientRequest"),
+	ASN_TYPE_NAME("AuthenticateClientRequest")
 	&asn_OP_SEQUENCE,
 	asn_DEF_AuthenticateClientRequest_tags_1,
 	sizeof(asn_DEF_AuthenticateClientRequest_tags_1)

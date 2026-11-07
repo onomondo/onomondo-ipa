@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_ProfileRollbackResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("cmdResult")
+		ASN_MEMBER_NAME("cmdResult")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ProfileRollbackResponse, eUICCPackageResult),
 		(ASN_TAG_CLASS_CONTEXT | (81 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_ProfileRollbackResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eUICCPackageResult")
+		ASN_MEMBER_NAME("eUICCPackageResult")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ProfileRollbackResponse_tags_1[] = {
@@ -44,8 +44,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_ProfileRollbackResponse_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ProfileRollbackResponse = {
-	ASN_NAME("ProfileRollbackResponse"),
-	ASN_NAME("ProfileRollbackResponse"),
+	ASN_TYPE_NAME("ProfileRollbackResponse")
 	&asn_OP_SEQUENCE,
 	asn_DEF_ProfileRollbackResponse_tags_1,
 	sizeof(asn_DEF_ProfileRollbackResponse_tags_1)

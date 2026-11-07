@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_EuiccSigned1_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("transactionId")
+		ASN_MEMBER_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccSigned1, serverAddress),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_EuiccSigned1_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("serverAddress")
+		ASN_MEMBER_NAME("serverAddress")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccSigned1, serverChallenge),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_EuiccSigned1_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("serverChallenge")
+		ASN_MEMBER_NAME("serverChallenge")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccSigned1, euiccInfo2),
 		(ASN_TAG_CLASS_CONTEXT | (34 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_EuiccSigned1_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccInfo2")
+		ASN_MEMBER_NAME("euiccInfo2")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccSigned1, ctxParams1),
 		-1 /* Ambiguous tag (CHOICE?) */,
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_EuiccSigned1_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ctxParams1")
+		ASN_MEMBER_NAME("ctxParams1")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_EuiccSigned1_tags_1[] = {
@@ -73,8 +73,7 @@ asn_SEQUENCE_specifics_t asn_SPC_EuiccSigned1_specs_1 = {
 	5,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EuiccSigned1 = {
-	ASN_NAME("EuiccSigned1"),
-	ASN_NAME("EuiccSigned1"),
+	ASN_TYPE_NAME("EuiccSigned1")
 	&asn_OP_SEQUENCE,
 	asn_DEF_EuiccSigned1_tags_1,
 	sizeof(asn_DEF_EuiccSigned1_tags_1)

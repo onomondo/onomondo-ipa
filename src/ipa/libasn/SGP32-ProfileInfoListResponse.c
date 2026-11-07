@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_profileInfoListOk_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_profileInfoListOk_tags_2[] = {
@@ -29,8 +29,7 @@ static asn_SET_OF_specifics_t asn_SPC_profileInfoListOk_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_profileInfoListOk_2 = {
-	ASN_NAME("profileInfoListOk"),
-	ASN_NAME("profileInfoListOk"),
+	ASN_TYPE_NAME("profileInfoListOk")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_profileInfoListOk_tags_2,
 	sizeof(asn_DEF_profileInfoListOk_tags_2)
@@ -52,7 +51,7 @@ asn_TYPE_member_t asn_MBR_SGP32_ProfileInfoListResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("profileInfoListOk")
+		ASN_MEMBER_NAME("profileInfoListOk")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_ProfileInfoListResponse, choice.profileInfoListError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -61,7 +60,7 @@ asn_TYPE_member_t asn_MBR_SGP32_ProfileInfoListResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("profileInfoListError")
+		ASN_MEMBER_NAME("profileInfoListError")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_SGP32_ProfileInfoListResponse_tags_1[] = {
@@ -82,8 +81,7 @@ asn_CHOICE_specifics_t asn_SPC_SGP32_ProfileInfoListResponse_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_SGP32_ProfileInfoListResponse = {
-	ASN_NAME("SGP32-ProfileInfoListResponse"),
-	ASN_NAME("SGP32-ProfileInfoListResponse"),
+	ASN_TYPE_NAME("SGP32-ProfileInfoListResponse")
 	&asn_OP_CHOICE,
 	asn_DEF_SGP32_ProfileInfoListResponse_tags_1,
 	sizeof(asn_DEF_SGP32_ProfileInfoListResponse_tags_1)

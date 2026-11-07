@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_tarList_5[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_tarList_tags_5[] = {
@@ -29,8 +29,7 @@ static asn_SET_OF_specifics_t asn_SPC_tarList_specs_5 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_tarList_5 = {
-	ASN_NAME("tarList"),
-	ASN_NAME("tarList"),
+	ASN_TYPE_NAME("tarList")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_tarList_tags_5,
 	sizeof(asn_DEF_tarList_tags_5)
@@ -52,7 +51,7 @@ asn_TYPE_member_t asn_MBR_PE_RFM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("rfm-header")
+		ASN_MEMBER_NAME("rfm-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_RFM, instanceAID),
 		(ASN_TAG_CLASS_APPLICATION | (15 << 2)),
@@ -61,7 +60,7 @@ asn_TYPE_member_t asn_MBR_PE_RFM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("instanceAID")
+		ASN_MEMBER_NAME("instanceAID")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PE_RFM, securityDomainAID),
 		(ASN_TAG_CLASS_APPLICATION | (15 << 2)),
@@ -70,7 +69,7 @@ asn_TYPE_member_t asn_MBR_PE_RFM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("securityDomainAID")
+		ASN_MEMBER_NAME("securityDomainAID")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_RFM, tarList),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
@@ -79,7 +78,7 @@ asn_TYPE_member_t asn_MBR_PE_RFM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("tarList")
+		ASN_MEMBER_NAME("tarList")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_RFM, minimumSecurityLevel),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -88,7 +87,7 @@ asn_TYPE_member_t asn_MBR_PE_RFM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("minimumSecurityLevel")
+		ASN_MEMBER_NAME("minimumSecurityLevel")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_RFM, uiccAccessDomain),
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
@@ -97,7 +96,7 @@ asn_TYPE_member_t asn_MBR_PE_RFM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("uiccAccessDomain")
+		ASN_MEMBER_NAME("uiccAccessDomain")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_RFM, uiccAdminAccessDomain),
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
@@ -106,7 +105,7 @@ asn_TYPE_member_t asn_MBR_PE_RFM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("uiccAdminAccessDomain")
+		ASN_MEMBER_NAME("uiccAdminAccessDomain")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_RFM, adfRFMAccess),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -115,7 +114,7 @@ asn_TYPE_member_t asn_MBR_PE_RFM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("adfRFMAccess")
+		ASN_MEMBER_NAME("adfRFMAccess")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_RFM_tags_1[] = {
@@ -140,8 +139,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_RFM_specs_1 = {
 	8,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_RFM = {
-	ASN_NAME("PE-RFM"),
-	ASN_NAME("PE-RFM"),
+	ASN_TYPE_NAME("PE-RFM")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_RFM_tags_1,
 	sizeof(asn_DEF_PE_RFM_tags_1)

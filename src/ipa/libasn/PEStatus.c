@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PEStatus_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("status")
+		ASN_MEMBER_NAME("status")
 		},
 	{ ATF_POINTER, 3, offsetof(struct PEStatus, identification),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PEStatus_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("identification")
+		ASN_MEMBER_NAME("identification")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PEStatus, additional_information),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_PEStatus_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("additional-information")
+		ASN_MEMBER_NAME("additional-information")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PEStatus, offset),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_PEStatus_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("offset")
+		ASN_MEMBER_NAME("offset")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PEStatus_tags_1[] = {
@@ -63,8 +63,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PEStatus_specs_1 = {
 	4,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PEStatus = {
-	ASN_NAME("PEStatus"),
-	ASN_NAME("PEStatus"),
+	ASN_TYPE_NAME("PEStatus")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PEStatus_tags_1,
 	sizeof(asn_DEF_PEStatus_tags_1)

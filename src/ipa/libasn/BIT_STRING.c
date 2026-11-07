@@ -60,8 +60,7 @@ asn_TYPE_operation_t asn_OP_BIT_STRING = {
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_BIT_STRING = {
-	"BIT STRING",
-	"BIT_STRING",
+	ASN_TYPE_NAME("BIT STRING")
 	&asn_OP_BIT_STRING,
 	asn_DEF_BIT_STRING_tags,
 	sizeof(asn_DEF_BIT_STRING_tags)

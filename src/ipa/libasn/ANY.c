@@ -49,8 +49,7 @@ asn_TYPE_operation_t asn_OP_ANY = {
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_ANY = {
-	"ANY",
-	"ANY",
+	ASN_TYPE_NAME("ANY")
 	&asn_OP_ANY,
 	0, 0, 0, 0,
 	ASN_ENC_CONSTRAINTS(0, 0, asn_generic_no_constraint)	/* No constraints */

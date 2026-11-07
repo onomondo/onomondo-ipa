@@ -15,8 +15,7 @@ static const ber_tlv_tag_t asn_DEF_ProfileClass_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (2 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_ProfileClass = {
-	ASN_NAME("ProfileClass"),
-	ASN_NAME("ProfileClass"),
+	ASN_TYPE_NAME("ProfileClass")
 	&asn_OP_NativeInteger,
 	asn_DEF_ProfileClass_tags_1,
 	sizeof(asn_DEF_ProfileClass_tags_1)

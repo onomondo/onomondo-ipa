@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_PrivateKeyUsagePeriod_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("notBefore")
+		ASN_MEMBER_NAME("notBefore")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PrivateKeyUsagePeriod, notAfter),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_PrivateKeyUsagePeriod_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("notAfter")
+		ASN_MEMBER_NAME("notAfter")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PrivateKeyUsagePeriod_tags_1[] = {
@@ -43,8 +43,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_PrivateKeyUsagePeriod_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PrivateKeyUsagePeriod = {
-	ASN_NAME("PrivateKeyUsagePeriod"),
-	ASN_NAME("PrivateKeyUsagePeriod"),
+	ASN_TYPE_NAME("PrivateKeyUsagePeriod")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PrivateKeyUsagePeriod_tags_1,
 	sizeof(asn_DEF_PrivateKeyUsagePeriod_tags_1)

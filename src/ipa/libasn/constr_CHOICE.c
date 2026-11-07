@@ -559,7 +559,7 @@ CHOICE_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
 	 * Bring closer parts of structure description.
 	 */
 	const asn_CHOICE_specifics_t *specs = (const asn_CHOICE_specifics_t *)td->specifics;
-	const char *xml_tag = opt_mname ? opt_mname : td->xml_tag;
+	const char *xml_tag = opt_mname ? opt_mname : ASN_NAME_OF(td);
 
 	/*
 	 * Parts of the structure being constructed.
@@ -623,7 +623,7 @@ CHOICE_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
 
 			/* Start/Continue decoding the inner member */
 			tmprval = elm->type->op->xer_decoder(opt_codec_ctx,
-					elm->type, memb_ptr2, elm->name,
+					elm->type, memb_ptr2, ASN_NAME_OF(elm),
 					buf_ptr, size);
 			XER_ADVANCE(tmprval.consumed);
 			ASN_DEBUG("XER/CHOICE: itdf: [%s] code=%d",
@@ -720,7 +720,7 @@ CHOICE_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
 			 */
 			for(edx = 0; edx < td->elements_count; edx++) {
 				elm = &td->elements[edx];
-				tcv = xer_check_tag(buf_ptr,ch_size,elm->name);
+				tcv = xer_check_tag(buf_ptr,ch_size,ASN_NAME_OF(elm));
 				switch(tcv) {
 				case XCT_BOTH:
 				case XCT_OPENING:
@@ -804,7 +804,7 @@ CHOICE_encode_xer(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
 		asn_enc_rval_t tmper;
 		asn_TYPE_member_t *elm = &td->elements[present-1];
 		const void *memb_ptr;
-		const char *mname = elm->name;
+		const char *mname = ASN_NAME_OF(elm);
 		unsigned int mlen = strlen(mname);
 
 		if(elm->flags & ATF_POINTER) {
@@ -1048,7 +1048,7 @@ CHOICE_print(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
 
 		/* Print member's name and stuff */
 		if(0) {
-			if(cb(elm->name, strlen(elm->name), app_key) < 0
+			if(cb(ASN_NAME_OF(elm), strlen(ASN_NAME_OF(elm)), app_key) < 0
 			|| cb(": ", 2, app_key) < 0)
 				return -1;
 		}

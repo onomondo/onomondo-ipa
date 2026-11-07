@@ -20,8 +20,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_GetConnectivityParametersRequest_specs_1
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_GetConnectivityParametersRequest = {
-	ASN_NAME("GetConnectivityParametersRequest"),
-	ASN_NAME("GetConnectivityParametersRequest"),
+	ASN_TYPE_NAME("GetConnectivityParametersRequest")
 	&asn_OP_SEQUENCE,
 	asn_DEF_GetConnectivityParametersRequest_tags_1,
 	sizeof(asn_DEF_GetConnectivityParametersRequest_tags_1)

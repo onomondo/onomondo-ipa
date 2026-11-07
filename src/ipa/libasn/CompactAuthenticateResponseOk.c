@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_signedData_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccSigned1")
+		ASN_MEMBER_NAME("euiccSigned1")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CompactAuthenticateResponseOk__signedData, choice.compactEuiccSigned1),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_signedData_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("compactEuiccSigned1")
+		ASN_MEMBER_NAME("compactEuiccSigned1")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_signedData_tag2el_2[] = {
@@ -43,8 +43,7 @@ static asn_CHOICE_specifics_t asn_SPC_signedData_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_signedData_2 = {
-	ASN_NAME("signedData"),
-	ASN_NAME("signedData"),
+	ASN_TYPE_NAME("signedData")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
@@ -64,7 +63,7 @@ asn_TYPE_member_t asn_MBR_CompactAuthenticateResponseOk_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("signedData")
+		ASN_MEMBER_NAME("signedData")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CompactAuthenticateResponseOk, euiccSignature1),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -73,7 +72,7 @@ asn_TYPE_member_t asn_MBR_CompactAuthenticateResponseOk_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccSignature1")
+		ASN_MEMBER_NAME("euiccSignature1")
 		},
 	{ ATF_POINTER, 2, offsetof(struct CompactAuthenticateResponseOk, euiccCertificate),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -82,7 +81,7 @@ asn_TYPE_member_t asn_MBR_CompactAuthenticateResponseOk_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccCertificate")
+		ASN_MEMBER_NAME("euiccCertificate")
 		},
 	{ ATF_POINTER, 1, offsetof(struct CompactAuthenticateResponseOk, eumCertificate),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -91,7 +90,7 @@ asn_TYPE_member_t asn_MBR_CompactAuthenticateResponseOk_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eumCertificate")
+		ASN_MEMBER_NAME("eumCertificate")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CompactAuthenticateResponseOk_tags_1[] = {
@@ -113,8 +112,7 @@ asn_SEQUENCE_specifics_t asn_SPC_CompactAuthenticateResponseOk_specs_1 = {
 	4,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CompactAuthenticateResponseOk = {
-	ASN_NAME("CompactAuthenticateResponseOk"),
-	ASN_NAME("CompactAuthenticateResponseOk"),
+	ASN_TYPE_NAME("CompactAuthenticateResponseOk")
 	&asn_OP_SEQUENCE,
 	asn_DEF_CompactAuthenticateResponseOk_tags_1,
 	sizeof(asn_DEF_CompactAuthenticateResponseOk_tags_1)

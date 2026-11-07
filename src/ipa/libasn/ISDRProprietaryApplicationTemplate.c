@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_ISDRProprietaryApplicationTemplate_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("svn")
+		ASN_MEMBER_NAME("svn")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ISDRProprietaryApplicationTemplate, lpaeSupport),
 		(ASN_TAG_CLASS_UNIVERSAL | (3 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_ISDRProprietaryApplicationTemplate_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("lpaeSupport")
+		ASN_MEMBER_NAME("lpaeSupport")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ISDRProprietaryApplicationTemplate_tags_1[] = {
@@ -44,8 +44,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_ISDRProprietaryApplicationTemplate_specs
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ISDRProprietaryApplicationTemplate = {
-	ASN_NAME("ISDRProprietaryApplicationTemplate"),
-	ASN_NAME("ISDRProprietaryApplicationTemplate"),
+	ASN_TYPE_NAME("ISDRProprietaryApplicationTemplate")
 	&asn_OP_SEQUENCE,
 	asn_DEF_ISDRProprietaryApplicationTemplate_tags_1,
 	sizeof(asn_DEF_ISDRProprietaryApplicationTemplate_tags_1)

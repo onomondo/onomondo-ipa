@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_ReplaceSessionKeysRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("initialMacChainingValue")
+		ASN_MEMBER_NAME("initialMacChainingValue")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ReplaceSessionKeysRequest, ppkEnc),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_ReplaceSessionKeysRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ppkEnc")
+		ASN_MEMBER_NAME("ppkEnc")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ReplaceSessionKeysRequest, ppkCmac),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ static asn_TYPE_member_t asn_MBR_ReplaceSessionKeysRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ppkCmac")
+		ASN_MEMBER_NAME("ppkCmac")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ReplaceSessionKeysRequest_tags_1[] = {
@@ -54,8 +54,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_ReplaceSessionKeysRequest_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ReplaceSessionKeysRequest = {
-	ASN_NAME("ReplaceSessionKeysRequest"),
-	ASN_NAME("ReplaceSessionKeysRequest"),
+	ASN_TYPE_NAME("ReplaceSessionKeysRequest")
 	&asn_OP_SEQUENCE,
 	asn_DEF_ReplaceSessionKeysRequest_tags_1,
 	sizeof(asn_DEF_ReplaceSessionKeysRequest_tags_1)

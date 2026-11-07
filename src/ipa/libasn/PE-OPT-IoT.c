@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("optiot-header")
+		ASN_MEMBER_NAME("optiot-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_OPT_IoT, templateID),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("templateID")
+		ASN_MEMBER_NAME("templateID")
 		},
 	{ ATF_POINTER, 26, offsetof(struct PE_OPT_IoT, ef_fdn),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-fdn")
+		ASN_MEMBER_NAME("ef-fdn")
 		},
 	{ ATF_POINTER, 25, offsetof(struct PE_OPT_IoT, ef_sms),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-sms")
+		ASN_MEMBER_NAME("ef-sms")
 		},
 	{ ATF_POINTER, 24, offsetof(struct PE_OPT_IoT, ef_smsp),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-smsp")
+		ASN_MEMBER_NAME("ef-smsp")
 		},
 	{ ATF_POINTER, 23, offsetof(struct PE_OPT_IoT, ef_smss),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-smss")
+		ASN_MEMBER_NAME("ef-smss")
 		},
 	{ ATF_POINTER, 22, offsetof(struct PE_OPT_IoT, ef_spn),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-spn")
+		ASN_MEMBER_NAME("ef-spn")
 		},
 	{ ATF_POINTER, 21, offsetof(struct PE_OPT_IoT, ef_est),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-est")
+		ASN_MEMBER_NAME("ef-est")
 		},
 	{ ATF_POINTER, 20, offsetof(struct PE_OPT_IoT, ef_oplmnwact),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-oplmnwact")
+		ASN_MEMBER_NAME("ef-oplmnwact")
 		},
 	{ ATF_POINTER, 19, offsetof(struct PE_OPT_IoT, ef_hplmnwact),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
@@ -96,7 +96,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-hplmnwact")
+		ASN_MEMBER_NAME("ef-hplmnwact")
 		},
 	{ ATF_POINTER, 18, offsetof(struct PE_OPT_IoT, ef_ehplmn),
 		(ASN_TAG_CLASS_CONTEXT | (10 << 2)),
@@ -105,7 +105,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-ehplmn")
+		ASN_MEMBER_NAME("ef-ehplmn")
 		},
 	{ ATF_POINTER, 17, offsetof(struct PE_OPT_IoT, ef_epsloci),
 		(ASN_TAG_CLASS_CONTEXT | (11 << 2)),
@@ -114,7 +114,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-epsloci")
+		ASN_MEMBER_NAME("ef-epsloci")
 		},
 	{ ATF_POINTER, 16, offsetof(struct PE_OPT_IoT, ef_epsnsc),
 		(ASN_TAG_CLASS_CONTEXT | (12 << 2)),
@@ -123,7 +123,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-epsnsc")
+		ASN_MEMBER_NAME("ef-epsnsc")
 		},
 	{ ATF_POINTER, 15, offsetof(struct PE_OPT_IoT, df_df_5gs),
 		(ASN_TAG_CLASS_CONTEXT | (13 << 2)),
@@ -132,7 +132,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("df-df-5gs")
+		ASN_MEMBER_NAME("df-df-5gs")
 		},
 	{ ATF_POINTER, 14, offsetof(struct PE_OPT_IoT, ef_5gs3gpploci),
 		(ASN_TAG_CLASS_CONTEXT | (14 << 2)),
@@ -141,7 +141,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5gs3gpploci")
+		ASN_MEMBER_NAME("ef-5gs3gpploci")
 		},
 	{ ATF_POINTER, 13, offsetof(struct PE_OPT_IoT, ef_5gsn3gpploci),
 		(ASN_TAG_CLASS_CONTEXT | (15 << 2)),
@@ -150,7 +150,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5gsn3gpploci")
+		ASN_MEMBER_NAME("ef-5gsn3gpploci")
 		},
 	{ ATF_POINTER, 12, offsetof(struct PE_OPT_IoT, ef_5gs3gppnsc),
 		(ASN_TAG_CLASS_CONTEXT | (16 << 2)),
@@ -159,7 +159,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5gs3gppnsc")
+		ASN_MEMBER_NAME("ef-5gs3gppnsc")
 		},
 	{ ATF_POINTER, 11, offsetof(struct PE_OPT_IoT, ef_5gsn3gppnsc),
 		(ASN_TAG_CLASS_CONTEXT | (17 << 2)),
@@ -168,7 +168,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5gsn3gppnsc")
+		ASN_MEMBER_NAME("ef-5gsn3gppnsc")
 		},
 	{ ATF_POINTER, 10, offsetof(struct PE_OPT_IoT, ef_5gauthkeys),
 		(ASN_TAG_CLASS_CONTEXT | (18 << 2)),
@@ -177,7 +177,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5gauthkeys")
+		ASN_MEMBER_NAME("ef-5gauthkeys")
 		},
 	{ ATF_POINTER, 9, offsetof(struct PE_OPT_IoT, ef_uac_aic),
 		(ASN_TAG_CLASS_CONTEXT | (19 << 2)),
@@ -186,7 +186,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-uac-aic")
+		ASN_MEMBER_NAME("ef-uac-aic")
 		},
 	{ ATF_POINTER, 8, offsetof(struct PE_OPT_IoT, ef_suci_calc_info),
 		(ASN_TAG_CLASS_CONTEXT | (20 << 2)),
@@ -195,7 +195,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-suci-calc-info")
+		ASN_MEMBER_NAME("ef-suci-calc-info")
 		},
 	{ ATF_POINTER, 7, offsetof(struct PE_OPT_IoT, ef_opl5g),
 		(ASN_TAG_CLASS_CONTEXT | (21 << 2)),
@@ -204,7 +204,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-opl5g")
+		ASN_MEMBER_NAME("ef-opl5g")
 		},
 	{ ATF_POINTER, 6, offsetof(struct PE_OPT_IoT, ef_supi_nai),
 		(ASN_TAG_CLASS_CONTEXT | (22 << 2)),
@@ -213,7 +213,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-supi-nai")
+		ASN_MEMBER_NAME("ef-supi-nai")
 		},
 	{ ATF_POINTER, 5, offsetof(struct PE_OPT_IoT, ef_routing_indicator),
 		(ASN_TAG_CLASS_CONTEXT | (23 << 2)),
@@ -222,7 +222,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-routing-indicator")
+		ASN_MEMBER_NAME("ef-routing-indicator")
 		},
 	{ ATF_POINTER, 4, offsetof(struct PE_OPT_IoT, ef_ursp),
 		(ASN_TAG_CLASS_CONTEXT | (24 << 2)),
@@ -231,7 +231,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-ursp")
+		ASN_MEMBER_NAME("ef-ursp")
 		},
 	{ ATF_POINTER, 3, offsetof(struct PE_OPT_IoT, ef_tn3gppsnn),
 		(ASN_TAG_CLASS_CONTEXT | (25 << 2)),
@@ -240,7 +240,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-tn3gppsnn")
+		ASN_MEMBER_NAME("ef-tn3gppsnn")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PE_OPT_IoT, df_df_saip),
 		(ASN_TAG_CLASS_CONTEXT | (26 << 2)),
@@ -249,7 +249,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("df-df-saip")
+		ASN_MEMBER_NAME("df-df-saip")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_OPT_IoT, ef_suci_calc_info_usim),
 		(ASN_TAG_CLASS_CONTEXT | (27 << 2)),
@@ -258,7 +258,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-suci-calc-info-usim")
+		ASN_MEMBER_NAME("ef-suci-calc-info-usim")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_OPT_IoT_tags_1[] = {
@@ -303,8 +303,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_OPT_IoT_specs_1 = {
 	28,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_OPT_IoT = {
-	ASN_NAME("PE-OPT-IoT"),
-	ASN_NAME("PE-OPT-IoT"),
+	ASN_TYPE_NAME("PE-OPT-IoT")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_OPT_IoT_tags_1,
 	sizeof(asn_DEF_PE_OPT_IoT_tags_1)

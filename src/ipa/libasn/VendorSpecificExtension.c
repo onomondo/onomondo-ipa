@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_Member_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("vendorOid")
+		ASN_MEMBER_NAME("vendorOid")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct VendorSpecificExtension__Member, vendorSpecificData),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_Member_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("vendorSpecificData")
+		ASN_MEMBER_NAME("vendorSpecificData")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_Member_tags_2[] = {
@@ -44,8 +44,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_Member_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_Member_2 = {
-	ASN_NAME("SEQUENCE"),
-	ASN_NAME("SEQUENCE"),
+	ASN_TYPE_NAME("SEQUENCE")
 	&asn_OP_SEQUENCE,
 	asn_DEF_Member_tags_2,
 	sizeof(asn_DEF_Member_tags_2)
@@ -67,7 +66,7 @@ asn_TYPE_member_t asn_MBR_VendorSpecificExtension_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_VendorSpecificExtension_tags_1[] = {
@@ -79,8 +78,7 @@ asn_SET_OF_specifics_t asn_SPC_VendorSpecificExtension_specs_1 = {
 	0,	/* XER encoding is XMLDelimitedItemList */
 };
 asn_TYPE_descriptor_t asn_DEF_VendorSpecificExtension = {
-	ASN_NAME("VendorSpecificExtension"),
-	ASN_NAME("VendorSpecificExtension"),
+	ASN_TYPE_NAME("VendorSpecificExtension")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_VendorSpecificExtension_tags_1,
 	sizeof(asn_DEF_VendorSpecificExtension_tags_1)

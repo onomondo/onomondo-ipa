@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccDataResponseError_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eimTransactionId")
+		ASN_MEMBER_NAME("eimTransactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct IpaEuiccDataResponseError, ipaEuiccDataErrorCode),
 		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccDataResponseError_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ipaEuiccDataErrorCode")
+		ASN_MEMBER_NAME("ipaEuiccDataErrorCode")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_IpaEuiccDataResponseError_tags_1[] = {
@@ -43,8 +43,7 @@ asn_SEQUENCE_specifics_t asn_SPC_IpaEuiccDataResponseError_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_IpaEuiccDataResponseError = {
-	ASN_NAME("IpaEuiccDataResponseError"),
-	ASN_NAME("IpaEuiccDataResponseError"),
+	ASN_TYPE_NAME("IpaEuiccDataResponseError")
 	&asn_OP_SEQUENCE,
 	asn_DEF_IpaEuiccDataResponseError_tags_1,
 	sizeof(asn_DEF_IpaEuiccDataResponseError_tags_1)

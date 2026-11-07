@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateServerResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("authenticateResponseOk")
+		ASN_MEMBER_NAME("authenticateResponseOk")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateServerResponse, choice.authenticateResponseError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateServerResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("authenticateResponseError")
+		ASN_MEMBER_NAME("authenticateResponseError")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AuthenticateServerResponse_tags_1[] = {
@@ -45,8 +45,7 @@ asn_CHOICE_specifics_t asn_SPC_AuthenticateServerResponse_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_AuthenticateServerResponse = {
-	ASN_NAME("AuthenticateServerResponse"),
-	ASN_NAME("AuthenticateServerResponse"),
+	ASN_TYPE_NAME("AuthenticateServerResponse")
 	&asn_OP_CHOICE,
 	asn_DEF_AuthenticateServerResponse_tags_1,
 	sizeof(asn_DEF_AuthenticateServerResponse_tags_1)

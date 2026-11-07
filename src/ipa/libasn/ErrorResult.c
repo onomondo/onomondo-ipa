@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_ErrorResult_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("bppCommandId")
+		ASN_MEMBER_NAME("bppCommandId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ErrorResult, errorReason),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_ErrorResult_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("errorReason")
+		ASN_MEMBER_NAME("errorReason")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ErrorResult, simaResponse),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_ErrorResult_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("simaResponse")
+		ASN_MEMBER_NAME("simaResponse")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ErrorResult_tags_1[] = {
@@ -53,8 +53,7 @@ asn_SEQUENCE_specifics_t asn_SPC_ErrorResult_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ErrorResult = {
-	ASN_NAME("ErrorResult"),
-	ASN_NAME("ErrorResult"),
+	ASN_TYPE_NAME("ErrorResult")
 	&asn_OP_SEQUENCE,
 	asn_DEF_ErrorResult_tags_1,
 	sizeof(asn_DEF_ErrorResult_tags_1)

@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_ProfileRollbackRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("refreshFlag")
+		ASN_MEMBER_NAME("refreshFlag")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ProfileRollbackRequest_tags_1[] = {
@@ -34,8 +34,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_ProfileRollbackRequest_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ProfileRollbackRequest = {
-	ASN_NAME("ProfileRollbackRequest"),
-	ASN_NAME("ProfileRollbackRequest"),
+	ASN_TYPE_NAME("ProfileRollbackRequest")
 	&asn_OP_SEQUENCE,
 	asn_DEF_ProfileRollbackRequest_tags_1,
 	sizeof(asn_DEF_ProfileRollbackRequest_tags_1)

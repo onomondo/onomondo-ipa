@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_BuiltInDomainDefinedAttribute_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("type")
+		ASN_MEMBER_NAME("type")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct BuiltInDomainDefinedAttribute, value),
 		(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_BuiltInDomainDefinedAttribute_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("value")
+		ASN_MEMBER_NAME("value")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_BuiltInDomainDefinedAttribute_tags_1[] = {
@@ -43,8 +43,7 @@ asn_SEQUENCE_specifics_t asn_SPC_BuiltInDomainDefinedAttribute_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_BuiltInDomainDefinedAttribute = {
-	ASN_NAME("BuiltInDomainDefinedAttribute"),
-	ASN_NAME("BuiltInDomainDefinedAttribute"),
+	ASN_TYPE_NAME("BuiltInDomainDefinedAttribute")
 	&asn_OP_SEQUENCE,
 	asn_DEF_BuiltInDomainDefinedAttribute_tags_1,
 	sizeof(asn_DEF_BuiltInDomainDefinedAttribute_tags_1)

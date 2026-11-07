@@ -97,7 +97,7 @@ SEQUENCE_OF_encode_xer(const asn_TYPE_descriptor_t *td, const void *sptr,
     const asn_anonymous_sequence_ *list = _A_CSEQUENCE_FROM_VOID(sptr);
     const char *mname = specs->as_XMLValueList
                             ? 0
-                            : ((*elm->name) ? elm->name : elm->type->xml_tag);
+                            : ((*ASN_NAME_OF(elm)) ? ASN_NAME_OF(elm) : ASN_NAME_OF(elm->type));
     size_t mlen = mname ? strlen(mname) : 0;
     int xcan = (flags & XER_F_CANONICAL);
     int i;
@@ -121,7 +121,7 @@ SEQUENCE_OF_encode_xer(const asn_TYPE_descriptor_t *td, const void *sptr,
         if(tmper.encoded == -1) return tmper;
         er.encoded += tmper.encoded;
         if(tmper.encoded == 0 && specs->as_XMLValueList) {
-            const char *name = elm->type->xml_tag;
+            const char *name = ASN_NAME_OF(elm->type);
             size_t len = strlen(name);
             if(!xcan) ASN__TEXT_INDENT(1, ilevel + 1);
             ASN__CALLBACK3("<", 1, name, len, "/>", 2);

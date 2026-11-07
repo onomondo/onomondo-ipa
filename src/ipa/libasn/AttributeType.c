@@ -15,8 +15,7 @@ static const ber_tlv_tag_t asn_DEF_AttributeType_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (6 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_AttributeType = {
-	ASN_NAME("AttributeType"),
-	ASN_NAME("AttributeType"),
+	ASN_TYPE_NAME("AttributeType")
 	&asn_OP_OBJECT_IDENTIFIER,
 	asn_DEF_AttributeType_tags_1,
 	sizeof(asn_DEF_AttributeType_tags_1)

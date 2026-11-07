@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_DpProprietaryData_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("dpOid")
+		ASN_MEMBER_NAME("dpOid")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_DpProprietaryData_tags_1[] = {
@@ -33,8 +33,7 @@ asn_SEQUENCE_specifics_t asn_SPC_DpProprietaryData_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_DpProprietaryData = {
-	ASN_NAME("DpProprietaryData"),
-	ASN_NAME("DpProprietaryData"),
+	ASN_TYPE_NAME("DpProprietaryData")
 	&asn_OP_SEQUENCE,
 	asn_DEF_DpProprietaryData_tags_1,
 	sizeof(asn_DEF_DpProprietaryData_tags_1)

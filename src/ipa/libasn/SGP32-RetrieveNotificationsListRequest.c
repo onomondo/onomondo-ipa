@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_searchCriteria_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("seqNumber")
+		ASN_MEMBER_NAME("seqNumber")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_RetrieveNotificationsListRequest__searchCriteria, choice.profileManagementOperation),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_searchCriteria_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("profileManagementOperation")
+		ASN_MEMBER_NAME("profileManagementOperation")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_RetrieveNotificationsListRequest__searchCriteria, choice.euiccPackageResults),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ static asn_TYPE_member_t asn_MBR_searchCriteria_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccPackageResults")
+		ASN_MEMBER_NAME("euiccPackageResults")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_searchCriteria_tag2el_2[] = {
@@ -53,8 +53,7 @@ static asn_CHOICE_specifics_t asn_SPC_searchCriteria_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_searchCriteria_2 = {
-	ASN_NAME("searchCriteria"),
-	ASN_NAME("searchCriteria"),
+	ASN_TYPE_NAME("searchCriteria")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
@@ -74,7 +73,7 @@ static asn_TYPE_member_t asn_MBR_SGP32_RetrieveNotificationsListRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("searchCriteria")
+		ASN_MEMBER_NAME("searchCriteria")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_SGP32_RetrieveNotificationsListRequest_tags_1[] = {
@@ -93,8 +92,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_SGP32_RetrieveNotificationsListRequest_s
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_SGP32_RetrieveNotificationsListRequest = {
-	ASN_NAME("SGP32-RetrieveNotificationsListRequest"),
-	ASN_NAME("SGP32-RetrieveNotificationsListRequest"),
+	ASN_TYPE_NAME("SGP32-RetrieveNotificationsListRequest")
 	&asn_OP_SEQUENCE,
 	asn_DEF_SGP32_RetrieveNotificationsListRequest_tags_1,
 	sizeof(asn_DEF_SGP32_RetrieveNotificationsListRequest_tags_1)

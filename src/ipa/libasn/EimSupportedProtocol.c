@@ -15,8 +15,7 @@ static const ber_tlv_tag_t asn_DEF_EimSupportedProtocol_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (3 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_EimSupportedProtocol = {
-	ASN_NAME("EimSupportedProtocol"),
-	ASN_NAME("EimSupportedProtocol"),
+	ASN_TYPE_NAME("EimSupportedProtocol")
 	&asn_OP_BIT_STRING,
 	asn_DEF_EimSupportedProtocol_tags_1,
 	sizeof(asn_DEF_EimSupportedProtocol_tags_1)

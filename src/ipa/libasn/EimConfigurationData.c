@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_eimPublicKeyData_7[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eimPublicKey")
+		ASN_MEMBER_NAME("eimPublicKey")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EimConfigurationData__eimPublicKeyData, choice.eimCertificate),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_eimPublicKeyData_7[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eimCertificate")
+		ASN_MEMBER_NAME("eimCertificate")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_eimPublicKeyData_tag2el_7[] = {
@@ -43,8 +43,7 @@ static asn_CHOICE_specifics_t asn_SPC_eimPublicKeyData_specs_7 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_eimPublicKeyData_7 = {
-	ASN_NAME("eimPublicKeyData"),
-	ASN_NAME("eimPublicKeyData"),
+	ASN_TYPE_NAME("eimPublicKeyData")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
@@ -64,7 +63,7 @@ static asn_TYPE_member_t asn_MBR_trustedPublicKeyDataTls_11[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("trustedEimPkTls")
+		ASN_MEMBER_NAME("trustedEimPkTls")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EimConfigurationData__trustedPublicKeyDataTls, choice.trustedCertificateTls),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -73,7 +72,7 @@ static asn_TYPE_member_t asn_MBR_trustedPublicKeyDataTls_11[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("trustedCertificateTls")
+		ASN_MEMBER_NAME("trustedCertificateTls")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_trustedPublicKeyDataTls_tag2el_11[] = {
@@ -92,8 +91,7 @@ static asn_CHOICE_specifics_t asn_SPC_trustedPublicKeyDataTls_specs_11 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_trustedPublicKeyDataTls_11 = {
-	ASN_NAME("trustedPublicKeyDataTls"),
-	ASN_NAME("trustedPublicKeyDataTls"),
+	ASN_TYPE_NAME("trustedPublicKeyDataTls")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
@@ -113,7 +111,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eimId")
+		ASN_MEMBER_NAME("eimId")
 		},
 	{ ATF_POINTER, 9, offsetof(struct EimConfigurationData, eimFqdn),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -122,7 +120,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eimFqdn")
+		ASN_MEMBER_NAME("eimFqdn")
 		},
 	{ ATF_POINTER, 8, offsetof(struct EimConfigurationData, eimIdType),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -131,7 +129,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eimIdType")
+		ASN_MEMBER_NAME("eimIdType")
 		},
 	{ ATF_POINTER, 7, offsetof(struct EimConfigurationData, counterValue),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -140,7 +138,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("counterValue")
+		ASN_MEMBER_NAME("counterValue")
 		},
 	{ ATF_POINTER, 6, offsetof(struct EimConfigurationData, associationToken),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -149,7 +147,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("associationToken")
+		ASN_MEMBER_NAME("associationToken")
 		},
 	{ ATF_POINTER, 5, offsetof(struct EimConfigurationData, eimPublicKeyData),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -158,7 +156,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eimPublicKeyData")
+		ASN_MEMBER_NAME("eimPublicKeyData")
 		},
 	{ ATF_POINTER, 4, offsetof(struct EimConfigurationData, trustedPublicKeyDataTls),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -167,7 +165,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("trustedPublicKeyDataTls")
+		ASN_MEMBER_NAME("trustedPublicKeyDataTls")
 		},
 	{ ATF_POINTER, 3, offsetof(struct EimConfigurationData, eimSupportedProtocol),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -176,7 +174,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eimSupportedProtocol")
+		ASN_MEMBER_NAME("eimSupportedProtocol")
 		},
 	{ ATF_POINTER, 2, offsetof(struct EimConfigurationData, euiccCiPKId),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -185,7 +183,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccCiPKId")
+		ASN_MEMBER_NAME("euiccCiPKId")
 		},
 	{ ATF_POINTER, 1, offsetof(struct EimConfigurationData, indirectProfileDownload),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
@@ -194,7 +192,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("indirectProfileDownload")
+		ASN_MEMBER_NAME("indirectProfileDownload")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_EimConfigurationData_tags_1[] = {
@@ -221,8 +219,7 @@ asn_SEQUENCE_specifics_t asn_SPC_EimConfigurationData_specs_1 = {
 	10,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EimConfigurationData = {
-	ASN_NAME("EimConfigurationData"),
-	ASN_NAME("EimConfigurationData"),
+	ASN_TYPE_NAME("EimConfigurationData")
 	&asn_OP_SEQUENCE,
 	asn_DEF_EimConfigurationData_tags_1,
 	sizeof(asn_DEF_EimConfigurationData_tags_1)

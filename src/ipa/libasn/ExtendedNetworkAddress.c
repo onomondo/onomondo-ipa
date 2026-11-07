@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_e163_4_address_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("number")
+		ASN_MEMBER_NAME("number")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ExtendedNetworkAddress__e163_4_address, sub_address),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_e163_4_address_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("sub-address")
+		ASN_MEMBER_NAME("sub-address")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_e163_4_address_tags_2[] = {
@@ -44,8 +44,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_e163_4_address_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_e163_4_address_2 = {
-	ASN_NAME("e163-4-address"),
-	ASN_NAME("e163-4-address"),
+	ASN_TYPE_NAME("e163-4-address")
 	&asn_OP_SEQUENCE,
 	asn_DEF_e163_4_address_tags_2,
 	sizeof(asn_DEF_e163_4_address_tags_2)
@@ -67,7 +66,7 @@ static asn_TYPE_member_t asn_MBR_ExtendedNetworkAddress_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("e163-4-address")
+		ASN_MEMBER_NAME("e163-4-address")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ExtendedNetworkAddress, choice.psap_address),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
@@ -76,7 +75,7 @@ static asn_TYPE_member_t asn_MBR_ExtendedNetworkAddress_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("psap-address")
+		ASN_MEMBER_NAME("psap-address")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_ExtendedNetworkAddress_tag2el_1[] = {
@@ -94,8 +93,7 @@ static asn_CHOICE_specifics_t asn_SPC_ExtendedNetworkAddress_specs_1 = {
 	-1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_ExtendedNetworkAddress = {
-	ASN_NAME("ExtendedNetworkAddress"),
-	ASN_NAME("ExtendedNetworkAddress"),
+	ASN_TYPE_NAME("ExtendedNetworkAddress")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

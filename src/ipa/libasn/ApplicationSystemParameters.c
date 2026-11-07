@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("volatileMemoryQuotaC7")
+		ASN_MEMBER_NAME("volatileMemoryQuotaC7")
 		},
 	{ ATF_POINTER, 11, offsetof(struct ApplicationSystemParameters, nonVolatileMemoryQuotaC8),
 		(ASN_TAG_CLASS_PRIVATE | (8 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("nonVolatileMemoryQuotaC8")
+		ASN_MEMBER_NAME("nonVolatileMemoryQuotaC8")
 		},
 	{ ATF_POINTER, 10, offsetof(struct ApplicationSystemParameters, globalServiceParameters),
 		(ASN_TAG_CLASS_PRIVATE | (11 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("globalServiceParameters")
+		ASN_MEMBER_NAME("globalServiceParameters")
 		},
 	{ ATF_POINTER, 9, offsetof(struct ApplicationSystemParameters, implicitSelectionParameter),
 		(ASN_TAG_CLASS_PRIVATE | (15 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("implicitSelectionParameter")
+		ASN_MEMBER_NAME("implicitSelectionParameter")
 		},
 	{ ATF_POINTER, 8, offsetof(struct ApplicationSystemParameters, volatileReservedMemory),
 		(ASN_TAG_CLASS_PRIVATE | (23 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("volatileReservedMemory")
+		ASN_MEMBER_NAME("volatileReservedMemory")
 		},
 	{ ATF_POINTER, 7, offsetof(struct ApplicationSystemParameters, nonVolatileReservedMemory),
 		(ASN_TAG_CLASS_PRIVATE | (24 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("nonVolatileReservedMemory")
+		ASN_MEMBER_NAME("nonVolatileReservedMemory")
 		},
 	{ ATF_POINTER, 6, offsetof(struct ApplicationSystemParameters, ts102226SIMFileAccessToolkitParameter),
 		(ASN_TAG_CLASS_PRIVATE | (10 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ts102226SIMFileAccessToolkitParameter")
+		ASN_MEMBER_NAME("ts102226SIMFileAccessToolkitParameter")
 		},
 	{ ATF_POINTER, 5, offsetof(struct ApplicationSystemParameters, ts102226AdditionalContactlessParameters),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ts102226AdditionalContactlessParameters")
+		ASN_MEMBER_NAME("ts102226AdditionalContactlessParameters")
 		},
 	{ ATF_POINTER, 4, offsetof(struct ApplicationSystemParameters, contactlessProtocolParameters),
 		(ASN_TAG_CLASS_PRIVATE | (25 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("contactlessProtocolParameters")
+		ASN_MEMBER_NAME("contactlessProtocolParameters")
 		},
 	{ ATF_POINTER, 3, offsetof(struct ApplicationSystemParameters, userInteractionContactlessParameters),
 		(ASN_TAG_CLASS_PRIVATE | (26 << 2)),
@@ -96,7 +96,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("userInteractionContactlessParameters")
+		ASN_MEMBER_NAME("userInteractionContactlessParameters")
 		},
 	{ ATF_POINTER, 2, offsetof(struct ApplicationSystemParameters, cumulativeGrantedVolatileMemory),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -105,7 +105,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("cumulativeGrantedVolatileMemory")
+		ASN_MEMBER_NAME("cumulativeGrantedVolatileMemory")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ApplicationSystemParameters, cumulativeGrantedNonVolatileMemory),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -114,7 +114,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("cumulativeGrantedNonVolatileMemory")
+		ASN_MEMBER_NAME("cumulativeGrantedNonVolatileMemory")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ApplicationSystemParameters_tags_1[] = {
@@ -143,8 +143,7 @@ asn_SEQUENCE_specifics_t asn_SPC_ApplicationSystemParameters_specs_1 = {
 	12,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ApplicationSystemParameters = {
-	ASN_NAME("ApplicationSystemParameters"),
-	ASN_NAME("ApplicationSystemParameters"),
+	ASN_TYPE_NAME("ApplicationSystemParameters")
 	&asn_OP_SEQUENCE,
 	asn_DEF_ApplicationSystemParameters_tags_1,
 	sizeof(asn_DEF_ApplicationSystemParameters_tags_1)

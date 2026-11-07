@@ -82,8 +82,7 @@ asn_TYPE_operation_t asn_OP_NumericString = {
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_NumericString = {
-	"NumericString",
-	"NumericString",
+	ASN_TYPE_NAME("NumericString")
 	&asn_OP_NumericString,
 	asn_DEF_NumericString_tags,
 	sizeof(asn_DEF_NumericString_tags)

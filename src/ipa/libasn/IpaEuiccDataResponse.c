@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccDataResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ipaEuiccData")
+		ASN_MEMBER_NAME("ipaEuiccData")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct IpaEuiccDataResponse, choice.ipaEuiccDataResponseError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccDataResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ipaEuiccDataResponseError")
+		ASN_MEMBER_NAME("ipaEuiccDataResponseError")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_IpaEuiccDataResponse_tags_1[] = {
@@ -45,8 +45,7 @@ asn_CHOICE_specifics_t asn_SPC_IpaEuiccDataResponse_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_IpaEuiccDataResponse = {
-	ASN_NAME("IpaEuiccDataResponse"),
-	ASN_NAME("IpaEuiccDataResponse"),
+	ASN_TYPE_NAME("IpaEuiccDataResponse")
 	&asn_OP_CHOICE,
 	asn_DEF_IpaEuiccDataResponse_tags_1,
 	sizeof(asn_DEF_IpaEuiccDataResponse_tags_1)

@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_GetEimPackageResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccPackageRequest")
+		ASN_MEMBER_NAME("euiccPackageRequest")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct GetEimPackageResponse, choice.ipaEuiccDataRequest),
 		(ASN_TAG_CLASS_CONTEXT | (82 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_GetEimPackageResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ipaEuiccDataRequest")
+		ASN_MEMBER_NAME("ipaEuiccDataRequest")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct GetEimPackageResponse, choice.profileDownloadTriggerRequest),
 		(ASN_TAG_CLASS_CONTEXT | (84 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_GetEimPackageResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("profileDownloadTriggerRequest")
+		ASN_MEMBER_NAME("profileDownloadTriggerRequest")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct GetEimPackageResponse, choice.eimPackageError),
 		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_GetEimPackageResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eimPackageError")
+		ASN_MEMBER_NAME("eimPackageError")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_GetEimPackageResponse_tags_1[] = {
@@ -65,8 +65,7 @@ asn_CHOICE_specifics_t asn_SPC_GetEimPackageResponse_specs_1 = {
 	4	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_GetEimPackageResponse = {
-	ASN_NAME("GetEimPackageResponse"),
-	ASN_NAME("GetEimPackageResponse"),
+	ASN_TYPE_NAME("GetEimPackageResponse")
 	&asn_OP_CHOICE,
 	asn_DEF_GetEimPackageResponse_tags_1,
 	sizeof(asn_DEF_GetEimPackageResponse_tags_1)

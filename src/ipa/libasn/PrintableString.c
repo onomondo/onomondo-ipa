@@ -94,8 +94,7 @@ asn_TYPE_operation_t asn_OP_PrintableString = {
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_PrintableString = {
-	"PrintableString",
-	"PrintableString",
+	ASN_TYPE_NAME("PrintableString")
 	&asn_OP_PrintableString,
 	asn_DEF_PrintableString_tags,
 	sizeof(asn_DEF_PrintableString_tags)

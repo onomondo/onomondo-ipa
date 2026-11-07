@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_UICCApplicationParameters_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("uiccToolkitApplicationSpecificParametersField")
+		ASN_MEMBER_NAME("uiccToolkitApplicationSpecificParametersField")
 		},
 	{ ATF_POINTER, 2, offsetof(struct UICCApplicationParameters, uiccAccessApplicationSpecificParametersField),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_UICCApplicationParameters_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("uiccAccessApplicationSpecificParametersField")
+		ASN_MEMBER_NAME("uiccAccessApplicationSpecificParametersField")
 		},
 	{ ATF_POINTER, 1, offsetof(struct UICCApplicationParameters, uiccAdministrativeAccessApplicationSpecificParametersField),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_UICCApplicationParameters_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("uiccAdministrativeAccessApplicationSpecificParametersField")
+		ASN_MEMBER_NAME("uiccAdministrativeAccessApplicationSpecificParametersField")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_UICCApplicationParameters_tags_1[] = {
@@ -53,8 +53,7 @@ asn_SEQUENCE_specifics_t asn_SPC_UICCApplicationParameters_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_UICCApplicationParameters = {
-	ASN_NAME("UICCApplicationParameters"),
-	ASN_NAME("UICCApplicationParameters"),
+	ASN_TYPE_NAME("UICCApplicationParameters")
 	&asn_OP_SEQUENCE,
 	asn_DEF_UICCApplicationParameters_tags_1,
 	sizeof(asn_DEF_UICCApplicationParameters_tags_1)

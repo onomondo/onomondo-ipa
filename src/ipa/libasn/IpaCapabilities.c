@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_IpaCapabilities_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ipaFeatures")
+		ASN_MEMBER_NAME("ipaFeatures")
 		},
 	{ ATF_POINTER, 1, offsetof(struct IpaCapabilities, ipaSupportedProtocols),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_IpaCapabilities_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ipaSupportedProtocols")
+		ASN_MEMBER_NAME("ipaSupportedProtocols")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_IpaCapabilities_tags_1[] = {
@@ -43,8 +43,7 @@ asn_SEQUENCE_specifics_t asn_SPC_IpaCapabilities_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_IpaCapabilities = {
-	ASN_NAME("IpaCapabilities"),
-	ASN_NAME("IpaCapabilities"),
+	ASN_TYPE_NAME("IpaCapabilities")
 	&asn_OP_SEQUENCE,
 	asn_DEF_IpaCapabilities_tags_1,
 	sizeof(asn_DEF_IpaCapabilities_tags_1)

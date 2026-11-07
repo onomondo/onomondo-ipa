@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_MappingParameter_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("mappingOptions")
+		ASN_MEMBER_NAME("mappingOptions")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct MappingParameter, mappingSource),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_MappingParameter_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("mappingSource")
+		ASN_MEMBER_NAME("mappingSource")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_MappingParameter_tags_1[] = {
@@ -43,8 +43,7 @@ asn_SEQUENCE_specifics_t asn_SPC_MappingParameter_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_MappingParameter = {
-	ASN_NAME("MappingParameter"),
-	ASN_NAME("MappingParameter"),
+	ASN_TYPE_NAME("MappingParameter")
 	&asn_OP_SEQUENCE,
 	asn_DEF_MappingParameter_tags_1,
 	sizeof(asn_DEF_MappingParameter_tags_1)

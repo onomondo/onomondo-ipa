@@ -191,27 +191,38 @@ typedef struct asn_encoding_constraints_s {
 #endif
 
 /*
- * Generated type and member names feed only print, XER and ASN_DEBUG.
- * ASN_DISABLE_NAMES blanks them unless one of those is enabled; "" rather than
- * NULL keeps any remaining %s on a name safe. The debug test mirrors
- * asn_internal.h: a caller-supplied ASN_DEBUG, or ASN_EMIT_DEBUG or
- * EMIT_ASN_DEBUG equal to 1.
+ * Type and member names feed only print, XER and ASN_DEBUG. XER is never built, so
+ * the XML tag is gone from the type tables, and ASN_DISABLE_NAMES removes the name
+ * pointers as well. That changes the table layout, so the define must be the same
+ * in every unit: Zephyr builds set it globally, host builds never. Code that still
+ * reads a name goes through ASN_NAME_OF(), which gives "" without the field. asn1c
+ * debug output reads the fields directly (same switches as asn_internal.h), so it
+ * cannot be combined with the define.
  */
-#if defined(ASN_DISABLE_NAMES) && defined(ASN_DISABLE_PRINT_SUPPORT) \
-	&& defined(ASN_DISABLE_XER_SUPPORT) && !defined(ASN_DEBUG) \
-	&& !(defined(ASN_EMIT_DEBUG) && ASN_EMIT_DEBUG == 1) \
-	&& !(defined(EMIT_ASN_DEBUG) && EMIT_ASN_DEBUG == 1)
-#define ASN_NAME(s) ""
+#if !defined(ASN_DISABLE_XER_SUPPORT)
+#error "libasn drops the XML tags of its type tables: define ASN_DISABLE_XER_SUPPORT"
+#endif
+#if defined(ASN_DISABLE_NAMES)
+#if defined(ASN_DEBUG) || (defined(ASN_EMIT_DEBUG) && ASN_EMIT_DEBUG == 1) \
+	|| (defined(EMIT_ASN_DEBUG) && EMIT_ASN_DEBUG == 1)
+#error "asn1c debug output reads the type names: build without ASN_DISABLE_NAMES"
+#endif
+#define ASN_TYPE_NAME(s)
+#define ASN_MEMBER_NAME(s)
+#define ASN_NAME_OF(p) ""
 #else
-#define ASN_NAME(s) s
+#define ASN_TYPE_NAME(s) s,
+#define ASN_MEMBER_NAME(s) s
+#define ASN_NAME_OF(p) ((p)->name)
 #endif
 
 /*
  * The definitive description of the destination language's structure.
  */
 typedef struct asn_TYPE_descriptor_s {
+#if !defined(ASN_DISABLE_NAMES)
     const char *name;       /* A name of the ASN.1 type. "" in some cases. */
-    const char *xml_tag;    /* Name used in XML tag */
+#endif
 
     /*
      * Generalized functions for dealing with the specific type.
@@ -272,7 +283,9 @@ typedef struct asn_TYPE_member_s {
 #endif
     int (*default_value_cmp)(const void *sptr); /* Compare DEFAULT <value> */
     int (*default_value_set)(void **sptr);      /* Set DEFAULT <value> */
+#if !defined(ASN_DISABLE_NAMES)
     const char *name; /* ASN.1 identifier of the element */
+#endif
 } asn_TYPE_member_t;
 
 /*

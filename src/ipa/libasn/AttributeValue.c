@@ -12,8 +12,7 @@
  * so here we adjust the DEF accordingly.
  */
 asn_TYPE_descriptor_t asn_DEF_AttributeValue = {
-	ASN_NAME("AttributeValue"),
-	ASN_NAME("AttributeValue"),
+	ASN_TYPE_NAME("AttributeValue")
 	&asn_OP_ANY,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

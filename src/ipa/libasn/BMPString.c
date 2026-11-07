@@ -68,8 +68,7 @@ asn_TYPE_operation_t asn_OP_BMPString = {
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_BMPString = {
-	"BMPString",
-	"BMPString",
+	ASN_TYPE_NAME("BMPString")
 	&asn_OP_BMPString,
 	asn_DEF_BMPString_tags,
 	sizeof(asn_DEF_BMPString_tags)

@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_enable_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("iccid")
+		ASN_MEMBER_NAME("iccid")
 		},
 	{ ATF_POINTER, 1, offsetof(struct Psmo__enable, rollbackFlag),
 		(ASN_TAG_CLASS_UNIVERSAL | (5 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_enable_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("rollbackFlag")
+		ASN_MEMBER_NAME("rollbackFlag")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_enable_tags_2[] = {
@@ -45,8 +45,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_enable_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_enable_2 = {
-	ASN_NAME("enable"),
-	ASN_NAME("enable"),
+	ASN_TYPE_NAME("enable")
 	&asn_OP_SEQUENCE,
 	asn_DEF_enable_tags_2,
 	sizeof(asn_DEF_enable_tags_2)
@@ -68,7 +67,7 @@ static asn_TYPE_member_t asn_MBR_disable_6[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("iccid")
+		ASN_MEMBER_NAME("iccid")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_disable_tags_6[] = {
@@ -88,8 +87,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_disable_specs_6 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_disable_6 = {
-	ASN_NAME("disable"),
-	ASN_NAME("disable"),
+	ASN_TYPE_NAME("disable")
 	&asn_OP_SEQUENCE,
 	asn_DEF_disable_tags_6,
 	sizeof(asn_DEF_disable_tags_6)
@@ -111,7 +109,7 @@ static asn_TYPE_member_t asn_MBR_delete_9[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("iccid")
+		ASN_MEMBER_NAME("iccid")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_delete_tags_9[] = {
@@ -131,8 +129,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_delete_specs_9 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_delete_9 = {
-	ASN_NAME("delete"),
-	ASN_NAME("delete"),
+	ASN_TYPE_NAME("delete")
 	&asn_OP_SEQUENCE,
 	asn_DEF_delete_tags_9,
 	sizeof(asn_DEF_delete_tags_9)
@@ -160,8 +157,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_getRAT_specs_13 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_getRAT_13 = {
-	ASN_NAME("getRAT"),
-	ASN_NAME("getRAT"),
+	ASN_TYPE_NAME("getRAT")
 	&asn_OP_SEQUENCE,
 	asn_DEF_getRAT_tags_13,
 	sizeof(asn_DEF_getRAT_tags_13)
@@ -182,7 +178,7 @@ static asn_TYPE_member_t asn_MBR_configureImmediateEnable_15[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("immediateEnableFlag")
+		ASN_MEMBER_NAME("immediateEnableFlag")
 		},
 	{ ATF_POINTER, 2, offsetof(struct Psmo__configureImmediateEnable, defaultSmdpOid),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -191,7 +187,7 @@ static asn_TYPE_member_t asn_MBR_configureImmediateEnable_15[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("defaultSmdpOid")
+		ASN_MEMBER_NAME("defaultSmdpOid")
 		},
 	{ ATF_POINTER, 1, offsetof(struct Psmo__configureImmediateEnable, defaultSmdpAddress),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -200,7 +196,7 @@ static asn_TYPE_member_t asn_MBR_configureImmediateEnable_15[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("defaultSmdpAddress")
+		ASN_MEMBER_NAME("defaultSmdpAddress")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_configureImmediateEnable_tags_15[] = {
@@ -222,8 +218,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_configureImmediateEnable_specs_15 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_configureImmediateEnable_15 = {
-	ASN_NAME("configureImmediateEnable"),
-	ASN_NAME("configureImmediateEnable"),
+	ASN_TYPE_NAME("configureImmediateEnable")
 	&asn_OP_SEQUENCE,
 	asn_DEF_configureImmediateEnable_tags_15,
 	sizeof(asn_DEF_configureImmediateEnable_tags_15)
@@ -245,7 +240,7 @@ static asn_TYPE_member_t asn_MBR_setFallbackAttribute_20[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("iccid")
+		ASN_MEMBER_NAME("iccid")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_setFallbackAttribute_tags_20[] = {
@@ -265,8 +260,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_setFallbackAttribute_specs_20 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_setFallbackAttribute_20 = {
-	ASN_NAME("setFallbackAttribute"),
-	ASN_NAME("setFallbackAttribute"),
+	ASN_TYPE_NAME("setFallbackAttribute")
 	&asn_OP_SEQUENCE,
 	asn_DEF_setFallbackAttribute_tags_20,
 	sizeof(asn_DEF_setFallbackAttribute_tags_20)
@@ -294,8 +288,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_unsetFallbackAttribute_specs_23 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_unsetFallbackAttribute_23 = {
-	ASN_NAME("unsetFallbackAttribute"),
-	ASN_NAME("unsetFallbackAttribute"),
+	ASN_TYPE_NAME("unsetFallbackAttribute")
 	&asn_OP_SEQUENCE,
 	asn_DEF_unsetFallbackAttribute_tags_23,
 	sizeof(asn_DEF_unsetFallbackAttribute_tags_23)
@@ -316,7 +309,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("enable")
+		ASN_MEMBER_NAME("enable")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct Psmo, choice.disable),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -325,7 +318,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("disable")
+		ASN_MEMBER_NAME("disable")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct Psmo, choice.Delete),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -334,7 +327,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("delete")
+		ASN_MEMBER_NAME("delete")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct Psmo, choice.listProfileInfo),
 		(ASN_TAG_CLASS_CONTEXT | (45 << 2)),
@@ -343,7 +336,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("listProfileInfo")
+		ASN_MEMBER_NAME("listProfileInfo")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct Psmo, choice.getRAT),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -352,7 +345,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("getRAT")
+		ASN_MEMBER_NAME("getRAT")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct Psmo, choice.configureImmediateEnable),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -361,7 +354,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("configureImmediateEnable")
+		ASN_MEMBER_NAME("configureImmediateEnable")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct Psmo, choice.setFallbackAttribute),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -370,7 +363,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("setFallbackAttribute")
+		ASN_MEMBER_NAME("setFallbackAttribute")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct Psmo, choice.unsetFallbackAttribute),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
@@ -379,7 +372,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("unsetFallbackAttribute")
+		ASN_MEMBER_NAME("unsetFallbackAttribute")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct Psmo, choice.setDefaultDpAddress),
 		(ASN_TAG_CLASS_CONTEXT | (101 << 2)),
@@ -388,7 +381,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("setDefaultDpAddress")
+		ASN_MEMBER_NAME("setDefaultDpAddress")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_Psmo_tag2el_1[] = {
@@ -413,8 +406,7 @@ asn_CHOICE_specifics_t asn_SPC_Psmo_specs_1 = {
 	9	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_Psmo = {
-	ASN_NAME("Psmo"),
-	ASN_NAME("Psmo"),
+	ASN_TYPE_NAME("Psmo")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

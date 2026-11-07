@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_GetConnectivityParametersResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("connectivityParameters")
+		ASN_MEMBER_NAME("connectivityParameters")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct GetConnectivityParametersResponse, choice.connectivityParametersError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_GetConnectivityParametersResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("connectivityParametersError")
+		ASN_MEMBER_NAME("connectivityParametersError")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_GetConnectivityParametersResponse_tags_1[] = {
@@ -45,8 +45,7 @@ static asn_CHOICE_specifics_t asn_SPC_GetConnectivityParametersResponse_specs_1 
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_GetConnectivityParametersResponse = {
-	ASN_NAME("GetConnectivityParametersResponse"),
-	ASN_NAME("GetConnectivityParametersResponse"),
+	ASN_TYPE_NAME("GetConnectivityParametersResponse")
 	&asn_OP_CHOICE,
 	asn_DEF_GetConnectivityParametersResponse_tags_1,
 	sizeof(asn_DEF_GetConnectivityParametersResponse_tags_1)

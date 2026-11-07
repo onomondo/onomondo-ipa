@@ -20,8 +20,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_GetRatRequest_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_GetRatRequest = {
-	ASN_NAME("GetRatRequest"),
-	ASN_NAME("GetRatRequest"),
+	ASN_TYPE_NAME("GetRatRequest")
 	&asn_OP_SEQUENCE,
 	asn_DEF_GetRatRequest_tags_1,
 	sizeof(asn_DEF_GetRatRequest_tags_1)

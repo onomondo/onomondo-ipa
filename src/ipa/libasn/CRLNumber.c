@@ -20,8 +20,7 @@ static const ber_tlv_tag_t asn_DEF_CRLNumber_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (2 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_CRLNumber = {
-	ASN_NAME("CRLNumber"),
-	ASN_NAME("CRLNumber"),
+	ASN_TYPE_NAME("CRLNumber")
 	&asn_OP_NativeInteger,
 	asn_DEF_CRLNumber_tags_1,
 	sizeof(asn_DEF_CRLNumber_tags_1)

@@ -62,8 +62,7 @@ asn_TYPE_operation_t asn_OP_IA5String = {
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_IA5String = {
-	"IA5String",
-	"IA5String",
+	ASN_TYPE_NAME("IA5String")
 	&asn_OP_IA5String,
 	asn_DEF_IA5String_tags,
 	sizeof(asn_DEF_IA5String_tags)

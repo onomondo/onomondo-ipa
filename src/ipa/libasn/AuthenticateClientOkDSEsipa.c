@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOkDSEsipa_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("transactionId")
+		ASN_MEMBER_NAME("transactionId")
 		},
 	{ ATF_POINTER, 1, offsetof(struct AuthenticateClientOkDSEsipa, profileDownloadTrigger),
 		(ASN_TAG_CLASS_CONTEXT | (84 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOkDSEsipa_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("profileDownloadTrigger")
+		ASN_MEMBER_NAME("profileDownloadTrigger")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AuthenticateClientOkDSEsipa_tags_1[] = {
@@ -43,8 +43,7 @@ asn_SEQUENCE_specifics_t asn_SPC_AuthenticateClientOkDSEsipa_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_AuthenticateClientOkDSEsipa = {
-	ASN_NAME("AuthenticateClientOkDSEsipa"),
-	ASN_NAME("AuthenticateClientOkDSEsipa"),
+	ASN_TYPE_NAME("AuthenticateClientOkDSEsipa")
 	&asn_OP_SEQUENCE,
 	asn_DEF_AuthenticateClientOkDSEsipa_tags_1,
 	sizeof(asn_DEF_AuthenticateClientOkDSEsipa_tags_1)

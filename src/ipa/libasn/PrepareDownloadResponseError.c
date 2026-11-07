@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PrepareDownloadResponseError_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("transactionId")
+		ASN_MEMBER_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PrepareDownloadResponseError, downloadErrorCode),
 		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PrepareDownloadResponseError_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("downloadErrorCode")
+		ASN_MEMBER_NAME("downloadErrorCode")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PrepareDownloadResponseError_tags_1[] = {
@@ -43,8 +43,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PrepareDownloadResponseError_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PrepareDownloadResponseError = {
-	ASN_NAME("PrepareDownloadResponseError"),
-	ASN_NAME("PrepareDownloadResponseError"),
+	ASN_TYPE_NAME("PrepareDownloadResponseError")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PrepareDownloadResponseError_tags_1,
 	sizeof(asn_DEF_PrepareDownloadResponseError_tags_1)

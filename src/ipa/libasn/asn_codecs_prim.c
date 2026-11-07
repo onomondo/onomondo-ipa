@@ -253,7 +253,7 @@ xer_decode_primitive(const asn_codec_ctx_t *opt_codec_ctx,
                      size_t struct_size, const char *opt_mname,
                      const void *buf_ptr, size_t size,
                      xer_primitive_body_decoder_f *prim_body_decoder) {
-    const char *xml_tag = opt_mname ? opt_mname : td->xml_tag;
+    const char *xml_tag = opt_mname ? opt_mname : ASN_NAME_OF(td);
 	asn_struct_ctx_t s_ctx;
 	struct xdp_arg_s s_arg;
 	asn_dec_rval_t rc;

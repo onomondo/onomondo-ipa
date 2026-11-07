@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOk_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("transactionId")
+		ASN_MEMBER_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateClientOk, profileMetaData),
 		(ASN_TAG_CLASS_CONTEXT | (37 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOk_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("profileMetaData")
+		ASN_MEMBER_NAME("profileMetaData")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateClientOk, smdpSigned2),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOk_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("smdpSigned2")
+		ASN_MEMBER_NAME("smdpSigned2")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateClientOk, smdpSignature2),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOk_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("smdpSignature2")
+		ASN_MEMBER_NAME("smdpSignature2")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateClientOk, smdpCertificate),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOk_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("smdpCertificate")
+		ASN_MEMBER_NAME("smdpCertificate")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AuthenticateClientOk_tags_1[] = {
@@ -73,8 +73,7 @@ asn_SEQUENCE_specifics_t asn_SPC_AuthenticateClientOk_specs_1 = {
 	5,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_AuthenticateClientOk = {
-	ASN_NAME("AuthenticateClientOk"),
-	ASN_NAME("AuthenticateClientOk"),
+	ASN_TYPE_NAME("AuthenticateClientOk")
 	&asn_OP_SEQUENCE,
 	asn_DEF_AuthenticateClientOk_tags_1,
 	sizeof(asn_DEF_AuthenticateClientOk_tags_1)

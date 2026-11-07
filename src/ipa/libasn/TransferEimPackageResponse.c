@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_ePRAndNotifications_3[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccPackageResult")
+		ASN_MEMBER_NAME("euiccPackageResult")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TransferEimPackageResponse__ePRAndNotifications, notificationList),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_ePRAndNotifications_3[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("notificationList")
+		ASN_MEMBER_NAME("notificationList")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ePRAndNotifications_tags_3[] = {
@@ -44,8 +44,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_ePRAndNotifications_specs_3 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_ePRAndNotifications_3 = {
-	ASN_NAME("ePRAndNotifications"),
-	ASN_NAME("ePRAndNotifications"),
+	ASN_TYPE_NAME("ePRAndNotifications")
 	&asn_OP_SEQUENCE,
 	asn_DEF_ePRAndNotifications_tags_3,
 	sizeof(asn_DEF_ePRAndNotifications_tags_3)
@@ -67,7 +66,7 @@ asn_TYPE_member_t asn_MBR_TransferEimPackageResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccPackageResult")
+		ASN_MEMBER_NAME("euiccPackageResult")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TransferEimPackageResponse, choice.ePRAndNotifications),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -76,7 +75,7 @@ asn_TYPE_member_t asn_MBR_TransferEimPackageResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ePRAndNotifications")
+		ASN_MEMBER_NAME("ePRAndNotifications")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TransferEimPackageResponse, choice.ipaEuiccDataResponse),
 		(ASN_TAG_CLASS_CONTEXT | (82 << 2)),
@@ -85,7 +84,7 @@ asn_TYPE_member_t asn_MBR_TransferEimPackageResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ipaEuiccDataResponse")
+		ASN_MEMBER_NAME("ipaEuiccDataResponse")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TransferEimPackageResponse, choice.eimPackageReceived),
 		(ASN_TAG_CLASS_UNIVERSAL | (5 << 2)),
@@ -94,7 +93,7 @@ asn_TYPE_member_t asn_MBR_TransferEimPackageResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eimPackageReceived")
+		ASN_MEMBER_NAME("eimPackageReceived")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TransferEimPackageResponse, choice.eimPackageError),
 		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
@@ -103,7 +102,7 @@ asn_TYPE_member_t asn_MBR_TransferEimPackageResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eimPackageError")
+		ASN_MEMBER_NAME("eimPackageError")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_TransferEimPackageResponse_tags_1[] = {
@@ -127,8 +126,7 @@ asn_CHOICE_specifics_t asn_SPC_TransferEimPackageResponse_specs_1 = {
 	5	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_TransferEimPackageResponse = {
-	ASN_NAME("TransferEimPackageResponse"),
-	ASN_NAME("TransferEimPackageResponse"),
+	ASN_TYPE_NAME("TransferEimPackageResponse")
 	&asn_OP_CHOICE,
 	asn_DEF_TransferEimPackageResponse_tags_1,
 	sizeof(asn_DEF_TransferEimPackageResponse_tags_1)

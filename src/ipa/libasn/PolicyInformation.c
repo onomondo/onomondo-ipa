@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_policyQualifiers_3[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_policyQualifiers_tags_3[] = {
@@ -28,8 +28,7 @@ static asn_SET_OF_specifics_t asn_SPC_policyQualifiers_specs_3 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_policyQualifiers_3 = {
-	ASN_NAME("policyQualifiers"),
-	ASN_NAME("policyQualifiers"),
+	ASN_TYPE_NAME("policyQualifiers")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_policyQualifiers_tags_3,
 	sizeof(asn_DEF_policyQualifiers_tags_3)
@@ -51,7 +50,7 @@ asn_TYPE_member_t asn_MBR_PolicyInformation_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("policyIdentifier")
+		ASN_MEMBER_NAME("policyIdentifier")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PolicyInformation, policyQualifiers),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -60,7 +59,7 @@ asn_TYPE_member_t asn_MBR_PolicyInformation_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("policyQualifiers")
+		ASN_MEMBER_NAME("policyQualifiers")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PolicyInformation_tags_1[] = {
@@ -79,8 +78,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PolicyInformation_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PolicyInformation = {
-	ASN_NAME("PolicyInformation"),
-	ASN_NAME("PolicyInformation"),
+	ASN_TYPE_NAME("PolicyInformation")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PolicyInformation_tags_1,
 	sizeof(asn_DEF_PolicyInformation_tags_1)

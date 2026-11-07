@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageResultList_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_EuiccPackageResultList_tags_1[] = {
@@ -27,8 +27,7 @@ asn_SET_OF_specifics_t asn_SPC_EuiccPackageResultList_specs_1 = {
 	2,	/* XER encoding is XMLValueList */
 };
 asn_TYPE_descriptor_t asn_DEF_EuiccPackageResultList = {
-	ASN_NAME("EuiccPackageResultList"),
-	ASN_NAME("EuiccPackageResultList"),
+	ASN_TYPE_NAME("EuiccPackageResultList")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_EuiccPackageResultList_tags_1,
 	sizeof(asn_DEF_EuiccPackageResultList_tags_1)

@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_AddEimResult_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("associationToken")
+		ASN_MEMBER_NAME("associationToken")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AddEimResult, choice.addEimResultCode),
 		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_AddEimResult_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("addEimResultCode")
+		ASN_MEMBER_NAME("addEimResultCode")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_AddEimResult_tag2el_1[] = {
@@ -42,8 +42,7 @@ asn_CHOICE_specifics_t asn_SPC_AddEimResult_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_AddEimResult = {
-	ASN_NAME("AddEimResult"),
-	ASN_NAME("AddEimResult"),
+	ASN_TYPE_NAME("AddEimResult")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

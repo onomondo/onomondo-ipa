@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_ExtKeyUsageSyntax_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ExtKeyUsageSyntax_tags_1[] = {
@@ -27,8 +27,7 @@ static asn_SET_OF_specifics_t asn_SPC_ExtKeyUsageSyntax_specs_1 = {
 	0,	/* XER encoding is XMLDelimitedItemList */
 };
 asn_TYPE_descriptor_t asn_DEF_ExtKeyUsageSyntax = {
-	ASN_NAME("ExtKeyUsageSyntax"),
-	ASN_NAME("ExtKeyUsageSyntax"),
+	ASN_TYPE_NAME("ExtKeyUsageSyntax")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_ExtKeyUsageSyntax_tags_1,
 	sizeof(asn_DEF_ExtKeyUsageSyntax_tags_1)

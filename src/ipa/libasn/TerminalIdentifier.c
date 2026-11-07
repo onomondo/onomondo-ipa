@@ -15,8 +15,7 @@ static const ber_tlv_tag_t asn_DEF_TerminalIdentifier_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (19 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_TerminalIdentifier = {
-	ASN_NAME("TerminalIdentifier"),
-	ASN_NAME("TerminalIdentifier"),
+	ASN_TYPE_NAME("TerminalIdentifier")
 	&asn_OP_PrintableString,
 	asn_DEF_TerminalIdentifier_tags_1,
 	sizeof(asn_DEF_TerminalIdentifier_tags_1)

@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_AccessDescription_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("accessMethod")
+		ASN_MEMBER_NAME("accessMethod")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AccessDescription, accessLocation),
 		-1 /* Ambiguous tag (CHOICE?) */,
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_AccessDescription_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("accessLocation")
+		ASN_MEMBER_NAME("accessLocation")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AccessDescription_tags_1[] = {
@@ -51,8 +51,7 @@ asn_SEQUENCE_specifics_t asn_SPC_AccessDescription_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_AccessDescription = {
-	ASN_NAME("AccessDescription"),
-	ASN_NAME("AccessDescription"),
+	ASN_TYPE_NAME("AccessDescription")
 	&asn_OP_SEQUENCE,
 	asn_DEF_AccessDescription_tags_1,
 	sizeof(asn_DEF_AccessDescription_tags_1)

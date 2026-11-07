@@ -20,8 +20,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_EuiccConfiguredAddressesRequest_specs_1 
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EuiccConfiguredAddressesRequest = {
-	ASN_NAME("EuiccConfiguredAddressesRequest"),
-	ASN_NAME("EuiccConfiguredAddressesRequest"),
+	ASN_TYPE_NAME("EuiccConfiguredAddressesRequest")
 	&asn_OP_SEQUENCE,
 	asn_DEF_EuiccConfiguredAddressesRequest_tags_1,
 	sizeof(asn_DEF_EuiccConfiguredAddressesRequest_tags_1)

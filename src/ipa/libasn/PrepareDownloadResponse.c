@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PrepareDownloadResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("downloadResponseOk")
+		ASN_MEMBER_NAME("downloadResponseOk")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PrepareDownloadResponse, choice.downloadResponseError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PrepareDownloadResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("downloadResponseError")
+		ASN_MEMBER_NAME("downloadResponseError")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PrepareDownloadResponse_tags_1[] = {
@@ -45,8 +45,7 @@ asn_CHOICE_specifics_t asn_SPC_PrepareDownloadResponse_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_PrepareDownloadResponse = {
-	ASN_NAME("PrepareDownloadResponse"),
-	ASN_NAME("PrepareDownloadResponse"),
+	ASN_TYPE_NAME("PrepareDownloadResponse")
 	&asn_OP_CHOICE,
 	asn_DEF_PrepareDownloadResponse_tags_1,
 	sizeof(asn_DEF_PrepareDownloadResponse_tags_1)

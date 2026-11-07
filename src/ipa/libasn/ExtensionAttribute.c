@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_ExtensionAttribute_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("extension-attribute-type")
+		ASN_MEMBER_NAME("extension-attribute-type")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ExtensionAttribute, extension_attribute_value),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_ExtensionAttribute_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("extension-attribute-value")
+		ASN_MEMBER_NAME("extension-attribute-value")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ExtensionAttribute_tags_1[] = {
@@ -43,8 +43,7 @@ asn_SEQUENCE_specifics_t asn_SPC_ExtensionAttribute_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ExtensionAttribute = {
-	ASN_NAME("ExtensionAttribute"),
-	ASN_NAME("ExtensionAttribute"),
+	ASN_TYPE_NAME("ExtensionAttribute")
 	&asn_OP_SEQUENCE,
 	asn_DEF_ExtensionAttribute_tags_1,
 	sizeof(asn_DEF_ExtensionAttribute_tags_1)

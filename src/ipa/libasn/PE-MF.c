@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PE_MF_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("mf-header")
+		ASN_MEMBER_NAME("mf-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_MF, templateID),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PE_MF_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("templateID")
+		ASN_MEMBER_NAME("templateID")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_MF, mf),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_PE_MF_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("mf")
+		ASN_MEMBER_NAME("mf")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_MF, ef_pl),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_PE_MF_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-pl")
+		ASN_MEMBER_NAME("ef-pl")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_MF, ef_iccid),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_PE_MF_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-iccid")
+		ASN_MEMBER_NAME("ef-iccid")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_MF, ef_dir),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_PE_MF_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-dir")
+		ASN_MEMBER_NAME("ef-dir")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_MF, ef_arr),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_PE_MF_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-arr")
+		ASN_MEMBER_NAME("ef-arr")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_MF, ef_umpc),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_PE_MF_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-umpc")
+		ASN_MEMBER_NAME("ef-umpc")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_MF_tags_1[] = {
@@ -103,8 +103,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_MF_specs_1 = {
 	8,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_MF = {
-	ASN_NAME("PE-MF"),
-	ASN_NAME("PE-MF"),
+	ASN_TYPE_NAME("PE-MF")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_MF_tags_1,
 	sizeof(asn_DEF_PE_MF_tags_1)

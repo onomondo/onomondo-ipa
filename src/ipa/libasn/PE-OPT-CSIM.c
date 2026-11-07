@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("optcsim-header")
+		ASN_MEMBER_NAME("optcsim-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_OPT_CSIM, templateID),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("templateID")
+		ASN_MEMBER_NAME("templateID")
 		},
 	{ ATF_POINTER, 67, offsetof(struct PE_OPT_CSIM, ef_ssci),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-ssci")
+		ASN_MEMBER_NAME("ef-ssci")
 		},
 	{ ATF_POINTER, 66, offsetof(struct PE_OPT_CSIM, ef_fdn),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-fdn")
+		ASN_MEMBER_NAME("ef-fdn")
 		},
 	{ ATF_POINTER, 65, offsetof(struct PE_OPT_CSIM, ef_sms),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-sms")
+		ASN_MEMBER_NAME("ef-sms")
 		},
 	{ ATF_POINTER, 64, offsetof(struct PE_OPT_CSIM, ef_smsp),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-smsp")
+		ASN_MEMBER_NAME("ef-smsp")
 		},
 	{ ATF_POINTER, 63, offsetof(struct PE_OPT_CSIM, ef_smss),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-smss")
+		ASN_MEMBER_NAME("ef-smss")
 		},
 	{ ATF_POINTER, 62, offsetof(struct PE_OPT_CSIM, ef_ssfc),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-ssfc")
+		ASN_MEMBER_NAME("ef-ssfc")
 		},
 	{ ATF_POINTER, 61, offsetof(struct PE_OPT_CSIM, ef_spn),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-spn")
+		ASN_MEMBER_NAME("ef-spn")
 		},
 	{ ATF_POINTER, 60, offsetof(struct PE_OPT_CSIM, ef_mdn),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
@@ -96,7 +96,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-mdn")
+		ASN_MEMBER_NAME("ef-mdn")
 		},
 	{ ATF_POINTER, 59, offsetof(struct PE_OPT_CSIM, ef_ecc),
 		(ASN_TAG_CLASS_CONTEXT | (10 << 2)),
@@ -105,7 +105,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-ecc")
+		ASN_MEMBER_NAME("ef-ecc")
 		},
 	{ ATF_POINTER, 58, offsetof(struct PE_OPT_CSIM, ef_me3gpdopc),
 		(ASN_TAG_CLASS_CONTEXT | (11 << 2)),
@@ -114,7 +114,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-me3gpdopc")
+		ASN_MEMBER_NAME("ef-me3gpdopc")
 		},
 	{ ATF_POINTER, 57, offsetof(struct PE_OPT_CSIM, ef_3gpdopm),
 		(ASN_TAG_CLASS_CONTEXT | (12 << 2)),
@@ -123,7 +123,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-3gpdopm")
+		ASN_MEMBER_NAME("ef-3gpdopm")
 		},
 	{ ATF_POINTER, 56, offsetof(struct PE_OPT_CSIM, ef_sipcap),
 		(ASN_TAG_CLASS_CONTEXT | (13 << 2)),
@@ -132,7 +132,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-sipcap")
+		ASN_MEMBER_NAME("ef-sipcap")
 		},
 	{ ATF_POINTER, 55, offsetof(struct PE_OPT_CSIM, ef_mipcap),
 		(ASN_TAG_CLASS_CONTEXT | (14 << 2)),
@@ -141,7 +141,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-mipcap")
+		ASN_MEMBER_NAME("ef-mipcap")
 		},
 	{ ATF_POINTER, 54, offsetof(struct PE_OPT_CSIM, ef_sipupp),
 		(ASN_TAG_CLASS_CONTEXT | (15 << 2)),
@@ -150,7 +150,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-sipupp")
+		ASN_MEMBER_NAME("ef-sipupp")
 		},
 	{ ATF_POINTER, 53, offsetof(struct PE_OPT_CSIM, ef_mipupp),
 		(ASN_TAG_CLASS_CONTEXT | (16 << 2)),
@@ -159,7 +159,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-mipupp")
+		ASN_MEMBER_NAME("ef-mipupp")
 		},
 	{ ATF_POINTER, 52, offsetof(struct PE_OPT_CSIM, ef_sipsp),
 		(ASN_TAG_CLASS_CONTEXT | (17 << 2)),
@@ -168,7 +168,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-sipsp")
+		ASN_MEMBER_NAME("ef-sipsp")
 		},
 	{ ATF_POINTER, 51, offsetof(struct PE_OPT_CSIM, ef_mipsp),
 		(ASN_TAG_CLASS_CONTEXT | (18 << 2)),
@@ -177,7 +177,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-mipsp")
+		ASN_MEMBER_NAME("ef-mipsp")
 		},
 	{ ATF_POINTER, 50, offsetof(struct PE_OPT_CSIM, ef_sippapss),
 		(ASN_TAG_CLASS_CONTEXT | (19 << 2)),
@@ -186,7 +186,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-sippapss")
+		ASN_MEMBER_NAME("ef-sippapss")
 		},
 	{ ATF_POINTER, 49, offsetof(struct PE_OPT_CSIM, ef_puzl),
 		(ASN_TAG_CLASS_CONTEXT | (20 << 2)),
@@ -195,7 +195,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-puzl")
+		ASN_MEMBER_NAME("ef-puzl")
 		},
 	{ ATF_POINTER, 48, offsetof(struct PE_OPT_CSIM, ef_maxpuzl),
 		(ASN_TAG_CLASS_CONTEXT | (21 << 2)),
@@ -204,7 +204,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-maxpuzl")
+		ASN_MEMBER_NAME("ef-maxpuzl")
 		},
 	{ ATF_POINTER, 47, offsetof(struct PE_OPT_CSIM, ef_hrpdcap),
 		(ASN_TAG_CLASS_CONTEXT | (22 << 2)),
@@ -213,7 +213,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-hrpdcap")
+		ASN_MEMBER_NAME("ef-hrpdcap")
 		},
 	{ ATF_POINTER, 46, offsetof(struct PE_OPT_CSIM, ef_hrpdupp),
 		(ASN_TAG_CLASS_CONTEXT | (23 << 2)),
@@ -222,7 +222,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-hrpdupp")
+		ASN_MEMBER_NAME("ef-hrpdupp")
 		},
 	{ ATF_POINTER, 45, offsetof(struct PE_OPT_CSIM, ef_csspr),
 		(ASN_TAG_CLASS_CONTEXT | (24 << 2)),
@@ -231,7 +231,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-csspr")
+		ASN_MEMBER_NAME("ef-csspr")
 		},
 	{ ATF_POINTER, 44, offsetof(struct PE_OPT_CSIM, ef_atc),
 		(ASN_TAG_CLASS_CONTEXT | (25 << 2)),
@@ -240,7 +240,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-atc")
+		ASN_MEMBER_NAME("ef-atc")
 		},
 	{ ATF_POINTER, 43, offsetof(struct PE_OPT_CSIM, ef_eprl),
 		(ASN_TAG_CLASS_CONTEXT | (26 << 2)),
@@ -249,7 +249,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-eprl")
+		ASN_MEMBER_NAME("ef-eprl")
 		},
 	{ ATF_POINTER, 42, offsetof(struct PE_OPT_CSIM, ef_bcsmscfg),
 		(ASN_TAG_CLASS_CONTEXT | (27 << 2)),
@@ -258,7 +258,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-bcsmscfg")
+		ASN_MEMBER_NAME("ef-bcsmscfg")
 		},
 	{ ATF_POINTER, 41, offsetof(struct PE_OPT_CSIM, ef_bcsmspref),
 		(ASN_TAG_CLASS_CONTEXT | (28 << 2)),
@@ -267,7 +267,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-bcsmspref")
+		ASN_MEMBER_NAME("ef-bcsmspref")
 		},
 	{ ATF_POINTER, 40, offsetof(struct PE_OPT_CSIM, ef_bcsmstable),
 		(ASN_TAG_CLASS_CONTEXT | (29 << 2)),
@@ -276,7 +276,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-bcsmstable")
+		ASN_MEMBER_NAME("ef-bcsmstable")
 		},
 	{ ATF_POINTER, 39, offsetof(struct PE_OPT_CSIM, ef_bcsmsp),
 		(ASN_TAG_CLASS_CONTEXT | (30 << 2)),
@@ -285,7 +285,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-bcsmsp")
+		ASN_MEMBER_NAME("ef-bcsmsp")
 		},
 	{ ATF_POINTER, 38, offsetof(struct PE_OPT_CSIM, ef_bakpara),
 		(ASN_TAG_CLASS_CONTEXT | (31 << 2)),
@@ -294,7 +294,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-bakpara")
+		ASN_MEMBER_NAME("ef-bakpara")
 		},
 	{ ATF_POINTER, 37, offsetof(struct PE_OPT_CSIM, ef_upbakpara),
 		(ASN_TAG_CLASS_CONTEXT | (32 << 2)),
@@ -303,7 +303,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-upbakpara")
+		ASN_MEMBER_NAME("ef-upbakpara")
 		},
 	{ ATF_POINTER, 36, offsetof(struct PE_OPT_CSIM, ef_mmsn),
 		(ASN_TAG_CLASS_CONTEXT | (33 << 2)),
@@ -312,7 +312,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-mmsn")
+		ASN_MEMBER_NAME("ef-mmsn")
 		},
 	{ ATF_POINTER, 35, offsetof(struct PE_OPT_CSIM, ef_ext8),
 		(ASN_TAG_CLASS_CONTEXT | (34 << 2)),
@@ -321,7 +321,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-ext8")
+		ASN_MEMBER_NAME("ef-ext8")
 		},
 	{ ATF_POINTER, 34, offsetof(struct PE_OPT_CSIM, ef_mmsicp),
 		(ASN_TAG_CLASS_CONTEXT | (35 << 2)),
@@ -330,7 +330,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-mmsicp")
+		ASN_MEMBER_NAME("ef-mmsicp")
 		},
 	{ ATF_POINTER, 33, offsetof(struct PE_OPT_CSIM, ef_mmsup),
 		(ASN_TAG_CLASS_CONTEXT | (36 << 2)),
@@ -339,7 +339,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-mmsup")
+		ASN_MEMBER_NAME("ef-mmsup")
 		},
 	{ ATF_POINTER, 32, offsetof(struct PE_OPT_CSIM, ef_mmsucp),
 		(ASN_TAG_CLASS_CONTEXT | (37 << 2)),
@@ -348,7 +348,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-mmsucp")
+		ASN_MEMBER_NAME("ef-mmsucp")
 		},
 	{ ATF_POINTER, 31, offsetof(struct PE_OPT_CSIM, ef_auth_capability),
 		(ASN_TAG_CLASS_CONTEXT | (38 << 2)),
@@ -357,7 +357,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-auth-capability")
+		ASN_MEMBER_NAME("ef-auth-capability")
 		},
 	{ ATF_POINTER, 30, offsetof(struct PE_OPT_CSIM, ef_3gcik),
 		(ASN_TAG_CLASS_CONTEXT | (39 << 2)),
@@ -366,7 +366,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-3gcik")
+		ASN_MEMBER_NAME("ef-3gcik")
 		},
 	{ ATF_POINTER, 29, offsetof(struct PE_OPT_CSIM, ef_dck),
 		(ASN_TAG_CLASS_CONTEXT | (40 << 2)),
@@ -375,7 +375,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-dck")
+		ASN_MEMBER_NAME("ef-dck")
 		},
 	{ ATF_POINTER, 28, offsetof(struct PE_OPT_CSIM, ef_gid1),
 		(ASN_TAG_CLASS_CONTEXT | (41 << 2)),
@@ -384,7 +384,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-gid1")
+		ASN_MEMBER_NAME("ef-gid1")
 		},
 	{ ATF_POINTER, 27, offsetof(struct PE_OPT_CSIM, ef_gid2),
 		(ASN_TAG_CLASS_CONTEXT | (42 << 2)),
@@ -393,7 +393,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-gid2")
+		ASN_MEMBER_NAME("ef-gid2")
 		},
 	{ ATF_POINTER, 26, offsetof(struct PE_OPT_CSIM, ef_cdmacnl),
 		(ASN_TAG_CLASS_CONTEXT | (43 << 2)),
@@ -402,7 +402,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-cdmacnl")
+		ASN_MEMBER_NAME("ef-cdmacnl")
 		},
 	{ ATF_POINTER, 25, offsetof(struct PE_OPT_CSIM, ef_sf_euimid),
 		(ASN_TAG_CLASS_CONTEXT | (44 << 2)),
@@ -411,7 +411,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-sf-euimid")
+		ASN_MEMBER_NAME("ef-sf-euimid")
 		},
 	{ ATF_POINTER, 24, offsetof(struct PE_OPT_CSIM, ef_est),
 		(ASN_TAG_CLASS_CONTEXT | (45 << 2)),
@@ -420,7 +420,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-est")
+		ASN_MEMBER_NAME("ef-est")
 		},
 	{ ATF_POINTER, 23, offsetof(struct PE_OPT_CSIM, ef_hidden_key),
 		(ASN_TAG_CLASS_CONTEXT | (46 << 2)),
@@ -429,7 +429,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-hidden-key")
+		ASN_MEMBER_NAME("ef-hidden-key")
 		},
 	{ ATF_POINTER, 22, offsetof(struct PE_OPT_CSIM, ef_lcsver),
 		(ASN_TAG_CLASS_CONTEXT | (47 << 2)),
@@ -438,7 +438,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-lcsver")
+		ASN_MEMBER_NAME("ef-lcsver")
 		},
 	{ ATF_POINTER, 21, offsetof(struct PE_OPT_CSIM, ef_lcscp),
 		(ASN_TAG_CLASS_CONTEXT | (48 << 2)),
@@ -447,7 +447,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-lcscp")
+		ASN_MEMBER_NAME("ef-lcscp")
 		},
 	{ ATF_POINTER, 20, offsetof(struct PE_OPT_CSIM, ef_sdn),
 		(ASN_TAG_CLASS_CONTEXT | (49 << 2)),
@@ -456,7 +456,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-sdn")
+		ASN_MEMBER_NAME("ef-sdn")
 		},
 	{ ATF_POINTER, 19, offsetof(struct PE_OPT_CSIM, ef_ext2),
 		(ASN_TAG_CLASS_CONTEXT | (50 << 2)),
@@ -465,7 +465,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-ext2")
+		ASN_MEMBER_NAME("ef-ext2")
 		},
 	{ ATF_POINTER, 18, offsetof(struct PE_OPT_CSIM, ef_ext3),
 		(ASN_TAG_CLASS_CONTEXT | (51 << 2)),
@@ -474,7 +474,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-ext3")
+		ASN_MEMBER_NAME("ef-ext3")
 		},
 	{ ATF_POINTER, 17, offsetof(struct PE_OPT_CSIM, ef_ici),
 		(ASN_TAG_CLASS_CONTEXT | (52 << 2)),
@@ -483,7 +483,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-ici")
+		ASN_MEMBER_NAME("ef-ici")
 		},
 	{ ATF_POINTER, 16, offsetof(struct PE_OPT_CSIM, ef_oci),
 		(ASN_TAG_CLASS_CONTEXT | (53 << 2)),
@@ -492,7 +492,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-oci")
+		ASN_MEMBER_NAME("ef-oci")
 		},
 	{ ATF_POINTER, 15, offsetof(struct PE_OPT_CSIM, ef_ext5),
 		(ASN_TAG_CLASS_CONTEXT | (54 << 2)),
@@ -501,7 +501,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-ext5")
+		ASN_MEMBER_NAME("ef-ext5")
 		},
 	{ ATF_POINTER, 14, offsetof(struct PE_OPT_CSIM, ef_ccp2),
 		(ASN_TAG_CLASS_CONTEXT | (55 << 2)),
@@ -510,7 +510,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-ccp2")
+		ASN_MEMBER_NAME("ef-ccp2")
 		},
 	{ ATF_POINTER, 13, offsetof(struct PE_OPT_CSIM, ef_applabels),
 		(ASN_TAG_CLASS_CONTEXT | (56 << 2)),
@@ -519,7 +519,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-applabels")
+		ASN_MEMBER_NAME("ef-applabels")
 		},
 	{ ATF_POINTER, 12, offsetof(struct PE_OPT_CSIM, ef_model),
 		(ASN_TAG_CLASS_CONTEXT | (57 << 2)),
@@ -528,7 +528,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-model")
+		ASN_MEMBER_NAME("ef-model")
 		},
 	{ ATF_POINTER, 11, offsetof(struct PE_OPT_CSIM, ef_rc),
 		(ASN_TAG_CLASS_CONTEXT | (58 << 2)),
@@ -537,7 +537,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-rc")
+		ASN_MEMBER_NAME("ef-rc")
 		},
 	{ ATF_POINTER, 10, offsetof(struct PE_OPT_CSIM, ef_smscap),
 		(ASN_TAG_CLASS_CONTEXT | (59 << 2)),
@@ -546,7 +546,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-smscap")
+		ASN_MEMBER_NAME("ef-smscap")
 		},
 	{ ATF_POINTER, 9, offsetof(struct PE_OPT_CSIM, ef_mipflags),
 		(ASN_TAG_CLASS_CONTEXT | (60 << 2)),
@@ -555,7 +555,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-mipflags")
+		ASN_MEMBER_NAME("ef-mipflags")
 		},
 	{ ATF_POINTER, 8, offsetof(struct PE_OPT_CSIM, ef_3gpduppext),
 		(ASN_TAG_CLASS_CONTEXT | (61 << 2)),
@@ -564,7 +564,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-3gpduppext")
+		ASN_MEMBER_NAME("ef-3gpduppext")
 		},
 	{ ATF_POINTER, 7, offsetof(struct PE_OPT_CSIM, ef_ipv6cap),
 		(ASN_TAG_CLASS_CONTEXT | (62 << 2)),
@@ -573,7 +573,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-ipv6cap")
+		ASN_MEMBER_NAME("ef-ipv6cap")
 		},
 	{ ATF_POINTER, 6, offsetof(struct PE_OPT_CSIM, ef_tcpconfig),
 		(ASN_TAG_CLASS_CONTEXT | (63 << 2)),
@@ -582,7 +582,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-tcpconfig")
+		ASN_MEMBER_NAME("ef-tcpconfig")
 		},
 	{ ATF_POINTER, 5, offsetof(struct PE_OPT_CSIM, ef_dgc),
 		(ASN_TAG_CLASS_CONTEXT | (64 << 2)),
@@ -591,7 +591,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-dgc")
+		ASN_MEMBER_NAME("ef-dgc")
 		},
 	{ ATF_POINTER, 4, offsetof(struct PE_OPT_CSIM, ef_wapbrowsercp),
 		(ASN_TAG_CLASS_CONTEXT | (65 << 2)),
@@ -600,7 +600,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-wapbrowsercp")
+		ASN_MEMBER_NAME("ef-wapbrowsercp")
 		},
 	{ ATF_POINTER, 3, offsetof(struct PE_OPT_CSIM, ef_wapbrowserbm),
 		(ASN_TAG_CLASS_CONTEXT | (66 << 2)),
@@ -609,7 +609,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-wapbrowserbm")
+		ASN_MEMBER_NAME("ef-wapbrowserbm")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PE_OPT_CSIM, ef_mmsconfig),
 		(ASN_TAG_CLASS_CONTEXT | (67 << 2)),
@@ -618,7 +618,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-mmsconfig")
+		ASN_MEMBER_NAME("ef-mmsconfig")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_OPT_CSIM, ef_jdl),
 		(ASN_TAG_CLASS_CONTEXT | (68 << 2)),
@@ -627,7 +627,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-jdl")
+		ASN_MEMBER_NAME("ef-jdl")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_OPT_CSIM_tags_1[] = {
@@ -713,8 +713,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_OPT_CSIM_specs_1 = {
 	69,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_OPT_CSIM = {
-	ASN_NAME("PE-OPT-CSIM"),
-	ASN_NAME("PE-OPT-CSIM"),
+	ASN_TYPE_NAME("PE-OPT-CSIM")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_OPT_CSIM_tags_1,
 	sizeof(asn_DEF_PE_OPT_CSIM_tags_1)

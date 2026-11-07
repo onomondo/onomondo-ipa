@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_RemoteProfileProvisioningResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("initiateAuthenticationResponse")
+		ASN_MEMBER_NAME("initiateAuthenticationResponse")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct RemoteProfileProvisioningResponse, choice.authenticateClientResponseEs9),
 		(ASN_TAG_CLASS_CONTEXT | (59 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_RemoteProfileProvisioningResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("authenticateClientResponseEs9")
+		ASN_MEMBER_NAME("authenticateClientResponseEs9")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct RemoteProfileProvisioningResponse, choice.getBoundProfilePackageResponse),
 		(ASN_TAG_CLASS_CONTEXT | (58 << 2)),
@@ -33,7 +33,7 @@ static asn_TYPE_member_t asn_MBR_RemoteProfileProvisioningResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("getBoundProfilePackageResponse")
+		ASN_MEMBER_NAME("getBoundProfilePackageResponse")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct RemoteProfileProvisioningResponse, choice.cancelSessionResponseEs9),
 		(ASN_TAG_CLASS_CONTEXT | (65 << 2)),
@@ -42,7 +42,7 @@ static asn_TYPE_member_t asn_MBR_RemoteProfileProvisioningResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("cancelSessionResponseEs9")
+		ASN_MEMBER_NAME("cancelSessionResponseEs9")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct RemoteProfileProvisioningResponse, choice.authenticateClientResponseEs11),
 		(ASN_TAG_CLASS_CONTEXT | (64 << 2)),
@@ -51,7 +51,7 @@ static asn_TYPE_member_t asn_MBR_RemoteProfileProvisioningResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("authenticateClientResponseEs11")
+		ASN_MEMBER_NAME("authenticateClientResponseEs11")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_RemoteProfileProvisioningResponse_tags_1[] = {
@@ -75,8 +75,7 @@ static asn_CHOICE_specifics_t asn_SPC_RemoteProfileProvisioningResponse_specs_1 
 	5	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_RemoteProfileProvisioningResponse = {
-	ASN_NAME("RemoteProfileProvisioningResponse"),
-	ASN_NAME("RemoteProfileProvisioningResponse"),
+	ASN_TYPE_NAME("RemoteProfileProvisioningResponse")
 	&asn_OP_CHOICE,
 	asn_DEF_RemoteProfileProvisioningResponse_tags_1,
 	sizeof(asn_DEF_RemoteProfileProvisioningResponse_tags_1)

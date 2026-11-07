@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_iotVersion_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_iotVersion_tags_2[] = {
@@ -29,8 +29,7 @@ static asn_SET_OF_specifics_t asn_SPC_iotVersion_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_iotVersion_2 = {
-	ASN_NAME("iotVersion"),
-	ASN_NAME("iotVersion"),
+	ASN_TYPE_NAME("iotVersion")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_iotVersion_tags_2,
 	sizeof(asn_DEF_iotVersion_tags_2)
@@ -52,7 +51,7 @@ asn_TYPE_member_t asn_MBR_IoTSpecificInfo_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("iotVersion")
+		ASN_MEMBER_NAME("iotVersion")
 		},
 	{ ATF_POINTER, 2, offsetof(struct IoTSpecificInfo, ecallSupported),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -61,7 +60,7 @@ asn_TYPE_member_t asn_MBR_IoTSpecificInfo_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ecallSupported")
+		ASN_MEMBER_NAME("ecallSupported")
 		},
 	{ ATF_POINTER, 1, offsetof(struct IoTSpecificInfo, fallbackSupported),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -70,7 +69,7 @@ asn_TYPE_member_t asn_MBR_IoTSpecificInfo_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("fallbackSupported")
+		ASN_MEMBER_NAME("fallbackSupported")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_IoTSpecificInfo_tags_1[] = {
@@ -90,8 +89,7 @@ asn_SEQUENCE_specifics_t asn_SPC_IoTSpecificInfo_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_IoTSpecificInfo = {
-	ASN_NAME("IoTSpecificInfo"),
-	ASN_NAME("IoTSpecificInfo"),
+	ASN_TYPE_NAME("IoTSpecificInfo")
 	&asn_OP_SEQUENCE,
 	asn_DEF_IoTSpecificInfo_tags_1,
 	sizeof(asn_DEF_IoTSpecificInfo_tags_1)

@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_euiccCiPKIdListForVerification_3[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_euiccCiPKIdListForVerification_tags_3[] = {
@@ -29,8 +29,7 @@ static asn_SET_OF_specifics_t asn_SPC_euiccCiPKIdListForVerification_specs_3 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_euiccCiPKIdListForVerification_3 = {
-	ASN_NAME("euiccCiPKIdListForVerification"),
-	ASN_NAME("euiccCiPKIdListForVerification"),
+	ASN_TYPE_NAME("euiccCiPKIdListForVerification")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_euiccCiPKIdListForVerification_tags_3,
 	sizeof(asn_DEF_euiccCiPKIdListForVerification_tags_3)
@@ -52,7 +51,7 @@ static asn_TYPE_member_t asn_MBR_euiccCiPKIdListForSigning_5[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_euiccCiPKIdListForSigning_tags_5[] = {
@@ -66,8 +65,7 @@ static asn_SET_OF_specifics_t asn_SPC_euiccCiPKIdListForSigning_specs_5 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_euiccCiPKIdListForSigning_5 = {
-	ASN_NAME("euiccCiPKIdListForSigning"),
-	ASN_NAME("euiccCiPKIdListForSigning"),
+	ASN_TYPE_NAME("euiccCiPKIdListForSigning")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_euiccCiPKIdListForSigning_tags_5,
 	sizeof(asn_DEF_euiccCiPKIdListForSigning_tags_5)
@@ -89,7 +87,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo1_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("svn")
+		ASN_MEMBER_NAME("svn")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EUICCInfo1, euiccCiPKIdListForVerification),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
@@ -98,7 +96,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo1_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccCiPKIdListForVerification")
+		ASN_MEMBER_NAME("euiccCiPKIdListForVerification")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EUICCInfo1, euiccCiPKIdListForSigning),
 		(ASN_TAG_CLASS_CONTEXT | (10 << 2)),
@@ -107,7 +105,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo1_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccCiPKIdListForSigning")
+		ASN_MEMBER_NAME("euiccCiPKIdListForSigning")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_EUICCInfo1_tags_1[] = {
@@ -128,8 +126,7 @@ asn_SEQUENCE_specifics_t asn_SPC_EUICCInfo1_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EUICCInfo1 = {
-	ASN_NAME("EUICCInfo1"),
-	ASN_NAME("EUICCInfo1"),
+	ASN_TYPE_NAME("EUICCInfo1")
 	&asn_OP_SEQUENCE,
 	asn_DEF_EUICCInfo1_tags_1,
 	sizeof(asn_DEF_EUICCInfo1_tags_1)

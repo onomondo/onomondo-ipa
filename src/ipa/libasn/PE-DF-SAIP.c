@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_SAIP_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("df-saip-header")
+		ASN_MEMBER_NAME("df-saip-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_DF_SAIP, templateID),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_SAIP_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("templateID")
+		ASN_MEMBER_NAME("templateID")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_DF_SAIP, df_df_saip),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_SAIP_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("df-df-saip")
+		ASN_MEMBER_NAME("df-df-saip")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_DF_SAIP, ef_suci_calc_info_usim),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_SAIP_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-suci-calc-info-usim")
+		ASN_MEMBER_NAME("ef-suci-calc-info-usim")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_DF_SAIP_tags_1[] = {
@@ -63,8 +63,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_DF_SAIP_specs_1 = {
 	4,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_DF_SAIP = {
-	ASN_NAME("PE-DF-SAIP"),
-	ASN_NAME("PE-DF-SAIP"),
+	ASN_TYPE_NAME("PE-DF-SAIP")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_DF_SAIP_tags_1,
 	sizeof(asn_DEF_PE_DF_SAIP_tags_1)

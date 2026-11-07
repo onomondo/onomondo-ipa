@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_Name_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("rdnSequence")
+		ASN_MEMBER_NAME("rdnSequence")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_Name_tag2el_1[] = {
@@ -32,8 +32,7 @@ asn_CHOICE_specifics_t asn_SPC_Name_specs_1 = {
 	-1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_Name = {
-	ASN_NAME("Name"),
-	ASN_NAME("Name"),
+	ASN_TYPE_NAME("Name")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

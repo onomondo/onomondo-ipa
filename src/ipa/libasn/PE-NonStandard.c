@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PE_NonStandard_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("nonStandard-header")
+		ASN_MEMBER_NAME("nonStandard-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_NonStandard, issuerID),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PE_NonStandard_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("issuerID")
+		ASN_MEMBER_NAME("issuerID")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_NonStandard, content),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_PE_NonStandard_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("content")
+		ASN_MEMBER_NAME("content")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_NonStandard_tags_1[] = {
@@ -53,8 +53,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_NonStandard_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_NonStandard = {
-	ASN_NAME("PE-NonStandard"),
-	ASN_NAME("PE-NonStandard"),
+	ASN_TYPE_NAME("PE-NonStandard")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_NonStandard_tags_1,
 	sizeof(asn_DEF_PE_NonStandard_tags_1)

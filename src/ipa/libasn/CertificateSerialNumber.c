@@ -15,8 +15,7 @@ static const ber_tlv_tag_t asn_DEF_CertificateSerialNumber_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (2 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_CertificateSerialNumber = {
-	ASN_NAME("CertificateSerialNumber"),
-	ASN_NAME("CertificateSerialNumber"),
+	ASN_TYPE_NAME("CertificateSerialNumber")
 	&asn_OP_INTEGER,
 	asn_DEF_CertificateSerialNumber_tags_1,
 	sizeof(asn_DEF_CertificateSerialNumber_tags_1)

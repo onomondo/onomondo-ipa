@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CompactProfileInstallationResult_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("compactProfileInstallationResultData")
+		ASN_MEMBER_NAME("compactProfileInstallationResultData")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CompactProfileInstallationResult, euiccSignPIR),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_CompactProfileInstallationResult_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccSignPIR")
+		ASN_MEMBER_NAME("euiccSignPIR")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CompactProfileInstallationResult_tags_1[] = {
@@ -43,8 +43,7 @@ asn_SEQUENCE_specifics_t asn_SPC_CompactProfileInstallationResult_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CompactProfileInstallationResult = {
-	ASN_NAME("CompactProfileInstallationResult"),
-	ASN_NAME("CompactProfileInstallationResult"),
+	ASN_TYPE_NAME("CompactProfileInstallationResult")
 	&asn_OP_SEQUENCE,
 	asn_DEF_CompactProfileInstallationResult_tags_1,
 	sizeof(asn_DEF_CompactProfileInstallationResult_tags_1)

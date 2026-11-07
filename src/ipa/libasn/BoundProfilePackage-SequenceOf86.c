@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_BoundProfilePackage_SequenceOf86_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_BoundProfilePackage_SequenceOf86_tags_1[] = {
@@ -28,8 +28,7 @@ asn_SET_OF_specifics_t asn_SPC_BoundProfilePackage_SequenceOf86_specs_1 = {
 	0,	/* XER encoding is XMLDelimitedItemList */
 };
 asn_TYPE_descriptor_t asn_DEF_BoundProfilePackage_SequenceOf86 = {
-	ASN_NAME("BoundProfilePackage-SequenceOf86"),
-	ASN_NAME("BoundProfilePackage-SequenceOf86"),
+	ASN_TYPE_NAME("BoundProfilePackage-SequenceOf86")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_BoundProfilePackage_SequenceOf86_tags_1,
 	sizeof(asn_DEF_BoundProfilePackage_SequenceOf86_tags_1)

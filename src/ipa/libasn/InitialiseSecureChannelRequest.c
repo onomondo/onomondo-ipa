@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_InitialiseSecureChannelRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("remoteOpId")
+		ASN_MEMBER_NAME("remoteOpId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct InitialiseSecureChannelRequest, transactionId),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_InitialiseSecureChannelRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("transactionId")
+		ASN_MEMBER_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct InitialiseSecureChannelRequest, controlRefTemplate),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_InitialiseSecureChannelRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("controlRefTemplate")
+		ASN_MEMBER_NAME("controlRefTemplate")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct InitialiseSecureChannelRequest, smdpOtpk),
 		(ASN_TAG_CLASS_APPLICATION | (73 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_InitialiseSecureChannelRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("smdpOtpk")
+		ASN_MEMBER_NAME("smdpOtpk")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct InitialiseSecureChannelRequest, smdpSign),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_InitialiseSecureChannelRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("smdpSign")
+		ASN_MEMBER_NAME("smdpSign")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_InitialiseSecureChannelRequest_tags_1[] = {
@@ -74,8 +74,7 @@ asn_SEQUENCE_specifics_t asn_SPC_InitialiseSecureChannelRequest_specs_1 = {
 	5,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_InitialiseSecureChannelRequest = {
-	ASN_NAME("InitialiseSecureChannelRequest"),
-	ASN_NAME("InitialiseSecureChannelRequest"),
+	ASN_TYPE_NAME("InitialiseSecureChannelRequest")
 	&asn_OP_SEQUENCE,
 	asn_DEF_InitialiseSecureChannelRequest_tags_1,
 	sizeof(asn_DEF_InitialiseSecureChannelRequest_tags_1)

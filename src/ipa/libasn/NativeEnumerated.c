@@ -61,8 +61,7 @@ asn_TYPE_operation_t asn_OP_NativeEnumerated = {
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_NativeEnumerated = {
-	"ENUMERATED",			/* The ASN.1 type is still ENUMERATED */
-	"ENUMERATED",
+	ASN_TYPE_NAME("ENUMERATED")			/* The ASN.1 type is still ENUMERATED */
 	&asn_OP_NativeEnumerated,
 	asn_DEF_NativeEnumerated_tags,
 	sizeof(asn_DEF_NativeEnumerated_tags) / sizeof(asn_DEF_NativeEnumerated_tags[0]),

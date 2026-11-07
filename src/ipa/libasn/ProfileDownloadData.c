@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_contactSmds_4[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("smdsAddress")
+		ASN_MEMBER_NAME("smdsAddress")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_contactSmds_tags_4[] = {
@@ -35,8 +35,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_contactSmds_specs_4 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_contactSmds_4 = {
-	ASN_NAME("contactSmds"),
-	ASN_NAME("contactSmds"),
+	ASN_TYPE_NAME("contactSmds")
 	&asn_OP_SEQUENCE,
 	asn_DEF_contactSmds_tags_4,
 	sizeof(asn_DEF_contactSmds_tags_4)
@@ -58,7 +57,7 @@ asn_TYPE_member_t asn_MBR_ProfileDownloadData_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("activationCode")
+		ASN_MEMBER_NAME("activationCode")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileDownloadData, choice.contactDefaultSmdp),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -67,7 +66,7 @@ asn_TYPE_member_t asn_MBR_ProfileDownloadData_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("contactDefaultSmdp")
+		ASN_MEMBER_NAME("contactDefaultSmdp")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileDownloadData, choice.contactSmds),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -76,7 +75,7 @@ asn_TYPE_member_t asn_MBR_ProfileDownloadData_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("contactSmds")
+		ASN_MEMBER_NAME("contactSmds")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_ProfileDownloadData_tag2el_1[] = {
@@ -95,8 +94,7 @@ asn_CHOICE_specifics_t asn_SPC_ProfileDownloadData_specs_1 = {
 	3	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_ProfileDownloadData = {
-	ASN_NAME("ProfileDownloadData"),
-	ASN_NAME("ProfileDownloadData"),
+	ASN_TYPE_NAME("ProfileDownloadData")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

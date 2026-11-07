@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_Certificate_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("tbsCertificate")
+		ASN_MEMBER_NAME("tbsCertificate")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct Certificate, signatureAlgorithm),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_Certificate_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("signatureAlgorithm")
+		ASN_MEMBER_NAME("signatureAlgorithm")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct Certificate, signature),
 		(ASN_TAG_CLASS_UNIVERSAL | (3 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_Certificate_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("signature")
+		ASN_MEMBER_NAME("signature")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_Certificate_tags_1[] = {
@@ -53,8 +53,7 @@ asn_SEQUENCE_specifics_t asn_SPC_Certificate_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_Certificate = {
-	ASN_NAME("Certificate"),
-	ASN_NAME("Certificate"),
+	ASN_TYPE_NAME("Certificate")
 	&asn_OP_SEQUENCE,
 	asn_DEF_Certificate_tags_1,
 	sizeof(asn_DEF_Certificate_tags_1)

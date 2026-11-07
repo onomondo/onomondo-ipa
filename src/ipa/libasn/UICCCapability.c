@@ -15,8 +15,7 @@ static const ber_tlv_tag_t asn_DEF_UICCCapability_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (3 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_UICCCapability = {
-	ASN_NAME("UICCCapability"),
-	ASN_NAME("UICCCapability"),
+	ASN_TYPE_NAME("UICCCapability")
 	&asn_OP_BIT_STRING,
 	asn_DEF_UICCCapability_tags_1,
 	sizeof(asn_DEF_UICCCapability_tags_1)

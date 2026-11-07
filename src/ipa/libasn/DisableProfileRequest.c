@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_profileIdentifier_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("isdpAid")
+		ASN_MEMBER_NAME("isdpAid")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct DisableProfileRequest__profileIdentifier, choice.iccid),
 		(ASN_TAG_CLASS_APPLICATION | (26 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_profileIdentifier_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("iccid")
+		ASN_MEMBER_NAME("iccid")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_profileIdentifier_tag2el_2[] = {
@@ -43,8 +43,7 @@ static asn_CHOICE_specifics_t asn_SPC_profileIdentifier_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_profileIdentifier_2 = {
-	ASN_NAME("profileIdentifier"),
-	ASN_NAME("profileIdentifier"),
+	ASN_TYPE_NAME("profileIdentifier")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
@@ -64,7 +63,7 @@ static asn_TYPE_member_t asn_MBR_DisableProfileRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("profileIdentifier")
+		ASN_MEMBER_NAME("profileIdentifier")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct DisableProfileRequest, refreshFlag),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -73,7 +72,7 @@ static asn_TYPE_member_t asn_MBR_DisableProfileRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("refreshFlag")
+		ASN_MEMBER_NAME("refreshFlag")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_DisableProfileRequest_tags_1[] = {
@@ -93,8 +92,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_DisableProfileRequest_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_DisableProfileRequest = {
-	ASN_NAME("DisableProfileRequest"),
-	ASN_NAME("DisableProfileRequest"),
+	ASN_TYPE_NAME("DisableProfileRequest")
 	&asn_OP_SEQUENCE,
 	asn_DEF_DisableProfileRequest_tags_1,
 	sizeof(asn_DEF_DisableProfileRequest_tags_1)

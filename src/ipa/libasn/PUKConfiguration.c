@@ -37,7 +37,7 @@ asn_TYPE_member_t asn_MBR_PUKConfiguration_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("keyReference")
+		ASN_MEMBER_NAME("keyReference")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PUKConfiguration, pukValue),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -46,7 +46,7 @@ asn_TYPE_member_t asn_MBR_PUKConfiguration_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("pukValue")
+		ASN_MEMBER_NAME("pukValue")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PUKConfiguration, maxNumOfAttemps_retryNumLeft),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -56,7 +56,7 @@ asn_TYPE_member_t asn_MBR_PUKConfiguration_1[] = {
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		&asn_DFL_4_cmp_170,	/* Compare DEFAULT 170 */
 		&asn_DFL_4_set_170,	/* Set DEFAULT 170 */
-		ASN_NAME("maxNumOfAttemps-retryNumLeft")
+		ASN_MEMBER_NAME("maxNumOfAttemps-retryNumLeft")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PUKConfiguration_tags_1[] = {
@@ -76,8 +76,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PUKConfiguration_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PUKConfiguration = {
-	ASN_NAME("PUKConfiguration"),
-	ASN_NAME("PUKConfiguration"),
+	ASN_TYPE_NAME("PUKConfiguration")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PUKConfiguration_tags_1,
 	sizeof(asn_DEF_PUKConfiguration_tags_1)

@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_notificationMetadataList_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_notificationMetadataList_tags_2[] = {
@@ -29,8 +29,7 @@ static asn_SET_OF_specifics_t asn_SPC_notificationMetadataList_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_notificationMetadataList_2 = {
-	ASN_NAME("notificationMetadataList"),
-	ASN_NAME("notificationMetadataList"),
+	ASN_TYPE_NAME("notificationMetadataList")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_notificationMetadataList_tags_2,
 	sizeof(asn_DEF_notificationMetadataList_tags_2)
@@ -52,7 +51,7 @@ static asn_TYPE_member_t asn_MBR_ListNotificationResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("notificationMetadataList")
+		ASN_MEMBER_NAME("notificationMetadataList")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ListNotificationResponse, choice.listNotificationsResultError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -61,7 +60,7 @@ static asn_TYPE_member_t asn_MBR_ListNotificationResponse_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("listNotificationsResultError")
+		ASN_MEMBER_NAME("listNotificationsResultError")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ListNotificationResponse_tags_1[] = {
@@ -82,8 +81,7 @@ static asn_CHOICE_specifics_t asn_SPC_ListNotificationResponse_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_ListNotificationResponse = {
-	ASN_NAME("ListNotificationResponse"),
-	ASN_NAME("ListNotificationResponse"),
+	ASN_TYPE_NAME("ListNotificationResponse")
 	&asn_OP_CHOICE,
 	asn_DEF_ListNotificationResponse_tags_1,
 	sizeof(asn_DEF_ListNotificationResponse_tags_1)

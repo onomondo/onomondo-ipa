@@ -15,8 +15,7 @@ static const ber_tlv_tag_t asn_DEF_EmailAddress_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (22 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_EmailAddress = {
-	ASN_NAME("EmailAddress"),
-	ASN_NAME("EmailAddress"),
+	ASN_TYPE_NAME("EmailAddress")
 	&asn_OP_IA5String,
 	asn_DEF_EmailAddress_tags_1,
 	sizeof(asn_DEF_EmailAddress_tags_1)

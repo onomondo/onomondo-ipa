@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CompactPrepareDownloadResponseOk_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("compactEuiccSigned2")
+		ASN_MEMBER_NAME("compactEuiccSigned2")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CompactPrepareDownloadResponseOk, euiccSignature2),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_CompactPrepareDownloadResponseOk_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccSignature2")
+		ASN_MEMBER_NAME("euiccSignature2")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CompactPrepareDownloadResponseOk_tags_1[] = {
@@ -43,8 +43,7 @@ asn_SEQUENCE_specifics_t asn_SPC_CompactPrepareDownloadResponseOk_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CompactPrepareDownloadResponseOk = {
-	ASN_NAME("CompactPrepareDownloadResponseOk"),
-	ASN_NAME("CompactPrepareDownloadResponseOk"),
+	ASN_TYPE_NAME("CompactPrepareDownloadResponseOk")
 	&asn_OP_SEQUENCE,
 	asn_DEF_CompactPrepareDownloadResponseOk_tags_1,
 	sizeof(asn_DEF_CompactPrepareDownloadResponseOk_tags_1)

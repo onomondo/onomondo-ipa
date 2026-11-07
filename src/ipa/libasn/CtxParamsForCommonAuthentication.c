@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CtxParamsForCommonAuthentication_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("matchingId")
+		ASN_MEMBER_NAME("matchingId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CtxParamsForCommonAuthentication, deviceInfo),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_CtxParamsForCommonAuthentication_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("deviceInfo")
+		ASN_MEMBER_NAME("deviceInfo")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CtxParamsForCommonAuthentication_tags_1[] = {
@@ -43,8 +43,7 @@ asn_SEQUENCE_specifics_t asn_SPC_CtxParamsForCommonAuthentication_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CtxParamsForCommonAuthentication = {
-	ASN_NAME("CtxParamsForCommonAuthentication"),
-	ASN_NAME("CtxParamsForCommonAuthentication"),
+	ASN_TYPE_NAME("CtxParamsForCommonAuthentication")
 	&asn_OP_SEQUENCE,
 	asn_DEF_CtxParamsForCommonAuthentication_tags_1,
 	sizeof(asn_DEF_CtxParamsForCommonAuthentication_tags_1)

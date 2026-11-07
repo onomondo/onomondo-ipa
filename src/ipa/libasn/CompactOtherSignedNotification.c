@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CompactOtherSignedNotification_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eidValue")
+		ASN_MEMBER_NAME("eidValue")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CompactOtherSignedNotification, tbsOtherNotification),
 		(ASN_TAG_CLASS_CONTEXT | (47 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_CompactOtherSignedNotification_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("tbsOtherNotification")
+		ASN_MEMBER_NAME("tbsOtherNotification")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CompactOtherSignedNotification, euiccNotificationSignature),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_CompactOtherSignedNotification_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccNotificationSignature")
+		ASN_MEMBER_NAME("euiccNotificationSignature")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CompactOtherSignedNotification_tags_1[] = {
@@ -53,8 +53,7 @@ asn_SEQUENCE_specifics_t asn_SPC_CompactOtherSignedNotification_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CompactOtherSignedNotification = {
-	ASN_NAME("CompactOtherSignedNotification"),
-	ASN_NAME("CompactOtherSignedNotification"),
+	ASN_TYPE_NAME("CompactOtherSignedNotification")
 	&asn_OP_SEQUENCE,
 	asn_DEF_CompactOtherSignedNotification_tags_1,
 	sizeof(asn_DEF_CompactOtherSignedNotification_tags_1)

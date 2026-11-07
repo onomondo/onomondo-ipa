@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("otherName")
+		ASN_MEMBER_NAME("otherName")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct GeneralName, choice.rfc822Name),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("rfc822Name")
+		ASN_MEMBER_NAME("rfc822Name")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct GeneralName, choice.dNSName),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("dNSName")
+		ASN_MEMBER_NAME("dNSName")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct GeneralName, choice.x400Address),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("x400Address")
+		ASN_MEMBER_NAME("x400Address")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct GeneralName, choice.directoryName),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("directoryName")
+		ASN_MEMBER_NAME("directoryName")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct GeneralName, choice.ediPartyName),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ediPartyName")
+		ASN_MEMBER_NAME("ediPartyName")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct GeneralName, choice.uniformResourceIdentifier),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("uniformResourceIdentifier")
+		ASN_MEMBER_NAME("uniformResourceIdentifier")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct GeneralName, choice.iPAddress),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("iPAddress")
+		ASN_MEMBER_NAME("iPAddress")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct GeneralName, choice.registeredID),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("registeredID")
+		ASN_MEMBER_NAME("registeredID")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_GeneralName_tag2el_1[] = {
@@ -112,8 +112,7 @@ asn_CHOICE_specifics_t asn_SPC_GeneralName_specs_1 = {
 	-1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_GeneralName = {
-	ASN_NAME("GeneralName"),
-	ASN_NAME("GeneralName"),
+	ASN_TYPE_NAME("GeneralName")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

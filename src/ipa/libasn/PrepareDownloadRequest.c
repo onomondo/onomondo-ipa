@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_PrepareDownloadRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("smdpSigned2")
+		ASN_MEMBER_NAME("smdpSigned2")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PrepareDownloadRequest, smdpSignature2),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_PrepareDownloadRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("smdpSignature2")
+		ASN_MEMBER_NAME("smdpSignature2")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PrepareDownloadRequest, hashCc),
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
@@ -33,7 +33,7 @@ static asn_TYPE_member_t asn_MBR_PrepareDownloadRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("hashCc")
+		ASN_MEMBER_NAME("hashCc")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PrepareDownloadRequest, smdpCertificate),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -42,7 +42,7 @@ static asn_TYPE_member_t asn_MBR_PrepareDownloadRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("smdpCertificate")
+		ASN_MEMBER_NAME("smdpCertificate")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PrepareDownloadRequest_tags_1[] = {
@@ -64,8 +64,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_PrepareDownloadRequest_specs_1 = {
 	4,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PrepareDownloadRequest = {
-	ASN_NAME("PrepareDownloadRequest"),
-	ASN_NAME("PrepareDownloadRequest"),
+	ASN_TYPE_NAME("PrepareDownloadRequest")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PrepareDownloadRequest_tags_1,
 	sizeof(asn_DEF_PrepareDownloadRequest_tags_1)

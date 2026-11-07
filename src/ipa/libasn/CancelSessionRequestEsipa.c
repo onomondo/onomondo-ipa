@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CancelSessionRequestEsipa_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("transactionId")
+		ASN_MEMBER_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CancelSessionRequestEsipa, cancelSessionResponse),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_CancelSessionRequestEsipa_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("cancelSessionResponse")
+		ASN_MEMBER_NAME("cancelSessionResponse")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CancelSessionRequestEsipa_tags_1[] = {
@@ -44,8 +44,7 @@ asn_SEQUENCE_specifics_t asn_SPC_CancelSessionRequestEsipa_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CancelSessionRequestEsipa = {
-	ASN_NAME("CancelSessionRequestEsipa"),
-	ASN_NAME("CancelSessionRequestEsipa"),
+	ASN_TYPE_NAME("CancelSessionRequestEsipa")
 	&asn_OP_SEQUENCE,
 	asn_DEF_CancelSessionRequestEsipa_tags_1,
 	sizeof(asn_DEF_CancelSessionRequestEsipa_tags_1)

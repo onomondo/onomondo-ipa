@@ -68,8 +68,7 @@ asn_TYPE_operation_t asn_OP_UniversalString = {
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_UniversalString = {
-	"UniversalString",
-	"UniversalString",
+	ASN_TYPE_NAME("UniversalString")
 	&asn_OP_UniversalString,
 	asn_DEF_UniversalString_tags,
 	sizeof(asn_DEF_UniversalString_tags)

@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageErrorSigned_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccPackageErrorDataSigned")
+		ASN_MEMBER_NAME("euiccPackageErrorDataSigned")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccPackageErrorSigned, euiccSignEPE),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageErrorSigned_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccSignEPE")
+		ASN_MEMBER_NAME("euiccSignEPE")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_EuiccPackageErrorSigned_tags_1[] = {
@@ -43,8 +43,7 @@ asn_SEQUENCE_specifics_t asn_SPC_EuiccPackageErrorSigned_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EuiccPackageErrorSigned = {
-	ASN_NAME("EuiccPackageErrorSigned"),
-	ASN_NAME("EuiccPackageErrorSigned"),
+	ASN_TYPE_NAME("EuiccPackageErrorSigned")
 	&asn_OP_SEQUENCE,
 	asn_DEF_EuiccPackageErrorSigned_tags_1,
 	sizeof(asn_DEF_EuiccPackageErrorSigned_tags_1)

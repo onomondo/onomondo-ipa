@@ -15,8 +15,7 @@ static const ber_tlv_tag_t asn_DEF_HoldInstructionCode_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (6 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_HoldInstructionCode = {
-	ASN_NAME("HoldInstructionCode"),
-	ASN_NAME("HoldInstructionCode"),
+	ASN_TYPE_NAME("HoldInstructionCode")
 	&asn_OP_OBJECT_IDENTIFIER,
 	asn_DEF_HoldInstructionCode_tags_1,
 	sizeof(asn_DEF_HoldInstructionCode_tags_1)

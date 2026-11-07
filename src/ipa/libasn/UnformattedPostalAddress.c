@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_printable_address_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_printable_address_tags_2[] = {
@@ -28,8 +28,7 @@ static asn_SET_OF_specifics_t asn_SPC_printable_address_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_printable_address_2 = {
-	ASN_NAME("printable-address"),
-	ASN_NAME("printable-address"),
+	ASN_TYPE_NAME("printable-address")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_printable_address_tags_2,
 	sizeof(asn_DEF_printable_address_tags_2)
@@ -51,7 +50,7 @@ static asn_TYPE_member_t asn_MBR_UnformattedPostalAddress_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("printable-address")
+		ASN_MEMBER_NAME("printable-address")
 		},
 	{ ATF_POINTER, 1, offsetof(struct UnformattedPostalAddress, teletex_string),
 		(ASN_TAG_CLASS_UNIVERSAL | (20 << 2)),
@@ -60,7 +59,7 @@ static asn_TYPE_member_t asn_MBR_UnformattedPostalAddress_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("teletex-string")
+		ASN_MEMBER_NAME("teletex-string")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_UnformattedPostalAddress_tags_1[] = {
@@ -86,8 +85,7 @@ asn_SET_specifics_t asn_SPC_UnformattedPostalAddress_specs_1 = {
 	(const unsigned int *)asn_MAP_UnformattedPostalAddress_mmap_1	/* Mandatory elements map */
 };
 asn_TYPE_descriptor_t asn_DEF_UnformattedPostalAddress = {
-	ASN_NAME("UnformattedPostalAddress"),
-	ASN_NAME("UnformattedPostalAddress"),
+	ASN_TYPE_NAME("UnformattedPostalAddress")
 	&asn_OP_SET,
 	asn_DEF_UnformattedPostalAddress_tags_1,
 	sizeof(asn_DEF_UnformattedPostalAddress_tags_1)

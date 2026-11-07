@@ -37,7 +37,7 @@ asn_TYPE_member_t asn_MBR_GeneralSubtree_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("base")
+		ASN_MEMBER_NAME("base")
 		},
 	{ ATF_NOFLAGS, 2, offsetof(struct GeneralSubtree, minimum),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
@@ -47,7 +47,7 @@ asn_TYPE_member_t asn_MBR_GeneralSubtree_1[] = {
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		&asn_DFL_3_cmp_0,	/* Compare DEFAULT 0 */
 		&asn_DFL_3_set_0,	/* Set DEFAULT 0 */
-		ASN_NAME("minimum")
+		ASN_MEMBER_NAME("minimum")
 		},
 	{ ATF_POINTER, 1, offsetof(struct GeneralSubtree, maximum),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -56,7 +56,7 @@ asn_TYPE_member_t asn_MBR_GeneralSubtree_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("maximum")
+		ASN_MEMBER_NAME("maximum")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_GeneralSubtree_tags_1[] = {
@@ -84,8 +84,7 @@ asn_SEQUENCE_specifics_t asn_SPC_GeneralSubtree_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_GeneralSubtree = {
-	ASN_NAME("GeneralSubtree"),
-	ASN_NAME("GeneralSubtree"),
+	ASN_TYPE_NAME("GeneralSubtree")
 	&asn_OP_SEQUENCE,
 	asn_DEF_GeneralSubtree_tags_1,
 	sizeof(asn_DEF_GeneralSubtree_tags_1)

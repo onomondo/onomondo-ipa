@@ -15,8 +15,7 @@ static const ber_tlv_tag_t asn_DEF_StreetAddress_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (17 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_StreetAddress = {
-	ASN_NAME("StreetAddress"),
-	ASN_NAME("StreetAddress"),
+	ASN_TYPE_NAME("StreetAddress")
 	&asn_OP_SET,
 	asn_DEF_StreetAddress_tags_1,
 	sizeof(asn_DEF_StreetAddress_tags_1)

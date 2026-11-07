@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_DirectoryString_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("teletexString")
+		ASN_MEMBER_NAME("teletexString")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct DirectoryString, choice.printableString),
 		(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_DirectoryString_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("printableString")
+		ASN_MEMBER_NAME("printableString")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct DirectoryString, choice.universalString),
 		(ASN_TAG_CLASS_UNIVERSAL | (28 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_DirectoryString_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("universalString")
+		ASN_MEMBER_NAME("universalString")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct DirectoryString, choice.utf8String),
 		(ASN_TAG_CLASS_UNIVERSAL | (12 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_DirectoryString_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("utf8String")
+		ASN_MEMBER_NAME("utf8String")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct DirectoryString, choice.bmpString),
 		(ASN_TAG_CLASS_UNIVERSAL | (30 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_DirectoryString_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("bmpString")
+		ASN_MEMBER_NAME("bmpString")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_DirectoryString_tag2el_1[] = {
@@ -72,8 +72,7 @@ asn_CHOICE_specifics_t asn_SPC_DirectoryString_specs_1 = {
 	-1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_DirectoryString = {
-	ASN_NAME("DirectoryString"),
-	ASN_NAME("DirectoryString"),
+	ASN_TYPE_NAME("DirectoryString")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

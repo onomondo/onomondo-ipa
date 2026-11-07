@@ -16,8 +16,7 @@ static const ber_tlv_tag_t asn_DEF_EuiccSignPIR_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (4 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_EuiccSignPIR = {
-	ASN_NAME("EuiccSignPIR"),
-	ASN_NAME("EuiccSignPIR"),
+	ASN_TYPE_NAME("EuiccSignPIR")
 	&asn_OP_OCTET_STRING,
 	asn_DEF_EuiccSignPIR_tags_1,
 	sizeof(asn_DEF_EuiccSignPIR_tags_1)

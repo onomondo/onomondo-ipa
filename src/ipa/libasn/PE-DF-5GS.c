@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("df-5gs-header")
+		ASN_MEMBER_NAME("df-5gs-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_DF_5GS, templateID),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("templateID")
+		ASN_MEMBER_NAME("templateID")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_DF_5GS, df_df_5gs),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("df-df-5gs")
+		ASN_MEMBER_NAME("df-df-5gs")
 		},
 	{ ATF_POINTER, 19, offsetof(struct PE_DF_5GS, ef_5gs3gpploci),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5gs3gpploci")
+		ASN_MEMBER_NAME("ef-5gs3gpploci")
 		},
 	{ ATF_POINTER, 18, offsetof(struct PE_DF_5GS, ef_5gsn3gpploci),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5gsn3gpploci")
+		ASN_MEMBER_NAME("ef-5gsn3gpploci")
 		},
 	{ ATF_POINTER, 17, offsetof(struct PE_DF_5GS, ef_5gs3gppnsc),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5gs3gppnsc")
+		ASN_MEMBER_NAME("ef-5gs3gppnsc")
 		},
 	{ ATF_POINTER, 16, offsetof(struct PE_DF_5GS, ef_5gsn3gppnsc),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5gsn3gppnsc")
+		ASN_MEMBER_NAME("ef-5gsn3gppnsc")
 		},
 	{ ATF_POINTER, 15, offsetof(struct PE_DF_5GS, ef_5gauthkeys),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5gauthkeys")
+		ASN_MEMBER_NAME("ef-5gauthkeys")
 		},
 	{ ATF_POINTER, 14, offsetof(struct PE_DF_5GS, ef_uac_aic),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-uac-aic")
+		ASN_MEMBER_NAME("ef-uac-aic")
 		},
 	{ ATF_POINTER, 13, offsetof(struct PE_DF_5GS, ef_suci_calc_info),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
@@ -96,7 +96,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-suci-calc-info")
+		ASN_MEMBER_NAME("ef-suci-calc-info")
 		},
 	{ ATF_POINTER, 12, offsetof(struct PE_DF_5GS, ef_opl5g),
 		(ASN_TAG_CLASS_CONTEXT | (10 << 2)),
@@ -105,7 +105,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-opl5g")
+		ASN_MEMBER_NAME("ef-opl5g")
 		},
 	{ ATF_POINTER, 11, offsetof(struct PE_DF_5GS, ef_supinai),
 		(ASN_TAG_CLASS_CONTEXT | (11 << 2)),
@@ -114,7 +114,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-supinai")
+		ASN_MEMBER_NAME("ef-supinai")
 		},
 	{ ATF_POINTER, 10, offsetof(struct PE_DF_5GS, ef_routing_indicator),
 		(ASN_TAG_CLASS_CONTEXT | (12 << 2)),
@@ -123,7 +123,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-routing-indicator")
+		ASN_MEMBER_NAME("ef-routing-indicator")
 		},
 	{ ATF_POINTER, 9, offsetof(struct PE_DF_5GS, ef_ursp),
 		(ASN_TAG_CLASS_CONTEXT | (13 << 2)),
@@ -132,7 +132,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-ursp")
+		ASN_MEMBER_NAME("ef-ursp")
 		},
 	{ ATF_POINTER, 8, offsetof(struct PE_DF_5GS, ef_tn3gppsnn),
 		(ASN_TAG_CLASS_CONTEXT | (14 << 2)),
@@ -141,7 +141,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-tn3gppsnn")
+		ASN_MEMBER_NAME("ef-tn3gppsnn")
 		},
 	{ ATF_POINTER, 7, offsetof(struct PE_DF_5GS, ef_cag),
 		(ASN_TAG_CLASS_CONTEXT | (15 << 2)),
@@ -150,7 +150,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-cag")
+		ASN_MEMBER_NAME("ef-cag")
 		},
 	{ ATF_POINTER, 6, offsetof(struct PE_DF_5GS, ef_sor_cmci),
 		(ASN_TAG_CLASS_CONTEXT | (16 << 2)),
@@ -159,7 +159,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-sor-cmci")
+		ASN_MEMBER_NAME("ef-sor-cmci")
 		},
 	{ ATF_POINTER, 5, offsetof(struct PE_DF_5GS, ef_dri),
 		(ASN_TAG_CLASS_CONTEXT | (17 << 2)),
@@ -168,7 +168,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-dri")
+		ASN_MEMBER_NAME("ef-dri")
 		},
 	{ ATF_POINTER, 4, offsetof(struct PE_DF_5GS, ef_5gsedrx),
 		(ASN_TAG_CLASS_CONTEXT | (18 << 2)),
@@ -177,7 +177,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5gsedrx")
+		ASN_MEMBER_NAME("ef-5gsedrx")
 		},
 	{ ATF_POINTER, 3, offsetof(struct PE_DF_5GS, ef_5gnswo_conf),
 		(ASN_TAG_CLASS_CONTEXT | (19 << 2)),
@@ -186,7 +186,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-5gnswo-conf")
+		ASN_MEMBER_NAME("ef-5gnswo-conf")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PE_DF_5GS, ef_mchpplmn),
 		(ASN_TAG_CLASS_CONTEXT | (20 << 2)),
@@ -195,7 +195,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-mchpplmn")
+		ASN_MEMBER_NAME("ef-mchpplmn")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_DF_5GS, ef_kausf_derivation),
 		(ASN_TAG_CLASS_CONTEXT | (21 << 2)),
@@ -204,7 +204,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-kausf-derivation")
+		ASN_MEMBER_NAME("ef-kausf-derivation")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_DF_5GS_tags_1[] = {
@@ -243,8 +243,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_DF_5GS_specs_1 = {
 	22,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_DF_5GS = {
-	ASN_NAME("PE-DF-5GS"),
-	ASN_NAME("PE-DF-5GS"),
+	ASN_TYPE_NAME("PE-DF-5GS")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_DF_5GS_tags_1,
 	sizeof(asn_DEF_PE_DF_5GS_tags_1)

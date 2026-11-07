@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_TeletexPersonalName_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("surname")
+		ASN_MEMBER_NAME("surname")
 		},
 	{ ATF_POINTER, 3, offsetof(struct TeletexPersonalName, given_name),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_TeletexPersonalName_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("given-name")
+		ASN_MEMBER_NAME("given-name")
 		},
 	{ ATF_POINTER, 2, offsetof(struct TeletexPersonalName, initials),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ static asn_TYPE_member_t asn_MBR_TeletexPersonalName_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("initials")
+		ASN_MEMBER_NAME("initials")
 		},
 	{ ATF_POINTER, 1, offsetof(struct TeletexPersonalName, generation_qualifier),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ static asn_TYPE_member_t asn_MBR_TeletexPersonalName_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("generation-qualifier")
+		ASN_MEMBER_NAME("generation-qualifier")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_TeletexPersonalName_tags_1[] = {
@@ -70,8 +70,7 @@ asn_SET_specifics_t asn_SPC_TeletexPersonalName_specs_1 = {
 	(const unsigned int *)asn_MAP_TeletexPersonalName_mmap_1	/* Mandatory elements map */
 };
 asn_TYPE_descriptor_t asn_DEF_TeletexPersonalName = {
-	ASN_NAME("TeletexPersonalName"),
-	ASN_NAME("TeletexPersonalName"),
+	ASN_TYPE_NAME("TeletexPersonalName")
 	&asn_OP_SET,
 	asn_DEF_TeletexPersonalName_tags_1,
 	sizeof(asn_DEF_TeletexPersonalName_tags_1)

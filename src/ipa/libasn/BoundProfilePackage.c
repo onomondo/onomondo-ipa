@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_BoundProfilePackage_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("initialiseSecureChannelRequest")
+		ASN_MEMBER_NAME("initialiseSecureChannelRequest")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct BoundProfilePackage, firstSequenceOf87),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_BoundProfilePackage_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("firstSequenceOf87")
+		ASN_MEMBER_NAME("firstSequenceOf87")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct BoundProfilePackage, sequenceOf88),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_BoundProfilePackage_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("sequenceOf88")
+		ASN_MEMBER_NAME("sequenceOf88")
 		},
 	{ ATF_POINTER, 1, offsetof(struct BoundProfilePackage, secondSequenceOf87),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_BoundProfilePackage_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("secondSequenceOf87")
+		ASN_MEMBER_NAME("secondSequenceOf87")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct BoundProfilePackage, sequenceOf86),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_BoundProfilePackage_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("sequenceOf86")
+		ASN_MEMBER_NAME("sequenceOf86")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_BoundProfilePackage_tags_1[] = {
@@ -74,8 +74,7 @@ asn_SEQUENCE_specifics_t asn_SPC_BoundProfilePackage_specs_1 = {
 	5,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_BoundProfilePackage = {
-	ASN_NAME("BoundProfilePackage"),
-	ASN_NAME("BoundProfilePackage"),
+	ASN_TYPE_NAME("BoundProfilePackage")
 	&asn_OP_SEQUENCE,
 	asn_DEF_BoundProfilePackage_tags_1,
 	sizeof(asn_DEF_BoundProfilePackage_tags_1)

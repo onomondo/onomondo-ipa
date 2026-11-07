@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_HandleNotificationEsipa_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("pendingNotification")
+		ASN_MEMBER_NAME("pendingNotification")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct HandleNotificationEsipa, choice.provideEimPackageResult),
 		(ASN_TAG_CLASS_CONTEXT | (80 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_HandleNotificationEsipa_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("provideEimPackageResult")
+		ASN_MEMBER_NAME("provideEimPackageResult")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_HandleNotificationEsipa_tags_1[] = {
@@ -45,8 +45,7 @@ asn_CHOICE_specifics_t asn_SPC_HandleNotificationEsipa_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_HandleNotificationEsipa = {
-	ASN_NAME("HandleNotificationEsipa"),
-	ASN_NAME("HandleNotificationEsipa"),
+	ASN_TYPE_NAME("HandleNotificationEsipa")
 	&asn_OP_CHOICE,
 	asn_DEF_HandleNotificationEsipa_tags_1,
 	sizeof(asn_DEF_HandleNotificationEsipa_tags_1)

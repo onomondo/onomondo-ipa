@@ -21,7 +21,7 @@ xer_encode(const asn_TYPE_descriptor_t *td, const void *sptr,
 
 	if(!td || !sptr) goto cb_failed;
 
-	mname = td->xml_tag;
+	mname = ASN_NAME_OF(td);
 	mlen = strlen(mname);
 
 	ASN__CALLBACK3("<", 1, mname, mlen, ">", 1);
@@ -115,7 +115,7 @@ xer_equivalent(const struct asn_TYPE_descriptor_s *td, const void *struct1,
     e1 = xer_encode(td, struct1, XER_F_BASIC, xer__buffer_append, &xb1);
     if(e1.encoded == -1) {
         if(opt_debug_stream) {
-            fprintf(stderr, "XER Encoding of %s failed\n", td->name);
+            fprintf(stderr, "XER Encoding of %s failed\n", ASN_NAME_OF(td));
         }
         FREEMEM(xb1.buffer);
         return XEQ_ENCODE1_FAILED;
@@ -124,7 +124,7 @@ xer_equivalent(const struct asn_TYPE_descriptor_s *td, const void *struct1,
     e2 = xer_encode(td, struct2, XER_F_BASIC, xer__buffer_append, &xb2);
     if(e2.encoded == -1) {
         if(opt_debug_stream) {
-            fprintf(stderr, "XER Encoding of %s failed\n", td->name);
+            fprintf(stderr, "XER Encoding of %s failed\n", ASN_NAME_OF(td));
         }
         FREEMEM(xb1.buffer);
         FREEMEM(xb2.buffer);
@@ -161,7 +161,7 @@ xer_equivalent(const struct asn_TYPE_descriptor_s *td, const void *struct1,
             fprintf(opt_debug_stream,
                     "Structure %s XER decode unexpectedly requires "
                     "more data:\n%s\n",
-                    td->name, xb1.buffer);
+                    ASN_NAME_OF(td), xb1.buffer);
         }
         /* Fall through */
     case RC_FAIL:
@@ -169,7 +169,7 @@ xer_equivalent(const struct asn_TYPE_descriptor_s *td, const void *struct1,
         if(opt_debug_stream) {
             fprintf(opt_debug_stream,
                     "Structure %s XER decoding resulted in failure.\n",
-                    td->name);
+                    ASN_NAME_OF(td));
         }
         ASN_STRUCT_FREE(*td, sptr);
         FREEMEM(xb1.buffer);
@@ -186,7 +186,7 @@ xer_equivalent(const struct asn_TYPE_descriptor_s *td, const void *struct1,
             fprintf(opt_debug_stream,
                     "Round-trip decode of %s required less bytes (%" ASN_PRI_SIZE ") than "
                     "encoded (%" ASN_PRI_SIZE ")\n",
-                    td->name, rval.consumed, xb1.buffer_size);
+                    ASN_NAME_OF(td), rval.consumed, xb1.buffer_size);
         }
         ASN_STRUCT_FREE(*td, sptr);
         FREEMEM(xb1.buffer);
@@ -204,7 +204,7 @@ xer_equivalent(const struct asn_TYPE_descriptor_s *td, const void *struct1,
     if(e2.encoded == -1) {
         if(opt_debug_stream) {
             fprintf(stderr, "XER Encoding of round-trip decode of %s failed\n",
-                    td->name);
+                    ASN_NAME_OF(td));
         }
         ASN_STRUCT_FREE(*td, sptr);
         FREEMEM(xb1.buffer);
@@ -223,7 +223,7 @@ xer_equivalent(const struct asn_TYPE_descriptor_s *td, const void *struct1,
                     "different byte stream:\n"
                     "=== Original ===\n%s\n"
                     "=== Round-tripped ===\n%s\n",
-                    xb1.buffer, xb2.buffer, td->name);
+                    xb1.buffer, xb2.buffer, ASN_NAME_OF(td));
         }
         FREEMEM(xb1.buffer);
         FREEMEM(xb2.buffer);

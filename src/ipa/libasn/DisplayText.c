@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_DisplayText_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ia5String")
+		ASN_MEMBER_NAME("ia5String")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct DisplayText, choice.visibleString),
 		(ASN_TAG_CLASS_UNIVERSAL | (26 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_DisplayText_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("visibleString")
+		ASN_MEMBER_NAME("visibleString")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct DisplayText, choice.bmpString),
 		(ASN_TAG_CLASS_UNIVERSAL | (30 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_DisplayText_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("bmpString")
+		ASN_MEMBER_NAME("bmpString")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct DisplayText, choice.utf8String),
 		(ASN_TAG_CLASS_UNIVERSAL | (12 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_DisplayText_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("utf8String")
+		ASN_MEMBER_NAME("utf8String")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_DisplayText_tag2el_1[] = {
@@ -62,8 +62,7 @@ asn_CHOICE_specifics_t asn_SPC_DisplayText_specs_1 = {
 	-1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_DisplayText = {
-	ASN_NAME("DisplayText"),
-	ASN_NAME("DisplayText"),
+	ASN_TYPE_NAME("DisplayText")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

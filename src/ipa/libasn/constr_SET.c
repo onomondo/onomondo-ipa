@@ -629,7 +629,7 @@ SET_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
 	 */
 	const asn_SET_specifics_t *specs = (const asn_SET_specifics_t *)td->specifics;
 	const asn_TYPE_member_t *elements = td->elements;
-	const char *xml_tag = opt_mname ? opt_mname : td->xml_tag;
+	const char *xml_tag = opt_mname ? opt_mname : ASN_NAME_OF(td);
 
 	/*
 	 * ... and parts of the structure being constructed.
@@ -695,7 +695,7 @@ SET_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
 
 			/* Invoke the inner type decoder, m.b. multiple times */
 			tmprval = elm->type->op->xer_decoder(opt_codec_ctx,
-					elm->type, memb_ptr2, elm->name,
+					elm->type, memb_ptr2, ASN_NAME_OF(elm),
 					buf_ptr, size);
 			XER_ADVANCE(tmprval.consumed);
 			if(tmprval.code != RC_OK)
@@ -783,7 +783,7 @@ SET_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
 			 */
 			for(edx = 0; edx < td->elements_count; edx++) {
 				switch(xer_check_tag(buf_ptr, ch_size,
-					elements[edx].name)) {
+					ASN_NAME_OF(&elements[edx]))) {
 				case XCT_BOTH:
 				case XCT_OPENING:
 					/*
@@ -862,8 +862,8 @@ SET_encode_xer(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
 		size_t mlen;
 
 		elm = &td->elements[t2m[edx].el_no];
-		mname = elm->name;
-		mlen = strlen(elm->name);
+		mname = ASN_NAME_OF(elm);
+		mlen = strlen(ASN_NAME_OF(elm));
 
 		if(elm->flags & ATF_POINTER) {
             memb_ptr =
@@ -907,7 +907,7 @@ SET_print(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
 	if(!sptr) return (cb("<absent>", 8, app_key) < 0) ? -1 : 0;
 
 	/* Dump preamble */
-	if(cb(td->name, strlen(td->name), app_key) < 0
+	if(cb(ASN_NAME_OF(td), strlen(ASN_NAME_OF(td)), app_key) < 0
 	|| cb(" ::= {", 6, app_key) < 0)
 		return -1;
 
@@ -929,7 +929,7 @@ SET_print(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
 		_i_INDENT(1);
 
 		/* Print the member's name and stuff */
-		if(cb(elm->name, strlen(elm->name), app_key) < 0
+		if(cb(ASN_NAME_OF(elm), strlen(ASN_NAME_OF(elm)), app_key) < 0
 		|| cb(": ", 2, app_key) < 0)
 			return -1;
 

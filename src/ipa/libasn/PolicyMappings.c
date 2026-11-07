@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_Member_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("issuerDomainPolicy")
+		ASN_MEMBER_NAME("issuerDomainPolicy")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PolicyMappings__Member, subjectDomainPolicy),
 		(ASN_TAG_CLASS_UNIVERSAL | (6 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_Member_2[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("subjectDomainPolicy")
+		ASN_MEMBER_NAME("subjectDomainPolicy")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_Member_tags_2[] = {
@@ -44,8 +44,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_Member_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_Member_2 = {
-	ASN_NAME("SEQUENCE"),
-	ASN_NAME("SEQUENCE"),
+	ASN_TYPE_NAME("SEQUENCE")
 	&asn_OP_SEQUENCE,
 	asn_DEF_Member_tags_2,
 	sizeof(asn_DEF_Member_tags_2)
@@ -67,7 +66,7 @@ static asn_TYPE_member_t asn_MBR_PolicyMappings_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PolicyMappings_tags_1[] = {
@@ -79,8 +78,7 @@ static asn_SET_OF_specifics_t asn_SPC_PolicyMappings_specs_1 = {
 	0,	/* XER encoding is XMLDelimitedItemList */
 };
 asn_TYPE_descriptor_t asn_DEF_PolicyMappings = {
-	ASN_NAME("PolicyMappings"),
-	ASN_NAME("PolicyMappings"),
+	ASN_TYPE_NAME("PolicyMappings")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_PolicyMappings_tags_1,
 	sizeof(asn_DEF_PolicyMappings_tags_1)

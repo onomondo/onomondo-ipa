@@ -15,8 +15,7 @@ static const ber_tlv_tag_t asn_DEF_ErrorReason_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (2 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_ErrorReason = {
-	ASN_NAME("ErrorReason"),
-	ASN_NAME("ErrorReason"),
+	ASN_TYPE_NAME("ErrorReason")
 	&asn_OP_NativeInteger,
 	asn_DEF_ErrorReason_tags_1,
 	sizeof(asn_DEF_ErrorReason_tags_1)

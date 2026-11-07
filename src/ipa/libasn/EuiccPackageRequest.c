@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccPackageSigned")
+		ASN_MEMBER_NAME("euiccPackageSigned")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccPackageRequest, eimSignature),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageRequest_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eimSignature")
+		ASN_MEMBER_NAME("eimSignature")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_EuiccPackageRequest_tags_1[] = {
@@ -44,8 +44,7 @@ asn_SEQUENCE_specifics_t asn_SPC_EuiccPackageRequest_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EuiccPackageRequest = {
-	ASN_NAME("EuiccPackageRequest"),
-	ASN_NAME("EuiccPackageRequest"),
+	ASN_TYPE_NAME("EuiccPackageRequest")
 	&asn_OP_SEQUENCE,
 	asn_DEF_EuiccPackageRequest_tags_1,
 	sizeof(asn_DEF_EuiccPackageRequest_tags_1)

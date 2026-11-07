@@ -84,9 +84,11 @@ headers must define `ASN_DISABLE_OER_SUPPORT` and `ASN_DISABLE_PER_SUPPORT`; the
 exports both, so linking it is enough. The target also exports `ASN_DISABLE_XER_SUPPORT`,
 `ASN_DISABLE_COMPARE_SUPPORT`, `ASN_DISABLE_RFILL_SUPPORT` and `ASN_DISABLE_CONSTRAINT_MSG`, plus
 `ASN_DISABLE_PRINT_SUPPORT` unless `SHOW_ASN_OUTPUT` is on; integrations that add the include path by
-hand should define the same set. Zephyr builds also define `ASN_DISABLE_NAMES`, which compiles the
-generated type and member names to `""` unless print, XER or asn1c debug output is enabled; host builds
-keep the names. libasn is also generated with `-fno-constraints`: no constraint-checking
+hand should define the same set. XER is never built, so the type tables carry no XML tags and
+`constr_TYPE.h` stops with an `#error` unless `ASN_DISABLE_XER_SUPPORT` is defined. Zephyr builds also
+define `ASN_DISABLE_NAMES` unless `SHOW_ASN_OUTPUT` is on. It removes the type and member name fields,
+which changes the table layout, so every unit that includes libasn headers must agree on it; host builds
+never set it, and a build with asn1c debug output must drop it (an `#error` says so). libasn is also generated with `-fno-constraints`: no constraint-checking
 code exists and `asn_check_constraints()` is compiled out; libipa validates the sizes it relies on itself.
 With no OER, PER or constraint code, nothing needs the `encoding_constraints` slot of the type tables, so
 `constr_TYPE.h` drops it for every unit that includes it (`ASN_DISABLE_ENCODING_CONSTRAINTS`). It stops

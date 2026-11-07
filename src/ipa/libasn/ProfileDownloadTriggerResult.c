@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_profileDownloadError_5[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("profileDownloadErrorReason")
+		ASN_MEMBER_NAME("profileDownloadErrorReason")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ProfileDownloadTriggerResult__profileDownloadTriggerResultData__profileDownloadError, errorResponse),
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_profileDownloadError_5[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("errorResponse")
+		ASN_MEMBER_NAME("errorResponse")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_profileDownloadError_tags_5[] = {
@@ -44,8 +44,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_profileDownloadError_specs_5 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_profileDownloadError_5 = {
-	ASN_NAME("profileDownloadError"),
-	ASN_NAME("profileDownloadError"),
+	ASN_TYPE_NAME("profileDownloadError")
 	&asn_OP_SEQUENCE,
 	asn_DEF_profileDownloadError_tags_5,
 	sizeof(asn_DEF_profileDownloadError_tags_5)
@@ -67,7 +66,7 @@ static asn_TYPE_member_t asn_MBR_profileDownloadTriggerResultData_3[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("profileInstallationResult")
+		ASN_MEMBER_NAME("profileInstallationResult")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileDownloadTriggerResult__profileDownloadTriggerResultData, choice.profileDownloadError),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -76,7 +75,7 @@ static asn_TYPE_member_t asn_MBR_profileDownloadTriggerResultData_3[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("profileDownloadError")
+		ASN_MEMBER_NAME("profileDownloadError")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_profileDownloadTriggerResultData_tag2el_3[] = {
@@ -95,8 +94,7 @@ static asn_CHOICE_specifics_t asn_SPC_profileDownloadTriggerResultData_specs_3 =
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_profileDownloadTriggerResultData_3 = {
-	ASN_NAME("profileDownloadTriggerResultData"),
-	ASN_NAME("profileDownloadTriggerResultData"),
+	ASN_TYPE_NAME("profileDownloadTriggerResultData")
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
@@ -116,7 +114,7 @@ asn_TYPE_member_t asn_MBR_ProfileDownloadTriggerResult_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("eimTransactionId")
+		ASN_MEMBER_NAME("eimTransactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileDownloadTriggerResult, profileDownloadTriggerResultData),
 		-1 /* Ambiguous tag (CHOICE?) */,
@@ -125,7 +123,7 @@ asn_TYPE_member_t asn_MBR_ProfileDownloadTriggerResult_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("profileDownloadTriggerResultData")
+		ASN_MEMBER_NAME("profileDownloadTriggerResultData")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ProfileDownloadTriggerResult_tags_1[] = {
@@ -146,8 +144,7 @@ asn_SEQUENCE_specifics_t asn_SPC_ProfileDownloadTriggerResult_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ProfileDownloadTriggerResult = {
-	ASN_NAME("ProfileDownloadTriggerResult"),
-	ASN_NAME("ProfileDownloadTriggerResult"),
+	ASN_TYPE_NAME("ProfileDownloadTriggerResult")
 	&asn_OP_SEQUENCE,
 	asn_DEF_ProfileDownloadTriggerResult_tags_1,
 	sizeof(asn_DEF_ProfileDownloadTriggerResult_tags_1)

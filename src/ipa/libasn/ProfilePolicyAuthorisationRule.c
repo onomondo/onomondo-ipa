@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_allowedOperators_3[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_allowedOperators_tags_3[] = {
@@ -29,8 +29,7 @@ static asn_SET_OF_specifics_t asn_SPC_allowedOperators_specs_3 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_allowedOperators_3 = {
-	ASN_NAME("allowedOperators"),
-	ASN_NAME("allowedOperators"),
+	ASN_TYPE_NAME("allowedOperators")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_allowedOperators_tags_3,
 	sizeof(asn_DEF_allowedOperators_tags_3)
@@ -52,7 +51,7 @@ asn_TYPE_member_t asn_MBR_ProfilePolicyAuthorisationRule_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("pprIds")
+		ASN_MEMBER_NAME("pprIds")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfilePolicyAuthorisationRule, allowedOperators),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -61,7 +60,7 @@ asn_TYPE_member_t asn_MBR_ProfilePolicyAuthorisationRule_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("allowedOperators")
+		ASN_MEMBER_NAME("allowedOperators")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfilePolicyAuthorisationRule, pprFlags),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -70,7 +69,7 @@ asn_TYPE_member_t asn_MBR_ProfilePolicyAuthorisationRule_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("pprFlags")
+		ASN_MEMBER_NAME("pprFlags")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ProfilePolicyAuthorisationRule_tags_1[] = {
@@ -90,8 +89,7 @@ asn_SEQUENCE_specifics_t asn_SPC_ProfilePolicyAuthorisationRule_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ProfilePolicyAuthorisationRule = {
-	ASN_NAME("ProfilePolicyAuthorisationRule"),
-	ASN_NAME("ProfilePolicyAuthorisationRule"),
+	ASN_TYPE_NAME("ProfilePolicyAuthorisationRule")
 	&asn_OP_SEQUENCE,
 	asn_DEF_ProfilePolicyAuthorisationRule_tags_1,
 	sizeof(asn_DEF_ProfilePolicyAuthorisationRule_tags_1)

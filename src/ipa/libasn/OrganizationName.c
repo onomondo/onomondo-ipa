@@ -15,8 +15,7 @@ static const ber_tlv_tag_t asn_DEF_OrganizationName_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (19 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_OrganizationName = {
-	ASN_NAME("OrganizationName"),
-	ASN_NAME("OrganizationName"),
+	ASN_TYPE_NAME("OrganizationName")
 	&asn_OP_PrintableString,
 	asn_DEF_OrganizationName_tags_1,
 	sizeof(asn_DEF_OrganizationName_tags_1)

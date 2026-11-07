@@ -58,8 +58,7 @@ asn_TYPE_operation_t asn_OP_OBJECT_IDENTIFIER = {
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_OBJECT_IDENTIFIER = {
-	"OBJECT IDENTIFIER",
-	"OBJECT_IDENTIFIER",
+	ASN_TYPE_NAME("OBJECT IDENTIFIER")
 	&asn_OP_OBJECT_IDENTIFIER,
 	asn_DEF_OBJECT_IDENTIFIER_tags,
 	sizeof(asn_DEF_OBJECT_IDENTIFIER_tags)

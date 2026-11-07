@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("phonebook-header")
+		ASN_MEMBER_NAME("phonebook-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_PHONEBOOK, templateID),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("templateID")
+		ASN_MEMBER_NAME("templateID")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_PHONEBOOK, df_phonebook),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("df-phonebook")
+		ASN_MEMBER_NAME("df-phonebook")
 		},
 	{ ATF_POINTER, 17, offsetof(struct PE_PHONEBOOK, ef_pbr),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-pbr")
+		ASN_MEMBER_NAME("ef-pbr")
 		},
 	{ ATF_POINTER, 16, offsetof(struct PE_PHONEBOOK, ef_ext1),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-ext1")
+		ASN_MEMBER_NAME("ef-ext1")
 		},
 	{ ATF_POINTER, 15, offsetof(struct PE_PHONEBOOK, ef_aas),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-aas")
+		ASN_MEMBER_NAME("ef-aas")
 		},
 	{ ATF_POINTER, 14, offsetof(struct PE_PHONEBOOK, ef_gas),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-gas")
+		ASN_MEMBER_NAME("ef-gas")
 		},
 	{ ATF_POINTER, 13, offsetof(struct PE_PHONEBOOK, ef_psc),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-psc")
+		ASN_MEMBER_NAME("ef-psc")
 		},
 	{ ATF_POINTER, 12, offsetof(struct PE_PHONEBOOK, ef_cc),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-cc")
+		ASN_MEMBER_NAME("ef-cc")
 		},
 	{ ATF_POINTER, 11, offsetof(struct PE_PHONEBOOK, ef_puid),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
@@ -96,7 +96,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-puid")
+		ASN_MEMBER_NAME("ef-puid")
 		},
 	{ ATF_POINTER, 10, offsetof(struct PE_PHONEBOOK, ef_iap),
 		(ASN_TAG_CLASS_CONTEXT | (10 << 2)),
@@ -105,7 +105,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-iap")
+		ASN_MEMBER_NAME("ef-iap")
 		},
 	{ ATF_POINTER, 9, offsetof(struct PE_PHONEBOOK, ef_adn),
 		(ASN_TAG_CLASS_CONTEXT | (11 << 2)),
@@ -114,7 +114,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-adn")
+		ASN_MEMBER_NAME("ef-adn")
 		},
 	{ ATF_POINTER, 8, offsetof(struct PE_PHONEBOOK, ef_pbc),
 		(ASN_TAG_CLASS_CONTEXT | (12 << 2)),
@@ -123,7 +123,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-pbc")
+		ASN_MEMBER_NAME("ef-pbc")
 		},
 	{ ATF_POINTER, 7, offsetof(struct PE_PHONEBOOK, ef_anr),
 		(ASN_TAG_CLASS_CONTEXT | (13 << 2)),
@@ -132,7 +132,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-anr")
+		ASN_MEMBER_NAME("ef-anr")
 		},
 	{ ATF_POINTER, 6, offsetof(struct PE_PHONEBOOK, ef_puri),
 		(ASN_TAG_CLASS_CONTEXT | (14 << 2)),
@@ -141,7 +141,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-puri")
+		ASN_MEMBER_NAME("ef-puri")
 		},
 	{ ATF_POINTER, 5, offsetof(struct PE_PHONEBOOK, ef_email),
 		(ASN_TAG_CLASS_CONTEXT | (15 << 2)),
@@ -150,7 +150,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-email")
+		ASN_MEMBER_NAME("ef-email")
 		},
 	{ ATF_POINTER, 4, offsetof(struct PE_PHONEBOOK, ef_sne),
 		(ASN_TAG_CLASS_CONTEXT | (16 << 2)),
@@ -159,7 +159,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-sne")
+		ASN_MEMBER_NAME("ef-sne")
 		},
 	{ ATF_POINTER, 3, offsetof(struct PE_PHONEBOOK, ef_uid),
 		(ASN_TAG_CLASS_CONTEXT | (17 << 2)),
@@ -168,7 +168,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-uid")
+		ASN_MEMBER_NAME("ef-uid")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PE_PHONEBOOK, ef_grp),
 		(ASN_TAG_CLASS_CONTEXT | (18 << 2)),
@@ -177,7 +177,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-grp")
+		ASN_MEMBER_NAME("ef-grp")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_PHONEBOOK, ef_ccp1),
 		(ASN_TAG_CLASS_CONTEXT | (19 << 2)),
@@ -186,7 +186,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("ef-ccp1")
+		ASN_MEMBER_NAME("ef-ccp1")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_PHONEBOOK_tags_1[] = {
@@ -223,8 +223,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_PHONEBOOK_specs_1 = {
 	20,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_PHONEBOOK = {
-	ASN_NAME("PE-PHONEBOOK"),
-	ASN_NAME("PE-PHONEBOOK"),
+	ASN_TYPE_NAME("PE-PHONEBOOK")
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_PHONEBOOK_tags_1,
 	sizeof(asn_DEF_PE_PHONEBOOK_tags_1)

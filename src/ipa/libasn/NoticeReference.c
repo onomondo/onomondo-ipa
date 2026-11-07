@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_noticeNumbers_3[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("")
+		ASN_MEMBER_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_noticeNumbers_tags_3[] = {
@@ -28,8 +28,7 @@ static asn_SET_OF_specifics_t asn_SPC_noticeNumbers_specs_3 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_noticeNumbers_3 = {
-	ASN_NAME("noticeNumbers"),
-	ASN_NAME("noticeNumbers"),
+	ASN_TYPE_NAME("noticeNumbers")
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_noticeNumbers_tags_3,
 	sizeof(asn_DEF_noticeNumbers_tags_3)
@@ -51,7 +50,7 @@ asn_TYPE_member_t asn_MBR_NoticeReference_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("organization")
+		ASN_MEMBER_NAME("organization")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct NoticeReference, noticeNumbers),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -60,7 +59,7 @@ asn_TYPE_member_t asn_MBR_NoticeReference_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("noticeNumbers")
+		ASN_MEMBER_NAME("noticeNumbers")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_NoticeReference_tags_1[] = {
@@ -82,8 +81,7 @@ asn_SEQUENCE_specifics_t asn_SPC_NoticeReference_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_NoticeReference = {
-	ASN_NAME("NoticeReference"),
-	ASN_NAME("NoticeReference"),
+	ASN_TYPE_NAME("NoticeReference")
 	&asn_OP_SEQUENCE,
 	asn_DEF_NoticeReference_tags_1,
 	sizeof(asn_DEF_NoticeReference_tags_1)

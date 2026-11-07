@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_AuthorityKeyIdentifier_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("keyIdentifier")
+		ASN_MEMBER_NAME("keyIdentifier")
 		},
 	{ ATF_POINTER, 2, offsetof(struct AuthorityKeyIdentifier, authorityCertIssuer),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_AuthorityKeyIdentifier_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("authorityCertIssuer")
+		ASN_MEMBER_NAME("authorityCertIssuer")
 		},
 	{ ATF_POINTER, 1, offsetof(struct AuthorityKeyIdentifier, authorityCertSerialNumber),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ static asn_TYPE_member_t asn_MBR_AuthorityKeyIdentifier_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("authorityCertSerialNumber")
+		ASN_MEMBER_NAME("authorityCertSerialNumber")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AuthorityKeyIdentifier_tags_1[] = {
@@ -53,8 +53,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_AuthorityKeyIdentifier_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_AuthorityKeyIdentifier = {
-	ASN_NAME("AuthorityKeyIdentifier"),
-	ASN_NAME("AuthorityKeyIdentifier"),
+	ASN_TYPE_NAME("AuthorityKeyIdentifier")
 	&asn_OP_SEQUENCE,
 	asn_DEF_AuthorityKeyIdentifier_tags_1,
 	sizeof(asn_DEF_AuthorityKeyIdentifier_tags_1)

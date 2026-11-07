@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CompactEuiccSigned2_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("euiccOtpk")
+		ASN_MEMBER_NAME("euiccOtpk")
 		},
 	{ ATF_POINTER, 1, offsetof(struct CompactEuiccSigned2, hashCc),
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_CompactEuiccSigned2_1[] = {
 		0,
 		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
-		ASN_NAME("hashCc")
+		ASN_MEMBER_NAME("hashCc")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CompactEuiccSigned2_tags_1[] = {
@@ -43,8 +43,7 @@ asn_SEQUENCE_specifics_t asn_SPC_CompactEuiccSigned2_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CompactEuiccSigned2 = {
-	ASN_NAME("CompactEuiccSigned2"),
-	ASN_NAME("CompactEuiccSigned2"),
+	ASN_TYPE_NAME("CompactEuiccSigned2")
 	&asn_OP_SEQUENCE,
 	asn_DEF_CompactEuiccSigned2_tags_1,
 	sizeof(asn_DEF_CompactEuiccSigned2_tags_1)

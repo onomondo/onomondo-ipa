@@ -62,8 +62,7 @@ asn_TYPE_operation_t asn_OP_VisibleString = {
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_VisibleString = {
-	"VisibleString",
-	"VisibleString",
+	ASN_TYPE_NAME("VisibleString")
 	&asn_OP_VisibleString,
 	asn_DEF_VisibleString_tags,
 	sizeof(asn_DEF_VisibleString_tags)

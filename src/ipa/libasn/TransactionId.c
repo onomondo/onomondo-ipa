@@ -15,8 +15,7 @@ static const ber_tlv_tag_t asn_DEF_TransactionId_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (4 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_TransactionId = {
-	ASN_NAME("TransactionId"),
-	ASN_NAME("TransactionId"),
+	ASN_TYPE_NAME("TransactionId")
 	&asn_OP_OCTET_STRING,
 	asn_DEF_TransactionId_tags_1,
 	sizeof(asn_DEF_TransactionId_tags_1)

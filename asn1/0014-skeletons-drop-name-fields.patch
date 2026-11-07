@@ -1,0 +1,688 @@
+From: Benjamin Bruun <bb@onomondo.com>
+Subject: [PATCH] skeletons: drop the XML tag and, with ASN_DISABLE_NAMES, the name fields
+
+XER is never built, so the xml_tag field of asn_TYPE_descriptor_t goes in every
+build (constr_TYPE.h now requires ASN_DISABLE_XER_SUPPORT). ASN_DISABLE_NAMES
+removes the name fields of the descriptor and member tables; it changes the
+layout, so it must be the same in every unit, and it refuses asn1c debug output,
+which reads the fields directly. Initialisers go through ASN_TYPE_NAME() and
+ASN_MEMBER_NAME(); the XER, print and PER code that still reads a name, none of
+which runs, goes through ASN_NAME_OF(), which gives "" without the field. The
+skeleton descriptors drop their XML tag line and wrap their names the same way.
+---
+diff --git a/src/ipa/libasn/ANY.c b/src/ipa/libasn/ANY.c
+--- a/src/ipa/libasn/ANY.c
++++ b/src/ipa/libasn/ANY.c
+@@ -49,8 +49,7 @@ asn_TYPE_operation_t asn_OP_ANY = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_ANY = {
+-	"ANY",
+-	"ANY",
++	ASN_TYPE_NAME("ANY")
+ 	&asn_OP_ANY,
+ 	0, 0, 0, 0,
+ 	ASN_ENC_CONSTRAINTS(0, 0, asn_generic_no_constraint)	/* No constraints */
+diff --git a/src/ipa/libasn/BIT_STRING.c b/src/ipa/libasn/BIT_STRING.c
+--- a/src/ipa/libasn/BIT_STRING.c
++++ b/src/ipa/libasn/BIT_STRING.c
+@@ -60,8 +60,7 @@ asn_TYPE_operation_t asn_OP_BIT_STRING = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_BIT_STRING = {
+-	"BIT STRING",
+-	"BIT_STRING",
++	ASN_TYPE_NAME("BIT STRING")
+ 	&asn_OP_BIT_STRING,
+ 	asn_DEF_BIT_STRING_tags,
+ 	sizeof(asn_DEF_BIT_STRING_tags)
+diff --git a/src/ipa/libasn/BMPString.c b/src/ipa/libasn/BMPString.c
+--- a/src/ipa/libasn/BMPString.c
++++ b/src/ipa/libasn/BMPString.c
+@@ -68,8 +68,7 @@ asn_TYPE_operation_t asn_OP_BMPString = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_BMPString = {
+-	"BMPString",
+-	"BMPString",
++	ASN_TYPE_NAME("BMPString")
+ 	&asn_OP_BMPString,
+ 	asn_DEF_BMPString_tags,
+ 	sizeof(asn_DEF_BMPString_tags)
+diff --git a/src/ipa/libasn/BOOLEAN.c b/src/ipa/libasn/BOOLEAN.c
+--- a/src/ipa/libasn/BOOLEAN.c
++++ b/src/ipa/libasn/BOOLEAN.c
+@@ -55,8 +55,7 @@ asn_TYPE_operation_t asn_OP_BOOLEAN = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_BOOLEAN = {
+-	"BOOLEAN",
+-	"BOOLEAN",
++	ASN_TYPE_NAME("BOOLEAN")
+ 	&asn_OP_BOOLEAN,
+ 	asn_DEF_BOOLEAN_tags,
+ 	sizeof(asn_DEF_BOOLEAN_tags) / sizeof(asn_DEF_BOOLEAN_tags[0]),
+diff --git a/src/ipa/libasn/GeneralizedTime.c b/src/ipa/libasn/GeneralizedTime.c
+--- a/src/ipa/libasn/GeneralizedTime.c
++++ b/src/ipa/libasn/GeneralizedTime.c
+@@ -218,8 +218,7 @@ asn_TYPE_operation_t asn_OP_GeneralizedTime = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_GeneralizedTime = {
+-	"GeneralizedTime",
+-	"GeneralizedTime",
++	ASN_TYPE_NAME("GeneralizedTime")
+ 	&asn_OP_GeneralizedTime,
+ 	asn_DEF_GeneralizedTime_tags,
+ 	sizeof(asn_DEF_GeneralizedTime_tags)
+diff --git a/src/ipa/libasn/IA5String.c b/src/ipa/libasn/IA5String.c
+--- a/src/ipa/libasn/IA5String.c
++++ b/src/ipa/libasn/IA5String.c
+@@ -62,8 +62,7 @@ asn_TYPE_operation_t asn_OP_IA5String = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_IA5String = {
+-	"IA5String",
+-	"IA5String",
++	ASN_TYPE_NAME("IA5String")
+ 	&asn_OP_IA5String,
+ 	asn_DEF_IA5String_tags,
+ 	sizeof(asn_DEF_IA5String_tags)
+diff --git a/src/ipa/libasn/INTEGER.c b/src/ipa/libasn/INTEGER.c
+--- a/src/ipa/libasn/INTEGER.c
++++ b/src/ipa/libasn/INTEGER.c
+@@ -57,8 +57,7 @@ asn_TYPE_operation_t asn_OP_INTEGER = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_INTEGER = {
+-	"INTEGER",
+-	"INTEGER",
++	ASN_TYPE_NAME("INTEGER")
+ 	&asn_OP_INTEGER,
+ 	asn_DEF_INTEGER_tags,
+ 	sizeof(asn_DEF_INTEGER_tags) / sizeof(asn_DEF_INTEGER_tags[0]),
+diff --git a/src/ipa/libasn/NULL.c b/src/ipa/libasn/NULL.c
+--- a/src/ipa/libasn/NULL.c
++++ b/src/ipa/libasn/NULL.c
+@@ -55,8 +55,7 @@ asn_TYPE_operation_t asn_OP_NULL = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_NULL = {
+-	"NULL",
+-	"NULL",
++	ASN_TYPE_NAME("NULL")
+ 	&asn_OP_NULL,
+ 	asn_DEF_NULL_tags,
+ 	sizeof(asn_DEF_NULL_tags) / sizeof(asn_DEF_NULL_tags[0]),
+diff --git a/src/ipa/libasn/NativeEnumerated.c b/src/ipa/libasn/NativeEnumerated.c
+--- a/src/ipa/libasn/NativeEnumerated.c
++++ b/src/ipa/libasn/NativeEnumerated.c
+@@ -61,8 +61,7 @@ asn_TYPE_operation_t asn_OP_NativeEnumerated = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_NativeEnumerated = {
+-	"ENUMERATED",			/* The ASN.1 type is still ENUMERATED */
+-	"ENUMERATED",
++	ASN_TYPE_NAME("ENUMERATED")			/* The ASN.1 type is still ENUMERATED */
+ 	&asn_OP_NativeEnumerated,
+ 	asn_DEF_NativeEnumerated_tags,
+ 	sizeof(asn_DEF_NativeEnumerated_tags) / sizeof(asn_DEF_NativeEnumerated_tags[0]),
+diff --git a/src/ipa/libasn/NativeInteger.c b/src/ipa/libasn/NativeInteger.c
+--- a/src/ipa/libasn/NativeInteger.c
++++ b/src/ipa/libasn/NativeInteger.c
+@@ -62,8 +62,7 @@ asn_TYPE_operation_t asn_OP_NativeInteger = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_NativeInteger = {
+-	"INTEGER",			/* The ASN.1 type is still INTEGER */
+-	"INTEGER",
++	ASN_TYPE_NAME("INTEGER")			/* The ASN.1 type is still INTEGER */
+ 	&asn_OP_NativeInteger,
+ 	asn_DEF_NativeInteger_tags,
+ 	sizeof(asn_DEF_NativeInteger_tags) / sizeof(asn_DEF_NativeInteger_tags[0]),
+diff --git a/src/ipa/libasn/NumericString.c b/src/ipa/libasn/NumericString.c
+--- a/src/ipa/libasn/NumericString.c
++++ b/src/ipa/libasn/NumericString.c
+@@ -82,8 +82,7 @@ asn_TYPE_operation_t asn_OP_NumericString = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_NumericString = {
+-	"NumericString",
+-	"NumericString",
++	ASN_TYPE_NAME("NumericString")
+ 	&asn_OP_NumericString,
+ 	asn_DEF_NumericString_tags,
+ 	sizeof(asn_DEF_NumericString_tags)
+diff --git a/src/ipa/libasn/OBJECT_IDENTIFIER.c b/src/ipa/libasn/OBJECT_IDENTIFIER.c
+--- a/src/ipa/libasn/OBJECT_IDENTIFIER.c
++++ b/src/ipa/libasn/OBJECT_IDENTIFIER.c
+@@ -58,8 +58,7 @@ asn_TYPE_operation_t asn_OP_OBJECT_IDENTIFIER = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_OBJECT_IDENTIFIER = {
+-	"OBJECT IDENTIFIER",
+-	"OBJECT_IDENTIFIER",
++	ASN_TYPE_NAME("OBJECT IDENTIFIER")
+ 	&asn_OP_OBJECT_IDENTIFIER,
+ 	asn_DEF_OBJECT_IDENTIFIER_tags,
+ 	sizeof(asn_DEF_OBJECT_IDENTIFIER_tags)
+diff --git a/src/ipa/libasn/OCTET_STRING.c b/src/ipa/libasn/OCTET_STRING.c
+--- a/src/ipa/libasn/OCTET_STRING.c
++++ b/src/ipa/libasn/OCTET_STRING.c
+@@ -63,8 +63,7 @@ asn_TYPE_operation_t asn_OP_OCTET_STRING = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_OCTET_STRING = {
+-	"OCTET STRING",		/* Canonical name */
+-	"OCTET_STRING",		/* XML tag name */
++	ASN_TYPE_NAME("OCTET STRING")		/* Canonical name */
+ 	&asn_OP_OCTET_STRING,
+ 	asn_DEF_OCTET_STRING_tags,
+ 	sizeof(asn_DEF_OCTET_STRING_tags)
+@@ -1164,7 +1163,7 @@ OCTET_STRING__decode_xer(
+ 	const asn_OCTET_STRING_specifics_t *specs = td->specifics
+ 				? (const asn_OCTET_STRING_specifics_t *)td->specifics
+ 				: &asn_SPC_OCTET_STRING_specs;
+-	const char *xml_tag = opt_mname ? opt_mname : td->xml_tag;
++	const char *xml_tag = opt_mname ? opt_mname : ASN_NAME_OF(td);
+ 	asn_struct_ctx_t *ctx;		/* Per-structure parser context */
+ 	asn_dec_rval_t rval;		/* Return value from the decoder */
+ 	int st_allocated;
+diff --git a/src/ipa/libasn/OPEN_TYPE.c b/src/ipa/libasn/OPEN_TYPE.c
+--- a/src/ipa/libasn/OPEN_TYPE.c
++++ b/src/ipa/libasn/OPEN_TYPE.c
+@@ -205,7 +205,7 @@ OPEN_TYPE_xer_get(const asn_codec_ctx_t *opt_codec_ctx,
+     /*
+      * Wrapper value confirmed.
+      */
+-    switch(xer_check_tag(ptr, ch_size, elm->name)) {
++    switch(xer_check_tag(ptr, ch_size, ASN_NAME_OF(elm))) {
+     case XCT_OPENING:
+         ADVANCE(ch_size);
+         break;
+@@ -281,7 +281,7 @@ OPEN_TYPE_xer_get(const asn_codec_ctx_t *opt_codec_ctx,
+     /*
+      * Wrapper value confirmed.
+      */
+-    switch(xer_check_tag(ptr, ch_size, elm->name)) {
++    switch(xer_check_tag(ptr, ch_size, ASN_NAME_OF(elm))) {
+     case XCT_CLOSING:
+         ADVANCE(ch_size);
+         break;
+diff --git a/src/ipa/libasn/PrintableString.c b/src/ipa/libasn/PrintableString.c
+--- a/src/ipa/libasn/PrintableString.c
++++ b/src/ipa/libasn/PrintableString.c
+@@ -94,8 +94,7 @@ asn_TYPE_operation_t asn_OP_PrintableString = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_PrintableString = {
+-	"PrintableString",
+-	"PrintableString",
++	ASN_TYPE_NAME("PrintableString")
+ 	&asn_OP_PrintableString,
+ 	asn_DEF_PrintableString_tags,
+ 	sizeof(asn_DEF_PrintableString_tags)
+diff --git a/src/ipa/libasn/TeletexString.c b/src/ipa/libasn/TeletexString.c
+--- a/src/ipa/libasn/TeletexString.c
++++ b/src/ipa/libasn/TeletexString.c
+@@ -55,8 +55,7 @@ asn_TYPE_operation_t asn_OP_TeletexString = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_TeletexString = {
+-	"TeletexString",
+-	"TeletexString",
++	ASN_TYPE_NAME("TeletexString")
+ 	&asn_OP_TeletexString,
+ 	asn_DEF_TeletexString_tags,
+ 	sizeof(asn_DEF_TeletexString_tags)
+diff --git a/src/ipa/libasn/UTCTime.c b/src/ipa/libasn/UTCTime.c
+--- a/src/ipa/libasn/UTCTime.c
++++ b/src/ipa/libasn/UTCTime.c
+@@ -73,8 +73,7 @@ asn_TYPE_operation_t asn_OP_UTCTime = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_UTCTime = {
+-	"UTCTime",
+-	"UTCTime",
++	ASN_TYPE_NAME("UTCTime")
+ 	&asn_OP_UTCTime,
+ 	asn_DEF_UTCTime_tags,
+ 	sizeof(asn_DEF_UTCTime_tags)
+diff --git a/src/ipa/libasn/UTF8String.c b/src/ipa/libasn/UTF8String.c
+--- a/src/ipa/libasn/UTF8String.c
++++ b/src/ipa/libasn/UTF8String.c
+@@ -56,8 +56,7 @@ asn_TYPE_operation_t asn_OP_UTF8String = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_UTF8String = {
+-	"UTF8String",
+-	"UTF8String",
++	ASN_TYPE_NAME("UTF8String")
+ 	&asn_OP_UTF8String,
+ 	asn_DEF_UTF8String_tags,
+ 	sizeof(asn_DEF_UTF8String_tags)
+diff --git a/src/ipa/libasn/UniversalString.c b/src/ipa/libasn/UniversalString.c
+--- a/src/ipa/libasn/UniversalString.c
++++ b/src/ipa/libasn/UniversalString.c
+@@ -68,8 +68,7 @@ asn_TYPE_operation_t asn_OP_UniversalString = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_UniversalString = {
+-	"UniversalString",
+-	"UniversalString",
++	ASN_TYPE_NAME("UniversalString")
+ 	&asn_OP_UniversalString,
+ 	asn_DEF_UniversalString_tags,
+ 	sizeof(asn_DEF_UniversalString_tags)
+diff --git a/src/ipa/libasn/VisibleString.c b/src/ipa/libasn/VisibleString.c
+--- a/src/ipa/libasn/VisibleString.c
++++ b/src/ipa/libasn/VisibleString.c
+@@ -62,8 +62,7 @@ asn_TYPE_operation_t asn_OP_VisibleString = {
+ 	0	/* Use generic outmost tag fetcher */
+ };
+ asn_TYPE_descriptor_t asn_DEF_VisibleString = {
+-	"VisibleString",
+-	"VisibleString",
++	ASN_TYPE_NAME("VisibleString")
+ 	&asn_OP_VisibleString,
+ 	asn_DEF_VisibleString_tags,
+ 	sizeof(asn_DEF_VisibleString_tags)
+diff --git a/src/ipa/libasn/asn_codecs_prim.c b/src/ipa/libasn/asn_codecs_prim.c
+--- a/src/ipa/libasn/asn_codecs_prim.c
++++ b/src/ipa/libasn/asn_codecs_prim.c
+@@ -253,7 +253,7 @@ xer_decode_primitive(const asn_codec_ctx_t *opt_codec_ctx,
+                      size_t struct_size, const char *opt_mname,
+                      const void *buf_ptr, size_t size,
+                      xer_primitive_body_decoder_f *prim_body_decoder) {
+-    const char *xml_tag = opt_mname ? opt_mname : td->xml_tag;
++    const char *xml_tag = opt_mname ? opt_mname : ASN_NAME_OF(td);
+ 	asn_struct_ctx_t s_ctx;
+ 	struct xdp_arg_s s_arg;
+ 	asn_dec_rval_t rc;
+diff --git a/src/ipa/libasn/constr_CHOICE.c b/src/ipa/libasn/constr_CHOICE.c
+--- a/src/ipa/libasn/constr_CHOICE.c
++++ b/src/ipa/libasn/constr_CHOICE.c
+@@ -559,7 +559,7 @@ CHOICE_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
+ 	 * Bring closer parts of structure description.
+ 	 */
+ 	const asn_CHOICE_specifics_t *specs = (const asn_CHOICE_specifics_t *)td->specifics;
+-	const char *xml_tag = opt_mname ? opt_mname : td->xml_tag;
++	const char *xml_tag = opt_mname ? opt_mname : ASN_NAME_OF(td);
+ 
+ 	/*
+ 	 * Parts of the structure being constructed.
+@@ -623,7 +623,7 @@ CHOICE_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
+ 
+ 			/* Start/Continue decoding the inner member */
+ 			tmprval = elm->type->op->xer_decoder(opt_codec_ctx,
+-					elm->type, memb_ptr2, elm->name,
++					elm->type, memb_ptr2, ASN_NAME_OF(elm),
+ 					buf_ptr, size);
+ 			XER_ADVANCE(tmprval.consumed);
+ 			ASN_DEBUG("XER/CHOICE: itdf: [%s] code=%d",
+@@ -720,7 +720,7 @@ CHOICE_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
+ 			 */
+ 			for(edx = 0; edx < td->elements_count; edx++) {
+ 				elm = &td->elements[edx];
+-				tcv = xer_check_tag(buf_ptr,ch_size,elm->name);
++				tcv = xer_check_tag(buf_ptr,ch_size,ASN_NAME_OF(elm));
+ 				switch(tcv) {
+ 				case XCT_BOTH:
+ 				case XCT_OPENING:
+@@ -804,7 +804,7 @@ CHOICE_encode_xer(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
+ 		asn_enc_rval_t tmper;
+ 		asn_TYPE_member_t *elm = &td->elements[present-1];
+ 		const void *memb_ptr;
+-		const char *mname = elm->name;
++		const char *mname = ASN_NAME_OF(elm);
+ 		unsigned int mlen = strlen(mname);
+ 
+ 		if(elm->flags & ATF_POINTER) {
+@@ -1048,7 +1048,7 @@ CHOICE_print(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
+ 
+ 		/* Print member's name and stuff */
+ 		if(0) {
+-			if(cb(elm->name, strlen(elm->name), app_key) < 0
++			if(cb(ASN_NAME_OF(elm), strlen(ASN_NAME_OF(elm)), app_key) < 0
+ 			|| cb(": ", 2, app_key) < 0)
+ 				return -1;
+ 		}
+diff --git a/src/ipa/libasn/constr_SEQUENCE.c b/src/ipa/libasn/constr_SEQUENCE.c
+--- a/src/ipa/libasn/constr_SEQUENCE.c
++++ b/src/ipa/libasn/constr_SEQUENCE.c
+@@ -632,7 +632,7 @@ SEQUENCE_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
+ 	const asn_SEQUENCE_specifics_t *specs
+ 		= (const asn_SEQUENCE_specifics_t *)td->specifics;
+ 	asn_TYPE_member_t *elements = td->elements;
+-	const char *xml_tag = opt_mname ? opt_mname : td->xml_tag;
++	const char *xml_tag = opt_mname ? opt_mname : ASN_NAME_OF(td);
+ 
+ 	/*
+ 	 * ... and parts of the structure being constructed.
+@@ -695,7 +695,7 @@ SEQUENCE_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
+ 			} else {
+ 				/* Invoke the inner type decoder, m.b. multiple times */
+ 				tmprval = elm->type->op->xer_decoder(opt_codec_ctx,
+-						elm->type, memb_ptr2, elm->name,
++						elm->type, memb_ptr2, ASN_NAME_OF(elm),
+ 						ptr, size);
+ 			}
+ 			XER_ADVANCE(tmprval.consumed);
+@@ -798,7 +798,7 @@ SEQUENCE_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
+ 					edx_end = td->elements_count;
+ 				for(n = edx; n < edx_end; n++) {
+ 					elm = &td->elements[n];
+-					tcv = xer_check_tag(ptr, ch_size, elm->name);
++					tcv = xer_check_tag(ptr, ch_size, ASN_NAME_OF(elm));
+ 					switch(tcv) {
+ 					case XCT_BOTH:
+ 					case XCT_OPENING:
+@@ -882,7 +882,7 @@ SEQUENCE_encode_xer(const asn_TYPE_descriptor_t *td, const void *sptr,
+         asn_enc_rval_t tmper;
+         asn_TYPE_member_t *elm = &td->elements[edx];
+         const void *memb_ptr;
+-        const char *mname = elm->name;
++        const char *mname = ASN_NAME_OF(elm);
+         unsigned int mlen = strlen(mname);
+ 
+         if(elm->flags & ATF_POINTER) {
+@@ -941,7 +941,7 @@ SEQUENCE_print(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
+ 	if(!sptr) return (cb("<absent>", 8, app_key) < 0) ? -1 : 0;
+ 
+ 	/* Dump preamble */
+-	if(cb(td->name, strlen(td->name), app_key) < 0
++	if(cb(ASN_NAME_OF(td), strlen(ASN_NAME_OF(td)), app_key) < 0
+ 	|| cb(" ::= {", 6, app_key) < 0)
+ 		return -1;
+ 
+@@ -964,7 +964,7 @@ SEQUENCE_print(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
+ 		_i_INDENT(1);
+ 
+ 		/* Print the member's name and stuff */
+-		if(cb(elm->name, strlen(elm->name), app_key) < 0
++		if(cb(ASN_NAME_OF(elm), strlen(ASN_NAME_OF(elm)), app_key) < 0
+ 		|| cb(": ", 2, app_key) < 0)
+ 			return -1;
+ 
+diff --git a/src/ipa/libasn/constr_SEQUENCE_OF.c b/src/ipa/libasn/constr_SEQUENCE_OF.c
+--- a/src/ipa/libasn/constr_SEQUENCE_OF.c
++++ b/src/ipa/libasn/constr_SEQUENCE_OF.c
+@@ -97,7 +97,7 @@ SEQUENCE_OF_encode_xer(const asn_TYPE_descriptor_t *td, const void *sptr,
+     const asn_anonymous_sequence_ *list = _A_CSEQUENCE_FROM_VOID(sptr);
+     const char *mname = specs->as_XMLValueList
+                             ? 0
+-                            : ((*elm->name) ? elm->name : elm->type->xml_tag);
++                            : ((*ASN_NAME_OF(elm)) ? ASN_NAME_OF(elm) : ASN_NAME_OF(elm->type));
+     size_t mlen = mname ? strlen(mname) : 0;
+     int xcan = (flags & XER_F_CANONICAL);
+     int i;
+@@ -121,7 +121,7 @@ SEQUENCE_OF_encode_xer(const asn_TYPE_descriptor_t *td, const void *sptr,
+         if(tmper.encoded == -1) return tmper;
+         er.encoded += tmper.encoded;
+         if(tmper.encoded == 0 && specs->as_XMLValueList) {
+-            const char *name = elm->type->xml_tag;
++            const char *name = ASN_NAME_OF(elm->type);
+             size_t len = strlen(name);
+             if(!xcan) ASN__TEXT_INDENT(1, ilevel + 1);
+             ASN__CALLBACK3("<", 1, name, len, "/>", 2);
+diff --git a/src/ipa/libasn/constr_SET.c b/src/ipa/libasn/constr_SET.c
+--- a/src/ipa/libasn/constr_SET.c
++++ b/src/ipa/libasn/constr_SET.c
+@@ -629,7 +629,7 @@ SET_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
+ 	 */
+ 	const asn_SET_specifics_t *specs = (const asn_SET_specifics_t *)td->specifics;
+ 	const asn_TYPE_member_t *elements = td->elements;
+-	const char *xml_tag = opt_mname ? opt_mname : td->xml_tag;
++	const char *xml_tag = opt_mname ? opt_mname : ASN_NAME_OF(td);
+ 
+ 	/*
+ 	 * ... and parts of the structure being constructed.
+@@ -695,7 +695,7 @@ SET_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
+ 
+ 			/* Invoke the inner type decoder, m.b. multiple times */
+ 			tmprval = elm->type->op->xer_decoder(opt_codec_ctx,
+-					elm->type, memb_ptr2, elm->name,
++					elm->type, memb_ptr2, ASN_NAME_OF(elm),
+ 					buf_ptr, size);
+ 			XER_ADVANCE(tmprval.consumed);
+ 			if(tmprval.code != RC_OK)
+@@ -783,7 +783,7 @@ SET_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
+ 			 */
+ 			for(edx = 0; edx < td->elements_count; edx++) {
+ 				switch(xer_check_tag(buf_ptr, ch_size,
+-					elements[edx].name)) {
++					ASN_NAME_OF(&elements[edx]))) {
+ 				case XCT_BOTH:
+ 				case XCT_OPENING:
+ 					/*
+@@ -862,8 +862,8 @@ SET_encode_xer(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
+ 		size_t mlen;
+ 
+ 		elm = &td->elements[t2m[edx].el_no];
+-		mname = elm->name;
+-		mlen = strlen(elm->name);
++		mname = ASN_NAME_OF(elm);
++		mlen = strlen(ASN_NAME_OF(elm));
+ 
+ 		if(elm->flags & ATF_POINTER) {
+             memb_ptr =
+@@ -907,7 +907,7 @@ SET_print(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
+ 	if(!sptr) return (cb("<absent>", 8, app_key) < 0) ? -1 : 0;
+ 
+ 	/* Dump preamble */
+-	if(cb(td->name, strlen(td->name), app_key) < 0
++	if(cb(ASN_NAME_OF(td), strlen(ASN_NAME_OF(td)), app_key) < 0
+ 	|| cb(" ::= {", 6, app_key) < 0)
+ 		return -1;
+ 
+@@ -929,7 +929,7 @@ SET_print(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
+ 		_i_INDENT(1);
+ 
+ 		/* Print the member's name and stuff */
+-		if(cb(elm->name, strlen(elm->name), app_key) < 0
++		if(cb(ASN_NAME_OF(elm), strlen(ASN_NAME_OF(elm)), app_key) < 0
+ 		|| cb(": ", 2, app_key) < 0)
+ 			return -1;
+ 
+diff --git a/src/ipa/libasn/constr_SET_OF.c b/src/ipa/libasn/constr_SET_OF.c
+--- a/src/ipa/libasn/constr_SET_OF.c
++++ b/src/ipa/libasn/constr_SET_OF.c
+@@ -524,7 +524,7 @@ SET_OF_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
+ 	const asn_SET_OF_specifics_t *specs = (const asn_SET_OF_specifics_t *)td->specifics;
+ 	const asn_TYPE_member_t *element = td->elements;
+ 	const char *elm_tag;
+-	const char *xml_tag = opt_mname ? opt_mname : td->xml_tag;
++	const char *xml_tag = opt_mname ? opt_mname : ASN_NAME_OF(td);
+ 
+ 	/*
+ 	 * ... and parts of the structure being constructed.
+@@ -547,8 +547,8 @@ SET_OF_decode_xer(const asn_codec_ctx_t *opt_codec_ctx,
+ 	if(specs->as_XMLValueList) {
+ 		elm_tag = (specs->as_XMLValueList == 1) ? 0 : "";
+ 	} else {
+-		elm_tag = (*element->name)
+-				? element->name : element->type->xml_tag;
++		elm_tag = (*ASN_NAME_OF(element))
++				? ASN_NAME_OF(element) : ASN_NAME_OF(element->type);
+ 	}
+ 
+ 	/*
+@@ -708,7 +708,7 @@ SET_OF_encode_xer(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
+ 	const asn_TYPE_member_t *elm = td->elements;
+     const asn_anonymous_set_ *list = _A_CSET_FROM_VOID(sptr);
+     const char *mname = specs->as_XMLValueList
+-		? 0 : ((*elm->name) ? elm->name : elm->type->xml_tag);
++		? 0 : ((*ASN_NAME_OF(elm)) ? ASN_NAME_OF(elm) : ASN_NAME_OF(elm->type));
+ 	size_t mlen = mname ? strlen(mname) : 0;
+ 	int xcan = (flags & XER_F_CANONICAL);
+ 	xer_tmp_enc_t *encs = 0;
+@@ -752,7 +752,7 @@ SET_OF_encode_xer(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
+ 		if(tmper.encoded == -1) return tmper;
+ 		er.encoded += tmper.encoded;
+ 		if(tmper.encoded == 0 && specs->as_XMLValueList) {
+-			const char *name = elm->type->xml_tag;
++			const char *name = ASN_NAME_OF(elm->type);
+ 			size_t len = strlen(name);
+ 			ASN__CALLBACK3("<", 1, name, len, "/>", 2);
+ 		}
+@@ -809,7 +809,7 @@ SET_OF_print(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
+ 	if(!sptr) return (cb("<absent>", 8, app_key) < 0) ? -1 : 0;
+ 
+ 	/* Dump preamble */
+-	if(cb(td->name, strlen(td->name), app_key) < 0
++	if(cb(ASN_NAME_OF(td), strlen(ASN_NAME_OF(td)), app_key) < 0
+ 	|| cb(" ::= {", 6, app_key) < 0)
+ 		return -1;
+ 
+diff --git a/src/ipa/libasn/constr_TYPE.h b/src/ipa/libasn/constr_TYPE.h
+--- a/src/ipa/libasn/constr_TYPE.h
++++ b/src/ipa/libasn/constr_TYPE.h
+@@ -191,27 +191,38 @@ typedef struct asn_encoding_constraints_s {
+ #endif
+ 
+ /*
+- * Generated type and member names feed only print, XER and ASN_DEBUG.
+- * ASN_DISABLE_NAMES blanks them unless one of those is enabled; "" rather than
+- * NULL keeps any remaining %s on a name safe. The debug test mirrors
+- * asn_internal.h: a caller-supplied ASN_DEBUG, or ASN_EMIT_DEBUG or
+- * EMIT_ASN_DEBUG equal to 1.
++ * Type and member names feed only print, XER and ASN_DEBUG. XER is never built, so
++ * the XML tag is gone from the type tables, and ASN_DISABLE_NAMES removes the name
++ * pointers as well. That changes the table layout, so the define must be the same
++ * in every unit: Zephyr builds set it globally, host builds never. Code that still
++ * reads a name goes through ASN_NAME_OF(), which gives "" without the field. asn1c
++ * debug output reads the fields directly (same switches as asn_internal.h), so it
++ * cannot be combined with the define.
+  */
+-#if defined(ASN_DISABLE_NAMES) && defined(ASN_DISABLE_PRINT_SUPPORT) \
+-	&& defined(ASN_DISABLE_XER_SUPPORT) && !defined(ASN_DEBUG) \
+-	&& !(defined(ASN_EMIT_DEBUG) && ASN_EMIT_DEBUG == 1) \
+-	&& !(defined(EMIT_ASN_DEBUG) && EMIT_ASN_DEBUG == 1)
+-#define ASN_NAME(s) ""
++#if !defined(ASN_DISABLE_XER_SUPPORT)
++#error "libasn drops the XML tags of its type tables: define ASN_DISABLE_XER_SUPPORT"
++#endif
++#if defined(ASN_DISABLE_NAMES)
++#if defined(ASN_DEBUG) || (defined(ASN_EMIT_DEBUG) && ASN_EMIT_DEBUG == 1) \
++	|| (defined(EMIT_ASN_DEBUG) && EMIT_ASN_DEBUG == 1)
++#error "asn1c debug output reads the type names: build without ASN_DISABLE_NAMES"
++#endif
++#define ASN_TYPE_NAME(s)
++#define ASN_MEMBER_NAME(s)
++#define ASN_NAME_OF(p) ""
+ #else
+-#define ASN_NAME(s) s
++#define ASN_TYPE_NAME(s) s,
++#define ASN_MEMBER_NAME(s) s
++#define ASN_NAME_OF(p) ((p)->name)
+ #endif
+ 
+ /*
+  * The definitive description of the destination language's structure.
+  */
+ typedef struct asn_TYPE_descriptor_s {
++#if !defined(ASN_DISABLE_NAMES)
+     const char *name;       /* A name of the ASN.1 type. "" in some cases. */
+-    const char *xml_tag;    /* Name used in XML tag */
++#endif
+ 
+     /*
+      * Generalized functions for dealing with the specific type.
+@@ -272,7 +283,9 @@ typedef struct asn_TYPE_member_s {
+ #endif
+     int (*default_value_cmp)(const void *sptr); /* Compare DEFAULT <value> */
+     int (*default_value_set)(void **sptr);      /* Set DEFAULT <value> */
++#if !defined(ASN_DISABLE_NAMES)
+     const char *name; /* ASN.1 identifier of the element */
++#endif
+ } asn_TYPE_member_t;
+ 
+ /*
+diff --git a/src/ipa/libasn/per_opentype.c b/src/ipa/libasn/per_opentype.c
+--- a/src/ipa/libasn/per_opentype.c
++++ b/src/ipa/libasn/per_opentype.c
+@@ -269,7 +269,9 @@ uper_open_type_skip(const asn_codec_ctx_t *ctx, asn_per_data_t *pd) {
+     asn_TYPE_operation_t s_op;
+ 	asn_dec_rval_t rv;
+ 
++#if !defined(ASN_DISABLE_NAMES)
+ 	s_td.name = "<unknown extension>";
++#endif
+ 	s_td.op = &s_op;
+     s_op.uper_decoder = uper_sot_suck;
+ 
+diff --git a/src/ipa/libasn/xer_encoder.c b/src/ipa/libasn/xer_encoder.c
+--- a/src/ipa/libasn/xer_encoder.c
++++ b/src/ipa/libasn/xer_encoder.c
+@@ -21,7 +21,7 @@ xer_encode(const asn_TYPE_descriptor_t *td, const void *sptr,
+ 
+ 	if(!td || !sptr) goto cb_failed;
+ 
+-	mname = td->xml_tag;
++	mname = ASN_NAME_OF(td);
+ 	mlen = strlen(mname);
+ 
+ 	ASN__CALLBACK3("<", 1, mname, mlen, ">", 1);
+@@ -115,7 +115,7 @@ xer_equivalent(const struct asn_TYPE_descriptor_s *td, const void *struct1,
+     e1 = xer_encode(td, struct1, XER_F_BASIC, xer__buffer_append, &xb1);
+     if(e1.encoded == -1) {
+         if(opt_debug_stream) {
+-            fprintf(stderr, "XER Encoding of %s failed\n", td->name);
++            fprintf(stderr, "XER Encoding of %s failed\n", ASN_NAME_OF(td));
+         }
+         FREEMEM(xb1.buffer);
+         return XEQ_ENCODE1_FAILED;
+@@ -124,7 +124,7 @@ xer_equivalent(const struct asn_TYPE_descriptor_s *td, const void *struct1,
+     e2 = xer_encode(td, struct2, XER_F_BASIC, xer__buffer_append, &xb2);
+     if(e2.encoded == -1) {
+         if(opt_debug_stream) {
+-            fprintf(stderr, "XER Encoding of %s failed\n", td->name);
++            fprintf(stderr, "XER Encoding of %s failed\n", ASN_NAME_OF(td));
+         }
+         FREEMEM(xb1.buffer);
+         FREEMEM(xb2.buffer);
+@@ -161,7 +161,7 @@ xer_equivalent(const struct asn_TYPE_descriptor_s *td, const void *struct1,
+             fprintf(opt_debug_stream,
+                     "Structure %s XER decode unexpectedly requires "
+                     "more data:\n%s\n",
+-                    td->name, xb1.buffer);
++                    ASN_NAME_OF(td), xb1.buffer);
+         }
+         /* Fall through */
+     case RC_FAIL:
+@@ -169,7 +169,7 @@ xer_equivalent(const struct asn_TYPE_descriptor_s *td, const void *struct1,
+         if(opt_debug_stream) {
+             fprintf(opt_debug_stream,
+                     "Structure %s XER decoding resulted in failure.\n",
+-                    td->name);
++                    ASN_NAME_OF(td));
+         }
+         ASN_STRUCT_FREE(*td, sptr);
+         FREEMEM(xb1.buffer);
+@@ -186,7 +186,7 @@ xer_equivalent(const struct asn_TYPE_descriptor_s *td, const void *struct1,
+             fprintf(opt_debug_stream,
+                     "Round-trip decode of %s required less bytes (%" ASN_PRI_SIZE ") than "
+                     "encoded (%" ASN_PRI_SIZE ")\n",
+-                    td->name, rval.consumed, xb1.buffer_size);
++                    ASN_NAME_OF(td), rval.consumed, xb1.buffer_size);
+         }
+         ASN_STRUCT_FREE(*td, sptr);
+         FREEMEM(xb1.buffer);
+@@ -204,7 +204,7 @@ xer_equivalent(const struct asn_TYPE_descriptor_s *td, const void *struct1,
+     if(e2.encoded == -1) {
+         if(opt_debug_stream) {
+             fprintf(stderr, "XER Encoding of round-trip decode of %s failed\n",
+-                    td->name);
++                    ASN_NAME_OF(td));
+         }
+         ASN_STRUCT_FREE(*td, sptr);
+         FREEMEM(xb1.buffer);
+@@ -223,7 +223,7 @@ xer_equivalent(const struct asn_TYPE_descriptor_s *td, const void *struct1,
+                     "different byte stream:\n"
+                     "=== Original ===\n%s\n"
+                     "=== Round-tripped ===\n%s\n",
+-                    xb1.buffer, xb2.buffer, td->name);
++                    xb1.buffer, xb2.buffer, ASN_NAME_OF(td));
+         }
+         FREEMEM(xb1.buffer);
+         FREEMEM(xb2.buffer);
