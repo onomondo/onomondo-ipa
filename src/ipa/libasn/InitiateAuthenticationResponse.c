@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"initiateAuthenticationOk"
+		ASN_NAME("initiateAuthenticationOk")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct InitiateAuthenticationResponse, choice.initiateAuthenticationError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"initiateAuthenticationError"
+		ASN_NAME("initiateAuthenticationError")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_InitiateAuthenticationResponse_tags_1[] = {
@@ -45,8 +45,8 @@ asn_CHOICE_specifics_t asn_SPC_InitiateAuthenticationResponse_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_InitiateAuthenticationResponse = {
-	"InitiateAuthenticationResponse",
-	"InitiateAuthenticationResponse",
+	ASN_NAME("InitiateAuthenticationResponse"),
+	ASN_NAME("InitiateAuthenticationResponse"),
 	&asn_OP_CHOICE,
 	asn_DEF_InitiateAuthenticationResponse_tags_1,
 	sizeof(asn_DEF_InitiateAuthenticationResponse_tags_1)

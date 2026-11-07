@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateResponseError_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"transactionId"
+		ASN_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateResponseError, authenticateErrorCode),
 		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateResponseError_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"authenticateErrorCode"
+		ASN_NAME("authenticateErrorCode")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AuthenticateResponseError_tags_1[] = {
@@ -43,8 +43,8 @@ asn_SEQUENCE_specifics_t asn_SPC_AuthenticateResponseError_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_AuthenticateResponseError = {
-	"AuthenticateResponseError",
-	"AuthenticateResponseError",
+	ASN_NAME("AuthenticateResponseError"),
+	ASN_NAME("AuthenticateResponseError"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_AuthenticateResponseError_tags_1,
 	sizeof(asn_DEF_AuthenticateResponseError_tags_1)

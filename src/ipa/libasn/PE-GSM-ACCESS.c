@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PE_GSM_ACCESS_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"gsm-access-header"
+		ASN_NAME("gsm-access-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_GSM_ACCESS, templateID),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PE_GSM_ACCESS_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"templateID"
+		ASN_NAME("templateID")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_GSM_ACCESS, df_gsm_access),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_PE_GSM_ACCESS_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"df-gsm-access"
+		ASN_NAME("df-gsm-access")
 		},
 	{ ATF_POINTER, 4, offsetof(struct PE_GSM_ACCESS, ef_kc),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_PE_GSM_ACCESS_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-kc"
+		ASN_NAME("ef-kc")
 		},
 	{ ATF_POINTER, 3, offsetof(struct PE_GSM_ACCESS, ef_kcgprs),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_PE_GSM_ACCESS_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-kcgprs"
+		ASN_NAME("ef-kcgprs")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PE_GSM_ACCESS, ef_cpbcch),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_PE_GSM_ACCESS_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-cpbcch"
+		ASN_NAME("ef-cpbcch")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_GSM_ACCESS, ef_invscan),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_PE_GSM_ACCESS_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-invscan"
+		ASN_NAME("ef-invscan")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_GSM_ACCESS_tags_1[] = {
@@ -93,8 +93,8 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_GSM_ACCESS_specs_1 = {
 	7,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_GSM_ACCESS = {
-	"PE-GSM-ACCESS",
-	"PE-GSM-ACCESS",
+	ASN_NAME("PE-GSM-ACCESS"),
+	ASN_NAME("PE-GSM-ACCESS"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_GSM_ACCESS_tags_1,
 	sizeof(asn_DEF_PE_GSM_ACCESS_tags_1)

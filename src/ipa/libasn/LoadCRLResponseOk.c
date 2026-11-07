@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_missingParts_2[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_missingParts_tags_2[] = {
@@ -29,8 +29,8 @@ static asn_SET_OF_specifics_t asn_SPC_missingParts_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_missingParts_2 = {
-	"missingParts",
-	"missingParts",
+	ASN_NAME("missingParts"),
+	ASN_NAME("missingParts"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_missingParts_tags_2,
 	sizeof(asn_DEF_missingParts_tags_2)
@@ -52,7 +52,7 @@ asn_TYPE_member_t asn_MBR_LoadCRLResponseOk_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"missingParts"
+		ASN_NAME("missingParts")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_LoadCRLResponseOk_tags_1[] = {
@@ -70,8 +70,8 @@ asn_SEQUENCE_specifics_t asn_SPC_LoadCRLResponseOk_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_LoadCRLResponseOk = {
-	"LoadCRLResponseOk",
-	"LoadCRLResponseOk",
+	ASN_NAME("LoadCRLResponseOk"),
+	ASN_NAME("LoadCRLResponseOk"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_LoadCRLResponseOk_tags_1,
 	sizeof(asn_DEF_LoadCRLResponseOk_tags_1)

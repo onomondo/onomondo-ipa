@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_EnableProfileResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"enableResult"
+		ASN_NAME("enableResult")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_EnableProfileResponse_tags_1[] = {
@@ -34,8 +34,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_EnableProfileResponse_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EnableProfileResponse = {
-	"EnableProfileResponse",
-	"EnableProfileResponse",
+	ASN_NAME("EnableProfileResponse"),
+	ASN_NAME("EnableProfileResponse"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_EnableProfileResponse_tags_1,
 	sizeof(asn_DEF_EnableProfileResponse_tags_1)

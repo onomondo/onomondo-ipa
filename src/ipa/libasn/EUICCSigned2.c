@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_EUICCSigned2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"transactionId"
+		ASN_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EUICCSigned2, euiccOtpk),
 		(ASN_TAG_CLASS_APPLICATION | (73 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_EUICCSigned2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccOtpk"
+		ASN_NAME("euiccOtpk")
 		},
 	{ ATF_POINTER, 1, offsetof(struct EUICCSigned2, hashCc),
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_EUICCSigned2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"hashCc"
+		ASN_NAME("hashCc")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_EUICCSigned2_tags_1[] = {
@@ -53,8 +53,8 @@ asn_SEQUENCE_specifics_t asn_SPC_EUICCSigned2_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EUICCSigned2 = {
-	"EUICCSigned2",
-	"EUICCSigned2",
+	ASN_NAME("EUICCSigned2"),
+	ASN_NAME("EUICCSigned2"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_EUICCSigned2_tags_1,
 	sizeof(asn_DEF_EUICCSigned2_tags_1)

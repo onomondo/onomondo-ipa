@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageErrorDataSigned_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eimId"
+		ASN_NAME("eimId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccPackageErrorDataSigned, counterValue),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageErrorDataSigned_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"counterValue"
+		ASN_NAME("counterValue")
 		},
 	{ ATF_POINTER, 1, offsetof(struct EuiccPackageErrorDataSigned, eimTransactionId),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageErrorDataSigned_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eimTransactionId"
+		ASN_NAME("eimTransactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccPackageErrorDataSigned, euiccPackageErrorCode),
 		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageErrorDataSigned_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccPackageErrorCode"
+		ASN_NAME("euiccPackageErrorCode")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_EuiccPackageErrorDataSigned_tags_1[] = {
@@ -63,8 +63,8 @@ asn_SEQUENCE_specifics_t asn_SPC_EuiccPackageErrorDataSigned_specs_1 = {
 	4,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EuiccPackageErrorDataSigned = {
-	"EuiccPackageErrorDataSigned",
-	"EuiccPackageErrorDataSigned",
+	ASN_NAME("EuiccPackageErrorDataSigned"),
+	ASN_NAME("EuiccPackageErrorDataSigned"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_EuiccPackageErrorDataSigned_tags_1,
 	sizeof(asn_DEF_EuiccPackageErrorDataSigned_tags_1)

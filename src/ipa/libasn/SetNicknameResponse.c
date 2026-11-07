@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_SetNicknameResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"setNicknameResult"
+		ASN_NAME("setNicknameResult")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_SetNicknameResponse_tags_1[] = {
@@ -34,8 +34,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_SetNicknameResponse_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_SetNicknameResponse = {
-	"SetNicknameResponse",
-	"SetNicknameResponse",
+	ASN_NAME("SetNicknameResponse"),
+	ASN_NAME("SetNicknameResponse"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_SetNicknameResponse_tags_1,
 	sizeof(asn_DEF_SetNicknameResponse_tags_1)

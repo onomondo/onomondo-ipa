@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_nAddresses_5[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_nAddresses_tags_5[] = {
@@ -29,8 +29,8 @@ static asn_SET_OF_specifics_t asn_SPC_nAddresses_specs_5 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_nAddresses_5 = {
-	"nAddresses",
-	"nAddresses",
+	ASN_NAME("nAddresses"),
+	ASN_NAME("nAddresses"),
 	&asn_OP_SET_OF,
 	asn_DEF_nAddresses_tags_5,
 	sizeof(asn_DEF_nAddresses_tags_5)
@@ -52,7 +52,7 @@ asn_TYPE_member_t asn_MBR_PresentationAddress_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"pSelector"
+		ASN_NAME("pSelector")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PresentationAddress, sSelector),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -61,7 +61,7 @@ asn_TYPE_member_t asn_MBR_PresentationAddress_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"sSelector"
+		ASN_NAME("sSelector")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PresentationAddress, tSelector),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -70,7 +70,7 @@ asn_TYPE_member_t asn_MBR_PresentationAddress_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"tSelector"
+		ASN_NAME("tSelector")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PresentationAddress, nAddresses),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -79,7 +79,7 @@ asn_TYPE_member_t asn_MBR_PresentationAddress_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"nAddresses"
+		ASN_NAME("nAddresses")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PresentationAddress_tags_1[] = {
@@ -100,8 +100,8 @@ asn_SEQUENCE_specifics_t asn_SPC_PresentationAddress_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PresentationAddress = {
-	"PresentationAddress",
-	"PresentationAddress",
+	ASN_NAME("PresentationAddress"),
+	ASN_NAME("PresentationAddress"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_PresentationAddress_tags_1,
 	sizeof(asn_DEF_PresentationAddress_tags_1)

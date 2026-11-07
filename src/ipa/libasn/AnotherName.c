@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_AnotherName_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"type-id"
+		ASN_NAME("type-id")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AnotherName, value),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_AnotherName_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"value"
+		ASN_NAME("value")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AnotherName_tags_1[] = {
@@ -43,8 +43,8 @@ asn_SEQUENCE_specifics_t asn_SPC_AnotherName_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_AnotherName = {
-	"AnotherName",
-	"AnotherName",
+	ASN_NAME("AnotherName"),
+	ASN_NAME("AnotherName"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_AnotherName_tags_1,
 	sizeof(asn_DEF_AnotherName_tags_1)

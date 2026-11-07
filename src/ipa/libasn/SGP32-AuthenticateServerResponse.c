@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_SGP32_AuthenticateServerResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"authenticateResponseOk"
+		ASN_NAME("authenticateResponseOk")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_AuthenticateServerResponse, choice.authenticateResponseError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_SGP32_AuthenticateServerResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"authenticateResponseError"
+		ASN_NAME("authenticateResponseError")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_AuthenticateServerResponse, choice.compactAuthenticateResponseOk),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_SGP32_AuthenticateServerResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"compactAuthenticateResponseOk"
+		ASN_NAME("compactAuthenticateResponseOk")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_SGP32_AuthenticateServerResponse_tags_1[] = {
@@ -55,8 +55,8 @@ asn_CHOICE_specifics_t asn_SPC_SGP32_AuthenticateServerResponse_specs_1 = {
 	3	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_SGP32_AuthenticateServerResponse = {
-	"SGP32-AuthenticateServerResponse",
-	"SGP32-AuthenticateServerResponse",
+	ASN_NAME("SGP32-AuthenticateServerResponse"),
+	ASN_NAME("SGP32-AuthenticateServerResponse"),
 	&asn_OP_CHOICE,
 	asn_DEF_SGP32_AuthenticateServerResponse_tags_1,
 	sizeof(asn_DEF_SGP32_AuthenticateServerResponse_tags_1)

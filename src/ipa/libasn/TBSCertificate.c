@@ -38,7 +38,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		{ 0, 0, 0 },
 		&asn_DFL_2_cmp_0,	/* Compare DEFAULT 0 */
 		&asn_DFL_2_set_0,	/* Set DEFAULT 0 */
-		"version"
+		ASN_NAME("version")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TBSCertificate, serialNumber),
 		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
@@ -47,7 +47,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"serialNumber"
+		ASN_NAME("serialNumber")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TBSCertificate, signature),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -56,7 +56,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"signature"
+		ASN_NAME("signature")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TBSCertificate, issuer),
 		-1 /* Ambiguous tag (CHOICE?) */,
@@ -65,7 +65,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"issuer"
+		ASN_NAME("issuer")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TBSCertificate, validity),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -74,7 +74,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"validity"
+		ASN_NAME("validity")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TBSCertificate, subject),
 		-1 /* Ambiguous tag (CHOICE?) */,
@@ -83,7 +83,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"subject"
+		ASN_NAME("subject")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TBSCertificate, subjectPublicKeyInfo),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -92,7 +92,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"subjectPublicKeyInfo"
+		ASN_NAME("subjectPublicKeyInfo")
 		},
 	{ ATF_POINTER, 3, offsetof(struct TBSCertificate, issuerUniqueID),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -101,7 +101,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"issuerUniqueID"
+		ASN_NAME("issuerUniqueID")
 		},
 	{ ATF_POINTER, 2, offsetof(struct TBSCertificate, subjectUniqueID),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -110,7 +110,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"subjectUniqueID"
+		ASN_NAME("subjectUniqueID")
 		},
 	{ ATF_POINTER, 1, offsetof(struct TBSCertificate, extensions),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -119,7 +119,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"extensions"
+		ASN_NAME("extensions")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_TBSCertificate_tags_1[] = {
@@ -146,8 +146,8 @@ asn_SEQUENCE_specifics_t asn_SPC_TBSCertificate_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_TBSCertificate = {
-	"TBSCertificate",
-	"TBSCertificate",
+	ASN_NAME("TBSCertificate"),
+	ASN_NAME("TBSCertificate"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_TBSCertificate_tags_1,
 	sizeof(asn_DEF_TBSCertificate_tags_1)

@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_eimConfigurationDataList_2[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_eimConfigurationDataList_tags_2[] = {
@@ -29,8 +29,8 @@ static asn_SET_OF_specifics_t asn_SPC_eimConfigurationDataList_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_eimConfigurationDataList_2 = {
-	"eimConfigurationDataList",
-	"eimConfigurationDataList",
+	ASN_NAME("eimConfigurationDataList"),
+	ASN_NAME("eimConfigurationDataList"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_eimConfigurationDataList_tags_2,
 	sizeof(asn_DEF_eimConfigurationDataList_tags_2)
@@ -52,7 +52,7 @@ static asn_TYPE_member_t asn_MBR_AddInitialEimRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eimConfigurationDataList"
+		ASN_NAME("eimConfigurationDataList")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AddInitialEimRequest_tags_1[] = {
@@ -71,8 +71,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_AddInitialEimRequest_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_AddInitialEimRequest = {
-	"AddInitialEimRequest",
-	"AddInitialEimRequest",
+	ASN_NAME("AddInitialEimRequest"),
+	ASN_NAME("AddInitialEimRequest"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_AddInitialEimRequest_tags_1,
 	sizeof(asn_DEF_AddInitialEimRequest_tags_1)

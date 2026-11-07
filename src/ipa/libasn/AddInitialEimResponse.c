@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_Member_3[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"associationToken"
+		ASN_NAME("associationToken")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AddInitialEimResponse__addInitialEimOk__Member, choice.addOk),
 		(ASN_TAG_CLASS_UNIVERSAL | (5 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_Member_3[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"addOk"
+		ASN_NAME("addOk")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_Member_tag2el_3[] = {
@@ -43,8 +43,8 @@ static asn_CHOICE_specifics_t asn_SPC_Member_specs_3 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_Member_3 = {
-	"CHOICE",
-	"CHOICE",
+	ASN_NAME("CHOICE"),
+	ASN_NAME("CHOICE"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
@@ -64,7 +64,7 @@ static asn_TYPE_member_t asn_MBR_addInitialEimOk_2[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_addInitialEimOk_tags_2[] = {
@@ -78,8 +78,8 @@ static asn_SET_OF_specifics_t asn_SPC_addInitialEimOk_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_addInitialEimOk_2 = {
-	"addInitialEimOk",
-	"addInitialEimOk",
+	ASN_NAME("addInitialEimOk"),
+	ASN_NAME("addInitialEimOk"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_addInitialEimOk_tags_2,
 	sizeof(asn_DEF_addInitialEimOk_tags_2)
@@ -101,7 +101,7 @@ static asn_TYPE_member_t asn_MBR_AddInitialEimResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"addInitialEimOk"
+		ASN_NAME("addInitialEimOk")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AddInitialEimResponse, choice.addInitialEimError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -110,7 +110,7 @@ static asn_TYPE_member_t asn_MBR_AddInitialEimResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"addInitialEimError"
+		ASN_NAME("addInitialEimError")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AddInitialEimResponse_tags_1[] = {
@@ -131,8 +131,8 @@ static asn_CHOICE_specifics_t asn_SPC_AddInitialEimResponse_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_AddInitialEimResponse = {
-	"AddInitialEimResponse",
-	"AddInitialEimResponse",
+	ASN_NAME("AddInitialEimResponse"),
+	ASN_NAME("AddInitialEimResponse"),
 	&asn_OP_CHOICE,
 	asn_DEF_AddInitialEimResponse_tags_1,
 	sizeof(asn_DEF_AddInitialEimResponse_tags_1)

@@ -15,8 +15,8 @@ static const ber_tlv_tag_t asn_DEF_DeleteProfileResult_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (2 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_DeleteProfileResult = {
-	"DeleteProfileResult",
-	"DeleteProfileResult",
+	ASN_NAME("DeleteProfileResult"),
+	ASN_NAME("DeleteProfileResult"),
 	&asn_OP_NativeInteger,
 	asn_DEF_DeleteProfileResult_tags_1,
 	sizeof(asn_DEF_DeleteProfileResult_tags_1)

@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CtxParams1_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ctxParamsForCommonAuthentication"
+		ASN_NAME("ctxParamsForCommonAuthentication")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_CtxParams1_tag2el_1[] = {
@@ -32,8 +32,8 @@ asn_CHOICE_specifics_t asn_SPC_CtxParams1_specs_1 = {
 	1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_CtxParams1 = {
-	"CtxParams1",
-	"CtxParams1",
+	ASN_NAME("CtxParams1"),
+	ASN_NAME("CtxParams1"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

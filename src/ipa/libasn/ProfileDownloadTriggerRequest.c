@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_ProfileDownloadTriggerRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileDownloadData"
+		ASN_NAME("profileDownloadData")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ProfileDownloadTriggerRequest, eimTransactionId),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_ProfileDownloadTriggerRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eimTransactionId"
+		ASN_NAME("eimTransactionId")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ProfileDownloadTriggerRequest_tags_1[] = {
@@ -44,8 +44,8 @@ asn_SEQUENCE_specifics_t asn_SPC_ProfileDownloadTriggerRequest_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ProfileDownloadTriggerRequest = {
-	"ProfileDownloadTriggerRequest",
-	"ProfileDownloadTriggerRequest",
+	ASN_NAME("ProfileDownloadTriggerRequest"),
+	ASN_NAME("ProfileDownloadTriggerRequest"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_ProfileDownloadTriggerRequest_tags_1,
 	sizeof(asn_DEF_ProfileDownloadTriggerRequest_tags_1)

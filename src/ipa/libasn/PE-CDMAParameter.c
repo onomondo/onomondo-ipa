@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PE_CDMAParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"cdma-header"
+		ASN_NAME("cdma-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_CDMAParameter, authenticationKey),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PE_CDMAParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"authenticationKey"
+		ASN_NAME("authenticationKey")
 		},
 	{ ATF_POINTER, 4, offsetof(struct PE_CDMAParameter, ssd),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_PE_CDMAParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ssd"
+		ASN_NAME("ssd")
 		},
 	{ ATF_POINTER, 3, offsetof(struct PE_CDMAParameter, hrpdAccessAuthenticationData),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_PE_CDMAParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"hrpdAccessAuthenticationData"
+		ASN_NAME("hrpdAccessAuthenticationData")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PE_CDMAParameter, simpleIPAuthenticationData),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_PE_CDMAParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"simpleIPAuthenticationData"
+		ASN_NAME("simpleIPAuthenticationData")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_CDMAParameter, mobileIPAuthenticationData),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_PE_CDMAParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"mobileIPAuthenticationData"
+		ASN_NAME("mobileIPAuthenticationData")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_CDMAParameter_tags_1[] = {
@@ -83,8 +83,8 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_CDMAParameter_specs_1 = {
 	6,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_CDMAParameter = {
-	"PE-CDMAParameter",
-	"PE-CDMAParameter",
+	ASN_NAME("PE-CDMAParameter"),
+	ASN_NAME("PE-CDMAParameter"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_CDMAParameter_tags_1,
 	sizeof(asn_DEF_PE_CDMAParameter_tags_1)

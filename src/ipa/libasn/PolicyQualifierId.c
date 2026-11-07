@@ -15,8 +15,8 @@ static const ber_tlv_tag_t asn_DEF_PolicyQualifierId_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (6 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_PolicyQualifierId = {
-	"PolicyQualifierId",
-	"PolicyQualifierId",
+	ASN_NAME("PolicyQualifierId"),
+	ASN_NAME("PolicyQualifierId"),
 	&asn_OP_OBJECT_IDENTIFIER,
 	asn_DEF_PolicyQualifierId_tags_1,
 	sizeof(asn_DEF_PolicyQualifierId_tags_1)

@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_NotificationMetadata_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"seqNumber"
+		ASN_NAME("seqNumber")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct NotificationMetadata, profileManagementOperation),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_NotificationMetadata_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileManagementOperation"
+		ASN_NAME("profileManagementOperation")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct NotificationMetadata, notificationAddress),
 		(ASN_TAG_CLASS_UNIVERSAL | (12 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_NotificationMetadata_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"notificationAddress"
+		ASN_NAME("notificationAddress")
 		},
 	{ ATF_POINTER, 1, offsetof(struct NotificationMetadata, iccid),
 		(ASN_TAG_CLASS_APPLICATION | (26 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_NotificationMetadata_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"iccid"
+		ASN_NAME("iccid")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_NotificationMetadata_tags_1[] = {
@@ -64,8 +64,8 @@ asn_SEQUENCE_specifics_t asn_SPC_NotificationMetadata_specs_1 = {
 	4,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_NotificationMetadata = {
-	"NotificationMetadata",
-	"NotificationMetadata",
+	ASN_NAME("NotificationMetadata"),
+	ASN_NAME("NotificationMetadata"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_NotificationMetadata_tags_1,
 	sizeof(asn_DEF_NotificationMetadata_tags_1)

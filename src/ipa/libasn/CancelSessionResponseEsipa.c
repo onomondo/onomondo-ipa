@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CancelSessionResponseEsipa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"cancelSessionOk"
+		ASN_NAME("cancelSessionOk")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CancelSessionResponseEsipa, choice.cancelSessionError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_CancelSessionResponseEsipa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"cancelSessionError"
+		ASN_NAME("cancelSessionError")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CancelSessionResponseEsipa_tags_1[] = {
@@ -45,8 +45,8 @@ asn_CHOICE_specifics_t asn_SPC_CancelSessionResponseEsipa_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_CancelSessionResponseEsipa = {
-	"CancelSessionResponseEsipa",
-	"CancelSessionResponseEsipa",
+	ASN_NAME("CancelSessionResponseEsipa"),
+	ASN_NAME("CancelSessionResponseEsipa"),
 	&asn_OP_CHOICE,
 	asn_DEF_CancelSessionResponseEsipa_tags_1,
 	sizeof(asn_DEF_CancelSessionResponseEsipa_tags_1)

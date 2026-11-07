@@ -43,8 +43,8 @@ static const ber_tlv_tag_t asn_DEF_pathLenConstraint_tags_3[] = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_pathLenConstraint_3 = {
-	"pathLenConstraint",
-	"pathLenConstraint",
+	ASN_NAME("pathLenConstraint"),
+	ASN_NAME("pathLenConstraint"),
 	&asn_OP_NativeInteger,
 	asn_DEF_pathLenConstraint_tags_3,
 	sizeof(asn_DEF_pathLenConstraint_tags_3)
@@ -66,7 +66,7 @@ static asn_TYPE_member_t asn_MBR_BasicConstraints_1[] = {
 		{ 0, 0, 0 },
 		&asn_DFL_2_cmp_0,	/* Compare DEFAULT 0 */
 		&asn_DFL_2_set_0,	/* Set DEFAULT 0 */
-		"cA"
+		ASN_NAME("cA")
 		},
 	{ ATF_POINTER, 1, offsetof(struct BasicConstraints, pathLenConstraint),
 		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
@@ -75,7 +75,7 @@ static asn_TYPE_member_t asn_MBR_BasicConstraints_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"pathLenConstraint"
+		ASN_NAME("pathLenConstraint")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_BasicConstraints_tags_1[] = {
@@ -94,8 +94,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_BasicConstraints_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_BasicConstraints = {
-	"BasicConstraints",
-	"BasicConstraints",
+	ASN_NAME("BasicConstraints"),
+	ASN_NAME("BasicConstraints"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_BasicConstraints_tags_1,
 	sizeof(asn_DEF_BasicConstraints_tags_1)

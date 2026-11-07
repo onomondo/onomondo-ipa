@@ -59,7 +59,7 @@ asn_TYPE_member_t asn_MBR_PINConfiguration_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"keyReference"
+		ASN_NAME("keyReference")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PINConfiguration, pinValue),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -68,7 +68,7 @@ asn_TYPE_member_t asn_MBR_PINConfiguration_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"pinValue"
+		ASN_NAME("pinValue")
 		},
 	{ ATF_POINTER, 3, offsetof(struct PINConfiguration, unblockingPINReference),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -77,7 +77,7 @@ asn_TYPE_member_t asn_MBR_PINConfiguration_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"unblockingPINReference"
+		ASN_NAME("unblockingPINReference")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PINConfiguration, pinAttributes),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_PINConfiguration_1[] = {
 		{ 0, 0, 0 },
 		&asn_DFL_5_cmp_7,	/* Compare DEFAULT 7 */
 		&asn_DFL_5_set_7,	/* Set DEFAULT 7 */
-		"pinAttributes"
+		ASN_NAME("pinAttributes")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PINConfiguration, maxNumOfAttemps_retryNumLeft),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -97,7 +97,7 @@ asn_TYPE_member_t asn_MBR_PINConfiguration_1[] = {
 		{ 0, 0, 0 },
 		&asn_DFL_6_cmp_51,	/* Compare DEFAULT 51 */
 		&asn_DFL_6_set_51,	/* Set DEFAULT 51 */
-		"maxNumOfAttemps-retryNumLeft"
+		ASN_NAME("maxNumOfAttemps-retryNumLeft")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PINConfiguration_tags_1[] = {
@@ -119,8 +119,8 @@ asn_SEQUENCE_specifics_t asn_SPC_PINConfiguration_specs_1 = {
 	5,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PINConfiguration = {
-	"PINConfiguration",
-	"PINConfiguration",
+	ASN_NAME("PINConfiguration"),
+	ASN_NAME("PINConfiguration"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_PINConfiguration_tags_1,
 	sizeof(asn_DEF_PINConfiguration_tags_1)

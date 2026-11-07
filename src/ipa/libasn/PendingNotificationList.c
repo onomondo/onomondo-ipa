@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PendingNotificationList_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PendingNotificationList_tags_1[] = {
@@ -27,8 +27,8 @@ asn_SET_OF_specifics_t asn_SPC_PendingNotificationList_specs_1 = {
 	2,	/* XER encoding is XMLValueList */
 };
 asn_TYPE_descriptor_t asn_DEF_PendingNotificationList = {
-	"PendingNotificationList",
-	"PendingNotificationList",
+	ASN_NAME("PendingNotificationList"),
+	ASN_NAME("PendingNotificationList"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_PendingNotificationList_tags_1,
 	sizeof(asn_DEF_PendingNotificationList_tags_1)

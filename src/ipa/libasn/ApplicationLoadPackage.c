@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_ApplicationLoadPackage_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"loadPackageAID"
+		ASN_NAME("loadPackageAID")
 		},
 	{ ATF_POINTER, 5, offsetof(struct ApplicationLoadPackage, securityDomainAID),
 		(ASN_TAG_CLASS_APPLICATION | (15 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_ApplicationLoadPackage_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"securityDomainAID"
+		ASN_NAME("securityDomainAID")
 		},
 	{ ATF_POINTER, 4, offsetof(struct ApplicationLoadPackage, nonVolatileCodeLimitC6),
 		(ASN_TAG_CLASS_PRIVATE | (6 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_ApplicationLoadPackage_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"nonVolatileCodeLimitC6"
+		ASN_NAME("nonVolatileCodeLimitC6")
 		},
 	{ ATF_POINTER, 3, offsetof(struct ApplicationLoadPackage, volatileDataLimitC7),
 		(ASN_TAG_CLASS_PRIVATE | (7 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_ApplicationLoadPackage_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"volatileDataLimitC7"
+		ASN_NAME("volatileDataLimitC7")
 		},
 	{ ATF_POINTER, 2, offsetof(struct ApplicationLoadPackage, nonVolatileDataLimitC8),
 		(ASN_TAG_CLASS_PRIVATE | (8 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_ApplicationLoadPackage_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"nonVolatileDataLimitC8"
+		ASN_NAME("nonVolatileDataLimitC8")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ApplicationLoadPackage, hashValue),
 		(ASN_TAG_CLASS_PRIVATE | (1 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_ApplicationLoadPackage_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"hashValue"
+		ASN_NAME("hashValue")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ApplicationLoadPackage, loadBlockObject),
 		(ASN_TAG_CLASS_PRIVATE | (4 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_ApplicationLoadPackage_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"loadBlockObject"
+		ASN_NAME("loadBlockObject")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ApplicationLoadPackage_tags_1[] = {
@@ -93,8 +93,8 @@ asn_SEQUENCE_specifics_t asn_SPC_ApplicationLoadPackage_specs_1 = {
 	7,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ApplicationLoadPackage = {
-	"ApplicationLoadPackage",
-	"ApplicationLoadPackage",
+	ASN_NAME("ApplicationLoadPackage"),
+	ASN_NAME("ApplicationLoadPackage"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_ApplicationLoadPackage_tags_1,
 	sizeof(asn_DEF_ApplicationLoadPackage_tags_1)

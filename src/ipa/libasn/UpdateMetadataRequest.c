@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_UpdateMetadataRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"serviceProviderName"
+		ASN_NAME("serviceProviderName")
 		},
 	{ ATF_POINTER, 5, offsetof(struct UpdateMetadataRequest, profileName),
 		(ASN_TAG_CLASS_CONTEXT | (18 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_UpdateMetadataRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileName"
+		ASN_NAME("profileName")
 		},
 	{ ATF_POINTER, 4, offsetof(struct UpdateMetadataRequest, iconType),
 		(ASN_TAG_CLASS_CONTEXT | (19 << 2)),
@@ -33,7 +33,7 @@ static asn_TYPE_member_t asn_MBR_UpdateMetadataRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"iconType"
+		ASN_NAME("iconType")
 		},
 	{ ATF_POINTER, 3, offsetof(struct UpdateMetadataRequest, icon),
 		(ASN_TAG_CLASS_CONTEXT | (20 << 2)),
@@ -42,7 +42,7 @@ static asn_TYPE_member_t asn_MBR_UpdateMetadataRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"icon"
+		ASN_NAME("icon")
 		},
 	{ ATF_POINTER, 2, offsetof(struct UpdateMetadataRequest, profilePolicyRules),
 		(ASN_TAG_CLASS_CONTEXT | (25 << 2)),
@@ -51,7 +51,7 @@ static asn_TYPE_member_t asn_MBR_UpdateMetadataRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profilePolicyRules"
+		ASN_NAME("profilePolicyRules")
 		},
 	{ ATF_POINTER, 1, offsetof(struct UpdateMetadataRequest, serviceSpecificDataStoredInEuicc),
 		(ASN_TAG_CLASS_CONTEXT | (34 << 2)),
@@ -60,7 +60,7 @@ static asn_TYPE_member_t asn_MBR_UpdateMetadataRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"serviceSpecificDataStoredInEuicc"
+		ASN_NAME("serviceSpecificDataStoredInEuicc")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_UpdateMetadataRequest_tags_1[] = {
@@ -84,8 +84,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_UpdateMetadataRequest_specs_1 = {
 	6,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_UpdateMetadataRequest = {
-	"UpdateMetadataRequest",
-	"UpdateMetadataRequest",
+	ASN_NAME("UpdateMetadataRequest"),
+	ASN_NAME("UpdateMetadataRequest"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_UpdateMetadataRequest_tags_1,
 	sizeof(asn_DEF_UpdateMetadataRequest_tags_1)

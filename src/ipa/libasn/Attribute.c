@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_values_3[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_values_tags_3[] = {
@@ -28,8 +28,8 @@ static asn_SET_OF_specifics_t asn_SPC_values_specs_3 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_values_3 = {
-	"values",
-	"values",
+	ASN_NAME("values"),
+	ASN_NAME("values"),
 	&asn_OP_SET_OF,
 	asn_DEF_values_tags_3,
 	sizeof(asn_DEF_values_tags_3)
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_Attribute_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"type"
+		ASN_NAME("type")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct Attribute, values),
 		(ASN_TAG_CLASS_UNIVERSAL | (17 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_Attribute_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"values"
+		ASN_NAME("values")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_Attribute_tags_1[] = {
@@ -79,8 +79,8 @@ asn_SEQUENCE_specifics_t asn_SPC_Attribute_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_Attribute = {
-	"Attribute",
-	"Attribute",
+	ASN_NAME("Attribute"),
+	ASN_NAME("Attribute"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_Attribute_tags_1,
 	sizeof(asn_DEF_Attribute_tags_1)

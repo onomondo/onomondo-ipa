@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PrepareDownloadResponseOk_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccSigned2"
+		ASN_NAME("euiccSigned2")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PrepareDownloadResponseOk, euiccSignature2),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PrepareDownloadResponseOk_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccSignature2"
+		ASN_NAME("euiccSignature2")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PrepareDownloadResponseOk_tags_1[] = {
@@ -43,8 +43,8 @@ asn_SEQUENCE_specifics_t asn_SPC_PrepareDownloadResponseOk_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PrepareDownloadResponseOk = {
-	"PrepareDownloadResponseOk",
-	"PrepareDownloadResponseOk",
+	ASN_NAME("PrepareDownloadResponseOk"),
+	ASN_NAME("PrepareDownloadResponseOk"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_PrepareDownloadResponseOk_tags_1,
 	sizeof(asn_DEF_PrepareDownloadResponseOk_tags_1)

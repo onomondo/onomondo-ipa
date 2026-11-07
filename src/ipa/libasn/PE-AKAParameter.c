@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_algoConfiguration_3[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"mappingParameter"
+		ASN_NAME("mappingParameter")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_AKAParameter__algoConfiguration, choice.algoParameter),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_algoConfiguration_3[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"algoParameter"
+		ASN_NAME("algoParameter")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_algoConfiguration_tag2el_3[] = {
@@ -43,8 +43,8 @@ static asn_CHOICE_specifics_t asn_SPC_algoConfiguration_specs_3 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_algoConfiguration_3 = {
-	"algoConfiguration",
-	"algoConfiguration",
+	ASN_NAME("algoConfiguration"),
+	ASN_NAME("algoConfiguration"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
@@ -64,7 +64,7 @@ static asn_TYPE_member_t asn_MBR_sqnInit_10[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_sqnInit_tags_10[] = {
@@ -78,8 +78,8 @@ static asn_SET_OF_specifics_t asn_SPC_sqnInit_specs_10 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_sqnInit_10 = {
-	"sqnInit",
-	"sqnInit",
+	ASN_NAME("sqnInit"),
+	ASN_NAME("sqnInit"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_sqnInit_tags_10,
 	sizeof(asn_DEF_sqnInit_tags_10)
@@ -101,7 +101,7 @@ asn_TYPE_member_t asn_MBR_PE_AKAParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"aka-header"
+		ASN_NAME("aka-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_AKAParameter, algoConfiguration),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -110,7 +110,7 @@ asn_TYPE_member_t asn_MBR_PE_AKAParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"algoConfiguration"
+		ASN_NAME("algoConfiguration")
 		},
 	{ ATF_POINTER, 4, offsetof(struct PE_AKAParameter, sqnOptions),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -119,7 +119,7 @@ asn_TYPE_member_t asn_MBR_PE_AKAParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"sqnOptions"
+		ASN_NAME("sqnOptions")
 		},
 	{ ATF_POINTER, 3, offsetof(struct PE_AKAParameter, sqnDelta),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -128,7 +128,7 @@ asn_TYPE_member_t asn_MBR_PE_AKAParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"sqnDelta"
+		ASN_NAME("sqnDelta")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PE_AKAParameter, sqnAgeLimit),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -137,7 +137,7 @@ asn_TYPE_member_t asn_MBR_PE_AKAParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"sqnAgeLimit"
+		ASN_NAME("sqnAgeLimit")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_AKAParameter, sqnInit),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -146,7 +146,7 @@ asn_TYPE_member_t asn_MBR_PE_AKAParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"sqnInit"
+		ASN_NAME("sqnInit")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_AKAParameter_tags_1[] = {
@@ -169,8 +169,8 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_AKAParameter_specs_1 = {
 	6,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_AKAParameter = {
-	"PE-AKAParameter",
-	"PE-AKAParameter",
+	ASN_NAME("PE-AKAParameter"),
+	ASN_NAME("PE-AKAParameter"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_AKAParameter_tags_1,
 	sizeof(asn_DEF_PE_AKAParameter_tags_1)

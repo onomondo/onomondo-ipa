@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"gsmSupportedRelease"
+		ASN_NAME("gsmSupportedRelease")
 		},
 	{ ATF_POINTER, 14, offsetof(struct DeviceCapabilities, utranSupportedRelease),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"utranSupportedRelease"
+		ASN_NAME("utranSupportedRelease")
 		},
 	{ ATF_POINTER, 13, offsetof(struct DeviceCapabilities, cdma2000onexSupportedRelease),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"cdma2000onexSupportedRelease"
+		ASN_NAME("cdma2000onexSupportedRelease")
 		},
 	{ ATF_POINTER, 12, offsetof(struct DeviceCapabilities, cdma2000hrpdSupportedRelease),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"cdma2000hrpdSupportedRelease"
+		ASN_NAME("cdma2000hrpdSupportedRelease")
 		},
 	{ ATF_POINTER, 11, offsetof(struct DeviceCapabilities, cdma2000ehrpdSupportedRelease),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"cdma2000ehrpdSupportedRelease"
+		ASN_NAME("cdma2000ehrpdSupportedRelease")
 		},
 	{ ATF_POINTER, 10, offsetof(struct DeviceCapabilities, eutranEpcSupportedRelease),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eutranEpcSupportedRelease"
+		ASN_NAME("eutranEpcSupportedRelease")
 		},
 	{ ATF_POINTER, 9, offsetof(struct DeviceCapabilities, contactlessSupportedRelease),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"contactlessSupportedRelease"
+		ASN_NAME("contactlessSupportedRelease")
 		},
 	{ ATF_POINTER, 8, offsetof(struct DeviceCapabilities, rspCrlSupportedVersion),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"rspCrlSupportedVersion"
+		ASN_NAME("rspCrlSupportedVersion")
 		},
 	{ ATF_POINTER, 7, offsetof(struct DeviceCapabilities, nrEpcSupportedRelease),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"nrEpcSupportedRelease"
+		ASN_NAME("nrEpcSupportedRelease")
 		},
 	{ ATF_POINTER, 6, offsetof(struct DeviceCapabilities, nr5gcSupportedRelease),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
@@ -96,7 +96,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"nr5gcSupportedRelease"
+		ASN_NAME("nr5gcSupportedRelease")
 		},
 	{ ATF_POINTER, 5, offsetof(struct DeviceCapabilities, eutran5gcSupportedRelease),
 		(ASN_TAG_CLASS_CONTEXT | (10 << 2)),
@@ -105,7 +105,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eutran5gcSupportedRelease"
+		ASN_NAME("eutran5gcSupportedRelease")
 		},
 	{ ATF_POINTER, 4, offsetof(struct DeviceCapabilities, lpaSvn),
 		(ASN_TAG_CLASS_CONTEXT | (11 << 2)),
@@ -114,7 +114,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"lpaSvn"
+		ASN_NAME("lpaSvn")
 		},
 	{ ATF_POINTER, 3, offsetof(struct DeviceCapabilities, catSupportedClasses),
 		(ASN_TAG_CLASS_CONTEXT | (12 << 2)),
@@ -123,7 +123,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"catSupportedClasses"
+		ASN_NAME("catSupportedClasses")
 		},
 	{ ATF_POINTER, 2, offsetof(struct DeviceCapabilities, euiccFormFactorType),
 		(ASN_TAG_CLASS_CONTEXT | (13 << 2)),
@@ -132,7 +132,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccFormFactorType"
+		ASN_NAME("euiccFormFactorType")
 		},
 	{ ATF_POINTER, 1, offsetof(struct DeviceCapabilities, deviceAdditionalFeatureSupport),
 		(ASN_TAG_CLASS_CONTEXT | (14 << 2)),
@@ -141,7 +141,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"deviceAdditionalFeatureSupport"
+		ASN_NAME("deviceAdditionalFeatureSupport")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_DeviceCapabilities_tags_1[] = {
@@ -173,8 +173,8 @@ asn_SEQUENCE_specifics_t asn_SPC_DeviceCapabilities_specs_1 = {
 	15,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_DeviceCapabilities = {
-	"DeviceCapabilities",
-	"DeviceCapabilities",
+	ASN_NAME("DeviceCapabilities"),
+	ASN_NAME("DeviceCapabilities"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_DeviceCapabilities_tags_1,
 	sizeof(asn_DEF_DeviceCapabilities_tags_1)

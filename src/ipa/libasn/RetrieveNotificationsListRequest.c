@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_searchCriteria_2[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"seqNumber"
+		ASN_NAME("seqNumber")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct RetrieveNotificationsListRequest__searchCriteria, choice.profileManagementOperation),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_searchCriteria_2[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileManagementOperation"
+		ASN_NAME("profileManagementOperation")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_searchCriteria_tag2el_2[] = {
@@ -43,8 +43,8 @@ static asn_CHOICE_specifics_t asn_SPC_searchCriteria_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_searchCriteria_2 = {
-	"searchCriteria",
-	"searchCriteria",
+	ASN_NAME("searchCriteria"),
+	ASN_NAME("searchCriteria"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
@@ -64,7 +64,7 @@ static asn_TYPE_member_t asn_MBR_RetrieveNotificationsListRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"searchCriteria"
+		ASN_NAME("searchCriteria")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_RetrieveNotificationsListRequest_tags_1[] = {
@@ -83,8 +83,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_RetrieveNotificationsListRequest_specs_1
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_RetrieveNotificationsListRequest = {
-	"RetrieveNotificationsListRequest",
-	"RetrieveNotificationsListRequest",
+	ASN_NAME("RetrieveNotificationsListRequest"),
+	ASN_NAME("RetrieveNotificationsListRequest"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_RetrieveNotificationsListRequest_tags_1,
 	sizeof(asn_DEF_RetrieveNotificationsListRequest_tags_1)

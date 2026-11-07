@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"optusim-header"
+		ASN_NAME("optusim-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_OPT_USIM, templateID),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"templateID"
+		ASN_NAME("templateID")
 		},
 	{ ATF_POINTER, 86, offsetof(struct PE_OPT_USIM, ef_li),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-li"
+		ASN_NAME("ef-li")
 		},
 	{ ATF_POINTER, 85, offsetof(struct PE_OPT_USIM, ef_acmax),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-acmax"
+		ASN_NAME("ef-acmax")
 		},
 	{ ATF_POINTER, 84, offsetof(struct PE_OPT_USIM, ef_acm),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-acm"
+		ASN_NAME("ef-acm")
 		},
 	{ ATF_POINTER, 83, offsetof(struct PE_OPT_USIM, ef_gid1),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-gid1"
+		ASN_NAME("ef-gid1")
 		},
 	{ ATF_POINTER, 82, offsetof(struct PE_OPT_USIM, ef_gid2),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-gid2"
+		ASN_NAME("ef-gid2")
 		},
 	{ ATF_POINTER, 81, offsetof(struct PE_OPT_USIM, ef_msisdn),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-msisdn"
+		ASN_NAME("ef-msisdn")
 		},
 	{ ATF_POINTER, 80, offsetof(struct PE_OPT_USIM, ef_puct),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-puct"
+		ASN_NAME("ef-puct")
 		},
 	{ ATF_POINTER, 79, offsetof(struct PE_OPT_USIM, ef_cbmi),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
@@ -96,7 +96,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-cbmi"
+		ASN_NAME("ef-cbmi")
 		},
 	{ ATF_POINTER, 78, offsetof(struct PE_OPT_USIM, ef_cbmid),
 		(ASN_TAG_CLASS_CONTEXT | (10 << 2)),
@@ -105,7 +105,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-cbmid"
+		ASN_NAME("ef-cbmid")
 		},
 	{ ATF_POINTER, 77, offsetof(struct PE_OPT_USIM, ef_sdn),
 		(ASN_TAG_CLASS_CONTEXT | (11 << 2)),
@@ -114,7 +114,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-sdn"
+		ASN_NAME("ef-sdn")
 		},
 	{ ATF_POINTER, 76, offsetof(struct PE_OPT_USIM, ef_ext2),
 		(ASN_TAG_CLASS_CONTEXT | (12 << 2)),
@@ -123,7 +123,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ext2"
+		ASN_NAME("ef-ext2")
 		},
 	{ ATF_POINTER, 75, offsetof(struct PE_OPT_USIM, ef_ext3),
 		(ASN_TAG_CLASS_CONTEXT | (13 << 2)),
@@ -132,7 +132,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ext3"
+		ASN_NAME("ef-ext3")
 		},
 	{ ATF_POINTER, 74, offsetof(struct PE_OPT_USIM, ef_cbmir),
 		(ASN_TAG_CLASS_CONTEXT | (14 << 2)),
@@ -141,7 +141,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-cbmir"
+		ASN_NAME("ef-cbmir")
 		},
 	{ ATF_POINTER, 73, offsetof(struct PE_OPT_USIM, ef_plmnwact),
 		(ASN_TAG_CLASS_CONTEXT | (15 << 2)),
@@ -150,7 +150,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-plmnwact"
+		ASN_NAME("ef-plmnwact")
 		},
 	{ ATF_POINTER, 72, offsetof(struct PE_OPT_USIM, ef_oplmnwact),
 		(ASN_TAG_CLASS_CONTEXT | (16 << 2)),
@@ -159,7 +159,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-oplmnwact"
+		ASN_NAME("ef-oplmnwact")
 		},
 	{ ATF_POINTER, 71, offsetof(struct PE_OPT_USIM, ef_hplmnwact),
 		(ASN_TAG_CLASS_CONTEXT | (17 << 2)),
@@ -168,7 +168,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-hplmnwact"
+		ASN_NAME("ef-hplmnwact")
 		},
 	{ ATF_POINTER, 70, offsetof(struct PE_OPT_USIM, ef_dck),
 		(ASN_TAG_CLASS_CONTEXT | (18 << 2)),
@@ -177,7 +177,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-dck"
+		ASN_NAME("ef-dck")
 		},
 	{ ATF_POINTER, 69, offsetof(struct PE_OPT_USIM, ef_cnl),
 		(ASN_TAG_CLASS_CONTEXT | (19 << 2)),
@@ -186,7 +186,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-cnl"
+		ASN_NAME("ef-cnl")
 		},
 	{ ATF_POINTER, 68, offsetof(struct PE_OPT_USIM, ef_smsr),
 		(ASN_TAG_CLASS_CONTEXT | (20 << 2)),
@@ -195,7 +195,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-smsr"
+		ASN_NAME("ef-smsr")
 		},
 	{ ATF_POINTER, 67, offsetof(struct PE_OPT_USIM, ef_bdn),
 		(ASN_TAG_CLASS_CONTEXT | (21 << 2)),
@@ -204,7 +204,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-bdn"
+		ASN_NAME("ef-bdn")
 		},
 	{ ATF_POINTER, 66, offsetof(struct PE_OPT_USIM, ef_ext5),
 		(ASN_TAG_CLASS_CONTEXT | (22 << 2)),
@@ -213,7 +213,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ext5"
+		ASN_NAME("ef-ext5")
 		},
 	{ ATF_POINTER, 65, offsetof(struct PE_OPT_USIM, ef_ccp2),
 		(ASN_TAG_CLASS_CONTEXT | (23 << 2)),
@@ -222,7 +222,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ccp2"
+		ASN_NAME("ef-ccp2")
 		},
 	{ ATF_POINTER, 64, offsetof(struct PE_OPT_USIM, ef_ext4),
 		(ASN_TAG_CLASS_CONTEXT | (24 << 2)),
@@ -231,7 +231,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ext4"
+		ASN_NAME("ef-ext4")
 		},
 	{ ATF_POINTER, 63, offsetof(struct PE_OPT_USIM, ef_acl),
 		(ASN_TAG_CLASS_CONTEXT | (25 << 2)),
@@ -240,7 +240,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-acl"
+		ASN_NAME("ef-acl")
 		},
 	{ ATF_POINTER, 62, offsetof(struct PE_OPT_USIM, ef_cmi),
 		(ASN_TAG_CLASS_CONTEXT | (26 << 2)),
@@ -249,7 +249,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-cmi"
+		ASN_NAME("ef-cmi")
 		},
 	{ ATF_POINTER, 61, offsetof(struct PE_OPT_USIM, ef_ici),
 		(ASN_TAG_CLASS_CONTEXT | (27 << 2)),
@@ -258,7 +258,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ici"
+		ASN_NAME("ef-ici")
 		},
 	{ ATF_POINTER, 60, offsetof(struct PE_OPT_USIM, ef_oci),
 		(ASN_TAG_CLASS_CONTEXT | (28 << 2)),
@@ -267,7 +267,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-oci"
+		ASN_NAME("ef-oci")
 		},
 	{ ATF_POINTER, 59, offsetof(struct PE_OPT_USIM, ef_ict),
 		(ASN_TAG_CLASS_CONTEXT | (29 << 2)),
@@ -276,7 +276,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ict"
+		ASN_NAME("ef-ict")
 		},
 	{ ATF_POINTER, 58, offsetof(struct PE_OPT_USIM, ef_oct),
 		(ASN_TAG_CLASS_CONTEXT | (30 << 2)),
@@ -285,7 +285,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-oct"
+		ASN_NAME("ef-oct")
 		},
 	{ ATF_POINTER, 57, offsetof(struct PE_OPT_USIM, ef_vgcs),
 		(ASN_TAG_CLASS_CONTEXT | (31 << 2)),
@@ -294,7 +294,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-vgcs"
+		ASN_NAME("ef-vgcs")
 		},
 	{ ATF_POINTER, 56, offsetof(struct PE_OPT_USIM, ef_vgcss),
 		(ASN_TAG_CLASS_CONTEXT | (32 << 2)),
@@ -303,7 +303,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-vgcss"
+		ASN_NAME("ef-vgcss")
 		},
 	{ ATF_POINTER, 55, offsetof(struct PE_OPT_USIM, ef_vbs),
 		(ASN_TAG_CLASS_CONTEXT | (33 << 2)),
@@ -312,7 +312,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-vbs"
+		ASN_NAME("ef-vbs")
 		},
 	{ ATF_POINTER, 54, offsetof(struct PE_OPT_USIM, ef_vbss),
 		(ASN_TAG_CLASS_CONTEXT | (34 << 2)),
@@ -321,7 +321,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-vbss"
+		ASN_NAME("ef-vbss")
 		},
 	{ ATF_POINTER, 53, offsetof(struct PE_OPT_USIM, ef_emlpp),
 		(ASN_TAG_CLASS_CONTEXT | (35 << 2)),
@@ -330,7 +330,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-emlpp"
+		ASN_NAME("ef-emlpp")
 		},
 	{ ATF_POINTER, 52, offsetof(struct PE_OPT_USIM, ef_aaem),
 		(ASN_TAG_CLASS_CONTEXT | (36 << 2)),
@@ -339,7 +339,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-aaem"
+		ASN_NAME("ef-aaem")
 		},
 	{ ATF_POINTER, 51, offsetof(struct PE_OPT_USIM, ef_hiddenkey),
 		(ASN_TAG_CLASS_CONTEXT | (37 << 2)),
@@ -348,7 +348,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-hiddenkey"
+		ASN_NAME("ef-hiddenkey")
 		},
 	{ ATF_POINTER, 50, offsetof(struct PE_OPT_USIM, ef_pnn),
 		(ASN_TAG_CLASS_CONTEXT | (38 << 2)),
@@ -357,7 +357,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-pnn"
+		ASN_NAME("ef-pnn")
 		},
 	{ ATF_POINTER, 49, offsetof(struct PE_OPT_USIM, ef_opl),
 		(ASN_TAG_CLASS_CONTEXT | (39 << 2)),
@@ -366,7 +366,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-opl"
+		ASN_NAME("ef-opl")
 		},
 	{ ATF_POINTER, 48, offsetof(struct PE_OPT_USIM, ef_mbdn),
 		(ASN_TAG_CLASS_CONTEXT | (40 << 2)),
@@ -375,7 +375,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-mbdn"
+		ASN_NAME("ef-mbdn")
 		},
 	{ ATF_POINTER, 47, offsetof(struct PE_OPT_USIM, ef_ext6),
 		(ASN_TAG_CLASS_CONTEXT | (41 << 2)),
@@ -384,7 +384,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ext6"
+		ASN_NAME("ef-ext6")
 		},
 	{ ATF_POINTER, 46, offsetof(struct PE_OPT_USIM, ef_mbi),
 		(ASN_TAG_CLASS_CONTEXT | (42 << 2)),
@@ -393,7 +393,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-mbi"
+		ASN_NAME("ef-mbi")
 		},
 	{ ATF_POINTER, 45, offsetof(struct PE_OPT_USIM, ef_mwis),
 		(ASN_TAG_CLASS_CONTEXT | (43 << 2)),
@@ -402,7 +402,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-mwis"
+		ASN_NAME("ef-mwis")
 		},
 	{ ATF_POINTER, 44, offsetof(struct PE_OPT_USIM, ef_cfis),
 		(ASN_TAG_CLASS_CONTEXT | (44 << 2)),
@@ -411,7 +411,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-cfis"
+		ASN_NAME("ef-cfis")
 		},
 	{ ATF_POINTER, 43, offsetof(struct PE_OPT_USIM, ef_ext7),
 		(ASN_TAG_CLASS_CONTEXT | (45 << 2)),
@@ -420,7 +420,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ext7"
+		ASN_NAME("ef-ext7")
 		},
 	{ ATF_POINTER, 42, offsetof(struct PE_OPT_USIM, ef_spdi),
 		(ASN_TAG_CLASS_CONTEXT | (46 << 2)),
@@ -429,7 +429,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-spdi"
+		ASN_NAME("ef-spdi")
 		},
 	{ ATF_POINTER, 41, offsetof(struct PE_OPT_USIM, ef_mmsn),
 		(ASN_TAG_CLASS_CONTEXT | (47 << 2)),
@@ -438,7 +438,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-mmsn"
+		ASN_NAME("ef-mmsn")
 		},
 	{ ATF_POINTER, 40, offsetof(struct PE_OPT_USIM, ef_ext8),
 		(ASN_TAG_CLASS_CONTEXT | (48 << 2)),
@@ -447,7 +447,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ext8"
+		ASN_NAME("ef-ext8")
 		},
 	{ ATF_POINTER, 39, offsetof(struct PE_OPT_USIM, ef_mmsicp),
 		(ASN_TAG_CLASS_CONTEXT | (49 << 2)),
@@ -456,7 +456,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-mmsicp"
+		ASN_NAME("ef-mmsicp")
 		},
 	{ ATF_POINTER, 38, offsetof(struct PE_OPT_USIM, ef_mmsup),
 		(ASN_TAG_CLASS_CONTEXT | (50 << 2)),
@@ -465,7 +465,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-mmsup"
+		ASN_NAME("ef-mmsup")
 		},
 	{ ATF_POINTER, 37, offsetof(struct PE_OPT_USIM, ef_mmsucp),
 		(ASN_TAG_CLASS_CONTEXT | (51 << 2)),
@@ -474,7 +474,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-mmsucp"
+		ASN_NAME("ef-mmsucp")
 		},
 	{ ATF_POINTER, 36, offsetof(struct PE_OPT_USIM, ef_nia),
 		(ASN_TAG_CLASS_CONTEXT | (52 << 2)),
@@ -483,7 +483,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-nia"
+		ASN_NAME("ef-nia")
 		},
 	{ ATF_POINTER, 35, offsetof(struct PE_OPT_USIM, ef_vgcsca),
 		(ASN_TAG_CLASS_CONTEXT | (53 << 2)),
@@ -492,7 +492,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-vgcsca"
+		ASN_NAME("ef-vgcsca")
 		},
 	{ ATF_POINTER, 34, offsetof(struct PE_OPT_USIM, ef_vbsca),
 		(ASN_TAG_CLASS_CONTEXT | (54 << 2)),
@@ -501,7 +501,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-vbsca"
+		ASN_NAME("ef-vbsca")
 		},
 	{ ATF_POINTER, 33, offsetof(struct PE_OPT_USIM, ef_gbabp),
 		(ASN_TAG_CLASS_CONTEXT | (55 << 2)),
@@ -510,7 +510,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-gbabp"
+		ASN_NAME("ef-gbabp")
 		},
 	{ ATF_POINTER, 32, offsetof(struct PE_OPT_USIM, ef_msk),
 		(ASN_TAG_CLASS_CONTEXT | (56 << 2)),
@@ -519,7 +519,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-msk"
+		ASN_NAME("ef-msk")
 		},
 	{ ATF_POINTER, 31, offsetof(struct PE_OPT_USIM, ef_muk),
 		(ASN_TAG_CLASS_CONTEXT | (57 << 2)),
@@ -528,7 +528,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-muk"
+		ASN_NAME("ef-muk")
 		},
 	{ ATF_POINTER, 30, offsetof(struct PE_OPT_USIM, ef_ehplmn),
 		(ASN_TAG_CLASS_CONTEXT | (58 << 2)),
@@ -537,7 +537,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ehplmn"
+		ASN_NAME("ef-ehplmn")
 		},
 	{ ATF_POINTER, 29, offsetof(struct PE_OPT_USIM, ef_gbanl),
 		(ASN_TAG_CLASS_CONTEXT | (59 << 2)),
@@ -546,7 +546,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-gbanl"
+		ASN_NAME("ef-gbanl")
 		},
 	{ ATF_POINTER, 28, offsetof(struct PE_OPT_USIM, ef_ehplmnpi),
 		(ASN_TAG_CLASS_CONTEXT | (60 << 2)),
@@ -555,7 +555,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ehplmnpi"
+		ASN_NAME("ef-ehplmnpi")
 		},
 	{ ATF_POINTER, 27, offsetof(struct PE_OPT_USIM, ef_lrplmnsi),
 		(ASN_TAG_CLASS_CONTEXT | (61 << 2)),
@@ -564,7 +564,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-lrplmnsi"
+		ASN_NAME("ef-lrplmnsi")
 		},
 	{ ATF_POINTER, 26, offsetof(struct PE_OPT_USIM, ef_nafkca),
 		(ASN_TAG_CLASS_CONTEXT | (62 << 2)),
@@ -573,7 +573,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-nafkca"
+		ASN_NAME("ef-nafkca")
 		},
 	{ ATF_POINTER, 25, offsetof(struct PE_OPT_USIM, ef_spni),
 		(ASN_TAG_CLASS_CONTEXT | (63 << 2)),
@@ -582,7 +582,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-spni"
+		ASN_NAME("ef-spni")
 		},
 	{ ATF_POINTER, 24, offsetof(struct PE_OPT_USIM, ef_pnni),
 		(ASN_TAG_CLASS_CONTEXT | (64 << 2)),
@@ -591,7 +591,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-pnni"
+		ASN_NAME("ef-pnni")
 		},
 	{ ATF_POINTER, 23, offsetof(struct PE_OPT_USIM, ef_ncp_ip),
 		(ASN_TAG_CLASS_CONTEXT | (65 << 2)),
@@ -600,7 +600,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ncp-ip"
+		ASN_NAME("ef-ncp-ip")
 		},
 	{ ATF_POINTER, 22, offsetof(struct PE_OPT_USIM, ef_ufc),
 		(ASN_TAG_CLASS_CONTEXT | (66 << 2)),
@@ -609,7 +609,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ufc"
+		ASN_NAME("ef-ufc")
 		},
 	{ ATF_POINTER, 21, offsetof(struct PE_OPT_USIM, ef_nasconfig),
 		(ASN_TAG_CLASS_CONTEXT | (67 << 2)),
@@ -618,7 +618,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-nasconfig"
+		ASN_NAME("ef-nasconfig")
 		},
 	{ ATF_POINTER, 20, offsetof(struct PE_OPT_USIM, ef_uicciari),
 		(ASN_TAG_CLASS_CONTEXT | (68 << 2)),
@@ -627,7 +627,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-uicciari"
+		ASN_NAME("ef-uicciari")
 		},
 	{ ATF_POINTER, 19, offsetof(struct PE_OPT_USIM, ef_pws),
 		(ASN_TAG_CLASS_CONTEXT | (69 << 2)),
@@ -636,7 +636,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-pws"
+		ASN_NAME("ef-pws")
 		},
 	{ ATF_POINTER, 18, offsetof(struct PE_OPT_USIM, ef_fdnuri),
 		(ASN_TAG_CLASS_CONTEXT | (70 << 2)),
@@ -645,7 +645,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-fdnuri"
+		ASN_NAME("ef-fdnuri")
 		},
 	{ ATF_POINTER, 17, offsetof(struct PE_OPT_USIM, ef_bdnuri),
 		(ASN_TAG_CLASS_CONTEXT | (71 << 2)),
@@ -654,7 +654,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-bdnuri"
+		ASN_NAME("ef-bdnuri")
 		},
 	{ ATF_POINTER, 16, offsetof(struct PE_OPT_USIM, ef_sdnuri),
 		(ASN_TAG_CLASS_CONTEXT | (72 << 2)),
@@ -663,7 +663,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-sdnuri"
+		ASN_NAME("ef-sdnuri")
 		},
 	{ ATF_POINTER, 15, offsetof(struct PE_OPT_USIM, ef_ial),
 		(ASN_TAG_CLASS_CONTEXT | (73 << 2)),
@@ -672,7 +672,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ial"
+		ASN_NAME("ef-ial")
 		},
 	{ ATF_POINTER, 14, offsetof(struct PE_OPT_USIM, ef_ips),
 		(ASN_TAG_CLASS_CONTEXT | (74 << 2)),
@@ -681,7 +681,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ips"
+		ASN_NAME("ef-ips")
 		},
 	{ ATF_POINTER, 13, offsetof(struct PE_OPT_USIM, ef_ipd),
 		(ASN_TAG_CLASS_CONTEXT | (75 << 2)),
@@ -690,7 +690,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ipd"
+		ASN_NAME("ef-ipd")
 		},
 	{ ATF_POINTER, 12, offsetof(struct PE_OPT_USIM, ef_epdgid),
 		(ASN_TAG_CLASS_CONTEXT | (76 << 2)),
@@ -699,7 +699,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-epdgid"
+		ASN_NAME("ef-epdgid")
 		},
 	{ ATF_POINTER, 11, offsetof(struct PE_OPT_USIM, ef_epdgselection),
 		(ASN_TAG_CLASS_CONTEXT | (77 << 2)),
@@ -708,7 +708,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-epdgselection"
+		ASN_NAME("ef-epdgselection")
 		},
 	{ ATF_POINTER, 10, offsetof(struct PE_OPT_USIM, ef_epdgidem),
 		(ASN_TAG_CLASS_CONTEXT | (78 << 2)),
@@ -717,7 +717,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-epdgidem"
+		ASN_NAME("ef-epdgidem")
 		},
 	{ ATF_POINTER, 9, offsetof(struct PE_OPT_USIM, ef_epdgselectionem),
 		(ASN_TAG_CLASS_CONTEXT | (79 << 2)),
@@ -726,7 +726,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-epdgselectionem"
+		ASN_NAME("ef-epdgselectionem")
 		},
 	{ ATF_POINTER, 8, offsetof(struct PE_OPT_USIM, ef_frompreferred),
 		(ASN_TAG_CLASS_CONTEXT | (80 << 2)),
@@ -735,7 +735,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-frompreferred"
+		ASN_NAME("ef-frompreferred")
 		},
 	{ ATF_POINTER, 7, offsetof(struct PE_OPT_USIM, ef_imsconfigdata),
 		(ASN_TAG_CLASS_CONTEXT | (81 << 2)),
@@ -744,7 +744,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-imsconfigdata"
+		ASN_NAME("ef-imsconfigdata")
 		},
 	{ ATF_POINTER, 6, offsetof(struct PE_OPT_USIM, ef_3gpppsdataoff),
 		(ASN_TAG_CLASS_CONTEXT | (82 << 2)),
@@ -753,7 +753,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-3gpppsdataoff"
+		ASN_NAME("ef-3gpppsdataoff")
 		},
 	{ ATF_POINTER, 5, offsetof(struct PE_OPT_USIM, ef_3gpppsdataoffservicelist),
 		(ASN_TAG_CLASS_CONTEXT | (83 << 2)),
@@ -762,7 +762,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-3gpppsdataoffservicelist"
+		ASN_NAME("ef-3gpppsdataoffservicelist")
 		},
 	{ ATF_POINTER, 4, offsetof(struct PE_OPT_USIM, ef_xcapconfigdata),
 		(ASN_TAG_CLASS_CONTEXT | (84 << 2)),
@@ -771,7 +771,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-xcapconfigdata"
+		ASN_NAME("ef-xcapconfigdata")
 		},
 	{ ATF_POINTER, 3, offsetof(struct PE_OPT_USIM, ef_earfcnlist),
 		(ASN_TAG_CLASS_CONTEXT | (85 << 2)),
@@ -780,7 +780,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-earfcnlist"
+		ASN_NAME("ef-earfcnlist")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PE_OPT_USIM, ef_mudmidconfigdata),
 		(ASN_TAG_CLASS_CONTEXT | (86 << 2)),
@@ -789,7 +789,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-mudmidconfigdata"
+		ASN_NAME("ef-mudmidconfigdata")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_OPT_USIM, ef_eaka),
 		(ASN_TAG_CLASS_CONTEXT | (87 << 2)),
@@ -798,7 +798,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_USIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-eaka"
+		ASN_NAME("ef-eaka")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_OPT_USIM_tags_1[] = {
@@ -903,8 +903,8 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_OPT_USIM_specs_1 = {
 	88,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_OPT_USIM = {
-	"PE-OPT-USIM",
-	"PE-OPT-USIM",
+	ASN_NAME("PE-OPT-USIM"),
+	ASN_NAME("PE-OPT-USIM"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_OPT_USIM_tags_1,
 	sizeof(asn_DEF_PE_OPT_USIM_tags_1)

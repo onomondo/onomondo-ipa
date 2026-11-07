@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_SGP32_SetDefaultDpAddressResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"setDefaultDpAddressResult"
+		ASN_NAME("setDefaultDpAddressResult")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_SGP32_SetDefaultDpAddressResponse_tags_1[] = {
@@ -34,8 +34,8 @@ asn_SEQUENCE_specifics_t asn_SPC_SGP32_SetDefaultDpAddressResponse_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_SGP32_SetDefaultDpAddressResponse = {
-	"SGP32-SetDefaultDpAddressResponse",
-	"SGP32-SetDefaultDpAddressResponse",
+	ASN_NAME("SGP32-SetDefaultDpAddressResponse"),
+	ASN_NAME("SGP32-SetDefaultDpAddressResponse"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_SGP32_SetDefaultDpAddressResponse_tags_1,
 	sizeof(asn_DEF_SGP32_SetDefaultDpAddressResponse_tags_1)

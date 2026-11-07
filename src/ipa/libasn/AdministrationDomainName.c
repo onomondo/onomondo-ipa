@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_AdministrationDomainName_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"numeric"
+		ASN_NAME("numeric")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AdministrationDomainName, choice.printable),
 		(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_AdministrationDomainName_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"printable"
+		ASN_NAME("printable")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AdministrationDomainName_tags_1[] = {
@@ -45,8 +45,8 @@ asn_CHOICE_specifics_t asn_SPC_AdministrationDomainName_specs_1 = {
 	-1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_AdministrationDomainName = {
-	"AdministrationDomainName",
-	"AdministrationDomainName",
+	ASN_NAME("AdministrationDomainName"),
+	ASN_NAME("AdministrationDomainName"),
 	&asn_OP_CHOICE,
 	asn_DEF_AdministrationDomainName_tags_1,
 	sizeof(asn_DEF_AdministrationDomainName_tags_1)

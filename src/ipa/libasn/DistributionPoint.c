@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_DistributionPoint_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"distributionPoint"
+		ASN_NAME("distributionPoint")
 		},
 	{ ATF_POINTER, 2, offsetof(struct DistributionPoint, reasons),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_DistributionPoint_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"reasons"
+		ASN_NAME("reasons")
 		},
 	{ ATF_POINTER, 1, offsetof(struct DistributionPoint, cRLIssuer),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_DistributionPoint_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"cRLIssuer"
+		ASN_NAME("cRLIssuer")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_DistributionPoint_tags_1[] = {
@@ -53,8 +53,8 @@ asn_SEQUENCE_specifics_t asn_SPC_DistributionPoint_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_DistributionPoint = {
-	"DistributionPoint",
-	"DistributionPoint",
+	ASN_NAME("DistributionPoint"),
+	ASN_NAME("DistributionPoint"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_DistributionPoint_tags_1,
 	sizeof(asn_DEF_DistributionPoint_tags_1)

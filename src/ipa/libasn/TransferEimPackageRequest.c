@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_TransferEimPackageRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccPackageRequest"
+		ASN_NAME("euiccPackageRequest")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TransferEimPackageRequest, choice.ipaEuiccDataRequest),
 		(ASN_TAG_CLASS_CONTEXT | (82 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_TransferEimPackageRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ipaEuiccDataRequest"
+		ASN_NAME("ipaEuiccDataRequest")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TransferEimPackageRequest, choice.eimAcknowledgements),
 		(ASN_TAG_CLASS_CONTEXT | (83 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_TransferEimPackageRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eimAcknowledgements"
+		ASN_NAME("eimAcknowledgements")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TransferEimPackageRequest, choice.profileDownloadTriggerRequest),
 		(ASN_TAG_CLASS_CONTEXT | (84 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_TransferEimPackageRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileDownloadTriggerRequest"
+		ASN_NAME("profileDownloadTriggerRequest")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_TransferEimPackageRequest_tags_1[] = {
@@ -65,8 +65,8 @@ asn_CHOICE_specifics_t asn_SPC_TransferEimPackageRequest_specs_1 = {
 	4	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_TransferEimPackageRequest = {
-	"TransferEimPackageRequest",
-	"TransferEimPackageRequest",
+	ASN_NAME("TransferEimPackageRequest"),
+	ASN_NAME("TransferEimPackageRequest"),
 	&asn_OP_CHOICE,
 	asn_DEF_TransferEimPackageRequest_tags_1,
 	sizeof(asn_DEF_TransferEimPackageRequest_tags_1)

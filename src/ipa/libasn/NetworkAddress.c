@@ -15,8 +15,8 @@ static const ber_tlv_tag_t asn_DEF_NetworkAddress_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (18 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_NetworkAddress = {
-	"NetworkAddress",
-	"NetworkAddress",
+	ASN_NAME("NetworkAddress"),
+	ASN_NAME("NetworkAddress"),
 	&asn_OP_NumericString,
 	asn_DEF_NetworkAddress_tags_1,
 	sizeof(asn_DEF_NetworkAddress_tags_1)

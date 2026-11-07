@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_eventEntries_3[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_eventEntries_tags_3[] = {
@@ -29,8 +29,8 @@ static asn_SET_OF_specifics_t asn_SPC_eventEntries_specs_3 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_eventEntries_3 = {
-	"eventEntries",
-	"eventEntries",
+	ASN_NAME("eventEntries"),
+	ASN_NAME("eventEntries"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_eventEntries_tags_3,
 	sizeof(asn_DEF_eventEntries_tags_3)
@@ -52,7 +52,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOkEs11_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"transactionId"
+		ASN_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateClientOkEs11, eventEntries),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -61,7 +61,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOkEs11_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eventEntries"
+		ASN_NAME("eventEntries")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AuthenticateClientOkEs11_tags_1[] = {
@@ -80,8 +80,8 @@ asn_SEQUENCE_specifics_t asn_SPC_AuthenticateClientOkEs11_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_AuthenticateClientOkEs11 = {
-	"AuthenticateClientOkEs11",
-	"AuthenticateClientOkEs11",
+	ASN_NAME("AuthenticateClientOkEs11"),
+	ASN_NAME("AuthenticateClientOkEs11"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_AuthenticateClientOkEs11_tags_1,
 	sizeof(asn_DEF_AuthenticateClientOkEs11_tags_1)

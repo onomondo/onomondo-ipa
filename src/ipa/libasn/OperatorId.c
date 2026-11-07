@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_OperatorId_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"mccMnc"
+		ASN_NAME("mccMnc")
 		},
 	{ ATF_POINTER, 2, offsetof(struct OperatorId, gid1),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_OperatorId_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"gid1"
+		ASN_NAME("gid1")
 		},
 	{ ATF_POINTER, 1, offsetof(struct OperatorId, gid2),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_OperatorId_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"gid2"
+		ASN_NAME("gid2")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_OperatorId_tags_1[] = {
@@ -53,8 +53,8 @@ asn_SEQUENCE_specifics_t asn_SPC_OperatorId_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_OperatorId = {
-	"OperatorId",
-	"OperatorId",
+	ASN_NAME("OperatorId"),
+	ASN_NAME("OperatorId"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_OperatorId_tags_1,
 	sizeof(asn_DEF_OperatorId_tags_1)

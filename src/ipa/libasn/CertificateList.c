@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CertificateList_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"tbsCertList"
+		ASN_NAME("tbsCertList")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CertificateList, signatureAlgorithm),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_CertificateList_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"signatureAlgorithm"
+		ASN_NAME("signatureAlgorithm")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CertificateList, signature),
 		(ASN_TAG_CLASS_UNIVERSAL | (3 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_CertificateList_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"signature"
+		ASN_NAME("signature")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CertificateList_tags_1[] = {
@@ -53,8 +53,8 @@ asn_SEQUENCE_specifics_t asn_SPC_CertificateList_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CertificateList = {
-	"CertificateList",
-	"CertificateList",
+	ASN_NAME("CertificateList"),
+	ASN_NAME("CertificateList"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_CertificateList_tags_1,
 	sizeof(asn_DEF_CertificateList_tags_1)

@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_SGP32_PrepareDownloadResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"downloadResponseOk"
+		ASN_NAME("downloadResponseOk")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_PrepareDownloadResponse, choice.downloadResponseError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_SGP32_PrepareDownloadResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"downloadResponseError"
+		ASN_NAME("downloadResponseError")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_PrepareDownloadResponse, choice.compactDownloadResponseOk),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_SGP32_PrepareDownloadResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"compactDownloadResponseOk"
+		ASN_NAME("compactDownloadResponseOk")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_SGP32_PrepareDownloadResponse_tags_1[] = {
@@ -55,8 +55,8 @@ asn_CHOICE_specifics_t asn_SPC_SGP32_PrepareDownloadResponse_specs_1 = {
 	3	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_SGP32_PrepareDownloadResponse = {
-	"SGP32-PrepareDownloadResponse",
-	"SGP32-PrepareDownloadResponse",
+	ASN_NAME("SGP32-PrepareDownloadResponse"),
+	ASN_NAME("SGP32-PrepareDownloadResponse"),
 	&asn_OP_CHOICE,
 	asn_DEF_SGP32_PrepareDownloadResponse_tags_1,
 	sizeof(asn_DEF_SGP32_PrepareDownloadResponse_tags_1)

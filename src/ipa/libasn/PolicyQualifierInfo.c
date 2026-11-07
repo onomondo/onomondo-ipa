@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PolicyQualifierInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"policyQualifierId"
+		ASN_NAME("policyQualifierId")
 		},
 	{ ATF_ANY_TYPE | ATF_NOFLAGS, 0, offsetof(struct PolicyQualifierInfo, qualifier),
 		-1 /* Ambiguous tag (ANY?) */,
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PolicyQualifierInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"qualifier"
+		ASN_NAME("qualifier")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PolicyQualifierInfo_tags_1[] = {
@@ -42,8 +42,8 @@ asn_SEQUENCE_specifics_t asn_SPC_PolicyQualifierInfo_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PolicyQualifierInfo = {
-	"PolicyQualifierInfo",
-	"PolicyQualifierInfo",
+	ASN_NAME("PolicyQualifierInfo"),
+	ASN_NAME("PolicyQualifierInfo"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_PolicyQualifierInfo_tags_1,
 	sizeof(asn_DEF_PolicyQualifierInfo_tags_1)

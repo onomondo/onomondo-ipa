@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_EimAcknowledgements_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_EimAcknowledgements_tags_1[] = {
@@ -28,8 +28,8 @@ asn_SET_OF_specifics_t asn_SPC_EimAcknowledgements_specs_1 = {
 	0,	/* XER encoding is XMLDelimitedItemList */
 };
 asn_TYPE_descriptor_t asn_DEF_EimAcknowledgements = {
-	"EimAcknowledgements",
-	"EimAcknowledgements",
+	ASN_NAME("EimAcknowledgements"),
+	ASN_NAME("EimAcknowledgements"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_EimAcknowledgements_tags_1,
 	sizeof(asn_DEF_EimAcknowledgements_tags_1)

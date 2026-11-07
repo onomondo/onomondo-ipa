@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_deleteEim_3[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eimId"
+		ASN_NAME("eimId")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_deleteEim_tags_3[] = {
@@ -35,8 +35,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_deleteEim_specs_3 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_deleteEim_3 = {
-	"deleteEim",
-	"deleteEim",
+	ASN_NAME("deleteEim"),
+	ASN_NAME("deleteEim"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_deleteEim_tags_3,
 	sizeof(asn_DEF_deleteEim_tags_3)
@@ -64,8 +64,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_listEim_specs_7 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_listEim_7 = {
-	"listEim",
-	"listEim",
+	ASN_NAME("listEim"),
+	ASN_NAME("listEim"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_listEim_tags_7,
 	sizeof(asn_DEF_listEim_tags_7)
@@ -86,7 +86,7 @@ asn_TYPE_member_t asn_MBR_Eco_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"addEim"
+		ASN_NAME("addEim")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct Eco, choice.deleteEim),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
@@ -95,7 +95,7 @@ asn_TYPE_member_t asn_MBR_Eco_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"deleteEim"
+		ASN_NAME("deleteEim")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct Eco, choice.updateEim),
 		(ASN_TAG_CLASS_CONTEXT | (10 << 2)),
@@ -104,7 +104,7 @@ asn_TYPE_member_t asn_MBR_Eco_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"updateEim"
+		ASN_NAME("updateEim")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct Eco, choice.listEim),
 		(ASN_TAG_CLASS_CONTEXT | (11 << 2)),
@@ -113,7 +113,7 @@ asn_TYPE_member_t asn_MBR_Eco_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"listEim"
+		ASN_NAME("listEim")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_Eco_tag2el_1[] = {
@@ -133,8 +133,8 @@ asn_CHOICE_specifics_t asn_SPC_Eco_specs_1 = {
 	4	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_Eco = {
-	"Eco",
-	"Eco",
+	ASN_NAME("Eco"),
+	ASN_NAME("Eco"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

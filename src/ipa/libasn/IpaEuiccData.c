@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"notificationsList"
+		ASN_NAME("notificationsList")
 		},
 	{ ATF_POINTER, 11, offsetof(struct IpaEuiccData, defaultSmdpAddress),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"defaultSmdpAddress"
+		ASN_NAME("defaultSmdpAddress")
 		},
 	{ ATF_POINTER, 10, offsetof(struct IpaEuiccData, euiccPackageResultList),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccPackageResultList"
+		ASN_NAME("euiccPackageResultList")
 		},
 	{ ATF_POINTER, 9, offsetof(struct IpaEuiccData, euiccInfo1),
 		(ASN_TAG_CLASS_CONTEXT | (32 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccInfo1"
+		ASN_NAME("euiccInfo1")
 		},
 	{ ATF_POINTER, 8, offsetof(struct IpaEuiccData, euiccInfo2),
 		(ASN_TAG_CLASS_CONTEXT | (34 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccInfo2"
+		ASN_NAME("euiccInfo2")
 		},
 	{ ATF_POINTER, 7, offsetof(struct IpaEuiccData, rootSmdsAddress),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"rootSmdsAddress"
+		ASN_NAME("rootSmdsAddress")
 		},
 	{ ATF_POINTER, 6, offsetof(struct IpaEuiccData, associationToken),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"associationToken"
+		ASN_NAME("associationToken")
 		},
 	{ ATF_POINTER, 5, offsetof(struct IpaEuiccData, eumCertificate),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eumCertificate"
+		ASN_NAME("eumCertificate")
 		},
 	{ ATF_POINTER, 4, offsetof(struct IpaEuiccData, euiccCertificate),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccCertificate"
+		ASN_NAME("euiccCertificate")
 		},
 	{ ATF_POINTER, 3, offsetof(struct IpaEuiccData, eimTransactionId),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -96,7 +96,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eimTransactionId"
+		ASN_NAME("eimTransactionId")
 		},
 	{ ATF_POINTER, 2, offsetof(struct IpaEuiccData, ipaCapabilities),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -105,7 +105,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ipaCapabilities"
+		ASN_NAME("ipaCapabilities")
 		},
 	{ ATF_POINTER, 1, offsetof(struct IpaEuiccData, deviceInfo),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
@@ -114,7 +114,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"deviceInfo"
+		ASN_NAME("deviceInfo")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_IpaEuiccData_tags_1[] = {
@@ -143,8 +143,8 @@ asn_SEQUENCE_specifics_t asn_SPC_IpaEuiccData_specs_1 = {
 	12,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_IpaEuiccData = {
-	"IpaEuiccData",
-	"IpaEuiccData",
+	ASN_NAME("IpaEuiccData"),
+	ASN_NAME("IpaEuiccData"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_IpaEuiccData_tags_1,
 	sizeof(asn_DEF_IpaEuiccData_tags_1)

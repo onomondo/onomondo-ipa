@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_EsipaMessageFromEimToIpa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"initiateAuthenticationResponseEsipa"
+		ASN_NAME("initiateAuthenticationResponseEsipa")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EsipaMessageFromEimToIpa, choice.authenticateClientResponseEsipa),
 		(ASN_TAG_CLASS_CONTEXT | (59 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_EsipaMessageFromEimToIpa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"authenticateClientResponseEsipa"
+		ASN_NAME("authenticateClientResponseEsipa")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EsipaMessageFromEimToIpa, choice.getBoundProfilePackageResponseEsipa),
 		(ASN_TAG_CLASS_CONTEXT | (58 << 2)),
@@ -33,7 +33,7 @@ static asn_TYPE_member_t asn_MBR_EsipaMessageFromEimToIpa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"getBoundProfilePackageResponseEsipa"
+		ASN_NAME("getBoundProfilePackageResponseEsipa")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EsipaMessageFromEimToIpa, choice.cancelSessionResponseEsipa),
 		(ASN_TAG_CLASS_CONTEXT | (65 << 2)),
@@ -42,7 +42,7 @@ static asn_TYPE_member_t asn_MBR_EsipaMessageFromEimToIpa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"cancelSessionResponseEsipa"
+		ASN_NAME("cancelSessionResponseEsipa")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EsipaMessageFromEimToIpa, choice.transferEimPackageRequest),
 		(ASN_TAG_CLASS_CONTEXT | (78 << 2)),
@@ -51,7 +51,7 @@ static asn_TYPE_member_t asn_MBR_EsipaMessageFromEimToIpa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"transferEimPackageRequest"
+		ASN_NAME("transferEimPackageRequest")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EsipaMessageFromEimToIpa, choice.getEimPackageResponse),
 		(ASN_TAG_CLASS_CONTEXT | (79 << 2)),
@@ -60,7 +60,7 @@ static asn_TYPE_member_t asn_MBR_EsipaMessageFromEimToIpa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"getEimPackageResponse"
+		ASN_NAME("getEimPackageResponse")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EsipaMessageFromEimToIpa, choice.provideEimPackageResultResponse),
 		(ASN_TAG_CLASS_CONTEXT | (80 << 2)),
@@ -69,7 +69,7 @@ static asn_TYPE_member_t asn_MBR_EsipaMessageFromEimToIpa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"provideEimPackageResultResponse"
+		ASN_NAME("provideEimPackageResultResponse")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_EsipaMessageFromEimToIpa_tag2el_1[] = {
@@ -92,8 +92,8 @@ static asn_CHOICE_specifics_t asn_SPC_EsipaMessageFromEimToIpa_specs_1 = {
 	7	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_EsipaMessageFromEimToIpa = {
-	"EsipaMessageFromEimToIpa",
-	"EsipaMessageFromEimToIpa",
+	ASN_NAME("EsipaMessageFromEimToIpa"),
+	ASN_NAME("EsipaMessageFromEimToIpa"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

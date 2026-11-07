@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_DeleteProfileRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"isdpAid"
+		ASN_NAME("isdpAid")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct DeleteProfileRequest, choice.iccid),
 		(ASN_TAG_CLASS_APPLICATION | (26 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_DeleteProfileRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"iccid"
+		ASN_NAME("iccid")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_DeleteProfileRequest_tags_1[] = {
@@ -45,8 +45,8 @@ static asn_CHOICE_specifics_t asn_SPC_DeleteProfileRequest_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_DeleteProfileRequest = {
-	"DeleteProfileRequest",
-	"DeleteProfileRequest",
+	ASN_NAME("DeleteProfileRequest"),
+	ASN_NAME("DeleteProfileRequest"),
 	&asn_OP_CHOICE,
 	asn_DEF_DeleteProfileRequest_tags_1,
 	sizeof(asn_DEF_DeleteProfileRequest_tags_1)

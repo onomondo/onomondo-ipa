@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CompactSuccessResult_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"compactAid"
+		ASN_NAME("compactAid")
 		},
 	{ ATF_POINTER, 1, offsetof(struct CompactSuccessResult, simaResponse),
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_CompactSuccessResult_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"simaResponse"
+		ASN_NAME("simaResponse")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CompactSuccessResult_tags_1[] = {
@@ -43,8 +43,8 @@ asn_SEQUENCE_specifics_t asn_SPC_CompactSuccessResult_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CompactSuccessResult = {
-	"CompactSuccessResult",
-	"CompactSuccessResult",
+	ASN_NAME("CompactSuccessResult"),
+	ASN_NAME("CompactSuccessResult"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_CompactSuccessResult_tags_1,
 	sizeof(asn_DEF_CompactSuccessResult_tags_1)

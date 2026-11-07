@@ -103,7 +103,7 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"distributionPoint"
+		ASN_NAME("distributionPoint")
 		},
 	{ ATF_NOFLAGS, 5, offsetof(struct IssuingDistributionPoint, onlyContainsUserCerts),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -113,7 +113,7 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		{ 0, 0, 0 },
 		&asn_DFL_3_cmp_0,	/* Compare DEFAULT 0 */
 		&asn_DFL_3_set_0,	/* Set DEFAULT 0 */
-		"onlyContainsUserCerts"
+		ASN_NAME("onlyContainsUserCerts")
 		},
 	{ ATF_NOFLAGS, 4, offsetof(struct IssuingDistributionPoint, onlyContainsCACerts),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -123,7 +123,7 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		{ 0, 0, 0 },
 		&asn_DFL_4_cmp_0,	/* Compare DEFAULT 0 */
 		&asn_DFL_4_set_0,	/* Set DEFAULT 0 */
-		"onlyContainsCACerts"
+		ASN_NAME("onlyContainsCACerts")
 		},
 	{ ATF_POINTER, 3, offsetof(struct IssuingDistributionPoint, onlySomeReasons),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -132,7 +132,7 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"onlySomeReasons"
+		ASN_NAME("onlySomeReasons")
 		},
 	{ ATF_NOFLAGS, 2, offsetof(struct IssuingDistributionPoint, indirectCRL),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -142,7 +142,7 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		{ 0, 0, 0 },
 		&asn_DFL_6_cmp_0,	/* Compare DEFAULT 0 */
 		&asn_DFL_6_set_0,	/* Set DEFAULT 0 */
-		"indirectCRL"
+		ASN_NAME("indirectCRL")
 		},
 	{ ATF_NOFLAGS, 1, offsetof(struct IssuingDistributionPoint, onlyContainsAttributeCerts),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -152,7 +152,7 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		{ 0, 0, 0 },
 		&asn_DFL_7_cmp_0,	/* Compare DEFAULT 0 */
 		&asn_DFL_7_set_0,	/* Set DEFAULT 0 */
-		"onlyContainsAttributeCerts"
+		ASN_NAME("onlyContainsAttributeCerts")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_IssuingDistributionPoint_tags_1[] = {
@@ -175,8 +175,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_IssuingDistributionPoint_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_IssuingDistributionPoint = {
-	"IssuingDistributionPoint",
-	"IssuingDistributionPoint",
+	ASN_NAME("IssuingDistributionPoint"),
+	ASN_NAME("IssuingDistributionPoint"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_IssuingDistributionPoint_tags_1,
 	sizeof(asn_DEF_IssuingDistributionPoint_tags_1)

@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccChallenge"
+		ASN_NAME("euiccChallenge")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct InitiateAuthenticationRequest, smdpAddress),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"smdpAddress"
+		ASN_NAME("smdpAddress")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct InitiateAuthenticationRequest, euiccInfo1),
 		(ASN_TAG_CLASS_CONTEXT | (32 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccInfo1"
+		ASN_NAME("euiccInfo1")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_InitiateAuthenticationRequest_tags_1[] = {
@@ -54,8 +54,8 @@ asn_SEQUENCE_specifics_t asn_SPC_InitiateAuthenticationRequest_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_InitiateAuthenticationRequest = {
-	"InitiateAuthenticationRequest",
-	"InitiateAuthenticationRequest",
+	ASN_NAME("InitiateAuthenticationRequest"),
+	ASN_NAME("InitiateAuthenticationRequest"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_InitiateAuthenticationRequest_tags_1,
 	sizeof(asn_DEF_InitiateAuthenticationRequest_tags_1)

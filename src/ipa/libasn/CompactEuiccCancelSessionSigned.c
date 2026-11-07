@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CompactEuiccCancelSessionSigned_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"reason"
+		ASN_NAME("reason")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CompactEuiccCancelSessionSigned_tags_1[] = {
@@ -33,8 +33,8 @@ asn_SEQUENCE_specifics_t asn_SPC_CompactEuiccCancelSessionSigned_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CompactEuiccCancelSessionSigned = {
-	"CompactEuiccCancelSessionSigned",
-	"CompactEuiccCancelSessionSigned",
+	ASN_NAME("CompactEuiccCancelSessionSigned"),
+	ASN_NAME("CompactEuiccCancelSessionSigned"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_CompactEuiccCancelSessionSigned_tags_1,
 	sizeof(asn_DEF_CompactEuiccCancelSessionSigned_tags_1)

@@ -37,7 +37,7 @@ asn_TYPE_member_t asn_MBR_AlgoParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"algorithmID"
+		ASN_NAME("algorithmID")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AlgoParameter, algorithmOptions),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -46,7 +46,7 @@ asn_TYPE_member_t asn_MBR_AlgoParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"algorithmOptions"
+		ASN_NAME("algorithmOptions")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AlgoParameter, key),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -55,7 +55,7 @@ asn_TYPE_member_t asn_MBR_AlgoParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"key"
+		ASN_NAME("key")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AlgoParameter, opc),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -64,7 +64,7 @@ asn_TYPE_member_t asn_MBR_AlgoParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"opc"
+		ASN_NAME("opc")
 		},
 	{ ATF_POINTER, 4, offsetof(struct AlgoParameter, rotationConstants),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -73,7 +73,7 @@ asn_TYPE_member_t asn_MBR_AlgoParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"rotationConstants"
+		ASN_NAME("rotationConstants")
 		},
 	{ ATF_POINTER, 3, offsetof(struct AlgoParameter, xoringConstants),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -82,7 +82,7 @@ asn_TYPE_member_t asn_MBR_AlgoParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"xoringConstants"
+		ASN_NAME("xoringConstants")
 		},
 	{ ATF_POINTER, 2, offsetof(struct AlgoParameter, authCounterMax),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -91,7 +91,7 @@ asn_TYPE_member_t asn_MBR_AlgoParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"authCounterMax"
+		ASN_NAME("authCounterMax")
 		},
 	{ ATF_POINTER, 1, offsetof(struct AlgoParameter, numberOfKeccak),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -101,7 +101,7 @@ asn_TYPE_member_t asn_MBR_AlgoParameter_1[] = {
 		{ 0, 0, 0 },
 		&asn_DFL_12_cmp_1,	/* Compare DEFAULT 1 */
 		&asn_DFL_12_set_1,	/* Set DEFAULT 1 */
-		"numberOfKeccak"
+		ASN_NAME("numberOfKeccak")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AlgoParameter_tags_1[] = {
@@ -126,8 +126,8 @@ asn_SEQUENCE_specifics_t asn_SPC_AlgoParameter_specs_1 = {
 	8,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_AlgoParameter = {
-	"AlgoParameter",
-	"AlgoParameter",
+	ASN_NAME("AlgoParameter"),
+	ASN_NAME("AlgoParameter"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_AlgoParameter_tags_1,
 	sizeof(asn_DEF_AlgoParameter_tags_1)

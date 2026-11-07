@@ -12,8 +12,8 @@
  * so here we adjust the DEF accordingly.
  */
 asn_TYPE_descriptor_t asn_DEF_ExpirationDate = {
-	"ExpirationDate",
-	"ExpirationDate",
+	ASN_NAME("ExpirationDate"),
+	ASN_NAME("ExpirationDate"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

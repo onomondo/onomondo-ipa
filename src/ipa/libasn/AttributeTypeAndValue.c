@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_AttributeTypeAndValue_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"type"
+		ASN_NAME("type")
 		},
 	{ ATF_ANY_TYPE | ATF_NOFLAGS, 0, offsetof(struct AttributeTypeAndValue, value),
 		-1 /* Ambiguous tag (ANY?) */,
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_AttributeTypeAndValue_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"value"
+		ASN_NAME("value")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AttributeTypeAndValue_tags_1[] = {
@@ -42,8 +42,8 @@ asn_SEQUENCE_specifics_t asn_SPC_AttributeTypeAndValue_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_AttributeTypeAndValue = {
-	"AttributeTypeAndValue",
-	"AttributeTypeAndValue",
+	ASN_NAME("AttributeTypeAndValue"),
+	ASN_NAME("AttributeTypeAndValue"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_AttributeTypeAndValue_tags_1,
 	sizeof(asn_DEF_AttributeTypeAndValue_tags_1)

@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_AlgorithmIdentifier_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"algorithm"
+		ASN_NAME("algorithm")
 		},
 	{ ATF_ANY_TYPE | ATF_POINTER, 1, offsetof(struct AlgorithmIdentifier, parameters),
 		-1 /* Ambiguous tag (ANY?) */,
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_AlgorithmIdentifier_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"parameters"
+		ASN_NAME("parameters")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AlgorithmIdentifier_tags_1[] = {
@@ -42,8 +42,8 @@ asn_SEQUENCE_specifics_t asn_SPC_AlgorithmIdentifier_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_AlgorithmIdentifier = {
-	"AlgorithmIdentifier",
-	"AlgorithmIdentifier",
+	ASN_NAME("AlgorithmIdentifier"),
+	ASN_NAME("AlgorithmIdentifier"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_AlgorithmIdentifier_tags_1,
 	sizeof(asn_DEF_AlgorithmIdentifier_tags_1)

@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_euiccResult_6[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_euiccResult_tags_6[] = {
@@ -28,8 +28,8 @@ static asn_SET_OF_specifics_t asn_SPC_euiccResult_specs_6 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_euiccResult_6 = {
-	"euiccResult",
-	"euiccResult",
+	ASN_NAME("euiccResult"),
+	ASN_NAME("euiccResult"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_euiccResult_tags_6,
 	sizeof(asn_DEF_euiccResult_tags_6)
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageResultDataSigned_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eimId"
+		ASN_NAME("eimId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccPackageResultDataSigned, counterValue),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageResultDataSigned_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"counterValue"
+		ASN_NAME("counterValue")
 		},
 	{ ATF_POINTER, 1, offsetof(struct EuiccPackageResultDataSigned, eimTransactionId),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageResultDataSigned_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eimTransactionId"
+		ASN_NAME("eimTransactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccPackageResultDataSigned, seqNumber),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageResultDataSigned_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"seqNumber"
+		ASN_NAME("seqNumber")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccPackageResultDataSigned, euiccResult),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageResultDataSigned_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccResult"
+		ASN_NAME("euiccResult")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_EuiccPackageResultDataSigned_tags_1[] = {
@@ -109,8 +109,8 @@ asn_SEQUENCE_specifics_t asn_SPC_EuiccPackageResultDataSigned_specs_1 = {
 	5,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EuiccPackageResultDataSigned = {
-	"EuiccPackageResultDataSigned",
-	"EuiccPackageResultDataSigned",
+	ASN_NAME("EuiccPackageResultDataSigned"),
+	ASN_NAME("EuiccPackageResultDataSigned"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_EuiccPackageResultDataSigned_tags_1,
 	sizeof(asn_DEF_EuiccPackageResultDataSigned_tags_1)

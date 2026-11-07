@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_CancelSessionRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"transactionId"
+		ASN_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CancelSessionRequest, reason),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_CancelSessionRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"reason"
+		ASN_NAME("reason")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CancelSessionRequest_tags_1[] = {
@@ -44,8 +44,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_CancelSessionRequest_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CancelSessionRequest = {
-	"CancelSessionRequest",
-	"CancelSessionRequest",
+	ASN_NAME("CancelSessionRequest"),
+	ASN_NAME("CancelSessionRequest"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_CancelSessionRequest_tags_1,
 	sizeof(asn_DEF_CancelSessionRequest_tags_1)

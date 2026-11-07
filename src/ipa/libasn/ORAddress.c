@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_ORAddress_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"built-in-standard-attributes"
+		ASN_NAME("built-in-standard-attributes")
 		},
 	{ ATF_POINTER, 2, offsetof(struct ORAddress, built_in_domain_defined_attributes),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_ORAddress_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"built-in-domain-defined-attributes"
+		ASN_NAME("built-in-domain-defined-attributes")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ORAddress, extension_attributes),
 		(ASN_TAG_CLASS_UNIVERSAL | (17 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_ORAddress_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"extension-attributes"
+		ASN_NAME("extension-attributes")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ORAddress_tags_1[] = {
@@ -53,8 +53,8 @@ asn_SEQUENCE_specifics_t asn_SPC_ORAddress_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ORAddress = {
-	"ORAddress",
-	"ORAddress",
+	ASN_NAME("ORAddress"),
+	ASN_NAME("ORAddress"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_ORAddress_tags_1,
 	sizeof(asn_DEF_ORAddress_tags_1)

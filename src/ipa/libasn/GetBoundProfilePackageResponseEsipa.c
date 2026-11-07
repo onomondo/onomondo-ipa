@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_GetBoundProfilePackageResponseEsipa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"getBoundProfilePackageOkEsipa"
+		ASN_NAME("getBoundProfilePackageOkEsipa")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct GetBoundProfilePackageResponseEsipa, choice.getBoundProfilePackageErrorEsipa),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_GetBoundProfilePackageResponseEsipa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"getBoundProfilePackageErrorEsipa"
+		ASN_NAME("getBoundProfilePackageErrorEsipa")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_GetBoundProfilePackageResponseEsipa_tags_1[] = {
@@ -45,8 +45,8 @@ asn_CHOICE_specifics_t asn_SPC_GetBoundProfilePackageResponseEsipa_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_GetBoundProfilePackageResponseEsipa = {
-	"GetBoundProfilePackageResponseEsipa",
-	"GetBoundProfilePackageResponseEsipa",
+	ASN_NAME("GetBoundProfilePackageResponseEsipa"),
+	ASN_NAME("GetBoundProfilePackageResponseEsipa"),
 	&asn_OP_CHOICE,
 	asn_DEF_GetBoundProfilePackageResponseEsipa_tags_1,
 	sizeof(asn_DEF_GetBoundProfilePackageResponseEsipa_tags_1)

@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_SGP32_CancelSessionResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"cancelSessionResponseOk"
+		ASN_NAME("cancelSessionResponseOk")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_CancelSessionResponse, choice.cancelSessionResponseError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_SGP32_CancelSessionResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"cancelSessionResponseError"
+		ASN_NAME("cancelSessionResponseError")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_CancelSessionResponse, choice.compactCancelSessionResponseOk),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_SGP32_CancelSessionResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"compactCancelSessionResponseOk"
+		ASN_NAME("compactCancelSessionResponseOk")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_SGP32_CancelSessionResponse_tags_1[] = {
@@ -55,8 +55,8 @@ asn_CHOICE_specifics_t asn_SPC_SGP32_CancelSessionResponse_specs_1 = {
 	3	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_SGP32_CancelSessionResponse = {
-	"SGP32-CancelSessionResponse",
-	"SGP32-CancelSessionResponse",
+	ASN_NAME("SGP32-CancelSessionResponse"),
+	ASN_NAME("SGP32-CancelSessionResponse"),
 	&asn_OP_CHOICE,
 	asn_DEF_SGP32_CancelSessionResponse_tags_1,
 	sizeof(asn_DEF_SGP32_CancelSessionResponse_tags_1)

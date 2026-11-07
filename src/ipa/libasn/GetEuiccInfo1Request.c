@@ -20,8 +20,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_GetEuiccInfo1Request_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_GetEuiccInfo1Request = {
-	"GetEuiccInfo1Request",
-	"GetEuiccInfo1Request",
+	ASN_NAME("GetEuiccInfo1Request"),
+	ASN_NAME("GetEuiccInfo1Request"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_GetEuiccInfo1Request_tags_1,
 	sizeof(asn_DEF_GetEuiccInfo1Request_tags_1)

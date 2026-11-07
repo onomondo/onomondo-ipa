@@ -15,8 +15,8 @@ static const ber_tlv_tag_t asn_DEF_CPSuri_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (22 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_CPSuri = {
-	"CPSuri",
-	"CPSuri",
+	ASN_NAME("CPSuri"),
+	ASN_NAME("CPSuri"),
 	&asn_OP_IA5String,
 	asn_DEF_CPSuri_tags_1,
 	sizeof(asn_DEF_CPSuri_tags_1)

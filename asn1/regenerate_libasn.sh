@@ -14,6 +14,10 @@ if [ "$ACTUAL_ASN1C_VERSION" != "$EXPECTED_ASN1C_VERSION" ]; then
 	exit 1
 fi
 
+# Stop at the first failing step: a half-applied rewrite or patch must not leave
+# a tree that still builds.
+set -e
+
 cd ../src/ipa/libasn/
 
 # Remove an old implementation
@@ -37,6 +41,21 @@ asn1c -fcompound-names -no-gen-example -no-gen-OER -no-gen-PER -fno-constraints 
       ../../../asn1/PEDefinitions.asn \
       ../../../asn1/RSPDefinitions.asn \
       ../../../asn1/SGP32Definitions.asn
+
+# Type and member names feed only print, XER and ASN_DEBUG. ASN_NAME() (asn1/0011)
+# lets a build blank them with ASN_DISABLE_NAMES. Generated type files only; the
+# skeleton descriptors keep their literals. Every descriptor has a name and an XML
+# tag and every member entry a name, so the rewrite must hit exactly
+# 2 * descriptors + members lines.
+GENERATED=$(grep -l 'From ASN.1 module' *.c)
+perl -pi -e 's/^(\t)"([^"]*)",$/$1ASN_NAME("$2"),/; s/^(\t\t)"([^"]*)"$/$1ASN_NAME("$2")/' $GENERATED
+DESCRIPTORS=$(cat $GENERATED | grep -c '^asn_TYPE_descriptor_t asn_DEF_' || true)
+MEMBERS=$(cat $GENERATED | grep -c $'^\t{ ATF_' || true)
+NAMES=$(cat $GENERATED | grep -c 'ASN_NAME(' || true)
+if [ "$NAMES" -ne $((2 * DESCRIPTORS + MEMBERS)) ]; then
+	echo "ERROR: ASN_NAME() rewrote $NAMES lines, expected $((2 * DESCRIPTORS + MEMBERS))." >&2
+	exit 1
+fi
 
 # Remove file(s) we do not need
 rm ./Makefile.am.libasncodec
@@ -67,3 +86,4 @@ patch -p1 < ./asn1/0004-OCTET_STRING-exact-fit-first-allocation.patch
 patch -p1 < ./asn1/0005-skeletons-vtable-guards.patch
 patch -p1 < ./asn1/0006-constraints-optional-messages.patch
 patch -p1 < ./asn1/0010-SET_OF-fail-DER-encoding-on-allocation-failure.patch
+patch -p1 < ./asn1/0011-constr_TYPE-optional-names.patch

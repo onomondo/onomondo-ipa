@@ -20,8 +20,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_emptyResponse_specs_3 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_emptyResponse_3 = {
-	"emptyResponse",
-	"emptyResponse",
+	ASN_NAME("emptyResponse"),
+	ASN_NAME("emptyResponse"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_emptyResponse_tags_3,
 	sizeof(asn_DEF_emptyResponse_tags_3)
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_ProvideEimPackageResultResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eimAcknowledgements"
+		ASN_NAME("eimAcknowledgements")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProvideEimPackageResultResponse, choice.emptyResponse),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_ProvideEimPackageResultResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"emptyResponse"
+		ASN_NAME("emptyResponse")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProvideEimPackageResultResponse, choice.provideEimPackageResultError),
 		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_ProvideEimPackageResultResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"provideEimPackageResultError"
+		ASN_NAME("provideEimPackageResultError")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ProvideEimPackageResultResponse_tags_1[] = {
@@ -82,8 +82,8 @@ asn_CHOICE_specifics_t asn_SPC_ProvideEimPackageResultResponse_specs_1 = {
 	3	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_ProvideEimPackageResultResponse = {
-	"ProvideEimPackageResultResponse",
-	"ProvideEimPackageResultResponse",
+	ASN_NAME("ProvideEimPackageResultResponse"),
+	ASN_NAME("ProvideEimPackageResultResponse"),
 	&asn_OP_CHOICE,
 	asn_DEF_ProvideEimPackageResultResponse_tags_1,
 	sizeof(asn_DEF_ProvideEimPackageResultResponse_tags_1)

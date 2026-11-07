@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CompactEuiccSigned1_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"extCardResource"
+		ASN_NAME("extCardResource")
 		},
 	{ ATF_POINTER, 1, offsetof(struct CompactEuiccSigned1, ctxParams1),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_CompactEuiccSigned1_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ctxParams1"
+		ASN_NAME("ctxParams1")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CompactEuiccSigned1_tags_1[] = {
@@ -43,8 +43,8 @@ asn_SEQUENCE_specifics_t asn_SPC_CompactEuiccSigned1_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CompactEuiccSigned1 = {
-	"CompactEuiccSigned1",
-	"CompactEuiccSigned1",
+	ASN_NAME("CompactEuiccSigned1"),
+	ASN_NAME("CompactEuiccSigned1"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_CompactEuiccSigned1_tags_1,
 	sizeof(asn_DEF_CompactEuiccSigned1_tags_1)

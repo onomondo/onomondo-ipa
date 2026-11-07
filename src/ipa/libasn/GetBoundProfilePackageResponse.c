@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_GetBoundProfilePackageResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"getBoundProfilePackageOk"
+		ASN_NAME("getBoundProfilePackageOk")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct GetBoundProfilePackageResponse, choice.getBoundProfilePackageError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_GetBoundProfilePackageResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"getBoundProfilePackageError"
+		ASN_NAME("getBoundProfilePackageError")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_GetBoundProfilePackageResponse_tags_1[] = {
@@ -45,8 +45,8 @@ asn_CHOICE_specifics_t asn_SPC_GetBoundProfilePackageResponse_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_GetBoundProfilePackageResponse = {
-	"GetBoundProfilePackageResponse",
-	"GetBoundProfilePackageResponse",
+	ASN_NAME("GetBoundProfilePackageResponse"),
+	ASN_NAME("GetBoundProfilePackageResponse"),
 	&asn_OP_CHOICE,
 	asn_DEF_GetBoundProfilePackageResponse_tags_1,
 	sizeof(asn_DEF_GetBoundProfilePackageResponse_tags_1)

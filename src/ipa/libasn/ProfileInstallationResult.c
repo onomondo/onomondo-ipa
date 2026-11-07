@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_ProfileInstallationResult_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileInstallationResultData"
+		ASN_NAME("profileInstallationResultData")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileInstallationResult, euiccSignPIR),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_ProfileInstallationResult_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccSignPIR"
+		ASN_NAME("euiccSignPIR")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ProfileInstallationResult_tags_1[] = {
@@ -44,8 +44,8 @@ asn_SEQUENCE_specifics_t asn_SPC_ProfileInstallationResult_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ProfileInstallationResult = {
-	"ProfileInstallationResult",
-	"ProfileInstallationResult",
+	ASN_NAME("ProfileInstallationResult"),
+	ASN_NAME("ProfileInstallationResult"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_ProfileInstallationResult_tags_1,
 	sizeof(asn_DEF_ProfileInstallationResult_tags_1)

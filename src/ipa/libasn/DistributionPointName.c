@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_DistributionPointName_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"fullName"
+		ASN_NAME("fullName")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct DistributionPointName, choice.nameRelativeToCRLIssuer),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_DistributionPointName_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"nameRelativeToCRLIssuer"
+		ASN_NAME("nameRelativeToCRLIssuer")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_DistributionPointName_tag2el_1[] = {
@@ -42,8 +42,8 @@ asn_CHOICE_specifics_t asn_SPC_DistributionPointName_specs_1 = {
 	-1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_DistributionPointName = {
-	"DistributionPointName",
-	"DistributionPointName",
+	ASN_NAME("DistributionPointName"),
+	ASN_NAME("DistributionPointName"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

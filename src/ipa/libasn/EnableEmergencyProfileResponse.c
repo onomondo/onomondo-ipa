@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_EnableEmergencyProfileResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"enableEmergencyProfileResult"
+		ASN_NAME("enableEmergencyProfileResult")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_EnableEmergencyProfileResponse_tags_1[] = {
@@ -34,8 +34,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_EnableEmergencyProfileResponse_specs_1 =
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EnableEmergencyProfileResponse = {
-	"EnableEmergencyProfileResponse",
-	"EnableEmergencyProfileResponse",
+	ASN_NAME("EnableEmergencyProfileResponse"),
+	ASN_NAME("EnableEmergencyProfileResponse"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_EnableEmergencyProfileResponse_tags_1,
 	sizeof(asn_DEF_EnableEmergencyProfileResponse_tags_1)

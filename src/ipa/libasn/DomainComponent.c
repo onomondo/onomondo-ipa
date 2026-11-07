@@ -15,8 +15,8 @@ static const ber_tlv_tag_t asn_DEF_DomainComponent_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (22 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_DomainComponent = {
-	"DomainComponent",
-	"DomainComponent",
+	ASN_NAME("DomainComponent"),
+	ASN_NAME("DomainComponent"),
 	&asn_OP_IA5String,
 	asn_DEF_DomainComponent_tags_1,
 	sizeof(asn_DEF_DomainComponent_tags_1)

@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_EuiccCancelSessionSigned_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"transactionId"
+		ASN_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccCancelSessionSigned, smdpOid),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_EuiccCancelSessionSigned_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"smdpOid"
+		ASN_NAME("smdpOid")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccCancelSessionSigned, reason),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_EuiccCancelSessionSigned_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"reason"
+		ASN_NAME("reason")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_EuiccCancelSessionSigned_tags_1[] = {
@@ -53,8 +53,8 @@ asn_SEQUENCE_specifics_t asn_SPC_EuiccCancelSessionSigned_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EuiccCancelSessionSigned = {
-	"EuiccCancelSessionSigned",
-	"EuiccCancelSessionSigned",
+	ASN_NAME("EuiccCancelSessionSigned"),
+	ASN_NAME("EuiccCancelSessionSigned"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_EuiccCancelSessionSigned_tags_1,
 	sizeof(asn_DEF_EuiccCancelSessionSigned_tags_1)

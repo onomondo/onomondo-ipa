@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_ADFRFMAccess_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"adfAID"
+		ASN_NAME("adfAID")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ADFRFMAccess, adfAccessDomain),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_ADFRFMAccess_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"adfAccessDomain"
+		ASN_NAME("adfAccessDomain")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ADFRFMAccess, adfAdminAccessDomain),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_ADFRFMAccess_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"adfAdminAccessDomain"
+		ASN_NAME("adfAdminAccessDomain")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ADFRFMAccess_tags_1[] = {
@@ -53,8 +53,8 @@ asn_SEQUENCE_specifics_t asn_SPC_ADFRFMAccess_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ADFRFMAccess = {
-	"ADFRFMAccess",
-	"ADFRFMAccess",
+	ASN_NAME("ADFRFMAccess"),
+	ASN_NAME("ADFRFMAccess"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_ADFRFMAccess_tags_1,
 	sizeof(asn_DEF_ADFRFMAccess_tags_1)

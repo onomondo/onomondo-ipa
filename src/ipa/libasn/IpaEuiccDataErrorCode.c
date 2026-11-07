@@ -15,8 +15,8 @@ static const ber_tlv_tag_t asn_DEF_IpaEuiccDataErrorCode_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (2 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_IpaEuiccDataErrorCode = {
-	"IpaEuiccDataErrorCode",
-	"IpaEuiccDataErrorCode",
+	ASN_NAME("IpaEuiccDataErrorCode"),
+	ASN_NAME("IpaEuiccDataErrorCode"),
 	&asn_OP_NativeInteger,
 	asn_DEF_IpaEuiccDataErrorCode_tags_1,
 	sizeof(asn_DEF_IpaEuiccDataErrorCode_tags_1)

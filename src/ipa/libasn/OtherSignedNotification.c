@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_OtherSignedNotification_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"tbsOtherNotification"
+		ASN_NAME("tbsOtherNotification")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct OtherSignedNotification, euiccNotificationSignature),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_OtherSignedNotification_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccNotificationSignature"
+		ASN_NAME("euiccNotificationSignature")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct OtherSignedNotification, euiccCertificate),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_OtherSignedNotification_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccCertificate"
+		ASN_NAME("euiccCertificate")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct OtherSignedNotification, eumCertificate),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_OtherSignedNotification_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eumCertificate"
+		ASN_NAME("eumCertificate")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_OtherSignedNotification_tags_1[] = {
@@ -63,8 +63,8 @@ asn_SEQUENCE_specifics_t asn_SPC_OtherSignedNotification_specs_1 = {
 	4,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_OtherSignedNotification = {
-	"OtherSignedNotification",
-	"OtherSignedNotification",
+	ASN_NAME("OtherSignedNotification"),
+	ASN_NAME("OtherSignedNotification"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_OtherSignedNotification_tags_1,
 	sizeof(asn_DEF_OtherSignedNotification_tags_1)

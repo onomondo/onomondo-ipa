@@ -15,8 +15,8 @@ static const ber_tlv_tag_t asn_DEF_ExtensionPhysicalDeliveryAddressComponents_ta
 	(ASN_TAG_CLASS_UNIVERSAL | (17 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_ExtensionPhysicalDeliveryAddressComponents = {
-	"ExtensionPhysicalDeliveryAddressComponents",
-	"ExtensionPhysicalDeliveryAddressComponents",
+	ASN_NAME("ExtensionPhysicalDeliveryAddressComponents"),
+	ASN_NAME("ExtensionPhysicalDeliveryAddressComponents"),
 	&asn_OP_SET,
 	asn_DEF_ExtensionPhysicalDeliveryAddressComponents_tags_1,
 	sizeof(asn_DEF_ExtensionPhysicalDeliveryAddressComponents_tags_1)

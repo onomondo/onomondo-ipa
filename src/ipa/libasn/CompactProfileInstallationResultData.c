@@ -37,7 +37,7 @@ static asn_TYPE_member_t asn_MBR_compactFinalResult_5[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"compactSuccessResult"
+		ASN_NAME("compactSuccessResult")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CompactProfileInstallationResultData__compactFinalResult, choice.errorResult),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -46,7 +46,7 @@ static asn_TYPE_member_t asn_MBR_compactFinalResult_5[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"errorResult"
+		ASN_NAME("errorResult")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_compactFinalResult_tag2el_5[] = {
@@ -65,8 +65,8 @@ static asn_CHOICE_specifics_t asn_SPC_compactFinalResult_specs_5 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_compactFinalResult_5 = {
-	"compactFinalResult",
-	"compactFinalResult",
+	ASN_NAME("compactFinalResult"),
+	ASN_NAME("compactFinalResult"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
@@ -86,7 +86,7 @@ asn_TYPE_member_t asn_MBR_CompactProfileInstallationResultData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"transactionId"
+		ASN_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CompactProfileInstallationResultData, seqNumber),
 		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
@@ -95,7 +95,7 @@ asn_TYPE_member_t asn_MBR_CompactProfileInstallationResultData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"seqNumber"
+		ASN_NAME("seqNumber")
 		},
 	{ ATF_POINTER, 1, offsetof(struct CompactProfileInstallationResultData, iccidPresent),
 		(ASN_TAG_CLASS_UNIVERSAL | (1 << 2)),
@@ -105,7 +105,7 @@ asn_TYPE_member_t asn_MBR_CompactProfileInstallationResultData_1[] = {
 		{ 0, 0, 0 },
 		&asn_DFL_4_cmp_1,	/* Compare DEFAULT 1 */
 		&asn_DFL_4_set_1,	/* Set DEFAULT 1 */
-		"iccidPresent"
+		ASN_NAME("iccidPresent")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CompactProfileInstallationResultData, compactFinalResult),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -114,7 +114,7 @@ asn_TYPE_member_t asn_MBR_CompactProfileInstallationResultData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"compactFinalResult"
+		ASN_NAME("compactFinalResult")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CompactProfileInstallationResultData_tags_1[] = {
@@ -135,8 +135,8 @@ asn_SEQUENCE_specifics_t asn_SPC_CompactProfileInstallationResultData_specs_1 = 
 	4,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CompactProfileInstallationResultData = {
-	"CompactProfileInstallationResultData",
-	"CompactProfileInstallationResultData",
+	ASN_NAME("CompactProfileInstallationResultData"),
+	ASN_NAME("CompactProfileInstallationResultData"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_CompactProfileInstallationResultData_tags_1,
 	sizeof(asn_DEF_CompactProfileInstallationResultData_tags_1)

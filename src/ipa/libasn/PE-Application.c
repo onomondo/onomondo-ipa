@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_instanceList_4[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_instanceList_tags_4[] = {
@@ -29,8 +29,8 @@ static asn_SET_OF_specifics_t asn_SPC_instanceList_specs_4 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_instanceList_4 = {
-	"instanceList",
-	"instanceList",
+	ASN_NAME("instanceList"),
+	ASN_NAME("instanceList"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_instanceList_tags_4,
 	sizeof(asn_DEF_instanceList_tags_4)
@@ -52,7 +52,7 @@ asn_TYPE_member_t asn_MBR_PE_Application_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"app-Header"
+		ASN_NAME("app-Header")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PE_Application, loadBlock),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -61,7 +61,7 @@ asn_TYPE_member_t asn_MBR_PE_Application_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"loadBlock"
+		ASN_NAME("loadBlock")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_Application, instanceList),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -70,7 +70,7 @@ asn_TYPE_member_t asn_MBR_PE_Application_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"instanceList"
+		ASN_NAME("instanceList")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_Application_tags_1[] = {
@@ -90,8 +90,8 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_Application_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_Application = {
-	"PE-Application",
-	"PE-Application",
+	ASN_NAME("PE-Application"),
+	ASN_NAME("PE-Application"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_Application_tags_1,
 	sizeof(asn_DEF_PE_Application_tags_1)

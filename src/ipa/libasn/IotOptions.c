@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_IotOptions_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"pix"
+		ASN_NAME("pix")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_IotOptions_tags_1[] = {
@@ -33,8 +33,8 @@ asn_SEQUENCE_specifics_t asn_SPC_IotOptions_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_IotOptions = {
-	"IotOptions",
-	"IotOptions",
+	ASN_NAME("IotOptions"),
+	ASN_NAME("IotOptions"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_IotOptions_tags_1,
 	sizeof(asn_DEF_IotOptions_tags_1)

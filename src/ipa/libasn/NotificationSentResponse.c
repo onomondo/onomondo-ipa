@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_NotificationSentResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"deleteNotificationStatus"
+		ASN_NAME("deleteNotificationStatus")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_NotificationSentResponse_tags_1[] = {
@@ -34,8 +34,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_NotificationSentResponse_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_NotificationSentResponse = {
-	"NotificationSentResponse",
-	"NotificationSentResponse",
+	ASN_NAME("NotificationSentResponse"),
+	ASN_NAME("NotificationSentResponse"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_NotificationSentResponse_tags_1,
 	sizeof(asn_DEF_NotificationSentResponse_tags_1)

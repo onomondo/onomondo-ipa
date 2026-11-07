@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PEHeader_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"mandated"
+		ASN_NAME("mandated")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PEHeader, identification),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PEHeader_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"identification"
+		ASN_NAME("identification")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PEHeader_tags_1[] = {
@@ -43,8 +43,8 @@ asn_SEQUENCE_specifics_t asn_SPC_PEHeader_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PEHeader = {
-	"PEHeader",
-	"PEHeader",
+	ASN_NAME("PEHeader"),
+	ASN_NAME("PEHeader"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_PEHeader_tags_1,
 	sizeof(asn_DEF_PEHeader_tags_1)

@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_ServerSigned1_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"transactionId"
+		ASN_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ServerSigned1, euiccChallenge),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_ServerSigned1_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccChallenge"
+		ASN_NAME("euiccChallenge")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ServerSigned1, serverAddress),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_ServerSigned1_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"serverAddress"
+		ASN_NAME("serverAddress")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ServerSigned1, serverChallenge),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_ServerSigned1_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"serverChallenge"
+		ASN_NAME("serverChallenge")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ServerSigned1_tags_1[] = {
@@ -63,8 +63,8 @@ asn_SEQUENCE_specifics_t asn_SPC_ServerSigned1_specs_1 = {
 	4,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ServerSigned1 = {
-	"ServerSigned1",
-	"ServerSigned1",
+	ASN_NAME("ServerSigned1"),
+	ASN_NAME("ServerSigned1"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_ServerSigned1_tags_1,
 	sizeof(asn_DEF_ServerSigned1_tags_1)

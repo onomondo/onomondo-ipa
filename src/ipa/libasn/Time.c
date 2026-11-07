@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_Time_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"utcTime"
+		ASN_NAME("utcTime")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct Time, choice.generalTime),
 		(ASN_TAG_CLASS_UNIVERSAL | (24 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_Time_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"generalTime"
+		ASN_NAME("generalTime")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_Time_tag2el_1[] = {
@@ -42,8 +42,8 @@ asn_CHOICE_specifics_t asn_SPC_Time_specs_1 = {
 	-1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_Time = {
-	"Time",
-	"Time",
+	ASN_NAME("Time"),
+	ASN_NAME("Time"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

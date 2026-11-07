@@ -1,0 +1,34 @@
+From: Benjamin Bruun <bb@onomondo.com>
+Subject: [PATCH] constr_TYPE: let a build blank the generated type and member names
+
+Generated type and member names feed only print, XER and ASN_DEBUG. The
+regeneration script wraps every generated name literal in ASN_NAME(). With
+ASN_DISABLE_NAMES set it expands to "", unless print, XER or asn1c debug
+output (the same switches asn_internal.h tests) is enabled.
+---
+diff --git a/src/ipa/libasn/constr_TYPE.h b/src/ipa/libasn/constr_TYPE.h
+--- a/src/ipa/libasn/constr_TYPE.h
++++ b/src/ipa/libasn/constr_TYPE.h
+@@ -166,6 +166,22 @@ typedef struct asn_encoding_constraints_s {
+     asn_constr_check_f *general_constraints;
+ } asn_encoding_constraints_t;
+ 
++/*
++ * Generated type and member names feed only print, XER and ASN_DEBUG.
++ * ASN_DISABLE_NAMES blanks them unless one of those is enabled; "" rather than
++ * NULL keeps any remaining %s on a name safe. The debug test mirrors
++ * asn_internal.h: a caller-supplied ASN_DEBUG, or ASN_EMIT_DEBUG or
++ * EMIT_ASN_DEBUG equal to 1.
++ */
++#if defined(ASN_DISABLE_NAMES) && defined(ASN_DISABLE_PRINT_SUPPORT) \
++	&& defined(ASN_DISABLE_XER_SUPPORT) && !defined(ASN_DEBUG) \
++	&& !(defined(ASN_EMIT_DEBUG) && ASN_EMIT_DEBUG == 1) \
++	&& !(defined(EMIT_ASN_DEBUG) && EMIT_ASN_DEBUG == 1)
++#define ASN_NAME(s) ""
++#else
++#define ASN_NAME(s) s
++#endif
++
+ /*
+  * The definitive description of the destination language's structure.
+  */

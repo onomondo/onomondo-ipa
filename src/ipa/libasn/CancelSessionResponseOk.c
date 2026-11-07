@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CancelSessionResponseOk_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccCancelSessionSigned"
+		ASN_NAME("euiccCancelSessionSigned")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CancelSessionResponseOk, euiccCancelSessionSignature),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_CancelSessionResponseOk_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccCancelSessionSignature"
+		ASN_NAME("euiccCancelSessionSignature")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CancelSessionResponseOk_tags_1[] = {
@@ -43,8 +43,8 @@ asn_SEQUENCE_specifics_t asn_SPC_CancelSessionResponseOk_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CancelSessionResponseOk = {
-	"CancelSessionResponseOk",
-	"CancelSessionResponseOk",
+	ASN_NAME("CancelSessionResponseOk"),
+	ASN_NAME("CancelSessionResponseOk"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_CancelSessionResponseOk_tags_1,
 	sizeof(asn_DEF_CancelSessionResponseOk_tags_1)

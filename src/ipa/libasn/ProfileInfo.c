@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_notificationConfigurationInfo_11[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_notificationConfigurationInfo_tags_11[] = {
@@ -29,8 +29,8 @@ static asn_SET_OF_specifics_t asn_SPC_notificationConfigurationInfo_specs_11 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_notificationConfigurationInfo_11 = {
-	"notificationConfigurationInfo",
-	"notificationConfigurationInfo",
+	ASN_NAME("notificationConfigurationInfo"),
+	ASN_NAME("notificationConfigurationInfo"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_notificationConfigurationInfo_tags_11,
 	sizeof(asn_DEF_notificationConfigurationInfo_tags_11)
@@ -52,7 +52,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"iccid"
+		ASN_NAME("iccid")
 		},
 	{ ATF_POINTER, 13, offsetof(struct ProfileInfo, isdpAid),
 		(ASN_TAG_CLASS_APPLICATION | (15 << 2)),
@@ -61,7 +61,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"isdpAid"
+		ASN_NAME("isdpAid")
 		},
 	{ ATF_POINTER, 12, offsetof(struct ProfileInfo, profileState),
 		(ASN_TAG_CLASS_CONTEXT | (112 << 2)),
@@ -70,7 +70,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileState"
+		ASN_NAME("profileState")
 		},
 	{ ATF_POINTER, 11, offsetof(struct ProfileInfo, profileNickname),
 		(ASN_TAG_CLASS_CONTEXT | (16 << 2)),
@@ -79,7 +79,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileNickname"
+		ASN_NAME("profileNickname")
 		},
 	{ ATF_POINTER, 10, offsetof(struct ProfileInfo, serviceProviderName),
 		(ASN_TAG_CLASS_CONTEXT | (17 << 2)),
@@ -88,7 +88,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"serviceProviderName"
+		ASN_NAME("serviceProviderName")
 		},
 	{ ATF_POINTER, 9, offsetof(struct ProfileInfo, profileName),
 		(ASN_TAG_CLASS_CONTEXT | (18 << 2)),
@@ -97,7 +97,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileName"
+		ASN_NAME("profileName")
 		},
 	{ ATF_POINTER, 8, offsetof(struct ProfileInfo, iconType),
 		(ASN_TAG_CLASS_CONTEXT | (19 << 2)),
@@ -106,7 +106,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"iconType"
+		ASN_NAME("iconType")
 		},
 	{ ATF_POINTER, 7, offsetof(struct ProfileInfo, icon),
 		(ASN_TAG_CLASS_CONTEXT | (20 << 2)),
@@ -115,7 +115,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"icon"
+		ASN_NAME("icon")
 		},
 	{ ATF_POINTER, 6, offsetof(struct ProfileInfo, profileClass),
 		(ASN_TAG_CLASS_CONTEXT | (21 << 2)),
@@ -124,7 +124,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileClass"
+		ASN_NAME("profileClass")
 		},
 	{ ATF_POINTER, 5, offsetof(struct ProfileInfo, notificationConfigurationInfo),
 		(ASN_TAG_CLASS_CONTEXT | (22 << 2)),
@@ -133,7 +133,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"notificationConfigurationInfo"
+		ASN_NAME("notificationConfigurationInfo")
 		},
 	{ ATF_POINTER, 4, offsetof(struct ProfileInfo, profileOwner),
 		(ASN_TAG_CLASS_CONTEXT | (23 << 2)),
@@ -142,7 +142,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileOwner"
+		ASN_NAME("profileOwner")
 		},
 	{ ATF_POINTER, 3, offsetof(struct ProfileInfo, dpProprietaryData),
 		(ASN_TAG_CLASS_CONTEXT | (24 << 2)),
@@ -151,7 +151,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"dpProprietaryData"
+		ASN_NAME("dpProprietaryData")
 		},
 	{ ATF_POINTER, 2, offsetof(struct ProfileInfo, profilePolicyRules),
 		(ASN_TAG_CLASS_CONTEXT | (25 << 2)),
@@ -160,7 +160,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profilePolicyRules"
+		ASN_NAME("profilePolicyRules")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ProfileInfo, serviceSpecificDataStoredInEuicc),
 		(ASN_TAG_CLASS_CONTEXT | (34 << 2)),
@@ -169,7 +169,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"serviceSpecificDataStoredInEuicc"
+		ASN_NAME("serviceSpecificDataStoredInEuicc")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ProfileInfo_tags_1[] = {
@@ -201,8 +201,8 @@ asn_SEQUENCE_specifics_t asn_SPC_ProfileInfo_specs_1 = {
 	14,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ProfileInfo = {
-	"ProfileInfo",
-	"ProfileInfo",
+	ASN_NAME("ProfileInfo"),
+	ASN_NAME("ProfileInfo"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_ProfileInfo_tags_1,
 	sizeof(asn_DEF_ProfileInfo_tags_1)

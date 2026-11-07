@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_eUICC_Mandatory_GFSTEList_8[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_eUICC_Mandatory_GFSTEList_tags_8[] = {
@@ -29,8 +29,8 @@ static asn_SET_OF_specifics_t asn_SPC_eUICC_Mandatory_GFSTEList_specs_8 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_eUICC_Mandatory_GFSTEList_8 = {
-	"eUICC-Mandatory-GFSTEList",
-	"eUICC-Mandatory-GFSTEList",
+	ASN_NAME("eUICC-Mandatory-GFSTEList"),
+	ASN_NAME("eUICC-Mandatory-GFSTEList"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_eUICC_Mandatory_GFSTEList_tags_8,
 	sizeof(asn_DEF_eUICC_Mandatory_GFSTEList_tags_8)
@@ -52,7 +52,7 @@ static asn_TYPE_member_t asn_MBR_Member_12[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"aid"
+		ASN_NAME("aid")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileHeader__eUICC_Mandatory_AIDs__Member, version),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -61,7 +61,7 @@ static asn_TYPE_member_t asn_MBR_Member_12[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"version"
+		ASN_NAME("version")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_Member_tags_12[] = {
@@ -81,8 +81,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_Member_specs_12 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_Member_12 = {
-	"SEQUENCE",
-	"SEQUENCE",
+	ASN_NAME("SEQUENCE"),
+	ASN_NAME("SEQUENCE"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_Member_tags_12,
 	sizeof(asn_DEF_Member_tags_12)
@@ -104,7 +104,7 @@ static asn_TYPE_member_t asn_MBR_eUICC_Mandatory_AIDs_11[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_eUICC_Mandatory_AIDs_tags_11[] = {
@@ -118,8 +118,8 @@ static asn_SET_OF_specifics_t asn_SPC_eUICC_Mandatory_AIDs_specs_11 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_eUICC_Mandatory_AIDs_11 = {
-	"eUICC-Mandatory-AIDs",
-	"eUICC-Mandatory-AIDs",
+	ASN_NAME("eUICC-Mandatory-AIDs"),
+	ASN_NAME("eUICC-Mandatory-AIDs"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_eUICC_Mandatory_AIDs_tags_11,
 	sizeof(asn_DEF_eUICC_Mandatory_AIDs_tags_11)
@@ -141,7 +141,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"major-version"
+		ASN_NAME("major-version")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileHeader, minor_version),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -150,7 +150,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"minor-version"
+		ASN_NAME("minor-version")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ProfileHeader, profileType),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -159,7 +159,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileType"
+		ASN_NAME("profileType")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileHeader, iccid),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -168,7 +168,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"iccid"
+		ASN_NAME("iccid")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ProfileHeader, pol),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -177,7 +177,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"pol"
+		ASN_NAME("pol")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileHeader, eUICC_Mandatory_services),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -186,7 +186,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eUICC-Mandatory-services"
+		ASN_NAME("eUICC-Mandatory-services")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileHeader, eUICC_Mandatory_GFSTEList),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -195,7 +195,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eUICC-Mandatory-GFSTEList"
+		ASN_NAME("eUICC-Mandatory-GFSTEList")
 		},
 	{ ATF_POINTER, 3, offsetof(struct ProfileHeader, connectivityParameters),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -204,7 +204,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"connectivityParameters"
+		ASN_NAME("connectivityParameters")
 		},
 	{ ATF_POINTER, 2, offsetof(struct ProfileHeader, eUICC_Mandatory_AIDs),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -213,7 +213,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eUICC-Mandatory-AIDs"
+		ASN_NAME("eUICC-Mandatory-AIDs")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ProfileHeader, iotOptions),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
@@ -222,7 +222,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"iotOptions"
+		ASN_NAME("iotOptions")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ProfileHeader_tags_1[] = {
@@ -249,8 +249,8 @@ asn_SEQUENCE_specifics_t asn_SPC_ProfileHeader_specs_1 = {
 	10,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ProfileHeader = {
-	"ProfileHeader",
-	"ProfileHeader",
+	ASN_NAME("ProfileHeader"),
+	ASN_NAME("ProfileHeader"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_ProfileHeader_tags_1,
 	sizeof(asn_DEF_ProfileHeader_tags_1)

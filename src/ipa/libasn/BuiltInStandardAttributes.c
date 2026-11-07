@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"country-name"
+		ASN_NAME("country-name")
 		},
 	{ ATF_POINTER, 8, offsetof(struct BuiltInStandardAttributes, administration_domain_name),
 		(ASN_TAG_CLASS_APPLICATION | (2 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"administration-domain-name"
+		ASN_NAME("administration-domain-name")
 		},
 	{ ATF_POINTER, 7, offsetof(struct BuiltInStandardAttributes, network_address),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"network-address"
+		ASN_NAME("network-address")
 		},
 	{ ATF_POINTER, 6, offsetof(struct BuiltInStandardAttributes, terminal_identifier),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"terminal-identifier"
+		ASN_NAME("terminal-identifier")
 		},
 	{ ATF_POINTER, 5, offsetof(struct BuiltInStandardAttributes, private_domain_name),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"private-domain-name"
+		ASN_NAME("private-domain-name")
 		},
 	{ ATF_POINTER, 4, offsetof(struct BuiltInStandardAttributes, organization_name),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"organization-name"
+		ASN_NAME("organization-name")
 		},
 	{ ATF_POINTER, 3, offsetof(struct BuiltInStandardAttributes, numeric_user_identifier),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"numeric-user-identifier"
+		ASN_NAME("numeric-user-identifier")
 		},
 	{ ATF_POINTER, 2, offsetof(struct BuiltInStandardAttributes, personal_name),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"personal-name"
+		ASN_NAME("personal-name")
 		},
 	{ ATF_POINTER, 1, offsetof(struct BuiltInStandardAttributes, organizational_unit_names),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"organizational-unit-names"
+		ASN_NAME("organizational-unit-names")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_BuiltInStandardAttributes_tags_1[] = {
@@ -113,8 +113,8 @@ asn_SEQUENCE_specifics_t asn_SPC_BuiltInStandardAttributes_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_BuiltInStandardAttributes = {
-	"BuiltInStandardAttributes",
-	"BuiltInStandardAttributes",
+	ASN_NAME("BuiltInStandardAttributes"),
+	ASN_NAME("BuiltInStandardAttributes"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_BuiltInStandardAttributes_tags_1,
 	sizeof(asn_DEF_BuiltInStandardAttributes_tags_1)

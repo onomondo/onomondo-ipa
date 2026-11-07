@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_PostalCode_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"numeric-code"
+		ASN_NAME("numeric-code")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PostalCode, choice.printable_code),
 		(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_PostalCode_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"printable-code"
+		ASN_NAME("printable-code")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_PostalCode_tag2el_1[] = {
@@ -42,8 +42,8 @@ static asn_CHOICE_specifics_t asn_SPC_PostalCode_specs_1 = {
 	-1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_PostalCode = {
-	"PostalCode",
-	"PostalCode",
+	ASN_NAME("PostalCode"),
+	ASN_NAME("PostalCode"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

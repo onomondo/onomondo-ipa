@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOkDPEsipa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"transactionId"
+		ASN_NAME("transactionId")
 		},
 	{ ATF_POINTER, 1, offsetof(struct AuthenticateClientOkDPEsipa, profileMetaData),
 		(ASN_TAG_CLASS_CONTEXT | (37 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOkDPEsipa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileMetaData"
+		ASN_NAME("profileMetaData")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateClientOkDPEsipa, smdpSigned2),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOkDPEsipa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"smdpSigned2"
+		ASN_NAME("smdpSigned2")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateClientOkDPEsipa, smdpSignature2),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOkDPEsipa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"smdpSignature2"
+		ASN_NAME("smdpSignature2")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateClientOkDPEsipa, smdpCertificate),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOkDPEsipa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"smdpCertificate"
+		ASN_NAME("smdpCertificate")
 		},
 	{ ATF_POINTER, 1, offsetof(struct AuthenticateClientOkDPEsipa, hashCc),
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOkDPEsipa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"hashCc"
+		ASN_NAME("hashCc")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AuthenticateClientOkDPEsipa_tags_1[] = {
@@ -83,8 +83,8 @@ asn_SEQUENCE_specifics_t asn_SPC_AuthenticateClientOkDPEsipa_specs_1 = {
 	6,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_AuthenticateClientOkDPEsipa = {
-	"AuthenticateClientOkDPEsipa",
-	"AuthenticateClientOkDPEsipa",
+	ASN_NAME("AuthenticateClientOkDPEsipa"),
+	ASN_NAME("AuthenticateClientOkDPEsipa"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_AuthenticateClientOkDPEsipa_tags_1,
 	sizeof(asn_DEF_AuthenticateClientOkDPEsipa_tags_1)

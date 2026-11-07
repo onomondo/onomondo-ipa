@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_SegmentedCrlList_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_SegmentedCrlList_tags_1[] = {
@@ -27,8 +27,8 @@ static asn_SET_OF_specifics_t asn_SPC_SegmentedCrlList_specs_1 = {
 	0,	/* XER encoding is XMLDelimitedItemList */
 };
 asn_TYPE_descriptor_t asn_DEF_SegmentedCrlList = {
-	"SegmentedCrlList",
-	"SegmentedCrlList",
+	ASN_NAME("SegmentedCrlList"),
+	ASN_NAME("SegmentedCrlList"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_SegmentedCrlList_tags_1,
 	sizeof(asn_DEF_SegmentedCrlList_tags_1)

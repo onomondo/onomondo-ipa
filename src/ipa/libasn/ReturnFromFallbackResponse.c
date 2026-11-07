@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_ReturnFromFallbackResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"returnFromFallbackResult"
+		ASN_NAME("returnFromFallbackResult")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ReturnFromFallbackResponse_tags_1[] = {
@@ -34,8 +34,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_ReturnFromFallbackResponse_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ReturnFromFallbackResponse = {
-	"ReturnFromFallbackResponse",
-	"ReturnFromFallbackResponse",
+	ASN_NAME("ReturnFromFallbackResponse"),
+	ASN_NAME("ReturnFromFallbackResponse"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_ReturnFromFallbackResponse_tags_1,
 	sizeof(asn_DEF_ReturnFromFallbackResponse_tags_1)

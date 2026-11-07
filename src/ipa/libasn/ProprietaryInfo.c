@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_ProprietaryInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"specialFileInformation"
+		ASN_NAME("specialFileInformation")
 		},
 	{ ATF_POINTER, 4, offsetof(struct ProprietaryInfo, fillPattern),
 		(ASN_TAG_CLASS_PRIVATE | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_ProprietaryInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"fillPattern"
+		ASN_NAME("fillPattern")
 		},
 	{ ATF_POINTER, 3, offsetof(struct ProprietaryInfo, repeatPattern),
 		(ASN_TAG_CLASS_PRIVATE | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_ProprietaryInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"repeatPattern"
+		ASN_NAME("repeatPattern")
 		},
 	{ ATF_POINTER, 2, offsetof(struct ProprietaryInfo, maximumFileSize),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_ProprietaryInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"maximumFileSize"
+		ASN_NAME("maximumFileSize")
 		},
 	{ ATF_POINTER, 1, offsetof(struct ProprietaryInfo, fileDetails),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_ProprietaryInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"fileDetails"
+		ASN_NAME("fileDetails")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ProprietaryInfo_tags_1[] = {
@@ -73,8 +73,8 @@ asn_SEQUENCE_specifics_t asn_SPC_ProprietaryInfo_specs_1 = {
 	5,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ProprietaryInfo = {
-	"ProprietaryInfo",
-	"ProprietaryInfo",
+	ASN_NAME("ProprietaryInfo"),
+	ASN_NAME("ProprietaryInfo"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_ProprietaryInfo_tags_1,
 	sizeof(asn_DEF_ProprietaryInfo_tags_1)

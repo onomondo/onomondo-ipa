@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_DeviceInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"tac"
+		ASN_NAME("tac")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct DeviceInfo, deviceCapabilities),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_DeviceInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"deviceCapabilities"
+		ASN_NAME("deviceCapabilities")
 		},
 	{ ATF_POINTER, 1, offsetof(struct DeviceInfo, imei),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_DeviceInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"imei"
+		ASN_NAME("imei")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_DeviceInfo_tags_1[] = {
@@ -53,8 +53,8 @@ asn_SEQUENCE_specifics_t asn_SPC_DeviceInfo_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_DeviceInfo = {
-	"DeviceInfo",
-	"DeviceInfo",
+	ASN_NAME("DeviceInfo"),
+	ASN_NAME("DeviceInfo"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_DeviceInfo_tags_1,
 	sizeof(asn_DEF_DeviceInfo_tags_1)

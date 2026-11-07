@@ -167,6 +167,22 @@ typedef struct asn_encoding_constraints_s {
 } asn_encoding_constraints_t;
 
 /*
+ * Generated type and member names feed only print, XER and ASN_DEBUG.
+ * ASN_DISABLE_NAMES blanks them unless one of those is enabled; "" rather than
+ * NULL keeps any remaining %s on a name safe. The debug test mirrors
+ * asn_internal.h: a caller-supplied ASN_DEBUG, or ASN_EMIT_DEBUG or
+ * EMIT_ASN_DEBUG equal to 1.
+ */
+#if defined(ASN_DISABLE_NAMES) && defined(ASN_DISABLE_PRINT_SUPPORT) \
+	&& defined(ASN_DISABLE_XER_SUPPORT) && !defined(ASN_DEBUG) \
+	&& !(defined(ASN_EMIT_DEBUG) && ASN_EMIT_DEBUG == 1) \
+	&& !(defined(EMIT_ASN_DEBUG) && EMIT_ASN_DEBUG == 1)
+#define ASN_NAME(s) ""
+#else
+#define ASN_NAME(s) s
+#endif
+
+/*
  * The definitive description of the destination language's structure.
  */
 typedef struct asn_TYPE_descriptor_s {

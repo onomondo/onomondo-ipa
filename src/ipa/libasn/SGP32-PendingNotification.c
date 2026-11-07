@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_SGP32_PendingNotification_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileInstallationResult"
+		ASN_NAME("profileInstallationResult")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_PendingNotification, choice.otherSignedNotification),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_SGP32_PendingNotification_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"otherSignedNotification"
+		ASN_NAME("otherSignedNotification")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_PendingNotification, choice.compactProfileInstallationResult),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_SGP32_PendingNotification_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"compactProfileInstallationResult"
+		ASN_NAME("compactProfileInstallationResult")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_PendingNotification, choice.compactOtherSignedNotification),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_SGP32_PendingNotification_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"compactOtherSignedNotification"
+		ASN_NAME("compactOtherSignedNotification")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_SGP32_PendingNotification_tag2el_1[] = {
@@ -62,8 +62,8 @@ asn_CHOICE_specifics_t asn_SPC_SGP32_PendingNotification_specs_1 = {
 	4	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_SGP32_PendingNotification = {
-	"SGP32-PendingNotification",
-	"SGP32-PendingNotification",
+	ASN_NAME("SGP32-PendingNotification"),
+	ASN_NAME("SGP32-PendingNotification"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_TeletexDomainDefinedAttribute_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"type"
+		ASN_NAME("type")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct TeletexDomainDefinedAttribute, value),
 		(ASN_TAG_CLASS_UNIVERSAL | (20 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_TeletexDomainDefinedAttribute_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"value"
+		ASN_NAME("value")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_TeletexDomainDefinedAttribute_tags_1[] = {
@@ -43,8 +43,8 @@ asn_SEQUENCE_specifics_t asn_SPC_TeletexDomainDefinedAttribute_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_TeletexDomainDefinedAttribute = {
-	"TeletexDomainDefinedAttribute",
-	"TeletexDomainDefinedAttribute",
+	ASN_NAME("TeletexDomainDefinedAttribute"),
+	ASN_NAME("TeletexDomainDefinedAttribute"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_TeletexDomainDefinedAttribute_tags_1,
 	sizeof(asn_DEF_TeletexDomainDefinedAttribute_tags_1)

@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_certs_2[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eumCertificate"
+		ASN_NAME("eumCertificate")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct GetCertsResponse__certs, euiccCertificate),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_certs_2[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccCertificate"
+		ASN_NAME("euiccCertificate")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_certs_tags_2[] = {
@@ -45,8 +45,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_certs_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_certs_2 = {
-	"certs",
-	"certs",
+	ASN_NAME("certs"),
+	ASN_NAME("certs"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_certs_tags_2,
 	sizeof(asn_DEF_certs_tags_2)
@@ -68,7 +68,7 @@ static asn_TYPE_member_t asn_MBR_GetCertsResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"certs"
+		ASN_NAME("certs")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct GetCertsResponse, choice.getCertsError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -77,7 +77,7 @@ static asn_TYPE_member_t asn_MBR_GetCertsResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"getCertsError"
+		ASN_NAME("getCertsError")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_GetCertsResponse_tags_1[] = {
@@ -98,8 +98,8 @@ static asn_CHOICE_specifics_t asn_SPC_GetCertsResponse_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_GetCertsResponse = {
-	"GetCertsResponse",
-	"GetCertsResponse",
+	ASN_NAME("GetCertsResponse"),
+	ASN_NAME("GetCertsResponse"),
 	&asn_OP_CHOICE,
 	asn_DEF_GetCertsResponse_tags_1,
 	sizeof(asn_DEF_GetCertsResponse_tags_1)

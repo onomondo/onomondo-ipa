@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_SuccessResult_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"aid"
+		ASN_NAME("aid")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SuccessResult, simaResponse),
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_SuccessResult_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"simaResponse"
+		ASN_NAME("simaResponse")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_SuccessResult_tags_1[] = {
@@ -43,8 +43,8 @@ asn_SEQUENCE_specifics_t asn_SPC_SuccessResult_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_SuccessResult = {
-	"SuccessResult",
-	"SuccessResult",
+	ASN_NAME("SuccessResult"),
+	ASN_NAME("SuccessResult"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_SuccessResult_tags_1,
 	sizeof(asn_DEF_SuccessResult_tags_1)

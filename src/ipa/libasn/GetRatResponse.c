@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_GetRatResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"rat"
+		ASN_NAME("rat")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_GetRatResponse_tags_1[] = {
@@ -34,8 +34,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_GetRatResponse_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_GetRatResponse = {
-	"GetRatResponse",
-	"GetRatResponse",
+	ASN_NAME("GetRatResponse"),
+	ASN_NAME("GetRatResponse"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_GetRatResponse_tags_1,
 	sizeof(asn_DEF_GetRatResponse_tags_1)

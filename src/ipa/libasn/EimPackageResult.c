@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_ePRAndNotifications_3[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccPackageResult"
+		ASN_NAME("euiccPackageResult")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EimPackageResult__ePRAndNotifications, notificationList),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_ePRAndNotifications_3[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"notificationList"
+		ASN_NAME("notificationList")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ePRAndNotifications_tags_3[] = {
@@ -44,8 +44,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_ePRAndNotifications_specs_3 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_ePRAndNotifications_3 = {
-	"ePRAndNotifications",
-	"ePRAndNotifications",
+	ASN_NAME("ePRAndNotifications"),
+	ASN_NAME("ePRAndNotifications"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_ePRAndNotifications_tags_3,
 	sizeof(asn_DEF_ePRAndNotifications_tags_3)
@@ -67,7 +67,7 @@ asn_TYPE_member_t asn_MBR_EimPackageResult_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccPackageResult"
+		ASN_NAME("euiccPackageResult")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EimPackageResult, choice.ePRAndNotifications),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -76,7 +76,7 @@ asn_TYPE_member_t asn_MBR_EimPackageResult_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ePRAndNotifications"
+		ASN_NAME("ePRAndNotifications")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EimPackageResult, choice.ipaEuiccDataResponse),
 		(ASN_TAG_CLASS_CONTEXT | (82 << 2)),
@@ -85,7 +85,7 @@ asn_TYPE_member_t asn_MBR_EimPackageResult_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ipaEuiccDataResponse"
+		ASN_NAME("ipaEuiccDataResponse")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EimPackageResult, choice.profileDownloadTriggerResult),
 		(ASN_TAG_CLASS_CONTEXT | (84 << 2)),
@@ -94,7 +94,7 @@ asn_TYPE_member_t asn_MBR_EimPackageResult_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileDownloadTriggerResult"
+		ASN_NAME("profileDownloadTriggerResult")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EimPackageResult, choice.eimPackageResultResponseError),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
@@ -103,7 +103,7 @@ asn_TYPE_member_t asn_MBR_EimPackageResult_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eimPackageResultResponseError"
+		ASN_NAME("eimPackageResultResponseError")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_EimPackageResult_tag2el_1[] = {
@@ -124,8 +124,8 @@ asn_CHOICE_specifics_t asn_SPC_EimPackageResult_specs_1 = {
 	5	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_EimPackageResult = {
-	"EimPackageResult",
-	"EimPackageResult",
+	ASN_NAME("EimPackageResult"),
+	ASN_NAME("EimPackageResult"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

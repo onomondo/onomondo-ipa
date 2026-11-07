@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PersonalName_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"surname"
+		ASN_NAME("surname")
 		},
 	{ ATF_POINTER, 3, offsetof(struct PersonalName, given_name),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PersonalName_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"given-name"
+		ASN_NAME("given-name")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PersonalName, initials),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_PersonalName_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"initials"
+		ASN_NAME("initials")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PersonalName, generation_qualifier),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_PersonalName_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"generation-qualifier"
+		ASN_NAME("generation-qualifier")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PersonalName_tags_1[] = {
@@ -69,8 +69,8 @@ asn_SET_specifics_t asn_SPC_PersonalName_specs_1 = {
 	(const unsigned int *)asn_MAP_PersonalName_mmap_1	/* Mandatory elements map */
 };
 asn_TYPE_descriptor_t asn_DEF_PersonalName = {
-	"PersonalName",
-	"PersonalName",
+	ASN_NAME("PersonalName"),
+	ASN_NAME("PersonalName"),
 	&asn_OP_SET,
 	asn_DEF_PersonalName_tags_1,
 	sizeof(asn_DEF_PersonalName_tags_1)

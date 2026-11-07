@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_fileManagementCMD_3[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_fileManagementCMD_tags_3[] = {
@@ -29,8 +29,8 @@ static asn_SET_OF_specifics_t asn_SPC_fileManagementCMD_specs_3 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_fileManagementCMD_3 = {
-	"fileManagementCMD",
-	"fileManagementCMD",
+	ASN_NAME("fileManagementCMD"),
+	ASN_NAME("fileManagementCMD"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_fileManagementCMD_tags_3,
 	sizeof(asn_DEF_fileManagementCMD_tags_3)
@@ -52,7 +52,7 @@ asn_TYPE_member_t asn_MBR_PE_GenericFileManagement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"gfm-header"
+		ASN_NAME("gfm-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_GenericFileManagement, fileManagementCMD),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -61,7 +61,7 @@ asn_TYPE_member_t asn_MBR_PE_GenericFileManagement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"fileManagementCMD"
+		ASN_NAME("fileManagementCMD")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_GenericFileManagement_tags_1[] = {
@@ -80,8 +80,8 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_GenericFileManagement_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_GenericFileManagement = {
-	"PE-GenericFileManagement",
-	"PE-GenericFileManagement",
+	ASN_NAME("PE-GenericFileManagement"),
+	ASN_NAME("PE-GenericFileManagement"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_GenericFileManagement_tags_1,
 	sizeof(asn_DEF_PE_GenericFileManagement_tags_1)

@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_PhysicalDeliveryCountryName_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"x121-dcc-code"
+		ASN_NAME("x121-dcc-code")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PhysicalDeliveryCountryName, choice.iso_3166_alpha2_code),
 		(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_PhysicalDeliveryCountryName_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"iso-3166-alpha2-code"
+		ASN_NAME("iso-3166-alpha2-code")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_PhysicalDeliveryCountryName_tag2el_1[] = {
@@ -42,8 +42,8 @@ static asn_CHOICE_specifics_t asn_SPC_PhysicalDeliveryCountryName_specs_1 = {
 	-1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_PhysicalDeliveryCountryName = {
-	"PhysicalDeliveryCountryName",
-	"PhysicalDeliveryCountryName",
+	ASN_NAME("PhysicalDeliveryCountryName"),
+	ASN_NAME("PhysicalDeliveryCountryName"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

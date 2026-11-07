@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"fileDescriptor"
+		ASN_NAME("fileDescriptor")
 		},
 	{ ATF_POINTER, 9, offsetof(struct Fcp, fileID),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"fileID"
+		ASN_NAME("fileID")
 		},
 	{ ATF_POINTER, 8, offsetof(struct Fcp, dfName),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"dfName"
+		ASN_NAME("dfName")
 		},
 	{ ATF_POINTER, 7, offsetof(struct Fcp, lcsi),
 		(ASN_TAG_CLASS_CONTEXT | (10 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"lcsi"
+		ASN_NAME("lcsi")
 		},
 	{ ATF_POINTER, 6, offsetof(struct Fcp, securityAttributesReferenced),
 		(ASN_TAG_CLASS_CONTEXT | (11 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"securityAttributesReferenced"
+		ASN_NAME("securityAttributesReferenced")
 		},
 	{ ATF_POINTER, 5, offsetof(struct Fcp, efFileSize),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"efFileSize"
+		ASN_NAME("efFileSize")
 		},
 	{ ATF_POINTER, 4, offsetof(struct Fcp, pinStatusTemplateDO),
 		(ASN_TAG_CLASS_PRIVATE | (6 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"pinStatusTemplateDO"
+		ASN_NAME("pinStatusTemplateDO")
 		},
 	{ ATF_POINTER, 3, offsetof(struct Fcp, shortEFID),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"shortEFID"
+		ASN_NAME("shortEFID")
 		},
 	{ ATF_POINTER, 2, offsetof(struct Fcp, proprietaryEFInfo),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"proprietaryEFInfo"
+		ASN_NAME("proprietaryEFInfo")
 		},
 	{ ATF_POINTER, 1, offsetof(struct Fcp, linkPath),
 		(ASN_TAG_CLASS_PRIVATE | (7 << 2)),
@@ -96,7 +96,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"linkPath"
+		ASN_NAME("linkPath")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_Fcp_tags_1[] = {
@@ -123,8 +123,8 @@ asn_SEQUENCE_specifics_t asn_SPC_Fcp_specs_1 = {
 	10,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_Fcp = {
-	"Fcp",
-	"Fcp",
+	ASN_NAME("Fcp"),
+	ASN_NAME("Fcp"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_Fcp_tags_1,
 	sizeof(asn_DEF_Fcp_tags_1)

@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_X520Pseudonym_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"teletexString"
+		ASN_NAME("teletexString")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct X520Pseudonym, choice.printableString),
 		(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_X520Pseudonym_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"printableString"
+		ASN_NAME("printableString")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct X520Pseudonym, choice.universalString),
 		(ASN_TAG_CLASS_UNIVERSAL | (28 << 2)),
@@ -33,7 +33,7 @@ static asn_TYPE_member_t asn_MBR_X520Pseudonym_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"universalString"
+		ASN_NAME("universalString")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct X520Pseudonym, choice.utf8String),
 		(ASN_TAG_CLASS_UNIVERSAL | (12 << 2)),
@@ -42,7 +42,7 @@ static asn_TYPE_member_t asn_MBR_X520Pseudonym_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"utf8String"
+		ASN_NAME("utf8String")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct X520Pseudonym, choice.bmpString),
 		(ASN_TAG_CLASS_UNIVERSAL | (30 << 2)),
@@ -51,7 +51,7 @@ static asn_TYPE_member_t asn_MBR_X520Pseudonym_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"bmpString"
+		ASN_NAME("bmpString")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_X520Pseudonym_tag2el_1[] = {
@@ -72,8 +72,8 @@ static asn_CHOICE_specifics_t asn_SPC_X520Pseudonym_specs_1 = {
 	-1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_X520Pseudonym = {
-	"X520Pseudonym",
-	"X520Pseudonym",
+	ASN_NAME("X520Pseudonym"),
+	ASN_NAME("X520Pseudonym"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

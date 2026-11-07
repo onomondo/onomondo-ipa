@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_EDIPartyName_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"nameAssigner"
+		ASN_NAME("nameAssigner")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EDIPartyName, partyName),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_EDIPartyName_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"partyName"
+		ASN_NAME("partyName")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_EDIPartyName_tags_1[] = {
@@ -43,8 +43,8 @@ asn_SEQUENCE_specifics_t asn_SPC_EDIPartyName_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EDIPartyName = {
-	"EDIPartyName",
-	"EDIPartyName",
+	ASN_NAME("EDIPartyName"),
+	ASN_NAME("EDIPartyName"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_EDIPartyName_tags_1,
 	sizeof(asn_DEF_EDIPartyName_tags_1)

@@ -15,8 +15,8 @@ static const ber_tlv_tag_t asn_DEF_LocalPostalAttributes_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (17 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_LocalPostalAttributes = {
-	"LocalPostalAttributes",
-	"LocalPostalAttributes",
+	ASN_NAME("LocalPostalAttributes"),
+	ASN_NAME("LocalPostalAttributes"),
 	&asn_OP_SET,
 	asn_DEF_LocalPostalAttributes_tags_1,
 	sizeof(asn_DEF_LocalPostalAttributes_tags_1)

@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_Member_2[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"filePath"
+		ASN_NAME("filePath")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct FileManagement__Member, choice.createFCP),
 		(ASN_TAG_CLASS_APPLICATION | (2 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_Member_2[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"createFCP"
+		ASN_NAME("createFCP")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct FileManagement__Member, choice.fillFileOffset),
 		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
@@ -33,7 +33,7 @@ static asn_TYPE_member_t asn_MBR_Member_2[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"fillFileOffset"
+		ASN_NAME("fillFileOffset")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct FileManagement__Member, choice.fillFileContent),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -42,7 +42,7 @@ static asn_TYPE_member_t asn_MBR_Member_2[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"fillFileContent"
+		ASN_NAME("fillFileContent")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_Member_tag2el_2[] = {
@@ -63,8 +63,8 @@ static asn_CHOICE_specifics_t asn_SPC_Member_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_Member_2 = {
-	"CHOICE",
-	"CHOICE",
+	ASN_NAME("CHOICE"),
+	ASN_NAME("CHOICE"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
@@ -84,7 +84,7 @@ asn_TYPE_member_t asn_MBR_FileManagement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_FileManagement_tags_1[] = {
@@ -96,8 +96,8 @@ asn_SET_OF_specifics_t asn_SPC_FileManagement_specs_1 = {
 	2,	/* XER encoding is XMLValueList */
 };
 asn_TYPE_descriptor_t asn_DEF_FileManagement = {
-	"FileManagement",
-	"FileManagement",
+	ASN_NAME("FileManagement"),
+	ASN_NAME("FileManagement"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_FileManagement_tags_1,
 	sizeof(asn_DEF_FileManagement_tags_1)

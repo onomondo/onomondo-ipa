@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_euiccCiPKIdListForVerification_10[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_euiccCiPKIdListForVerification_tags_10[] = {
@@ -29,8 +29,8 @@ static asn_SET_OF_specifics_t asn_SPC_euiccCiPKIdListForVerification_specs_10 = 
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_euiccCiPKIdListForVerification_10 = {
-	"euiccCiPKIdListForVerification",
-	"euiccCiPKIdListForVerification",
+	ASN_NAME("euiccCiPKIdListForVerification"),
+	ASN_NAME("euiccCiPKIdListForVerification"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_euiccCiPKIdListForVerification_tags_10,
 	sizeof(asn_DEF_euiccCiPKIdListForVerification_tags_10)
@@ -52,7 +52,7 @@ static asn_TYPE_member_t asn_MBR_euiccCiPKIdListForSigning_12[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_euiccCiPKIdListForSigning_tags_12[] = {
@@ -66,8 +66,8 @@ static asn_SET_OF_specifics_t asn_SPC_euiccCiPKIdListForSigning_specs_12 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_euiccCiPKIdListForSigning_12 = {
-	"euiccCiPKIdListForSigning",
-	"euiccCiPKIdListForSigning",
+	ASN_NAME("euiccCiPKIdListForSigning"),
+	ASN_NAME("euiccCiPKIdListForSigning"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_euiccCiPKIdListForSigning_tags_12,
 	sizeof(asn_DEF_euiccCiPKIdListForSigning_tags_12)
@@ -89,7 +89,7 @@ static asn_TYPE_member_t asn_MBR_additionalEuiccProfilePackageVersions_28[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_additionalEuiccProfilePackageVersions_tags_28[] = {
@@ -103,8 +103,8 @@ static asn_SET_OF_specifics_t asn_SPC_additionalEuiccProfilePackageVersions_spec
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_additionalEuiccProfilePackageVersions_28 = {
-	"additionalEuiccProfilePackageVersions",
-	"additionalEuiccProfilePackageVersions",
+	ASN_NAME("additionalEuiccProfilePackageVersions"),
+	ASN_NAME("additionalEuiccProfilePackageVersions"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_additionalEuiccProfilePackageVersions_tags_28,
 	sizeof(asn_DEF_additionalEuiccProfilePackageVersions_tags_28)
@@ -126,7 +126,7 @@ static asn_TYPE_member_t asn_MBR_euiccCiPKIdListForSigningV3_31[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_euiccCiPKIdListForSigningV3_tags_31[] = {
@@ -140,8 +140,8 @@ static asn_SET_OF_specifics_t asn_SPC_euiccCiPKIdListForSigningV3_specs_31 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_euiccCiPKIdListForSigningV3_31 = {
-	"euiccCiPKIdListForSigningV3",
-	"euiccCiPKIdListForSigningV3",
+	ASN_NAME("euiccCiPKIdListForSigningV3"),
+	ASN_NAME("euiccCiPKIdListForSigningV3"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_euiccCiPKIdListForSigningV3_tags_31,
 	sizeof(asn_DEF_euiccCiPKIdListForSigningV3_tags_31)
@@ -163,7 +163,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileVersion"
+		ASN_NAME("profileVersion")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_EUICCInfo2, svn),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -172,7 +172,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"svn"
+		ASN_NAME("svn")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_EUICCInfo2, euiccFirmwareVer),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -181,7 +181,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccFirmwareVer"
+		ASN_NAME("euiccFirmwareVer")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_EUICCInfo2, extCardResource),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -190,7 +190,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"extCardResource"
+		ASN_NAME("extCardResource")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_EUICCInfo2, uiccCapability),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -199,7 +199,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"uiccCapability"
+		ASN_NAME("uiccCapability")
 		},
 	{ ATF_POINTER, 2, offsetof(struct SGP32_EUICCInfo2, ts102241Version),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -208,7 +208,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ts102241Version"
+		ASN_NAME("ts102241Version")
 		},
 	{ ATF_POINTER, 1, offsetof(struct SGP32_EUICCInfo2, globalplatformVersion),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -217,7 +217,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"globalplatformVersion"
+		ASN_NAME("globalplatformVersion")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_EUICCInfo2, rspCapability),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -226,7 +226,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"rspCapability"
+		ASN_NAME("rspCapability")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_EUICCInfo2, euiccCiPKIdListForVerification),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
@@ -235,7 +235,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccCiPKIdListForVerification"
+		ASN_NAME("euiccCiPKIdListForVerification")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_EUICCInfo2, euiccCiPKIdListForSigning),
 		(ASN_TAG_CLASS_CONTEXT | (10 << 2)),
@@ -244,7 +244,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccCiPKIdListForSigning"
+		ASN_NAME("euiccCiPKIdListForSigning")
 		},
 	{ ATF_POINTER, 2, offsetof(struct SGP32_EUICCInfo2, euiccCategory),
 		(ASN_TAG_CLASS_CONTEXT | (11 << 2)),
@@ -253,7 +253,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccCategory"
+		ASN_NAME("euiccCategory")
 		},
 	{ ATF_POINTER, 1, offsetof(struct SGP32_EUICCInfo2, forbiddenProfilePolicyRules),
 		(ASN_TAG_CLASS_CONTEXT | (25 << 2)),
@@ -262,7 +262,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"forbiddenProfilePolicyRules"
+		ASN_NAME("forbiddenProfilePolicyRules")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_EUICCInfo2, ppVersion),
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
@@ -271,7 +271,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ppVersion"
+		ASN_NAME("ppVersion")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SGP32_EUICCInfo2, sasAcreditationNumber),
 		(ASN_TAG_CLASS_UNIVERSAL | (12 << 2)),
@@ -280,7 +280,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"sasAcreditationNumber"
+		ASN_NAME("sasAcreditationNumber")
 		},
 	{ ATF_POINTER, 9, offsetof(struct SGP32_EUICCInfo2, certificationDataObject),
 		(ASN_TAG_CLASS_CONTEXT | (12 << 2)),
@@ -289,7 +289,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"certificationDataObject"
+		ASN_NAME("certificationDataObject")
 		},
 	{ ATF_POINTER, 8, offsetof(struct SGP32_EUICCInfo2, treProperties),
 		(ASN_TAG_CLASS_CONTEXT | (13 << 2)),
@@ -298,7 +298,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"treProperties"
+		ASN_NAME("treProperties")
 		},
 	{ ATF_POINTER, 7, offsetof(struct SGP32_EUICCInfo2, treProductReference),
 		(ASN_TAG_CLASS_CONTEXT | (14 << 2)),
@@ -307,7 +307,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"treProductReference"
+		ASN_NAME("treProductReference")
 		},
 	{ ATF_POINTER, 6, offsetof(struct SGP32_EUICCInfo2, additionalEuiccProfilePackageVersions),
 		(ASN_TAG_CLASS_CONTEXT | (15 << 2)),
@@ -316,7 +316,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"additionalEuiccProfilePackageVersions"
+		ASN_NAME("additionalEuiccProfilePackageVersions")
 		},
 	{ ATF_POINTER, 5, offsetof(struct SGP32_EUICCInfo2, ipaMode),
 		(ASN_TAG_CLASS_CONTEXT | (16 << 2)),
@@ -325,7 +325,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ipaMode"
+		ASN_NAME("ipaMode")
 		},
 	{ ATF_POINTER, 4, offsetof(struct SGP32_EUICCInfo2, euiccCiPKIdListForSigningV3),
 		(ASN_TAG_CLASS_CONTEXT | (17 << 2)),
@@ -334,7 +334,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccCiPKIdListForSigningV3"
+		ASN_NAME("euiccCiPKIdListForSigningV3")
 		},
 	{ ATF_POINTER, 3, offsetof(struct SGP32_EUICCInfo2, additionalEuiccInfo),
 		(ASN_TAG_CLASS_CONTEXT | (18 << 2)),
@@ -343,7 +343,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"additionalEuiccInfo"
+		ASN_NAME("additionalEuiccInfo")
 		},
 	{ ATF_POINTER, 2, offsetof(struct SGP32_EUICCInfo2, highestSvn),
 		(ASN_TAG_CLASS_CONTEXT | (19 << 2)),
@@ -352,7 +352,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"highestSvn"
+		ASN_NAME("highestSvn")
 		},
 	{ ATF_POINTER, 1, offsetof(struct SGP32_EUICCInfo2, iotSpecificInfo),
 		(ASN_TAG_CLASS_CONTEXT | (20 << 2)),
@@ -361,7 +361,7 @@ asn_TYPE_member_t asn_MBR_SGP32_EUICCInfo2_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"iotSpecificInfo"
+		ASN_NAME("iotSpecificInfo")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_SGP32_EUICCInfo2_tags_1[] = {
@@ -402,8 +402,8 @@ asn_SEQUENCE_specifics_t asn_SPC_SGP32_EUICCInfo2_specs_1 = {
 	23,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_SGP32_EUICCInfo2 = {
-	"SGP32-EUICCInfo2",
-	"SGP32-EUICCInfo2",
+	ASN_NAME("SGP32-EUICCInfo2"),
+	ASN_NAME("SGP32-EUICCInfo2"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_SGP32_EUICCInfo2_tags_1,
 	sizeof(asn_DEF_SGP32_EUICCInfo2_tags_1)

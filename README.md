@@ -84,7 +84,9 @@ headers must define `ASN_DISABLE_OER_SUPPORT` and `ASN_DISABLE_PER_SUPPORT`; the
 exports both, so linking it is enough. The target also exports `ASN_DISABLE_XER_SUPPORT`,
 `ASN_DISABLE_COMPARE_SUPPORT`, `ASN_DISABLE_RFILL_SUPPORT` and `ASN_DISABLE_CONSTRAINT_MSG`, plus
 `ASN_DISABLE_PRINT_SUPPORT` unless `SHOW_ASN_OUTPUT` is on; integrations that add the include path by
-hand should define the same set. libasn is also generated with `-fno-constraints`: no constraint-checking
+hand should define the same set. Zephyr builds also define `ASN_DISABLE_NAMES`, which compiles the
+generated type and member names to `""` unless print, XER or asn1c debug output is enabled; host builds
+keep the names. libasn is also generated with `-fno-constraints`: no constraint-checking
 code exists and `asn_check_constraints()` must not be called; libipa validates the sizes it relies on itself.
 
 

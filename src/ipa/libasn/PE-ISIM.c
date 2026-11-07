@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PE_ISIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"isim-header"
+		ASN_NAME("isim-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_ISIM, templateID),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PE_ISIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"templateID"
+		ASN_NAME("templateID")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_ISIM, adf_isim),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_PE_ISIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"adf-isim"
+		ASN_NAME("adf-isim")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_ISIM, ef_impi),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_PE_ISIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-impi"
+		ASN_NAME("ef-impi")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_ISIM, ef_impu),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_PE_ISIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-impu"
+		ASN_NAME("ef-impu")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_ISIM, ef_domain),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_PE_ISIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-domain"
+		ASN_NAME("ef-domain")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_ISIM, ef_ist),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_PE_ISIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ist"
+		ASN_NAME("ef-ist")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_ISIM, ef_ad),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_PE_ISIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ad"
+		ASN_NAME("ef-ad")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_ISIM, ef_arr),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_PE_ISIM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-arr"
+		ASN_NAME("ef-arr")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_ISIM_tags_1[] = {
@@ -113,8 +113,8 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_ISIM_specs_1 = {
 	9,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_ISIM = {
-	"PE-ISIM",
-	"PE-ISIM",
+	ASN_NAME("PE-ISIM"),
+	ASN_NAME("PE-ISIM"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_ISIM_tags_1,
 	sizeof(asn_DEF_PE_ISIM_tags_1)

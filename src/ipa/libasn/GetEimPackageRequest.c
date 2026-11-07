@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_GetEimPackageRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eidValue"
+		ASN_NAME("eidValue")
 		},
 	{ ATF_POINTER, 3, offsetof(struct GetEimPackageRequest, notifyStateChange),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_GetEimPackageRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"notifyStateChange"
+		ASN_NAME("notifyStateChange")
 		},
 	{ ATF_POINTER, 2, offsetof(struct GetEimPackageRequest, stateChangeCause),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_GetEimPackageRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"stateChangeCause"
+		ASN_NAME("stateChangeCause")
 		},
 	{ ATF_POINTER, 1, offsetof(struct GetEimPackageRequest, rPLMN),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_GetEimPackageRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"rPLMN"
+		ASN_NAME("rPLMN")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_GetEimPackageRequest_tags_1[] = {
@@ -64,8 +64,8 @@ asn_SEQUENCE_specifics_t asn_SPC_GetEimPackageRequest_specs_1 = {
 	4,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_GetEimPackageRequest = {
-	"GetEimPackageRequest",
-	"GetEimPackageRequest",
+	ASN_NAME("GetEimPackageRequest"),
+	ASN_NAME("GetEimPackageRequest"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_GetEimPackageRequest_tags_1,
 	sizeof(asn_DEF_GetEimPackageRequest_tags_1)

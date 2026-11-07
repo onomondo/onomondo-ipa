@@ -15,8 +15,8 @@ static const ber_tlv_tag_t asn_DEF_PhysicalDeliveryOfficeName_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (17 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_PhysicalDeliveryOfficeName = {
-	"PhysicalDeliveryOfficeName",
-	"PhysicalDeliveryOfficeName",
+	ASN_NAME("PhysicalDeliveryOfficeName"),
+	ASN_NAME("PhysicalDeliveryOfficeName"),
 	&asn_OP_SET,
 	asn_DEF_PhysicalDeliveryOfficeName_tags_1,
 	sizeof(asn_DEF_PhysicalDeliveryOfficeName_tags_1)

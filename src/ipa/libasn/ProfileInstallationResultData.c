@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_finalResult_5[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"successResult"
+		ASN_NAME("successResult")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileInstallationResultData__finalResult, choice.errorResult),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_finalResult_5[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"errorResult"
+		ASN_NAME("errorResult")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_finalResult_tag2el_5[] = {
@@ -43,8 +43,8 @@ static asn_CHOICE_specifics_t asn_SPC_finalResult_specs_5 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_finalResult_5 = {
-	"finalResult",
-	"finalResult",
+	ASN_NAME("finalResult"),
+	ASN_NAME("finalResult"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
@@ -64,7 +64,7 @@ asn_TYPE_member_t asn_MBR_ProfileInstallationResultData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"transactionId"
+		ASN_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileInstallationResultData, notificationMetadata),
 		(ASN_TAG_CLASS_CONTEXT | (47 << 2)),
@@ -73,7 +73,7 @@ asn_TYPE_member_t asn_MBR_ProfileInstallationResultData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"notificationMetadata"
+		ASN_NAME("notificationMetadata")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileInstallationResultData, smdpOid),
 		(ASN_TAG_CLASS_UNIVERSAL | (6 << 2)),
@@ -82,7 +82,7 @@ asn_TYPE_member_t asn_MBR_ProfileInstallationResultData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"smdpOid"
+		ASN_NAME("smdpOid")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileInstallationResultData, finalResult),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -91,7 +91,7 @@ asn_TYPE_member_t asn_MBR_ProfileInstallationResultData_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"finalResult"
+		ASN_NAME("finalResult")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ProfileInstallationResultData_tags_1[] = {
@@ -113,8 +113,8 @@ asn_SEQUENCE_specifics_t asn_SPC_ProfileInstallationResultData_specs_1 = {
 	4,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ProfileInstallationResultData = {
-	"ProfileInstallationResultData",
-	"ProfileInstallationResultData",
+	ASN_NAME("ProfileInstallationResultData"),
+	ASN_NAME("ProfileInstallationResultData"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_ProfileInstallationResultData_tags_1,
 	sizeof(asn_DEF_ProfileInstallationResultData_tags_1)

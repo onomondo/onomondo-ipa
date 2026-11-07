@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_GetBoundProfilePackageRequestEsipa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"transactionId"
+		ASN_NAME("transactionId")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct GetBoundProfilePackageRequestEsipa, prepareDownloadResponse),
 		(ASN_TAG_CLASS_CONTEXT | (33 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_GetBoundProfilePackageRequestEsipa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"prepareDownloadResponse"
+		ASN_NAME("prepareDownloadResponse")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_GetBoundProfilePackageRequestEsipa_tags_1[] = {
@@ -44,8 +44,8 @@ asn_SEQUENCE_specifics_t asn_SPC_GetBoundProfilePackageRequestEsipa_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_GetBoundProfilePackageRequestEsipa = {
-	"GetBoundProfilePackageRequestEsipa",
-	"GetBoundProfilePackageRequestEsipa",
+	ASN_NAME("GetBoundProfilePackageRequestEsipa"),
+	ASN_NAME("GetBoundProfilePackageRequestEsipa"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_GetBoundProfilePackageRequestEsipa_tags_1,
 	sizeof(asn_DEF_GetBoundProfilePackageRequestEsipa_tags_1)

@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"header"
+		ASN_NAME("header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.genericFileManagement),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"genericFileManagement"
+		ASN_NAME("genericFileManagement")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.pinCodes),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"pinCodes"
+		ASN_NAME("pinCodes")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.pukCodes),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"pukCodes"
+		ASN_NAME("pukCodes")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.akaParameter),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"akaParameter"
+		ASN_NAME("akaParameter")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.cdmaParameter),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -60,7 +60,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"cdmaParameter"
+		ASN_NAME("cdmaParameter")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.securityDomain),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -69,7 +69,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"securityDomain"
+		ASN_NAME("securityDomain")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.rfm),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -78,7 +78,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"rfm"
+		ASN_NAME("rfm")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.application),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -87,7 +87,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"application"
+		ASN_NAME("application")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.nonStandard),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
@@ -96,7 +96,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"nonStandard"
+		ASN_NAME("nonStandard")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.end),
 		(ASN_TAG_CLASS_CONTEXT | (10 << 2)),
@@ -105,7 +105,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"end"
+		ASN_NAME("end")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.rfu1),
 		(ASN_TAG_CLASS_CONTEXT | (11 << 2)),
@@ -114,7 +114,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"rfu1"
+		ASN_NAME("rfu1")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.rfu2),
 		(ASN_TAG_CLASS_CONTEXT | (12 << 2)),
@@ -123,7 +123,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"rfu2"
+		ASN_NAME("rfu2")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.rfu3),
 		(ASN_TAG_CLASS_CONTEXT | (13 << 2)),
@@ -132,7 +132,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"rfu3"
+		ASN_NAME("rfu3")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.rfu4),
 		(ASN_TAG_CLASS_CONTEXT | (14 << 2)),
@@ -141,7 +141,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"rfu4"
+		ASN_NAME("rfu4")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.rfu5),
 		(ASN_TAG_CLASS_CONTEXT | (15 << 2)),
@@ -150,7 +150,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"rfu5"
+		ASN_NAME("rfu5")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.mf),
 		(ASN_TAG_CLASS_CONTEXT | (16 << 2)),
@@ -159,7 +159,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"mf"
+		ASN_NAME("mf")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.cd),
 		(ASN_TAG_CLASS_CONTEXT | (17 << 2)),
@@ -168,7 +168,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"cd"
+		ASN_NAME("cd")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.telecom),
 		(ASN_TAG_CLASS_CONTEXT | (18 << 2)),
@@ -177,7 +177,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"telecom"
+		ASN_NAME("telecom")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.usim),
 		(ASN_TAG_CLASS_CONTEXT | (19 << 2)),
@@ -186,7 +186,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"usim"
+		ASN_NAME("usim")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.opt_usim),
 		(ASN_TAG_CLASS_CONTEXT | (20 << 2)),
@@ -195,7 +195,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"opt-usim"
+		ASN_NAME("opt-usim")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.isim),
 		(ASN_TAG_CLASS_CONTEXT | (21 << 2)),
@@ -204,7 +204,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"isim"
+		ASN_NAME("isim")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.opt_isim),
 		(ASN_TAG_CLASS_CONTEXT | (22 << 2)),
@@ -213,7 +213,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"opt-isim"
+		ASN_NAME("opt-isim")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.phonebook),
 		(ASN_TAG_CLASS_CONTEXT | (23 << 2)),
@@ -222,7 +222,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"phonebook"
+		ASN_NAME("phonebook")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.gsm_access),
 		(ASN_TAG_CLASS_CONTEXT | (24 << 2)),
@@ -231,7 +231,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"gsm-access"
+		ASN_NAME("gsm-access")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.csim),
 		(ASN_TAG_CLASS_CONTEXT | (25 << 2)),
@@ -240,7 +240,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"csim"
+		ASN_NAME("csim")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.opt_csim),
 		(ASN_TAG_CLASS_CONTEXT | (26 << 2)),
@@ -249,7 +249,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"opt-csim"
+		ASN_NAME("opt-csim")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.eap),
 		(ASN_TAG_CLASS_CONTEXT | (27 << 2)),
@@ -258,7 +258,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eap"
+		ASN_NAME("eap")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.df_5gs),
 		(ASN_TAG_CLASS_CONTEXT | (28 << 2)),
@@ -267,7 +267,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"df-5gs"
+		ASN_NAME("df-5gs")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.df_saip),
 		(ASN_TAG_CLASS_CONTEXT | (29 << 2)),
@@ -276,7 +276,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"df-saip"
+		ASN_NAME("df-saip")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.df_snpn),
 		(ASN_TAG_CLASS_CONTEXT | (30 << 2)),
@@ -285,7 +285,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"df-snpn"
+		ASN_NAME("df-snpn")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.df_5gprose),
 		(ASN_TAG_CLASS_CONTEXT | (31 << 2)),
@@ -294,7 +294,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"df-5gprose"
+		ASN_NAME("df-5gprose")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.iot),
 		(ASN_TAG_CLASS_CONTEXT | (32 << 2)),
@@ -303,7 +303,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"iot"
+		ASN_NAME("iot")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct ProfileElement, choice.opt_iot),
 		(ASN_TAG_CLASS_CONTEXT | (33 << 2)),
@@ -312,7 +312,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"opt-iot"
+		ASN_NAME("opt-iot")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_ProfileElement_tag2el_1[] = {
@@ -362,8 +362,8 @@ static asn_CHOICE_specifics_t asn_SPC_ProfileElement_specs_1 = {
 	34	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_ProfileElement = {
-	"ProfileElement",
-	"ProfileElement",
+	ASN_NAME("ProfileElement"),
+	ASN_NAME("ProfileElement"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

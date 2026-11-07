@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_AuthenticateServerRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"serverSigned1"
+		ASN_NAME("serverSigned1")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateServerRequest, serverSignature1),
 		(ASN_TAG_CLASS_APPLICATION | (55 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_AuthenticateServerRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"serverSignature1"
+		ASN_NAME("serverSignature1")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateServerRequest, euiccCiPKIdToBeUsed),
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
@@ -33,7 +33,7 @@ static asn_TYPE_member_t asn_MBR_AuthenticateServerRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"euiccCiPKIdToBeUsed"
+		ASN_NAME("euiccCiPKIdToBeUsed")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateServerRequest, serverCertificate),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -42,7 +42,7 @@ static asn_TYPE_member_t asn_MBR_AuthenticateServerRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"serverCertificate"
+		ASN_NAME("serverCertificate")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateServerRequest, ctxParams1),
 		-1 /* Ambiguous tag (CHOICE?) */,
@@ -51,7 +51,7 @@ static asn_TYPE_member_t asn_MBR_AuthenticateServerRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ctxParams1"
+		ASN_NAME("ctxParams1")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AuthenticateServerRequest_tags_1[] = {
@@ -74,8 +74,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_AuthenticateServerRequest_specs_1 = {
 	5,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_AuthenticateServerRequest = {
-	"AuthenticateServerRequest",
-	"AuthenticateServerRequest",
+	ASN_NAME("AuthenticateServerRequest"),
+	ASN_NAME("AuthenticateServerRequest"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_AuthenticateServerRequest_tags_1,
 	sizeof(asn_DEF_AuthenticateServerRequest_tags_1)

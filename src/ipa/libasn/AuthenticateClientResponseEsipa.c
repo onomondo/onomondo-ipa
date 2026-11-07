@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientResponseEsipa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"authenticateClientOkDPEsipa"
+		ASN_NAME("authenticateClientOkDPEsipa")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateClientResponseEsipa, choice.authenticateClientOkDSEsipa),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientResponseEsipa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"authenticateClientOkDSEsipa"
+		ASN_NAME("authenticateClientOkDSEsipa")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct AuthenticateClientResponseEsipa, choice.authenticateClientErrorEsipa),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientResponseEsipa_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"authenticateClientErrorEsipa"
+		ASN_NAME("authenticateClientErrorEsipa")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_AuthenticateClientResponseEsipa_tags_1[] = {
@@ -55,8 +55,8 @@ asn_CHOICE_specifics_t asn_SPC_AuthenticateClientResponseEsipa_specs_1 = {
 	3	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_AuthenticateClientResponseEsipa = {
-	"AuthenticateClientResponseEsipa",
-	"AuthenticateClientResponseEsipa",
+	ASN_NAME("AuthenticateClientResponseEsipa"),
+	ASN_NAME("AuthenticateClientResponseEsipa"),
 	&asn_OP_CHOICE,
 	asn_DEF_AuthenticateClientResponseEsipa_tags_1,
 	sizeof(asn_DEF_AuthenticateClientResponseEsipa_tags_1)

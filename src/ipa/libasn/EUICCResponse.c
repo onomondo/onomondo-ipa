@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_peStatus_2[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_peStatus_tags_2[] = {
@@ -29,8 +29,8 @@ static asn_SET_OF_specifics_t asn_SPC_peStatus_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_peStatus_2 = {
-	"peStatus",
-	"peStatus",
+	ASN_NAME("peStatus"),
+	ASN_NAME("peStatus"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_peStatus_tags_2,
 	sizeof(asn_DEF_peStatus_tags_2)
@@ -52,7 +52,7 @@ static asn_TYPE_member_t asn_MBR_EUICCResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"peStatus"
+		ASN_NAME("peStatus")
 		},
 	{ ATF_POINTER, 2, offsetof(struct EUICCResponse, profileInstallationAborted),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -61,7 +61,7 @@ static asn_TYPE_member_t asn_MBR_EUICCResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileInstallationAborted"
+		ASN_NAME("profileInstallationAborted")
 		},
 	{ ATF_POINTER, 1, offsetof(struct EUICCResponse, statusMessage),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -70,7 +70,7 @@ static asn_TYPE_member_t asn_MBR_EUICCResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"statusMessage"
+		ASN_NAME("statusMessage")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_EUICCResponse_tags_1[] = {
@@ -90,8 +90,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_EUICCResponse_specs_1 = {
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EUICCResponse = {
-	"EUICCResponse",
-	"EUICCResponse",
+	ASN_NAME("EUICCResponse"),
+	ASN_NAME("EUICCResponse"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_EUICCResponse_tags_1,
 	sizeof(asn_DEF_EUICCResponse_tags_1)

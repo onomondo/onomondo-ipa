@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CountryName_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"x121-dcc-code"
+		ASN_NAME("x121-dcc-code")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CountryName, choice.iso_3166_alpha2_code),
 		(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_CountryName_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"iso-3166-alpha2-code"
+		ASN_NAME("iso-3166-alpha2-code")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CountryName_tags_1[] = {
@@ -45,8 +45,8 @@ asn_CHOICE_specifics_t asn_SPC_CountryName_specs_1 = {
 	-1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_CountryName = {
-	"CountryName",
-	"CountryName",
+	ASN_NAME("CountryName"),
+	ASN_NAME("CountryName"),
 	&asn_OP_CHOICE,
 	asn_DEF_CountryName_tags_1,
 	sizeof(asn_DEF_CountryName_tags_1)

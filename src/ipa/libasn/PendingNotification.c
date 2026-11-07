@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PendingNotification_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileInstallationResult"
+		ASN_NAME("profileInstallationResult")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PendingNotification, choice.otherSignedNotification),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PendingNotification_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"otherSignedNotification"
+		ASN_NAME("otherSignedNotification")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_PendingNotification_tag2el_1[] = {
@@ -42,8 +42,8 @@ asn_CHOICE_specifics_t asn_SPC_PendingNotification_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_PendingNotification = {
-	"PendingNotification",
-	"PendingNotification",
+	ASN_NAME("PendingNotification"),
+	ASN_NAME("PendingNotification"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

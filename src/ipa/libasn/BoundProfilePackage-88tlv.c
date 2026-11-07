@@ -16,8 +16,8 @@ static const ber_tlv_tag_t asn_DEF_BoundProfilePackage_88tlv_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (4 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_BoundProfilePackage_88tlv = {
-	"BoundProfilePackage-88tlv",
-	"BoundProfilePackage-88tlv",
+	ASN_NAME("BoundProfilePackage-88tlv"),
+	ASN_NAME("BoundProfilePackage-88tlv"),
 	&asn_OP_OCTET_STRING,
 	asn_DEF_BoundProfilePackage_88tlv_tags_1,
 	sizeof(asn_DEF_BoundProfilePackage_88tlv_tags_1)

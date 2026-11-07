@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_CancelSessionResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"cancelSessionResponseOk"
+		ASN_NAME("cancelSessionResponseOk")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct CancelSessionResponse, choice.cancelSessionResponseError),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_CancelSessionResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"cancelSessionResponseError"
+		ASN_NAME("cancelSessionResponseError")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_CancelSessionResponse_tags_1[] = {
@@ -45,8 +45,8 @@ asn_CHOICE_specifics_t asn_SPC_CancelSessionResponse_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_CancelSessionResponse = {
-	"CancelSessionResponse",
-	"CancelSessionResponse",
+	ASN_NAME("CancelSessionResponse"),
+	ASN_NAME("CancelSessionResponse"),
 	&asn_OP_CHOICE,
 	asn_DEF_CancelSessionResponse_tags_1,
 	sizeof(asn_DEF_CancelSessionResponse_tags_1)

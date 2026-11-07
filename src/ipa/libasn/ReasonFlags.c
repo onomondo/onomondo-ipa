@@ -15,8 +15,8 @@ static const ber_tlv_tag_t asn_DEF_ReasonFlags_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (3 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_ReasonFlags = {
-	"ReasonFlags",
-	"ReasonFlags",
+	ASN_NAME("ReasonFlags"),
+	ASN_NAME("ReasonFlags"),
 	&asn_OP_BIT_STRING,
 	asn_DEF_ReasonFlags_tags_1,
 	sizeof(asn_DEF_ReasonFlags_tags_1)

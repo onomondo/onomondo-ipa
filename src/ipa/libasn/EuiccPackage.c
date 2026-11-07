@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_psmoList_2[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_psmoList_tags_2[] = {
@@ -29,8 +29,8 @@ static asn_SET_OF_specifics_t asn_SPC_psmoList_specs_2 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_psmoList_2 = {
-	"psmoList",
-	"psmoList",
+	ASN_NAME("psmoList"),
+	ASN_NAME("psmoList"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_psmoList_tags_2,
 	sizeof(asn_DEF_psmoList_tags_2)
@@ -52,7 +52,7 @@ static asn_TYPE_member_t asn_MBR_ecoList_4[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ecoList_tags_4[] = {
@@ -66,8 +66,8 @@ static asn_SET_OF_specifics_t asn_SPC_ecoList_specs_4 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_ecoList_4 = {
-	"ecoList",
-	"ecoList",
+	ASN_NAME("ecoList"),
+	ASN_NAME("ecoList"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_ecoList_tags_4,
 	sizeof(asn_DEF_ecoList_tags_4)
@@ -89,7 +89,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackage_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"psmoList"
+		ASN_NAME("psmoList")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccPackage, choice.ecoList),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -98,7 +98,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackage_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ecoList"
+		ASN_NAME("ecoList")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_EuiccPackage_tag2el_1[] = {
@@ -116,8 +116,8 @@ asn_CHOICE_specifics_t asn_SPC_EuiccPackage_specs_1 = {
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_EuiccPackage = {
-	"EuiccPackage",
-	"EuiccPackage",
+	ASN_NAME("EuiccPackage"),
+	ASN_NAME("EuiccPackage"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */

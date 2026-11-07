@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_EimIdInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eimId"
+		ASN_NAME("eimId")
 		},
 	{ ATF_POINTER, 1, offsetof(struct EimIdInfo, eimIdType),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_EimIdInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"eimIdType"
+		ASN_NAME("eimIdType")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_EimIdInfo_tags_1[] = {
@@ -43,8 +43,8 @@ asn_SEQUENCE_specifics_t asn_SPC_EimIdInfo_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EimIdInfo = {
-	"EimIdInfo",
-	"EimIdInfo",
+	ASN_NAME("EimIdInfo"),
+	ASN_NAME("EimIdInfo"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_EimIdInfo_tags_1,
 	sizeof(asn_DEF_EimIdInfo_tags_1)

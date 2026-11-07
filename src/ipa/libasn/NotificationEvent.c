@@ -15,8 +15,8 @@ static const ber_tlv_tag_t asn_DEF_NotificationEvent_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (3 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_NotificationEvent = {
-	"NotificationEvent",
-	"NotificationEvent",
+	ASN_NAME("NotificationEvent"),
+	ASN_NAME("NotificationEvent"),
 	&asn_OP_BIT_STRING,
 	asn_DEF_NotificationEvent_tags_1,
 	sizeof(asn_DEF_NotificationEvent_tags_1)

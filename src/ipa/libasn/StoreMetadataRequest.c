@@ -37,7 +37,7 @@ static asn_TYPE_member_t asn_MBR_notificationConfigurationInfo_8[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_notificationConfigurationInfo_tags_8[] = {
@@ -51,8 +51,8 @@ static asn_SET_OF_specifics_t asn_SPC_notificationConfigurationInfo_specs_8 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_notificationConfigurationInfo_8 = {
-	"notificationConfigurationInfo",
-	"notificationConfigurationInfo",
+	ASN_NAME("notificationConfigurationInfo"),
+	ASN_NAME("notificationConfigurationInfo"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_notificationConfigurationInfo_tags_8,
 	sizeof(asn_DEF_notificationConfigurationInfo_tags_8)
@@ -74,7 +74,7 @@ asn_TYPE_member_t asn_MBR_StoreMetadataRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"iccid"
+		ASN_NAME("iccid")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct StoreMetadataRequest, serviceProviderName),
 		(ASN_TAG_CLASS_CONTEXT | (17 << 2)),
@@ -83,7 +83,7 @@ asn_TYPE_member_t asn_MBR_StoreMetadataRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"serviceProviderName"
+		ASN_NAME("serviceProviderName")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct StoreMetadataRequest, profileName),
 		(ASN_TAG_CLASS_CONTEXT | (18 << 2)),
@@ -92,7 +92,7 @@ asn_TYPE_member_t asn_MBR_StoreMetadataRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileName"
+		ASN_NAME("profileName")
 		},
 	{ ATF_POINTER, 8, offsetof(struct StoreMetadataRequest, iconType),
 		(ASN_TAG_CLASS_CONTEXT | (19 << 2)),
@@ -101,7 +101,7 @@ asn_TYPE_member_t asn_MBR_StoreMetadataRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"iconType"
+		ASN_NAME("iconType")
 		},
 	{ ATF_POINTER, 7, offsetof(struct StoreMetadataRequest, icon),
 		(ASN_TAG_CLASS_CONTEXT | (20 << 2)),
@@ -110,7 +110,7 @@ asn_TYPE_member_t asn_MBR_StoreMetadataRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"icon"
+		ASN_NAME("icon")
 		},
 	{ ATF_POINTER, 6, offsetof(struct StoreMetadataRequest, profileClass),
 		(ASN_TAG_CLASS_CONTEXT | (21 << 2)),
@@ -120,7 +120,7 @@ asn_TYPE_member_t asn_MBR_StoreMetadataRequest_1[] = {
 		{ 0, 0, 0 },
 		&asn_DFL_7_cmp_2,	/* Compare DEFAULT 2 */
 		&asn_DFL_7_set_2,	/* Set DEFAULT 2 */
-		"profileClass"
+		ASN_NAME("profileClass")
 		},
 	{ ATF_POINTER, 5, offsetof(struct StoreMetadataRequest, notificationConfigurationInfo),
 		(ASN_TAG_CLASS_CONTEXT | (22 << 2)),
@@ -129,7 +129,7 @@ asn_TYPE_member_t asn_MBR_StoreMetadataRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"notificationConfigurationInfo"
+		ASN_NAME("notificationConfigurationInfo")
 		},
 	{ ATF_POINTER, 4, offsetof(struct StoreMetadataRequest, profileOwner),
 		(ASN_TAG_CLASS_CONTEXT | (23 << 2)),
@@ -138,7 +138,7 @@ asn_TYPE_member_t asn_MBR_StoreMetadataRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileOwner"
+		ASN_NAME("profileOwner")
 		},
 	{ ATF_POINTER, 3, offsetof(struct StoreMetadataRequest, profilePolicyRules),
 		(ASN_TAG_CLASS_CONTEXT | (25 << 2)),
@@ -147,7 +147,7 @@ asn_TYPE_member_t asn_MBR_StoreMetadataRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profilePolicyRules"
+		ASN_NAME("profilePolicyRules")
 		},
 	{ ATF_POINTER, 2, offsetof(struct StoreMetadataRequest, serviceSpecificDataStoredInEuicc),
 		(ASN_TAG_CLASS_CONTEXT | (34 << 2)),
@@ -156,7 +156,7 @@ asn_TYPE_member_t asn_MBR_StoreMetadataRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"serviceSpecificDataStoredInEuicc"
+		ASN_NAME("serviceSpecificDataStoredInEuicc")
 		},
 	{ ATF_POINTER, 1, offsetof(struct StoreMetadataRequest, serviceSpecificDataNotStoredInEuicc),
 		(ASN_TAG_CLASS_CONTEXT | (35 << 2)),
@@ -165,7 +165,7 @@ asn_TYPE_member_t asn_MBR_StoreMetadataRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"serviceSpecificDataNotStoredInEuicc"
+		ASN_NAME("serviceSpecificDataNotStoredInEuicc")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_StoreMetadataRequest_tags_1[] = {
@@ -194,8 +194,8 @@ asn_SEQUENCE_specifics_t asn_SPC_StoreMetadataRequest_specs_1 = {
 	11,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_StoreMetadataRequest = {
-	"StoreMetadataRequest",
-	"StoreMetadataRequest",
+	ASN_NAME("StoreMetadataRequest"),
+	ASN_NAME("StoreMetadataRequest"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_StoreMetadataRequest_tags_1,
 	sizeof(asn_DEF_StoreMetadataRequest_tags_1)

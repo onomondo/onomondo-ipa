@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_DeviceAdditionalFeatureSupport_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"naiSupport"
+		ASN_NAME("naiSupport")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_DeviceAdditionalFeatureSupport_tags_1[] = {
@@ -33,8 +33,8 @@ asn_SEQUENCE_specifics_t asn_SPC_DeviceAdditionalFeatureSupport_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_DeviceAdditionalFeatureSupport = {
-	"DeviceAdditionalFeatureSupport",
-	"DeviceAdditionalFeatureSupport",
+	ASN_NAME("DeviceAdditionalFeatureSupport"),
+	ASN_NAME("DeviceAdditionalFeatureSupport"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_DeviceAdditionalFeatureSupport_tags_1,
 	sizeof(asn_DEF_DeviceAdditionalFeatureSupport_tags_1)

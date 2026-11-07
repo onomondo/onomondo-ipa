@@ -15,8 +15,8 @@ static const ber_tlv_tag_t asn_DEF_CertPolicyId_tags_1[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (6 << 2))
 };
 asn_TYPE_descriptor_t asn_DEF_CertPolicyId = {
-	"CertPolicyId",
-	"CertPolicyId",
+	ASN_NAME("CertPolicyId"),
+	ASN_NAME("CertPolicyId"),
 	&asn_OP_OBJECT_IDENTIFIER,
 	asn_DEF_CertPolicyId_tags_1,
 	sizeof(asn_DEF_CertPolicyId_tags_1)

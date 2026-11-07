@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_SubjectPublicKeyInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"algorithm"
+		ASN_NAME("algorithm")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct SubjectPublicKeyInfo, subjectPublicKey),
 		(ASN_TAG_CLASS_UNIVERSAL | (3 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_SubjectPublicKeyInfo_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"subjectPublicKey"
+		ASN_NAME("subjectPublicKey")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_SubjectPublicKeyInfo_tags_1[] = {
@@ -43,8 +43,8 @@ asn_SEQUENCE_specifics_t asn_SPC_SubjectPublicKeyInfo_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_SubjectPublicKeyInfo = {
-	"SubjectPublicKeyInfo",
-	"SubjectPublicKeyInfo",
+	ASN_NAME("SubjectPublicKeyInfo"),
+	ASN_NAME("SubjectPublicKeyInfo"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_SubjectPublicKeyInfo_tags_1,
 	sizeof(asn_DEF_SubjectPublicKeyInfo_tags_1)

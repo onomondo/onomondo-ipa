@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_PolicyConstraints_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"requireExplicitPolicy"
+		ASN_NAME("requireExplicitPolicy")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PolicyConstraints, inhibitPolicyMapping),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_PolicyConstraints_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"inhibitPolicyMapping"
+		ASN_NAME("inhibitPolicyMapping")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PolicyConstraints_tags_1[] = {
@@ -43,8 +43,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_PolicyConstraints_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PolicyConstraints = {
-	"PolicyConstraints",
-	"PolicyConstraints",
+	ASN_NAME("PolicyConstraints"),
+	ASN_NAME("PolicyConstraints"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_PolicyConstraints_tags_1,
 	sizeof(asn_DEF_PolicyConstraints_tags_1)

@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_RelativeDistinguishedName_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_RelativeDistinguishedName_tags_1[] = {
@@ -27,8 +27,8 @@ asn_SET_OF_specifics_t asn_SPC_RelativeDistinguishedName_specs_1 = {
 	0,	/* XER encoding is XMLDelimitedItemList */
 };
 asn_TYPE_descriptor_t asn_DEF_RelativeDistinguishedName = {
-	"RelativeDistinguishedName",
-	"RelativeDistinguishedName",
+	ASN_NAME("RelativeDistinguishedName"),
+	ASN_NAME("RelativeDistinguishedName"),
 	&asn_OP_SET_OF,
 	asn_DEF_RelativeDistinguishedName_tags_1,
 	sizeof(asn_DEF_RelativeDistinguishedName_tags_1)

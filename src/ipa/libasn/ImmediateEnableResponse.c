@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_ImmediateEnableResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"immediateEnableResult"
+		ASN_NAME("immediateEnableResult")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ImmediateEnableResponse_tags_1[] = {
@@ -34,8 +34,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_ImmediateEnableResponse_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ImmediateEnableResponse = {
-	"ImmediateEnableResponse",
-	"ImmediateEnableResponse",
+	ASN_NAME("ImmediateEnableResponse"),
+	ASN_NAME("ImmediateEnableResponse"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_ImmediateEnableResponse_tags_1,
 	sizeof(asn_DEF_ImmediateEnableResponse_tags_1)

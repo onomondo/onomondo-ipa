@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_UserNotice_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"noticeRef"
+		ASN_NAME("noticeRef")
 		},
 	{ ATF_POINTER, 1, offsetof(struct UserNotice, explicitText),
 		-1 /* Ambiguous tag (CHOICE?) */,
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_UserNotice_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"explicitText"
+		ASN_NAME("explicitText")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_UserNotice_tags_1[] = {
@@ -46,8 +46,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_UserNotice_specs_1 = {
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_UserNotice = {
-	"UserNotice",
-	"UserNotice",
+	ASN_NAME("UserNotice"),
+	ASN_NAME("UserNotice"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_UserNotice_tags_1,
 	sizeof(asn_DEF_UserNotice_tags_1)

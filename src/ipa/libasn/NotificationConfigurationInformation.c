@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_NotificationConfigurationInformation_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"profileManagementOperation"
+		ASN_NAME("profileManagementOperation")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct NotificationConfigurationInformation, notificationAddress),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_NotificationConfigurationInformation_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"notificationAddress"
+		ASN_NAME("notificationAddress")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_NotificationConfigurationInformation_tags_1[] = {
@@ -43,8 +43,8 @@ asn_SEQUENCE_specifics_t asn_SPC_NotificationConfigurationInformation_specs_1 = 
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_NotificationConfigurationInformation = {
-	"NotificationConfigurationInformation",
-	"NotificationConfigurationInformation",
+	ASN_NAME("NotificationConfigurationInformation"),
+	ASN_NAME("NotificationConfigurationInformation"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_NotificationConfigurationInformation_tags_1,
 	sizeof(asn_DEF_NotificationConfigurationInformation_tags_1)

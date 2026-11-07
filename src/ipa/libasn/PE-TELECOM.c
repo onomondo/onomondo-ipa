@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"telecom-header"
+		ASN_NAME("telecom-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_TELECOM, templateID),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"templateID"
+		ASN_NAME("templateID")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_TELECOM, df_telecom),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"df-telecom"
+		ASN_NAME("df-telecom")
 		},
 	{ ATF_POINTER, 45, offsetof(struct PE_TELECOM, ef_arr),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-arr"
+		ASN_NAME("ef-arr")
 		},
 	{ ATF_POINTER, 44, offsetof(struct PE_TELECOM, ef_rma),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-rma"
+		ASN_NAME("ef-rma")
 		},
 	{ ATF_POINTER, 43, offsetof(struct PE_TELECOM, ef_sume),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
@@ -60,7 +60,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-sume"
+		ASN_NAME("ef-sume")
 		},
 	{ ATF_POINTER, 42, offsetof(struct PE_TELECOM, ef_ice_dn),
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
@@ -69,7 +69,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ice-dn"
+		ASN_NAME("ef-ice-dn")
 		},
 	{ ATF_POINTER, 41, offsetof(struct PE_TELECOM, ef_ice_ff),
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
@@ -78,7 +78,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ice-ff"
+		ASN_NAME("ef-ice-ff")
 		},
 	{ ATF_POINTER, 40, offsetof(struct PE_TELECOM, ef_psismsc),
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-psismsc"
+		ASN_NAME("ef-psismsc")
 		},
 	{ ATF_POINTER, 39, offsetof(struct PE_TELECOM, df_graphics),
 		(ASN_TAG_CLASS_CONTEXT | (9 << 2)),
@@ -96,7 +96,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"df-graphics"
+		ASN_NAME("df-graphics")
 		},
 	{ ATF_POINTER, 38, offsetof(struct PE_TELECOM, ef_img),
 		(ASN_TAG_CLASS_CONTEXT | (10 << 2)),
@@ -105,7 +105,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-img"
+		ASN_NAME("ef-img")
 		},
 	{ ATF_POINTER, 37, offsetof(struct PE_TELECOM, ef_iidf),
 		(ASN_TAG_CLASS_CONTEXT | (11 << 2)),
@@ -114,7 +114,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-iidf"
+		ASN_NAME("ef-iidf")
 		},
 	{ ATF_POINTER, 36, offsetof(struct PE_TELECOM, ef_ice_graphics),
 		(ASN_TAG_CLASS_CONTEXT | (12 << 2)),
@@ -123,7 +123,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ice-graphics"
+		ASN_NAME("ef-ice-graphics")
 		},
 	{ ATF_POINTER, 35, offsetof(struct PE_TELECOM, ef_launch_scws),
 		(ASN_TAG_CLASS_CONTEXT | (13 << 2)),
@@ -132,7 +132,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-launch-scws"
+		ASN_NAME("ef-launch-scws")
 		},
 	{ ATF_POINTER, 34, offsetof(struct PE_TELECOM, ef_icon),
 		(ASN_TAG_CLASS_CONTEXT | (14 << 2)),
@@ -141,7 +141,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-icon"
+		ASN_NAME("ef-icon")
 		},
 	{ ATF_POINTER, 33, offsetof(struct PE_TELECOM, df_phonebook),
 		(ASN_TAG_CLASS_CONTEXT | (15 << 2)),
@@ -150,7 +150,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"df-phonebook"
+		ASN_NAME("df-phonebook")
 		},
 	{ ATF_POINTER, 32, offsetof(struct PE_TELECOM, ef_pbr),
 		(ASN_TAG_CLASS_CONTEXT | (16 << 2)),
@@ -159,7 +159,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-pbr"
+		ASN_NAME("ef-pbr")
 		},
 	{ ATF_POINTER, 31, offsetof(struct PE_TELECOM, ef_ext1),
 		(ASN_TAG_CLASS_CONTEXT | (17 << 2)),
@@ -168,7 +168,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ext1"
+		ASN_NAME("ef-ext1")
 		},
 	{ ATF_POINTER, 30, offsetof(struct PE_TELECOM, ef_aas),
 		(ASN_TAG_CLASS_CONTEXT | (18 << 2)),
@@ -177,7 +177,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-aas"
+		ASN_NAME("ef-aas")
 		},
 	{ ATF_POINTER, 29, offsetof(struct PE_TELECOM, ef_gas),
 		(ASN_TAG_CLASS_CONTEXT | (19 << 2)),
@@ -186,7 +186,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-gas"
+		ASN_NAME("ef-gas")
 		},
 	{ ATF_POINTER, 28, offsetof(struct PE_TELECOM, ef_psc),
 		(ASN_TAG_CLASS_CONTEXT | (20 << 2)),
@@ -195,7 +195,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-psc"
+		ASN_NAME("ef-psc")
 		},
 	{ ATF_POINTER, 27, offsetof(struct PE_TELECOM, ef_cc),
 		(ASN_TAG_CLASS_CONTEXT | (21 << 2)),
@@ -204,7 +204,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-cc"
+		ASN_NAME("ef-cc")
 		},
 	{ ATF_POINTER, 26, offsetof(struct PE_TELECOM, ef_puid),
 		(ASN_TAG_CLASS_CONTEXT | (22 << 2)),
@@ -213,7 +213,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-puid"
+		ASN_NAME("ef-puid")
 		},
 	{ ATF_POINTER, 25, offsetof(struct PE_TELECOM, ef_iap),
 		(ASN_TAG_CLASS_CONTEXT | (23 << 2)),
@@ -222,7 +222,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-iap"
+		ASN_NAME("ef-iap")
 		},
 	{ ATF_POINTER, 24, offsetof(struct PE_TELECOM, ef_adn),
 		(ASN_TAG_CLASS_CONTEXT | (24 << 2)),
@@ -231,7 +231,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-adn"
+		ASN_NAME("ef-adn")
 		},
 	{ ATF_POINTER, 23, offsetof(struct PE_TELECOM, ef_pbc),
 		(ASN_TAG_CLASS_CONTEXT | (25 << 2)),
@@ -240,7 +240,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-pbc"
+		ASN_NAME("ef-pbc")
 		},
 	{ ATF_POINTER, 22, offsetof(struct PE_TELECOM, ef_anr),
 		(ASN_TAG_CLASS_CONTEXT | (26 << 2)),
@@ -249,7 +249,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-anr"
+		ASN_NAME("ef-anr")
 		},
 	{ ATF_POINTER, 21, offsetof(struct PE_TELECOM, ef_puri),
 		(ASN_TAG_CLASS_CONTEXT | (27 << 2)),
@@ -258,7 +258,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-puri"
+		ASN_NAME("ef-puri")
 		},
 	{ ATF_POINTER, 20, offsetof(struct PE_TELECOM, ef_email),
 		(ASN_TAG_CLASS_CONTEXT | (28 << 2)),
@@ -267,7 +267,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-email"
+		ASN_NAME("ef-email")
 		},
 	{ ATF_POINTER, 19, offsetof(struct PE_TELECOM, ef_sne),
 		(ASN_TAG_CLASS_CONTEXT | (29 << 2)),
@@ -276,7 +276,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-sne"
+		ASN_NAME("ef-sne")
 		},
 	{ ATF_POINTER, 18, offsetof(struct PE_TELECOM, ef_uid),
 		(ASN_TAG_CLASS_CONTEXT | (30 << 2)),
@@ -285,7 +285,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-uid"
+		ASN_NAME("ef-uid")
 		},
 	{ ATF_POINTER, 17, offsetof(struct PE_TELECOM, ef_grp),
 		(ASN_TAG_CLASS_CONTEXT | (31 << 2)),
@@ -294,7 +294,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-grp"
+		ASN_NAME("ef-grp")
 		},
 	{ ATF_POINTER, 16, offsetof(struct PE_TELECOM, ef_ccp1),
 		(ASN_TAG_CLASS_CONTEXT | (32 << 2)),
@@ -303,7 +303,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-ccp1"
+		ASN_NAME("ef-ccp1")
 		},
 	{ ATF_POINTER, 15, offsetof(struct PE_TELECOM, df_multimedia),
 		(ASN_TAG_CLASS_CONTEXT | (33 << 2)),
@@ -312,7 +312,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"df-multimedia"
+		ASN_NAME("df-multimedia")
 		},
 	{ ATF_POINTER, 14, offsetof(struct PE_TELECOM, ef_mml),
 		(ASN_TAG_CLASS_CONTEXT | (34 << 2)),
@@ -321,7 +321,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-mml"
+		ASN_NAME("ef-mml")
 		},
 	{ ATF_POINTER, 13, offsetof(struct PE_TELECOM, ef_mmdf),
 		(ASN_TAG_CLASS_CONTEXT | (35 << 2)),
@@ -330,7 +330,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-mmdf"
+		ASN_NAME("ef-mmdf")
 		},
 	{ ATF_POINTER, 12, offsetof(struct PE_TELECOM, df_mmss),
 		(ASN_TAG_CLASS_CONTEXT | (36 << 2)),
@@ -339,7 +339,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"df-mmss"
+		ASN_NAME("df-mmss")
 		},
 	{ ATF_POINTER, 11, offsetof(struct PE_TELECOM, ef_mlpl),
 		(ASN_TAG_CLASS_CONTEXT | (37 << 2)),
@@ -348,7 +348,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-mlpl"
+		ASN_NAME("ef-mlpl")
 		},
 	{ ATF_POINTER, 10, offsetof(struct PE_TELECOM, ef_mspl),
 		(ASN_TAG_CLASS_CONTEXT | (38 << 2)),
@@ -357,7 +357,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-mspl"
+		ASN_NAME("ef-mspl")
 		},
 	{ ATF_POINTER, 9, offsetof(struct PE_TELECOM, ef_mmssmode),
 		(ASN_TAG_CLASS_CONTEXT | (39 << 2)),
@@ -366,7 +366,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-mmssmode"
+		ASN_NAME("ef-mmssmode")
 		},
 	{ ATF_POINTER, 8, offsetof(struct PE_TELECOM, df_mcs),
 		(ASN_TAG_CLASS_CONTEXT | (40 << 2)),
@@ -375,7 +375,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"df-mcs"
+		ASN_NAME("df-mcs")
 		},
 	{ ATF_POINTER, 7, offsetof(struct PE_TELECOM, ef_mst),
 		(ASN_TAG_CLASS_CONTEXT | (41 << 2)),
@@ -384,7 +384,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-mst"
+		ASN_NAME("ef-mst")
 		},
 	{ ATF_POINTER, 6, offsetof(struct PE_TELECOM, ef_mcs_config),
 		(ASN_TAG_CLASS_CONTEXT | (42 << 2)),
@@ -393,7 +393,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-mcs-config"
+		ASN_NAME("ef-mcs-config")
 		},
 	{ ATF_POINTER, 5, offsetof(struct PE_TELECOM, df_v2x),
 		(ASN_TAG_CLASS_CONTEXT | (43 << 2)),
@@ -402,7 +402,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"df-v2x"
+		ASN_NAME("df-v2x")
 		},
 	{ ATF_POINTER, 4, offsetof(struct PE_TELECOM, ef_vst),
 		(ASN_TAG_CLASS_CONTEXT | (44 << 2)),
@@ -411,7 +411,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-vst"
+		ASN_NAME("ef-vst")
 		},
 	{ ATF_POINTER, 3, offsetof(struct PE_TELECOM, ef_v2x_config),
 		(ASN_TAG_CLASS_CONTEXT | (45 << 2)),
@@ -420,7 +420,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-v2x-config"
+		ASN_NAME("ef-v2x-config")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PE_TELECOM, ef_v2xp_pc5),
 		(ASN_TAG_CLASS_CONTEXT | (46 << 2)),
@@ -429,7 +429,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-v2xp-pc5"
+		ASN_NAME("ef-v2xp-pc5")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_TELECOM, ef_v2xp_Uu),
 		(ASN_TAG_CLASS_CONTEXT | (47 << 2)),
@@ -438,7 +438,7 @@ asn_TYPE_member_t asn_MBR_PE_TELECOM_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-v2xp-Uu"
+		ASN_NAME("ef-v2xp-Uu")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_TELECOM_tags_1[] = {
@@ -503,8 +503,8 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_TELECOM_specs_1 = {
 	48,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_TELECOM = {
-	"PE-TELECOM",
-	"PE-TELECOM",
+	ASN_NAME("PE-TELECOM"),
+	ASN_NAME("PE-TELECOM"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_TELECOM_tags_1,
 	sizeof(asn_DEF_PE_TELECOM_tags_1)

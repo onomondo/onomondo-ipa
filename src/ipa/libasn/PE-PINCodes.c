@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_pinconfig_4[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		""
+		ASN_NAME("")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_pinconfig_tags_4[] = {
@@ -29,8 +29,8 @@ static asn_SET_OF_specifics_t asn_SPC_pinconfig_specs_4 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_pinconfig_4 = {
-	"pinconfig",
-	"pinconfig",
+	ASN_NAME("pinconfig"),
+	ASN_NAME("pinconfig"),
 	&asn_OP_SEQUENCE_OF,
 	asn_DEF_pinconfig_tags_4,
 	sizeof(asn_DEF_pinconfig_tags_4)
@@ -52,7 +52,7 @@ static asn_TYPE_member_t asn_MBR_pinCodes_3[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"pinconfig"
+		ASN_NAME("pinconfig")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_PINCodes__pinCodes, choice.filePath),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -61,7 +61,7 @@ static asn_TYPE_member_t asn_MBR_pinCodes_3[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"filePath"
+		ASN_NAME("filePath")
 		},
 };
 static const asn_TYPE_tag2member_t asn_MAP_pinCodes_tag2el_3[] = {
@@ -80,8 +80,8 @@ static asn_CHOICE_specifics_t asn_SPC_pinCodes_specs_3 = {
 };
 static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_pinCodes_3 = {
-	"pinCodes",
-	"pinCodes",
+	ASN_NAME("pinCodes"),
+	ASN_NAME("pinCodes"),
 	&asn_OP_CHOICE,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
@@ -101,7 +101,7 @@ asn_TYPE_member_t asn_MBR_PE_PINCodes_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"pin-Header"
+		ASN_NAME("pin-Header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_PINCodes, pinCodes),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -110,7 +110,7 @@ asn_TYPE_member_t asn_MBR_PE_PINCodes_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"pinCodes"
+		ASN_NAME("pinCodes")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_PINCodes_tags_1[] = {
@@ -129,8 +129,8 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_PINCodes_specs_1 = {
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_PINCodes = {
-	"PE-PINCodes",
-	"PE-PINCodes",
+	ASN_NAME("PE-PINCodes"),
+	ASN_NAME("PE-PINCodes"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_PINCodes_tags_1,
 	sizeof(asn_DEF_PE_PINCodes_tags_1)

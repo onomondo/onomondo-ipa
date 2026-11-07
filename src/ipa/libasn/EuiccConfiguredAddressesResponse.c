@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_EuiccConfiguredAddressesResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"defaultDpAddress"
+		ASN_NAME("defaultDpAddress")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct EuiccConfiguredAddressesResponse, rootDsAddress),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ static asn_TYPE_member_t asn_MBR_EuiccConfiguredAddressesResponse_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"rootDsAddress"
+		ASN_NAME("rootDsAddress")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_EuiccConfiguredAddressesResponse_tags_1[] = {
@@ -44,8 +44,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_EuiccConfiguredAddressesResponse_specs_1
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EuiccConfiguredAddressesResponse = {
-	"EuiccConfiguredAddressesResponse",
-	"EuiccConfiguredAddressesResponse",
+	ASN_NAME("EuiccConfiguredAddressesResponse"),
+	ASN_NAME("EuiccConfiguredAddressesResponse"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_EuiccConfiguredAddressesResponse_tags_1,
 	sizeof(asn_DEF_EuiccConfiguredAddressesResponse_tags_1)

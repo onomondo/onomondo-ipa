@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PE_CD_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"cd-header"
+		ASN_NAME("cd-header")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_CD, templateID),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PE_CD_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"templateID"
+		ASN_NAME("templateID")
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct PE_CD, df_cd),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
@@ -33,7 +33,7 @@ asn_TYPE_member_t asn_MBR_PE_CD_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"df-cd"
+		ASN_NAME("df-cd")
 		},
 	{ ATF_POINTER, 2, offsetof(struct PE_CD, ef_launchpad),
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
@@ -42,7 +42,7 @@ asn_TYPE_member_t asn_MBR_PE_CD_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-launchpad"
+		ASN_NAME("ef-launchpad")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PE_CD, ef_icon),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
@@ -51,7 +51,7 @@ asn_TYPE_member_t asn_MBR_PE_CD_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"ef-icon"
+		ASN_NAME("ef-icon")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PE_CD_tags_1[] = {
@@ -73,8 +73,8 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_CD_specs_1 = {
 	5,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_CD = {
-	"PE-CD",
-	"PE-CD",
+	ASN_NAME("PE-CD"),
+	ASN_NAME("PE-CD"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_PE_CD_tags_1,
 	sizeof(asn_DEF_PE_CD_tags_1)

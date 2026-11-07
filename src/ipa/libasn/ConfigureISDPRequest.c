@@ -15,7 +15,7 @@ static asn_TYPE_member_t asn_MBR_ConfigureISDPRequest_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"dpProprietaryData"
+		ASN_NAME("dpProprietaryData")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_ConfigureISDPRequest_tags_1[] = {
@@ -34,8 +34,8 @@ static asn_SEQUENCE_specifics_t asn_SPC_ConfigureISDPRequest_specs_1 = {
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ConfigureISDPRequest = {
-	"ConfigureISDPRequest",
-	"ConfigureISDPRequest",
+	ASN_NAME("ConfigureISDPRequest"),
+	ASN_NAME("ConfigureISDPRequest"),
 	&asn_OP_SEQUENCE,
 	asn_DEF_ConfigureISDPRequest_tags_1,
 	sizeof(asn_DEF_ConfigureISDPRequest_tags_1)

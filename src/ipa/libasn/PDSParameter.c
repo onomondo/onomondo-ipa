@@ -15,7 +15,7 @@ asn_TYPE_member_t asn_MBR_PDSParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"printable-string"
+		ASN_NAME("printable-string")
 		},
 	{ ATF_POINTER, 1, offsetof(struct PDSParameter, teletex_string),
 		(ASN_TAG_CLASS_UNIVERSAL | (20 << 2)),
@@ -24,7 +24,7 @@ asn_TYPE_member_t asn_MBR_PDSParameter_1[] = {
 		0,
 		{ 0, 0, 0 },
 		0, 0, /* No default value */
-		"teletex-string"
+		ASN_NAME("teletex-string")
 		},
 };
 static const ber_tlv_tag_t asn_DEF_PDSParameter_tags_1[] = {
@@ -49,8 +49,8 @@ asn_SET_specifics_t asn_SPC_PDSParameter_specs_1 = {
 	(const unsigned int *)asn_MAP_PDSParameter_mmap_1	/* Mandatory elements map */
 };
 asn_TYPE_descriptor_t asn_DEF_PDSParameter = {
-	"PDSParameter",
-	"PDSParameter",
+	ASN_NAME("PDSParameter"),
+	ASN_NAME("PDSParameter"),
 	&asn_OP_SET,
 	asn_DEF_PDSParameter_tags_1,
 	sizeof(asn_DEF_PDSParameter_tags_1)
