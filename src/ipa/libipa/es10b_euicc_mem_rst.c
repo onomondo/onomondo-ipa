@@ -38,6 +38,7 @@ static const struct num_str_map sgp32_error_code_strings_resetResult[] = {
 	{ SGP32_EuiccMemoryResetResponse__resetResult_ok, "ok" },
 	{ SGP32_EuiccMemoryResetResponse__resetResult_nothingToDelete, "nothingToDelete" },
 	{ SGP32_EuiccMemoryResetResponse__resetResult_catBusy, "catBusy" },
+	{ SGP32_EuiccMemoryResetResponse__resetResult_ecallActive, "ecallActive" },
 	{ SGP32_EuiccMemoryResetResponse__resetResult_undefinedError, "undefinedError" },
 	{ 0, NULL }
 };
@@ -52,15 +53,15 @@ static const struct num_str_map sgp32_error_code_strings_resetEimResult[] = {
 
 static const struct num_str_map sgp32_error_code_strings_resetImmediateEnableConfigResult[] = {
 	{ SGP32_EuiccMemoryResetResponse__resetImmediateEnableConfigResult_ok, "ok" },
-	{ SGP32_EuiccMemoryResetResponse__resetImmediateEnableConfigResult_resetIECNotSupported, "nothingToDelete" },
-	{ SGP32_EuiccMemoryResetResponse__resetImmediateEnableConfigResult_undefinedError, "eimResetNotSupported" },
+	{ SGP32_EuiccMemoryResetResponse__resetImmediateEnableConfigResult_resetIECNotSupported, "resetIECNotSupported" },
+	{ SGP32_EuiccMemoryResetResponse__resetImmediateEnableConfigResult_undefinedError, "undefinedError" },
 	{ 0, NULL }
 };
 
 static int dec_euicc_mem_rst_res_sgp32(const struct ipa_buf *es10b_res)
 {
 	struct SGP32_EuiccMemoryResetResponse *asn = NULL;
-	int rc;
+	int rc = 0;
 
 	asn = ipa_es10x_res_dec(&asn_DEF_SGP32_EuiccMemoryResetResponse, es10b_res, "eUICCMemoryReset");
 	if (!asn)
@@ -73,42 +74,53 @@ static int dec_euicc_mem_rst_res_sgp32(const struct ipa_buf *es10b_res)
 								  asn->resetResult, "(unknown)"));
 		rc = -EINVAL;
 	} else {
-		IPA_LOGP_ES10X("eUICCMemoryReset", LERROR, "function succeeded with status code %ld=%s!\n",
+		IPA_LOGP_ES10X("eUICCMemoryReset", LINFO, "function succeeded with status code %ld=%s\n",
 			       asn->resetResult, ipa_str_from_num(sgp32_error_code_strings_resetResult,
 								  asn->resetResult, "(unknown)"));
 	}
 
-	if (asn->resetResult != SGP32_EuiccMemoryResetResponse__resetEimResult_ok &&
-	    asn->resetResult != SGP32_EuiccMemoryResetResponse__resetEimResult_nothingToDelete) {
-		IPA_LOGP_ES10X("eUICCMemoryReset", LERROR, "function failed with error code %ld=%s!\n",
-			       asn->resetResult, ipa_str_from_num(sgp32_error_code_strings_resetEimResult,
-								  asn->resetResult, "(unknown)"));
-		rc = -EINVAL;
-	} else {
-		IPA_LOGP_ES10X("eUICCMemoryReset", LERROR, "function succeeded with status code %ld=%s!\n",
-			       asn->resetResult, ipa_str_from_num(sgp32_error_code_strings_resetEimResult,
-								  asn->resetResult, "(unknown)"));
+	/* The eUICC adds the next two results only when the request set the
+	 * matching resetOptions bit (SGP.32 5.9.5). */
+	if (asn->resetEimResult) {
+		if (*asn->resetEimResult != SGP32_EuiccMemoryResetResponse__resetEimResult_ok &&
+		    *asn->resetEimResult != SGP32_EuiccMemoryResetResponse__resetEimResult_nothingToDelete) {
+			IPA_LOGP_ES10X("eUICCMemoryReset", LERROR, "eIM reset failed with error code %ld=%s!\n",
+				       *asn->resetEimResult, ipa_str_from_num(sgp32_error_code_strings_resetEimResult,
+									      *asn->resetEimResult, "(unknown)"));
+			rc = -EINVAL;
+		} else {
+			IPA_LOGP_ES10X("eUICCMemoryReset", LINFO, "eIM reset succeeded with status code %ld=%s\n",
+				       *asn->resetEimResult, ipa_str_from_num(sgp32_error_code_strings_resetEimResult,
+									      *asn->resetEimResult, "(unknown)"));
+		}
 	}
 
-	if (asn->resetResult != SGP32_EuiccMemoryResetResponse__resetImmediateEnableConfigResult_ok) {
-		IPA_LOGP_ES10X("eUICCMemoryReset", LERROR, "function failed with error code %ld=%s!\n",
-			       asn->resetResult, ipa_str_from_num(sgp32_error_code_strings_resetImmediateEnableConfigResult,
-								  asn->resetResult, "(unknown)"));
-		rc = -EINVAL;
-	} else {
-		IPA_LOGP_ES10X("eUICCMemoryReset", LERROR, "function succeeded with status code %ld=%s!\n",
-			       asn->resetResult, ipa_str_from_num(sgp32_error_code_strings_resetImmediateEnableConfigResult,
-								  asn->resetResult, "(unknown)"));
+	if (asn->resetImmediateEnableConfigResult) {
+		if (*asn->resetImmediateEnableConfigResult !=
+		    SGP32_EuiccMemoryResetResponse__resetImmediateEnableConfigResult_ok) {
+			IPA_LOGP_ES10X("eUICCMemoryReset", LERROR,
+				       "immediate enable configuration reset failed with error code %ld=%s!\n",
+				       *asn->resetImmediateEnableConfigResult,
+				       ipa_str_from_num(sgp32_error_code_strings_resetImmediateEnableConfigResult,
+							*asn->resetImmediateEnableConfigResult, "(unknown)"));
+			rc = -EINVAL;
+		} else {
+			IPA_LOGP_ES10X("eUICCMemoryReset", LINFO,
+				       "immediate enable configuration reset succeeded with status code %ld=%s\n",
+				       *asn->resetImmediateEnableConfigResult,
+				       ipa_str_from_num(sgp32_error_code_strings_resetImmediateEnableConfigResult,
+							*asn->resetImmediateEnableConfigResult, "(unknown)"));
+		}
 	}
 
-	ASN_STRUCT_FREE(asn_DEF_EuiccMemoryResetResponse, asn);
+	ASN_STRUCT_FREE(asn_DEF_SGP32_EuiccMemoryResetResponse, asn);
 	return rc;
 }
 
 static int dec_euicc_mem_rst_res(const struct ipa_buf *es10b_res)
 {
 	struct EuiccMemoryResetResponse *asn = NULL;
-	int rc;
+	int rc = 0;
 
 	asn = ipa_es10x_res_dec(&asn_DEF_EuiccMemoryResetResponse, es10b_res, "eUICCMemoryReset");
 	if (!asn)
@@ -121,7 +133,7 @@ static int dec_euicc_mem_rst_res(const struct ipa_buf *es10b_res)
 								  "(unknown)"));
 		rc = -EINVAL;
 	} else {
-		IPA_LOGP_ES10X("eUICCMemoryReset", LERROR, "function succeeded with status code %ld=%s!\n",
+		IPA_LOGP_ES10X("eUICCMemoryReset", LINFO, "function succeeded with status code %ld=%s\n",
 			       asn->resetResult, ipa_str_from_num(error_code_strings_resetResult, asn->resetResult,
 								  "(unknown)"));
 	}
