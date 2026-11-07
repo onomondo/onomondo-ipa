@@ -65,7 +65,7 @@ asn_TYPE_descriptor_t asn_DEF_UTF8String = {
 	asn_DEF_UTF8String_tags,
 	sizeof(asn_DEF_UTF8String_tags)
 	  / sizeof(asn_DEF_UTF8String_tags[0]),
-	{ 0, 0, UTF8String_constraint },
+	ASN_ENC_CONSTRAINTS(0, 0, UTF8String_constraint)
 	0, 0,	/* No members */
 	0	/* No specifics */
 };
@@ -217,6 +217,7 @@ UTF8String_print(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
 }
 
 
+#if !defined(ASN_DISABLE_RFILL_SUPPORT)
 /*
  * Biased function for randomizing UTF-8 sequences.
  */
@@ -305,3 +306,4 @@ UTF8String_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
 
     return result_ok;
 }
+#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */

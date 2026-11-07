@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_DistributionPoint_1[] = {
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_DistributionPointName,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("distributionPoint")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_DistributionPoint_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ReasonFlags,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("reasons")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_DistributionPoint_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_GeneralNames,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("cRLIssuer")
 		},
@@ -62,7 +62,7 @@ asn_TYPE_descriptor_t asn_DEF_DistributionPoint = {
 	asn_DEF_DistributionPoint_tags_1,	/* Same as above */
 	sizeof(asn_DEF_DistributionPoint_tags_1)
 		/sizeof(asn_DEF_DistributionPoint_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_DistributionPoint_1,
 	3,	/* Elements count */
 	&asn_SPC_DistributionPoint_specs_1	/* Additional specs */

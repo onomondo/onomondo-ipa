@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_PrivateKeyUsagePeriod_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_GeneralizedTime,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("notBefore")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_PrivateKeyUsagePeriod_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_GeneralizedTime,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("notAfter")
 		},
@@ -52,7 +52,7 @@ asn_TYPE_descriptor_t asn_DEF_PrivateKeyUsagePeriod = {
 	asn_DEF_PrivateKeyUsagePeriod_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PrivateKeyUsagePeriod_tags_1)
 		/sizeof(asn_DEF_PrivateKeyUsagePeriod_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_PrivateKeyUsagePeriod_1,
 	2,	/* Elements count */
 	&asn_SPC_PrivateKeyUsagePeriod_specs_1	/* Additional specs */

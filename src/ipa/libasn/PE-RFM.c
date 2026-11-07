@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_tarList_5[] = {
 		0,
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -38,7 +38,7 @@ asn_TYPE_descriptor_t asn_DEF_tarList_5 = {
 	asn_DEF_tarList_tags_5,	/* Same as above */
 	sizeof(asn_DEF_tarList_tags_5)
 		/sizeof(asn_DEF_tarList_tags_5[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_tarList_5,
 	1,	/* Single element */
 	&asn_SPC_tarList_specs_5	/* Additional specs */
@@ -50,7 +50,7 @@ asn_TYPE_member_t asn_MBR_PE_RFM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PEHeader,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("rfm-header")
 		},
@@ -59,7 +59,7 @@ asn_TYPE_member_t asn_MBR_PE_RFM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ApplicationIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("instanceAID")
 		},
@@ -68,7 +68,7 @@ asn_TYPE_member_t asn_MBR_PE_RFM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ApplicationIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("securityDomainAID")
 		},
@@ -77,7 +77,7 @@ asn_TYPE_member_t asn_MBR_PE_RFM_1[] = {
 		0,
 		&asn_DEF_tarList_5,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("tarList")
 		},
@@ -86,7 +86,7 @@ asn_TYPE_member_t asn_MBR_PE_RFM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("minimumSecurityLevel")
 		},
@@ -95,7 +95,7 @@ asn_TYPE_member_t asn_MBR_PE_RFM_1[] = {
 		0,
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("uiccAccessDomain")
 		},
@@ -104,7 +104,7 @@ asn_TYPE_member_t asn_MBR_PE_RFM_1[] = {
 		0,
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("uiccAdminAccessDomain")
 		},
@@ -113,7 +113,7 @@ asn_TYPE_member_t asn_MBR_PE_RFM_1[] = {
 		0,
 		&asn_DEF_ADFRFMAccess,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("adfRFMAccess")
 		},
@@ -149,7 +149,7 @@ asn_TYPE_descriptor_t asn_DEF_PE_RFM = {
 	asn_DEF_PE_RFM_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PE_RFM_tags_1)
 		/sizeof(asn_DEF_PE_RFM_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_PE_RFM_1,
 	8,	/* Elements count */
 	&asn_SPC_PE_RFM_specs_1	/* Additional specs */

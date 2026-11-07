@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_enable_2[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_Iccid,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("iccid")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_enable_2[] = {
 		0,
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("rollbackFlag")
 		},
@@ -54,7 +54,7 @@ asn_TYPE_descriptor_t asn_DEF_enable_2 = {
 	asn_DEF_enable_tags_2,	/* Same as above */
 	sizeof(asn_DEF_enable_tags_2)
 		/sizeof(asn_DEF_enable_tags_2[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_enable_2,
 	2,	/* Elements count */
 	&asn_SPC_enable_specs_2	/* Additional specs */
@@ -66,7 +66,7 @@ static asn_TYPE_member_t asn_MBR_disable_6[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_Iccid,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("iccid")
 		},
@@ -97,7 +97,7 @@ asn_TYPE_descriptor_t asn_DEF_disable_6 = {
 	asn_DEF_disable_tags_6,	/* Same as above */
 	sizeof(asn_DEF_disable_tags_6)
 		/sizeof(asn_DEF_disable_tags_6[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_disable_6,
 	1,	/* Elements count */
 	&asn_SPC_disable_specs_6	/* Additional specs */
@@ -109,7 +109,7 @@ static asn_TYPE_member_t asn_MBR_delete_9[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_Iccid,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("iccid")
 		},
@@ -140,7 +140,7 @@ asn_TYPE_descriptor_t asn_DEF_delete_9 = {
 	asn_DEF_delete_tags_9,	/* Same as above */
 	sizeof(asn_DEF_delete_tags_9)
 		/sizeof(asn_DEF_delete_tags_9[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_delete_9,
 	1,	/* Elements count */
 	&asn_SPC_delete_specs_9	/* Additional specs */
@@ -169,7 +169,7 @@ asn_TYPE_descriptor_t asn_DEF_getRAT_13 = {
 	asn_DEF_getRAT_tags_13,	/* Same as above */
 	sizeof(asn_DEF_getRAT_tags_13)
 		/sizeof(asn_DEF_getRAT_tags_13[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	0, 0,	/* No members */
 	&asn_SPC_getRAT_specs_13	/* Additional specs */
 };
@@ -180,7 +180,7 @@ static asn_TYPE_member_t asn_MBR_configureImmediateEnable_15[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("immediateEnableFlag")
 		},
@@ -189,7 +189,7 @@ static asn_TYPE_member_t asn_MBR_configureImmediateEnable_15[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OBJECT_IDENTIFIER,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("defaultSmdpOid")
 		},
@@ -198,7 +198,7 @@ static asn_TYPE_member_t asn_MBR_configureImmediateEnable_15[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("defaultSmdpAddress")
 		},
@@ -231,7 +231,7 @@ asn_TYPE_descriptor_t asn_DEF_configureImmediateEnable_15 = {
 	asn_DEF_configureImmediateEnable_tags_15,	/* Same as above */
 	sizeof(asn_DEF_configureImmediateEnable_tags_15)
 		/sizeof(asn_DEF_configureImmediateEnable_tags_15[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_configureImmediateEnable_15,
 	3,	/* Elements count */
 	&asn_SPC_configureImmediateEnable_specs_15	/* Additional specs */
@@ -243,7 +243,7 @@ static asn_TYPE_member_t asn_MBR_setFallbackAttribute_20[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_Iccid,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("iccid")
 		},
@@ -274,7 +274,7 @@ asn_TYPE_descriptor_t asn_DEF_setFallbackAttribute_20 = {
 	asn_DEF_setFallbackAttribute_tags_20,	/* Same as above */
 	sizeof(asn_DEF_setFallbackAttribute_tags_20)
 		/sizeof(asn_DEF_setFallbackAttribute_tags_20[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_setFallbackAttribute_20,
 	1,	/* Elements count */
 	&asn_SPC_setFallbackAttribute_specs_20	/* Additional specs */
@@ -303,7 +303,7 @@ asn_TYPE_descriptor_t asn_DEF_unsetFallbackAttribute_23 = {
 	asn_DEF_unsetFallbackAttribute_tags_23,	/* Same as above */
 	sizeof(asn_DEF_unsetFallbackAttribute_tags_23)
 		/sizeof(asn_DEF_unsetFallbackAttribute_tags_23[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	0, 0,	/* No members */
 	&asn_SPC_unsetFallbackAttribute_specs_23	/* Additional specs */
 };
@@ -314,7 +314,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		0,
 		&asn_DEF_enable_2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("enable")
 		},
@@ -323,7 +323,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		0,
 		&asn_DEF_disable_6,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("disable")
 		},
@@ -332,7 +332,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		0,
 		&asn_DEF_delete_9,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("delete")
 		},
@@ -341,7 +341,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ProfileInfoListRequest,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("listProfileInfo")
 		},
@@ -350,7 +350,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		0,
 		&asn_DEF_getRAT_13,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("getRAT")
 		},
@@ -359,7 +359,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		0,
 		&asn_DEF_configureImmediateEnable_15,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("configureImmediateEnable")
 		},
@@ -368,7 +368,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		0,
 		&asn_DEF_setFallbackAttribute_20,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("setFallbackAttribute")
 		},
@@ -377,7 +377,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		0,
 		&asn_DEF_unsetFallbackAttribute_23,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("unsetFallbackAttribute")
 		},
@@ -386,7 +386,7 @@ asn_TYPE_member_t asn_MBR_Psmo_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_SGP32_SetDefaultDpAddressRequest,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("setDefaultDpAddress")
 		},
@@ -420,7 +420,7 @@ asn_TYPE_descriptor_t asn_DEF_Psmo = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_Psmo_1,
 	9,	/* Elements count */
 	&asn_SPC_Psmo_specs_1	/* Additional specs */

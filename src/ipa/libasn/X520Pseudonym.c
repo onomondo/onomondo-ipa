@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_X520Pseudonym_1[] = {
 		0,
 		&asn_DEF_TeletexString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("teletexString")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_X520Pseudonym_1[] = {
 		0,
 		&asn_DEF_PrintableString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("printableString")
 		},
@@ -31,7 +31,7 @@ static asn_TYPE_member_t asn_MBR_X520Pseudonym_1[] = {
 		0,
 		&asn_DEF_UniversalString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("universalString")
 		},
@@ -40,7 +40,7 @@ static asn_TYPE_member_t asn_MBR_X520Pseudonym_1[] = {
 		0,
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("utf8String")
 		},
@@ -49,7 +49,7 @@ static asn_TYPE_member_t asn_MBR_X520Pseudonym_1[] = {
 		0,
 		&asn_DEF_BMPString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("bmpString")
 		},
@@ -79,7 +79,7 @@ asn_TYPE_descriptor_t asn_DEF_X520Pseudonym = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_X520Pseudonym_1,
 	5,	/* Elements count */
 	&asn_SPC_X520Pseudonym_specs_1	/* Additional specs */

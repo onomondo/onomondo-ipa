@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_NotificationMetadata_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("seqNumber")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_NotificationMetadata_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NotificationEvent,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileManagementOperation")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_NotificationMetadata_1[] = {
 		0,
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("notificationAddress")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_NotificationMetadata_1[] = {
 		0,
 		&asn_DEF_Iccid,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("iccid")
 		},
@@ -73,7 +73,7 @@ asn_TYPE_descriptor_t asn_DEF_NotificationMetadata = {
 	asn_DEF_NotificationMetadata_tags_1,	/* Same as above */
 	sizeof(asn_DEF_NotificationMetadata_tags_1)
 		/sizeof(asn_DEF_NotificationMetadata_tags_1[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_NotificationMetadata_1,
 	4,	/* Elements count */
 	&asn_SPC_NotificationMetadata_specs_1	/* Additional specs */

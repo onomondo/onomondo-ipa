@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_certs_2[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_Certificate,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eumCertificate")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_certs_2[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_Certificate,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccCertificate")
 		},
@@ -54,7 +54,7 @@ asn_TYPE_descriptor_t asn_DEF_certs_2 = {
 	asn_DEF_certs_tags_2,	/* Same as above */
 	sizeof(asn_DEF_certs_tags_2)
 		/sizeof(asn_DEF_certs_tags_2[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_certs_2,
 	2,	/* Elements count */
 	&asn_SPC_certs_specs_2	/* Additional specs */
@@ -66,7 +66,7 @@ static asn_TYPE_member_t asn_MBR_GetCertsResponse_1[] = {
 		0,
 		&asn_DEF_certs_2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("certs")
 		},
@@ -75,7 +75,7 @@ static asn_TYPE_member_t asn_MBR_GetCertsResponse_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("getCertsError")
 		},
@@ -107,7 +107,7 @@ asn_TYPE_descriptor_t asn_DEF_GetCertsResponse = {
 	asn_DEF_GetCertsResponse_tags_1,	/* Same as above */
 	sizeof(asn_DEF_GetCertsResponse_tags_1)
 		/sizeof(asn_DEF_GetCertsResponse_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_GetCertsResponse_1,
 	2,	/* Elements count */
 	&asn_SPC_GetCertsResponse_specs_1	/* Additional specs */

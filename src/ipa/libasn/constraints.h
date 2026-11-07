@@ -13,6 +13,7 @@ extern "C" {
 
 struct asn_TYPE_descriptor_s;		/* Forward declaration */
 
+#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
 /*
  * Validate the structure according to the ASN.1 constraints.
  * If errbuf and errlen are given, they shall be pointing to the appropriate
@@ -31,6 +32,7 @@ int asn_check_constraints(
     char *errbuf,           /* Returned error description */
     size_t *errlen          /* Length of the error description */
 );
+#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
 
 
 /*

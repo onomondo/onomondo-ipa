@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		0,
 		&asn_DEF_CountryName,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("country-name")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		0,
 		&asn_DEF_AdministrationDomainName,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("administration-domain-name")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NetworkAddress,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("network-address")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_TerminalIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("terminal-identifier")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_PrivateDomainName,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("private-domain-name")
 		},
@@ -58,7 +58,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OrganizationName,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("organization-name")
 		},
@@ -67,7 +67,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NumericUserIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("numeric-user-identifier")
 		},
@@ -76,7 +76,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PersonalName,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("personal-name")
 		},
@@ -85,7 +85,7 @@ asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OrganizationalUnitNames,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("organizational-unit-names")
 		},
@@ -122,7 +122,7 @@ asn_TYPE_descriptor_t asn_DEF_BuiltInStandardAttributes = {
 	asn_DEF_BuiltInStandardAttributes_tags_1,	/* Same as above */
 	sizeof(asn_DEF_BuiltInStandardAttributes_tags_1)
 		/sizeof(asn_DEF_BuiltInStandardAttributes_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_BuiltInStandardAttributes_1,
 	9,	/* Elements count */
 	&asn_SPC_BuiltInStandardAttributes_specs_1	/* Additional specs */

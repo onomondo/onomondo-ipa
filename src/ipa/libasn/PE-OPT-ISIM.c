@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_ISIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PEHeader,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("optisim-header")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_ISIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OBJECT_IDENTIFIER,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("templateID")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_ISIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-pcscf")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_ISIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-sms")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_ISIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-smsp")
 		},
@@ -58,7 +58,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_ISIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-smss")
 		},
@@ -67,7 +67,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_ISIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-smsr")
 		},
@@ -76,7 +76,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_ISIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-gbabp")
 		},
@@ -85,7 +85,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_ISIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-gbanl")
 		},
@@ -94,7 +94,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_ISIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-nafkca")
 		},
@@ -103,7 +103,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_ISIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-uicciari")
 		},
@@ -112,7 +112,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_ISIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-frompreferred")
 		},
@@ -121,7 +121,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_ISIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-imsconfigdata")
 		},
@@ -130,7 +130,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_ISIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-xcapconfigdata")
 		},
@@ -139,7 +139,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_ISIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-webrtcuri")
 		},
@@ -148,7 +148,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_ISIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-mudmidconfigdata")
 		},
@@ -192,7 +192,7 @@ asn_TYPE_descriptor_t asn_DEF_PE_OPT_ISIM = {
 	asn_DEF_PE_OPT_ISIM_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PE_OPT_ISIM_tags_1)
 		/sizeof(asn_DEF_PE_OPT_ISIM_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_PE_OPT_ISIM_1,
 	16,	/* Elements count */
 	&asn_SPC_PE_OPT_ISIM_specs_1	/* Additional specs */

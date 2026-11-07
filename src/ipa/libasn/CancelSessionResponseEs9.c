@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_CancelSessionResponseEs9_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_CancelSessionOk,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("cancelSessionOk")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_CancelSessionResponseEs9_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("cancelSessionError")
 		},
@@ -54,7 +54,7 @@ asn_TYPE_descriptor_t asn_DEF_CancelSessionResponseEs9 = {
 	asn_DEF_CancelSessionResponseEs9_tags_1,	/* Same as above */
 	sizeof(asn_DEF_CancelSessionResponseEs9_tags_1)
 		/sizeof(asn_DEF_CancelSessionResponseEs9_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_CancelSessionResponseEs9_1,
 	2,	/* Elements count */
 	&asn_SPC_CancelSessionResponseEs9_specs_1	/* Additional specs */

@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_SAIP_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PEHeader,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("df-saip-header")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_SAIP_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OBJECT_IDENTIFIER,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("templateID")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_SAIP_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("df-df-saip")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_SAIP_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-suci-calc-info-usim")
 		},
@@ -72,7 +72,7 @@ asn_TYPE_descriptor_t asn_DEF_PE_DF_SAIP = {
 	asn_DEF_PE_DF_SAIP_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PE_DF_SAIP_tags_1)
 		/sizeof(asn_DEF_PE_DF_SAIP_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_PE_DF_SAIP_1,
 	4,	/* Elements count */
 	&asn_SPC_PE_DF_SAIP_specs_1	/* Additional specs */

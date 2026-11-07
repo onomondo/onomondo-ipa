@@ -57,6 +57,17 @@ if [ "$NAMES" -ne $((2 * DESCRIPTORS + MEMBERS)) ]; then
 	exit 1
 fi
 
+# With -no-gen-OER, -no-gen-PER and -fno-constraints every generated
+# encoding_constraints initialiser is { 0, 0, 0 }. ASN_ENC_CONSTRAINTS() (asn1/0012)
+# lets constr_TYPE.h drop the field. Each descriptor and member entry has exactly
+# one, and a missed one would shift the fields after it, so count them.
+perl -pi -e 's/^(\t{1,2})\{ 0, 0, 0 \},$/$1ASN_ENC_CONSTRAINTS(0, 0, 0)/' $GENERATED
+ENC=$(cat $GENERATED | grep -c 'ASN_ENC_CONSTRAINTS(0, 0, 0)' || true)
+if [ "$ENC" -ne $((DESCRIPTORS + MEMBERS)) ]; then
+	echo "ERROR: ASN_ENC_CONSTRAINTS() rewrote $ENC lines, expected $((DESCRIPTORS + MEMBERS))." >&2
+	exit 1
+fi
+
 # Remove file(s) we do not need
 rm ./Makefile.am.libasncodec
 
@@ -87,3 +98,4 @@ patch -p1 < ./asn1/0005-skeletons-vtable-guards.patch
 patch -p1 < ./asn1/0006-constraints-optional-messages.patch
 patch -p1 < ./asn1/0010-SET_OF-fail-DER-encoding-on-allocation-failure.patch
 patch -p1 < ./asn1/0011-constr_TYPE-optional-names.patch
+patch -p1 < ./asn1/0012-skeletons-drop-encoding-constraints.patch

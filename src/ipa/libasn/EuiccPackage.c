@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_psmoList_2[] = {
 		0,
 		&asn_DEF_Psmo,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -38,7 +38,7 @@ asn_TYPE_descriptor_t asn_DEF_psmoList_2 = {
 	asn_DEF_psmoList_tags_2,	/* Same as above */
 	sizeof(asn_DEF_psmoList_tags_2)
 		/sizeof(asn_DEF_psmoList_tags_2[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_psmoList_2,
 	1,	/* Single element */
 	&asn_SPC_psmoList_specs_2	/* Additional specs */
@@ -50,7 +50,7 @@ static asn_TYPE_member_t asn_MBR_ecoList_4[] = {
 		0,
 		&asn_DEF_Eco,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -75,7 +75,7 @@ asn_TYPE_descriptor_t asn_DEF_ecoList_4 = {
 	asn_DEF_ecoList_tags_4,	/* Same as above */
 	sizeof(asn_DEF_ecoList_tags_4)
 		/sizeof(asn_DEF_ecoList_tags_4[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ecoList_4,
 	1,	/* Single element */
 	&asn_SPC_ecoList_specs_4	/* Additional specs */
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackage_1[] = {
 		0,
 		&asn_DEF_psmoList_2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("psmoList")
 		},
@@ -96,7 +96,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackage_1[] = {
 		0,
 		&asn_DEF_ecoList_4,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ecoList")
 		},
@@ -123,7 +123,7 @@ asn_TYPE_descriptor_t asn_DEF_EuiccPackage = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_EuiccPackage_1,
 	2,	/* Elements count */
 	&asn_SPC_EuiccPackage_specs_1	/* Additional specs */

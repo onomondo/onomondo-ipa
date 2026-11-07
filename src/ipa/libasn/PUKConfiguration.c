@@ -35,7 +35,7 @@ asn_TYPE_member_t asn_MBR_PUKConfiguration_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PUKKeyReferenceValue,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("keyReference")
 		},
@@ -44,7 +44,7 @@ asn_TYPE_member_t asn_MBR_PUKConfiguration_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("pukValue")
 		},
@@ -53,7 +53,7 @@ asn_TYPE_member_t asn_MBR_PUKConfiguration_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UInt8,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		&asn_DFL_4_cmp_170,	/* Compare DEFAULT 170 */
 		&asn_DFL_4_set_170,	/* Set DEFAULT 170 */
 		ASN_NAME("maxNumOfAttemps-retryNumLeft")
@@ -85,7 +85,7 @@ asn_TYPE_descriptor_t asn_DEF_PUKConfiguration = {
 	asn_DEF_PUKConfiguration_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PUKConfiguration_tags_1)
 		/sizeof(asn_DEF_PUKConfiguration_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_PUKConfiguration_1,
 	3,	/* Elements count */
 	&asn_SPC_PUKConfiguration_specs_1	/* Additional specs */

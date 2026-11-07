@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_keyList_4[] = {
 		0,
 		&asn_DEF_KeyObject,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -38,7 +38,7 @@ asn_TYPE_descriptor_t asn_DEF_keyList_4 = {
 	asn_DEF_keyList_tags_4,	/* Same as above */
 	sizeof(asn_DEF_keyList_tags_4)
 		/sizeof(asn_DEF_keyList_tags_4[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_keyList_4,
 	1,	/* Single element */
 	&asn_SPC_keyList_specs_4	/* Additional specs */
@@ -50,7 +50,7 @@ static asn_TYPE_member_t asn_MBR_sdPersoData_6[] = {
 		0,
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -75,7 +75,7 @@ asn_TYPE_descriptor_t asn_DEF_sdPersoData_6 = {
 	asn_DEF_sdPersoData_tags_6,	/* Same as above */
 	sizeof(asn_DEF_sdPersoData_tags_6)
 		/sizeof(asn_DEF_sdPersoData_tags_6[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_sdPersoData_6,
 	1,	/* Single element */
 	&asn_SPC_sdPersoData_specs_6	/* Additional specs */
@@ -87,7 +87,7 @@ static asn_TYPE_member_t asn_MBR_openPersoData_8[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("restrictParameter")
 		},
@@ -96,7 +96,7 @@ static asn_TYPE_member_t asn_MBR_openPersoData_8[] = {
 		0,
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("contactlessProtocolParameters")
 		},
@@ -128,7 +128,7 @@ asn_TYPE_descriptor_t asn_DEF_openPersoData_8 = {
 	asn_DEF_openPersoData_tags_8,	/* Same as above */
 	sizeof(asn_DEF_openPersoData_tags_8)
 		/sizeof(asn_DEF_openPersoData_tags_8[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_openPersoData_8,
 	2,	/* Elements count */
 	&asn_SPC_openPersoData_specs_8	/* Additional specs */
@@ -140,7 +140,7 @@ static asn_TYPE_member_t asn_MBR_catTpParameters_12[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UInt16,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("catTpMaxSduSize")
 		},
@@ -149,7 +149,7 @@ static asn_TYPE_member_t asn_MBR_catTpParameters_12[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UInt16,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("catTpMaxPduSize")
 		},
@@ -181,7 +181,7 @@ asn_TYPE_descriptor_t asn_DEF_catTpParameters_12 = {
 	asn_DEF_catTpParameters_tags_12,	/* Same as above */
 	sizeof(asn_DEF_catTpParameters_tags_12)
 		/sizeof(asn_DEF_catTpParameters_tags_12[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_catTpParameters_12,
 	2,	/* Elements count */
 	&asn_SPC_catTpParameters_specs_12	/* Additional specs */
@@ -193,7 +193,7 @@ asn_TYPE_member_t asn_MBR_PE_SecurityDomain_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PEHeader,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("sd-Header")
 		},
@@ -202,7 +202,7 @@ asn_TYPE_member_t asn_MBR_PE_SecurityDomain_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ApplicationInstance,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("instance")
 		},
@@ -211,7 +211,7 @@ asn_TYPE_member_t asn_MBR_PE_SecurityDomain_1[] = {
 		0,
 		&asn_DEF_keyList_4,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("keyList")
 		},
@@ -220,7 +220,7 @@ asn_TYPE_member_t asn_MBR_PE_SecurityDomain_1[] = {
 		0,
 		&asn_DEF_sdPersoData_6,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("sdPersoData")
 		},
@@ -229,7 +229,7 @@ asn_TYPE_member_t asn_MBR_PE_SecurityDomain_1[] = {
 		0,
 		&asn_DEF_openPersoData_8,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("openPersoData")
 		},
@@ -238,7 +238,7 @@ asn_TYPE_member_t asn_MBR_PE_SecurityDomain_1[] = {
 		0,
 		&asn_DEF_catTpParameters_12,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("catTpParameters")
 		},
@@ -272,7 +272,7 @@ asn_TYPE_descriptor_t asn_DEF_PE_SecurityDomain = {
 	asn_DEF_PE_SecurityDomain_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PE_SecurityDomain_tags_1)
 		/sizeof(asn_DEF_PE_SecurityDomain_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_PE_SecurityDomain_1,
 	6,	/* Elements count */
 	&asn_SPC_PE_SecurityDomain_specs_1	/* Additional specs */

@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PEHeader,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("optcsim-header")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OBJECT_IDENTIFIER,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("templateID")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-ssci")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-fdn")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-sms")
 		},
@@ -58,7 +58,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-smsp")
 		},
@@ -67,7 +67,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-smss")
 		},
@@ -76,7 +76,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-ssfc")
 		},
@@ -85,7 +85,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-spn")
 		},
@@ -94,7 +94,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-mdn")
 		},
@@ -103,7 +103,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-ecc")
 		},
@@ -112,7 +112,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-me3gpdopc")
 		},
@@ -121,7 +121,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-3gpdopm")
 		},
@@ -130,7 +130,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-sipcap")
 		},
@@ -139,7 +139,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-mipcap")
 		},
@@ -148,7 +148,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-sipupp")
 		},
@@ -157,7 +157,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-mipupp")
 		},
@@ -166,7 +166,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-sipsp")
 		},
@@ -175,7 +175,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-mipsp")
 		},
@@ -184,7 +184,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-sippapss")
 		},
@@ -193,7 +193,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-puzl")
 		},
@@ -202,7 +202,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-maxpuzl")
 		},
@@ -211,7 +211,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-hrpdcap")
 		},
@@ -220,7 +220,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-hrpdupp")
 		},
@@ -229,7 +229,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-csspr")
 		},
@@ -238,7 +238,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-atc")
 		},
@@ -247,7 +247,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-eprl")
 		},
@@ -256,7 +256,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-bcsmscfg")
 		},
@@ -265,7 +265,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-bcsmspref")
 		},
@@ -274,7 +274,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-bcsmstable")
 		},
@@ -283,7 +283,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-bcsmsp")
 		},
@@ -292,7 +292,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-bakpara")
 		},
@@ -301,7 +301,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-upbakpara")
 		},
@@ -310,7 +310,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-mmsn")
 		},
@@ -319,7 +319,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-ext8")
 		},
@@ -328,7 +328,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-mmsicp")
 		},
@@ -337,7 +337,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-mmsup")
 		},
@@ -346,7 +346,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-mmsucp")
 		},
@@ -355,7 +355,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-auth-capability")
 		},
@@ -364,7 +364,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-3gcik")
 		},
@@ -373,7 +373,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-dck")
 		},
@@ -382,7 +382,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-gid1")
 		},
@@ -391,7 +391,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-gid2")
 		},
@@ -400,7 +400,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-cdmacnl")
 		},
@@ -409,7 +409,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-sf-euimid")
 		},
@@ -418,7 +418,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-est")
 		},
@@ -427,7 +427,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-hidden-key")
 		},
@@ -436,7 +436,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-lcsver")
 		},
@@ -445,7 +445,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-lcscp")
 		},
@@ -454,7 +454,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-sdn")
 		},
@@ -463,7 +463,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-ext2")
 		},
@@ -472,7 +472,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-ext3")
 		},
@@ -481,7 +481,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-ici")
 		},
@@ -490,7 +490,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-oci")
 		},
@@ -499,7 +499,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-ext5")
 		},
@@ -508,7 +508,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-ccp2")
 		},
@@ -517,7 +517,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-applabels")
 		},
@@ -526,7 +526,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-model")
 		},
@@ -535,7 +535,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-rc")
 		},
@@ -544,7 +544,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-smscap")
 		},
@@ -553,7 +553,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-mipflags")
 		},
@@ -562,7 +562,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-3gpduppext")
 		},
@@ -571,7 +571,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-ipv6cap")
 		},
@@ -580,7 +580,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-tcpconfig")
 		},
@@ -589,7 +589,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-dgc")
 		},
@@ -598,7 +598,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-wapbrowsercp")
 		},
@@ -607,7 +607,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-wapbrowserbm")
 		},
@@ -616,7 +616,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-mmsconfig")
 		},
@@ -625,7 +625,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_CSIM_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-jdl")
 		},
@@ -722,7 +722,7 @@ asn_TYPE_descriptor_t asn_DEF_PE_OPT_CSIM = {
 	asn_DEF_PE_OPT_CSIM_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PE_OPT_CSIM_tags_1)
 		/sizeof(asn_DEF_PE_OPT_CSIM_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_PE_OPT_CSIM_1,
 	69,	/* Elements count */
 	&asn_SPC_PE_OPT_CSIM_specs_1	/* Additional specs */

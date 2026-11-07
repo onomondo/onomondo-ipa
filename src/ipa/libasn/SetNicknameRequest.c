@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_SetNicknameRequest_1[] = {
 		0,
 		&asn_DEF_Iccid,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("iccid")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_SetNicknameRequest_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileNickname")
 		},
@@ -53,7 +53,7 @@ asn_TYPE_descriptor_t asn_DEF_SetNicknameRequest = {
 	asn_DEF_SetNicknameRequest_tags_1,	/* Same as above */
 	sizeof(asn_DEF_SetNicknameRequest_tags_1)
 		/sizeof(asn_DEF_SetNicknameRequest_tags_1[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_SetNicknameRequest_1,
 	2,	/* Elements count */
 	&asn_SPC_SetNicknameRequest_specs_1	/* Additional specs */

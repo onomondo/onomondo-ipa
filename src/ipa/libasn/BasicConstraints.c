@@ -52,7 +52,7 @@ asn_TYPE_descriptor_t asn_DEF_pathLenConstraint_3 = {
 	asn_DEF_pathLenConstraint_tags_3,	/* Same as above */
 	sizeof(asn_DEF_pathLenConstraint_tags_3)
 		/sizeof(asn_DEF_pathLenConstraint_tags_3[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	0, 0,	/* No members */
 	&asn_SPC_pathLenConstraint_specs_3	/* Additional specs */
 };
@@ -63,7 +63,7 @@ static asn_TYPE_member_t asn_MBR_BasicConstraints_1[] = {
 		0,
 		&asn_DEF_BOOLEAN,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		&asn_DFL_2_cmp_0,	/* Compare DEFAULT 0 */
 		&asn_DFL_2_set_0,	/* Set DEFAULT 0 */
 		ASN_NAME("cA")
@@ -73,7 +73,7 @@ static asn_TYPE_member_t asn_MBR_BasicConstraints_1[] = {
 		0,
 		&asn_DEF_pathLenConstraint_3,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("pathLenConstraint")
 		},
@@ -103,7 +103,7 @@ asn_TYPE_descriptor_t asn_DEF_BasicConstraints = {
 	asn_DEF_BasicConstraints_tags_1,	/* Same as above */
 	sizeof(asn_DEF_BasicConstraints_tags_1)
 		/sizeof(asn_DEF_BasicConstraints_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_BasicConstraints_1,
 	2,	/* Elements count */
 	&asn_SPC_BasicConstraints_specs_1	/* Additional specs */

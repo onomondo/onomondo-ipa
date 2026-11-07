@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("gsmSupportedRelease")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("utranSupportedRelease")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("cdma2000onexSupportedRelease")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("cdma2000hrpdSupportedRelease")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("cdma2000ehrpdSupportedRelease")
 		},
@@ -58,7 +58,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eutranEpcSupportedRelease")
 		},
@@ -67,7 +67,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("contactlessSupportedRelease")
 		},
@@ -76,7 +76,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("rspCrlSupportedVersion")
 		},
@@ -85,7 +85,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("nrEpcSupportedRelease")
 		},
@@ -94,7 +94,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("nr5gcSupportedRelease")
 		},
@@ -103,7 +103,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eutran5gcSupportedRelease")
 		},
@@ -112,7 +112,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("lpaSvn")
 		},
@@ -121,7 +121,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_CatSupportedClasses,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("catSupportedClasses")
 		},
@@ -130,7 +130,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EuiccFormFactorType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccFormFactorType")
 		},
@@ -139,7 +139,7 @@ asn_TYPE_member_t asn_MBR_DeviceCapabilities_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_DeviceAdditionalFeatureSupport,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("deviceAdditionalFeatureSupport")
 		},
@@ -182,7 +182,7 @@ asn_TYPE_descriptor_t asn_DEF_DeviceCapabilities = {
 	asn_DEF_DeviceCapabilities_tags_1,	/* Same as above */
 	sizeof(asn_DEF_DeviceCapabilities_tags_1)
 		/sizeof(asn_DEF_DeviceCapabilities_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_DeviceCapabilities_1,
 	15,	/* Elements count */
 	&asn_SPC_DeviceCapabilities_specs_1	/* Additional specs */

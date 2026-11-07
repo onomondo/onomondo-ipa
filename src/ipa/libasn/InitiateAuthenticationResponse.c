@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationResponse_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_InitiateAuthenticationOkEs9,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("initiateAuthenticationOk")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_InitiateAuthenticationResponse_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("initiateAuthenticationError")
 		},
@@ -54,7 +54,7 @@ asn_TYPE_descriptor_t asn_DEF_InitiateAuthenticationResponse = {
 	asn_DEF_InitiateAuthenticationResponse_tags_1,	/* Same as above */
 	sizeof(asn_DEF_InitiateAuthenticationResponse_tags_1)
 		/sizeof(asn_DEF_InitiateAuthenticationResponse_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_InitiateAuthenticationResponse_1,
 	2,	/* Elements count */
 	&asn_SPC_InitiateAuthenticationResponse_specs_1	/* Additional specs */

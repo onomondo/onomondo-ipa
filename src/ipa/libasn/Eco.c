@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_deleteEim_3[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eimId")
 		},
@@ -44,7 +44,7 @@ asn_TYPE_descriptor_t asn_DEF_deleteEim_3 = {
 	asn_DEF_deleteEim_tags_3,	/* Same as above */
 	sizeof(asn_DEF_deleteEim_tags_3)
 		/sizeof(asn_DEF_deleteEim_tags_3[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_deleteEim_3,
 	1,	/* Elements count */
 	&asn_SPC_deleteEim_specs_3	/* Additional specs */
@@ -73,7 +73,7 @@ asn_TYPE_descriptor_t asn_DEF_listEim_7 = {
 	asn_DEF_listEim_tags_7,	/* Same as above */
 	sizeof(asn_DEF_listEim_tags_7)
 		/sizeof(asn_DEF_listEim_tags_7[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	0, 0,	/* No members */
 	&asn_SPC_listEim_specs_7	/* Additional specs */
 };
@@ -84,7 +84,7 @@ asn_TYPE_member_t asn_MBR_Eco_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EimConfigurationData,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("addEim")
 		},
@@ -93,7 +93,7 @@ asn_TYPE_member_t asn_MBR_Eco_1[] = {
 		0,
 		&asn_DEF_deleteEim_3,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("deleteEim")
 		},
@@ -102,7 +102,7 @@ asn_TYPE_member_t asn_MBR_Eco_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EimConfigurationData,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("updateEim")
 		},
@@ -111,7 +111,7 @@ asn_TYPE_member_t asn_MBR_Eco_1[] = {
 		0,
 		&asn_DEF_listEim_7,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("listEim")
 		},
@@ -140,7 +140,7 @@ asn_TYPE_descriptor_t asn_DEF_Eco = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_Eco_1,
 	4,	/* Elements count */
 	&asn_SPC_Eco_specs_1	/* Additional specs */

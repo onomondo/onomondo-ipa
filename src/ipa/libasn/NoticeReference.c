@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_noticeNumbers_3[] = {
 		0,
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -37,7 +37,7 @@ asn_TYPE_descriptor_t asn_DEF_noticeNumbers_3 = {
 	asn_DEF_noticeNumbers_tags_3,	/* Same as above */
 	sizeof(asn_DEF_noticeNumbers_tags_3)
 		/sizeof(asn_DEF_noticeNumbers_tags_3[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_noticeNumbers_3,
 	1,	/* Single element */
 	&asn_SPC_noticeNumbers_specs_3	/* Additional specs */
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_NoticeReference_1[] = {
 		0,
 		&asn_DEF_DisplayText,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("organization")
 		},
@@ -58,7 +58,7 @@ asn_TYPE_member_t asn_MBR_NoticeReference_1[] = {
 		0,
 		&asn_DEF_noticeNumbers_3,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("noticeNumbers")
 		},
@@ -91,7 +91,7 @@ asn_TYPE_descriptor_t asn_DEF_NoticeReference = {
 	asn_DEF_NoticeReference_tags_1,	/* Same as above */
 	sizeof(asn_DEF_NoticeReference_tags_1)
 		/sizeof(asn_DEF_NoticeReference_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_NoticeReference_1,
 	2,	/* Elements count */
 	&asn_SPC_NoticeReference_specs_1	/* Additional specs */

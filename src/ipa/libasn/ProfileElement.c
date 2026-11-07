@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ProfileHeader,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("header")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_GenericFileManagement,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("genericFileManagement")
 		},
@@ -31,7 +31,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_PINCodes,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("pinCodes")
 		},
@@ -40,7 +40,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_PUKCodes,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("pukCodes")
 		},
@@ -49,7 +49,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_AKAParameter,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("akaParameter")
 		},
@@ -58,7 +58,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_CDMAParameter,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("cdmaParameter")
 		},
@@ -67,7 +67,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_SecurityDomain,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("securityDomain")
 		},
@@ -76,7 +76,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_RFM,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("rfm")
 		},
@@ -85,7 +85,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_Application,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("application")
 		},
@@ -94,7 +94,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_NonStandard,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("nonStandard")
 		},
@@ -103,7 +103,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_End,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("end")
 		},
@@ -112,7 +112,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_Dummy,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("rfu1")
 		},
@@ -121,7 +121,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_Dummy,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("rfu2")
 		},
@@ -130,7 +130,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_Dummy,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("rfu3")
 		},
@@ -139,7 +139,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_Dummy,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("rfu4")
 		},
@@ -148,7 +148,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_Dummy,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("rfu5")
 		},
@@ -157,7 +157,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_MF,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("mf")
 		},
@@ -166,7 +166,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_CD,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("cd")
 		},
@@ -175,7 +175,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_TELECOM,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("telecom")
 		},
@@ -184,7 +184,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_USIM,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("usim")
 		},
@@ -193,7 +193,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_OPT_USIM,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("opt-usim")
 		},
@@ -202,7 +202,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_ISIM,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("isim")
 		},
@@ -211,7 +211,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_OPT_ISIM,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("opt-isim")
 		},
@@ -220,7 +220,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_PHONEBOOK,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("phonebook")
 		},
@@ -229,7 +229,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_GSM_ACCESS,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("gsm-access")
 		},
@@ -238,7 +238,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_CSIM,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("csim")
 		},
@@ -247,7 +247,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_OPT_CSIM,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("opt-csim")
 		},
@@ -256,7 +256,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_EAP,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eap")
 		},
@@ -265,7 +265,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_DF_5GS,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("df-5gs")
 		},
@@ -274,7 +274,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_DF_SAIP,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("df-saip")
 		},
@@ -283,7 +283,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_DF_SNPN,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("df-snpn")
 		},
@@ -292,7 +292,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_DF_5GPROSE,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("df-5gprose")
 		},
@@ -301,7 +301,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_IoT,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("iot")
 		},
@@ -310,7 +310,7 @@ static asn_TYPE_member_t asn_MBR_ProfileElement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PE_OPT_IoT,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("opt-iot")
 		},
@@ -369,7 +369,7 @@ asn_TYPE_descriptor_t asn_DEF_ProfileElement = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ProfileElement_1,
 	34,	/* Elements count */
 	&asn_SPC_ProfileElement_specs_1	/* Additional specs */

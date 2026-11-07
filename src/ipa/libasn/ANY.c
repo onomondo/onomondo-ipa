@@ -53,7 +53,7 @@ asn_TYPE_descriptor_t asn_DEF_ANY = {
 	"ANY",
 	&asn_OP_ANY,
 	0, 0, 0, 0,
-	{ 0, 0, asn_generic_no_constraint },	/* No constraints */
+	ASN_ENC_CONSTRAINTS(0, 0, asn_generic_no_constraint)	/* No constraints */
 	0, 0,	/* No members */
 	&asn_SPC_ANY_specs,
 };

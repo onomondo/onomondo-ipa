@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageRequest_1[] = {
 		0,
 		&asn_DEF_EuiccPackageSigned,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccPackageSigned")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageRequest_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eimSignature")
 		},
@@ -53,7 +53,7 @@ asn_TYPE_descriptor_t asn_DEF_EuiccPackageRequest = {
 	asn_DEF_EuiccPackageRequest_tags_1,	/* Same as above */
 	sizeof(asn_DEF_EuiccPackageRequest_tags_1)
 		/sizeof(asn_DEF_EuiccPackageRequest_tags_1[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_EuiccPackageRequest_1,
 	2,	/* Elements count */
 	&asn_SPC_EuiccPackageRequest_specs_1	/* Additional specs */

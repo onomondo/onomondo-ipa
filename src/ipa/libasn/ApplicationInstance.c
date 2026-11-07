@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_processData_11[] = {
 		0,
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -37,7 +37,7 @@ asn_TYPE_descriptor_t asn_DEF_processData_11 = {
 	asn_DEF_processData_tags_11,	/* Same as above */
 	sizeof(asn_DEF_processData_tags_11)
 		/sizeof(asn_DEF_processData_tags_11[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_processData_11,
 	1,	/* Single element */
 	&asn_SPC_processData_specs_11	/* Additional specs */
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ApplicationIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("applicationLoadPackageAID")
 		},
@@ -58,7 +58,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ApplicationIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("classAID")
 		},
@@ -67,7 +67,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ApplicationIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("instanceAID")
 		},
@@ -76,7 +76,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ApplicationIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("extraditeSecurityDomainAID")
 		},
@@ -85,7 +85,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("applicationPrivileges")
 		},
@@ -94,7 +94,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("lifeCycleState")
 		},
@@ -103,7 +103,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("applicationSpecificParametersC9")
 		},
@@ -112,7 +112,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ApplicationSystemParameters,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("systemSpecificParameters")
 		},
@@ -121,7 +121,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UICCApplicationParameters,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("applicationParameters")
 		},
@@ -130,7 +130,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		0,
 		&asn_DEF_processData_11,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("processData")
 		},
@@ -139,7 +139,7 @@ asn_TYPE_member_t asn_MBR_ApplicationInstance_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ControlReferenceTemplate,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("controlReferenceTemplate")
 		},
@@ -178,7 +178,7 @@ asn_TYPE_descriptor_t asn_DEF_ApplicationInstance = {
 	asn_DEF_ApplicationInstance_tags_1,	/* Same as above */
 	sizeof(asn_DEF_ApplicationInstance_tags_1)
 		/sizeof(asn_DEF_ApplicationInstance_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ApplicationInstance_1,
 	11,	/* Elements count */
 	&asn_SPC_ApplicationInstance_specs_1	/* Additional specs */

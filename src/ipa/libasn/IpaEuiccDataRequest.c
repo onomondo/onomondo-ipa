@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_searchCriteriaNotification_4[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("seqNumber")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_searchCriteriaNotification_4[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NotificationEvent,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileManagementOperation")
 		},
@@ -50,7 +50,7 @@ asn_TYPE_descriptor_t asn_DEF_searchCriteriaNotification_4 = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_searchCriteriaNotification_4,
 	2,	/* Elements count */
 	&asn_SPC_searchCriteriaNotification_specs_4	/* Additional specs */
@@ -62,7 +62,7 @@ static asn_TYPE_member_t asn_MBR_searchCriteriaEuiccPackageResult_8[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("seqNumber")
 		},
@@ -89,7 +89,7 @@ asn_TYPE_descriptor_t asn_DEF_searchCriteriaEuiccPackageResult_8 = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_searchCriteriaEuiccPackageResult_8,
 	1,	/* Elements count */
 	&asn_SPC_searchCriteriaEuiccPackageResult_specs_8	/* Additional specs */
@@ -101,7 +101,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccDataRequest_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("tagList")
 		},
@@ -110,7 +110,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccDataRequest_1[] = {
 		0,
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccCiPKIdentifierToBeUsed")
 		},
@@ -119,7 +119,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccDataRequest_1[] = {
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_searchCriteriaNotification_4,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("searchCriteriaNotification")
 		},
@@ -128,7 +128,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccDataRequest_1[] = {
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_searchCriteriaEuiccPackageResult_8,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("searchCriteriaEuiccPackageResult")
 		},
@@ -137,7 +137,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccDataRequest_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_TransactionId,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eimTransactionId")
 		},
@@ -171,7 +171,7 @@ asn_TYPE_descriptor_t asn_DEF_IpaEuiccDataRequest = {
 	asn_DEF_IpaEuiccDataRequest_tags_1,	/* Same as above */
 	sizeof(asn_DEF_IpaEuiccDataRequest_tags_1)
 		/sizeof(asn_DEF_IpaEuiccDataRequest_tags_1[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_IpaEuiccDataRequest_1,
 	5,	/* Elements count */
 	&asn_SPC_IpaEuiccDataRequest_specs_1	/* Additional specs */

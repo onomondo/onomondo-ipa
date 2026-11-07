@@ -180,11 +180,13 @@ static const ber_tlv_tag_t asn_DEF_GeneralizedTime_tags[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (26 << 2)),  /* [UNIVERSAL 26] IMPLICIT ...*/
 	(ASN_TAG_CLASS_UNIVERSAL | (4 << 2))    /* ... OCTET STRING */
 };
+#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
 static asn_per_constraints_t asn_DEF_GeneralizedTime_per_constraints = {
 	{ APC_CONSTRAINED, 7, 7, 0x20, 0x7e },  /* Value */
 	{ APC_SEMI_CONSTRAINED, -1, -1, 0, 0 }, /* Size */
 	0, 0
 };
+#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
 asn_TYPE_operation_t asn_OP_GeneralizedTime = {
 	OCTET_STRING_free,
 #ifdef	ASN_DISABLE_PRINT_SUPPORT
@@ -237,7 +239,7 @@ asn_TYPE_descriptor_t asn_DEF_GeneralizedTime = {
 	asn_DEF_GeneralizedTime_tags,
 	sizeof(asn_DEF_GeneralizedTime_tags)
 	  / sizeof(asn_DEF_GeneralizedTime_tags[0]),
-	{ 0, &asn_DEF_GeneralizedTime_per_constraints, GeneralizedTime_constraint },
+	ASN_ENC_CONSTRAINTS(0, &asn_DEF_GeneralizedTime_per_constraints, GeneralizedTime_constraint)
 	0, 0,	/* No members */
 	0	/* No specifics */
 };
@@ -753,6 +755,7 @@ asn_time2GT_frac(GeneralizedTime_t *opt_gt, const struct tm *tm, int frac_value,
 	return opt_gt;
 }
 
+#if !defined(ASN_DISABLE_RFILL_SUPPORT)
 asn_random_fill_result_t
 GeneralizedTime_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
                               const asn_encoding_constraints_t *constraints,
@@ -784,6 +787,7 @@ GeneralizedTime_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
 
     return result_ok;
 }
+#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
 
 int
 GeneralizedTime_compare(const asn_TYPE_descriptor_t *td, const void *aptr,

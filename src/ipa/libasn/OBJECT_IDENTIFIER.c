@@ -67,7 +67,7 @@ asn_TYPE_descriptor_t asn_DEF_OBJECT_IDENTIFIER = {
 	asn_DEF_OBJECT_IDENTIFIER_tags,	/* Same as above */
 	sizeof(asn_DEF_OBJECT_IDENTIFIER_tags)
 	    / sizeof(asn_DEF_OBJECT_IDENTIFIER_tags[0]),
-	{ 0, 0, OBJECT_IDENTIFIER_constraint },
+	ASN_ENC_CONSTRAINTS(0, 0, OBJECT_IDENTIFIER_constraint)
 	0, 0,	/* No members */
 	0	/* No specifics */
 };
@@ -593,6 +593,7 @@ OBJECT_IDENTIFIER_parse_arcs(const char *oid_text, ssize_t oid_txt_length,
 	return -1;
 }
 
+#if !defined(ASN_DISABLE_RFILL_SUPPORT)
 /*
  * Generate values from the list of interesting values, or just a random
  * value up to the upper limit.
@@ -658,3 +659,4 @@ OBJECT_IDENTIFIER_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
     result_ok.length = st->size;
     return result_ok;
 }
+#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */

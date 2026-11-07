@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_printable_address_2[] = {
 		0,
 		&asn_DEF_PrintableString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -37,7 +37,7 @@ asn_TYPE_descriptor_t asn_DEF_printable_address_2 = {
 	asn_DEF_printable_address_tags_2,	/* Same as above */
 	sizeof(asn_DEF_printable_address_tags_2)
 		/sizeof(asn_DEF_printable_address_tags_2[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_printable_address_2,
 	1,	/* Single element */
 	&asn_SPC_printable_address_specs_2	/* Additional specs */
@@ -49,7 +49,7 @@ static asn_TYPE_member_t asn_MBR_UnformattedPostalAddress_1[] = {
 		0,
 		&asn_DEF_printable_address_2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("printable-address")
 		},
@@ -58,7 +58,7 @@ static asn_TYPE_member_t asn_MBR_UnformattedPostalAddress_1[] = {
 		0,
 		&asn_DEF_TeletexString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("teletex-string")
 		},
@@ -95,7 +95,7 @@ asn_TYPE_descriptor_t asn_DEF_UnformattedPostalAddress = {
 	asn_DEF_UnformattedPostalAddress_tags_1,	/* Same as above */
 	sizeof(asn_DEF_UnformattedPostalAddress_tags_1)
 		/sizeof(asn_DEF_UnformattedPostalAddress_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_UnformattedPostalAddress_1,
 	2,	/* Elements count */
 	&asn_SPC_UnformattedPostalAddress_specs_1	/* Additional specs */

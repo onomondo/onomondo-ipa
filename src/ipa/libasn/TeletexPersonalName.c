@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_TeletexPersonalName_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_TeletexString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("surname")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_TeletexPersonalName_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_TeletexString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("given-name")
 		},
@@ -31,7 +31,7 @@ static asn_TYPE_member_t asn_MBR_TeletexPersonalName_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_TeletexString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("initials")
 		},
@@ -40,7 +40,7 @@ static asn_TYPE_member_t asn_MBR_TeletexPersonalName_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_TeletexString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("generation-qualifier")
 		},
@@ -79,7 +79,7 @@ asn_TYPE_descriptor_t asn_DEF_TeletexPersonalName = {
 	asn_DEF_TeletexPersonalName_tags_1,	/* Same as above */
 	sizeof(asn_DEF_TeletexPersonalName_tags_1)
 		/sizeof(asn_DEF_TeletexPersonalName_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_TeletexPersonalName_1,
 	4,	/* Elements count */
 	&asn_SPC_TeletexPersonalName_specs_1	/* Additional specs */

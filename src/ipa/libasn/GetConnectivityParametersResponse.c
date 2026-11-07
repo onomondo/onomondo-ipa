@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_GetConnectivityParametersResponse_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ConnectivityParameters,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("connectivityParameters")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_GetConnectivityParametersResponse_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ConnectivityParametersError,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("connectivityParametersError")
 		},
@@ -54,7 +54,7 @@ asn_TYPE_descriptor_t asn_DEF_GetConnectivityParametersResponse = {
 	asn_DEF_GetConnectivityParametersResponse_tags_1,	/* Same as above */
 	sizeof(asn_DEF_GetConnectivityParametersResponse_tags_1)
 		/sizeof(asn_DEF_GetConnectivityParametersResponse_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_GetConnectivityParametersResponse_1,
 	2,	/* Elements count */
 	&asn_SPC_GetConnectivityParametersResponse_specs_1	/* Additional specs */

@@ -101,7 +101,7 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_DistributionPointName,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("distributionPoint")
 		},
@@ -110,7 +110,7 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BOOLEAN,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		&asn_DFL_3_cmp_0,	/* Compare DEFAULT 0 */
 		&asn_DFL_3_set_0,	/* Set DEFAULT 0 */
 		ASN_NAME("onlyContainsUserCerts")
@@ -120,7 +120,7 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BOOLEAN,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		&asn_DFL_4_cmp_0,	/* Compare DEFAULT 0 */
 		&asn_DFL_4_set_0,	/* Set DEFAULT 0 */
 		ASN_NAME("onlyContainsCACerts")
@@ -130,7 +130,7 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ReasonFlags,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("onlySomeReasons")
 		},
@@ -139,7 +139,7 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BOOLEAN,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		&asn_DFL_6_cmp_0,	/* Compare DEFAULT 0 */
 		&asn_DFL_6_set_0,	/* Set DEFAULT 0 */
 		ASN_NAME("indirectCRL")
@@ -149,7 +149,7 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BOOLEAN,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		&asn_DFL_7_cmp_0,	/* Compare DEFAULT 0 */
 		&asn_DFL_7_set_0,	/* Set DEFAULT 0 */
 		ASN_NAME("onlyContainsAttributeCerts")
@@ -184,7 +184,7 @@ asn_TYPE_descriptor_t asn_DEF_IssuingDistributionPoint = {
 	asn_DEF_IssuingDistributionPoint_tags_1,	/* Same as above */
 	sizeof(asn_DEF_IssuingDistributionPoint_tags_1)
 		/sizeof(asn_DEF_IssuingDistributionPoint_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_IssuingDistributionPoint_1,
 	6,	/* Elements count */
 	&asn_SPC_IssuingDistributionPoint_specs_1	/* Additional specs */

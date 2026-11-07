@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PEHeader,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("df-5gs-header")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OBJECT_IDENTIFIER,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("templateID")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("df-df-5gs")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-5gs3gpploci")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-5gsn3gpploci")
 		},
@@ -58,7 +58,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-5gs3gppnsc")
 		},
@@ -67,7 +67,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-5gsn3gppnsc")
 		},
@@ -76,7 +76,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-5gauthkeys")
 		},
@@ -85,7 +85,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-uac-aic")
 		},
@@ -94,7 +94,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-suci-calc-info")
 		},
@@ -103,7 +103,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-opl5g")
 		},
@@ -112,7 +112,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-supinai")
 		},
@@ -121,7 +121,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-routing-indicator")
 		},
@@ -130,7 +130,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-ursp")
 		},
@@ -139,7 +139,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-tn3gppsnn")
 		},
@@ -148,7 +148,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-cag")
 		},
@@ -157,7 +157,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-sor-cmci")
 		},
@@ -166,7 +166,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-dri")
 		},
@@ -175,7 +175,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-5gsedrx")
 		},
@@ -184,7 +184,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-5gnswo-conf")
 		},
@@ -193,7 +193,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-mchpplmn")
 		},
@@ -202,7 +202,7 @@ asn_TYPE_member_t asn_MBR_PE_DF_5GS_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-kausf-derivation")
 		},
@@ -252,7 +252,7 @@ asn_TYPE_descriptor_t asn_DEF_PE_DF_5GS = {
 	asn_DEF_PE_DF_5GS_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PE_DF_5GS_tags_1)
 		/sizeof(asn_DEF_PE_DF_5GS_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_PE_DF_5GS_1,
 	22,	/* Elements count */
 	&asn_SPC_PE_DF_5GS_specs_1	/* Additional specs */

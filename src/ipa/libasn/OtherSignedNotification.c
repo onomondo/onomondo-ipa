@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_OtherSignedNotification_1[] = {
 		0,
 		&asn_DEF_NotificationMetadata,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("tbsOtherNotification")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_OtherSignedNotification_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccNotificationSignature")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_OtherSignedNotification_1[] = {
 		0,
 		&asn_DEF_Certificate,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccCertificate")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_OtherSignedNotification_1[] = {
 		0,
 		&asn_DEF_Certificate,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eumCertificate")
 		},
@@ -72,7 +72,7 @@ asn_TYPE_descriptor_t asn_DEF_OtherSignedNotification = {
 	asn_DEF_OtherSignedNotification_tags_1,	/* Same as above */
 	sizeof(asn_DEF_OtherSignedNotification_tags_1)
 		/sizeof(asn_DEF_OtherSignedNotification_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_OtherSignedNotification_1,
 	4,	/* Elements count */
 	&asn_SPC_OtherSignedNotification_specs_1	/* Additional specs */

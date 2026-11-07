@@ -62,7 +62,7 @@ asn_TYPE_descriptor_t asn_DEF_BOOLEAN = {
 	sizeof(asn_DEF_BOOLEAN_tags) / sizeof(asn_DEF_BOOLEAN_tags[0]),
 	asn_DEF_BOOLEAN_tags,	/* Same as above */
 	sizeof(asn_DEF_BOOLEAN_tags) / sizeof(asn_DEF_BOOLEAN_tags[0]),
-	{ 0, 0, asn_generic_no_constraint },
+	ASN_ENC_CONSTRAINTS(0, 0, asn_generic_no_constraint)
 	0, 0,	/* No members */
 	0	/* No specifics */
 };
@@ -405,6 +405,7 @@ BOOLEAN_compare(const asn_TYPE_descriptor_t *td, const void *aptr,
     }
 }
 
+#if !defined(ASN_DISABLE_RFILL_SUPPORT)
 asn_random_fill_result_t
 BOOLEAN_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
                     const asn_encoding_constraints_t *constraints,
@@ -449,3 +450,4 @@ BOOLEAN_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
     }
     return result_ok;
 }
+#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */

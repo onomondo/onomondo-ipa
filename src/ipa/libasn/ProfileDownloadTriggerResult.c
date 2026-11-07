@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_profileDownloadError_5[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileDownloadErrorReason")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_profileDownloadError_5[] = {
 		0,
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("errorResponse")
 		},
@@ -53,7 +53,7 @@ asn_TYPE_descriptor_t asn_DEF_profileDownloadError_5 = {
 	asn_DEF_profileDownloadError_tags_5,	/* Same as above */
 	sizeof(asn_DEF_profileDownloadError_tags_5)
 		/sizeof(asn_DEF_profileDownloadError_tags_5[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_profileDownloadError_5,
 	2,	/* Elements count */
 	&asn_SPC_profileDownloadError_specs_5	/* Additional specs */
@@ -65,7 +65,7 @@ static asn_TYPE_member_t asn_MBR_profileDownloadTriggerResultData_3[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_SGP32_ProfileInstallationResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileInstallationResult")
 		},
@@ -74,7 +74,7 @@ static asn_TYPE_member_t asn_MBR_profileDownloadTriggerResultData_3[] = {
 		0,
 		&asn_DEF_profileDownloadError_5,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileDownloadError")
 		},
@@ -102,7 +102,7 @@ asn_TYPE_descriptor_t asn_DEF_profileDownloadTriggerResultData_3 = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_profileDownloadTriggerResultData_3,
 	2,	/* Elements count */
 	&asn_SPC_profileDownloadTriggerResultData_specs_3	/* Additional specs */
@@ -114,7 +114,7 @@ asn_TYPE_member_t asn_MBR_ProfileDownloadTriggerResult_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_TransactionId,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eimTransactionId")
 		},
@@ -123,7 +123,7 @@ asn_TYPE_member_t asn_MBR_ProfileDownloadTriggerResult_1[] = {
 		0,
 		&asn_DEF_profileDownloadTriggerResultData_3,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileDownloadTriggerResultData")
 		},
@@ -155,7 +155,7 @@ asn_TYPE_descriptor_t asn_DEF_ProfileDownloadTriggerResult = {
 	asn_DEF_ProfileDownloadTriggerResult_tags_1,	/* Same as above */
 	sizeof(asn_DEF_ProfileDownloadTriggerResult_tags_1)
 		/sizeof(asn_DEF_ProfileDownloadTriggerResult_tags_1[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ProfileDownloadTriggerResult_1,
 	2,	/* Elements count */
 	&asn_SPC_ProfileDownloadTriggerResult_specs_1	/* Additional specs */

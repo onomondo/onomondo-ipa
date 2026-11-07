@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_EsipaMessageFromIpaToEim_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_InitiateAuthenticationRequestEsipa,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("initiateAuthenticationRequestEsipa")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_EsipaMessageFromIpaToEim_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_AuthenticateClientRequestEsipa,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("authenticateClientRequestEsipa")
 		},
@@ -31,7 +31,7 @@ static asn_TYPE_member_t asn_MBR_EsipaMessageFromIpaToEim_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_GetBoundProfilePackageRequestEsipa,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("getBoundProfilePackageRequestEsipa")
 		},
@@ -40,7 +40,7 @@ static asn_TYPE_member_t asn_MBR_EsipaMessageFromIpaToEim_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_CancelSessionRequestEsipa,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("cancelSessionRequestEsipa")
 		},
@@ -49,7 +49,7 @@ static asn_TYPE_member_t asn_MBR_EsipaMessageFromIpaToEim_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_HandleNotificationEsipa,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("handleNotificationEsipa")
 		},
@@ -58,7 +58,7 @@ static asn_TYPE_member_t asn_MBR_EsipaMessageFromIpaToEim_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_TransferEimPackageResponse,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("transferEimPackageResponse")
 		},
@@ -67,7 +67,7 @@ static asn_TYPE_member_t asn_MBR_EsipaMessageFromIpaToEim_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_GetEimPackageRequest,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("getEimPackageRequest")
 		},
@@ -76,7 +76,7 @@ static asn_TYPE_member_t asn_MBR_EsipaMessageFromIpaToEim_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ProvideEimPackageResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("provideEimPackageResult")
 		},
@@ -109,7 +109,7 @@ asn_TYPE_descriptor_t asn_DEF_EsipaMessageFromIpaToEim = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_EsipaMessageFromIpaToEim_1,
 	8,	/* Elements count */
 	&asn_SPC_EsipaMessageFromIpaToEim_specs_1	/* Additional specs */

@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_Name_1[] = {
 		0,
 		&asn_DEF_RDNSequence,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("rdnSequence")
 		},
@@ -39,7 +39,7 @@ asn_TYPE_descriptor_t asn_DEF_Name = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_Name_1,
 	1,	/* Elements count */
 	&asn_SPC_Name_specs_1	/* Additional specs */

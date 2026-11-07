@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_ApplicationLoadPackage_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ApplicationIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("loadPackageAID")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_ApplicationLoadPackage_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ApplicationIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("securityDomainAID")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_ApplicationLoadPackage_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("nonVolatileCodeLimitC6")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_ApplicationLoadPackage_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("volatileDataLimitC7")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_ApplicationLoadPackage_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("nonVolatileDataLimitC8")
 		},
@@ -58,7 +58,7 @@ asn_TYPE_member_t asn_MBR_ApplicationLoadPackage_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("hashValue")
 		},
@@ -67,7 +67,7 @@ asn_TYPE_member_t asn_MBR_ApplicationLoadPackage_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("loadBlockObject")
 		},
@@ -102,7 +102,7 @@ asn_TYPE_descriptor_t asn_DEF_ApplicationLoadPackage = {
 	asn_DEF_ApplicationLoadPackage_tags_1,	/* Same as above */
 	sizeof(asn_DEF_ApplicationLoadPackage_tags_1)
 		/sizeof(asn_DEF_ApplicationLoadPackage_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ApplicationLoadPackage_1,
 	7,	/* Elements count */
 	&asn_SPC_ApplicationLoadPackage_specs_1	/* Additional specs */

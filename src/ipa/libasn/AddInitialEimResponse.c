@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_Member_3[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("associationToken")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_Member_3[] = {
 		0,
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("addOk")
 		},
@@ -50,7 +50,7 @@ asn_TYPE_descriptor_t asn_DEF_Member_3 = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_Member_3,
 	2,	/* Elements count */
 	&asn_SPC_Member_specs_3	/* Additional specs */
@@ -62,7 +62,7 @@ static asn_TYPE_member_t asn_MBR_addInitialEimOk_2[] = {
 		0,
 		&asn_DEF_Member_3,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -87,7 +87,7 @@ asn_TYPE_descriptor_t asn_DEF_addInitialEimOk_2 = {
 	asn_DEF_addInitialEimOk_tags_2,	/* Same as above */
 	sizeof(asn_DEF_addInitialEimOk_tags_2)
 		/sizeof(asn_DEF_addInitialEimOk_tags_2[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_addInitialEimOk_2,
 	1,	/* Single element */
 	&asn_SPC_addInitialEimOk_specs_2	/* Additional specs */
@@ -99,7 +99,7 @@ static asn_TYPE_member_t asn_MBR_AddInitialEimResponse_1[] = {
 		0,
 		&asn_DEF_addInitialEimOk_2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("addInitialEimOk")
 		},
@@ -108,7 +108,7 @@ static asn_TYPE_member_t asn_MBR_AddInitialEimResponse_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("addInitialEimError")
 		},
@@ -140,7 +140,7 @@ asn_TYPE_descriptor_t asn_DEF_AddInitialEimResponse = {
 	asn_DEF_AddInitialEimResponse_tags_1,	/* Same as above */
 	sizeof(asn_DEF_AddInitialEimResponse_tags_1)
 		/sizeof(asn_DEF_AddInitialEimResponse_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_AddInitialEimResponse_1,
 	2,	/* Elements count */
 	&asn_SPC_AddInitialEimResponse_specs_1	/* Additional specs */

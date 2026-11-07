@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_Extensions_1[] = {
 		0,
 		&asn_DEF_Extension,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -36,7 +36,7 @@ asn_TYPE_descriptor_t asn_DEF_Extensions = {
 	asn_DEF_Extensions_tags_1,	/* Same as above */
 	sizeof(asn_DEF_Extensions_tags_1)
 		/sizeof(asn_DEF_Extensions_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_Extensions_1,
 	1,	/* Single element */
 	&asn_SPC_Extensions_specs_1	/* Additional specs */

@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_CompactEuiccSigned2_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccOtpk")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_CompactEuiccSigned2_1[] = {
 		0,
 		&asn_DEF_Octet32,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("hashCc")
 		},
@@ -52,7 +52,7 @@ asn_TYPE_descriptor_t asn_DEF_CompactEuiccSigned2 = {
 	asn_DEF_CompactEuiccSigned2_tags_1,	/* Same as above */
 	sizeof(asn_DEF_CompactEuiccSigned2_tags_1)
 		/sizeof(asn_DEF_CompactEuiccSigned2_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_CompactEuiccSigned2_1,
 	2,	/* Elements count */
 	&asn_SPC_CompactEuiccSigned2_specs_1	/* Additional specs */

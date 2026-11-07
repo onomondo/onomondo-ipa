@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_euiccCiPKIdListForVerification_10[] = {
 		0,
 		&asn_DEF_SubjectKeyIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -38,7 +38,7 @@ asn_TYPE_descriptor_t asn_DEF_euiccCiPKIdListForVerification_10 = {
 	asn_DEF_euiccCiPKIdListForVerification_tags_10,	/* Same as above */
 	sizeof(asn_DEF_euiccCiPKIdListForVerification_tags_10)
 		/sizeof(asn_DEF_euiccCiPKIdListForVerification_tags_10[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_euiccCiPKIdListForVerification_10,
 	1,	/* Single element */
 	&asn_SPC_euiccCiPKIdListForVerification_specs_10	/* Additional specs */
@@ -50,7 +50,7 @@ static asn_TYPE_member_t asn_MBR_euiccCiPKIdListForSigning_12[] = {
 		0,
 		&asn_DEF_SubjectKeyIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -75,7 +75,7 @@ asn_TYPE_descriptor_t asn_DEF_euiccCiPKIdListForSigning_12 = {
 	asn_DEF_euiccCiPKIdListForSigning_tags_12,	/* Same as above */
 	sizeof(asn_DEF_euiccCiPKIdListForSigning_tags_12)
 		/sizeof(asn_DEF_euiccCiPKIdListForSigning_tags_12[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_euiccCiPKIdListForSigning_12,
 	1,	/* Single element */
 	&asn_SPC_euiccCiPKIdListForSigning_specs_12	/* Additional specs */
@@ -87,7 +87,7 @@ static asn_TYPE_member_t asn_MBR_additionalEuiccProfilePackageVersions_28[] = {
 		0,
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -112,7 +112,7 @@ asn_TYPE_descriptor_t asn_DEF_additionalEuiccProfilePackageVersions_28 = {
 	asn_DEF_additionalEuiccProfilePackageVersions_tags_28,	/* Same as above */
 	sizeof(asn_DEF_additionalEuiccProfilePackageVersions_tags_28)
 		/sizeof(asn_DEF_additionalEuiccProfilePackageVersions_tags_28[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_additionalEuiccProfilePackageVersions_28,
 	1,	/* Single element */
 	&asn_SPC_additionalEuiccProfilePackageVersions_specs_28	/* Additional specs */
@@ -124,7 +124,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileVersion")
 		},
@@ -133,7 +133,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("svn")
 		},
@@ -142,7 +142,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccFirmwareVer")
 		},
@@ -151,7 +151,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("extCardResource")
 		},
@@ -160,7 +160,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UICCCapability,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("uiccCapability")
 		},
@@ -169,7 +169,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ts102241Version")
 		},
@@ -178,7 +178,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("globalplatformVersion")
 		},
@@ -187,7 +187,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_RspCapability,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("rspCapability")
 		},
@@ -196,7 +196,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		0,
 		&asn_DEF_euiccCiPKIdListForVerification_10,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccCiPKIdListForVerification")
 		},
@@ -205,7 +205,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		0,
 		&asn_DEF_euiccCiPKIdListForSigning_12,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccCiPKIdListForSigning")
 		},
@@ -214,7 +214,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccCategory")
 		},
@@ -223,7 +223,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PprIds,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("forbiddenProfilePolicyRules")
 		},
@@ -232,7 +232,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		0,
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ppVersion")
 		},
@@ -241,7 +241,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		0,
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("sasAcreditationNumber")
 		},
@@ -250,7 +250,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_CertificationDataObject,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("certificationDataObject")
 		},
@@ -259,7 +259,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BIT_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("treProperties")
 		},
@@ -268,7 +268,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("treProductReference")
 		},
@@ -277,7 +277,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo2_1[] = {
 		0,
 		&asn_DEF_additionalEuiccProfilePackageVersions_28,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("additionalEuiccProfilePackageVersions")
 		},
@@ -324,7 +324,7 @@ asn_TYPE_descriptor_t asn_DEF_EUICCInfo2 = {
 	asn_DEF_EUICCInfo2_tags_1,	/* Same as above */
 	sizeof(asn_DEF_EUICCInfo2_tags_1)
 		/sizeof(asn_DEF_EUICCInfo2_tags_1[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_EUICCInfo2_1,
 	18,	/* Elements count */
 	&asn_SPC_EUICCInfo2_specs_1	/* Additional specs */

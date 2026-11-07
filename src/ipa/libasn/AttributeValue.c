@@ -19,7 +19,7 @@ asn_TYPE_descriptor_t asn_DEF_AttributeValue = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	0, 0,	/* No members */
 	&asn_SPC_ANY_specs	/* Additional specs */
 };

@@ -19,7 +19,7 @@ asn_TYPE_descriptor_t asn_DEF_ExpirationDate = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_Time_1,
 	2,	/* Elements count */
 	&asn_SPC_Time_specs_1	/* Additional specs */

@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_DisplayText_1[] = {
 		0,
 		&asn_DEF_IA5String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ia5String")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_DisplayText_1[] = {
 		0,
 		&asn_DEF_VisibleString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("visibleString")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_DisplayText_1[] = {
 		0,
 		&asn_DEF_BMPString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("bmpString")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_DisplayText_1[] = {
 		0,
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("utf8String")
 		},
@@ -69,7 +69,7 @@ asn_TYPE_descriptor_t asn_DEF_DisplayText = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_DisplayText_1,
 	4,	/* Elements count */
 	&asn_SPC_DisplayText_specs_1	/* Additional specs */

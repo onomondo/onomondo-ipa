@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("volatileMemoryQuotaC7")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("nonVolatileMemoryQuotaC8")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("globalServiceParameters")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("implicitSelectionParameter")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("volatileReservedMemory")
 		},
@@ -58,7 +58,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("nonVolatileReservedMemory")
 		},
@@ -67,7 +67,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ts102226SIMFileAccessToolkitParameter")
 		},
@@ -76,7 +76,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_TS102226AdditionalContactlessParameters,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ts102226AdditionalContactlessParameters")
 		},
@@ -85,7 +85,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("contactlessProtocolParameters")
 		},
@@ -94,7 +94,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("userInteractionContactlessParameters")
 		},
@@ -103,7 +103,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("cumulativeGrantedVolatileMemory")
 		},
@@ -112,7 +112,7 @@ asn_TYPE_member_t asn_MBR_ApplicationSystemParameters_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("cumulativeGrantedNonVolatileMemory")
 		},
@@ -152,7 +152,7 @@ asn_TYPE_descriptor_t asn_DEF_ApplicationSystemParameters = {
 	asn_DEF_ApplicationSystemParameters_tags_1,	/* Same as above */
 	sizeof(asn_DEF_ApplicationSystemParameters_tags_1)
 		/sizeof(asn_DEF_ApplicationSystemParameters_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ApplicationSystemParameters_1,
 	12,	/* Elements count */
 	&asn_SPC_ApplicationSystemParameters_specs_1	/* Additional specs */

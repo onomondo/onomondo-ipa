@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PEHeader,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("phonebook-header")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OBJECT_IDENTIFIER,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("templateID")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("df-phonebook")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-pbr")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-ext1")
 		},
@@ -58,7 +58,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-aas")
 		},
@@ -67,7 +67,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-gas")
 		},
@@ -76,7 +76,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-psc")
 		},
@@ -85,7 +85,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-cc")
 		},
@@ -94,7 +94,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-puid")
 		},
@@ -103,7 +103,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-iap")
 		},
@@ -112,7 +112,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-adn")
 		},
@@ -121,7 +121,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-pbc")
 		},
@@ -130,7 +130,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-anr")
 		},
@@ -139,7 +139,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-puri")
 		},
@@ -148,7 +148,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-email")
 		},
@@ -157,7 +157,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-sne")
 		},
@@ -166,7 +166,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-uid")
 		},
@@ -175,7 +175,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-grp")
 		},
@@ -184,7 +184,7 @@ asn_TYPE_member_t asn_MBR_PE_PHONEBOOK_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-ccp1")
 		},
@@ -232,7 +232,7 @@ asn_TYPE_descriptor_t asn_DEF_PE_PHONEBOOK = {
 	asn_DEF_PE_PHONEBOOK_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PE_PHONEBOOK_tags_1)
 		/sizeof(asn_DEF_PE_PHONEBOOK_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_PE_PHONEBOOK_1,
 	20,	/* Elements count */
 	&asn_SPC_PE_PHONEBOOK_specs_1	/* Additional specs */

@@ -68,7 +68,7 @@ asn_TYPE_descriptor_t asn_DEF_NativeEnumerated = {
 	sizeof(asn_DEF_NativeEnumerated_tags) / sizeof(asn_DEF_NativeEnumerated_tags[0]),
 	asn_DEF_NativeEnumerated_tags,	/* Same as above */
 	sizeof(asn_DEF_NativeEnumerated_tags) / sizeof(asn_DEF_NativeEnumerated_tags[0]),
-	{ 0, 0, asn_generic_no_constraint },
+	ASN_ENC_CONSTRAINTS(0, 0, asn_generic_no_constraint)
 	0, 0,	/* No members */
 	0	/* No specifics */
 };
@@ -102,6 +102,7 @@ NativeEnumerated_encode_xer(const asn_TYPE_descriptor_t *td, const void *sptr,
     }
 }
 
+#if !defined(ASN_DISABLE_PER_SUPPORT)
 asn_dec_rval_t
 NativeEnumerated_decode_uper(const asn_codec_ctx_t *opt_codec_ctx,
                              const asn_TYPE_descriptor_t *td,
@@ -240,4 +241,5 @@ NativeEnumerated_encode_uper(const asn_TYPE_descriptor_t *td,
 
 	ASN__ENCODED_OK(er);
 }
+#endif	/* !defined(ASN_DISABLE_PER_SUPPORT) */
 

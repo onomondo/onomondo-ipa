@@ -35,7 +35,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_Version,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		&asn_DFL_2_cmp_0,	/* Compare DEFAULT 0 */
 		&asn_DFL_2_set_0,	/* Set DEFAULT 0 */
 		ASN_NAME("version")
@@ -45,7 +45,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		0,
 		&asn_DEF_CertificateSerialNumber,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("serialNumber")
 		},
@@ -54,7 +54,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		0,
 		&asn_DEF_AlgorithmIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("signature")
 		},
@@ -63,7 +63,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		0,
 		&asn_DEF_Name,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("issuer")
 		},
@@ -72,7 +72,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		0,
 		&asn_DEF_Validity,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("validity")
 		},
@@ -81,7 +81,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		0,
 		&asn_DEF_Name,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("subject")
 		},
@@ -90,7 +90,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		0,
 		&asn_DEF_SubjectPublicKeyInfo,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("subjectPublicKeyInfo")
 		},
@@ -99,7 +99,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UniqueIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("issuerUniqueID")
 		},
@@ -108,7 +108,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UniqueIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("subjectUniqueID")
 		},
@@ -117,7 +117,7 @@ asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_Extensions,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("extensions")
 		},
@@ -155,7 +155,7 @@ asn_TYPE_descriptor_t asn_DEF_TBSCertificate = {
 	asn_DEF_TBSCertificate_tags_1,	/* Same as above */
 	sizeof(asn_DEF_TBSCertificate_tags_1)
 		/sizeof(asn_DEF_TBSCertificate_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_TBSCertificate_1,
 	10,	/* Elements count */
 	&asn_SPC_TBSCertificate_specs_1	/* Additional specs */

@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("contactless")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("usim")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("isim")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("csim")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("milenage")
 		},
@@ -58,7 +58,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("tuak128")
 		},
@@ -67,7 +67,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("cave")
 		},
@@ -76,7 +76,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("gba-usim")
 		},
@@ -85,7 +85,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("gba-isim")
 		},
@@ -94,7 +94,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("mbms")
 		},
@@ -103,7 +103,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eap")
 		},
@@ -112,7 +112,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("javacard")
 		},
@@ -121,7 +121,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("multos")
 		},
@@ -130,7 +130,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("multiple-usim")
 		},
@@ -139,7 +139,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("multiple-isim")
 		},
@@ -148,7 +148,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("multiple-csim")
 		},
@@ -157,7 +157,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("tuak256")
 		},
@@ -166,7 +166,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("usim-test-algorithm")
 		},
@@ -175,7 +175,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ber-tlv")
 		},
@@ -184,7 +184,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("dfLink")
 		},
@@ -193,7 +193,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("cat-tp")
 		},
@@ -202,7 +202,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("get-identity")
 		},
@@ -211,7 +211,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profile-a-x25519")
 		},
@@ -220,7 +220,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profile-b-p256")
 		},
@@ -229,7 +229,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("suciCalculatorApi")
 		},
@@ -238,7 +238,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("dns-resolution")
 		},
@@ -247,7 +247,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("scp11ac")
 		},
@@ -256,7 +256,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("scp11c-authorization-mechanism")
 		},
@@ -265,7 +265,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("s16mode")
 		},
@@ -274,7 +274,7 @@ asn_TYPE_member_t asn_MBR_ServicesList_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eaka")
 		},
@@ -332,7 +332,7 @@ asn_TYPE_descriptor_t asn_DEF_ServicesList = {
 	asn_DEF_ServicesList_tags_1,	/* Same as above */
 	sizeof(asn_DEF_ServicesList_tags_1)
 		/sizeof(asn_DEF_ServicesList_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ServicesList_1,
 	30,	/* Elements count */
 	&asn_SPC_ServicesList_specs_1	/* Additional specs */

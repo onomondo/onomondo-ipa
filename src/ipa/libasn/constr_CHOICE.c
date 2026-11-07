@@ -487,6 +487,7 @@ CHOICE_outmost_tag(const asn_TYPE_descriptor_t *td, const void *ptr, int tag_mod
 	}
 }
 
+#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
 int
 CHOICE_constraint(const asn_TYPE_descriptor_t *td, const void *sptr,
                   asn_app_constraint_failed_f *ctfailcb, void *app_key) {
@@ -537,6 +538,7 @@ CHOICE_constraint(const asn_TYPE_descriptor_t *td, const void *sptr,
 		return -1;
 	}
 }
+#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
 
 #undef	XER_ADVANCE
 #define	XER_ADVANCE(num_bytes)	do {			\
@@ -833,6 +835,7 @@ cb_failed:
 	ASN__ENCODE_FAILED;
 }
 
+#if !defined(ASN_DISABLE_PER_SUPPORT)
 asn_dec_rval_t
 CHOICE_decode_uper(const asn_codec_ctx_t *opt_codec_ctx,
                    const asn_TYPE_descriptor_t *td,
@@ -1013,6 +1016,7 @@ CHOICE_encode_uper(const asn_TYPE_descriptor_t *td,
         ASN__ENCODED_OK(rval);
     }
 }
+#endif	/* !defined(ASN_DISABLE_PER_SUPPORT) */
 
 
 int
@@ -1263,6 +1267,7 @@ CHOICE_variant_set_presence(const asn_TYPE_descriptor_t *td, void *sptr,
 }
 
 
+#if !defined(ASN_DISABLE_RFILL_SUPPORT)
 asn_random_fill_result_t
 CHOICE_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
                    const asn_encoding_constraints_t *constr,
@@ -1315,6 +1320,7 @@ CHOICE_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
 
     return res;
 }
+#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
 
 
 asn_TYPE_operation_t asn_OP_CHOICE = {

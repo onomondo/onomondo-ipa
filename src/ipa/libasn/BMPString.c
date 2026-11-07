@@ -18,11 +18,13 @@ asn_OCTET_STRING_specifics_t asn_SPC_BMPString_specs = {
 	offsetof(BMPString_t, _asn_ctx),
 	ASN_OSUBV_U16	/* 16-bits character */
 };
+#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
 static asn_per_constraints_t asn_DEF_BMPString_per_constraints = {
 	{ APC_CONSTRAINED, 16, 16, 0, 65535 },
 	{ APC_SEMI_CONSTRAINED, -1, -1, 0, 0 },
 	0, 0
 };
+#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
 asn_TYPE_operation_t asn_OP_BMPString = {
 	OCTET_STRING_free,          /* Implemented in terms of OCTET STRING */
 #ifdef	ASN_DISABLE_PRINT_SUPPORT
@@ -75,7 +77,7 @@ asn_TYPE_descriptor_t asn_DEF_BMPString = {
 	asn_DEF_BMPString_tags,
 	sizeof(asn_DEF_BMPString_tags)
 	  / sizeof(asn_DEF_BMPString_tags[0]),
-	{ 0, &asn_DEF_BMPString_per_constraints, BMPString_constraint },
+	ASN_ENC_CONSTRAINTS(0, &asn_DEF_BMPString_per_constraints, BMPString_constraint)
 	0, 0,	/* No members */
 	&asn_SPC_BMPString_specs
 };

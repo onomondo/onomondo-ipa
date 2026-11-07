@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_signedData_2[] = {
 		0,
 		&asn_DEF_EuiccSigned1,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccSigned1")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_signedData_2[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_CompactEuiccSigned1,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("compactEuiccSigned1")
 		},
@@ -50,7 +50,7 @@ asn_TYPE_descriptor_t asn_DEF_signedData_2 = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_signedData_2,
 	2,	/* Elements count */
 	&asn_SPC_signedData_specs_2	/* Additional specs */
@@ -62,7 +62,7 @@ asn_TYPE_member_t asn_MBR_CompactAuthenticateResponseOk_1[] = {
 		0,
 		&asn_DEF_signedData_2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("signedData")
 		},
@@ -71,7 +71,7 @@ asn_TYPE_member_t asn_MBR_CompactAuthenticateResponseOk_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccSignature1")
 		},
@@ -80,7 +80,7 @@ asn_TYPE_member_t asn_MBR_CompactAuthenticateResponseOk_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_Certificate,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccCertificate")
 		},
@@ -89,7 +89,7 @@ asn_TYPE_member_t asn_MBR_CompactAuthenticateResponseOk_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_Certificate,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eumCertificate")
 		},
@@ -122,7 +122,7 @@ asn_TYPE_descriptor_t asn_DEF_CompactAuthenticateResponseOk = {
 	asn_DEF_CompactAuthenticateResponseOk_tags_1,	/* Same as above */
 	sizeof(asn_DEF_CompactAuthenticateResponseOk_tags_1)
 		/sizeof(asn_DEF_CompactAuthenticateResponseOk_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_CompactAuthenticateResponseOk_1,
 	4,	/* Elements count */
 	&asn_SPC_CompactAuthenticateResponseOk_specs_1	/* Additional specs */

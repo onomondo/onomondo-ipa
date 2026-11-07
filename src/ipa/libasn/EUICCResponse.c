@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_peStatus_2[] = {
 		0,
 		&asn_DEF_PEStatus,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -38,7 +38,7 @@ asn_TYPE_descriptor_t asn_DEF_peStatus_2 = {
 	asn_DEF_peStatus_tags_2,	/* Same as above */
 	sizeof(asn_DEF_peStatus_tags_2)
 		/sizeof(asn_DEF_peStatus_tags_2[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_peStatus_2,
 	1,	/* Single element */
 	&asn_SPC_peStatus_specs_2	/* Additional specs */
@@ -50,7 +50,7 @@ static asn_TYPE_member_t asn_MBR_EUICCResponse_1[] = {
 		0,
 		&asn_DEF_peStatus_2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("peStatus")
 		},
@@ -59,7 +59,7 @@ static asn_TYPE_member_t asn_MBR_EUICCResponse_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileInstallationAborted")
 		},
@@ -68,7 +68,7 @@ static asn_TYPE_member_t asn_MBR_EUICCResponse_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("statusMessage")
 		},
@@ -99,7 +99,7 @@ asn_TYPE_descriptor_t asn_DEF_EUICCResponse = {
 	asn_DEF_EUICCResponse_tags_1,	/* Same as above */
 	sizeof(asn_DEF_EUICCResponse_tags_1)
 		/sizeof(asn_DEF_EUICCResponse_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_EUICCResponse_1,
 	3,	/* Elements count */
 	&asn_SPC_EUICCResponse_specs_1	/* Additional specs */

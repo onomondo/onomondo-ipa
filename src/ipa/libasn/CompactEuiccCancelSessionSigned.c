@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_CompactEuiccCancelSessionSigned_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_CancelSessionReason,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("reason")
 		},
@@ -42,7 +42,7 @@ asn_TYPE_descriptor_t asn_DEF_CompactEuiccCancelSessionSigned = {
 	asn_DEF_CompactEuiccCancelSessionSigned_tags_1,	/* Same as above */
 	sizeof(asn_DEF_CompactEuiccCancelSessionSigned_tags_1)
 		/sizeof(asn_DEF_CompactEuiccCancelSessionSigned_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_CompactEuiccCancelSessionSigned_1,
 	1,	/* Elements count */
 	&asn_SPC_CompactEuiccCancelSessionSigned_specs_1	/* Additional specs */

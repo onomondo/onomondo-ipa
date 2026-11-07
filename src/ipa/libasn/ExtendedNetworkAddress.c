@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_e163_4_address_2[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NumericString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("number")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_e163_4_address_2[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NumericString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("sub-address")
 		},
@@ -53,7 +53,7 @@ asn_TYPE_descriptor_t asn_DEF_e163_4_address_2 = {
 	asn_DEF_e163_4_address_tags_2,	/* Same as above */
 	sizeof(asn_DEF_e163_4_address_tags_2)
 		/sizeof(asn_DEF_e163_4_address_tags_2[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_e163_4_address_2,
 	2,	/* Elements count */
 	&asn_SPC_e163_4_address_specs_2	/* Additional specs */
@@ -65,7 +65,7 @@ static asn_TYPE_member_t asn_MBR_ExtendedNetworkAddress_1[] = {
 		0,
 		&asn_DEF_e163_4_address_2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("e163-4-address")
 		},
@@ -74,7 +74,7 @@ static asn_TYPE_member_t asn_MBR_ExtendedNetworkAddress_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PresentationAddress,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("psap-address")
 		},
@@ -101,7 +101,7 @@ asn_TYPE_descriptor_t asn_DEF_ExtendedNetworkAddress = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ExtendedNetworkAddress_1,
 	2,	/* Elements count */
 	&asn_SPC_ExtendedNetworkAddress_specs_1	/* Additional specs */

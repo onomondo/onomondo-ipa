@@ -383,6 +383,7 @@ SET_OF__encode_sorted(const asn_TYPE_member_t *elm,
             erval = elm->type->op->der_encoder(elm->type, memb_ptr, 0, elm->tag,
                                                _el_addbytes, encoding_el);
             break;
+#if !defined(ASN_DISABLE_PER_SUPPORT)
         case SOES_CUPER:
             erval = uper_encode(elm->type,
                                 elm->encoding_constraints.per_constraints,
@@ -393,6 +394,7 @@ SET_OF__encode_sorted(const asn_TYPE_member_t *elm,
                 encoding_el->bits_unused = (8 - extra_bits) & 0x7;
             }
             break;
+#endif	/* !defined(ASN_DISABLE_PER_SUPPORT) */
         default:
             assert(!"Unreachable");
             break;
@@ -871,6 +873,7 @@ SET_OF_free(const asn_TYPE_descriptor_t *td, void *ptr,
     }
 }
 
+#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
 int
 SET_OF_constraint(const asn_TYPE_descriptor_t *td, const void *sptr,
                   asn_app_constraint_failed_f *ctfailcb, void *app_key) {
@@ -905,6 +908,7 @@ SET_OF_constraint(const asn_TYPE_descriptor_t *td, const void *sptr,
 
 	return 0;
 }
+#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
 
 #ifndef ASN_DISABLE_PER_SUPPORT
 
@@ -1228,6 +1232,7 @@ asn_TYPE_operation_t asn_OP_SET_OF = {
 };
 
 
+#if !defined(ASN_DISABLE_RFILL_SUPPORT)
 asn_random_fill_result_t
 SET_OF_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
                    const asn_encoding_constraints_t *constraints,
@@ -1366,4 +1371,5 @@ SET_OF_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
 
     return res_ok;
 }
+#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
 

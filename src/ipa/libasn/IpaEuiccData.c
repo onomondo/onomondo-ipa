@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PendingNotificationList,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("notificationsList")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("defaultSmdpAddress")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EuiccPackageResultList,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccPackageResultList")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EUICCInfo1,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccInfo1")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_SGP32_EUICCInfo2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccInfo2")
 		},
@@ -58,7 +58,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("rootSmdsAddress")
 		},
@@ -67,7 +67,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("associationToken")
 		},
@@ -76,7 +76,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_Certificate,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eumCertificate")
 		},
@@ -85,7 +85,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_Certificate,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccCertificate")
 		},
@@ -94,7 +94,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_TransactionId,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eimTransactionId")
 		},
@@ -103,7 +103,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_IpaCapabilities,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ipaCapabilities")
 		},
@@ -112,7 +112,7 @@ asn_TYPE_member_t asn_MBR_IpaEuiccData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_DeviceInfo,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("deviceInfo")
 		},
@@ -152,7 +152,7 @@ asn_TYPE_descriptor_t asn_DEF_IpaEuiccData = {
 	asn_DEF_IpaEuiccData_tags_1,	/* Same as above */
 	sizeof(asn_DEF_IpaEuiccData_tags_1)
 		/sizeof(asn_DEF_IpaEuiccData_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_IpaEuiccData_1,
 	12,	/* Elements count */
 	&asn_SPC_IpaEuiccData_specs_1	/* Additional specs */

@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_ePRAndNotifications_3[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EuiccPackageResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccPackageResult")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_ePRAndNotifications_3[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PendingNotificationList,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("notificationList")
 		},
@@ -53,7 +53,7 @@ asn_TYPE_descriptor_t asn_DEF_ePRAndNotifications_3 = {
 	asn_DEF_ePRAndNotifications_tags_3,	/* Same as above */
 	sizeof(asn_DEF_ePRAndNotifications_tags_3)
 		/sizeof(asn_DEF_ePRAndNotifications_tags_3[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ePRAndNotifications_3,
 	2,	/* Elements count */
 	&asn_SPC_ePRAndNotifications_specs_3	/* Additional specs */
@@ -65,7 +65,7 @@ asn_TYPE_member_t asn_MBR_EimPackageResult_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EuiccPackageResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccPackageResult")
 		},
@@ -74,7 +74,7 @@ asn_TYPE_member_t asn_MBR_EimPackageResult_1[] = {
 		0,
 		&asn_DEF_ePRAndNotifications_3,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ePRAndNotifications")
 		},
@@ -83,7 +83,7 @@ asn_TYPE_member_t asn_MBR_EimPackageResult_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_IpaEuiccDataResponse,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ipaEuiccDataResponse")
 		},
@@ -92,7 +92,7 @@ asn_TYPE_member_t asn_MBR_EimPackageResult_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ProfileDownloadTriggerResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileDownloadTriggerResult")
 		},
@@ -101,7 +101,7 @@ asn_TYPE_member_t asn_MBR_EimPackageResult_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EimPackageResultResponseError,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eimPackageResultResponseError")
 		},
@@ -131,7 +131,7 @@ asn_TYPE_descriptor_t asn_DEF_EimPackageResult = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_EimPackageResult_1,
 	5,	/* Elements count */
 	&asn_SPC_EimPackageResult_specs_1	/* Additional specs */

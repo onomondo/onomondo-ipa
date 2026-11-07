@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_Member_2[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OBJECT_IDENTIFIER,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("vendorOid")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_Member_2[] = {
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_ANY,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("vendorSpecificData")
 		},
@@ -53,7 +53,7 @@ asn_TYPE_descriptor_t asn_DEF_Member_2 = {
 	asn_DEF_Member_tags_2,	/* Same as above */
 	sizeof(asn_DEF_Member_tags_2)
 		/sizeof(asn_DEF_Member_tags_2[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_Member_2,
 	2,	/* Elements count */
 	&asn_SPC_Member_specs_2	/* Additional specs */
@@ -65,7 +65,7 @@ asn_TYPE_member_t asn_MBR_VendorSpecificExtension_1[] = {
 		0,
 		&asn_DEF_Member_2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -88,7 +88,7 @@ asn_TYPE_descriptor_t asn_DEF_VendorSpecificExtension = {
 	asn_DEF_VendorSpecificExtension_tags_1,	/* Same as above */
 	sizeof(asn_DEF_VendorSpecificExtension_tags_1)
 		/sizeof(asn_DEF_VendorSpecificExtension_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_VendorSpecificExtension_1,
 	1,	/* Single element */
 	&asn_SPC_VendorSpecificExtension_specs_1	/* Additional specs */

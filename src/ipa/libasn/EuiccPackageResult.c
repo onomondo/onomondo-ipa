@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageResult_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EuiccPackageResultSigned,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccPackageResultSigned")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageResult_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EuiccPackageErrorSigned,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccPackageErrorSigned")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_EuiccPackageResult_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EuiccPackageErrorUnsigned,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccPackageErrorUnsigned")
 		},
@@ -64,7 +64,7 @@ asn_TYPE_descriptor_t asn_DEF_EuiccPackageResult = {
 	asn_DEF_EuiccPackageResult_tags_1,	/* Same as above */
 	sizeof(asn_DEF_EuiccPackageResult_tags_1)
 		/sizeof(asn_DEF_EuiccPackageResult_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_EuiccPackageResult_1,
 	3,	/* Elements count */
 	&asn_SPC_EuiccPackageResult_specs_1	/* Additional specs */

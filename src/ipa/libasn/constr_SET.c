@@ -981,6 +981,7 @@ SET_free(const asn_TYPE_descriptor_t *td, void *ptr,
     }
 }
 
+#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
 int
 SET_constraint(const asn_TYPE_descriptor_t *td, const void *sptr,
                asn_app_constraint_failed_f *ctfailcb, void *app_key) {
@@ -1025,6 +1026,7 @@ SET_constraint(const asn_TYPE_descriptor_t *td, const void *sptr,
 
 	return 0;
 }
+#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
 
 int
 SET_compare(const asn_TYPE_descriptor_t *td, const void *aptr,
@@ -1095,6 +1097,7 @@ asn_TYPE_operation_t asn_OP_SET = {
 };
 
 
+#if !defined(ASN_DISABLE_RFILL_SUPPORT)
 asn_random_fill_result_t
 SET_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
                    const asn_encoding_constraints_t *constr,
@@ -1161,4 +1164,5 @@ SET_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
 
     return result_ok;
 }
+#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
 

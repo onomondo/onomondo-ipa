@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_ADFRFMAccess_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ApplicationIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("adfAID")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_ADFRFMAccess_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("adfAccessDomain")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_ADFRFMAccess_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("adfAdminAccessDomain")
 		},
@@ -62,7 +62,7 @@ asn_TYPE_descriptor_t asn_DEF_ADFRFMAccess = {
 	asn_DEF_ADFRFMAccess_tags_1,	/* Same as above */
 	sizeof(asn_DEF_ADFRFMAccess_tags_1)
 		/sizeof(asn_DEF_ADFRFMAccess_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ADFRFMAccess_1,
 	3,	/* Elements count */
 	&asn_SPC_ADFRFMAccess_specs_1	/* Additional specs */

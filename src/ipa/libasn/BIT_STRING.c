@@ -69,7 +69,7 @@ asn_TYPE_descriptor_t asn_DEF_BIT_STRING = {
 	asn_DEF_BIT_STRING_tags,	/* Same as above */
 	sizeof(asn_DEF_BIT_STRING_tags)
 	  / sizeof(asn_DEF_BIT_STRING_tags[0]),
-	{ 0, 0, BIT_STRING_constraint },
+	ASN_ENC_CONSTRAINTS(0, 0, BIT_STRING_constraint)
 	0, 0,	/* No members */
 	&asn_SPC_BIT_STRING_specs
 };
@@ -558,6 +558,7 @@ BIT_STRING_encode_uper(const asn_TYPE_descriptor_t *td,
 
 #endif  /* ASN_DISABLE_PER_SUPPORT */
 
+#if !defined(ASN_DISABLE_RFILL_SUPPORT)
 asn_random_fill_result_t
 BIT_STRING_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
                        const asn_encoding_constraints_t *constraints,
@@ -667,3 +668,4 @@ BIT_STRING_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
     result_ok.length = st->size;
     return result_ok;
 }
+#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */

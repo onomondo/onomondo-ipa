@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_CountryName_1[] = {
 		0,
 		&asn_DEF_NumericString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("x121-dcc-code")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_CountryName_1[] = {
 		0,
 		&asn_DEF_PrintableString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("iso-3166-alpha2-code")
 		},
@@ -54,7 +54,7 @@ asn_TYPE_descriptor_t asn_DEF_CountryName = {
 	asn_DEF_CountryName_tags_1,	/* Same as above */
 	sizeof(asn_DEF_CountryName_tags_1)
 		/sizeof(asn_DEF_CountryName_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_CountryName_1,
 	2,	/* Elements count */
 	&asn_SPC_CountryName_specs_1	/* Additional specs */

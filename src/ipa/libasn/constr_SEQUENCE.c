@@ -1024,6 +1024,7 @@ SEQUENCE_free(const asn_TYPE_descriptor_t *td, void *sptr,
     }
 }
 
+#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
 int
 SEQUENCE_constraint(const asn_TYPE_descriptor_t *td, const void *sptr,
                     asn_app_constraint_failed_f *ctfailcb, void *app_key) {
@@ -1069,6 +1070,7 @@ SEQUENCE_constraint(const asn_TYPE_descriptor_t *td, const void *sptr,
 
 	return 0;
 }
+#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
 
 #ifndef ASN_DISABLE_PER_SUPPORT
 
@@ -1574,6 +1576,7 @@ asn_TYPE_operation_t asn_OP_SEQUENCE = {
 };
 
 
+#if !defined(ASN_DISABLE_RFILL_SUPPORT)
 asn_random_fill_result_t
 SEQUENCE_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
                    const asn_encoding_constraints_t *constr,
@@ -1640,4 +1643,5 @@ SEQUENCE_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
 
     return result_ok;
 }
+#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
 

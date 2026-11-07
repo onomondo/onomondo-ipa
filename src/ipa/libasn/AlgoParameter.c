@@ -35,7 +35,7 @@ asn_TYPE_member_t asn_MBR_AlgoParameter_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("algorithmID")
 		},
@@ -44,7 +44,7 @@ asn_TYPE_member_t asn_MBR_AlgoParameter_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("algorithmOptions")
 		},
@@ -53,7 +53,7 @@ asn_TYPE_member_t asn_MBR_AlgoParameter_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("key")
 		},
@@ -62,7 +62,7 @@ asn_TYPE_member_t asn_MBR_AlgoParameter_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("opc")
 		},
@@ -71,7 +71,7 @@ asn_TYPE_member_t asn_MBR_AlgoParameter_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("rotationConstants")
 		},
@@ -80,7 +80,7 @@ asn_TYPE_member_t asn_MBR_AlgoParameter_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("xoringConstants")
 		},
@@ -89,7 +89,7 @@ asn_TYPE_member_t asn_MBR_AlgoParameter_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("authCounterMax")
 		},
@@ -98,7 +98,7 @@ asn_TYPE_member_t asn_MBR_AlgoParameter_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UInt8,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		&asn_DFL_12_cmp_1,	/* Compare DEFAULT 1 */
 		&asn_DFL_12_set_1,	/* Set DEFAULT 1 */
 		ASN_NAME("numberOfKeccak")
@@ -135,7 +135,7 @@ asn_TYPE_descriptor_t asn_DEF_AlgoParameter = {
 	asn_DEF_AlgoParameter_tags_1,	/* Same as above */
 	sizeof(asn_DEF_AlgoParameter_tags_1)
 		/sizeof(asn_DEF_AlgoParameter_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_AlgoParameter_1,
 	8,	/* Elements count */
 	&asn_SPC_AlgoParameter_specs_1	/* Additional specs */

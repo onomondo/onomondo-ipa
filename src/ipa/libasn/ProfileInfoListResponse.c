@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_profileInfoListOk_2[] = {
 		0,
 		&asn_DEF_ProfileInfo,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -38,7 +38,7 @@ asn_TYPE_descriptor_t asn_DEF_profileInfoListOk_2 = {
 	asn_DEF_profileInfoListOk_tags_2,	/* Same as above */
 	sizeof(asn_DEF_profileInfoListOk_tags_2)
 		/sizeof(asn_DEF_profileInfoListOk_tags_2[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_profileInfoListOk_2,
 	1,	/* Single element */
 	&asn_SPC_profileInfoListOk_specs_2	/* Additional specs */
@@ -50,7 +50,7 @@ static asn_TYPE_member_t asn_MBR_ProfileInfoListResponse_1[] = {
 		0,
 		&asn_DEF_profileInfoListOk_2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileInfoListOk")
 		},
@@ -59,7 +59,7 @@ static asn_TYPE_member_t asn_MBR_ProfileInfoListResponse_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ProfileInfoListError,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileInfoListError")
 		},
@@ -91,7 +91,7 @@ asn_TYPE_descriptor_t asn_DEF_ProfileInfoListResponse = {
 	asn_DEF_ProfileInfoListResponse_tags_1,	/* Same as above */
 	sizeof(asn_DEF_ProfileInfoListResponse_tags_1)
 		/sizeof(asn_DEF_ProfileInfoListResponse_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ProfileInfoListResponse_1,
 	2,	/* Elements count */
 	&asn_SPC_ProfileInfoListResponse_specs_1	/* Additional specs */

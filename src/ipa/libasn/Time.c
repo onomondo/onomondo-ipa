@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_Time_1[] = {
 		0,
 		&asn_DEF_UTCTime,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("utcTime")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_Time_1[] = {
 		0,
 		&asn_DEF_GeneralizedTime,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("generalTime")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_descriptor_t asn_DEF_Time = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_Time_1,
 	2,	/* Elements count */
 	&asn_SPC_Time_specs_1	/* Additional specs */

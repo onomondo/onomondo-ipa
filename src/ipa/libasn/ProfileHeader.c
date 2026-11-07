@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_eUICC_Mandatory_GFSTEList_8[] = {
 		0,
 		&asn_DEF_OBJECT_IDENTIFIER,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -38,7 +38,7 @@ asn_TYPE_descriptor_t asn_DEF_eUICC_Mandatory_GFSTEList_8 = {
 	asn_DEF_eUICC_Mandatory_GFSTEList_tags_8,	/* Same as above */
 	sizeof(asn_DEF_eUICC_Mandatory_GFSTEList_tags_8)
 		/sizeof(asn_DEF_eUICC_Mandatory_GFSTEList_tags_8[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_eUICC_Mandatory_GFSTEList_8,
 	1,	/* Single element */
 	&asn_SPC_eUICC_Mandatory_GFSTEList_specs_8	/* Additional specs */
@@ -50,7 +50,7 @@ static asn_TYPE_member_t asn_MBR_Member_12[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ApplicationIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("aid")
 		},
@@ -59,7 +59,7 @@ static asn_TYPE_member_t asn_MBR_Member_12[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("version")
 		},
@@ -90,7 +90,7 @@ asn_TYPE_descriptor_t asn_DEF_Member_12 = {
 	asn_DEF_Member_tags_12,	/* Same as above */
 	sizeof(asn_DEF_Member_tags_12)
 		/sizeof(asn_DEF_Member_tags_12[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_Member_12,
 	2,	/* Elements count */
 	&asn_SPC_Member_specs_12	/* Additional specs */
@@ -102,7 +102,7 @@ static asn_TYPE_member_t asn_MBR_eUICC_Mandatory_AIDs_11[] = {
 		0,
 		&asn_DEF_Member_12,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -127,7 +127,7 @@ asn_TYPE_descriptor_t asn_DEF_eUICC_Mandatory_AIDs_11 = {
 	asn_DEF_eUICC_Mandatory_AIDs_tags_11,	/* Same as above */
 	sizeof(asn_DEF_eUICC_Mandatory_AIDs_tags_11)
 		/sizeof(asn_DEF_eUICC_Mandatory_AIDs_tags_11[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_eUICC_Mandatory_AIDs_11,
 	1,	/* Single element */
 	&asn_SPC_eUICC_Mandatory_AIDs_specs_11	/* Additional specs */
@@ -139,7 +139,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UInt8,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("major-version")
 		},
@@ -148,7 +148,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UInt8,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("minor-version")
 		},
@@ -157,7 +157,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileType")
 		},
@@ -166,7 +166,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("iccid")
 		},
@@ -175,7 +175,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("pol")
 		},
@@ -184,7 +184,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ServicesList,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eUICC-Mandatory-services")
 		},
@@ -193,7 +193,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		0,
 		&asn_DEF_eUICC_Mandatory_GFSTEList_8,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eUICC-Mandatory-GFSTEList")
 		},
@@ -202,7 +202,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("connectivityParameters")
 		},
@@ -211,7 +211,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		0,
 		&asn_DEF_eUICC_Mandatory_AIDs_11,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eUICC-Mandatory-AIDs")
 		},
@@ -220,7 +220,7 @@ asn_TYPE_member_t asn_MBR_ProfileHeader_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_IotOptions,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("iotOptions")
 		},
@@ -258,7 +258,7 @@ asn_TYPE_descriptor_t asn_DEF_ProfileHeader = {
 	asn_DEF_ProfileHeader_tags_1,	/* Same as above */
 	sizeof(asn_DEF_ProfileHeader_tags_1)
 		/sizeof(asn_DEF_ProfileHeader_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ProfileHeader_1,
 	10,	/* Elements count */
 	&asn_SPC_ProfileHeader_specs_1	/* Additional specs */

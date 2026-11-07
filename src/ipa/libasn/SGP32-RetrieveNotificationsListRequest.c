@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_searchCriteria_2[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("seqNumber")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_searchCriteria_2[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NotificationEvent,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileManagementOperation")
 		},
@@ -31,7 +31,7 @@ static asn_TYPE_member_t asn_MBR_searchCriteria_2[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccPackageResults")
 		},
@@ -60,7 +60,7 @@ asn_TYPE_descriptor_t asn_DEF_searchCriteria_2 = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_searchCriteria_2,
 	3,	/* Elements count */
 	&asn_SPC_searchCriteria_specs_2	/* Additional specs */
@@ -72,7 +72,7 @@ static asn_TYPE_member_t asn_MBR_SGP32_RetrieveNotificationsListRequest_1[] = {
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_searchCriteria_2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("searchCriteria")
 		},
@@ -102,7 +102,7 @@ asn_TYPE_descriptor_t asn_DEF_SGP32_RetrieveNotificationsListRequest = {
 	asn_DEF_SGP32_RetrieveNotificationsListRequest_tags_1,	/* Same as above */
 	sizeof(asn_DEF_SGP32_RetrieveNotificationsListRequest_tags_1)
 		/sizeof(asn_DEF_SGP32_RetrieveNotificationsListRequest_tags_1[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_SGP32_RetrieveNotificationsListRequest_1,
 	1,	/* Elements count */
 	&asn_SPC_SGP32_RetrieveNotificationsListRequest_specs_1	/* Additional specs */

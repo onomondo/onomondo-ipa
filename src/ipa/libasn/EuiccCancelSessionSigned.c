@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_EuiccCancelSessionSigned_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_TransactionId,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("transactionId")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_EuiccCancelSessionSigned_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OBJECT_IDENTIFIER,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("smdpOid")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_EuiccCancelSessionSigned_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_CancelSessionReason,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("reason")
 		},
@@ -62,7 +62,7 @@ asn_TYPE_descriptor_t asn_DEF_EuiccCancelSessionSigned = {
 	asn_DEF_EuiccCancelSessionSigned_tags_1,	/* Same as above */
 	sizeof(asn_DEF_EuiccCancelSessionSigned_tags_1)
 		/sizeof(asn_DEF_EuiccCancelSessionSigned_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_EuiccCancelSessionSigned_1,
 	3,	/* Elements count */
 	&asn_SPC_EuiccCancelSessionSigned_specs_1	/* Additional specs */

@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_ePRAndNotifications_3[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EuiccPackageResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccPackageResult")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_ePRAndNotifications_3[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PendingNotificationList,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("notificationList")
 		},
@@ -53,7 +53,7 @@ asn_TYPE_descriptor_t asn_DEF_ePRAndNotifications_3 = {
 	asn_DEF_ePRAndNotifications_tags_3,	/* Same as above */
 	sizeof(asn_DEF_ePRAndNotifications_tags_3)
 		/sizeof(asn_DEF_ePRAndNotifications_tags_3[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ePRAndNotifications_3,
 	2,	/* Elements count */
 	&asn_SPC_ePRAndNotifications_specs_3	/* Additional specs */
@@ -65,7 +65,7 @@ asn_TYPE_member_t asn_MBR_TransferEimPackageResponse_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EuiccPackageResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccPackageResult")
 		},
@@ -74,7 +74,7 @@ asn_TYPE_member_t asn_MBR_TransferEimPackageResponse_1[] = {
 		0,
 		&asn_DEF_ePRAndNotifications_3,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ePRAndNotifications")
 		},
@@ -83,7 +83,7 @@ asn_TYPE_member_t asn_MBR_TransferEimPackageResponse_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_IpaEuiccDataResponse,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ipaEuiccDataResponse")
 		},
@@ -92,7 +92,7 @@ asn_TYPE_member_t asn_MBR_TransferEimPackageResponse_1[] = {
 		0,
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eimPackageReceived")
 		},
@@ -101,7 +101,7 @@ asn_TYPE_member_t asn_MBR_TransferEimPackageResponse_1[] = {
 		0,
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eimPackageError")
 		},
@@ -136,7 +136,7 @@ asn_TYPE_descriptor_t asn_DEF_TransferEimPackageResponse = {
 	asn_DEF_TransferEimPackageResponse_tags_1,	/* Same as above */
 	sizeof(asn_DEF_TransferEimPackageResponse_tags_1)
 		/sizeof(asn_DEF_TransferEimPackageResponse_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_TransferEimPackageResponse_1,
 	5,	/* Elements count */
 	&asn_SPC_TransferEimPackageResponse_specs_1	/* Additional specs */

@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_PostalCode_1[] = {
 		0,
 		&asn_DEF_NumericString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("numeric-code")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_PostalCode_1[] = {
 		0,
 		&asn_DEF_PrintableString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("printable-code")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_descriptor_t asn_DEF_PostalCode = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_PostalCode_1,
 	2,	/* Elements count */
 	&asn_SPC_PostalCode_specs_1	/* Additional specs */

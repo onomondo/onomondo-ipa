@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_Member_8[] = {
 		0,
 		&asn_DEF_CertificateSerialNumber,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("userCertificate")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_Member_8[] = {
 		0,
 		&asn_DEF_Time,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("revocationDate")
 		},
@@ -31,7 +31,7 @@ static asn_TYPE_member_t asn_MBR_Member_8[] = {
 		0,
 		&asn_DEF_Extensions,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("crlEntryExtensions")
 		},
@@ -64,7 +64,7 @@ asn_TYPE_descriptor_t asn_DEF_Member_8 = {
 	asn_DEF_Member_tags_8,	/* Same as above */
 	sizeof(asn_DEF_Member_tags_8)
 		/sizeof(asn_DEF_Member_tags_8[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_Member_8,
 	3,	/* Elements count */
 	&asn_SPC_Member_specs_8	/* Additional specs */
@@ -76,7 +76,7 @@ static asn_TYPE_member_t asn_MBR_revokedCertificates_7[] = {
 		0,
 		&asn_DEF_Member_8,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -100,7 +100,7 @@ asn_TYPE_descriptor_t asn_DEF_revokedCertificates_7 = {
 	asn_DEF_revokedCertificates_tags_7,	/* Same as above */
 	sizeof(asn_DEF_revokedCertificates_tags_7)
 		/sizeof(asn_DEF_revokedCertificates_tags_7[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_revokedCertificates_7,
 	1,	/* Single element */
 	&asn_SPC_revokedCertificates_specs_7	/* Additional specs */
@@ -112,7 +112,7 @@ asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		0,
 		&asn_DEF_Version,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("version")
 		},
@@ -121,7 +121,7 @@ asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		0,
 		&asn_DEF_AlgorithmIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("signature")
 		},
@@ -130,7 +130,7 @@ asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		0,
 		&asn_DEF_Name,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("issuer")
 		},
@@ -139,7 +139,7 @@ asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		0,
 		&asn_DEF_Time,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("thisUpdate")
 		},
@@ -148,7 +148,7 @@ asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		0,
 		&asn_DEF_Time,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("nextUpdate")
 		},
@@ -157,7 +157,7 @@ asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		0,
 		&asn_DEF_revokedCertificates_7,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("revokedCertificates")
 		},
@@ -166,7 +166,7 @@ asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_Extensions,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("crlExtensions")
 		},
@@ -203,7 +203,7 @@ asn_TYPE_descriptor_t asn_DEF_TBSCertList = {
 	asn_DEF_TBSCertList_tags_1,	/* Same as above */
 	sizeof(asn_DEF_TBSCertList_tags_1)
 		/sizeof(asn_DEF_TBSCertList_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_TBSCertList_1,
 	7,	/* Elements count */
 	&asn_SPC_TBSCertList_specs_1	/* Additional specs */

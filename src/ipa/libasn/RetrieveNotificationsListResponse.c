@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_notificationList_2[] = {
 		0,
 		&asn_DEF_PendingNotification,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -38,7 +38,7 @@ asn_TYPE_descriptor_t asn_DEF_notificationList_2 = {
 	asn_DEF_notificationList_tags_2,	/* Same as above */
 	sizeof(asn_DEF_notificationList_tags_2)
 		/sizeof(asn_DEF_notificationList_tags_2[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_notificationList_2,
 	1,	/* Single element */
 	&asn_SPC_notificationList_specs_2	/* Additional specs */
@@ -50,7 +50,7 @@ static asn_TYPE_member_t asn_MBR_RetrieveNotificationsListResponse_1[] = {
 		0,
 		&asn_DEF_notificationList_2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("notificationList")
 		},
@@ -59,7 +59,7 @@ static asn_TYPE_member_t asn_MBR_RetrieveNotificationsListResponse_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("notificationsListResultError")
 		},
@@ -91,7 +91,7 @@ asn_TYPE_descriptor_t asn_DEF_RetrieveNotificationsListResponse = {
 	asn_DEF_RetrieveNotificationsListResponse_tags_1,	/* Same as above */
 	sizeof(asn_DEF_RetrieveNotificationsListResponse_tags_1)
 		/sizeof(asn_DEF_RetrieveNotificationsListResponse_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_RetrieveNotificationsListResponse_1,
 	2,	/* Elements count */
 	&asn_SPC_RetrieveNotificationsListResponse_specs_1	/* Additional specs */

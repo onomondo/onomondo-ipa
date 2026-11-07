@@ -19,12 +19,14 @@ static const int _PrintableString_alphabet[256] = {
  0,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,	/*  abcdefghijklmno */
 64,65,66,67,68,69,70,71,72,73,74, 0, 0, 0, 0, 0,	/* pqrstuvwxyz      */
 };
+#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
 static const int _PrintableString_code2value[74] = {
 32,39,40,41,43,44,45,46,47,48,49,50,51,52,53,54,
 55,56,57,58,61,63,65,66,67,68,69,70,71,72,73,74,
 75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,
 97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,
 113,114,115,116,117,118,119,120,121,122};
+#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
 
 /*
  * PrintableString basic type description.
@@ -33,6 +35,7 @@ static const ber_tlv_tag_t asn_DEF_PrintableString_tags[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),	/* [UNIVERSAL 19] IMPLICIT ...*/
 	(ASN_TAG_CLASS_UNIVERSAL | (4 << 2))	/* ... OCTET STRING */
 };
+#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
 static int asn_DEF_PrintableString_v2c(unsigned int value) {
 	return _PrintableString_alphabet[value > 255 ? 0 : value] - 1;
 }
@@ -47,6 +50,7 @@ static asn_per_constraints_t asn_DEF_PrintableString_per_constraints = {
 	asn_DEF_PrintableString_v2c,
 	asn_DEF_PrintableString_c2v
 };
+#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
 asn_TYPE_operation_t asn_OP_PrintableString = {
 	OCTET_STRING_free,
 #ifdef	ASN_DISABLE_PRINT_SUPPORT
@@ -99,7 +103,7 @@ asn_TYPE_descriptor_t asn_DEF_PrintableString = {
 	asn_DEF_PrintableString_tags,
 	sizeof(asn_DEF_PrintableString_tags)
 	  / sizeof(asn_DEF_PrintableString_tags[0]),
-	{ 0, &asn_DEF_PrintableString_per_constraints, PrintableString_constraint },
+	ASN_ENC_CONSTRAINTS(0, &asn_DEF_PrintableString_per_constraints, PrintableString_constraint)
 	0, 0,	/* No members */
 	0	/* No specifics */
 };

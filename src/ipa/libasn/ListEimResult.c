@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_eimIdList_2[] = {
 		0,
 		&asn_DEF_EimIdInfo,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -38,7 +38,7 @@ asn_TYPE_descriptor_t asn_DEF_eimIdList_2 = {
 	asn_DEF_eimIdList_tags_2,	/* Same as above */
 	sizeof(asn_DEF_eimIdList_tags_2)
 		/sizeof(asn_DEF_eimIdList_tags_2[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_eimIdList_2,
 	1,	/* Single element */
 	&asn_SPC_eimIdList_specs_2	/* Additional specs */
@@ -50,7 +50,7 @@ asn_TYPE_member_t asn_MBR_ListEimResult_1[] = {
 		0,
 		&asn_DEF_eimIdList_2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eimIdList")
 		},
@@ -59,7 +59,7 @@ asn_TYPE_member_t asn_MBR_ListEimResult_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("listEimError")
 		},
@@ -86,7 +86,7 @@ asn_TYPE_descriptor_t asn_DEF_ListEimResult = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ListEimResult_1,
 	2,	/* Elements count */
 	&asn_SPC_ListEimResult_specs_1	/* Additional specs */

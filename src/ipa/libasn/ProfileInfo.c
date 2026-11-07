@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_notificationConfigurationInfo_11[] = {
 		0,
 		&asn_DEF_NotificationConfigurationInformation,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -38,7 +38,7 @@ asn_TYPE_descriptor_t asn_DEF_notificationConfigurationInfo_11 = {
 	asn_DEF_notificationConfigurationInfo_tags_11,	/* Same as above */
 	sizeof(asn_DEF_notificationConfigurationInfo_tags_11)
 		/sizeof(asn_DEF_notificationConfigurationInfo_tags_11[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_notificationConfigurationInfo_11,
 	1,	/* Single element */
 	&asn_SPC_notificationConfigurationInfo_specs_11	/* Additional specs */
@@ -50,7 +50,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		0,
 		&asn_DEF_Iccid,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("iccid")
 		},
@@ -59,7 +59,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OctetTo16,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("isdpAid")
 		},
@@ -68,7 +68,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ProfileState,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileState")
 		},
@@ -77,7 +77,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileNickname")
 		},
@@ -86,7 +86,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("serviceProviderName")
 		},
@@ -95,7 +95,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileName")
 		},
@@ -104,7 +104,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_IconType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("iconType")
 		},
@@ -113,7 +113,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("icon")
 		},
@@ -122,7 +122,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ProfileClass,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileClass")
 		},
@@ -131,7 +131,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		0,
 		&asn_DEF_notificationConfigurationInfo_11,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("notificationConfigurationInfo")
 		},
@@ -140,7 +140,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OperatorId,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileOwner")
 		},
@@ -149,7 +149,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_DpProprietaryData,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("dpProprietaryData")
 		},
@@ -158,7 +158,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PprIds,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profilePolicyRules")
 		},
@@ -167,7 +167,7 @@ asn_TYPE_member_t asn_MBR_ProfileInfo_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VendorSpecificExtension,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("serviceSpecificDataStoredInEuicc")
 		},
@@ -210,7 +210,7 @@ asn_TYPE_descriptor_t asn_DEF_ProfileInfo = {
 	asn_DEF_ProfileInfo_tags_1,	/* Same as above */
 	sizeof(asn_DEF_ProfileInfo_tags_1)
 		/sizeof(asn_DEF_ProfileInfo_tags_1[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ProfileInfo_1,
 	14,	/* Elements count */
 	&asn_SPC_ProfileInfo_specs_1	/* Additional specs */

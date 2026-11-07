@@ -72,7 +72,7 @@ asn_TYPE_descriptor_t asn_DEF_OCTET_STRING = {
 	asn_DEF_OCTET_STRING_tags,	/* Same as above */
 	sizeof(asn_DEF_OCTET_STRING_tags)
 	  / sizeof(asn_DEF_OCTET_STRING_tags[0]),
-	{ 0, 0, asn_generic_no_constraint },
+	ASN_ENC_CONSTRAINTS(0, 0, asn_generic_no_constraint)
 	0, 0,	/* No members */
 	&asn_SPC_OCTET_STRING_specs
 };
@@ -1870,6 +1870,7 @@ OCTET_STRING_compare(const asn_TYPE_descriptor_t *td, const void *aptr,
 
 }
 
+#if !defined(ASN_DISABLE_RFILL_SUPPORT)
 /*
  * Biased function for randomizing character values around their limits.
  */
@@ -2061,3 +2062,4 @@ OCTET_STRING_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
     result_ok.length = st->size;
     return result_ok;
 }
+#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */

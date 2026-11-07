@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_eimConfigurationDataList_2[] = {
 		0,
 		&asn_DEF_EimConfigurationData,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -38,7 +38,7 @@ asn_TYPE_descriptor_t asn_DEF_eimConfigurationDataList_2 = {
 	asn_DEF_eimConfigurationDataList_tags_2,	/* Same as above */
 	sizeof(asn_DEF_eimConfigurationDataList_tags_2)
 		/sizeof(asn_DEF_eimConfigurationDataList_tags_2[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_eimConfigurationDataList_2,
 	1,	/* Single element */
 	&asn_SPC_eimConfigurationDataList_specs_2	/* Additional specs */
@@ -50,7 +50,7 @@ static asn_TYPE_member_t asn_MBR_GetEimConfigurationDataResponse_1[] = {
 		0,
 		&asn_DEF_eimConfigurationDataList_2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eimConfigurationDataList")
 		},
@@ -80,7 +80,7 @@ asn_TYPE_descriptor_t asn_DEF_GetEimConfigurationDataResponse = {
 	asn_DEF_GetEimConfigurationDataResponse_tags_1,	/* Same as above */
 	sizeof(asn_DEF_GetEimConfigurationDataResponse_tags_1)
 		/sizeof(asn_DEF_GetEimConfigurationDataResponse_tags_1[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_GetEimConfigurationDataResponse_1,
 	1,	/* Elements count */
 	&asn_SPC_GetEimConfigurationDataResponse_specs_1	/* Additional specs */

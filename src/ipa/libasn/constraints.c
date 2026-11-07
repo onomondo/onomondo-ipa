@@ -27,6 +27,7 @@ asn_generic_unknown_constraint(const asn_TYPE_descriptor_t *type_descriptor,
 	return 0;
 }
 
+#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
 struct errbufDesc {
     const asn_TYPE_descriptor_t *failed_type;
     const void *failed_struct_ptr;
@@ -90,4 +91,5 @@ asn_check_constraints(const asn_TYPE_descriptor_t *type_descriptor,
 
     return ret;
 }
+#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
 

@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOk_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_TransactionId,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("transactionId")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOk_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_StoreMetadataRequest,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileMetaData")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOk_1[] = {
 		0,
 		&asn_DEF_SmdpSigned2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("smdpSigned2")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOk_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("smdpSignature2")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientOk_1[] = {
 		0,
 		&asn_DEF_Certificate,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("smdpCertificate")
 		},
@@ -82,7 +82,7 @@ asn_TYPE_descriptor_t asn_DEF_AuthenticateClientOk = {
 	asn_DEF_AuthenticateClientOk_tags_1,	/* Same as above */
 	sizeof(asn_DEF_AuthenticateClientOk_tags_1)
 		/sizeof(asn_DEF_AuthenticateClientOk_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_AuthenticateClientOk_1,
 	5,	/* Elements count */
 	&asn_SPC_AuthenticateClientOk_specs_1	/* Additional specs */

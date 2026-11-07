@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_ORAddress_1[] = {
 		0,
 		&asn_DEF_BuiltInStandardAttributes,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("built-in-standard-attributes")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_ORAddress_1[] = {
 		0,
 		&asn_DEF_BuiltInDomainDefinedAttributes,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("built-in-domain-defined-attributes")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_ORAddress_1[] = {
 		0,
 		&asn_DEF_ExtensionAttributes,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("extension-attributes")
 		},
@@ -62,7 +62,7 @@ asn_TYPE_descriptor_t asn_DEF_ORAddress = {
 	asn_DEF_ORAddress_tags_1,	/* Same as above */
 	sizeof(asn_DEF_ORAddress_tags_1)
 		/sizeof(asn_DEF_ORAddress_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ORAddress_1,
 	3,	/* Elements count */
 	&asn_SPC_ORAddress_specs_1	/* Additional specs */

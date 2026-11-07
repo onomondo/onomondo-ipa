@@ -24,7 +24,7 @@ asn_TYPE_descriptor_t asn_DEF_SubjectAltName = {
 	asn_DEF_SubjectAltName_tags_1,	/* Same as above */
 	sizeof(asn_DEF_SubjectAltName_tags_1)
 		/sizeof(asn_DEF_SubjectAltName_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_GeneralNames_1,
 	1,	/* Single element */
 	&asn_SPC_GeneralNames_specs_1	/* Additional specs */

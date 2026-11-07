@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientRequestEsipa_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_TransactionId,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("transactionId")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientRequestEsipa_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_SGP32_AuthenticateServerResponse,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("authenticateServerResponse")
 		},
@@ -53,7 +53,7 @@ asn_TYPE_descriptor_t asn_DEF_AuthenticateClientRequestEsipa = {
 	asn_DEF_AuthenticateClientRequestEsipa_tags_1,	/* Same as above */
 	sizeof(asn_DEF_AuthenticateClientRequestEsipa_tags_1)
 		/sizeof(asn_DEF_AuthenticateClientRequestEsipa_tags_1[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_AuthenticateClientRequestEsipa_1,
 	2,	/* Elements count */
 	&asn_SPC_AuthenticateClientRequestEsipa_specs_1	/* Additional specs */

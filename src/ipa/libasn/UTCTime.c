@@ -23,11 +23,13 @@ static const ber_tlv_tag_t asn_DEF_UTCTime_tags[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (26 << 2)),  /* [UNIVERSAL 26] IMPLICIT ...*/
 	(ASN_TAG_CLASS_UNIVERSAL | (4 << 2))    /* ... OCTET STRING */
 };
+#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
 static asn_per_constraints_t asn_DEF_UTCTime_constraints = {
         { APC_CONSTRAINED, 7, 7, 0x20, 0x7e },  /* Value */
         { APC_SEMI_CONSTRAINED, -1, -1, 0, 0 }, /* Size */
         0, 0
 };
+#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
 asn_TYPE_operation_t asn_OP_UTCTime = {
 	OCTET_STRING_free,
 #ifdef	ASN_DISABLE_PRINT_SUPPORT
@@ -80,7 +82,7 @@ asn_TYPE_descriptor_t asn_DEF_UTCTime = {
 	asn_DEF_UTCTime_tags,
 	sizeof(asn_DEF_UTCTime_tags)
 	  / sizeof(asn_DEF_UTCTime_tags[0]),
-	{ 0, &asn_DEF_UTCTime_constraints, UTCTime_constraint },
+	ASN_ENC_CONSTRAINTS(0, &asn_DEF_UTCTime_constraints, UTCTime_constraint)
 	0, 0,	/* No members */
 	0	/* No specifics */
 };
@@ -209,6 +211,7 @@ asn_time2UT(UTCTime_t *opt_ut, const struct tm *tm, int force_gmt) {
 }
 
 
+#if !defined(ASN_DISABLE_RFILL_SUPPORT)
 asn_random_fill_result_t
 UTCTime_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
                     const asn_encoding_constraints_t *constraints,
@@ -240,6 +243,7 @@ UTCTime_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
 
     return result_ok;
 }
+#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
 
 int
 UTCTime_compare(const asn_TYPE_descriptor_t *td, const void *aptr,

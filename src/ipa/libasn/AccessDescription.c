@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_AccessDescription_1[] = {
 		0,
 		&asn_DEF_OBJECT_IDENTIFIER,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("accessMethod")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_AccessDescription_1[] = {
 		0,
 		&asn_DEF_GeneralName,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("accessLocation")
 		},
@@ -60,7 +60,7 @@ asn_TYPE_descriptor_t asn_DEF_AccessDescription = {
 	asn_DEF_AccessDescription_tags_1,	/* Same as above */
 	sizeof(asn_DEF_AccessDescription_tags_1)
 		/sizeof(asn_DEF_AccessDescription_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_AccessDescription_1,
 	2,	/* Elements count */
 	&asn_SPC_AccessDescription_specs_1	/* Additional specs */

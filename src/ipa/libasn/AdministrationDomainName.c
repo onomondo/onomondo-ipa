@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_AdministrationDomainName_1[] = {
 		0,
 		&asn_DEF_NumericString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("numeric")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_AdministrationDomainName_1[] = {
 		0,
 		&asn_DEF_PrintableString,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("printable")
 		},
@@ -54,7 +54,7 @@ asn_TYPE_descriptor_t asn_DEF_AdministrationDomainName = {
 	asn_DEF_AdministrationDomainName_tags_1,	/* Same as above */
 	sizeof(asn_DEF_AdministrationDomainName_tags_1)
 		/sizeof(asn_DEF_AdministrationDomainName_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_AdministrationDomainName_1,
 	2,	/* Elements count */
 	&asn_SPC_AdministrationDomainName_specs_1	/* Additional specs */

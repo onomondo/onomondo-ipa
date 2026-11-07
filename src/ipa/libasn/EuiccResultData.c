@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EnableProfileResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("enableResult")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_DisableProfileResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("disableResult")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_DeleteProfileResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("deleteResult")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_SGP32_ProfileInfoListResponse,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("listProfileInfoResult")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_RulesAuthorisationTable,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("getRATResult")
 		},
@@ -58,7 +58,7 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ConfigureImmediateEnableResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("configureImmediateEnableResult")
 		},
@@ -67,7 +67,7 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_AddEimResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("addEimResult")
 		},
@@ -76,7 +76,7 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_DeleteEimResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("deleteEimResult")
 		},
@@ -85,7 +85,7 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UpdateEimResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("updateEimResult")
 		},
@@ -94,7 +94,7 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_ListEimResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("listEimResult")
 		},
@@ -103,7 +103,7 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_RollbackProfileResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("rollbackResult")
 		},
@@ -112,7 +112,7 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_SetFallbackAttributeResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("setFallbackAttributeResult")
 		},
@@ -121,7 +121,7 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UnsetFallbackAttributeResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("unsetFallbackAttributeResult")
 		},
@@ -130,7 +130,7 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		0,
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("processingTerminated")
 		},
@@ -139,7 +139,7 @@ asn_TYPE_member_t asn_MBR_EuiccResultData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_SGP32_SetDefaultDpAddressResponse,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("setDefaultDpAddressResult")
 		},
@@ -179,7 +179,7 @@ asn_TYPE_descriptor_t asn_DEF_EuiccResultData = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_EuiccResultData_1,
 	15,	/* Elements count */
 	&asn_SPC_EuiccResultData_specs_1	/* Additional specs */

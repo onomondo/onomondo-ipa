@@ -1,0 +1,788 @@
+From: Benjamin Bruun <bb@onomondo.com>
+Subject: [PATCH] skeletons: drop the encoding_constraints slot from the type tables
+
+libasn is generated without OER/PER and with -fno-constraints, so nothing on
+the BER/DER paths reads the encoding_constraints tuple. constr_TYPE.h now
+defines ASN_DISABLE_ENCODING_CONSTRAINTS itself, before its includes, so every
+unit that includes libasn sees one table layout (52 -> 40 B per descriptor and
+member on 32-bit); an #error asks for the OER, PER and random-fill defines that
+this relies on. Initialisers go through ASN_ENC_CONSTRAINTS(). The code that
+reads the field is compiled out with the static helpers and PER tables only it
+used: random fill under ASN_DISABLE_RFILL_SUPPORT, the NativeEnumerated and
+CHOICE UPER functions and the CUPER case of the SET OF sorter under
+ASN_DISABLE_PER_SUPPORT, and asn_check_constraints() with the
+CHOICE/SEQUENCE/SET/SET OF walkers under the new define.
+---
+diff --git a/src/ipa/libasn/ANY.c b/src/ipa/libasn/ANY.c
+--- a/src/ipa/libasn/ANY.c
++++ b/src/ipa/libasn/ANY.c
+@@ -53,7 +53,7 @@ asn_TYPE_descriptor_t asn_DEF_ANY = {
+ 	"ANY",
+ 	&asn_OP_ANY,
+ 	0, 0, 0, 0,
+-	{ 0, 0, asn_generic_no_constraint },	/* No constraints */
++	ASN_ENC_CONSTRAINTS(0, 0, asn_generic_no_constraint)	/* No constraints */
+ 	0, 0,	/* No members */
+ 	&asn_SPC_ANY_specs,
+ };
+diff --git a/src/ipa/libasn/BIT_STRING.c b/src/ipa/libasn/BIT_STRING.c
+--- a/src/ipa/libasn/BIT_STRING.c
++++ b/src/ipa/libasn/BIT_STRING.c
+@@ -69,7 +69,7 @@ asn_TYPE_descriptor_t asn_DEF_BIT_STRING = {
+ 	asn_DEF_BIT_STRING_tags,	/* Same as above */
+ 	sizeof(asn_DEF_BIT_STRING_tags)
+ 	  / sizeof(asn_DEF_BIT_STRING_tags[0]),
+-	{ 0, 0, BIT_STRING_constraint },
++	ASN_ENC_CONSTRAINTS(0, 0, BIT_STRING_constraint)
+ 	0, 0,	/* No members */
+ 	&asn_SPC_BIT_STRING_specs
+ };
+@@ -558,6 +558,7 @@ BIT_STRING_encode_uper(const asn_TYPE_descriptor_t *td,
+ 
+ #endif  /* ASN_DISABLE_PER_SUPPORT */
+ 
++#if !defined(ASN_DISABLE_RFILL_SUPPORT)
+ asn_random_fill_result_t
+ BIT_STRING_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+                        const asn_encoding_constraints_t *constraints,
+@@ -667,3 +668,4 @@ BIT_STRING_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+     result_ok.length = st->size;
+     return result_ok;
+ }
++#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
+diff --git a/src/ipa/libasn/BMPString.c b/src/ipa/libasn/BMPString.c
+--- a/src/ipa/libasn/BMPString.c
++++ b/src/ipa/libasn/BMPString.c
+@@ -18,11 +18,13 @@ asn_OCTET_STRING_specifics_t asn_SPC_BMPString_specs = {
+ 	offsetof(BMPString_t, _asn_ctx),
+ 	ASN_OSUBV_U16	/* 16-bits character */
+ };
++#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+ static asn_per_constraints_t asn_DEF_BMPString_per_constraints = {
+ 	{ APC_CONSTRAINED, 16, 16, 0, 65535 },
+ 	{ APC_SEMI_CONSTRAINED, -1, -1, 0, 0 },
+ 	0, 0
+ };
++#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
+ asn_TYPE_operation_t asn_OP_BMPString = {
+ 	OCTET_STRING_free,          /* Implemented in terms of OCTET STRING */
+ #ifdef	ASN_DISABLE_PRINT_SUPPORT
+@@ -75,7 +77,7 @@ asn_TYPE_descriptor_t asn_DEF_BMPString = {
+ 	asn_DEF_BMPString_tags,
+ 	sizeof(asn_DEF_BMPString_tags)
+ 	  / sizeof(asn_DEF_BMPString_tags[0]),
+-	{ 0, &asn_DEF_BMPString_per_constraints, BMPString_constraint },
++	ASN_ENC_CONSTRAINTS(0, &asn_DEF_BMPString_per_constraints, BMPString_constraint)
+ 	0, 0,	/* No members */
+ 	&asn_SPC_BMPString_specs
+ };
+diff --git a/src/ipa/libasn/BOOLEAN.c b/src/ipa/libasn/BOOLEAN.c
+--- a/src/ipa/libasn/BOOLEAN.c
++++ b/src/ipa/libasn/BOOLEAN.c
+@@ -62,7 +62,7 @@ asn_TYPE_descriptor_t asn_DEF_BOOLEAN = {
+ 	sizeof(asn_DEF_BOOLEAN_tags) / sizeof(asn_DEF_BOOLEAN_tags[0]),
+ 	asn_DEF_BOOLEAN_tags,	/* Same as above */
+ 	sizeof(asn_DEF_BOOLEAN_tags) / sizeof(asn_DEF_BOOLEAN_tags[0]),
+-	{ 0, 0, asn_generic_no_constraint },
++	ASN_ENC_CONSTRAINTS(0, 0, asn_generic_no_constraint)
+ 	0, 0,	/* No members */
+ 	0	/* No specifics */
+ };
+@@ -405,6 +405,7 @@ BOOLEAN_compare(const asn_TYPE_descriptor_t *td, const void *aptr,
+     }
+ }
+ 
++#if !defined(ASN_DISABLE_RFILL_SUPPORT)
+ asn_random_fill_result_t
+ BOOLEAN_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+                     const asn_encoding_constraints_t *constraints,
+@@ -449,3 +450,4 @@ BOOLEAN_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+     }
+     return result_ok;
+ }
++#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
+diff --git a/src/ipa/libasn/GeneralizedTime.c b/src/ipa/libasn/GeneralizedTime.c
+--- a/src/ipa/libasn/GeneralizedTime.c
++++ b/src/ipa/libasn/GeneralizedTime.c
+@@ -168,11 +168,13 @@ static const ber_tlv_tag_t asn_DEF_GeneralizedTime_tags[] = {
+ 	(ASN_TAG_CLASS_UNIVERSAL | (26 << 2)),  /* [UNIVERSAL 26] IMPLICIT ...*/
+ 	(ASN_TAG_CLASS_UNIVERSAL | (4 << 2))    /* ... OCTET STRING */
+ };
++#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+ static asn_per_constraints_t asn_DEF_GeneralizedTime_per_constraints = {
+ 	{ APC_CONSTRAINED, 7, 7, 0x20, 0x7e },  /* Value */
+ 	{ APC_SEMI_CONSTRAINED, -1, -1, 0, 0 }, /* Size */
+ 	0, 0
+ };
++#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
+ asn_TYPE_operation_t asn_OP_GeneralizedTime = {
+ 	OCTET_STRING_free,
+ #ifdef	ASN_DISABLE_PRINT_SUPPORT
+@@ -225,7 +227,7 @@ asn_TYPE_descriptor_t asn_DEF_GeneralizedTime = {
+ 	asn_DEF_GeneralizedTime_tags,
+ 	sizeof(asn_DEF_GeneralizedTime_tags)
+ 	  / sizeof(asn_DEF_GeneralizedTime_tags[0]),
+-	{ 0, &asn_DEF_GeneralizedTime_per_constraints, GeneralizedTime_constraint },
++	ASN_ENC_CONSTRAINTS(0, &asn_DEF_GeneralizedTime_per_constraints, GeneralizedTime_constraint)
+ 	0, 0,	/* No members */
+ 	0	/* No specifics */
+ };
+@@ -741,6 +743,7 @@ asn_time2GT_frac(GeneralizedTime_t *opt_gt, const struct tm *tm, int frac_value,
+ 	return opt_gt;
+ }
+ 
++#if !defined(ASN_DISABLE_RFILL_SUPPORT)
+ asn_random_fill_result_t
+ GeneralizedTime_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+                               const asn_encoding_constraints_t *constraints,
+@@ -772,6 +775,7 @@ GeneralizedTime_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+ 
+     return result_ok;
+ }
++#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
+ 
+ int
+ GeneralizedTime_compare(const asn_TYPE_descriptor_t *td, const void *aptr,
+diff --git a/src/ipa/libasn/IA5String.c b/src/ipa/libasn/IA5String.c
+--- a/src/ipa/libasn/IA5String.c
++++ b/src/ipa/libasn/IA5String.c
+@@ -12,11 +12,13 @@ static const ber_tlv_tag_t asn_DEF_IA5String_tags[] = {
+ 	(ASN_TAG_CLASS_UNIVERSAL | (22 << 2)),	/* [UNIVERSAL 22] IMPLICIT ...*/
+ 	(ASN_TAG_CLASS_UNIVERSAL | (4 << 2))	/* ... OCTET STRING */
+ };
++#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+ static asn_per_constraints_t asn_DEF_IA5String_per_constraints = {
+ 	{ APC_CONSTRAINED, 7, 7, 0, 0x7f },	/* Value */
+ 	{ APC_SEMI_CONSTRAINED, -1, -1, 0, 0 },	/* Size */
+ 	0, 0
+ };
++#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
+ asn_TYPE_operation_t asn_OP_IA5String = {
+ 	OCTET_STRING_free,
+ #ifdef	ASN_DISABLE_PRINT_SUPPORT
+@@ -69,7 +71,7 @@ asn_TYPE_descriptor_t asn_DEF_IA5String = {
+ 	asn_DEF_IA5String_tags,
+ 	sizeof(asn_DEF_IA5String_tags)
+ 	  / sizeof(asn_DEF_IA5String_tags[0]),
+-	{ 0, &asn_DEF_IA5String_per_constraints, IA5String_constraint },
++	ASN_ENC_CONSTRAINTS(0, &asn_DEF_IA5String_per_constraints, IA5String_constraint)
+ 	0, 0,	/* No members */
+ 	0	/* No specifics */
+ };
+diff --git a/src/ipa/libasn/INTEGER.c b/src/ipa/libasn/INTEGER.c
+--- a/src/ipa/libasn/INTEGER.c
++++ b/src/ipa/libasn/INTEGER.c
+@@ -64,7 +64,7 @@ asn_TYPE_descriptor_t asn_DEF_INTEGER = {
+ 	sizeof(asn_DEF_INTEGER_tags) / sizeof(asn_DEF_INTEGER_tags[0]),
+ 	asn_DEF_INTEGER_tags,	/* Same as above */
+ 	sizeof(asn_DEF_INTEGER_tags) / sizeof(asn_DEF_INTEGER_tags[0]),
+-	{ 0, 0, asn_generic_no_constraint },
++	ASN_ENC_CONSTRAINTS(0, 0, asn_generic_no_constraint)
+ 	0, 0,	/* No members */
+ 	0	/* No specifics */
+ };
+@@ -1286,6 +1286,7 @@ INTEGER_compare(const asn_TYPE_descriptor_t *td, const void *aptr,
+ 
+ }
+ 
++#if !defined(ASN_DISABLE_RFILL_SUPPORT)
+ asn_random_fill_result_t
+ INTEGER_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+                     const asn_encoding_constraints_t *constraints,
+@@ -1368,3 +1369,4 @@ INTEGER_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+         return result_ok;
+     }
+ }
++#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
+diff --git a/src/ipa/libasn/NULL.c b/src/ipa/libasn/NULL.c
+--- a/src/ipa/libasn/NULL.c
++++ b/src/ipa/libasn/NULL.c
+@@ -62,7 +62,7 @@ asn_TYPE_descriptor_t asn_DEF_NULL = {
+ 	sizeof(asn_DEF_NULL_tags) / sizeof(asn_DEF_NULL_tags[0]),
+ 	asn_DEF_NULL_tags,	/* Same as above */
+ 	sizeof(asn_DEF_NULL_tags) / sizeof(asn_DEF_NULL_tags[0]),
+-	{ 0, 0, asn_generic_no_constraint },
++	ASN_ENC_CONSTRAINTS(0, 0, asn_generic_no_constraint)
+ 	0, 0,	/* No members */
+ 	0	/* No specifics */
+ };
+@@ -299,6 +299,7 @@ NULL_encode_uper(const asn_TYPE_descriptor_t *td,
+ 
+ #endif  /* ASN_DISABLE_PER_SUPPORT */
+ 
++#if !defined(ASN_DISABLE_RFILL_SUPPORT)
+ asn_random_fill_result_t
+ NULL_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+                     const asn_encoding_constraints_t *constr,
+@@ -322,4 +323,5 @@ NULL_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+ 
+     return result_ok;
+ }
++#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
+ 
+diff --git a/src/ipa/libasn/NativeEnumerated.c b/src/ipa/libasn/NativeEnumerated.c
+--- a/src/ipa/libasn/NativeEnumerated.c
++++ b/src/ipa/libasn/NativeEnumerated.c
+@@ -68,7 +68,7 @@ asn_TYPE_descriptor_t asn_DEF_NativeEnumerated = {
+ 	sizeof(asn_DEF_NativeEnumerated_tags) / sizeof(asn_DEF_NativeEnumerated_tags[0]),
+ 	asn_DEF_NativeEnumerated_tags,	/* Same as above */
+ 	sizeof(asn_DEF_NativeEnumerated_tags) / sizeof(asn_DEF_NativeEnumerated_tags[0]),
+-	{ 0, 0, asn_generic_no_constraint },
++	ASN_ENC_CONSTRAINTS(0, 0, asn_generic_no_constraint)
+ 	0, 0,	/* No members */
+ 	0	/* No specifics */
+ };
+@@ -102,6 +102,7 @@ NativeEnumerated_encode_xer(const asn_TYPE_descriptor_t *td, const void *sptr,
+     }
+ }
+ 
++#if !defined(ASN_DISABLE_PER_SUPPORT)
+ asn_dec_rval_t
+ NativeEnumerated_decode_uper(const asn_codec_ctx_t *opt_codec_ctx,
+                              const asn_TYPE_descriptor_t *td,
+@@ -240,4 +241,5 @@ NativeEnumerated_encode_uper(const asn_TYPE_descriptor_t *td,
+ 
+ 	ASN__ENCODED_OK(er);
+ }
++#endif	/* !defined(ASN_DISABLE_PER_SUPPORT) */
+ 
+diff --git a/src/ipa/libasn/NativeInteger.c b/src/ipa/libasn/NativeInteger.c
+--- a/src/ipa/libasn/NativeInteger.c
++++ b/src/ipa/libasn/NativeInteger.c
+@@ -69,7 +69,7 @@ asn_TYPE_descriptor_t asn_DEF_NativeInteger = {
+ 	sizeof(asn_DEF_NativeInteger_tags) / sizeof(asn_DEF_NativeInteger_tags[0]),
+ 	asn_DEF_NativeInteger_tags,	/* Same as above */
+ 	sizeof(asn_DEF_NativeInteger_tags) / sizeof(asn_DEF_NativeInteger_tags[0]),
+-	{ 0, 0, asn_generic_no_constraint },
++	ASN_ENC_CONSTRAINTS(0, 0, asn_generic_no_constraint)
+ 	0, 0,	/* No members */
+ 	0	/* No specifics */
+ };
+@@ -426,6 +426,7 @@ NativeInteger_compare(const asn_TYPE_descriptor_t *td, const void *aptr, const v
+     }
+ }
+ 
++#if !defined(ASN_DISABLE_RFILL_SUPPORT)
+ asn_random_fill_result_t
+ NativeInteger_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+                           const asn_encoding_constraints_t *constraints,
+@@ -499,3 +500,4 @@ NativeInteger_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+     *st = value;
+     return result_ok;
+ }
++#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
+diff --git a/src/ipa/libasn/NumericString.c b/src/ipa/libasn/NumericString.c
+--- a/src/ipa/libasn/NumericString.c
++++ b/src/ipa/libasn/NumericString.c
+@@ -12,6 +12,7 @@ static const ber_tlv_tag_t asn_DEF_NumericString_tags[] = {
+ 	(ASN_TAG_CLASS_UNIVERSAL | (18 << 2)),	/* [UNIVERSAL 18] IMPLICIT ...*/
+ 	(ASN_TAG_CLASS_UNIVERSAL | (4 << 2))	/* ... OCTET STRING */
+ };
++#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+ static int asn_DEF_NumericString_v2c(unsigned int value) {
+ 	switch(value) {
+ 	case 0x20: return 0;
+@@ -37,6 +38,7 @@ static asn_per_constraints_t asn_DEF_NumericString_per_constraints = {
+ 	asn_DEF_NumericString_v2c,
+ 	asn_DEF_NumericString_c2v
+ };
++#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
+ asn_TYPE_operation_t asn_OP_NumericString = {
+ 	OCTET_STRING_free,
+ #ifdef	ASN_DISABLE_PRINT_SUPPORT
+@@ -89,7 +91,7 @@ asn_TYPE_descriptor_t asn_DEF_NumericString = {
+ 	asn_DEF_NumericString_tags,
+ 	sizeof(asn_DEF_NumericString_tags)
+ 	  / sizeof(asn_DEF_NumericString_tags[0]),
+-	{ 0, &asn_DEF_NumericString_per_constraints, NumericString_constraint },
++	ASN_ENC_CONSTRAINTS(0, &asn_DEF_NumericString_per_constraints, NumericString_constraint)
+ 	0, 0,	/* No members */
+ 	0	/* No specifics */
+ };
+diff --git a/src/ipa/libasn/OBJECT_IDENTIFIER.c b/src/ipa/libasn/OBJECT_IDENTIFIER.c
+--- a/src/ipa/libasn/OBJECT_IDENTIFIER.c
++++ b/src/ipa/libasn/OBJECT_IDENTIFIER.c
+@@ -67,7 +67,7 @@ asn_TYPE_descriptor_t asn_DEF_OBJECT_IDENTIFIER = {
+ 	asn_DEF_OBJECT_IDENTIFIER_tags,	/* Same as above */
+ 	sizeof(asn_DEF_OBJECT_IDENTIFIER_tags)
+ 	    / sizeof(asn_DEF_OBJECT_IDENTIFIER_tags[0]),
+-	{ 0, 0, OBJECT_IDENTIFIER_constraint },
++	ASN_ENC_CONSTRAINTS(0, 0, OBJECT_IDENTIFIER_constraint)
+ 	0, 0,	/* No members */
+ 	0	/* No specifics */
+ };
+@@ -593,6 +593,7 @@ OBJECT_IDENTIFIER_parse_arcs(const char *oid_text, ssize_t oid_txt_length,
+ 	return -1;
+ }
+ 
++#if !defined(ASN_DISABLE_RFILL_SUPPORT)
+ /*
+  * Generate values from the list of interesting values, or just a random
+  * value up to the upper limit.
+@@ -658,3 +659,4 @@ OBJECT_IDENTIFIER_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+     result_ok.length = st->size;
+     return result_ok;
+ }
++#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
+diff --git a/src/ipa/libasn/OCTET_STRING.c b/src/ipa/libasn/OCTET_STRING.c
+--- a/src/ipa/libasn/OCTET_STRING.c
++++ b/src/ipa/libasn/OCTET_STRING.c
+@@ -72,7 +72,7 @@ asn_TYPE_descriptor_t asn_DEF_OCTET_STRING = {
+ 	asn_DEF_OCTET_STRING_tags,	/* Same as above */
+ 	sizeof(asn_DEF_OCTET_STRING_tags)
+ 	  / sizeof(asn_DEF_OCTET_STRING_tags[0]),
+-	{ 0, 0, asn_generic_no_constraint },
++	ASN_ENC_CONSTRAINTS(0, 0, asn_generic_no_constraint)
+ 	0, 0,	/* No members */
+ 	&asn_SPC_OCTET_STRING_specs
+ };
+@@ -1886,6 +1886,7 @@ OCTET_STRING_compare(const asn_TYPE_descriptor_t *td, const void *aptr,
+ 
+ }
+ 
++#if !defined(ASN_DISABLE_RFILL_SUPPORT)
+ /*
+  * Biased function for randomizing character values around their limits.
+  */
+@@ -2077,3 +2078,4 @@ OCTET_STRING_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+     result_ok.length = st->size;
+     return result_ok;
+ }
++#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
+diff --git a/src/ipa/libasn/PrintableString.c b/src/ipa/libasn/PrintableString.c
+--- a/src/ipa/libasn/PrintableString.c
++++ b/src/ipa/libasn/PrintableString.c
+@@ -19,12 +19,14 @@ static const int _PrintableString_alphabet[256] = {
+  0,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,	/*  abcdefghijklmno */
+ 64,65,66,67,68,69,70,71,72,73,74, 0, 0, 0, 0, 0,	/* pqrstuvwxyz      */
+ };
++#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+ static const int _PrintableString_code2value[74] = {
+ 32,39,40,41,43,44,45,46,47,48,49,50,51,52,53,54,
+ 55,56,57,58,61,63,65,66,67,68,69,70,71,72,73,74,
+ 75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,
+ 97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,
+ 113,114,115,116,117,118,119,120,121,122};
++#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
+ 
+ /*
+  * PrintableString basic type description.
+@@ -33,6 +35,7 @@ static const ber_tlv_tag_t asn_DEF_PrintableString_tags[] = {
+ 	(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),	/* [UNIVERSAL 19] IMPLICIT ...*/
+ 	(ASN_TAG_CLASS_UNIVERSAL | (4 << 2))	/* ... OCTET STRING */
+ };
++#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+ static int asn_DEF_PrintableString_v2c(unsigned int value) {
+ 	return _PrintableString_alphabet[value > 255 ? 0 : value] - 1;
+ }
+@@ -47,6 +50,7 @@ static asn_per_constraints_t asn_DEF_PrintableString_per_constraints = {
+ 	asn_DEF_PrintableString_v2c,
+ 	asn_DEF_PrintableString_c2v
+ };
++#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
+ asn_TYPE_operation_t asn_OP_PrintableString = {
+ 	OCTET_STRING_free,
+ #ifdef	ASN_DISABLE_PRINT_SUPPORT
+@@ -99,7 +103,7 @@ asn_TYPE_descriptor_t asn_DEF_PrintableString = {
+ 	asn_DEF_PrintableString_tags,
+ 	sizeof(asn_DEF_PrintableString_tags)
+ 	  / sizeof(asn_DEF_PrintableString_tags[0]),
+-	{ 0, &asn_DEF_PrintableString_per_constraints, PrintableString_constraint },
++	ASN_ENC_CONSTRAINTS(0, &asn_DEF_PrintableString_per_constraints, PrintableString_constraint)
+ 	0, 0,	/* No members */
+ 	0	/* No specifics */
+ };
+diff --git a/src/ipa/libasn/TeletexString.c b/src/ipa/libasn/TeletexString.c
+--- a/src/ipa/libasn/TeletexString.c
++++ b/src/ipa/libasn/TeletexString.c
+@@ -64,7 +64,7 @@ asn_TYPE_descriptor_t asn_DEF_TeletexString = {
+ 	asn_DEF_TeletexString_tags,
+ 	sizeof(asn_DEF_TeletexString_tags)
+ 	  / sizeof(asn_DEF_TeletexString_tags[0]),
+-	{ 0, 0, asn_generic_unknown_constraint },
++	ASN_ENC_CONSTRAINTS(0, 0, asn_generic_unknown_constraint)
+ 	0, 0,	/* No members */
+ 	0	/* No specifics */
+ };
+diff --git a/src/ipa/libasn/UTCTime.c b/src/ipa/libasn/UTCTime.c
+--- a/src/ipa/libasn/UTCTime.c
++++ b/src/ipa/libasn/UTCTime.c
+@@ -23,11 +23,13 @@ static const ber_tlv_tag_t asn_DEF_UTCTime_tags[] = {
+ 	(ASN_TAG_CLASS_UNIVERSAL | (26 << 2)),  /* [UNIVERSAL 26] IMPLICIT ...*/
+ 	(ASN_TAG_CLASS_UNIVERSAL | (4 << 2))    /* ... OCTET STRING */
+ };
++#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+ static asn_per_constraints_t asn_DEF_UTCTime_constraints = {
+         { APC_CONSTRAINED, 7, 7, 0x20, 0x7e },  /* Value */
+         { APC_SEMI_CONSTRAINED, -1, -1, 0, 0 }, /* Size */
+         0, 0
+ };
++#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
+ asn_TYPE_operation_t asn_OP_UTCTime = {
+ 	OCTET_STRING_free,
+ #ifdef	ASN_DISABLE_PRINT_SUPPORT
+@@ -80,7 +82,7 @@ asn_TYPE_descriptor_t asn_DEF_UTCTime = {
+ 	asn_DEF_UTCTime_tags,
+ 	sizeof(asn_DEF_UTCTime_tags)
+ 	  / sizeof(asn_DEF_UTCTime_tags[0]),
+-	{ 0, &asn_DEF_UTCTime_constraints, UTCTime_constraint },
++	ASN_ENC_CONSTRAINTS(0, &asn_DEF_UTCTime_constraints, UTCTime_constraint)
+ 	0, 0,	/* No members */
+ 	0	/* No specifics */
+ };
+@@ -209,6 +211,7 @@ asn_time2UT(UTCTime_t *opt_ut, const struct tm *tm, int force_gmt) {
+ }
+ 
+ 
++#if !defined(ASN_DISABLE_RFILL_SUPPORT)
+ asn_random_fill_result_t
+ UTCTime_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+                     const asn_encoding_constraints_t *constraints,
+@@ -240,6 +243,7 @@ UTCTime_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+ 
+     return result_ok;
+ }
++#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
+ 
+ int
+ UTCTime_compare(const asn_TYPE_descriptor_t *td, const void *aptr,
+diff --git a/src/ipa/libasn/UTF8String.c b/src/ipa/libasn/UTF8String.c
+--- a/src/ipa/libasn/UTF8String.c
++++ b/src/ipa/libasn/UTF8String.c
+@@ -65,7 +65,7 @@ asn_TYPE_descriptor_t asn_DEF_UTF8String = {
+ 	asn_DEF_UTF8String_tags,
+ 	sizeof(asn_DEF_UTF8String_tags)
+ 	  / sizeof(asn_DEF_UTF8String_tags[0]),
+-	{ 0, 0, UTF8String_constraint },
++	ASN_ENC_CONSTRAINTS(0, 0, UTF8String_constraint)
+ 	0, 0,	/* No members */
+ 	0	/* No specifics */
+ };
+@@ -217,6 +217,7 @@ UTF8String_print(const asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
+ }
+ 
+ 
++#if !defined(ASN_DISABLE_RFILL_SUPPORT)
+ /*
+  * Biased function for randomizing UTF-8 sequences.
+  */
+@@ -305,3 +306,4 @@ UTF8String_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+ 
+     return result_ok;
+ }
++#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
+diff --git a/src/ipa/libasn/UniversalString.c b/src/ipa/libasn/UniversalString.c
+--- a/src/ipa/libasn/UniversalString.c
++++ b/src/ipa/libasn/UniversalString.c
+@@ -18,11 +18,13 @@ asn_OCTET_STRING_specifics_t asn_SPC_UniversalString_specs = {
+ 	offsetof(UniversalString_t, _asn_ctx),
+ 	ASN_OSUBV_U32	/* 32-bits character */
+ };
++#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+ static asn_per_constraints_t asn_DEF_UniversalString_per_constraints = {
+ 	{ APC_CONSTRAINED, 32, 32, 0, 2147483647 },
+ 	{ APC_SEMI_CONSTRAINED, -1, -1, 0, 0 },
+ 	0, 0
+ };
++#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
+ asn_TYPE_operation_t asn_OP_UniversalString = {
+ 	OCTET_STRING_free,
+ #ifdef	ASN_DISABLE_PRINT_SUPPORT
+@@ -75,7 +77,7 @@ asn_TYPE_descriptor_t asn_DEF_UniversalString = {
+ 	asn_DEF_UniversalString_tags,
+ 	sizeof(asn_DEF_UniversalString_tags)
+ 	  / sizeof(asn_DEF_UniversalString_tags[0]),
+-	{ 0, &asn_DEF_UniversalString_per_constraints, UniversalString_constraint },
++	ASN_ENC_CONSTRAINTS(0, &asn_DEF_UniversalString_per_constraints, UniversalString_constraint)
+ 	0, 0,	/* No members */
+ 	&asn_SPC_UniversalString_specs
+ };
+diff --git a/src/ipa/libasn/VisibleString.c b/src/ipa/libasn/VisibleString.c
+--- a/src/ipa/libasn/VisibleString.c
++++ b/src/ipa/libasn/VisibleString.c
+@@ -12,11 +12,13 @@ static const ber_tlv_tag_t asn_DEF_VisibleString_tags[] = {
+ 	(ASN_TAG_CLASS_UNIVERSAL | (26 << 2)),	/* [UNIVERSAL 26] IMPLICIT ...*/
+ 	(ASN_TAG_CLASS_UNIVERSAL | (4 << 2))	/* ... OCTET STRING */
+ };
++#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+ static asn_per_constraints_t asn_DEF_VisibleString_constraints = {
+ 	{ APC_CONSTRAINED, 7, 7, 0x20, 0x7e },	/* Value */
+ 	{ APC_SEMI_CONSTRAINED, -1, -1, 0, 0 },	/* Size */
+ 	0, 0
+ };
++#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
+ asn_TYPE_operation_t asn_OP_VisibleString = {
+ 	OCTET_STRING_free,
+ #ifdef	ASN_DISABLE_PRINT_SUPPORT
+@@ -69,7 +71,7 @@ asn_TYPE_descriptor_t asn_DEF_VisibleString = {
+ 	asn_DEF_VisibleString_tags,
+ 	sizeof(asn_DEF_VisibleString_tags)
+ 	  / sizeof(asn_DEF_VisibleString_tags[0]),
+-	{ 0, &asn_DEF_VisibleString_constraints, VisibleString_constraint },
++	ASN_ENC_CONSTRAINTS(0, &asn_DEF_VisibleString_constraints, VisibleString_constraint)
+ 	0, 0,	/* No members */
+ 	0	/* No specifics */
+ };
+diff --git a/src/ipa/libasn/constr_CHOICE.c b/src/ipa/libasn/constr_CHOICE.c
+--- a/src/ipa/libasn/constr_CHOICE.c
++++ b/src/ipa/libasn/constr_CHOICE.c
+@@ -487,6 +487,7 @@ CHOICE_outmost_tag(const asn_TYPE_descriptor_t *td, const void *ptr, int tag_mod
+ 	}
+ }
+ 
++#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+ int
+ CHOICE_constraint(const asn_TYPE_descriptor_t *td, const void *sptr,
+                   asn_app_constraint_failed_f *ctfailcb, void *app_key) {
+@@ -537,6 +538,7 @@ CHOICE_constraint(const asn_TYPE_descriptor_t *td, const void *sptr,
+ 		return -1;
+ 	}
+ }
++#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
+ 
+ #undef	XER_ADVANCE
+ #define	XER_ADVANCE(num_bytes)	do {			\
+@@ -833,6 +835,7 @@ cb_failed:
+ 	ASN__ENCODE_FAILED;
+ }
+ 
++#if !defined(ASN_DISABLE_PER_SUPPORT)
+ asn_dec_rval_t
+ CHOICE_decode_uper(const asn_codec_ctx_t *opt_codec_ctx,
+                    const asn_TYPE_descriptor_t *td,
+@@ -1013,6 +1016,7 @@ CHOICE_encode_uper(const asn_TYPE_descriptor_t *td,
+         ASN__ENCODED_OK(rval);
+     }
+ }
++#endif	/* !defined(ASN_DISABLE_PER_SUPPORT) */
+ 
+ 
+ int
+@@ -1263,6 +1267,7 @@ CHOICE_variant_set_presence(const asn_TYPE_descriptor_t *td, void *sptr,
+ }
+ 
+ 
++#if !defined(ASN_DISABLE_RFILL_SUPPORT)
+ asn_random_fill_result_t
+ CHOICE_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+                    const asn_encoding_constraints_t *constr,
+@@ -1315,6 +1320,7 @@ CHOICE_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+ 
+     return res;
+ }
++#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
+ 
+ 
+ asn_TYPE_operation_t asn_OP_CHOICE = {
+diff --git a/src/ipa/libasn/constr_SEQUENCE.c b/src/ipa/libasn/constr_SEQUENCE.c
+--- a/src/ipa/libasn/constr_SEQUENCE.c
++++ b/src/ipa/libasn/constr_SEQUENCE.c
+@@ -1024,6 +1024,7 @@ SEQUENCE_free(const asn_TYPE_descriptor_t *td, void *sptr,
+     }
+ }
+ 
++#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+ int
+ SEQUENCE_constraint(const asn_TYPE_descriptor_t *td, const void *sptr,
+                     asn_app_constraint_failed_f *ctfailcb, void *app_key) {
+@@ -1069,6 +1070,7 @@ SEQUENCE_constraint(const asn_TYPE_descriptor_t *td, const void *sptr,
+ 
+ 	return 0;
+ }
++#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
+ 
+ #ifndef ASN_DISABLE_PER_SUPPORT
+ 
+@@ -1574,6 +1576,7 @@ asn_TYPE_operation_t asn_OP_SEQUENCE = {
+ };
+ 
+ 
++#if !defined(ASN_DISABLE_RFILL_SUPPORT)
+ asn_random_fill_result_t
+ SEQUENCE_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+                    const asn_encoding_constraints_t *constr,
+@@ -1640,4 +1643,5 @@ SEQUENCE_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+ 
+     return result_ok;
+ }
++#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
+ 
+diff --git a/src/ipa/libasn/constr_SET.c b/src/ipa/libasn/constr_SET.c
+--- a/src/ipa/libasn/constr_SET.c
++++ b/src/ipa/libasn/constr_SET.c
+@@ -981,6 +981,7 @@ SET_free(const asn_TYPE_descriptor_t *td, void *ptr,
+     }
+ }
+ 
++#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+ int
+ SET_constraint(const asn_TYPE_descriptor_t *td, const void *sptr,
+                asn_app_constraint_failed_f *ctfailcb, void *app_key) {
+@@ -1025,6 +1026,7 @@ SET_constraint(const asn_TYPE_descriptor_t *td, const void *sptr,
+ 
+ 	return 0;
+ }
++#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
+ 
+ int
+ SET_compare(const asn_TYPE_descriptor_t *td, const void *aptr,
+@@ -1095,6 +1097,7 @@ asn_TYPE_operation_t asn_OP_SET = {
+ };
+ 
+ 
++#if !defined(ASN_DISABLE_RFILL_SUPPORT)
+ asn_random_fill_result_t
+ SET_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+                    const asn_encoding_constraints_t *constr,
+@@ -1161,4 +1164,5 @@ SET_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+ 
+     return result_ok;
+ }
++#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
+ 
+diff --git a/src/ipa/libasn/constr_SET_OF.c b/src/ipa/libasn/constr_SET_OF.c
+--- a/src/ipa/libasn/constr_SET_OF.c
++++ b/src/ipa/libasn/constr_SET_OF.c
+@@ -383,6 +383,7 @@ SET_OF__encode_sorted(const asn_TYPE_member_t *elm,
+             erval = elm->type->op->der_encoder(elm->type, memb_ptr, 0, elm->tag,
+                                                _el_addbytes, encoding_el);
+             break;
++#if !defined(ASN_DISABLE_PER_SUPPORT)
+         case SOES_CUPER:
+             erval = uper_encode(elm->type,
+                                 elm->encoding_constraints.per_constraints,
+@@ -393,6 +394,7 @@ SET_OF__encode_sorted(const asn_TYPE_member_t *elm,
+                 encoding_el->bits_unused = (8 - extra_bits) & 0x7;
+             }
+             break;
++#endif	/* !defined(ASN_DISABLE_PER_SUPPORT) */
+         default:
+             assert(!"Unreachable");
+             break;
+@@ -871,6 +873,7 @@ SET_OF_free(const asn_TYPE_descriptor_t *td, void *ptr,
+     }
+ }
+ 
++#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+ int
+ SET_OF_constraint(const asn_TYPE_descriptor_t *td, const void *sptr,
+                   asn_app_constraint_failed_f *ctfailcb, void *app_key) {
+@@ -905,6 +908,7 @@ SET_OF_constraint(const asn_TYPE_descriptor_t *td, const void *sptr,
+ 
+ 	return 0;
+ }
++#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
+ 
+ #ifndef ASN_DISABLE_PER_SUPPORT
+ 
+@@ -1228,6 +1232,7 @@ asn_TYPE_operation_t asn_OP_SET_OF = {
+ };
+ 
+ 
++#if !defined(ASN_DISABLE_RFILL_SUPPORT)
+ asn_random_fill_result_t
+ SET_OF_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+                    const asn_encoding_constraints_t *constraints,
+@@ -1366,4 +1371,5 @@ SET_OF_random_fill(const asn_TYPE_descriptor_t *td, void **sptr,
+ 
+     return res_ok;
+ }
++#endif	/* !defined(ASN_DISABLE_RFILL_SUPPORT) */
+ 
+diff --git a/src/ipa/libasn/constr_TYPE.h b/src/ipa/libasn/constr_TYPE.h
+--- a/src/ipa/libasn/constr_TYPE.h
++++ b/src/ipa/libasn/constr_TYPE.h
+@@ -14,6 +14,19 @@
+ #include <ber_tlv_length.h>
+ #include <ber_tlv_tag.h>
+ 
++/*
++ * libasn is generated without OER/PER and constraint-checking code, so nothing
++ * here needs the encoding_constraints slot of the type tables. The header, not a
++ * build flag, drops it, so every unit that includes libasn sees one table layout.
++ * It is set before the includes below so that constraints.h sees it too.
++ */
++#ifndef ASN_DISABLE_ENCODING_CONSTRAINTS
++#define ASN_DISABLE_ENCODING_CONSTRAINTS
++#endif
++#if !defined(ASN_DISABLE_OER_SUPPORT) || !defined(ASN_DISABLE_PER_SUPPORT) || !defined(ASN_DISABLE_RFILL_SUPPORT)
++#error "libasn drops encoding_constraints: define ASN_DISABLE_OER_SUPPORT, ASN_DISABLE_PER_SUPPORT and ASN_DISABLE_RFILL_SUPPORT"
++#endif
++
+ #ifdef __cplusplus
+ extern "C" {
+ #endif
+@@ -166,6 +179,17 @@ typedef struct asn_encoding_constraints_s {
+     asn_constr_check_f *general_constraints;
+ } asn_encoding_constraints_t;
+ 
++/*
++ * Table initialisers go through ASN_ENC_CONSTRAINTS() so that the slot can be
++ * dropped. Its only readers are the PER/OER codecs, asn_check_constraints() and
++ * random fill, and none of them is built here.
++ */
++#if defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
++#define ASN_ENC_CONSTRAINTS(oer, per, check)
++#else
++#define ASN_ENC_CONSTRAINTS(oer, per, check) { oer, per, check },
++#endif
++
+ /*
+  * Generated type and member names feed only print, XER and ASN_DEBUG.
+  * ASN_DISABLE_NAMES blanks them unless one of those is enabled; "" rather than
+@@ -208,7 +232,9 @@ typedef struct asn_TYPE_descriptor_s {
+     unsigned all_tags_count;        /* Number of tags */
+ 
+     /* OER, PER, and general constraints */
++#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+     asn_encoding_constraints_t encoding_constraints;
++#endif
+ 
+     /*
+      * An ASN.1 production type members (members of SEQUENCE, SET, CHOICE).
+@@ -241,7 +267,9 @@ typedef struct asn_TYPE_member_s {
+     int tag_mode;           /* IMPLICIT/no/EXPLICIT tag at current level */
+     asn_TYPE_descriptor_t *type;            /* Member type descriptor */
+     asn_type_selector_f *type_selector;     /* IoS runtime type selector */
++#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+     asn_encoding_constraints_t encoding_constraints;
++#endif
+     int (*default_value_cmp)(const void *sptr); /* Compare DEFAULT <value> */
+     int (*default_value_set)(void **sptr);      /* Set DEFAULT <value> */
+     const char *name; /* ASN.1 identifier of the element */
+diff --git a/src/ipa/libasn/constraints.c b/src/ipa/libasn/constraints.c
+--- a/src/ipa/libasn/constraints.c
++++ b/src/ipa/libasn/constraints.c
+@@ -27,6 +27,7 @@ asn_generic_unknown_constraint(const asn_TYPE_descriptor_t *type_descriptor,
+ 	return 0;
+ }
+ 
++#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+ struct errbufDesc {
+     const asn_TYPE_descriptor_t *failed_type;
+     const void *failed_struct_ptr;
+@@ -90,4 +91,5 @@ asn_check_constraints(const asn_TYPE_descriptor_t *type_descriptor,
+ 
+     return ret;
+ }
++#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
+ 
+diff --git a/src/ipa/libasn/constraints.h b/src/ipa/libasn/constraints.h
+--- a/src/ipa/libasn/constraints.h
++++ b/src/ipa/libasn/constraints.h
+@@ -13,6 +13,7 @@ extern "C" {
+ 
+ struct asn_TYPE_descriptor_s;		/* Forward declaration */
+ 
++#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+ /*
+  * Validate the structure according to the ASN.1 constraints.
+  * If errbuf and errlen are given, they shall be pointing to the appropriate
+@@ -31,6 +32,7 @@ int asn_check_constraints(
+     char *errbuf,           /* Returned error description */
+     size_t *errlen          /* Length of the error description */
+ );
++#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
+ 
+ 
+ /*

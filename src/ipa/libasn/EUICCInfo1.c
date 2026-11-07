@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_euiccCiPKIdListForVerification_3[] = {
 		0,
 		&asn_DEF_SubjectKeyIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -38,7 +38,7 @@ asn_TYPE_descriptor_t asn_DEF_euiccCiPKIdListForVerification_3 = {
 	asn_DEF_euiccCiPKIdListForVerification_tags_3,	/* Same as above */
 	sizeof(asn_DEF_euiccCiPKIdListForVerification_tags_3)
 		/sizeof(asn_DEF_euiccCiPKIdListForVerification_tags_3[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_euiccCiPKIdListForVerification_3,
 	1,	/* Single element */
 	&asn_SPC_euiccCiPKIdListForVerification_specs_3	/* Additional specs */
@@ -50,7 +50,7 @@ static asn_TYPE_member_t asn_MBR_euiccCiPKIdListForSigning_5[] = {
 		0,
 		&asn_DEF_SubjectKeyIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -75,7 +75,7 @@ asn_TYPE_descriptor_t asn_DEF_euiccCiPKIdListForSigning_5 = {
 	asn_DEF_euiccCiPKIdListForSigning_tags_5,	/* Same as above */
 	sizeof(asn_DEF_euiccCiPKIdListForSigning_tags_5)
 		/sizeof(asn_DEF_euiccCiPKIdListForSigning_tags_5[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_euiccCiPKIdListForSigning_5,
 	1,	/* Single element */
 	&asn_SPC_euiccCiPKIdListForSigning_specs_5	/* Additional specs */
@@ -87,7 +87,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo1_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_VersionType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("svn")
 		},
@@ -96,7 +96,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo1_1[] = {
 		0,
 		&asn_DEF_euiccCiPKIdListForVerification_3,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccCiPKIdListForVerification")
 		},
@@ -105,7 +105,7 @@ asn_TYPE_member_t asn_MBR_EUICCInfo1_1[] = {
 		0,
 		&asn_DEF_euiccCiPKIdListForSigning_5,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccCiPKIdListForSigning")
 		},
@@ -137,7 +137,7 @@ asn_TYPE_descriptor_t asn_DEF_EUICCInfo1 = {
 	asn_DEF_EUICCInfo1_tags_1,	/* Same as above */
 	sizeof(asn_DEF_EUICCInfo1_tags_1)
 		/sizeof(asn_DEF_EUICCInfo1_tags_1[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_EUICCInfo1_1,
 	3,	/* Elements count */
 	&asn_SPC_EUICCInfo1_specs_1	/* Additional specs */

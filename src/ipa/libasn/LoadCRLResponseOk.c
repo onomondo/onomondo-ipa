@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_missingParts_2[] = {
 		0,
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -38,7 +38,7 @@ asn_TYPE_descriptor_t asn_DEF_missingParts_2 = {
 	asn_DEF_missingParts_tags_2,	/* Same as above */
 	sizeof(asn_DEF_missingParts_tags_2)
 		/sizeof(asn_DEF_missingParts_tags_2[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_missingParts_2,
 	1,	/* Single element */
 	&asn_SPC_missingParts_specs_2	/* Additional specs */
@@ -50,7 +50,7 @@ asn_TYPE_member_t asn_MBR_LoadCRLResponseOk_1[] = {
 		0,
 		&asn_DEF_missingParts_2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("missingParts")
 		},
@@ -79,7 +79,7 @@ asn_TYPE_descriptor_t asn_DEF_LoadCRLResponseOk = {
 	asn_DEF_LoadCRLResponseOk_tags_1,	/* Same as above */
 	sizeof(asn_DEF_LoadCRLResponseOk_tags_1)
 		/sizeof(asn_DEF_LoadCRLResponseOk_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_LoadCRLResponseOk_1,
 	1,	/* Elements count */
 	&asn_SPC_LoadCRLResponseOk_specs_1	/* Additional specs */

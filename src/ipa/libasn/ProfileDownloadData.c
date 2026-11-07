@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_contactSmds_4[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("smdsAddress")
 		},
@@ -44,7 +44,7 @@ asn_TYPE_descriptor_t asn_DEF_contactSmds_4 = {
 	asn_DEF_contactSmds_tags_4,	/* Same as above */
 	sizeof(asn_DEF_contactSmds_tags_4)
 		/sizeof(asn_DEF_contactSmds_tags_4[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_contactSmds_4,
 	1,	/* Elements count */
 	&asn_SPC_contactSmds_specs_4	/* Additional specs */
@@ -56,7 +56,7 @@ asn_TYPE_member_t asn_MBR_ProfileDownloadData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("activationCode")
 		},
@@ -65,7 +65,7 @@ asn_TYPE_member_t asn_MBR_ProfileDownloadData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("contactDefaultSmdp")
 		},
@@ -74,7 +74,7 @@ asn_TYPE_member_t asn_MBR_ProfileDownloadData_1[] = {
 		0,
 		&asn_DEF_contactSmds_4,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("contactSmds")
 		},
@@ -102,7 +102,7 @@ asn_TYPE_descriptor_t asn_DEF_ProfileDownloadData = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ProfileDownloadData_1,
 	3,	/* Elements count */
 	&asn_SPC_ProfileDownloadData_specs_1	/* Additional specs */

@@ -14,6 +14,19 @@
 #include <ber_tlv_length.h>
 #include <ber_tlv_tag.h>
 
+/*
+ * libasn is generated without OER/PER and constraint-checking code, so nothing
+ * here needs the encoding_constraints slot of the type tables. The header, not a
+ * build flag, drops it, so every unit that includes libasn sees one table layout.
+ * It is set before the includes below so that constraints.h sees it too.
+ */
+#ifndef ASN_DISABLE_ENCODING_CONSTRAINTS
+#define ASN_DISABLE_ENCODING_CONSTRAINTS
+#endif
+#if !defined(ASN_DISABLE_OER_SUPPORT) || !defined(ASN_DISABLE_PER_SUPPORT) || !defined(ASN_DISABLE_RFILL_SUPPORT)
+#error "libasn drops encoding_constraints: define ASN_DISABLE_OER_SUPPORT, ASN_DISABLE_PER_SUPPORT and ASN_DISABLE_RFILL_SUPPORT"
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -167,6 +180,17 @@ typedef struct asn_encoding_constraints_s {
 } asn_encoding_constraints_t;
 
 /*
+ * Table initialisers go through ASN_ENC_CONSTRAINTS() so that the slot can be
+ * dropped. Its only readers are the PER/OER codecs, asn_check_constraints() and
+ * random fill, and none of them is built here.
+ */
+#if defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
+#define ASN_ENC_CONSTRAINTS(oer, per, check)
+#else
+#define ASN_ENC_CONSTRAINTS(oer, per, check) { oer, per, check },
+#endif
+
+/*
  * Generated type and member names feed only print, XER and ASN_DEBUG.
  * ASN_DISABLE_NAMES blanks them unless one of those is enabled; "" rather than
  * NULL keeps any remaining %s on a name safe. The debug test mirrors
@@ -208,7 +232,9 @@ typedef struct asn_TYPE_descriptor_s {
     unsigned all_tags_count;        /* Number of tags */
 
     /* OER, PER, and general constraints */
+#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
     asn_encoding_constraints_t encoding_constraints;
+#endif
 
     /*
      * An ASN.1 production type members (members of SEQUENCE, SET, CHOICE).
@@ -241,7 +267,9 @@ typedef struct asn_TYPE_member_s {
     int tag_mode;           /* IMPLICIT/no/EXPLICIT tag at current level */
     asn_TYPE_descriptor_t *type;            /* Member type descriptor */
     asn_type_selector_f *type_selector;     /* IoS runtime type selector */
+#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
     asn_encoding_constraints_t encoding_constraints;
+#endif
     int (*default_value_cmp)(const void *sptr); /* Compare DEFAULT <value> */
     int (*default_value_set)(void **sptr);      /* Set DEFAULT <value> */
     const char *name; /* ASN.1 identifier of the element */

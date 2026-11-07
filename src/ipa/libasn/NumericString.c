@@ -12,6 +12,7 @@ static const ber_tlv_tag_t asn_DEF_NumericString_tags[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (18 << 2)),	/* [UNIVERSAL 18] IMPLICIT ...*/
 	(ASN_TAG_CLASS_UNIVERSAL | (4 << 2))	/* ... OCTET STRING */
 };
+#if !defined(ASN_DISABLE_ENCODING_CONSTRAINTS)
 static int asn_DEF_NumericString_v2c(unsigned int value) {
 	switch(value) {
 	case 0x20: return 0;
@@ -37,6 +38,7 @@ static asn_per_constraints_t asn_DEF_NumericString_per_constraints = {
 	asn_DEF_NumericString_v2c,
 	asn_DEF_NumericString_c2v
 };
+#endif	/* !defined(ASN_DISABLE_ENCODING_CONSTRAINTS) */
 asn_TYPE_operation_t asn_OP_NumericString = {
 	OCTET_STRING_free,
 #ifdef	ASN_DISABLE_PRINT_SUPPORT
@@ -89,7 +91,7 @@ asn_TYPE_descriptor_t asn_DEF_NumericString = {
 	asn_DEF_NumericString_tags,
 	sizeof(asn_DEF_NumericString_tags)
 	  / sizeof(asn_DEF_NumericString_tags[0]),
-	{ 0, &asn_DEF_NumericString_per_constraints, NumericString_constraint },
+	ASN_ENC_CONSTRAINTS(0, &asn_DEF_NumericString_per_constraints, NumericString_constraint)
 	0, 0,	/* No members */
 	0	/* No specifics */
 };

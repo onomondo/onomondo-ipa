@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientResponseEs11_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_AuthenticateClientOkEs11,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("authenticateClientOk")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientResponseEs11_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("authenticateClientError")
 		},
@@ -54,7 +54,7 @@ asn_TYPE_descriptor_t asn_DEF_AuthenticateClientResponseEs11 = {
 	asn_DEF_AuthenticateClientResponseEs11_tags_1,	/* Same as above */
 	sizeof(asn_DEF_AuthenticateClientResponseEs11_tags_1)
 		/sizeof(asn_DEF_AuthenticateClientResponseEs11_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_AuthenticateClientResponseEs11_1,
 	2,	/* Elements count */
 	&asn_SPC_AuthenticateClientResponseEs11_specs_1	/* Additional specs */

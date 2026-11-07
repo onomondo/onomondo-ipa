@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_DistributionPointName_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_GeneralNames,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("fullName")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_DistributionPointName_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_RelativeDistinguishedName,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("nameRelativeToCRLIssuer")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_descriptor_t asn_DEF_DistributionPointName = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_DistributionPointName_1,
 	2,	/* Elements count */
 	&asn_SPC_DistributionPointName_specs_1	/* Additional specs */

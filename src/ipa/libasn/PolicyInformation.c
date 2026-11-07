@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_policyQualifiers_3[] = {
 		0,
 		&asn_DEF_PolicyQualifierInfo,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -37,7 +37,7 @@ asn_TYPE_descriptor_t asn_DEF_policyQualifiers_3 = {
 	asn_DEF_policyQualifiers_tags_3,	/* Same as above */
 	sizeof(asn_DEF_policyQualifiers_tags_3)
 		/sizeof(asn_DEF_policyQualifiers_tags_3[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_policyQualifiers_3,
 	1,	/* Single element */
 	&asn_SPC_policyQualifiers_specs_3	/* Additional specs */
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_PolicyInformation_1[] = {
 		0,
 		&asn_DEF_CertPolicyId,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("policyIdentifier")
 		},
@@ -58,7 +58,7 @@ asn_TYPE_member_t asn_MBR_PolicyInformation_1[] = {
 		0,
 		&asn_DEF_policyQualifiers_3,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("policyQualifiers")
 		},
@@ -88,7 +88,7 @@ asn_TYPE_descriptor_t asn_DEF_PolicyInformation = {
 	asn_DEF_PolicyInformation_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PolicyInformation_tags_1)
 		/sizeof(asn_DEF_PolicyInformation_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_PolicyInformation_1,
 	2,	/* Elements count */
 	&asn_SPC_PolicyInformation_specs_1	/* Additional specs */

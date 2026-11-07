@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_pinconfig_4[] = {
 		0,
 		&asn_DEF_PINConfiguration,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -38,7 +38,7 @@ asn_TYPE_descriptor_t asn_DEF_pinconfig_4 = {
 	asn_DEF_pinconfig_tags_4,	/* Same as above */
 	sizeof(asn_DEF_pinconfig_tags_4)
 		/sizeof(asn_DEF_pinconfig_tags_4[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_pinconfig_4,
 	1,	/* Single element */
 	&asn_SPC_pinconfig_specs_4	/* Additional specs */
@@ -50,7 +50,7 @@ static asn_TYPE_member_t asn_MBR_pinCodes_3[] = {
 		0,
 		&asn_DEF_pinconfig_4,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("pinconfig")
 		},
@@ -59,7 +59,7 @@ static asn_TYPE_member_t asn_MBR_pinCodes_3[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("filePath")
 		},
@@ -87,7 +87,7 @@ asn_TYPE_descriptor_t asn_DEF_pinCodes_3 = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_pinCodes_3,
 	2,	/* Elements count */
 	&asn_SPC_pinCodes_specs_3	/* Additional specs */
@@ -99,7 +99,7 @@ asn_TYPE_member_t asn_MBR_PE_PINCodes_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PEHeader,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("pin-Header")
 		},
@@ -108,7 +108,7 @@ asn_TYPE_member_t asn_MBR_PE_PINCodes_1[] = {
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_pinCodes_3,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("pinCodes")
 		},
@@ -138,7 +138,7 @@ asn_TYPE_descriptor_t asn_DEF_PE_PINCodes = {
 	asn_DEF_PE_PINCodes_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PE_PINCodes_tags_1)
 		/sizeof(asn_DEF_PE_PINCodes_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_PE_PINCodes_1,
 	2,	/* Elements count */
 	&asn_SPC_PE_PINCodes_specs_1	/* Additional specs */

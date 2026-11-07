@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("fileDescriptor")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("fileID")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ApplicationIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("dfName")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("lcsi")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("securityAttributesReferenced")
 		},
@@ -58,7 +58,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("efFileSize")
 		},
@@ -67,7 +67,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("pinStatusTemplateDO")
 		},
@@ -76,7 +76,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("shortEFID")
 		},
@@ -85,7 +85,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ProprietaryInfo,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("proprietaryEFInfo")
 		},
@@ -94,7 +94,7 @@ asn_TYPE_member_t asn_MBR_Fcp_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("linkPath")
 		},
@@ -132,7 +132,7 @@ asn_TYPE_descriptor_t asn_DEF_Fcp = {
 	asn_DEF_Fcp_tags_1,	/* Same as above */
 	sizeof(asn_DEF_Fcp_tags_1)
 		/sizeof(asn_DEF_Fcp_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_Fcp_1,
 	10,	/* Elements count */
 	&asn_SPC_Fcp_specs_1	/* Additional specs */

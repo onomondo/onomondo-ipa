@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_CtxParams1_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_CtxParamsForCommonAuthentication,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ctxParamsForCommonAuthentication")
 		},
@@ -39,7 +39,7 @@ asn_TYPE_descriptor_t asn_DEF_CtxParams1 = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_CtxParams1_1,
 	1,	/* Elements count */
 	&asn_SPC_CtxParams1_specs_1	/* Additional specs */

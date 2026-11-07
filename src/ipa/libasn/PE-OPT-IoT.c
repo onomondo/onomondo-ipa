@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PEHeader,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("optiot-header")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OBJECT_IDENTIFIER,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("templateID")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-fdn")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-sms")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-smsp")
 		},
@@ -58,7 +58,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-smss")
 		},
@@ -67,7 +67,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-spn")
 		},
@@ -76,7 +76,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-est")
 		},
@@ -85,7 +85,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-oplmnwact")
 		},
@@ -94,7 +94,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-hplmnwact")
 		},
@@ -103,7 +103,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-ehplmn")
 		},
@@ -112,7 +112,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-epsloci")
 		},
@@ -121,7 +121,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-epsnsc")
 		},
@@ -130,7 +130,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("df-df-5gs")
 		},
@@ -139,7 +139,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-5gs3gpploci")
 		},
@@ -148,7 +148,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-5gsn3gpploci")
 		},
@@ -157,7 +157,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-5gs3gppnsc")
 		},
@@ -166,7 +166,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-5gsn3gppnsc")
 		},
@@ -175,7 +175,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-5gauthkeys")
 		},
@@ -184,7 +184,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-uac-aic")
 		},
@@ -193,7 +193,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-suci-calc-info")
 		},
@@ -202,7 +202,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-opl5g")
 		},
@@ -211,7 +211,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-supi-nai")
 		},
@@ -220,7 +220,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-routing-indicator")
 		},
@@ -229,7 +229,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-ursp")
 		},
@@ -238,7 +238,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-tn3gppsnn")
 		},
@@ -247,7 +247,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("df-df-saip")
 		},
@@ -256,7 +256,7 @@ asn_TYPE_member_t asn_MBR_PE_OPT_IoT_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_File,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ef-suci-calc-info-usim")
 		},
@@ -312,7 +312,7 @@ asn_TYPE_descriptor_t asn_DEF_PE_OPT_IoT = {
 	asn_DEF_PE_OPT_IoT_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PE_OPT_IoT_tags_1)
 		/sizeof(asn_DEF_PE_OPT_IoT_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_PE_OPT_IoT_1,
 	28,	/* Elements count */
 	&asn_SPC_PE_OPT_IoT_specs_1	/* Additional specs */

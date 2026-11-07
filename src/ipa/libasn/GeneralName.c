@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_AnotherName,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("otherName")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_IA5String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("rfc822Name")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_IA5String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("dNSName")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ORAddress,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("x400Address")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_Name,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("directoryName")
 		},
@@ -58,7 +58,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EDIPartyName,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("ediPartyName")
 		},
@@ -67,7 +67,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_IA5String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("uniformResourceIdentifier")
 		},
@@ -76,7 +76,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("iPAddress")
 		},
@@ -85,7 +85,7 @@ asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OBJECT_IDENTIFIER,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("registeredID")
 		},
@@ -119,7 +119,7 @@ asn_TYPE_descriptor_t asn_DEF_GeneralName = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_GeneralName_1,
 	9,	/* Elements count */
 	&asn_SPC_GeneralName_specs_1	/* Additional specs */

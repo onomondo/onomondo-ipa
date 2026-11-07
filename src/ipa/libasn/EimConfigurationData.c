@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_eimPublicKeyData_7[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_SubjectPublicKeyInfo,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eimPublicKey")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_eimPublicKeyData_7[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_Certificate,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eimCertificate")
 		},
@@ -50,7 +50,7 @@ asn_TYPE_descriptor_t asn_DEF_eimPublicKeyData_7 = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_eimPublicKeyData_7,
 	2,	/* Elements count */
 	&asn_SPC_eimPublicKeyData_specs_7	/* Additional specs */
@@ -62,7 +62,7 @@ static asn_TYPE_member_t asn_MBR_trustedPublicKeyDataTls_11[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_SubjectPublicKeyInfo,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("trustedEimPkTls")
 		},
@@ -71,7 +71,7 @@ static asn_TYPE_member_t asn_MBR_trustedPublicKeyDataTls_11[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_Certificate,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("trustedCertificateTls")
 		},
@@ -99,7 +99,7 @@ asn_TYPE_descriptor_t asn_DEF_trustedPublicKeyDataTls_11 = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_trustedPublicKeyDataTls_11,
 	2,	/* Elements count */
 	&asn_SPC_trustedPublicKeyDataTls_specs_11	/* Additional specs */
@@ -111,7 +111,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eimId")
 		},
@@ -120,7 +120,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UTF8String,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eimFqdn")
 		},
@@ -129,7 +129,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EimIdType,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eimIdType")
 		},
@@ -138,7 +138,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("counterValue")
 		},
@@ -147,7 +147,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("associationToken")
 		},
@@ -156,7 +156,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_eimPublicKeyData_7,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eimPublicKeyData")
 		},
@@ -165,7 +165,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_trustedPublicKeyDataTls_11,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("trustedPublicKeyDataTls")
 		},
@@ -174,7 +174,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EimSupportedProtocol,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("eimSupportedProtocol")
 		},
@@ -183,7 +183,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_SubjectKeyIdentifier,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("euiccCiPKId")
 		},
@@ -192,7 +192,7 @@ asn_TYPE_member_t asn_MBR_EimConfigurationData_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NULL,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("indirectProfileDownload")
 		},
@@ -230,7 +230,7 @@ asn_TYPE_descriptor_t asn_DEF_EimConfigurationData = {
 	asn_DEF_EimConfigurationData_tags_1,	/* Same as above */
 	sizeof(asn_DEF_EimConfigurationData_tags_1)
 		/sizeof(asn_DEF_EimConfigurationData_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_EimConfigurationData_1,
 	10,	/* Elements count */
 	&asn_SPC_EimConfigurationData_specs_1	/* Additional specs */

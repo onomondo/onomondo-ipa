@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientResponseEsipa_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_AuthenticateClientOkDPEsipa,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("authenticateClientOkDPEsipa")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientResponseEsipa_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_AuthenticateClientOkDSEsipa,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("authenticateClientOkDSEsipa")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_AuthenticateClientResponseEsipa_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NativeInteger,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("authenticateClientErrorEsipa")
 		},
@@ -64,7 +64,7 @@ asn_TYPE_descriptor_t asn_DEF_AuthenticateClientResponseEsipa = {
 	asn_DEF_AuthenticateClientResponseEsipa_tags_1,	/* Same as above */
 	sizeof(asn_DEF_AuthenticateClientResponseEsipa_tags_1)
 		/sizeof(asn_DEF_AuthenticateClientResponseEsipa_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_AuthenticateClientResponseEsipa_1,
 	3,	/* Elements count */
 	&asn_SPC_AuthenticateClientResponseEsipa_specs_1	/* Additional specs */

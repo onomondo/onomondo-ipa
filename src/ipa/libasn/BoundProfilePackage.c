@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_BoundProfilePackage_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_InitialiseSecureChannelRequest,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("initialiseSecureChannelRequest")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_BoundProfilePackage_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BoundProfilePackage_FirstSequenceOf87,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("firstSequenceOf87")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_BoundProfilePackage_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BoundProfilePackage_SequenceOf88,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("sequenceOf88")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_BoundProfilePackage_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BoundProfilePackage_SecondSequenceOf87,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("secondSequenceOf87")
 		},
@@ -49,7 +49,7 @@ asn_TYPE_member_t asn_MBR_BoundProfilePackage_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BoundProfilePackage_SequenceOf86,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("sequenceOf86")
 		},
@@ -83,7 +83,7 @@ asn_TYPE_descriptor_t asn_DEF_BoundProfilePackage = {
 	asn_DEF_BoundProfilePackage_tags_1,	/* Same as above */
 	sizeof(asn_DEF_BoundProfilePackage_tags_1)
 		/sizeof(asn_DEF_BoundProfilePackage_tags_1[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_BoundProfilePackage_1,
 	5,	/* Elements count */
 	&asn_SPC_BoundProfilePackage_specs_1	/* Additional specs */

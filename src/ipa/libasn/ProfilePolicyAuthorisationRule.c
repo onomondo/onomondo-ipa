@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_allowedOperators_3[] = {
 		0,
 		&asn_DEF_OperatorId,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -38,7 +38,7 @@ asn_TYPE_descriptor_t asn_DEF_allowedOperators_3 = {
 	asn_DEF_allowedOperators_tags_3,	/* Same as above */
 	sizeof(asn_DEF_allowedOperators_tags_3)
 		/sizeof(asn_DEF_allowedOperators_tags_3[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_allowedOperators_3,
 	1,	/* Single element */
 	&asn_SPC_allowedOperators_specs_3	/* Additional specs */
@@ -50,7 +50,7 @@ asn_TYPE_member_t asn_MBR_ProfilePolicyAuthorisationRule_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PprIds,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("pprIds")
 		},
@@ -59,7 +59,7 @@ asn_TYPE_member_t asn_MBR_ProfilePolicyAuthorisationRule_1[] = {
 		0,
 		&asn_DEF_allowedOperators_3,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("allowedOperators")
 		},
@@ -68,7 +68,7 @@ asn_TYPE_member_t asn_MBR_ProfilePolicyAuthorisationRule_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BIT_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("pprFlags")
 		},
@@ -99,7 +99,7 @@ asn_TYPE_descriptor_t asn_DEF_ProfilePolicyAuthorisationRule = {
 	asn_DEF_ProfilePolicyAuthorisationRule_tags_1,	/* Same as above */
 	sizeof(asn_DEF_ProfilePolicyAuthorisationRule_tags_1)
 		/sizeof(asn_DEF_ProfilePolicyAuthorisationRule_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_ProfilePolicyAuthorisationRule_1,
 	3,	/* Elements count */
 	&asn_SPC_ProfilePolicyAuthorisationRule_specs_1	/* Additional specs */

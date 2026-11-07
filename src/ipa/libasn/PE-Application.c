@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_instanceList_4[] = {
 		0,
 		&asn_DEF_ApplicationInstance,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -38,7 +38,7 @@ asn_TYPE_descriptor_t asn_DEF_instanceList_4 = {
 	asn_DEF_instanceList_tags_4,	/* Same as above */
 	sizeof(asn_DEF_instanceList_tags_4)
 		/sizeof(asn_DEF_instanceList_tags_4[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_instanceList_4,
 	1,	/* Single element */
 	&asn_SPC_instanceList_specs_4	/* Additional specs */
@@ -50,7 +50,7 @@ asn_TYPE_member_t asn_MBR_PE_Application_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PEHeader,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("app-Header")
 		},
@@ -59,7 +59,7 @@ asn_TYPE_member_t asn_MBR_PE_Application_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ApplicationLoadPackage,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("loadBlock")
 		},
@@ -68,7 +68,7 @@ asn_TYPE_member_t asn_MBR_PE_Application_1[] = {
 		0,
 		&asn_DEF_instanceList_4,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("instanceList")
 		},
@@ -99,7 +99,7 @@ asn_TYPE_descriptor_t asn_DEF_PE_Application = {
 	asn_DEF_PE_Application_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PE_Application_tags_1)
 		/sizeof(asn_DEF_PE_Application_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_PE_Application_1,
 	3,	/* Elements count */
 	&asn_SPC_PE_Application_specs_1	/* Additional specs */

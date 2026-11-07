@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_PrepareDownloadRequest_1[] = {
 		0,
 		&asn_DEF_SmdpSigned2,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("smdpSigned2")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_PrepareDownloadRequest_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("smdpSignature2")
 		},
@@ -31,7 +31,7 @@ static asn_TYPE_member_t asn_MBR_PrepareDownloadRequest_1[] = {
 		0,
 		&asn_DEF_Octet32,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("hashCc")
 		},
@@ -40,7 +40,7 @@ static asn_TYPE_member_t asn_MBR_PrepareDownloadRequest_1[] = {
 		0,
 		&asn_DEF_Certificate,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("smdpCertificate")
 		},
@@ -73,7 +73,7 @@ asn_TYPE_descriptor_t asn_DEF_PrepareDownloadRequest = {
 	asn_DEF_PrepareDownloadRequest_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PrepareDownloadRequest_tags_1)
 		/sizeof(asn_DEF_PrepareDownloadRequest_tags_1[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_PrepareDownloadRequest_1,
 	4,	/* Elements count */
 	&asn_SPC_PrepareDownloadRequest_specs_1	/* Additional specs */

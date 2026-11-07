@@ -25,7 +25,7 @@ asn_TYPE_descriptor_t asn_DEF_RemoteOpId = {
 	asn_DEF_RemoteOpId_tags_1,	/* Same as above */
 	sizeof(asn_DEF_RemoteOpId_tags_1)
 		/sizeof(asn_DEF_RemoteOpId_tags_1[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	0, 0,	/* Defined elsewhere */
 	0	/* No specifics */
 };

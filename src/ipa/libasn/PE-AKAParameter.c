@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_algoConfiguration_3[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_MappingParameter,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("mappingParameter")
 		},
@@ -22,7 +22,7 @@ static asn_TYPE_member_t asn_MBR_algoConfiguration_3[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_AlgoParameter,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("algoParameter")
 		},
@@ -50,7 +50,7 @@ asn_TYPE_descriptor_t asn_DEF_algoConfiguration_3 = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_algoConfiguration_3,
 	2,	/* Elements count */
 	&asn_SPC_algoConfiguration_specs_3	/* Additional specs */
@@ -62,7 +62,7 @@ static asn_TYPE_member_t asn_MBR_sqnInit_10[] = {
 		0,
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -87,7 +87,7 @@ asn_TYPE_descriptor_t asn_DEF_sqnInit_10 = {
 	asn_DEF_sqnInit_tags_10,	/* Same as above */
 	sizeof(asn_DEF_sqnInit_tags_10)
 		/sizeof(asn_DEF_sqnInit_tags_10[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_sqnInit_10,
 	1,	/* Single element */
 	&asn_SPC_sqnInit_specs_10	/* Additional specs */
@@ -99,7 +99,7 @@ asn_TYPE_member_t asn_MBR_PE_AKAParameter_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PEHeader,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("aka-header")
 		},
@@ -108,7 +108,7 @@ asn_TYPE_member_t asn_MBR_PE_AKAParameter_1[] = {
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_algoConfiguration_3,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("algoConfiguration")
 		},
@@ -117,7 +117,7 @@ asn_TYPE_member_t asn_MBR_PE_AKAParameter_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("sqnOptions")
 		},
@@ -126,7 +126,7 @@ asn_TYPE_member_t asn_MBR_PE_AKAParameter_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("sqnDelta")
 		},
@@ -135,7 +135,7 @@ asn_TYPE_member_t asn_MBR_PE_AKAParameter_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("sqnAgeLimit")
 		},
@@ -144,7 +144,7 @@ asn_TYPE_member_t asn_MBR_PE_AKAParameter_1[] = {
 		0,
 		&asn_DEF_sqnInit_10,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("sqnInit")
 		},
@@ -178,7 +178,7 @@ asn_TYPE_descriptor_t asn_DEF_PE_AKAParameter = {
 	asn_DEF_PE_AKAParameter_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PE_AKAParameter_tags_1)
 		/sizeof(asn_DEF_PE_AKAParameter_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_PE_AKAParameter_1,
 	6,	/* Elements count */
 	&asn_SPC_PE_AKAParameter_specs_1	/* Additional specs */

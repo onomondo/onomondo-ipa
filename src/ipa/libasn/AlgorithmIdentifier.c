@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_AlgorithmIdentifier_1[] = {
 		0,
 		&asn_DEF_OBJECT_IDENTIFIER,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("algorithm")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_AlgorithmIdentifier_1[] = {
 		0,
 		&asn_DEF_ANY,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("parameters")
 		},
@@ -51,7 +51,7 @@ asn_TYPE_descriptor_t asn_DEF_AlgorithmIdentifier = {
 	asn_DEF_AlgorithmIdentifier_tags_1,	/* Same as above */
 	sizeof(asn_DEF_AlgorithmIdentifier_tags_1)
 		/sizeof(asn_DEF_AlgorithmIdentifier_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_AlgorithmIdentifier_1,
 	2,	/* Elements count */
 	&asn_SPC_AlgorithmIdentifier_specs_1	/* Additional specs */

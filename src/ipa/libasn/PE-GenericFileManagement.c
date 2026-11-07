@@ -13,7 +13,7 @@ static asn_TYPE_member_t asn_MBR_fileManagementCMD_3[] = {
 		0,
 		&asn_DEF_FileManagement,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -38,7 +38,7 @@ asn_TYPE_descriptor_t asn_DEF_fileManagementCMD_3 = {
 	asn_DEF_fileManagementCMD_tags_3,	/* Same as above */
 	sizeof(asn_DEF_fileManagementCMD_tags_3)
 		/sizeof(asn_DEF_fileManagementCMD_tags_3[0]), /* 2 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_fileManagementCMD_3,
 	1,	/* Single element */
 	&asn_SPC_fileManagementCMD_specs_3	/* Additional specs */
@@ -50,7 +50,7 @@ asn_TYPE_member_t asn_MBR_PE_GenericFileManagement_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PEHeader,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("gfm-header")
 		},
@@ -59,7 +59,7 @@ asn_TYPE_member_t asn_MBR_PE_GenericFileManagement_1[] = {
 		0,
 		&asn_DEF_fileManagementCMD_3,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("fileManagementCMD")
 		},
@@ -89,7 +89,7 @@ asn_TYPE_descriptor_t asn_DEF_PE_GenericFileManagement = {
 	asn_DEF_PE_GenericFileManagement_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PE_GenericFileManagement_tags_1)
 		/sizeof(asn_DEF_PE_GenericFileManagement_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_PE_GenericFileManagement_1,
 	2,	/* Elements count */
 	&asn_SPC_PE_GenericFileManagement_specs_1	/* Additional specs */

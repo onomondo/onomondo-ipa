@@ -35,7 +35,7 @@ static asn_TYPE_member_t asn_MBR_Member_8[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("keyType")
 		},
@@ -44,7 +44,7 @@ static asn_TYPE_member_t asn_MBR_Member_8[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("keyData")
 		},
@@ -53,7 +53,7 @@ static asn_TYPE_member_t asn_MBR_Member_8[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UInt8,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		&asn_DFL_11_cmp_8,	/* Compare DEFAULT 8 */
 		&asn_DFL_11_set_8,	/* Set DEFAULT 8 */
 		ASN_NAME("macLength")
@@ -86,7 +86,7 @@ asn_TYPE_descriptor_t asn_DEF_Member_8 = {
 	asn_DEF_Member_tags_8,	/* Same as above */
 	sizeof(asn_DEF_Member_tags_8)
 		/sizeof(asn_DEF_Member_tags_8[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_Member_8,
 	3,	/* Elements count */
 	&asn_SPC_Member_specs_8	/* Additional specs */
@@ -98,7 +98,7 @@ static asn_TYPE_member_t asn_MBR_keyCompontents_7[] = {
 		0,
 		&asn_DEF_Member_8,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("")
 		},
@@ -122,7 +122,7 @@ asn_TYPE_descriptor_t asn_DEF_keyCompontents_7 = {
 	asn_DEF_keyCompontents_tags_7,	/* Same as above */
 	sizeof(asn_DEF_keyCompontents_tags_7)
 		/sizeof(asn_DEF_keyCompontents_tags_7[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_keyCompontents_7,
 	1,	/* Single element */
 	&asn_SPC_keyCompontents_specs_7	/* Additional specs */
@@ -134,7 +134,7 @@ asn_TYPE_member_t asn_MBR_KeyObject_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("keyUsageQualifier")
 		},
@@ -143,7 +143,7 @@ asn_TYPE_member_t asn_MBR_KeyObject_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("keyAccess")
 		},
@@ -152,7 +152,7 @@ asn_TYPE_member_t asn_MBR_KeyObject_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("keyIdentifier")
 		},
@@ -161,7 +161,7 @@ asn_TYPE_member_t asn_MBR_KeyObject_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("keyVersionNumber")
 		},
@@ -170,7 +170,7 @@ asn_TYPE_member_t asn_MBR_KeyObject_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("keyCounterValue")
 		},
@@ -179,7 +179,7 @@ asn_TYPE_member_t asn_MBR_KeyObject_1[] = {
 		0,
 		&asn_DEF_keyCompontents_7,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("keyCompontents")
 		},
@@ -213,7 +213,7 @@ asn_TYPE_descriptor_t asn_DEF_KeyObject = {
 	asn_DEF_KeyObject_tags_1,	/* Same as above */
 	sizeof(asn_DEF_KeyObject_tags_1)
 		/sizeof(asn_DEF_KeyObject_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_KeyObject_1,
 	6,	/* Elements count */
 	&asn_SPC_KeyObject_specs_1	/* Additional specs */

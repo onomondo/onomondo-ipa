@@ -24,7 +24,7 @@ asn_TYPE_descriptor_t asn_DEF_UICCCapability = {
 	asn_DEF_UICCCapability_tags_1,	/* Same as above */
 	sizeof(asn_DEF_UICCCapability_tags_1)
 		/sizeof(asn_DEF_UICCCapability_tags_1[0]), /* 1 */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	0, 0,	/* Defined elsewhere */
 	&asn_SPC_BIT_STRING_specs	/* Additional specs */
 };

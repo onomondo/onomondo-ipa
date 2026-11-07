@@ -13,7 +13,7 @@ asn_TYPE_member_t asn_MBR_SGP32_PendingNotification_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_SGP32_ProfileInstallationResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("profileInstallationResult")
 		},
@@ -22,7 +22,7 @@ asn_TYPE_member_t asn_MBR_SGP32_PendingNotification_1[] = {
 		0,
 		&asn_DEF_OtherSignedNotification,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("otherSignedNotification")
 		},
@@ -31,7 +31,7 @@ asn_TYPE_member_t asn_MBR_SGP32_PendingNotification_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_CompactProfileInstallationResult,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("compactProfileInstallationResult")
 		},
@@ -40,7 +40,7 @@ asn_TYPE_member_t asn_MBR_SGP32_PendingNotification_1[] = {
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_CompactOtherSignedNotification,
 		0,
-		{ 0, 0, 0 },
+		ASN_ENC_CONSTRAINTS(0, 0, 0)
 		0, 0, /* No default value */
 		ASN_NAME("compactOtherSignedNotification")
 		},
@@ -69,7 +69,7 @@ asn_TYPE_descriptor_t asn_DEF_SGP32_PendingNotification = {
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
-	{ 0, 0, 0 },
+	ASN_ENC_CONSTRAINTS(0, 0, 0)
 	asn_MBR_SGP32_PendingNotification_1,
 	4,	/* Elements count */
 	&asn_SPC_SGP32_PendingNotification_specs_1	/* Additional specs */
