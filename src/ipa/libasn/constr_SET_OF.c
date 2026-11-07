@@ -408,7 +408,8 @@ SET_OF__encode_sorted(const asn_TYPE_member_t *elm,
 
         return encoded_els;
     } else {
-        SET_OF__encode_sorted_free(encoded_els, edx);
+        /* Element edx failed part-way and may hold a buffer; free it too. */
+        SET_OF__encode_sorted_free(encoded_els, edx + 1);
         return NULL;
     }
 }
@@ -470,6 +471,9 @@ SET_OF_encode_der(const asn_TYPE_descriptor_t *td, const void *sptr,
      * encoded elements.
      */
     encoded_els = SET_OF__encode_sorted(elm, list, SOES_DER);
+    if(!encoded_els) {
+        ASN__ENCODE_FAILED;
+    }
 
     /*
      * Report encoded elements to the application.

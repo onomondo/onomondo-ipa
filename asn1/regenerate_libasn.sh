@@ -66,3 +66,4 @@ patch -p1 < ./asn1/0001-asn_internal-use-custom-memory-allocator-functions.patch
 patch -p1 < ./asn1/0004-OCTET_STRING-exact-fit-first-allocation.patch
 patch -p1 < ./asn1/0005-skeletons-vtable-guards.patch
 patch -p1 < ./asn1/0006-constraints-optional-messages.patch
+patch -p1 < ./asn1/0010-SET_OF-fail-DER-encoding-on-allocation-failure.patch

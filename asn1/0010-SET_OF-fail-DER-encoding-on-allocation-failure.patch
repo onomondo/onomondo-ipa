@@ -1,0 +1,30 @@
+From: Benjamin Bruun <bb@onomondo.com>
+Subject: [PATCH] SET_OF: fail the DER encoding when the sort table cannot be allocated
+
+SET_OF_encode_der used the table from SET_OF__encode_sorted without a NULL
+check, so an allocation failure while sorting dereferenced NULL. The failure
+path also leaked the buffer of the element that failed part-way.
+---
+diff --git a/src/ipa/libasn/constr_SET_OF.c b/src/ipa/libasn/constr_SET_OF.c
+--- a/src/ipa/libasn/constr_SET_OF.c
++++ b/src/ipa/libasn/constr_SET_OF.c
+@@ -408,7 +408,8 @@ SET_OF__encode_sorted(const asn_TYPE_member_t *elm,
+ 
+         return encoded_els;
+     } else {
+-        SET_OF__encode_sorted_free(encoded_els, edx);
++        /* Element edx failed part-way and may hold a buffer; free it too. */
++        SET_OF__encode_sorted_free(encoded_els, edx + 1);
+         return NULL;
+     }
+ }
+@@ -470,6 +471,9 @@ SET_OF_encode_der(const asn_TYPE_descriptor_t *td, const void *sptr,
+      * encoded elements.
+      */
+     encoded_els = SET_OF__encode_sorted(elm, list, SOES_DER);
++    if(!encoded_els) {
++        ASN__ENCODE_FAILED;
++    }
+ 
+     /*
+      * Report encoded elements to the application.
