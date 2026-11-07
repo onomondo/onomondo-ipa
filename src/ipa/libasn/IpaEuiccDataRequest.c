@@ -38,7 +38,7 @@ static asn_CHOICE_specifics_t asn_SPC_searchCriteriaNotification_specs_4 = {
 	sizeof(((struct IpaEuiccDataRequest__searchCriteriaNotification *)0)->present),
 	asn_MAP_searchCriteriaNotification_tag2el_4,
 	2,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	2	/* Extensions start */
 };
 static /* Use -fall-defs-global to expose */
@@ -77,7 +77,7 @@ static asn_CHOICE_specifics_t asn_SPC_searchCriteriaEuiccPackageResult_specs_8 =
 	sizeof(((struct IpaEuiccDataRequest__searchCriteriaEuiccPackageResult *)0)->present),
 	asn_MAP_searchCriteriaEuiccPackageResult_tag2el_8,
 	1,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	1	/* Extensions start */
 };
 static /* Use -fall-defs-global to expose */
@@ -158,7 +158,7 @@ asn_SEQUENCE_specifics_t asn_SPC_IpaEuiccDataRequest_specs_1 = {
 	offsetof(struct IpaEuiccDataRequest, _asn_ctx),
 	asn_MAP_IpaEuiccDataRequest_tag2el_1,
 	5,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	5,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_IpaEuiccDataRequest = {

@@ -38,7 +38,7 @@ static asn_CHOICE_specifics_t asn_SPC_signedData_specs_2 = {
 	sizeof(((struct CompactAuthenticateResponseOk__signedData *)0)->present),
 	asn_MAP_signedData_tag2el_2,
 	2,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	2	/* Extensions start */
 };
 static /* Use -fall-defs-global to expose */
@@ -109,7 +109,7 @@ asn_SEQUENCE_specifics_t asn_SPC_CompactAuthenticateResponseOk_specs_1 = {
 	offsetof(struct CompactAuthenticateResponseOk, _asn_ctx),
 	asn_MAP_CompactAuthenticateResponseOk_tag2el_1,
 	5,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	4,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CompactAuthenticateResponseOk = {

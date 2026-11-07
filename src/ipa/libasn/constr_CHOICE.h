@@ -26,15 +26,25 @@ typedef struct asn_CHOICE_specifics_s {
 	const asn_TYPE_tag2member_t *tag2el;
 	unsigned tag2el_count;
 
-	/* Canonical ordering of CHOICE elements, for PER */
+	/* Canonical ordering of CHOICE elements, for PER only; constr_TYPE.h
+	 * requires ASN_DISABLE_PER_SUPPORT in every unit, which keeps one layout. */
+#if !defined(ASN_DISABLE_PER_SUPPORT)
 	const unsigned *to_canonical_order;
 	const unsigned *from_canonical_order;
+#endif
 
 	/*
 	 * Extensions-related stuff.
 	 */
 	signed ext_start; /* First member of extensions, or -1 */
 } asn_CHOICE_specifics_t;
+
+/* Initialiser for the PER-only fields above. */
+#if defined(ASN_DISABLE_PER_SUPPORT)
+#define ASN_CHOICE_ORDER(to, from)
+#else
+#define ASN_CHOICE_ORDER(to, from) to, from,
+#endif
 
 /*
  * A set specialized functions dealing with the CHOICE type.

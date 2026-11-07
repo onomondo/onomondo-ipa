@@ -48,7 +48,7 @@ static asn_CHOICE_specifics_t asn_SPC_searchCriteria_specs_2 = {
 	sizeof(((struct ProfileInfoListRequest__searchCriteria *)0)->present),
 	asn_MAP_searchCriteria_tag2el_2,
 	3,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	3	/* Extensions start */
 };
 static /* Use -fall-defs-global to expose */
@@ -99,7 +99,7 @@ asn_SEQUENCE_specifics_t asn_SPC_ProfileInfoListRequest_specs_1 = {
 	offsetof(struct ProfileInfoListRequest, _asn_ctx),
 	asn_MAP_ProfileInfoListRequest_tag2el_1,
 	2,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ProfileInfoListRequest = {

@@ -28,7 +28,7 @@ asn_CHOICE_specifics_t asn_SPC_CtxParams1_specs_1 = {
 	sizeof(((struct CtxParams1 *)0)->present),
 	asn_MAP_CtxParams1_tag2el_1,
 	1,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_CtxParams1 = {

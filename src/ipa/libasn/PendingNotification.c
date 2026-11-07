@@ -38,7 +38,7 @@ asn_CHOICE_specifics_t asn_SPC_PendingNotification_specs_1 = {
 	sizeof(((struct PendingNotification *)0)->present),
 	asn_MAP_PendingNotification_tag2el_1,
 	2,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_PendingNotification = {

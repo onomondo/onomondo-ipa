@@ -38,7 +38,7 @@ static asn_CHOICE_specifics_t asn_SPC_searchCriteria_specs_2 = {
 	sizeof(((struct RetrieveNotificationsListRequest__searchCriteria *)0)->present),
 	asn_MAP_searchCriteria_tag2el_2,
 	2,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	2	/* Extensions start */
 };
 static /* Use -fall-defs-global to expose */
@@ -79,7 +79,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_RetrieveNotificationsListRequest_specs_1
 	offsetof(struct RetrieveNotificationsListRequest, _asn_ctx),
 	asn_MAP_RetrieveNotificationsListRequest_tag2el_1,
 	1,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_RetrieveNotificationsListRequest = {

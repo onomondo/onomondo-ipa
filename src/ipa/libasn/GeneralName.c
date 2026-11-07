@@ -108,7 +108,7 @@ asn_CHOICE_specifics_t asn_SPC_GeneralName_specs_1 = {
 	sizeof(((struct GeneralName *)0)->present),
 	asn_MAP_GeneralName_tag2el_1,
 	9,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	-1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_GeneralName = {

@@ -358,7 +358,7 @@ static asn_CHOICE_specifics_t asn_SPC_ProfileElement_specs_1 = {
 	sizeof(((struct ProfileElement *)0)->present),
 	asn_MAP_ProfileElement_tag2el_1,
 	34,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	34	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_ProfileElement = {

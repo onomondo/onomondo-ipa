@@ -39,7 +39,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_ePRAndNotifications_specs_3 = {
 	offsetof(struct TransferEimPackageResponse__ePRAndNotifications, _asn_ctx),
 	asn_MAP_ePRAndNotifications_tag2el_3,
 	2,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	2,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
@@ -123,7 +123,7 @@ asn_CHOICE_specifics_t asn_SPC_TransferEimPackageResponse_specs_1 = {
 	sizeof(((struct TransferEimPackageResponse *)0)->present),
 	asn_MAP_TransferEimPackageResponse_tag2el_1,
 	5,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	5	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_TransferEimPackageResponse = {

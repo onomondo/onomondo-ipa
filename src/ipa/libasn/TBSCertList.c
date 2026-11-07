@@ -50,7 +50,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_Member_specs_8 = {
 	offsetof(struct TBSCertList__revokedCertificates__Member, _asn_ctx),
 	asn_MAP_Member_tag2el_8,
 	4,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	-1,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
@@ -190,7 +190,7 @@ asn_SEQUENCE_specifics_t asn_SPC_TBSCertList_specs_1 = {
 	offsetof(struct TBSCertList, _asn_ctx),
 	asn_MAP_TBSCertList_tag2el_1,
 	9,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_TBSCertList = {

@@ -139,7 +139,7 @@ asn_SEQUENCE_specifics_t asn_SPC_ApplicationSystemParameters_specs_1 = {
 	offsetof(struct ApplicationSystemParameters, _asn_ctx),
 	asn_MAP_ApplicationSystemParameters_tag2el_1,
 	12,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	12,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ApplicationSystemParameters = {

@@ -389,7 +389,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_CSIM_specs_1 = {
 	offsetof(struct PE_CSIM, _asn_ctx),
 	asn_MAP_PE_CSIM_tag2el_1,
 	37,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	37,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_CSIM = {

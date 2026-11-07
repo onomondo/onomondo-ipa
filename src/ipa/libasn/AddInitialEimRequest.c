@@ -67,7 +67,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_AddInitialEimRequest_specs_1 = {
 	offsetof(struct AddInitialEimRequest, _asn_ctx),
 	asn_MAP_AddInitialEimRequest_tag2el_1,
 	1,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_AddInitialEimRequest = {

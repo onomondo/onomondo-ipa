@@ -40,7 +40,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_enable_specs_2 = {
 	offsetof(struct Psmo__enable, _asn_ctx),
 	asn_MAP_enable_tag2el_2,
 	2,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	2,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
@@ -83,7 +83,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_disable_specs_6 = {
 	offsetof(struct Psmo__disable, _asn_ctx),
 	asn_MAP_disable_tag2el_6,
 	1,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	1,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
@@ -126,7 +126,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_delete_specs_9 = {
 	offsetof(struct Psmo__delete, _asn_ctx),
 	asn_MAP_delete_tag2el_9,
 	1,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	1,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
@@ -155,7 +155,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_getRAT_specs_13 = {
 	offsetof(struct Psmo__getRAT, _asn_ctx),
 	0,	/* No top level tags */
 	0,	/* No tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	-1,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
@@ -217,7 +217,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_configureImmediateEnable_specs_15 = {
 	offsetof(struct Psmo__configureImmediateEnable, _asn_ctx),
 	asn_MAP_configureImmediateEnable_tag2el_15,
 	3,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	3,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
@@ -260,7 +260,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_setFallbackAttribute_specs_20 = {
 	offsetof(struct Psmo__setFallbackAttribute, _asn_ctx),
 	asn_MAP_setFallbackAttribute_tag2el_20,
 	1,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	1,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
@@ -289,7 +289,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_unsetFallbackAttribute_specs_23 = {
 	offsetof(struct Psmo__unsetFallbackAttribute, _asn_ctx),
 	0,	/* No top level tags */
 	0,	/* No tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	-1,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
@@ -409,7 +409,7 @@ asn_CHOICE_specifics_t asn_SPC_Psmo_specs_1 = {
 	sizeof(((struct Psmo *)0)->present),
 	asn_MAP_Psmo_tag2el_1,
 	9,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	9	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_Psmo = {

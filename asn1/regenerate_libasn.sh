@@ -68,6 +68,22 @@ if [ "$ENC" -ne $((DESCRIPTORS + MEMBERS)) ]; then
 	exit 1
 fi
 
+# The PER-only fields of the SEQUENCE and CHOICE specifics tables are zero in every
+# generated table. ASN_SEQ_OMS() and ASN_CHOICE_ORDER() (asn1/0013) drop them along
+# with PER. The bare CHOICE line "0, 0," also occurs elsewhere, so it is matched
+# only right before the table's "Extensions start" line. Both rewrites must hit
+# every table.
+perl -pi -e 's/^\t0, 0, 0,\t(\/\* Optional elements \(not needed\) \*\/)$/\tASN_SEQ_OMS(0, 0, 0)\t$1/' $GENERATED
+perl -0pi -e 's/^\t0, 0,\n(\t-?[0-9]+\t\/\* Extensions start \*\/)$/\tASN_CHOICE_ORDER(0, 0)\n$1/mg' $GENERATED
+SEQ_TABLES=$(cat $GENERATED | grep -c 'asn_SEQUENCE_specifics_t asn_SPC_' || true)
+CHOICE_TABLES=$(cat $GENERATED | grep -c 'asn_CHOICE_specifics_t asn_SPC_' || true)
+SEQ_OMS=$(cat $GENERATED | grep -c 'ASN_SEQ_OMS(0, 0, 0)' || true)
+CHOICE_ORDER=$(cat $GENERATED | grep -c 'ASN_CHOICE_ORDER(0, 0)' || true)
+if [ "$SEQ_OMS" -ne "$SEQ_TABLES" ] || [ "$CHOICE_ORDER" -ne "$CHOICE_TABLES" ]; then
+	echo "ERROR: PER-only field rewrite hit $SEQ_OMS of $SEQ_TABLES SEQUENCE and $CHOICE_ORDER of $CHOICE_TABLES CHOICE tables." >&2
+	exit 1
+fi
+
 # Remove file(s) we do not need
 rm ./Makefile.am.libasncodec
 
@@ -99,3 +115,4 @@ patch -p1 < ./asn1/0006-constraints-optional-messages.patch
 patch -p1 < ./asn1/0010-SET_OF-fail-DER-encoding-on-allocation-failure.patch
 patch -p1 < ./asn1/0011-constr_TYPE-optional-names.patch
 patch -p1 < ./asn1/0012-skeletons-drop-encoding-constraints.patch
+patch -p1 < ./asn1/0013-skeletons-drop-PER-only-specifics-fields.patch

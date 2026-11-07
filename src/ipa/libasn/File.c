@@ -58,7 +58,7 @@ static asn_CHOICE_specifics_t asn_SPC_Member_specs_2 = {
 	sizeof(((struct File__Member *)0)->present),
 	asn_MAP_Member_tag2el_2,
 	4,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	4	/* Extensions start */
 };
 static /* Use -fall-defs-global to expose */

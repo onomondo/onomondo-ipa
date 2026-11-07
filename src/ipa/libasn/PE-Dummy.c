@@ -15,7 +15,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_Dummy_specs_1 = {
 	offsetof(struct PE_Dummy, _asn_ctx),
 	0,	/* No top level tags */
 	0,	/* No tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_Dummy = {

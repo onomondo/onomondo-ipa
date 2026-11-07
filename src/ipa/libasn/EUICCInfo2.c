@@ -311,7 +311,7 @@ asn_SEQUENCE_specifics_t asn_SPC_EUICCInfo2_specs_1 = {
 	offsetof(struct EUICCInfo2, _asn_ctx),
 	asn_MAP_EUICCInfo2_tag2el_1,
 	18,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	18,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EUICCInfo2 = {

@@ -109,7 +109,7 @@ asn_SEQUENCE_specifics_t asn_SPC_BuiltInStandardAttributes_specs_1 = {
 	offsetof(struct BuiltInStandardAttributes, _asn_ctx),
 	asn_MAP_BuiltInStandardAttributes_tag2el_1,
 	9,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_BuiltInStandardAttributes = {

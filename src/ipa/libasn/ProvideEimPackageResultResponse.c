@@ -15,7 +15,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_emptyResponse_specs_3 = {
 	offsetof(struct ProvideEimPackageResultResponse__emptyResponse, _asn_ctx),
 	0,	/* No top level tags */
 	0,	/* No tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	-1,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
@@ -78,7 +78,7 @@ asn_CHOICE_specifics_t asn_SPC_ProvideEimPackageResultResponse_specs_1 = {
 	sizeof(((struct ProvideEimPackageResultResponse *)0)->present),
 	asn_MAP_ProvideEimPackageResultResponse_tag2el_1,
 	3,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	3	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_ProvideEimPackageResultResponse = {

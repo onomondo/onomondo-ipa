@@ -29,7 +29,7 @@ asn_SEQUENCE_specifics_t asn_SPC_TS102226AdditionalContactlessParameters_specs_1
 	offsetof(struct TS102226AdditionalContactlessParameters, _asn_ctx),
 	asn_MAP_TS102226AdditionalContactlessParameters_tag2el_1,
 	1,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_TS102226AdditionalContactlessParameters = {

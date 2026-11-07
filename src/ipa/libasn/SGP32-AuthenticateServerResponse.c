@@ -51,7 +51,7 @@ asn_CHOICE_specifics_t asn_SPC_SGP32_AuthenticateServerResponse_specs_1 = {
 	sizeof(((struct SGP32_AuthenticateServerResponse *)0)->present),
 	asn_MAP_SGP32_AuthenticateServerResponse_tag2el_1,
 	3,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	3	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_SGP32_AuthenticateServerResponse = {

@@ -50,7 +50,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_SGP32_EuiccMemoryResetResponse_specs_1 =
 	offsetof(struct SGP32_EuiccMemoryResetResponse, _asn_ctx),
 	asn_MAP_SGP32_EuiccMemoryResetResponse_tag2el_1,
 	3,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	3,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_SGP32_EuiccMemoryResetResponse = {

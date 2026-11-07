@@ -39,7 +39,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_Member_specs_2 = {
 	offsetof(struct PolicyMappings__Member, _asn_ctx),
 	asn_MAP_Member_tag2el_2,
 	2,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	-1,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */

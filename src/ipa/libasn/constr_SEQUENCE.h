@@ -26,11 +26,14 @@ typedef struct asn_SEQUENCE_specifics_s {
 
 	/*
 	 * Optional members of the extensions root (roms) or additions (aoms).
-	 * Meaningful for PER.
+	 * Meaningful for PER only, so they go with it; constr_TYPE.h requires
+	 * ASN_DISABLE_PER_SUPPORT in every unit, which keeps one layout.
 	 */
+#if !defined(ASN_DISABLE_PER_SUPPORT)
 	const int *oms;         /* Optional MemberS */
 	unsigned roms_count;    /* Root optional members count */
 	unsigned aoms_count;    /* Additions optional members count */
+#endif
 
 	/*
 	 * Description of an extensions group.
@@ -39,6 +42,13 @@ typedef struct asn_SEQUENCE_specifics_s {
 	 */
 	signed first_extension;       /* First extension addition */
 } asn_SEQUENCE_specifics_t;
+
+/* Initialiser for the PER-only fields above. */
+#if defined(ASN_DISABLE_PER_SUPPORT)
+#define ASN_SEQ_OMS(oms, roms_count, aoms_count)
+#else
+#define ASN_SEQ_OMS(oms, roms_count, aoms_count) oms, roms_count, aoms_count,
+#endif
 
 
 /*

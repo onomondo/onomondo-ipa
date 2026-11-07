@@ -188,7 +188,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_notificationAndEprList_specs_8 = {
 	offsetof(struct SGP32_RetrieveNotificationsListResponse__notificationAndEprList, _asn_ctx),
 	asn_MAP_notificationAndEprList_tag2el_8,
 	2,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	2,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
@@ -262,7 +262,7 @@ static asn_CHOICE_specifics_t asn_SPC_SGP32_RetrieveNotificationsListResponse_sp
 	sizeof(((struct SGP32_RetrieveNotificationsListResponse *)0)->present),
 	asn_MAP_SGP32_RetrieveNotificationsListResponse_tag2el_1,
 	4,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	4	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_SGP32_RetrieveNotificationsListResponse = {

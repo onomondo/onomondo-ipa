@@ -40,7 +40,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_certs_specs_2 = {
 	offsetof(struct GetCertsResponse__certs, _asn_ctx),
 	asn_MAP_certs_tag2el_2,
 	2,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	2,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
@@ -94,7 +94,7 @@ static asn_CHOICE_specifics_t asn_SPC_GetCertsResponse_specs_1 = {
 	sizeof(((struct GetCertsResponse *)0)->present),
 	asn_MAP_GetCertsResponse_tag2el_1,
 	2,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_GetCertsResponse = {

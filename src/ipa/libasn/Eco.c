@@ -30,7 +30,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_deleteEim_specs_3 = {
 	offsetof(struct Eco__deleteEim, _asn_ctx),
 	asn_MAP_deleteEim_tag2el_3,
 	1,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	1,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
@@ -59,7 +59,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_listEim_specs_7 = {
 	offsetof(struct Eco__listEim, _asn_ctx),
 	0,	/* No top level tags */
 	0,	/* No tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	-1,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
@@ -129,7 +129,7 @@ asn_CHOICE_specifics_t asn_SPC_Eco_specs_1 = {
 	sizeof(((struct Eco *)0)->present),
 	asn_MAP_Eco_tag2el_1,
 	4,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	4	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_Eco = {

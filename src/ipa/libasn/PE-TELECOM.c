@@ -499,7 +499,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_TELECOM_specs_1 = {
 	offsetof(struct PE_TELECOM, _asn_ctx),
 	asn_MAP_PE_TELECOM_tag2el_1,
 	48,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	48,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_TELECOM = {

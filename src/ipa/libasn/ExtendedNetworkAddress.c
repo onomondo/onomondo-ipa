@@ -39,7 +39,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_e163_4_address_specs_2 = {
 	offsetof(struct ExtendedNetworkAddress__e163_4_address, _asn_ctx),
 	asn_MAP_e163_4_address_tag2el_2,
 	2,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	-1,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
@@ -90,7 +90,7 @@ static asn_CHOICE_specifics_t asn_SPC_ExtendedNetworkAddress_specs_1 = {
 	sizeof(((struct ExtendedNetworkAddress *)0)->present),
 	asn_MAP_ExtendedNetworkAddress_tag2el_1,
 	2,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	-1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_ExtendedNetworkAddress = {

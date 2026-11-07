@@ -72,7 +72,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_Member_specs_8 = {
 	offsetof(struct KeyObject__keyCompontents__Member, _asn_ctx),
 	asn_MAP_Member_tag2el_8,
 	3,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	3,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
@@ -200,7 +200,7 @@ asn_SEQUENCE_specifics_t asn_SPC_KeyObject_specs_1 = {
 	offsetof(struct KeyObject, _asn_ctx),
 	asn_MAP_KeyObject_tag2el_1,
 	6,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	6,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_KeyObject = {

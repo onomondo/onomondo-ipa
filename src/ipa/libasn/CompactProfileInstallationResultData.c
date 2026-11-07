@@ -60,7 +60,7 @@ static asn_CHOICE_specifics_t asn_SPC_compactFinalResult_specs_5 = {
 	sizeof(((struct CompactProfileInstallationResultData__compactFinalResult *)0)->present),
 	asn_MAP_compactFinalResult_tag2el_5,
 	2,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	2	/* Extensions start */
 };
 static /* Use -fall-defs-global to expose */
@@ -131,7 +131,7 @@ asn_SEQUENCE_specifics_t asn_SPC_CompactProfileInstallationResultData_specs_1 = 
 	offsetof(struct CompactProfileInstallationResultData, _asn_ctx),
 	asn_MAP_CompactProfileInstallationResultData_tag2el_1,
 	4,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	4,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_CompactProfileInstallationResultData = {

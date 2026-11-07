@@ -38,7 +38,7 @@ static asn_CHOICE_specifics_t asn_SPC_eimPublicKeyData_specs_7 = {
 	sizeof(((struct EimConfigurationData__eimPublicKeyData *)0)->present),
 	asn_MAP_eimPublicKeyData_tag2el_7,
 	2,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	2	/* Extensions start */
 };
 static /* Use -fall-defs-global to expose */
@@ -87,7 +87,7 @@ static asn_CHOICE_specifics_t asn_SPC_trustedPublicKeyDataTls_specs_11 = {
 	sizeof(((struct EimConfigurationData__trustedPublicKeyDataTls *)0)->present),
 	asn_MAP_trustedPublicKeyDataTls_tag2el_11,
 	2,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	2	/* Extensions start */
 };
 static /* Use -fall-defs-global to expose */
@@ -217,7 +217,7 @@ asn_SEQUENCE_specifics_t asn_SPC_EimConfigurationData_specs_1 = {
 	offsetof(struct EimConfigurationData, _asn_ctx),
 	asn_MAP_EimConfigurationData_tag2el_1,
 	10,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	10,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EimConfigurationData = {

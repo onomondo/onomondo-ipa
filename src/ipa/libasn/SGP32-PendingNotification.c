@@ -58,7 +58,7 @@ asn_CHOICE_specifics_t asn_SPC_SGP32_PendingNotification_specs_1 = {
 	sizeof(((struct SGP32_PendingNotification *)0)->present),
 	asn_MAP_SGP32_PendingNotification_tag2el_1,
 	4,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	4	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_SGP32_PendingNotification = {

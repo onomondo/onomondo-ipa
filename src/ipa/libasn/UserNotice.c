@@ -42,7 +42,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_UserNotice_specs_1 = {
 	offsetof(struct UserNotice, _asn_ctx),
 	asn_MAP_UserNotice_tag2el_1,
 	5,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	-1,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_UserNotice = {

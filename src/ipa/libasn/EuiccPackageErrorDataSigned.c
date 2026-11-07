@@ -59,7 +59,7 @@ asn_SEQUENCE_specifics_t asn_SPC_EuiccPackageErrorDataSigned_specs_1 = {
 	offsetof(struct EuiccPackageErrorDataSigned, _asn_ctx),
 	asn_MAP_EuiccPackageErrorDataSigned_tag2el_1,
 	4,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	4,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_EuiccPackageErrorDataSigned = {

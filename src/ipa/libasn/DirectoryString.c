@@ -68,7 +68,7 @@ asn_CHOICE_specifics_t asn_SPC_DirectoryString_specs_1 = {
 	sizeof(((struct DirectoryString *)0)->present),
 	asn_MAP_DirectoryString_tag2el_1,
 	5,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	-1	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_DirectoryString = {

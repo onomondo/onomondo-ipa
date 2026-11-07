@@ -398,7 +398,7 @@ asn_SEQUENCE_specifics_t asn_SPC_SGP32_EUICCInfo2_specs_1 = {
 	offsetof(struct SGP32_EUICCInfo2, _asn_ctx),
 	asn_MAP_SGP32_EUICCInfo2_tag2el_1,
 	23,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	23,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_SGP32_EUICCInfo2 = {

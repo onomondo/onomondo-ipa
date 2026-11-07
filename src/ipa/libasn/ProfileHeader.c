@@ -76,7 +76,7 @@ static asn_SEQUENCE_specifics_t asn_SPC_Member_specs_12 = {
 	offsetof(struct ProfileHeader__eUICC_Mandatory_AIDs__Member, _asn_ctx),
 	asn_MAP_Member_tag2el_12,
 	2,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	2,	/* First extension addition */
 };
 static /* Use -fall-defs-global to expose */
@@ -245,7 +245,7 @@ asn_SEQUENCE_specifics_t asn_SPC_ProfileHeader_specs_1 = {
 	offsetof(struct ProfileHeader, _asn_ctx),
 	asn_MAP_ProfileHeader_tag2el_1,
 	10,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	10,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_ProfileHeader = {

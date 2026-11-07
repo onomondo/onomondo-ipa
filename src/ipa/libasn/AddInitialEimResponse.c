@@ -38,7 +38,7 @@ static asn_CHOICE_specifics_t asn_SPC_Member_specs_3 = {
 	sizeof(((struct AddInitialEimResponse__addInitialEimOk__Member *)0)->present),
 	asn_MAP_Member_tag2el_3,
 	2,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	2	/* Extensions start */
 };
 static /* Use -fall-defs-global to expose */
@@ -127,7 +127,7 @@ static asn_CHOICE_specifics_t asn_SPC_AddInitialEimResponse_specs_1 = {
 	sizeof(((struct AddInitialEimResponse *)0)->present),
 	asn_MAP_AddInitialEimResponse_tag2el_1,
 	2,	/* Count of tags in the map */
-	0, 0,
+	ASN_CHOICE_ORDER(0, 0)
 	2	/* Extensions start */
 };
 asn_TYPE_descriptor_t asn_DEF_AddInitialEimResponse = {

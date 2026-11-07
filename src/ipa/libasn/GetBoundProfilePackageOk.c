@@ -39,7 +39,7 @@ asn_SEQUENCE_specifics_t asn_SPC_GetBoundProfilePackageOk_specs_1 = {
 	offsetof(struct GetBoundProfilePackageOk, _asn_ctx),
 	asn_MAP_GetBoundProfilePackageOk_tag2el_1,
 	2,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	2,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_GetBoundProfilePackageOk = {

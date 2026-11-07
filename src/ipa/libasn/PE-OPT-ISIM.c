@@ -179,7 +179,7 @@ asn_SEQUENCE_specifics_t asn_SPC_PE_OPT_ISIM_specs_1 = {
 	offsetof(struct PE_OPT_ISIM, _asn_ctx),
 	asn_MAP_PE_OPT_ISIM_tag2el_1,
 	16,	/* Count of tags in the map */
-	0, 0, 0,	/* Optional elements (not needed) */
+	ASN_SEQ_OMS(0, 0, 0)	/* Optional elements (not needed) */
 	16,	/* First extension addition */
 };
 asn_TYPE_descriptor_t asn_DEF_PE_OPT_ISIM = {
