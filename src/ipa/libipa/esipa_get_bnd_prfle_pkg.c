@@ -166,7 +166,6 @@ struct ipa_esipa_get_bnd_prfle_pkg_res *ipa_esipa_get_bnd_prfle_pkg(struct ipa_c
 {
 	struct ipa_buf *esipa_req = NULL;
 	struct ipa_buf *esipa_res = NULL;
-	struct ipa_esipa_get_bnd_prfle_pkg_res *res = NULL;
 
 	IPA_LOGP_ESIPA("GetBoundProfilePackage", LINFO, "Preparing encoded profile package request\n");
 	esipa_req = enc_get_bnd_prfle_pkg_req(req);
