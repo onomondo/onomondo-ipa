@@ -76,8 +76,13 @@ struct ipa_esipa_get_eim_pkg_res *dec_get_eim_pkg_req(const struct ipa_buf *msg_
 		break;
 	case GetEimPackageResponse_PR_eimPackageError:
 		res->eim_pkg_err = msg_to_ipa->choice.getEimPackageResponse.choice.eimPackageError;
-		IPA_LOGP_ESIPA("GetEimPackage", LERROR, "function failed with error code %ld=%s!\n",
-			       res->eim_pkg_err, ipa_str_from_num(error_code_strings, res->eim_pkg_err, "(unknown)"));
+		/* An empty queue is the normal answer to most polls, not an error. */
+		if (res->eim_pkg_err == GetEimPackageResponse__eimPackageError_noEimPackageAvailable)
+			IPA_LOGP_ESIPA("GetEimPackage", LINFO, "no eIM package available\n");
+		else
+			IPA_LOGP_ESIPA("GetEimPackage", LERROR, "function failed with error code %ld=%s!\n",
+				       res->eim_pkg_err,
+				       ipa_str_from_num(error_code_strings, res->eim_pkg_err, "(unknown)"));
 		break;
 	default:
 		IPA_LOGP_ESIPA("GetEimPackage", LERROR, "unexpected response content!\n");
