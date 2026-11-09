@@ -90,6 +90,7 @@ tests/testsuite.log
 
 # Editor backup files
 *~
+*.orig
 
 # Application
 src/ipa/ipa
