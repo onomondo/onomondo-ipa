@@ -230,10 +230,12 @@ static int recv_es10x_block(struct ipa_context *ctx, uint16_t *sw,
 		rc = -EINVAL;
 		goto exit;
 	}
-	if (res_apdu.le != block_len) {
+	/* A block shorter than announced is an error, except for no data at all: the caller decides on the
+	 * status word whether to ask again. */
+	if (res_apdu.le != block_len && res_apdu.le != 0) {
 		IPA_LOGP(SEUICC, LERROR,
-			 "unexpected block length (expected:%u, got:%u) while sending ES10x block %u, offset=%zu\n",
-			 block_len, res_apdu.le, block_nr, es10x_res_ptr->len);
+			 "unexpected block length (expected:%u, got:%u, sw=%04x) while receiving ES10x block %u, offset=%zu\n",
+			 block_len, res_apdu.le, res_apdu.sw, block_nr, es10x_res_ptr->len);
 		rc = -EINVAL;
 		goto exit;
 	}
@@ -253,8 +255,9 @@ static int recv_es10x_block(struct ipa_context *ctx, uint16_t *sw,
 	es10x_res_ptr->len += res_apdu.le;
 	*sw = res_apdu.sw;
 
-	IPA_LOGP(SEUICC, LINFO,
-		 "successfully received ES10x block %u, offset=%zu, sw=%04x\n", block_nr, es10x_res_ptr->len, *sw);
+	if (res_apdu.le)
+		IPA_LOGP(SEUICC, LINFO,
+			 "successfully received ES10x block %u, offset=%zu, sw=%04x\n", block_nr, es10x_res_ptr->len, *sw);
 
 	/* Return how many data we have received. */
 	rc = res_apdu.le;
@@ -271,6 +274,7 @@ static int euicc_transceive_es10x(struct ipa_context *ctx, struct ipa_buf **es10
 	uint16_t block_len = 0;
 	uint8_t block_nr = 0;
 	size_t offset = 0;
+	bool retried = false;
 	int rc;
 
 	while (1) {
@@ -319,6 +323,20 @@ static int euicc_transceive_es10x(struct ipa_context *ctx, struct ipa_buf **es10
 			rc = recv_es10x_block(ctx, &sw, es10x_res, block_len, block_nr);
 			if (rc < 0)
 				return -EIO;
+			if (rc == 0) {
+				/* The eUICC announced data with 61xx, yet GET RESPONSE came back with the status word
+				 * alone (seen through the nRF91 modem). A 61xx answer asks for another GET RESPONSE
+				 * (ISO/IEC 7816-4, section 7.6.1), so ask once more before giving up. */
+				if (retried || (sw & 0xff00) != 0x6100) {
+					IPA_LOGP(SEUICC, LERROR, "no data in GET RESPONSE for ES10x block %u, sw=%04x\n",
+						 block_nr, sw);
+					return -EIO;
+				}
+				IPA_LOGP(SEUICC, LINFO, "no data in GET RESPONSE for ES10x block %u, sw=%04x, retrying once\n",
+					 block_nr, sw);
+				retried = true;
+				continue;
+			}
 			block_nr++;
 
 			if (sw_ok(sw)) {
