@@ -50,7 +50,7 @@ static int dec_notif_sent_resp(const struct ipa_buf *es10b_res)
 									       "(unknown)"));
 		rc = -EINVAL;
 	} else {
-		IPA_LOGP_ES10X("RemoveNotificationFromList", LERROR, "function succeeded with status code %ld=%s!\n",
+		IPA_LOGP_ES10X("RemoveNotificationFromList", LINFO, "function succeeded with status code %ld=%s!\n",
 			       asn->deleteNotificationStatus, ipa_str_from_num(error_code_strings,
 									       asn->deleteNotificationStatus,
 									       "(unknown)"));
