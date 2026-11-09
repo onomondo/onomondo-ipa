@@ -80,8 +80,10 @@ static struct ipa_buf *enc_get_bnd_prfle_pkg_req(const struct ipa_esipa_get_bnd_
 
 /* Wire tags on the GetBoundProfilePackage response path */
 #define TAG_GET_BPP_RESPONSE 0xBF3A /* EsipaMessageFromEimToIpa [58] */
-#define TAG_OK_SEQUENCE      0x30   /* GetBoundProfilePackageOkEsipa */
-#define TAG_ERROR_INTEGER    0x02   /* getBoundProfilePackageErrorEsipa */
+/* SGP32Definitions uses AUTOMATIC TAGS: the CHOICE alternatives carry context tags [0] and [1],
+ * not the universal SEQUENCE and INTEGER tags of their types. */
+#define TAG_OK_CHOICE        0xA0   /* [0] getBoundProfilePackageOkEsipa */
+#define TAG_ERROR_CHOICE     0x81   /* [1] getBoundProfilePackageErrorEsipa */
 #define TAG_BPP              0xBF36 /* boundProfilePackage [54] */
 
 /* Locate the BoundProfilePackage inside the raw ESipa response instead of
@@ -108,13 +110,13 @@ static struct ipa_esipa_get_bnd_prfle_pkg_res *dec_get_bnd_prfle_pkg_res(struct 
 	off = hdr_len;
 	remaining = hdr_len + val_len;
 
-	/* CHOICE: ok (SEQUENCE) or error code (INTEGER) */
+	/* CHOICE: [0] ok or [1] error code */
 	hdr_len = ipa_tlv_hdr(data + off, remaining - off, &tag, &val_len);
 	if (!hdr_len) {
 		IPA_LOGP_ESIPA("GetBoundProfilePackage", LERROR, "unexpected response content!\n");
 		goto unexpected;
 	}
-	if (tag == TAG_ERROR_INTEGER) {
+	if (tag == TAG_ERROR_CHOICE) {
 		long err = 0;
 		size_t i;
 
@@ -129,7 +131,7 @@ static struct ipa_esipa_get_bnd_prfle_pkg_res *dec_get_bnd_prfle_pkg_res(struct 
 			       err, ipa_str_from_num(error_code_strings, err, "(unknown)"));
 		return res;
 	}
-	if (tag != TAG_OK_SEQUENCE) {
+	if (tag != TAG_OK_CHOICE) {
 		IPA_LOGP_ESIPA("GetBoundProfilePackage", LERROR, "unexpected response content!\n");
 		goto unexpected;
 	}
