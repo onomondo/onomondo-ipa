@@ -1,7 +1,9 @@
 # Copyright (c) 2026 Onomondo ApS. All rights reserved.
 # SPDX-License-Identifier: AGPL-3.0-only
 
-add_executable(esipa_v12_test esipa_v12_test.c)
+# mem.c gives the weak libc-forwarding allocator defaults, as in tests/mem.
+add_executable(esipa_v12_test esipa_v12_test.c
+	       ${PROJECT_SOURCE_DIR}/src/ipa/libipa/mem.c)
 set_property(TARGET esipa_v12_test PROPERTY C_STANDARD 99)
 target_compile_options(esipa_v12_test PRIVATE -Wall)
 
