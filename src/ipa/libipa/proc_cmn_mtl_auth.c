@@ -178,6 +178,7 @@ struct ipa_esipa_auth_clnt_res *ipa_proc_cmn_mtl_auth(struct ipa_context *ctx,
 	init_auth_req.euicc_challenge = euicc_challenge;
 	init_auth_req.smdp_addr = (char *)pars->smdp_addr;
 	init_auth_req.euicc_info_1 = euicc_info->euicc_info_1;
+	init_auth_req.eim_transaction_id = pars->eim_transaction_id;
 	init_auth_res = ipa_esipa_init_auth(ctx, &init_auth_req);
 	if (!init_auth_res)
 		goto error;

@@ -55,6 +55,11 @@ static struct ipa_buf *enc_init_auth_req(const struct ipa_esipa_init_auth_req *r
 	/* eUICC info */
 	msg_to_eim.choice.initiateAuthenticationRequestEsipa.euiccInfo1 = (EUICCInfo1_t *) req->euicc_info_1;
 
+	/* eimTransactionId of the ProfileDownloadTriggerRequest, echoed as SGP.32 v1.2 section 5.14.1 requires.
+	 * The request carries no EID, so this is what the eIM finds the download order by. */
+	msg_to_eim.choice.initiateAuthenticationRequestEsipa.eimTransactionId =
+	    (TransactionId_t *) req->eim_transaction_id;
+
 	/* Encode */
 	return ipa_esipa_msg_to_eim_enc(&msg_to_eim, "InitiateAuthentication");
 }

@@ -10,12 +10,15 @@
 #include <EUICCInfo1.h>
 #include <EsipaMessageFromEimToIpa.h>
 #include <InitiateAuthenticationOkEsipa.h>
+#include <TransactionId.h>
 struct ipa_context;
 
 struct ipa_esipa_init_auth_req {
 	const uint8_t *euicc_challenge;
 	const char *smdp_addr;
 	const EUICCInfo1_t *euicc_info_1;
+	/* eimTransactionId of the ProfileDownloadTriggerRequest this session serves (may be NULL) */
+	const TransactionId_t *eim_transaction_id;
 };
 
 struct ipa_esipa_init_auth_res {

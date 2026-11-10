@@ -98,6 +98,7 @@ int ipa_proc_indirect_prfle_dwnlod(struct ipa_context *ctx, const struct ipa_pro
 	cmn_mtl_auth_pars.allowed_ca = pars->allowed_ca;
 	cmn_mtl_auth_pars.smdp_addr = activation_code->sm_dp_plus_address;
 	cmn_mtl_auth_pars.ac_token = activation_code->ac_token;
+	cmn_mtl_auth_pars.eim_transaction_id = pars->eim_transaction_id;
 	auth_clnt_res = ipa_proc_cmn_mtl_auth(ctx, &cmn_mtl_auth_pars);
 	if (!auth_clnt_res) {
 		IPA_LOGP(SIPA, LERROR, "cannot continue, mutual authentication failed!\n");
