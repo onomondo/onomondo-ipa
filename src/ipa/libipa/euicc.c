@@ -330,7 +330,8 @@ static int euicc_transceive_es10x(struct ipa_context *ctx, struct ipa_buf **es10
 				if (retried || (sw & 0xff00) != 0x6100) {
 					IPA_LOGP(SEUICC, LERROR, "no data in GET RESPONSE for ES10x block %u, sw=%04x\n",
 						 block_nr, sw);
-					return -EIO;
+					/* the function ran, its response is lost */
+					return -ENODATA;
 				}
 				IPA_LOGP(SEUICC, LINFO, "no data in GET RESPONSE for ES10x block %u, sw=%04x, retrying once\n",
 					 block_nr, sw);
@@ -361,6 +362,23 @@ static int euicc_transceive_es10x(struct ipa_context *ctx, struct ipa_buf **es10
  *  \param[inout] ctx pointer to ipa_context.
  *  \param[in] es10x_req buffer with eUICC/es10x request.
  *  \returns IPA_BUF with ES10x response on success, NULL on failure. */
+/* ES10x functions that only read (GetEUICCInfo1/2, ListNotification, RetrieveNotificationsList,
+ * ProfileInfoList, GetEUICCChallenge, EuiccConfiguredAddresses, GetEuiccData, GetRAT,
+ * GetEimConfigurationData, GetCerts): sending one again changes nothing on the eUICC. */
+static bool es10x_read_only(const struct ipa_buf *es10x_req)
+{
+	static const uint8_t tags[] = { 0x20, 0x22, 0x28, 0x2B, 0x2D, 0x2E, 0x3C, 0x3E, 0x43, 0x55, 0x56 };
+	size_t i;
+
+	if (es10x_req->len < 2 || es10x_req->data[0] != 0xBF)
+		return false;
+	for (i = 0; i < sizeof(tags); i++) {
+		if (es10x_req->data[1] == tags[i])
+			return true;
+	}
+	return false;
+}
+
 struct ipa_buf *ipa_euicc_transceive_es10x(struct ipa_context *ctx, const struct ipa_buf *es10x_req)
 {
 	struct ipa_buf *es10x_res = ipa_buf_alloc(IPA_LEN_EUICC_BUF);
@@ -370,6 +388,14 @@ struct ipa_buf *ipa_euicc_transceive_es10x(struct ipa_context *ctx, const struct
 		 es10x_req->data_len);
 
 	rc = euicc_transceive_es10x(ctx, &es10x_res, es10x_req);
+	if (rc == -ENODATA && es10x_read_only(es10x_req)) {
+		/* The eUICC loses a pending response when something else uses the card between two GET
+		 * RESPONSE commands (the modem during an attach, an on-card IPAe during a BIP session) and
+		 * answers 6F00 or 6D00. A function that only reads is simply asked again, once. */
+		IPA_LOGP(SEUICC, LINFO, "response of a read-only ES10x function lost, sending it again\n");
+		es10x_res->len = 0;
+		rc = euicc_transceive_es10x(ctx, &es10x_res, es10x_req);
+	}
 
 	if (rc < 0) {
 		IPA_FREE(es10x_res);

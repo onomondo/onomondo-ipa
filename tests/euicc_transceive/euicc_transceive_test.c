@@ -3,9 +3,10 @@
  *
  * SPDX-License-Identifier: AGPL-3.0-only
  *
- * ES10x transport against a scripted card: the 61xx GET RESPONSE chain, and
- * the single retry when a GET RESPONSE comes back with the status word alone
- * (ETSI TS 102 221, section 7.3.1.1.5).
+ * ES10x transport against a scripted card: the 61xx GET RESPONSE chain, the
+ * single retry when a GET RESPONSE comes back with the status word alone
+ * (ETSI TS 102 221, section 7.3.1.1.5), and the repeat of a read-only function
+ * whose response was lost.
  */
 
 #include <stdio.h>
@@ -52,12 +53,15 @@ static void expect(const char *name, int cond, const char *what)
 	}
 }
 
-static struct ipa_buf *run(const struct step *s, size_t n)
+/* GetEimConfigurationData only reads; EnableProfile stands for the functions that change the eUICC. */
+static const uint8_t read_req[] = { 0xBF, 0x55, 0x00 };
+static const uint8_t write_req[] = { 0xBF, 0x31, 0x00 };
+
+static struct ipa_buf *run_req(const uint8_t *es10x_req, const struct step *s, size_t n)
 {
-	static const uint8_t es10x_req[] = { 0xBF, 0x55, 0x00 };
 	struct ipa_config cfg = { 0 }; /* euicc_channel 0: basic channel */
 	struct ipa_context ctx = { 0 };
-	struct ipa_buf *req = ipa_buf_alloc_data(sizeof(es10x_req), (uint8_t *)es10x_req);
+	struct ipa_buf *req = ipa_buf_alloc_data(3, (uint8_t *)es10x_req);
 	struct ipa_buf *res;
 
 	ctx.cfg = &cfg;
@@ -67,6 +71,12 @@ static struct ipa_buf *run(const struct step *s, size_t n)
 	res = ipa_euicc_transceive_es10x(&ctx, req);
 	IPA_FREE(req);
 	return res;
+}
+
+/* The GET RESPONSE cases use a function that is not repeated, so they see the chain alone. */
+static struct ipa_buf *run(const struct step *s, size_t n)
+{
+	return run_req(write_req, s, n);
 }
 
 static const uint8_t pending5[] = { 0x61, 0x05 };
@@ -122,6 +132,30 @@ int main(void)
 		big[256] = 0x03;
 		res = run(s, 3);
 		expect("chain", res && res->len == 258 && step_nr == 3, "normal 61xx chain broken");
+		if (res)
+			IPA_FREE(res);
+	}
+
+	/* A read-only function whose response is lost (6F00 on GET RESPONSE) is sent again, once. */
+	{
+		static const uint8_t err[] = { 0x6F, 0x00 };
+		const struct step s[] = { { pending5, 2 }, { err, 2 }, { pending5, 2 }, { data5, 7 } };
+		res = run_req(read_req, s, 4);
+		expect("reissue", res && res->len == 5 && !memcmp(res->data, data5, 5),
+		       "read-only function not repeated after a lost response");
+		expect("reissue", step_nr == 4 && req_lens[0] == req_lens[2] && !memcmp(reqs[0], reqs[2], req_lens[0]),
+		       "the repeat is not the same command");
+		if (res)
+			IPA_FREE(res);
+	}
+
+	/* A second loss fails the function; it is not sent a third time. */
+	{
+		static const uint8_t err[] = { 0x6D, 0x00 };
+		const struct step s[] = { { pending5, 2 }, { err, 2 }, { pending5, 2 }, { err, 2 }, { pending5, 2 },
+					  { data5, 7 } };
+		res = run_req(read_req, s, 6);
+		expect("reissue-once", res == NULL && step_nr == 4, "more than one repeat");
 		if (res)
 			IPA_FREE(res);
 	}
