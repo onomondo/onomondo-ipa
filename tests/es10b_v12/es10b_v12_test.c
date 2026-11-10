@@ -5,8 +5,8 @@
  *
  * Checks the wire format of the SGP.32 v1.2 ES10b functions that were added to libipa
  * (fallback mechanism, emergency profile, connectivity parameters, immediate profile
- * enabling configuration, IPAe activation) and the pure decision logic of the emulated
- * fallback attribute PSMOs.
+ * enabling configuration, IPAe activation), the Profile Metadata members of ProfileInfo and the
+ * pure decision logic of the emulated fallback attribute PSMOs.
  */
 
 #include <stdio.h>
@@ -28,6 +28,7 @@
 #include <IpaeActivationResponse.h>
 #include <SetDefaultDpAddressRequest.h>
 #include <SetFallbackAttributeResult.h>
+#include <ProfileInfo.h>
 #include <onomondo/ipa/utils.h>
 #include <src/ipa/libipa/es10b_load_euicc_pkg.h>
 
@@ -282,6 +283,30 @@ static void fallback_attr_set_check_test(void)
 	assert(iot_emu_fallback_attr_set_check(true, false, false, false) == SetFallbackAttributeResult_ok);
 }
 
+/* ProfileInfo as a card returns it, with the three members SGP.32 v1.2 section 4.4 adds. An encoding of
+ * the decoded entry leaves out fallbackAttribute, which has its DEFAULT value. */
+static void profile_info_v12_members_decode_test(void)
+{
+	const uint8_t entry[] = {
+		0xE3, 0x45, 0x5A, 0x0A, 0x98, 0x54, 0x37, 0x00, 0x00, 0x00, 0x54, 0x06, 0x20, 0x69, 0x4F, 0x10, 0xA0, 0x00,
+		0x00, 0x05, 0x59, 0x10, 0x10, 0xFF, 0xFF, 0xFF, 0xFF, 0x89, 0x00, 0x00, 0x11, 0x00, 0x9F, 0x70, 0x01, 0x01,
+		0x91, 0x08, 0x4F, 0x6E, 0x6F, 0x6D, 0x6F, 0x6E, 0x64, 0x6F, 0x92, 0x08, 0x4F, 0x6E, 0x6F, 0x6D, 0x6F, 0x6E,
+		0x64, 0x6F, 0x95, 0x01, 0x02, 0x9F, 0x7B, 0x01, 0x00, 0x9F, 0x26, 0x01, 0x00, 0x9F, 0x67, 0x01, 0x00
+	};
+	struct ProfileInfo *info = NULL;
+	asn_dec_rval_t rval;
+
+	rval = ber_decode(0, &asn_DEF_ProfileInfo, (void **)&info, entry, sizeof(entry));
+	assert(rval.code == RC_OK);
+	assert(info->ecallIndication && *info->ecallIndication == 0);
+	assert(info->fallbackAttribute == 0);
+	assert(info->fallbackAllowed && *info->fallbackAllowed == 0);
+	enc_assert(&asn_DEF_ProfileInfo, info,
+		   "E3415A0A985437000000540620694F10A0000005591010FFFFFFFF89000011009F70010191084F6E6F6D6F6E646F"
+		   "92084F6E6F6D6F6E646F9501029F7B01009F670100");
+	ASN_STRUCT_FREE(asn_DEF_ProfileInfo, info);
+}
+
 int main(int argc, char **argv)
 {
 	(void)argc;
@@ -301,6 +326,7 @@ int main(int argc, char **argv)
 	ipae_activation_response_decode_test();
 	set_default_dp_addr_request_test();
 	fallback_attr_set_check_test();
+	profile_info_v12_members_decode_test();
 
 	printf("all v1.2 ES10b wire format checks passed\n");
 	return 0;

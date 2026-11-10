@@ -20,6 +20,7 @@
 #include <OCTET_STRING.h>
 #include "ProfileClass.h"
 #include "PprIds.h"
+#include <BOOLEAN.h>
 #include <asn_SEQUENCE_OF.h>
 #include <constr_SEQUENCE_OF.h>
 #include <constr_SEQUENCE.h>
@@ -55,6 +56,9 @@ typedef struct ProfileInfo {
 	struct DpProprietaryData	*dpProprietaryData	/* OPTIONAL */;
 	PprIds_t	*profilePolicyRules	/* OPTIONAL */;
 	struct VendorSpecificExtension	*serviceSpecificDataStoredInEuicc	/* OPTIONAL */;
+	BOOLEAN_t	*ecallIndication	/* OPTIONAL */;
+	BOOLEAN_t	 fallbackAttribute	/* DEFAULT FALSE */;
+	BOOLEAN_t	*fallbackAllowed	/* OPTIONAL */;
 	/*
 	 * This type is extensible,
 	 * possible extensions are below.
@@ -67,7 +71,7 @@ typedef struct ProfileInfo {
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_ProfileInfo;
 extern asn_SEQUENCE_specifics_t asn_SPC_ProfileInfo_specs_1;
-extern asn_TYPE_member_t asn_MBR_ProfileInfo_1[14];
+extern asn_TYPE_member_t asn_MBR_ProfileInfo_1[17];
 
 #ifdef __cplusplus
 }

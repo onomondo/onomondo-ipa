@@ -163,7 +163,11 @@ ProfileInfo ::= [PRIVATE 3] SEQUENCE { -- Tag 'E3'
    profileOwner [23] OperatorId OPTIONAL, -- Tag 'B7'
    dpProprietaryData [24] DpProprietaryData OPTIONAL, -- Tag 'B8'
    profilePolicyRules [25] PprIds OPTIONAL, -- Tag '99'
-   serviceSpecificDataStoredInEuicc [34] VendorSpecificExtension OPTIONAL -- Tag 'BF22'
+   serviceSpecificDataStoredInEuicc [34] VendorSpecificExtension OPTIONAL, -- Tag 'BF22'
+   -- The following three are added by SGP.32 v1.2, section 4.4
+   ecallIndication [123] BOOLEAN OPTIONAL, -- Tag '9F7B'
+   fallbackAttribute [38] BOOLEAN DEFAULT FALSE, -- Tag '9F26', indicates a Fallback Profile if set to TRUE
+   fallbackAllowed [103] BOOLEAN OPTIONAL -- Tag '9F67', indicates if Fallback is authorized by the Profile Owner
 }
 
 PprIds ::= BIT STRING {-- Definition of Profile Policy Rules identifiers
@@ -193,7 +197,10 @@ StoreMetadataRequest ::= [37] SEQUENCE { -- Tag 'BF25'
    profileOwner [23] OperatorId OPTIONAL, -- Tag 'B7'
    profilePolicyRules [25] PprIds OPTIONAL, -- Tag '99'
    serviceSpecificDataStoredInEuicc [34] VendorSpecificExtension OPTIONAL, -- Tag 'BF22'
-   serviceSpecificDataNotStoredInEuicc [35] VendorSpecificExtension OPTIONAL -- Tag 'BF23'
+   serviceSpecificDataNotStoredInEuicc [35] VendorSpecificExtension OPTIONAL, -- Tag 'BF23'
+   -- The following two are added by SGP.32 v1.2, section 5.5
+   ecallIndication [123] BOOLEAN OPTIONAL, -- Tag '9F7B'
+   fallbackAllowed [103] BOOLEAN OPTIONAL -- Tag '9F67'
 }
 
 NotificationEvent ::= BIT STRING {

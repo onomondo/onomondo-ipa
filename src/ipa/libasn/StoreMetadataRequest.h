@@ -18,6 +18,7 @@
 #include <OCTET_STRING.h>
 #include "ProfileClass.h"
 #include "PprIds.h"
+#include <BOOLEAN.h>
 #include <asn_SEQUENCE_OF.h>
 #include <constr_SEQUENCE_OF.h>
 #include <constr_SEQUENCE.h>
@@ -49,6 +50,8 @@ typedef struct StoreMetadataRequest {
 	PprIds_t	*profilePolicyRules	/* OPTIONAL */;
 	struct VendorSpecificExtension	*serviceSpecificDataStoredInEuicc	/* OPTIONAL */;
 	struct VendorSpecificExtension	*serviceSpecificDataNotStoredInEuicc	/* OPTIONAL */;
+	BOOLEAN_t	*ecallIndication	/* OPTIONAL */;
+	BOOLEAN_t	*fallbackAllowed	/* OPTIONAL */;
 	/*
 	 * This type is extensible,
 	 * possible extensions are below.
@@ -61,7 +64,7 @@ typedef struct StoreMetadataRequest {
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_StoreMetadataRequest;
 extern asn_SEQUENCE_specifics_t asn_SPC_StoreMetadataRequest_specs_1;
-extern asn_TYPE_member_t asn_MBR_StoreMetadataRequest_1[11];
+extern asn_TYPE_member_t asn_MBR_StoreMetadataRequest_1[13];
 
 #ifdef __cplusplus
 }
