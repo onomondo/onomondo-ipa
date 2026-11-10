@@ -47,8 +47,11 @@ static int dec_enable_using_dd_res(const struct ipa_buf *es10b_res)
 	rc = asn->immediateEnableResult;
 
 	if (rc == ImmediateEnableResponse__immediateEnableResult_ok) {
-		IPA_LOGP_ES10X("ImmediateEnable", LERROR, "function succeeded with status code %d=%s!\n",
+		IPA_LOGP_ES10X("ImmediateEnable", LINFO, "function succeeded with status code %d=%s!\n",
 			       rc, ipa_str_from_num(error_code_strings, rc, "(unknown)"));
+	} else if (rc == ImmediateEnableResponse__immediateEnableResult_immediateEnableNotAvailable) {
+		/* The normal answer of an eUICC without an immediate enable configuration. */
+		IPA_LOGP_ES10X("ImmediateEnable", LINFO, "immediate enable not available\n");
 	} else {
 		IPA_LOGP_ES10X("ImmediateEnable", LERROR, "function failed with error code %d=%s!\n",
 			       rc, ipa_str_from_num(error_code_strings, rc, "(unknown)"));

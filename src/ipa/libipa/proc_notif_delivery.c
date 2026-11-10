@@ -94,7 +94,7 @@ int ipa_notif_delivery(struct ipa_context *ctx)
 	retr_notif_from_lst_res = NULL;
 
 	for (i = 0; i < seq_number_count; i++) {
-		IPA_LOGP(SIPA, LERROR, "Delivery of notification No.%u (seqNumber %ld):\n", i, seq_numbers[i]);
+		IPA_LOGP(SIPA, LINFO, "Delivery of notification No.%u (seqNumber %ld):\n", i, seq_numbers[i]);
 
 		retr_notif_from_lst_req.search_criteria.present =
 		    SGP32_RetrieveNotificationsListRequest__searchCriteria_PR_seqNumber;
