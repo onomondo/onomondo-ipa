@@ -17,6 +17,10 @@ struct ipa_es10b_load_euicc_pkg_req {
 struct ipa_es10b_load_euicc_pkg_res {
 	struct EuiccPackageResult *res;
 
+	/*! the EuiccPackageResult as the eUICC returned it (NULL with the IoT eUICC emulation). The eUICC signed
+	 *  these bytes, so they are what the eIM has to receive. */
+	struct ipa_buf *raw;
+
 	/*! set to true in case the EuiccPackageRequest contains an enable PSMO that executed successfully, which
 	 *  means that a profile change actually took place. */
 	bool profile_changed;

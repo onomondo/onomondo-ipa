@@ -54,6 +54,29 @@ static int dec_prfle_rollback_res(struct ipa_es10b_prfle_rollback_res *res, cons
 	return 0;
 }
 
+/* Copy the eUICCPackageResult ('BF51') out of the response, byte for byte: the eUICC signed it. */
+static struct ipa_buf *epr_raw(const struct ipa_buf *es10b_res)
+{
+	const uint8_t *data = es10b_res->data;
+	size_t hdr_len, val_len, len;
+	uint16_t tag;
+
+	hdr_len = ipa_tlv_hdr(data, es10b_res->len, &tag, &val_len);
+	if (!hdr_len)
+		return NULL;
+	data += hdr_len;
+	len = val_len;
+
+	while ((hdr_len = ipa_tlv_hdr(data, len, &tag, &val_len))) {
+		if (tag == 0xBF51)
+			return ipa_buf_alloc_data(hdr_len + val_len, (uint8_t *)data);
+		data += hdr_len + val_len;
+		len -= hdr_len + val_len;
+	}
+
+	return NULL;
+}
+
 static struct ipa_es10b_prfle_rollback_res *prfle_rollback(struct ipa_context *ctx, bool refresh_flag)
 {
 	struct ipa_buf *es10b_req = NULL;
@@ -78,6 +101,7 @@ static struct ipa_es10b_prfle_rollback_res *prfle_rollback(struct ipa_context *c
 	rc = dec_prfle_rollback_res(res, es10b_res);
 	if (rc < 0)
 		goto error;
+	res->epr_raw = epr_raw(es10b_res);
 
 	IPA_FREE(es10b_req);
 	IPA_FREE(es10b_res);
@@ -182,5 +206,7 @@ struct ipa_es10b_prfle_rollback_res *ipa_es10b_prfle_rollback(struct ipa_context
  *  \param[in] res pointer to function result. */
 void ipa_es10b_prfle_rollback_res_free(struct ipa_es10b_prfle_rollback_res *res)
 {
+	if (res)
+		IPA_FREE(res->epr_raw);
 	IPA_ES10X_RES_FREE(asn_DEF_ProfileRollbackResponse, res);
 }

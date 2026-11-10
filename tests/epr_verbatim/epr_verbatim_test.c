@@ -1,0 +1,199 @@
+/*
+ * Copyright (c) 2026 Onomondo ApS. All rights reserved.
+ *
+ * SPDX-License-Identifier: AGPL-3.0-only
+ *
+ * The eUICC signs its EuiccPackageResult (SGP.32 v1.2 section 2.11.2.1), so the eIM has to receive the
+ * bytes the eUICC returned. The response used here was captured from a card whose ProfileInfo entries
+ * carry fields a decode and encode does not reproduce. The test provides ipa_scard_transceive and
+ * ipa_http_req itself: it plays the card and sees the bytes libipa sends to the eIM.
+ */
+
+#include <stdio.h>
+#include <string.h>
+#include <assert.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <onomondo/ipa/ipad.h>
+#include <onomondo/ipa/http.h>
+#include <onomondo/ipa/scard.h>
+#include <onomondo/ipa/utils.h>
+#include <EsipaMessageFromIpaToEim.h>
+#include <SGP32-RetrieveNotificationsListResponse.h>
+#include "context.h"
+#include "es10b_load_euicc_pkg.h"
+#include "es10b_prfle_rollback.h"
+#include "esipa_prvde_eim_pkg_rslt.h"
+
+/* LoadEuiccPackage response of a listProfileInfo PSMO, three profiles */
+static const uint8_t raw[] = {
+	0xBF, 0x51, 0x82, 0x01, 0x5A, 0xA0, 0x82, 0x01, 0x56, 0x30, 0x82, 0x01, 0x0F, 0x80, 0x16, 0x65,
+	0x73, 0x69, 0x6D, 0x2D, 0x69, 0x6F, 0x74, 0x2D, 0x73, 0x74, 0x61, 0x67, 0x69, 0x6E, 0x67, 0x2D,
+	0x65, 0x69, 0x6D, 0x2D, 0x30, 0x81, 0x01, 0x06, 0x82, 0x10, 0xEF, 0xC5, 0x40, 0x11, 0x8A, 0x1D,
+	0x19, 0x90, 0xFA, 0xF6, 0x18, 0x24, 0x84, 0xAC, 0xA2, 0x0D, 0x83, 0x01, 0x35, 0x30, 0x81, 0xDC,
+	0xBF, 0x2D, 0x81, 0xD8, 0xA0, 0x81, 0xD5, 0xE3, 0x45, 0x5A, 0x0A, 0x98, 0x54, 0x37, 0x00, 0x00,
+	0x00, 0x54, 0x06, 0x20, 0x69, 0x4F, 0x10, 0xA0, 0x00, 0x00, 0x05, 0x59, 0x10, 0x10, 0xFF, 0xFF,
+	0xFF, 0xFF, 0x89, 0x00, 0x00, 0x11, 0x00, 0x9F, 0x70, 0x01, 0x01, 0x91, 0x08, 0x4F, 0x6E, 0x6F,
+	0x6D, 0x6F, 0x6E, 0x64, 0x6F, 0x92, 0x08, 0x4F, 0x6E, 0x6F, 0x6D, 0x6F, 0x6E, 0x64, 0x6F, 0x95,
+	0x01, 0x02, 0x9F, 0x7B, 0x01, 0x00, 0x9F, 0x26, 0x01, 0x00, 0x9F, 0x67, 0x01, 0x00, 0xE3, 0x45,
+	0x5A, 0x0A, 0x98, 0x54, 0x37, 0x00, 0x00, 0x00, 0x54, 0x95, 0x23, 0x77, 0x4F, 0x10, 0xA0, 0x00,
+	0x00, 0x05, 0x59, 0x10, 0x10, 0xFF, 0xFF, 0xFF, 0xFF, 0x89, 0x00, 0x00, 0x12, 0x00, 0x9F, 0x70,
+	0x01, 0x00, 0x91, 0x08, 0x4F, 0x6E, 0x6F, 0x6D, 0x6F, 0x6E, 0x64, 0x6F, 0x92, 0x08, 0x4F, 0x6E,
+	0x6F, 0x6D, 0x6F, 0x6E, 0x64, 0x6F, 0x95, 0x01, 0x02, 0x9F, 0x7B, 0x01, 0x00, 0x9F, 0x26, 0x01,
+	0x00, 0x9F, 0x67, 0x01, 0x00, 0xE3, 0x45, 0x5A, 0x0A, 0x98, 0x54, 0x37, 0x00, 0x00, 0x00, 0x24,
+	0x74, 0x34, 0x51, 0x4F, 0x10, 0xA0, 0x00, 0x00, 0x05, 0x59, 0x10, 0x10, 0xFF, 0xFF, 0xFF, 0xFF,
+	0x89, 0x00, 0x00, 0x13, 0x00, 0x9F, 0x70, 0x01, 0x00, 0x91, 0x08, 0x4F, 0x6E, 0x6F, 0x6D, 0x6F,
+	0x6E, 0x64, 0x6F, 0x92, 0x08, 0x4F, 0x6E, 0x6F, 0x6D, 0x6F, 0x6E, 0x64, 0x6F, 0x95, 0x01, 0x02,
+	0x9F, 0x7B, 0x01, 0x00, 0x9F, 0x26, 0x01, 0x00, 0x9F, 0x67, 0x01, 0x00, 0x5F, 0x37, 0x40, 0x7A,
+	0x47, 0xDC, 0x55, 0x75, 0xBE, 0xA0, 0xDC, 0x05, 0xFF, 0xC6, 0xFB, 0x71, 0x7B, 0xC8, 0x47, 0xD3,
+	0x23, 0x03, 0x23, 0x7E, 0xE6, 0x49, 0x07, 0x78, 0x4C, 0x0C, 0x0B, 0xB0, 0x8B, 0x86, 0x35, 0x64,
+	0x7D, 0x30, 0x92, 0xEE, 0x06, 0xB7, 0x56, 0x0F, 0x02, 0x52, 0xE0, 0xB3, 0x7B, 0xA9, 0x6A, 0x37,
+	0x3B, 0xF0, 0x4A, 0xF2, 0xAB, 0x09, 0xE8, 0xE9, 0xB3, 0x98, 0x7B, 0xA8, 0x7E, 0xF9, 0xE0,
+};
+
+static const uint8_t eid[IPA_LEN_EID] = {
+	0x89, 0x04, 0x10, 0x30, 0x08, 0x11, 0x06, 0x20, 0x25, 0x26, 0x20, 0x00, 0x00, 0x02, 0x88, 0x09
+};
+
+/* Stand-in for the card: the command is answered 61xx, the response follows in GET RESPONSE blocks. */
+static const uint8_t *card_res;
+static size_t card_res_len, card_pos;
+
+int ipa_scard_transceive(void *scard_ctx, struct ipa_buf *res, const struct ipa_buf *req)
+{
+	size_t n = 0, left;
+	uint8_t sw[2] = { 0x90, 0x00 };
+
+	(void)scard_ctx;
+	if (req->data[1] == 0xC0) {
+		n = card_res_len - card_pos < 255 ? card_res_len - card_pos : 255;
+		ipa_buf_cpy(res, card_res + card_pos, n);
+		card_pos += n;
+	} else {
+		card_pos = 0;
+	}
+	left = card_res_len - card_pos;
+	if (left) {
+		sw[0] = 0x61;
+		sw[1] = left < 255 ? left : 255;
+	}
+	ipa_buf_cpy(res, sw, 2);
+	return 0;
+}
+
+/* Stand-in for the HTTP layer: keep the request, answer nothing. */
+static struct ipa_buf *sent;
+
+struct ipa_buf *ipa_http_req(void *http_ctx, const struct ipa_buf *req, const char *url)
+{
+	(void)http_ctx;
+	(void)url;
+	IPA_FREE(sent);
+	sent = ipa_buf_alloc_and_cpy(req->data, req->len);
+	return NULL;
+}
+
+void ipa_http_close(void *http_ctx)
+{
+	(void)http_ctx;
+}
+
+static struct ipa_config cfg;
+static struct ipa_context ctx;
+
+/* Send the result to the eIM and check the message: hdr, then the card's bytes, then tail. */
+static void provide(const struct ipa_es10b_load_euicc_pkg_res *load_res,
+		    struct SGP32_RetrieveNotificationsListResponse *notifications, const uint8_t *hdr, size_t hdr_len,
+		    const uint8_t *tail, size_t tail_len, enum EimPackageResult_PR expected)
+{
+	struct ipa_esipa_prvde_eim_pkg_rslt_req req = { 0 };
+	struct EsipaMessageFromIpaToEim *msg = NULL;
+	asn_dec_rval_t rc;
+
+	req.euicc_package_result = load_res->res;
+	req.euicc_package_result_raw = load_res->raw;
+	req.sgp32_notification_list = notifications;
+
+	/* the stand-in HTTP layer answers nothing, so the function itself fails */
+	assert(ipa_esipa_prvde_eim_pkg_rslt(&ctx, &req) == NULL);
+	assert(sent);
+	assert(sent->len == hdr_len + sizeof(raw) + tail_len);
+	assert(memcmp(sent->data, hdr, hdr_len) == 0);
+	assert(memcmp(sent->data + hdr_len, raw, sizeof(raw)) == 0);
+	assert(tail_len == 0 || memcmp(sent->data + hdr_len + sizeof(raw), tail, tail_len) == 0);
+
+	/* the envelope is a ProvideEimPackageResult the eIM can decode */
+	rc = ber_decode(NULL, &asn_DEF_EsipaMessageFromIpaToEim, (void **)&msg, sent->data, sent->len);
+	assert(rc.code == RC_OK);
+	assert(rc.consumed == sent->len);
+	assert(msg->present == EsipaMessageFromIpaToEim_PR_provideEimPackageResult);
+	assert(msg->choice.provideEimPackageResult.eimPackageResult.present == expected);
+	ASN_STRUCT_FREE(asn_DEF_EsipaMessageFromIpaToEim, msg);
+}
+
+static void forwards_card_bytes(void)
+{
+	/* 'BF50' { '5A' eid, '30' { ..., 'A0' {} } } and 'BF50' { '5A' eid, ... } */
+	static const uint8_t hdr_notif[] = { 0xBF, 0x50, 0x82, 0x01, 0x77, 0x5A, 0x10, 0x89, 0x04, 0x10, 0x30, 0x08, 0x11,
+					     0x06, 0x20, 0x25, 0x26, 0x20, 0x00, 0x00, 0x02, 0x88, 0x09, 0x30, 0x82, 0x01,
+					     0x61 };
+	static const uint8_t tail_notif[] = { 0xA0, 0x00 };
+	static const uint8_t hdr_plain[] = { 0xBF, 0x50, 0x82, 0x01, 0x71, 0x5A, 0x10, 0x89, 0x04, 0x10, 0x30, 0x08,
+					     0x11, 0x06, 0x20, 0x25, 0x26, 0x20, 0x00, 0x00, 0x02, 0x88, 0x09 };
+	struct ipa_es10b_load_euicc_pkg_req req = { 0 };
+	struct SGP32_RetrieveNotificationsListResponse no_notifications = { 0 };
+	struct ipa_es10b_load_euicc_pkg_res *res;
+
+	/* an EuiccPackageRequest without PSMOs; the stand-in card does not read it */
+	req.req.euiccPackageSigned.eimId.buf = (uint8_t *)"eim";
+	req.req.euiccPackageSigned.eimId.size = 3;
+	req.req.euiccPackageSigned.eidValue.buf = (uint8_t *)eid;
+	req.req.euiccPackageSigned.eidValue.size = sizeof(eid);
+	req.req.euiccPackageSigned.euiccPackage.present = EuiccPackage_PR_psmoList;
+	req.req.eimSignature.buf = (uint8_t *)eid;
+	req.req.eimSignature.size = sizeof(eid);
+	card_res = raw;
+	card_res_len = sizeof(raw);
+	res = ipa_es10b_load_euicc_pkg(&ctx, &req);
+	assert(res && res->res);
+	assert(res->raw && res->raw->len == sizeof(raw));
+	assert(memcmp(res->raw->data, raw, sizeof(raw)) == 0);
+
+	provide(res, &no_notifications, hdr_notif, sizeof(hdr_notif), tail_notif, sizeof(tail_notif),
+		EimPackageResult_PR_ePRAndNotifications);
+	provide(res, NULL, hdr_plain, sizeof(hdr_plain), NULL, 0, EimPackageResult_PR_euiccPackageResult);
+
+	ipa_es10b_load_euicc_pkg_res_free(res);
+	printf("%s: ok\n", __func__);
+}
+
+/* ProfileRollbackResponse: 'BF58' { cmdResult ok, eUICCPackageResult } */
+static void keeps_rollback_result_bytes(void)
+{
+	static uint8_t rollback[8 + sizeof(raw)] = { 0xBF, 0x58, 0x82, 0x01, 0x62, 0x02, 0x01, 0x00 };
+	struct ipa_es10b_prfle_rollback_res *res;
+
+	memcpy(rollback + 8, raw, sizeof(raw));
+	card_res = rollback;
+	card_res_len = sizeof(rollback);
+	res = ipa_es10b_prfle_rollback(&ctx, false);
+	assert(res && res->res && res->res->eUICCPackageResult);
+	assert(res->epr_raw && res->epr_raw->len == sizeof(raw));
+	assert(memcmp(res->epr_raw->data, raw, sizeof(raw)) == 0);
+
+	ipa_es10b_prfle_rollback_res_free(res);
+	printf("%s: ok\n", __func__);
+}
+
+int main(void)
+{
+	cfg.eim_disable_ssl = true;
+	ctx.cfg = &cfg;
+	ctx.eim_fqdn = "eim.example.com";
+	memcpy(ctx.eid, eid, sizeof(eid));
+
+	forwards_card_bytes();
+	keeps_rollback_result_bytes();
+	IPA_FREE(sent);
+	return 0;
+}

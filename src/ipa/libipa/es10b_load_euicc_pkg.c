@@ -78,6 +78,7 @@ struct ipa_es10b_load_euicc_pkg_res *load_euicc_pkg(struct ipa_context *ctx,
 	struct ipa_buf *es10b_req = NULL;
 	struct ipa_buf *es10b_res = NULL;
 	struct ipa_es10b_load_euicc_pkg_res *res = IPA_ALLOC_ZERO(struct ipa_es10b_load_euicc_pkg_res);
+	size_t hdr_len, val_len;
 	int rc;
 
 	es10b_req = ipa_es10x_req_enc(&asn_DEF_EuiccPackageRequest, &req->req, "LoadEuiccPackage");
@@ -95,6 +96,14 @@ struct ipa_es10b_load_euicc_pkg_res *load_euicc_pkg(struct ipa_context *ctx,
 	rc = dec_load_euicc_pkg_res(res, es10b_res);
 	if (rc < 0)
 		goto error;
+
+	/* Keep the response (cut to its TLV) next to the decoded result. */
+	hdr_len = ipa_tlv_hdr(es10b_res->data, es10b_res->len, NULL, &val_len);
+	if (hdr_len) {
+		es10b_res->len = hdr_len + val_len;
+		res->raw = es10b_res;
+		es10b_res = NULL;
+	}
 
 	IPA_FREE(es10b_req);
 	IPA_FREE(es10b_res);
@@ -882,5 +891,7 @@ struct ipa_es10b_load_euicc_pkg_res *ipa_es10b_load_euicc_pkg(struct ipa_context
  *  \param[in] res pointer to function result. */
 void ipa_es10b_load_euicc_pkg_res_free(struct ipa_es10b_load_euicc_pkg_res *res)
 {
+	if (res)
+		IPA_FREE(res->raw);
 	IPA_ES10X_RES_FREE(asn_DEF_EuiccPackageResult, res);
 }

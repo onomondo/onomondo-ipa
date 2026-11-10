@@ -45,6 +45,59 @@ static void set_notification_list(struct PendingNotificationList *notification_l
 	}
 }
 
+/* Append a DER tag (one or two bytes) and length. */
+static void put_tl(struct ipa_buf *buf, uint16_t tag, size_t len)
+{
+	if (tag > 0xff)
+		buf->data[buf->len++] = tag >> 8;
+	buf->data[buf->len++] = tag & 0xff;
+	buf->len += der_tlv_length_serialize(len, buf->data + buf->len, buf->data_len - buf->len);
+}
+
+/* ProvideEimPackageResult around the EuiccPackageResult as the eUICC returned it. The eUICC signed those
+ * bytes (SGP.32, section 2.11.2.1); an encoding of the decoded result differs from them as soon as the
+ * eUICC sends a field this library does not know or encodes a default value. So only the envelope is
+ * built here: 'BF50' { '5A' eid, 'BF51' } or 'BF50' { '5A' eid, '30' { 'BF51', 'A0' notificationList } }. */
+static struct ipa_buf *enc_prvde_euicc_pkg_rslt_raw(struct ipa_context *ctx,
+						    const struct ipa_esipa_prvde_eim_pkg_rslt_req *req)
+{
+	const struct ipa_buf *epr = req->euicc_package_result_raw;
+	struct PendingNotificationList notification_list = { 0 };
+	struct ipa_buf *notif = NULL;
+	struct ipa_buf *enc;
+	size_t body_len = epr->len;
+	size_t seq_hdr_len = 0;
+
+	if (req->sgp32_notification_list) {
+		set_notification_list(&notification_list, req->sgp32_notification_list);
+		if (ipa_asn1c_der_encode(&asn_DEF_PendingNotificationList, &notification_list, &notif) != 0) {
+			IPA_LOGP_ESIPA("ProvideEimPackageResult", LERROR, "cannot encode eIM request!\n");
+			IPA_FREE(notif);
+			return NULL;
+		}
+		notif->data[0] = 0xA0;	/* notificationList [0] replaces the SEQUENCE OF tag */
+		body_len += notif->len;
+		seq_hdr_len = 1 + der_tlv_length_serialize(body_len, NULL, 0);
+	}
+
+	/* Two headers of at most 2 tag and 5 length bytes, and the EID with its header. */
+	enc = ipa_buf_alloc(2 * 7 + 2 + IPA_LEN_EID + body_len);
+	put_tl(enc, 0xBF50, 2 + IPA_LEN_EID + seq_hdr_len + body_len);
+	put_tl(enc, 0x5A, IPA_LEN_EID);
+	ipa_buf_cpy(enc, ctx->eid, IPA_LEN_EID);
+	if (notif)
+		put_tl(enc, 0x30, body_len);
+	ipa_buf_cpy(enc, epr->data, epr->len);
+	if (notif)
+		ipa_buf_cpy(enc, notif->data, notif->len);
+	IPA_FREE(notif);
+
+	IPA_LOGP_ESIPA("ProvideEimPackageResult", LDEBUG, "ESipa message that will be sent to eIM:\n");
+	ipa_buf_hexdump_multiline(enc, 64, 1, SESIPA, LDEBUG);
+
+	return enc;
+}
+
 static struct ipa_buf *enc_prvde_eim_pkg_rslt_req(struct ipa_context *ctx,
 						  const struct ipa_esipa_prvde_eim_pkg_rslt_req *req)
 {
@@ -53,6 +106,9 @@ static struct ipa_buf *enc_prvde_eim_pkg_rslt_req(struct ipa_context *ctx,
 	OCTET_STRING_t eid_value = { 0 };
 	struct PendingNotificationList notification_list = { 0 };
 	struct ipa_buf *enc;
+
+	if (req->eim_pkg_err == 0 && req->euicc_package_result_raw)
+		return enc_prvde_euicc_pkg_rslt_raw(ctx, req);
 
 	msg_to_eim.present = EsipaMessageFromIpaToEim_PR_provideEimPackageResult;
 

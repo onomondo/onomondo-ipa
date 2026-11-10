@@ -83,10 +83,13 @@ int ipa_proc_eucc_pkg_dwnld_exec_onset(struct ipa_context *ctx, struct ipa_proc_
 		goto error;
 
 	/* Step #10-#14 (ESipa.ProvideEimPackageResult) */
-	if (res->prfle_rollback_res && res->prfle_rollback_res->res->eUICCPackageResult)
+	if (res->prfle_rollback_res && res->prfle_rollback_res->res->eUICCPackageResult) {
 		prvde_eim_pkg_rslt_req.euicc_package_result = res->prfle_rollback_res->res->eUICCPackageResult;
-	else
+		prvde_eim_pkg_rslt_req.euicc_package_result_raw = res->prfle_rollback_res->epr_raw;
+	} else {
 		prvde_eim_pkg_rslt_req.euicc_package_result = res->load_euicc_pkg_res->res;
+		prvde_eim_pkg_rslt_req.euicc_package_result_raw = res->load_euicc_pkg_res->raw;
+	}
 	prvde_eim_pkg_rslt_req.sgp32_notification_list = retr_notif_from_lst_res->sgp32_res;
 	prvde_eim_pkg_rslt_res = ipa_esipa_prvde_eim_pkg_rslt(ctx, &prvde_eim_pkg_rslt_req);
 
