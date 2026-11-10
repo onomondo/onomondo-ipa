@@ -25,3 +25,15 @@ add_test(NAME bpp_segments_compare_stderr
     COMMAND ${CMAKE_COMMAND} -E compare_files
     ${PROJECT_SOURCE_DIR}/build/tests/bpp_segments/bpp_segments_test.err 
     ${CMAKE_CURRENT_SOURCE_DIR}/bpp_segments_test.err)
+
+# Truncated and corrupted packages: no golden output, the slicer source is built into the test without logging.
+add_executable(bpp_segments_robust_test bpp_segments_robust_test.c)
+set_property(TARGET bpp_segments_robust_test PROPERTY C_STANDARD 99)
+target_compile_options(bpp_segments_robust_test PRIVATE -Wall)
+target_link_libraries(bpp_segments_robust_test libipa)
+if (M32)
+  set_target_properties(bpp_segments_robust_test PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
+endif()
+
+add_test(NAME bpp_segments_robust_test
+    COMMAND sh -c "$<TARGET_FILE:bpp_segments_robust_test> ../../../tests/bpp_segments/bpp.ber")
