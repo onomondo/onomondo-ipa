@@ -76,6 +76,10 @@ struct ipa_config {
 	 *  logical channel (MANAGE CHANNEL, GlobalPlatform Card Specification) */
 	uint8_t euicc_channel;
 
+	/*! Send the last ES10x STORE DATA block as a Case 4 command (Le '00', SGP.22, section 5.7.2) so that the
+	 *  terminal fetches the response. For transports that take APDUs (a modem); leave off for a T=0 TPDU reader. */
+	bool es10x_case4;
+
 	/*! Enable IoT eUICC emulation.
 	 *  This IPAd also supports the use of consumer eUICCs, which have a slightly different interface. When the
 	 *  IoT eUICC emulation is enabled, the IPAd will adapt the interface on ES10x function level so that the

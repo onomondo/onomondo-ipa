@@ -54,7 +54,7 @@ struct req_apdu {
 
 struct res_apdu {
 	uint16_t le;
-	uint8_t data[255];
+	uint8_t data[MAX_BLOCKSIZE_RX];
 	uint16_t sw;
 };
 
@@ -62,7 +62,7 @@ struct res_apdu {
  * bytes to send. */
 static struct ipa_buf *format_req_apdu(const struct req_apdu *req_apdu)
 {
-	struct ipa_buf *buf_req = ipa_buf_alloc(5 + req_apdu->lc);
+	struct ipa_buf *buf_req = ipa_buf_alloc(6 + req_apdu->lc);
 	assert(buf_req);
 
 	buf_req->data[0] = req_apdu->cla;
@@ -88,10 +88,12 @@ static struct ipa_buf *format_req_apdu(const struct req_apdu *req_apdu)
 		buf_req->data[4] = 0;
 		buf_req->len = 5;
 	} else {
-		/* The T=0 protocol does not support receiving and sending data
-		 * at the same time. The caller must ensure that the APDU
-		 * struct is filled in with reasonable values! */
-		assert(NULL);
+		/* Case 4: send data and expect response data. A T=0 TPDU reader cannot send this, so the caller
+		 * sets le only for a transport that takes APDUs (a modem). */
+		buf_req->data[4] = req_apdu->lc;
+		memcpy(buf_req->data + 5, req_apdu->data, req_apdu->lc);
+		buf_req->data[5 + req_apdu->lc] = req_apdu->le < 256 ? req_apdu->le : 0;
+		buf_req->len = 6 + req_apdu->lc;
 	}
 
 	return buf_req;
@@ -117,7 +119,29 @@ static int parse_res_apdu(struct res_apdu *res_apdu, const struct ipa_buf *res_e
 	return 0;
 }
 
-static int send_es10x_block(struct ipa_context *ctx, uint16_t *sw,
+/* Append the data of a response APDU to the ES10x response, growing the buffer when needed. */
+static struct ipa_buf *append_es10x_res(struct ipa_buf *es10x_res_ptr, const struct res_apdu *res_apdu)
+{
+	size_t realloc_size;
+
+	if (es10x_res_ptr->len + res_apdu->le > es10x_res_ptr->data_len) {
+		realloc_size = ((es10x_res_ptr->len + res_apdu->le) / IPA_LEN_EUICC_BUF + 1) * IPA_LEN_EUICC_BUF;
+
+		IPA_LOGP(SEUICC, LDEBUG,
+			 "eUICC response buffer exhausted, reallocating more memory (have: %zu bytes, required: %zu bytes, will allocate: %zu bytes)\n",
+			 es10x_res_ptr->data_len, es10x_res_ptr->len + res_apdu->le, realloc_size);
+
+		/* Reallocate the buffer with enough space for one additional block of size MAX_BLOCKSIZE_RX */
+		es10x_res_ptr = ipa_buf_realloc(es10x_res_ptr, realloc_size);
+		assert(es10x_res_ptr);
+	}
+
+	memcpy(es10x_res_ptr->data + es10x_res_ptr->len, res_apdu->data, res_apdu->le);
+	es10x_res_ptr->len += res_apdu->le;
+	return es10x_res_ptr;
+}
+
+static int send_es10x_block(struct ipa_context *ctx, uint16_t *sw, struct ipa_buf **es10x_res,
 			    const struct ipa_buf *es10x_req, size_t offset, uint8_t block_nr)
 {
 	size_t len_req;
@@ -128,7 +152,7 @@ static int send_es10x_block(struct ipa_context *ctx, uint16_t *sw,
 	struct ipa_buf *buf_res = NULL;
 	uint8_t channel = ctx->channel;
 
-	buf_res = ipa_buf_alloc(MAX_BLOCKSIZE_TX + 2);
+	buf_res = ipa_buf_alloc(MAX_BLOCKSIZE_RX + 2);
 	assert(buf_res);
 
 	len_req = es10x_req->len - offset;
@@ -147,6 +171,9 @@ static int send_es10x_block(struct ipa_context *ctx, uint16_t *sw,
 	else
 		req_apdu.lc = (uint8_t) len_req;
 	memcpy(req_apdu.data, es10x_req->data + offset, req_apdu.lc);
+	/* Le '00' (SGP.22, section 5.7.2, Table 47): the terminal fetches the response of the last block. */
+	if (req_apdu.p1 == STORE_DATA_P1_LAST_BLOCK && ctx->cfg->es10x_case4)
+		req_apdu.le = 256;
 
 	/* transceive block */
 	buf_req = format_req_apdu(&req_apdu);
@@ -165,6 +192,9 @@ static int send_es10x_block(struct ipa_context *ctx, uint16_t *sw,
 		goto exit;
 	}
 	*sw = res_apdu.sw;
+	/* The response data of a Case 4 command comes with the answer to STORE DATA. */
+	if (req_apdu.le && res_apdu.le)
+		*es10x_res = append_es10x_res(*es10x_res, &res_apdu);
 
 	IPA_LOGP(SEUICC, LINFO, "successfully sent ES10x block %u, offset=%zu, sw=%04x\n", block_nr, offset, *sw);
 
@@ -186,7 +216,6 @@ static int recv_es10x_block(struct ipa_context *ctx, uint16_t *sw,
 	struct ipa_buf *buf_res = NULL;
 	uint8_t channel = ctx->channel;
 	struct ipa_buf *es10x_res_ptr = *es10x_res;
-	size_t realloc_size;
 
 	/* We only support channel 0-3 */
 	assert(channel <= 3);
@@ -239,20 +268,7 @@ static int recv_es10x_block(struct ipa_context *ctx, uint16_t *sw,
 		rc = -EINVAL;
 		goto exit;
 	}
-	if (es10x_res_ptr->len + res_apdu.le > es10x_res_ptr->data_len) {
-		realloc_size = ((es10x_res_ptr->len + res_apdu.le) / IPA_LEN_EUICC_BUF + 1) * IPA_LEN_EUICC_BUF;
-
-		IPA_LOGP(SEUICC, LDEBUG,
-			 "eUICC response buffer exhausted, reallocating more memory (have: %zu bytes, required: %zu bytes, will allocate: %zu bytes)\n",
-			 es10x_res_ptr->data_len, es10x_res_ptr->len + res_apdu.le, realloc_size);
-
-		/* Reallocate the buffer with enough space for one additional block of size MAX_BLOCKSIZE_RX */
-		es10x_res_ptr = ipa_buf_realloc(es10x_res_ptr, realloc_size);
-		assert(es10x_res_ptr);
-	}
-
-	memcpy(es10x_res_ptr->data + es10x_res_ptr->len, res_apdu.data, res_apdu.le);
-	es10x_res_ptr->len += res_apdu.le;
+	es10x_res_ptr = append_es10x_res(es10x_res_ptr, &res_apdu);
 	*sw = res_apdu.sw;
 
 	if (res_apdu.le)
@@ -278,7 +294,7 @@ static int euicc_transceive_es10x(struct ipa_context *ctx, struct ipa_buf **es10
 	int rc;
 
 	while (1) {
-		rc = send_es10x_block(ctx, &sw, es10x_req, offset, block_nr);
+		rc = send_es10x_block(ctx, &sw, es10x_res, es10x_req, offset, block_nr);
 		if (rc < 0)
 			return -EIO;
 		offset += rc;
