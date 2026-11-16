@@ -48,13 +48,15 @@ static int remove_notifications(struct ipa_context *ctx, struct EimAcknowledgeme
 /*! Continue Generic eUICC Package Download and Execution Procedure.
  *  \param[inout] ctx pointer to ipa_context.
  *  \param[in] res pointer to intermediate result from ipa_proc_eucc_pkg_dwnld_exec.
- *  \returns 0 on success, negative on failure. */
+ *  \returns 0 on success, -EAGAIN when the eUICC was lost at Step #9 (result kept, call_onset set), negative on
+ *           failure. */
 int ipa_proc_eucc_pkg_dwnld_exec_onset(struct ipa_context *ctx, struct ipa_proc_eucc_pkg_dwnld_exec_res *res)
 {
 	struct ipa_es10b_retr_notif_from_lst_req retr_notif_from_lst_req = { 0 };
 	struct ipa_es10b_retr_notif_from_lst_res *retr_notif_from_lst_res = NULL;
 	struct ipa_esipa_prvde_eim_pkg_rslt_req prvde_eim_pkg_rslt_req = { 0 };
 	struct ipa_esipa_prvde_eim_pkg_rslt_res *prvde_eim_pkg_rslt_res = NULL;
+	bool prev_check_scard;
 	int rc;
 
 	/* This function should not be called without a result from ipa_proc_eucc_pkg_dwnld_exec. */
@@ -74,7 +76,19 @@ int ipa_proc_eucc_pkg_dwnld_exec_onset(struct ipa_context *ctx, struct ipa_proc_
 	retr_notif_from_lst_req.search_criteria.choice.seqNumber =
 	    res->load_euicc_pkg_res->res->choice.euiccPackageResultSigned.euiccPackageResultDataSigned.seqNumber;
 	retr_notif_from_lst_req.search_criteria.present = RetrieveNotificationsListRequest__searchCriteria_PR_seqNumber;
+	/* check_scard is cleared so that it tells whether this step lost the eUICC, then restored */
+	prev_check_scard = ctx->check_scard;
+	ctx->check_scard = false;
 	retr_notif_from_lst_res = ipa_es10b_retr_notif_from_lst(ctx, &retr_notif_from_lst_req);
+	if (!retr_notif_from_lst_res && ctx->check_scard && res->onset_retries++ < 3) {
+		/* The eUICC did not answer, so the eIM has seen nothing yet: keep the result and retry from
+		 * here at the next ipa_poll. The cap keeps a card that always fails here from blocking eIM
+		 * polling; after it, the result is still on the eUICC. */
+		IPA_LOGP(SIPA, LERROR, "eUICC unreachable, eUICC Package Result on hold until the next poll\n");
+		res->call_onset = true;
+		return -EAGAIN;
+	}
+	ctx->check_scard |= prev_check_scard;
 	if (!retr_notif_from_lst_res)
 		goto error;
 	else if (retr_notif_from_lst_res->notif_lst_result_err)
@@ -186,7 +200,7 @@ struct ipa_proc_eucc_pkg_dwnld_exec_res *ipa_proc_eucc_pkg_dwnld_exec(struct ipa
 	} else {
 		/* There were no changes to the currently selected profile, so we may continue normally. */
 		rc = ipa_proc_eucc_pkg_dwnld_exec_onset(ctx, res);
-		if (rc < 0)
+		if (rc < 0 && rc != -EAGAIN) /* -EAGAIN: result on hold, call_onset is set */
 			goto error_silent;
 		return res;
 	}

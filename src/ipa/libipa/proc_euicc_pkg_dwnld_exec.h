@@ -19,6 +19,8 @@ struct ipa_proc_eucc_pkg_dwnld_exec_res {
 
 	struct ipa_es10b_prfle_rollback_res *prfle_rollback_res;
 
+	/*! onset attempts that found the eUICC unreachable before the result was sent */
+	int onset_retries;
 };
 
 struct ipa_proc_eucc_pkg_dwnld_exec_res *ipa_proc_eucc_pkg_dwnld_exec(struct ipa_context *ctx, const struct EuiccPackageRequest

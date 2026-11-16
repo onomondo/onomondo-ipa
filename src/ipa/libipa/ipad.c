@@ -418,7 +418,10 @@ int ipa_poll(struct ipa_context *ctx)
 	if (ctx->proc_eucc_pkg_dwnld_exec_res) {
 		/* There is an eUICC package execution ongoing, which we have to finish first */
 		rc = ipa_proc_eucc_pkg_dwnld_exec_onset(ctx, ctx->proc_eucc_pkg_dwnld_exec_res);
-		if (rc < 0) {
+		if (rc == -EAGAIN) {
+			/* The eUICC was unreachable before the result was sent: keep it for the next poll. */
+			return check_canaries(ctx);
+		} else if (rc < 0) {
 			/* ipa_proc_eucc_pkg_dwnld_exec_onset indicates an error that can not be recovered from. */
 			ipa_proc_eucc_pkg_dwnld_exec_res_free(ctx->proc_eucc_pkg_dwnld_exec_res);
 			ctx->proc_eucc_pkg_dwnld_exec_res = NULL;
@@ -450,8 +453,10 @@ int ipa_poll(struct ipa_context *ctx)
 			if (ctx->proc_eucc_pkg_dwnld_exec_res)
 				/* There is an eUICC package execution ongoing which has done changes to the currently
 				 * selected profile. the caller of ipa_poll must ensure that ipa_poll is called again
-				 * once the IP connection has resettled */
-				return IPA_POLL_AGAIN_WHEN_ONLINE;
+				 * once the IP connection has resettled. A result that already went through onset is
+				 * on hold because the eUICC was unreachable: the caller checks the eUICC first. */
+				return ctx->proc_eucc_pkg_dwnld_exec_res->onset_retries ? IPA_POLL_CHECK_SCARD :
+											  IPA_POLL_AGAIN_WHEN_ONLINE;
 			else
 				/* Tell the caller to continue polling normally */
 				return IPA_POLL_AGAIN;
