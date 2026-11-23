@@ -6,6 +6,7 @@
 
 /* Contract of the memory port (see mem.h), checked on the tracking port. */
 
+#undef NDEBUG
 #include <assert.h>
 #include <string.h>
 
