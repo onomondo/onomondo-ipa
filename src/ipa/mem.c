@@ -4,18 +4,17 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-#include <stdlib.h>
+/* Tracking implementation of the memory port (contract in mem.h), linked when
+ * MEM_EMIT_DEBUG is on. Zero sizes are bumped to 1: malloc(0) may return NULL
+ * and realloc(ptr, 0) may free-and-return-NULL, both of which would break the
+ * contract. */
 
-#include <onomondo/ipa/mem.h>
-
-/* Weak libc-forwarding defaults for the memory port (contract in mem.h).
- * Zero sizes are bumped to 1: malloc(0) may return NULL and realloc(ptr, 0)
- * may free-and-return-NULL, both of which would break the contract. */
-
-#ifdef MEM_EMIT_DEBUG
 #include <assert.h>
 #include <malloc.h>
 #include <stdio.h>
+#include <stdlib.h>
+
+#include <onomondo/ipa/mem.h>
 
 static long mem_total, mem_peak;
 
@@ -27,11 +26,8 @@ static void mem_track(void *ptr, long sign, const char *what)
 	assert(mem_total >= 0);
 	printf("====> %s(%p): %li bytes total, %li bytes peak\n", what, ptr, mem_total, mem_peak);
 }
-#else
-#define mem_track(ptr, sign, what)
-#endif
 
-__attribute__((weak)) void *ipa_port_malloc(size_t size)
+void *ipa_port_malloc(size_t size)
 {
 	void *ptr = malloc(size ? size : 1);
 
@@ -39,7 +35,7 @@ __attribute__((weak)) void *ipa_port_malloc(size_t size)
 	return ptr;
 }
 
-__attribute__((weak)) void *ipa_port_calloc(size_t nmemb, size_t size)
+void *ipa_port_calloc(size_t nmemb, size_t size)
 {
 	void *ptr = calloc(nmemb ? nmemb : 1, size ? size : 1);
 
@@ -47,7 +43,7 @@ __attribute__((weak)) void *ipa_port_calloc(size_t nmemb, size_t size)
 	return ptr;
 }
 
-__attribute__((weak)) void *ipa_port_realloc(void *ptr, size_t size)
+void *ipa_port_realloc(void *ptr, size_t size)
 {
 	void *new_ptr;
 
@@ -57,7 +53,7 @@ __attribute__((weak)) void *ipa_port_realloc(void *ptr, size_t size)
 	return new_ptr;
 }
 
-__attribute__((weak)) void ipa_port_free(void *ptr)
+void ipa_port_free(void *ptr)
 {
 	mem_track(ptr, -1, "free");
 	free(ptr);

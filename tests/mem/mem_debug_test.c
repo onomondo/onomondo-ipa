@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-/* Contract of the weak default allocators (see mem.h). */
+/* Contract of the memory port (see mem.h), checked on the tracking port. */
 
 #include <assert.h>
 #include <string.h>

@@ -38,7 +38,6 @@ add_library(libipa STATIC
   euicc.c
   ipad.c
   log.c
-  mem.c
   proc_cmn_cancel_sess.c
   proc_cmn_mtl_auth.c
   proc_indirect_prfle_dwnld.c
