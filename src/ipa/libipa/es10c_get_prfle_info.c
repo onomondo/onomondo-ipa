@@ -22,10 +22,11 @@
 #include "es10x.h"
 #include "es10c_get_prfle_info.h"
 
-static const struct num_str_map error_code_strings[] = { { ProfileInfoListError_incorrectInputValues,
-							   "incorrectInputValues" },
-							 { ProfileInfoListError_undefinedError, "undefinedError" },
-							 { 0, NULL } };
+static const struct num_str_map error_code_strings[] = {
+	{ ProfileInfoListError_incorrectInputValues, "incorrectInputValues" },
+	{ ProfileInfoListError_undefinedError, "undefinedError" },
+	{ 0, NULL },
+};
 
 static const struct num_str_map error_code_strings_sgp32[] = {
 	{ SGP32_ProfileInfoListError_incorrectInputValues, "incorrectInputValues" },
