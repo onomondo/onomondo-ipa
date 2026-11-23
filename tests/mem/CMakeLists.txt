@@ -14,4 +14,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     set_target_properties(mem_debug_test PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
   endif()
   add_test(NAME mem_debug_test COMMAND sh -c "$<TARGET_FILE:mem_debug_test>")
+  # The failed-realloc check needs NULL from ASan, not an abort.
+  set_tests_properties(mem_debug_test PROPERTIES ENVIRONMENT "ASAN_OPTIONS=allocator_may_return_null=1")
 endif()

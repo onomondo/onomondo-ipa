@@ -40,6 +40,10 @@ int main(void)
 	assert(strcmp(r, "abc") == 0);
 	r = IPA_REALLOC(r, 0);
 	assert(r);
+
+	/* a failed realloc keeps the old block and its accounting */
+	p = IPA_REALLOC(r, (size_t)-1 / 2);
+	assert(!p);
 	IPA_FREE(r);
 
 	/* free(NULL) is a no-op */

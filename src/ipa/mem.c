@@ -9,6 +9,7 @@
  * and realloc(ptr, 0) may free-and-return-NULL, both of which would break the
  * contract. */
 
+#undef NDEBUG
 #include <assert.h>
 #include <malloc.h>
 #include <stdio.h>
@@ -18,20 +19,20 @@
 
 static long mem_total, mem_peak;
 
-static void mem_track(void *ptr, long sign, const char *what)
+static void mem_track(void *ptr, long delta, const char *what)
 {
-	mem_total += sign * (long)malloc_usable_size(ptr);
+	mem_total += delta;
 	if (mem_total > mem_peak)
 		mem_peak = mem_total;
 	assert(mem_total >= 0);
-	printf("====> %s(%p): %li bytes total, %li bytes peak\n", what, ptr, mem_total, mem_peak);
+	printf("====> %s(%p): %+li bytes, %li bytes total, %li bytes peak\n", what, ptr, delta, mem_total, mem_peak);
 }
 
 void *ipa_port_malloc(size_t size)
 {
 	void *ptr = malloc(size ? size : 1);
 
-	mem_track(ptr, +1, "malloc");
+	mem_track(ptr, malloc_usable_size(ptr), "malloc");
 	return ptr;
 }
 
@@ -39,22 +40,23 @@ void *ipa_port_calloc(size_t nmemb, size_t size)
 {
 	void *ptr = calloc(nmemb ? nmemb : 1, size ? size : 1);
 
-	mem_track(ptr, +1, "calloc");
+	mem_track(ptr, malloc_usable_size(ptr), "calloc");
 	return ptr;
 }
 
 void *ipa_port_realloc(void *ptr, size_t size)
 {
-	void *new_ptr;
+	long old = malloc_usable_size(ptr);
+	void *new_ptr = realloc(ptr, size ? size : 1);
 
-	mem_track(ptr, -1, "realloc-old");
-	new_ptr = realloc(ptr, size ? size : 1);
-	mem_track(new_ptr, +1, "realloc");
+	/* a failed realloc leaves the old block allocated */
+	if (new_ptr)
+		mem_track(new_ptr, (long)malloc_usable_size(new_ptr) - old, "realloc");
 	return new_ptr;
 }
 
 void ipa_port_free(void *ptr)
 {
-	mem_track(ptr, -1, "free");
+	mem_track(ptr, -(long)malloc_usable_size(ptr), "free");
 	free(ptr);
 }
