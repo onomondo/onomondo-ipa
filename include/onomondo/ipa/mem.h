@@ -10,6 +10,8 @@
 
 #define IPA_ALLOC(obj) IPA_ALLOC_N(sizeof(obj))
 
+/* The library and the code that includes its headers free each other's memory:
+ * build both with the same IPA_USE_SYSTEM_HEAP setting. */
 #ifdef IPA_USE_SYSTEM_HEAP
 #include <stdlib.h>
 #define IPA_ALLOC_N(n) malloc(n)
