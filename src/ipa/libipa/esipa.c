@@ -9,7 +9,12 @@
 #include <stdint.h>
 #include <string.h>
 #include <assert.h>
+#ifdef __ZEPHYR__
+#include <zephyr/kernel.h>
+#define sleep(s) k_sleep(K_SECONDS(s))
+#else
 #include <unistd.h>
+#endif
 #include <onomondo/ipa/ipad.h>
 #include <onomondo/ipa/log.h>
 #include <onomondo/ipa/http.h>

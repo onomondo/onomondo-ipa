@@ -1,7 +1,7 @@
 # Copyright (c) 2025 Onomondo ApS & sysmocom - s.f.m.c. GmbH. All rights reserved.
 # SPDX-License-Identifier: AGPL-3.0-only
 
-cmake_minimum_required(VERSION 3.13...3.19 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.20.0 FATAL_ERROR)
 project(ipa VERSION 0.0.1 LANGUAGES C) # x-release-please-version
 
 option(ENABLE_SANITIZE "Compile with address sanitizer enabled" OFF)
@@ -27,7 +27,14 @@ if(MEM_EMIT_DEBUG)
   add_definitions(-DMEM_EMIT_DEBUG)
 endif()
 
-add_subdirectory(src)
-
-include(CTest)
-add_subdirectory(tests)
+if(TARGET zephyr_interface)
+  # Built inside a Zephyr application that add_subdirectory()s this tree; the
+  # platform port supplies http/scard, so only the libraries are built.
+  zephyr_library()
+  add_subdirectory_ifdef(CONFIG_ONOMONDO_IPA src)
+  zephyr_include_directories(include)
+else()
+  add_subdirectory(src)
+  include(CTest)
+  add_subdirectory(tests)
+endif()

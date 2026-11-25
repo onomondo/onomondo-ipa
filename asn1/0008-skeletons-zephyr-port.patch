@@ -1,0 +1,145 @@
+From: Benjamin Bruun <bb@onomondo.com>
+Subject: [PATCH] skeletons: Zephyr port
+
+Skeleton accommodations for building libasn under Zephyr, applied last
+so they land on the fully patched skeletons:
+
+- GeneralizedTime.c: mktime()-based zephyr_timegm() shim, since newlib
+  has no timegm() and picolibc's would clash with a same-named define.
+- GeneralizedTime.c: fix GMTOFF at 0 under Zephyr (device clock is UTC).
+- GeneralizedTime.c: skip the TZ-env "PLEASE STOP AND READ!" warning
+  under Zephyr, which never takes that code path.
+- asn_system.h: sys_ntohl() as an inline byte-swap; Zephyr has no
+  <netinet/in.h>.
+- asn_system.h: MIN() spelled __typeof__ with parenthesised operands,
+  the form valid in every GNU C mode and safe for expression arguments.
+- asn_random_fill.c: random() maps to Zephyr's sys_rand32_get().
+- asn_random_fill.c: cast sys_rand32_get()'s unsigned return before the
+  modulo (libc's random() returns signed).
+- INTEGER.c: silence an arm-gcc -Warray-bounds false positive on the
+  pointer-stepping body-copy loop in asn_imax2INTEGER.
+- asn_bit_data.c: cast the pointer-alignment mask to size_t for the
+  %zu-class snprintf format.
+---
+diff --git a/src/ipa/libasn/GeneralizedTime.c b/src/ipa/libasn/GeneralizedTime.c
+--- a/src/ipa/libasn/GeneralizedTime.c
++++ b/src/ipa/libasn/GeneralizedTime.c
+@@ -20,6 +20,17 @@
+ #include <stdio.h>
+ #include <errno.h>
+ 
++/* Zephyr: no timezone handling, so mktime() is timegm(). newlib has no timegm(),
++ * picolibc has one; a locally named shim avoids both a missing and a clashing symbol. */
++#ifdef __ZEPHYR__
++#include <time.h>
++static time_t zephyr_timegm(struct tm *tm)
++{
++	return mktime(tm);
++}
++#define timegm zephyr_timegm
++#endif
++
+ #if	defined(_WIN32)
+ #pragma message( "PLEASE STOP AND READ!")
+ #pragma message( "  localtime_r is implemented via localtime(), which may be not thread-safe.")
+@@ -73,6 +84,11 @@ static struct tm *gmtime_r(const time_t *tloc, struct tm *result) {
+ #define	GMTOFF(tm)	(-timezone)
+ #endif	/* HAVE_TM_GMTOFF */
+ 
++#ifdef __ZEPHYR__
++#undef GMTOFF
++#define GMTOFF(tm) (0)	/* device clock is UTC */
++#endif
++
+ #if	defined(_WIN32)
+ #pragma message( "PLEASE STOP AND READ!")
+ #pragma message( "  timegm() is implemented via getenv(\"TZ\")/setenv(\"TZ\"), which may be not thread-safe.")
+@@ -81,7 +97,7 @@ static struct tm *gmtime_r(const time_t *tloc, struct tm *result) {
+ #pragma message( "  if you want to use asn_GT2time() or asn_UT2time().")
+ #pragma message( "PLEASE STOP AND READ!")
+ #else
+-#if	(defined(_EMULATE_TIMEGM) || !defined(HAVE_TM_GMTOFF))
++#if	(defined(_EMULATE_TIMEGM) || !defined(HAVE_TM_GMTOFF)) && !defined(__ZEPHYR__)
+ #warning "PLEASE STOP AND READ!"
+ #warning "  timegm() is implemented via getenv(\"TZ\")/setenv(\"TZ\"), which may be not thread-safe."
+ #warning "  "
+diff --git a/src/ipa/libasn/INTEGER.c b/src/ipa/libasn/INTEGER.c
+--- a/src/ipa/libasn/INTEGER.c
++++ b/src/ipa/libasn/INTEGER.c
+@@ -991,8 +991,11 @@ asn_imax2INTEGER(INTEGER_t *st, intmax_t value) {
+ 		break;
+ 	}
+ 	/* Copy the integer body */
++#pragma GCC diagnostic push
++#pragma GCC diagnostic ignored "-Warray-bounds"
+ 	for(bp = buf, pend1 += add; p != pend1; p += add)
+ 		*bp++ = *p;
++#pragma GCC diagnostic pop
+ 
+ 	if(st->buf) FREEMEM(st->buf);
+ 	st->buf = buf;
+diff --git a/src/ipa/libasn/asn_bit_data.c b/src/ipa/libasn/asn_bit_data.c
+--- a/src/ipa/libasn/asn_bit_data.c
++++ b/src/ipa/libasn/asn_bit_data.c
+@@ -41,7 +41,7 @@ asn_bit_data_string(asn_bit_data_t *pd) {
+     snprintf(buf[n], sizeof(buf[n]),
+              "{m=%" ASN_PRI_SIZE " span %" ASN_PRI_SIZE "[%" ASN_PRI_SIZE
+              "..%" ASN_PRI_SIZE "] (%" ASN_PRI_SIZE ")}",
+-             pd->moved, ((uintptr_t)(pd->buffer) & 0xf), pd->nboff, pd->nbits,
++             pd->moved, (size_t)((uintptr_t)(pd->buffer) & 0xf), pd->nboff, pd->nbits,
+              pd->nbits - pd->nboff);
+     return buf[n];
+ }
+diff --git a/src/ipa/libasn/asn_random_fill.c b/src/ipa/libasn/asn_random_fill.c
+--- a/src/ipa/libasn/asn_random_fill.c
++++ b/src/ipa/libasn/asn_random_fill.c
+@@ -7,6 +7,11 @@
+ #include <asn_random_fill.h>
+ #include <constr_TYPE.h>
+ 
++#ifdef __ZEPHYR__
++#include <zephyr/random/random.h>
++#define random() sys_rand32_get()
++#endif
++
+ int
+ asn_random_fill(const struct asn_TYPE_descriptor_s *td, void **struct_ptr,
+                 size_t length) {
+@@ -48,7 +53,7 @@ asn_random_between(intmax_t lb, intmax_t rb) {
+ 
+         for(; got_entropy < range;) {
+             got_entropy = (got_entropy << 24) | 0xffffff;
+-            value = (value << 24) | (random() % 0xffffff);
++            value = (value << 24) | ((uint32_t)random() % 0xffffff);
+         }
+ 
+         return lb + (intmax_t)(value % (range + 1));
+diff --git a/src/ipa/libasn/asn_system.h b/src/ipa/libasn/asn_system.h
+--- a/src/ipa/libasn/asn_system.h
++++ b/src/ipa/libasn/asn_system.h
+@@ -75,8 +75,16 @@ typedef	unsigned int	uint32_t;
+ #else	/* !defined(__vxworks) */
+ 
+ #include <inttypes.h>	/* C99 specifies this file */
++#ifdef __ZEPHYR__
++/* No netinet/in.h on Zephyr. */
++static inline uint32_t sys_ntohl(uint32_t l) {
++	return ((l << 24) & 0xff000000u) | ((l << 8) & 0x00ff0000u)
++	     | ((l >> 8) & 0x0000ff00u) | ((l >> 24) & 0x000000ffu);
++}
++#else
+ #include <netinet/in.h> /* for ntohl() */
+ #define	sys_ntohl(foo)	ntohl(foo)
++#endif
+ #endif	/* defined(__vxworks) */
+ 
+ #endif	/* _WIN32 */
+@@ -103,7 +111,7 @@ typedef	unsigned int	uint32_t;
+ 
+ #ifndef	MIN		/* Suitable for comparing primitive types (integers) */
+ #if defined(__GNUC__)
+-#define	MIN(a,b)	({ __typeof a _a = a; __typeof b _b = b;	\
++#define	MIN(a,b)	({ __typeof__(a) _a = (a); __typeof__(b) _b = (b);	\
+ 	((_a)<(_b)?(_a):(_b)); })
+ #else	/* !__GNUC__ */
+ #define	MIN(a,b)	((a)<(b)?(a):(b))	/* Unsafe variant */

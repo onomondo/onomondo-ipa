@@ -20,6 +20,17 @@
 #include <stdio.h>
 #include <errno.h>
 
+/* Zephyr: no timezone handling, so mktime() is timegm(). newlib has no timegm(),
+ * picolibc has one; a locally named shim avoids both a missing and a clashing symbol. */
+#ifdef __ZEPHYR__
+#include <time.h>
+static time_t zephyr_timegm(struct tm *tm)
+{
+	return mktime(tm);
+}
+#define timegm zephyr_timegm
+#endif
+
 #if	defined(_WIN32)
 #pragma message( "PLEASE STOP AND READ!")
 #pragma message( "  localtime_r is implemented via localtime(), which may be not thread-safe.")
@@ -73,6 +84,11 @@ static struct tm *gmtime_r(const time_t *tloc, struct tm *result) {
 #define	GMTOFF(tm)	(-timezone)
 #endif	/* HAVE_TM_GMTOFF */
 
+#ifdef __ZEPHYR__
+#undef GMTOFF
+#define GMTOFF(tm) (0)	/* device clock is UTC */
+#endif
+
 #if	defined(_WIN32)
 #pragma message( "PLEASE STOP AND READ!")
 #pragma message( "  timegm() is implemented via getenv(\"TZ\")/setenv(\"TZ\"), which may be not thread-safe.")
@@ -81,7 +97,7 @@ static struct tm *gmtime_r(const time_t *tloc, struct tm *result) {
 #pragma message( "  if you want to use asn_GT2time() or asn_UT2time().")
 #pragma message( "PLEASE STOP AND READ!")
 #else
-#if	(defined(_EMULATE_TIMEGM) || !defined(HAVE_TM_GMTOFF))
+#if	(defined(_EMULATE_TIMEGM) || !defined(HAVE_TM_GMTOFF)) && !defined(__ZEPHYR__)
 #warning "PLEASE STOP AND READ!"
 #warning "  timegm() is implemented via getenv(\"TZ\")/setenv(\"TZ\"), which may be not thread-safe."
 #warning "  "

@@ -45,24 +45,38 @@ rm ./Makefile.am.libasncodec
 
 # Generate CMakeLists.txt
 echo "#CAUTION: autgenerated file, do not change, see "`basename $0` > CMakeLists.txt
-echo 'add_library(libasn STATIC' >> CMakeLists.txt
+echo 'set(LIBASN_SRCS' >> CMakeLists.txt
 printf '%s\n' *.h *.c | LC_ALL=C sort >> CMakeLists.txt
 echo ')' >> CMakeLists.txt
-echo 'target_include_directories(libasn PUBLIC ${CMAKE_SOURCE_DIR}/include PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})' >> CMakeLists.txt
-echo '# Generated with -no-gen-OER -no-gen-PER: constr_TYPE.h gates the OER' >> CMakeLists.txt
-echo '# declarations behind ASN_DISABLE_OER_SUPPORT; the PER define strips the' >> CMakeLists.txt
-echo '# generated per-type constraint tables. PUBLIC: libipa includes libasn headers.' >> CMakeLists.txt
-echo 'target_compile_definitions(libasn PUBLIC ASN_DISABLE_OER_SUPPORT ASN_DISABLE_PER_SUPPORT)' >> CMakeLists.txt
-echo '# Wire codecs (BER/DER) are all the library consumes; XER, compare, random-fill' >> CMakeLists.txt
-echo '# and the constraint-failure message strings (never consumed - no ctfailcb) are' >> CMakeLists.txt
-echo '# compiled out. print_struct is the SHOW_ASN_OUTPUT debug facility.' >> CMakeLists.txt
-echo 'target_compile_definitions(libasn PUBLIC ASN_DISABLE_XER_SUPPORT ASN_DISABLE_COMPARE_SUPPORT ASN_DISABLE_RFILL_SUPPORT ASN_DISABLE_CONSTRAINT_MSG)' >> CMakeLists.txt
-echo 'if (NOT SHOW_ASN_OUTPUT)' >> CMakeLists.txt
-echo '  target_compile_definitions(libasn PUBLIC ASN_DISABLE_PRINT_SUPPORT)' >> CMakeLists.txt
-echo 'endif()' >> CMakeLists.txt
-echo 'target_compile_options(libasn PRIVATE -Wall)' >> CMakeLists.txt
-echo 'if (M32)' >> CMakeLists.txt
-echo '  set_target_properties(libasn PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")' >> CMakeLists.txt
+echo '# libasn after the system directories: on a case-insensitive filesystem a plain -I' >> CMakeLists.txt
+echo '# makes <time.h> resolve to the generated Time.h.' >> CMakeLists.txt
+echo 'if(TARGET zephyr_interface)' >> CMakeLists.txt
+echo '  zephyr_library()' >> CMakeLists.txt
+echo '  zephyr_library_sources(${LIBASN_SRCS})' >> CMakeLists.txt
+echo '  zephyr_library_compile_options(-idirafter ${CMAKE_CURRENT_SOURCE_DIR})' >> CMakeLists.txt
+echo '  # Global, not library-scoped: libipa and the platform port include libasn headers.' >> CMakeLists.txt
+echo '  zephyr_compile_definitions(ASN_DISABLE_OER_SUPPORT ASN_DISABLE_PER_SUPPORT)' >> CMakeLists.txt
+echo '  zephyr_compile_definitions(ASN_DISABLE_XER_SUPPORT ASN_DISABLE_COMPARE_SUPPORT ASN_DISABLE_RFILL_SUPPORT ASN_DISABLE_CONSTRAINT_MSG)' >> CMakeLists.txt
+echo '  zephyr_compile_definitions(ASN_DISABLE_PRINT_SUPPORT)' >> CMakeLists.txt
+echo 'else()' >> CMakeLists.txt
+echo '  add_library(libasn STATIC ${LIBASN_SRCS})' >> CMakeLists.txt
+echo '  target_include_directories(libasn PUBLIC ${CMAKE_SOURCE_DIR}/include)' >> CMakeLists.txt
+echo '  target_compile_options(libasn PUBLIC -idirafter ${CMAKE_CURRENT_SOURCE_DIR})' >> CMakeLists.txt
+echo '  # Generated with -no-gen-OER -no-gen-PER: constr_TYPE.h gates the OER' >> CMakeLists.txt
+echo '  # declarations behind ASN_DISABLE_OER_SUPPORT; the PER define strips the' >> CMakeLists.txt
+echo '  # generated per-type constraint tables. PUBLIC: libipa includes libasn headers.' >> CMakeLists.txt
+echo '  target_compile_definitions(libasn PUBLIC ASN_DISABLE_OER_SUPPORT ASN_DISABLE_PER_SUPPORT)' >> CMakeLists.txt
+echo '  # Wire codecs (BER/DER) are all the library consumes; XER, compare, random-fill' >> CMakeLists.txt
+echo '  # and the constraint-failure message strings (never consumed - no ctfailcb) are' >> CMakeLists.txt
+echo '  # compiled out. print_struct is the SHOW_ASN_OUTPUT debug facility.' >> CMakeLists.txt
+echo '  target_compile_definitions(libasn PUBLIC ASN_DISABLE_XER_SUPPORT ASN_DISABLE_COMPARE_SUPPORT ASN_DISABLE_RFILL_SUPPORT ASN_DISABLE_CONSTRAINT_MSG)' >> CMakeLists.txt
+echo '  if (NOT SHOW_ASN_OUTPUT)' >> CMakeLists.txt
+echo '    target_compile_definitions(libasn PUBLIC ASN_DISABLE_PRINT_SUPPORT)' >> CMakeLists.txt
+echo '  endif()' >> CMakeLists.txt
+echo '  target_compile_options(libasn PRIVATE -Wall)' >> CMakeLists.txt
+echo '  if (M32)' >> CMakeLists.txt
+echo '    set_target_properties(libasn PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")' >> CMakeLists.txt
+echo '  endif()' >> CMakeLists.txt
 echo 'endif()' >> CMakeLists.txt
 
 
