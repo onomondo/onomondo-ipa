@@ -8,6 +8,7 @@ option(ENABLE_SANITIZE "Compile with address sanitizer enabled" OFF)
 option(SHOW_ASN_OUTPUT "Show ASN.1 decoded output in the log" OFF)
 option(ASN_EMIT_DEBUG "Enable built-in debug output of asn1c" OFF)
 option(MEM_EMIT_DEBUG "Enable debug output for heap memory usage" OFF)
+option(USE_SYSTEM_HEAP "Use malloc/free instead of the ipa_port_* functions" ON)
 option(M32 "Compile for 32 bit mode" OFF)
 
 if (ENABLE_SANITIZE)
@@ -23,8 +24,9 @@ if(ASN_EMIT_DEBUG)
   add_definitions(-DASN_EMIT_DEBUG)
 endif()
 
-if(MEM_EMIT_DEBUG)
-  add_definitions(-DMEM_EMIT_DEBUG)
+# MEM_EMIT_DEBUG links the tracking port in src/ipa/mem.c instead.
+if(USE_SYSTEM_HEAP AND NOT MEM_EMIT_DEBUG)
+  add_definitions(-DIPA_USE_SYSTEM_HEAP)
 endif()
 
 add_subdirectory(src)

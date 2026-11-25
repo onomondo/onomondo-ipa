@@ -75,6 +75,9 @@ this option can be used to analyze the usage of heap memory. When this option is
 IPA_ALLOC_N, IPA_REALLOC, and IPA_FREE will keep track of how much memory is currently allocated. The current memory
 usage and the peak memory usage are then displayed. The feature relies on the function malloc_usable_size(), which is a
 non-standard API. However, the function is available on GNU LINUX and FreeBSD (see also man malloc_usable_size).
+* `-DUSE_SYSTEM_HEAP`
+enabled by default, defines `IPA_USE_SYSTEM_HEAP`: heap memory then comes from malloc() and free(). Turn this option off
+to have the platform provide the ipa_port_* functions declared in `include/onomondo/ipa/mem.h` instead.
 * `-DM32`
 use this option to compile onomondo-ipa for 32-BIT x86 architectures,
 see also GCC manual, section 3.19.54 x86 Options.
