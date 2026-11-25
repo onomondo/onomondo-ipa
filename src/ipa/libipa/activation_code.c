@@ -104,7 +104,6 @@ struct ipa_activation_code *ipa_activation_code_parse(const char *ac)
 			break;
 		default:
 			IPA_FREE(item_buf);
-
 		}
 
 		item_count++;
@@ -125,8 +124,8 @@ struct ipa_activation_code *ipa_activation_code_parse(const char *ac)
  *  \param[in] indent indentation level of the generated output.
  *  \param[in] log_subsys log subsystem to generate the output for.
  *  \param[in] log_level log level to generate the output for. */
-void ipa_activation_code_dump(const struct ipa_activation_code *ac_decoded,
-			      uint8_t indent, enum log_subsys log_subsys, enum log_level log_level)
+void ipa_activation_code_dump(const struct ipa_activation_code *ac_decoded, uint8_t indent, enum log_subsys log_subsys,
+			      enum log_level log_level)
 {
 	char indent_str[8];
 
@@ -148,13 +147,11 @@ void ipa_activation_code_dump(const struct ipa_activation_code *ac_decoded,
 	if (ac_decoded->confirmation_code_required)
 		IPA_LOGP(log_subsys, log_level, "%s Confirmation Code Required Flag: (present)\n", indent_str);
 	if (ac_decoded->ci_public_key_indicator)
-		IPA_LOGP(log_subsys, log_level,
-			 "%s CI Public Key indicator: \"%s\"\n", indent_str, ac_decoded->ci_public_key_indicator);
+		IPA_LOGP(log_subsys, log_level, "%s CI Public Key indicator: \"%s\"\n", indent_str,
+			 ac_decoded->ci_public_key_indicator);
 	if (ac_decoded->delete_notification_for_device_change)
-		IPA_LOGP(log_subsys, log_level,
-			 "%s Delete Notification for Device Change: \"%s\"\n",
-			 indent_str, ac_decoded->delete_notification_for_device_change);
-
+		IPA_LOGP(log_subsys, log_level, "%s Delete Notification for Device Change: \"%s\"\n", indent_str,
+			 ac_decoded->delete_notification_for_device_change);
 }
 
 /*! Free parsed Activation code.

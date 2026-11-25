@@ -24,6 +24,6 @@ struct ipa_activation_code {
 };
 
 struct ipa_activation_code *ipa_activation_code_parse(const char *ac);
-void ipa_activation_code_dump(const struct ipa_activation_code *ac_decoded,
-			      uint8_t indent, enum log_subsys log_subsys, enum log_level log_level);
+void ipa_activation_code_dump(const struct ipa_activation_code *ac_decoded, uint8_t indent, enum log_subsys log_subsys,
+			      enum log_level log_level);
 void ipa_activation_code_free(struct ipa_activation_code *ac_decoded);

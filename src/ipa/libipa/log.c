@@ -16,25 +16,13 @@ uint32_t ipa_log_mask = 0xffffffff;
 
 /* TODO: how to modify log levels at runtime or from getopt */
 static uint32_t subsys_lvl[_NUM_LOG_SUBSYS] = {
-	[SMAIN] = LDEBUG,
-	[SHTTP] = LDEBUG,
-	[SSCARD] = LDEBUG,
-	[SIPA] = LDEBUG,
-	[SES10X] = LDEBUG,
-	[SES10B] = LDEBUG,
-	[SEUICC] = LDEBUG,
-	[SESIPA] = LDEBUG,
+	[SMAIN] = LDEBUG,  [SHTTP] = LDEBUG,  [SSCARD] = LDEBUG, [SIPA] = LDEBUG,
+	[SES10X] = LDEBUG, [SES10B] = LDEBUG, [SEUICC] = LDEBUG, [SESIPA] = LDEBUG,
 };
 
 static const char *subsys_str[_NUM_LOG_SUBSYS] = {
-	[SMAIN] = "MAIN",
-	[SHTTP] = "HTTP",
-	[SSCARD] = "SCARD",
-	[SIPA] = "IPA",
-	[SES10X] = "ES10x",
-	[SES10B] = "ES10b",
-	[SEUICC] = "eUICC",
-	[SESIPA] = "ESIPA",
+	[SMAIN] = "MAIN",   [SHTTP] = "HTTP",	[SSCARD] = "SCARD", [SIPA] = "IPA",
+	[SES10X] = "ES10x", [SES10B] = "ES10b", [SEUICC] = "eUICC", [SESIPA] = "ESIPA",
 };
 
 static const char *level_str[_NUM_LOG_LEVEL] = {

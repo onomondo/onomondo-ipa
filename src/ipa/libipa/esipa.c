@@ -76,8 +76,8 @@ struct EsipaMessageFromEimToIpa *ipa_esipa_msg_to_ipa_dec(const struct ipa_buf *
 	IPA_LOGP_ESIPA(function_name, LDEBUG, "ESipa message received from eIM:\n");
 	ipa_buf_hexdump_multiline(msg_to_ipa_encoded, 64, 1, SESIPA, LDEBUG);
 
-	rc = ber_decode(0, &asn_DEF_EsipaMessageFromEimToIpa,
-			(void **)&msg_to_ipa, msg_to_ipa_encoded->data, msg_to_ipa_encoded->len);
+	rc = ber_decode(0, &asn_DEF_EsipaMessageFromEimToIpa, (void **)&msg_to_ipa, msg_to_ipa_encoded->data,
+			msg_to_ipa_encoded->len);
 
 	if (rc.code != RC_OK) {
 		if (rc.code == RC_FAIL) {

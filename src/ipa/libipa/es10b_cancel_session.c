@@ -43,8 +43,8 @@ static int dec_cancel_session_res(struct ipa_es10b_cancel_session_res *res, cons
 	case CancelSessionResponse_PR_cancelSessionResponseError:
 		res->cancel_session_err = asn->choice.cancelSessionResponseError;
 		IPA_LOGP_ES10X("CancelSession", LERROR, "function failed with error code %ld=%s!\n",
-			       res->cancel_session_err, ipa_str_from_num(error_code_strings, res->cancel_session_err,
-									 "(unknown)"));
+			       res->cancel_session_err,
+			       ipa_str_from_num(error_code_strings, res->cancel_session_err, "(unknown)"));
 		break;
 	default:
 		IPA_LOGP_ES10X("CancelSession", LERROR, "unexpected response content!\n");
@@ -83,9 +83,8 @@ struct ipa_es10b_cancel_session_res *ipa_es10b_cancel_session(struct ipa_context
 	if (rc < 0)
 		goto error;
 
-	if (res->cancel_session_ok
-	    && !IPA_ASN_STR_CMP(&res->cancel_session_ok->euiccCancelSessionSigned.transactionId,
-				&req->req.transactionId)) {
+	if (res->cancel_session_ok && !IPA_ASN_STR_CMP(&res->cancel_session_ok->euiccCancelSessionSigned.transactionId,
+						       &req->req.transactionId)) {
 		IPA_LOGP_ES10X("CancelSession", LERROR,
 			       "eUICC responded with unexpected transaction ID (expected: %s, got: %s)\n",
 			       ipa_hexdump(req->req.transactionId.buf, req->req.transactionId.size),

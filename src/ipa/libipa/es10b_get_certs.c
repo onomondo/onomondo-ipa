@@ -42,9 +42,8 @@ static int dec_get_certs_res(struct ipa_es10b_get_certs_res *res, const struct i
 		break;
 	case GetCertsResponse_PR_getCertsError:
 		res->get_certs_err = asn->choice.getCertsError;
-		IPA_LOGP_ES10X("GetCerts", LERROR, "function failed with error code %ld=%s!\n",
-			       res->get_certs_err, ipa_str_from_num(error_code_strings, res->get_certs_err,
-								    "(unknown)"));
+		IPA_LOGP_ES10X("GetCerts", LERROR, "function failed with error code %ld=%s!\n", res->get_certs_err,
+			       ipa_str_from_num(error_code_strings, res->get_certs_err, "(unknown)"));
 		break;
 	default:
 		IPA_LOGP_ES10X("GetCerts", LERROR, "unexpected response content!\n");

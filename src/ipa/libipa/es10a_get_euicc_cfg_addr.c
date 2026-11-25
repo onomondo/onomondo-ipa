@@ -46,9 +46,8 @@ struct ipa_es10a_euicc_cfg_addr *ipa_es10a_get_euicc_cfg_addr(struct ipa_context
 	struct EuiccConfiguredAddressesRequest get_euicc_cfg_addr_req = { 0 };
 	int rc;
 
-	es10a_req =
-	    ipa_es10x_req_enc(&asn_DEF_EuiccConfiguredAddressesRequest, &get_euicc_cfg_addr_req,
-			      "GetEuiccConfiguredAddresses");
+	es10a_req = ipa_es10x_req_enc(&asn_DEF_EuiccConfiguredAddressesRequest, &get_euicc_cfg_addr_req,
+				      "GetEuiccConfiguredAddresses");
 	if (!es10a_req) {
 		IPA_LOGP_ES10X("GetEuiccConfiguredAddresses", LERROR, "unable to encode ES10a request\n");
 		goto error;

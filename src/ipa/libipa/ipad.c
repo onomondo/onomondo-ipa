@@ -72,7 +72,7 @@ static struct ipa_buf *nvstate_serialize(struct ipa_nvstate *nvstate)
 	struct ipa_buf *nvstate_bin;
 
 	/* serialize statically allocated struct members */
-	nvstate_bin = ipa_buf_alloc_data(sizeof(*nvstate), (uint8_t *) nvstate);
+	nvstate_bin = ipa_buf_alloc_data(sizeof(*nvstate), (uint8_t *)nvstate);
 	assert(nvstate_bin);
 
 	/* serialize dynamically allocated struct members (append code for new members here) */
@@ -82,7 +82,7 @@ static struct ipa_buf *nvstate_serialize(struct ipa_nvstate *nvstate)
 	return nvstate_bin;
 }
 
-struct ipa_buf *nvstate_deserialize_ipa_buf(uint8_t ** nvstate_data, size_t *nvstate_data_len)
+struct ipa_buf *nvstate_deserialize_ipa_buf(uint8_t **nvstate_data, size_t *nvstate_data_len)
 {
 	struct ipa_buf *buf;
 
@@ -113,13 +113,14 @@ static void nvstate_deserialize(struct ipa_nvstate *nvstate, struct ipa_buf *nvs
 	}
 
 	/* deserialize statically allocated struct members and check version */
-	memcpy((uint8_t *) nvstate, nvstate_bin->data, sizeof(*nvstate));
+	memcpy((uint8_t *)nvstate, nvstate_bin->data, sizeof(*nvstate));
 	nvstate_data = nvstate_bin->data + sizeof(*nvstate);
 	nvstate_data_len = nvstate_bin->len - sizeof(*nvstate);
 	if (nvstate->version != IPA_NVSTATE_VERSION) {
-		IPA_LOGP(SIPA, LERROR,
-			 "cannot deserialize non volatile state with mismatching version number %u (expected version: %u)\n",
-			 nvstate->version, IPA_NVSTATE_VERSION);
+		IPA_LOGP(
+			SIPA, LERROR,
+			"cannot deserialize non volatile state with mismatching version number %u (expected version: %u)\n",
+			nvstate->version, IPA_NVSTATE_VERSION);
 		nvstate_reset(nvstate);
 		return;
 	}

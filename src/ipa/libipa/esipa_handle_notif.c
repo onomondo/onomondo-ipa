@@ -31,12 +31,11 @@ static struct ipa_buf *enc_handle_notif_req(const struct ipa_esipa_handle_notif_
 
 	if (req->profile_installation_result) {
 		msg_to_eim.choice.handleNotificationEsipa.choice.pendingNotification.present =
-		    SGP32_PendingNotification_PR_profileInstallationResult;
-		prfle_inst_res =
-		    &msg_to_eim.choice.handleNotificationEsipa.choice.pendingNotification.choice.
-		    profileInstallationResult;
+			SGP32_PendingNotification_PR_profileInstallationResult;
+		prfle_inst_res = &msg_to_eim.choice.handleNotificationEsipa.choice.pendingNotification.choice
+					  .profileInstallationResult;
 		prfle_inst_res->profileInstallationResultData =
-		    req->profile_installation_result->profileInstallationResultData;
+			req->profile_installation_result->profileInstallationResultData;
 		prfle_inst_res->euiccSignPIR = req->profile_installation_result->euiccSignPIR;
 	} else if (req->pending_notification) {
 		msg_to_eim.choice.handleNotificationEsipa.choice.pendingNotification = *req->pending_notification;

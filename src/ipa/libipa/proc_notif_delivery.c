@@ -53,22 +53,20 @@ int ipa_notif_delivery(struct ipa_context *ctx)
 	for (i = 0; i < retr_notif_from_lst_res->sgp32_res->choice.notificationList.list.count; i++) {
 		IPA_LOGP(SIPA, LERROR, "Delivery of notification No.%u:\n", i);
 		handle_notif_req.pending_notification =
-		    retr_notif_from_lst_res->sgp32_res->choice.notificationList.list.array[i];
+			retr_notif_from_lst_res->sgp32_res->choice.notificationList.list.array[i];
 		rc = ipa_esipa_handle_notif(ctx, &handle_notif_req);
 		if (rc < 0)
 			IPA_LOGP(SIPA, LERROR, "Delivery of notification No.%u failed, will try again later!\n", i);
 		else {
 			switch (handle_notif_req.pending_notification->present) {
 			case SGP32_PendingNotification_PR_profileInstallationResult:
-				seq_number =
-				    handle_notif_req.pending_notification->choice.profileInstallationResult.
-				    profileInstallationResultData.notificationMetadata.seqNumber;
+				seq_number = handle_notif_req.pending_notification->choice.profileInstallationResult
+						     .profileInstallationResultData.notificationMetadata.seqNumber;
 				ipa_es10b_rm_notif_from_lst(ctx, seq_number);
 				break;
 			case SGP32_PendingNotification_PR_otherSignedNotification:
-				seq_number =
-				    handle_notif_req.pending_notification->choice.otherSignedNotification.
-				    tbsOtherNotification.seqNumber;
+				seq_number = handle_notif_req.pending_notification->choice.otherSignedNotification
+						     .tbsOtherNotification.seqNumber;
 				ipa_es10b_rm_notif_from_lst(ctx, seq_number);
 				break;
 			default:

@@ -85,9 +85,9 @@ static void convert_euicc_info_2(struct SGP32_EUICCInfo2 *euicc_info_out, const 
 	euicc_info_out->globalplatformVersion = euicc_info_in->globalplatformVersion;
 	euicc_info_out->rspCapability = euicc_info_in->rspCapability;
 	euicc_info_out->euiccCiPKIdListForVerification.list.count =
-	    euicc_info_in->euiccCiPKIdListForVerification.list.count;
+		euicc_info_in->euiccCiPKIdListForVerification.list.count;
 	euicc_info_out->euiccCiPKIdListForVerification.list.array =
-	    euicc_info_in->euiccCiPKIdListForVerification.list.array;
+		euicc_info_in->euiccCiPKIdListForVerification.list.array;
 	euicc_info_out->euiccCiPKIdListForSigning.list.count = euicc_info_in->euiccCiPKIdListForSigning.list.count;
 	euicc_info_out->euiccCiPKIdListForSigning.list.array = euicc_info_in->euiccCiPKIdListForSigning.list.array;
 	euicc_info_out->euiccCategory = euicc_info_in->euiccCategory;
@@ -149,14 +149,14 @@ static struct ipa_es10b_euicc_info *get_euicc_info2(struct ipa_context *ctx)
 	}
 
 	if (ctx->cfg->iot_euicc_emu_enabled) {
-		IPA_LOGP_ES10X("GetEuiccInfo2Request", LINFO, "IoT eUICC emulation active, will derive SGP32-EUICCInfo2 from (SGP.22) EUICCInfo2.\n");
+		IPA_LOGP_ES10X("GetEuiccInfo2Request", LINFO,
+			       "IoT eUICC emulation active, will derive SGP32-EUICCInfo2 from (SGP.22) EUICCInfo2.\n");
 		rc = dec_get_euicc_info2(euicc_info, es10b_res);
 	} else {
 		rc = dec_get_euicc_info2_sgp32(euicc_info, es10b_res);
 	}
 	if (rc < 0)
 		goto error;
-
 
 	IPA_FREE(es10b_req);
 	IPA_FREE(es10b_res);
