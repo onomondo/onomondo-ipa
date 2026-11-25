@@ -95,3 +95,6 @@ tests/testsuite.log
 # Application
 src/ipa/ipa
 
+
+# BSD patch backup droppings from regenerate_libasn.sh
+*.orig

@@ -1,20 +1,16 @@
-From 5c91cfac83d4f99557e9a29abe3f4f4aef2fc47e Mon Sep 17 00:00:00 2001
 From: Philipp Maier <pmaier@sysmocom.de>
-Date: Fri, 19 Jul 2024 11:36:07 +0200
 Subject: [PATCH] asn_internal: use custom memory allocator functions
 
-configure the asn1c generated code so that it uses the libipa provided
-memory allocator and memory free functions.
+Redirect CALLOC/MALLOC/REALLOC/FREEMEM to the IPA_* macros (the
+overridable ipa_port_* memory seam) so every libasn allocation follows
+the library's allocator. Re-cut against the asn1c v0.9.29 skeleton so
+it applies without fuzz.
 ---
- src/ipa/libasn/asn_internal.h | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
-
 diff --git a/src/ipa/libasn/asn_internal.h b/src/ipa/libasn/asn_internal.h
-index 4e72d62..76dac64 100644
 --- a/src/ipa/libasn/asn_internal.h
 +++ b/src/ipa/libasn/asn_internal.h
-@@ -24,10 +24,11 @@ extern "C" {
- #define	ASN1C_ENVIRONMENT_VERSION	923	/* Compile-time version */
+@@ -24,10 +24,11 @@
+ #define	ASN1C_ENVIRONMENT_VERSION	929	/* Compile-time version */
  int get_asn1c_environment_version(void);	/* Run-time version */
  
 -#define	CALLOC(nmemb, size)	calloc(nmemb, size)
@@ -29,6 +25,3 @@ index 4e72d62..76dac64 100644
  
  #define	asn_debug_indent	0
  #define ASN_DEBUG_INDENT_ADD(i) do{}while(0)
--- 
-2.20.1
-

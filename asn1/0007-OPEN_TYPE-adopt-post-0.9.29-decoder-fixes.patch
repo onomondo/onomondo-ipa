@@ -1,0 +1,92 @@
+Adopt two upstream open-type decoder fixes that landed on vlm/asn1c
+master hours AFTER the v0.9.29 release cut (2026-06-22), so the pinned
+toolchain still emits the unfixed skeleton and this must live as a
+patch for the regeneration to stay reproducible:
+
+- vlm/asn1c@35ae7ca5: NULL deref and OOB access when the constraining
+  value selects an information-object-set row that defines no type for
+  the open type field (typeless IOS row).
+- vlm/asn1c@50d40bd8: NULL deref in the decode failure-cleanup path
+  (selected.type_descriptor used after the check that it may be NULL;
+  the element's own type carries the correct specifics).
+
+Unreachable with the current RSP grammar (no generated type carries
+ATF_OPEN_TYPE members), adopted for library correctness.
+
+---
+diff --git a/src/ipa/libasn/OPEN_TYPE.c b/src/ipa/libasn/OPEN_TYPE.c
+index c672992..06e89f6 100644
+--- a/src/ipa/libasn/OPEN_TYPE.c
++++ b/src/ipa/libasn/OPEN_TYPE.c
+@@ -58,7 +58,12 @@ OPEN_TYPE_ber_get(const asn_codec_ctx_t *opt_codec_ctx,
+     }
+ 
+     selected = elm->type_selector(td, sptr);
+-    if(!selected.presence_index) {
++    if(!selected.presence_index || !selected.type_descriptor) {
++        /*
++         * The constraining value does not select any type, or selects a
++         * row of the information object set which does not define a type
++         * for this open type field. Either way, there's nothing to decode.
++         */
+         ASN__DECODE_FAILED;
+     }
+ 
+@@ -107,8 +112,7 @@ OPEN_TYPE_ber_get(const asn_codec_ctx_t *opt_codec_ctx,
+     }
+ 
+     if(*memb_ptr2) {
+-        const asn_CHOICE_specifics_t *specs =
+-            selected.type_descriptor->specifics;
++        const asn_CHOICE_specifics_t *specs = elm->type->specifics;
+         if(elm->flags & ATF_POINTER) {
+             ASN_STRUCT_FREE(*selected.type_descriptor, inner_value);
+             *memb_ptr2 = NULL;
+@@ -147,7 +151,12 @@ OPEN_TYPE_xer_get(const asn_codec_ctx_t *opt_codec_ctx,
+     }
+ 
+     selected = elm->type_selector(td, sptr);
+-    if(!selected.presence_index) {
++    if(!selected.presence_index || !selected.type_descriptor) {
++        /*
++         * The constraining value does not select any type, or selects a
++         * row of the information object set which does not define a type
++         * for this open type field. Either way, there's nothing to decode.
++         */
+         ASN__DECODE_FAILED;
+     }
+ 
+@@ -229,8 +238,7 @@ OPEN_TYPE_xer_get(const asn_codec_ctx_t *opt_codec_ctx,
+          * will have to be restarted.
+          */
+         if(*memb_ptr2) {
+-            const asn_CHOICE_specifics_t *specs =
+-                selected.type_descriptor->specifics;
++            const asn_CHOICE_specifics_t *specs = elm->type->specifics;
+             if(elm->flags & ATF_POINTER) {
+                 ASN_STRUCT_FREE(*selected.type_descriptor, inner_value);
+                 *memb_ptr2 = NULL;
+@@ -306,7 +314,12 @@ OPEN_TYPE_uper_get(const asn_codec_ctx_t *opt_codec_ctx,
+     }
+ 
+     selected = elm->type_selector(td, sptr);
+-    if(!selected.presence_index) {
++    if(!selected.presence_index || !selected.type_descriptor) {
++        /*
++         * The constraining value does not select any type, or selects a
++         * row of the information object set which does not define a type
++         * for this open type field. Either way, there's nothing to decode.
++         */
+         ASN__DECODE_FAILED;
+     }
+ 
+@@ -345,8 +358,7 @@ OPEN_TYPE_uper_get(const asn_codec_ctx_t *opt_codec_ctx,
+     case RC_WMORE:
+     case RC_FAIL:
+         if(*memb_ptr2) {
+-            const asn_CHOICE_specifics_t *specs =
+-                selected.type_descriptor->specifics;
++            const asn_CHOICE_specifics_t *specs = elm->type->specifics;
+             if(elm->flags & ATF_POINTER) {
+                 ASN_STRUCT_FREE(*selected.type_descriptor, inner_value);
+                 *memb_ptr2 = NULL;
