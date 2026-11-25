@@ -19,8 +19,11 @@ int main(void)
 	void *p;
 	int i;
 
-	/* size 0 returns a unique, freeable pointer */
+	/* size 0 returns a freeable pointer */
 	p = IPA_ALLOC_N(0);
+	assert(p);
+	IPA_FREE(p);
+	p = IPA_CALLOC(0, 0);
 	assert(p);
 	IPA_FREE(p);
 
