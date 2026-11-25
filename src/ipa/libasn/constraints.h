@@ -53,7 +53,14 @@ asn_constr_check_f asn_generic_unknown_constraint; /* Not fully supported */
 /*
  * Invoke the callback with a complete error message.
  */
+#ifdef	ASN_DISABLE_CONSTRAINT_MSG
+/* Swallows the call and its arguments: the format strings, __FILE__ literals
+ * and td->name references in the skeleton _constraint() bodies vanish from
+ * the image. Nothing in this codebase ever passes a ctfailcb. */
+#define	ASN__CTFAIL(...)	do{}while(0)
+#else
 #define	ASN__CTFAIL	if(ctfailcb) ctfailcb
+#endif
 
 #ifdef __cplusplus
 }
