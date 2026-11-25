@@ -6,8 +6,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
   include_directories(${PROJECT_SOURCE_DIR}/include)
 
   # Always built against the port (-U), whichever heap the build selects.
-  add_executable(mem_debug_test mem_debug_test.c
-		 ${PROJECT_SOURCE_DIR}/src/ipa/mem.c)
+  add_executable(mem_debug_test mem_debug_test.c ${PROJECT_SOURCE_DIR}/src/ipa/mem.c)
   set_property(TARGET mem_debug_test PROPERTY C_STANDARD 99)
   target_compile_options(mem_debug_test PRIVATE -Wall -UIPA_USE_SYSTEM_HEAP)
   if(M32)
