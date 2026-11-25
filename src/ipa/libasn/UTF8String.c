@@ -15,12 +15,25 @@ static const ber_tlv_tag_t asn_DEF_UTF8String_tags[] = {
 };
 asn_TYPE_operation_t asn_OP_UTF8String = {
 	OCTET_STRING_free,
+#ifdef	ASN_DISABLE_PRINT_SUPPORT
+	0,
+#else
 	UTF8String_print,
+#endif	/* ASN_DISABLE_PRINT_SUPPORT */
+#ifdef	ASN_DISABLE_COMPARE_SUPPORT
+	0,
+#else
 	OCTET_STRING_compare,
+#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
 	OCTET_STRING_decode_ber,    /* Implemented in terms of OCTET STRING */
 	OCTET_STRING_encode_der,
+#ifdef	ASN_DISABLE_XER_SUPPORT
+	0,
+	0,
+#else
 	OCTET_STRING_decode_xer_utf8,
 	OCTET_STRING_encode_xer_utf8,
+#endif	/* ASN_DISABLE_XER_SUPPORT */
 #ifdef	ASN_DISABLE_OER_SUPPORT
 	0,
 	0,
@@ -35,7 +48,11 @@ asn_TYPE_operation_t asn_OP_UTF8String = {
 	OCTET_STRING_decode_uper,
 	OCTET_STRING_encode_uper,
 #endif	/* ASN_DISABLE_PER_SUPPORT */
+#ifdef	ASN_DISABLE_RFILL_SUPPORT
+	0,
+#else
 	UTF8String_random_fill,
+#endif	/* ASN_DISABLE_RFILL_SUPPORT */
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_UTF8String = {

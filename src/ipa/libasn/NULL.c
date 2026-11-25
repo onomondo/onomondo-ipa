@@ -14,12 +14,25 @@ static const ber_tlv_tag_t asn_DEF_NULL_tags[] = {
 };
 asn_TYPE_operation_t asn_OP_NULL = {
 	NULL_free,
+#ifdef	ASN_DISABLE_PRINT_SUPPORT
+	0,
+#else
 	NULL_print,
+#endif	/* ASN_DISABLE_PRINT_SUPPORT */
+#ifdef	ASN_DISABLE_COMPARE_SUPPORT
+	0,
+#else
 	NULL_compare,
+#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
 	NULL_decode_ber,
 	NULL_encode_der,	/* Special handling of DER encoding */
+#ifdef	ASN_DISABLE_XER_SUPPORT
+	0,
+	0,
+#else
 	NULL_decode_xer,
 	NULL_encode_xer,
+#endif	/* ASN_DISABLE_XER_SUPPORT */
 #ifdef	ASN_DISABLE_OER_SUPPORT
 	0,
 	0,
@@ -34,7 +47,11 @@ asn_TYPE_operation_t asn_OP_NULL = {
 	NULL_decode_uper,	/* Unaligned PER decoder */
 	NULL_encode_uper,	/* Unaligned PER encoder */
 #endif	/* ASN_DISABLE_PER_SUPPORT */
+#ifdef	ASN_DISABLE_RFILL_SUPPORT
+	0,
+#else
 	NULL_random_fill,
+#endif	/* ASN_DISABLE_RFILL_SUPPORT */
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_NULL = {

@@ -19,12 +19,25 @@ asn_OCTET_STRING_specifics_t asn_SPC_BIT_STRING_specs = {
 };
 asn_TYPE_operation_t asn_OP_BIT_STRING = {
 	OCTET_STRING_free,         /* Implemented in terms of OCTET STRING */
+#ifdef	ASN_DISABLE_PRINT_SUPPORT
+	0,
+#else
 	BIT_STRING_print,
+#endif	/* ASN_DISABLE_PRINT_SUPPORT */
+#ifdef	ASN_DISABLE_COMPARE_SUPPORT
+	0,
+#else
 	BIT_STRING_compare,
+#endif	/* ASN_DISABLE_COMPARE_SUPPORT */
 	OCTET_STRING_decode_ber,   /* Implemented in terms of OCTET STRING */
 	OCTET_STRING_encode_der,   /* Implemented in terms of OCTET STRING */
+#ifdef	ASN_DISABLE_XER_SUPPORT
+	0,
+	0,
+#else
 	OCTET_STRING_decode_xer_binary,
 	BIT_STRING_encode_xer,
+#endif	/* ASN_DISABLE_XER_SUPPORT */
 #ifdef	ASN_DISABLE_OER_SUPPORT
 	0,
 	0,
@@ -39,7 +52,11 @@ asn_TYPE_operation_t asn_OP_BIT_STRING = {
 	BIT_STRING_decode_uper,	/* Unaligned PER decoder */
 	BIT_STRING_encode_uper,	/* Unaligned PER encoder */
 #endif  /* ASN_DISABLE_PER_SUPPORT */
+#ifdef	ASN_DISABLE_RFILL_SUPPORT
+	0,
+#else
 	BIT_STRING_random_fill,
+#endif	/* ASN_DISABLE_RFILL_SUPPORT */
 	0	/* Use generic outmost tag fetcher */
 };
 asn_TYPE_descriptor_t asn_DEF_BIT_STRING = {

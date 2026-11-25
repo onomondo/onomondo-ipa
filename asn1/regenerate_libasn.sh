@@ -27,7 +27,8 @@ rm -f *.h
 # ES10x; SGP.32 §2.1.3, §6.1.1, §6.2 for ESipa); no RSP spec references
 # X.691/X.696. The codecs hang off the per-type vtables and the tables off the
 # descriptors, so --gc-sections cannot drop them: 21.4 kB of dead device flash.
-# XER/print stay: host debug tooling (SHOW_ASN_OUTPUT) uses them.
+# XER/print are still generated (asn1c has no flag for them); the CMake
+# definitions emitted below compile them out.
 # -fno-constraints: nothing calls asn_check_constraints(); BER decode and DER
 # encode never run the constraint functions, only the PER/OER codecs (no longer
 # generated) did. The generated bodies were dead code the linker kept through
@@ -52,6 +53,13 @@ echo '# Generated with -no-gen-OER -no-gen-PER: constr_TYPE.h gates the OER' >> 
 echo '# declarations behind ASN_DISABLE_OER_SUPPORT; the PER define strips the' >> CMakeLists.txt
 echo '# generated per-type constraint tables. PUBLIC: libipa includes libasn headers.' >> CMakeLists.txt
 echo 'target_compile_definitions(libasn PUBLIC ASN_DISABLE_OER_SUPPORT ASN_DISABLE_PER_SUPPORT)' >> CMakeLists.txt
+echo '# Wire codecs (BER/DER) are all the library consumes; XER, compare, random-fill' >> CMakeLists.txt
+echo '# and the constraint-failure message strings (never consumed - no ctfailcb) are' >> CMakeLists.txt
+echo '# compiled out. print_struct is the SHOW_ASN_OUTPUT debug facility.' >> CMakeLists.txt
+echo 'target_compile_definitions(libasn PUBLIC ASN_DISABLE_XER_SUPPORT ASN_DISABLE_COMPARE_SUPPORT ASN_DISABLE_RFILL_SUPPORT ASN_DISABLE_CONSTRAINT_MSG)' >> CMakeLists.txt
+echo 'if (NOT SHOW_ASN_OUTPUT)' >> CMakeLists.txt
+echo '  target_compile_definitions(libasn PUBLIC ASN_DISABLE_PRINT_SUPPORT)' >> CMakeLists.txt
+echo 'endif()' >> CMakeLists.txt
 echo 'target_compile_options(libasn PRIVATE -Wall)' >> CMakeLists.txt
 echo 'if (M32)' >> CMakeLists.txt
 echo '  set_target_properties(libasn PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")' >> CMakeLists.txt
