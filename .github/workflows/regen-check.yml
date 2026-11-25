@@ -1,0 +1,48 @@
+# Regeneration reproducibility: the committed libasn must be exactly what
+# asn1/regenerate_libasn.sh produces with the pinned asn1c. Guards against
+# hand-edits of generated code and undocumented skeleton drift.
+name: libasn regen check
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  regen:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Cache asn1c 0.9.29
+        id: cache-asn1c
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/asn1c-install
+          key: asn1c-v0.9.29-${{ runner.os }}-${{ hashFiles('.github/workflows/regen-check.yml') }}
+
+      # Ubuntu 24.04 packages asn1c 0.9.28; the script's version guard would
+      # reject it, so build the pinned release from source.
+      - name: Build asn1c v0.9.29
+        if: steps.cache-asn1c.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update && sudo apt-get install -y autoconf automake libtool bison flex
+          curl -fsSL -o asn1c.tar.gz https://github.com/vlm/asn1c/archive/refs/tags/v0.9.29.tar.gz
+          echo "cdcfa0638d9657da3b114ceef3d6c9919e9e1e4da0de49456f8d9e398826d5ab  asn1c.tar.gz" | sha256sum -c
+          tar xzf asn1c.tar.gz && cd asn1c-0.9.29
+          autoreconf --force --install
+          ./configure --prefix="$HOME/asn1c-install"
+          make -j"$(nproc)" && make install
+
+      - name: Regenerate and diff
+        run: |
+          export PATH="$HOME/asn1c-install/bin:$PATH"
+          asn1c -version
+          asn1/regenerate_libasn.sh
+          git add -A -- src/ipa asn1 && git diff --cached --exit-code
