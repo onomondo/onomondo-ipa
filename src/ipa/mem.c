@@ -24,8 +24,8 @@ static void mem_track(void *ptr, long delta, const char *what)
 	mem_total += delta;
 	if (mem_total > mem_peak)
 		mem_peak = mem_total;
-	assert(mem_total >= 0);
 	printf("====> %s(%p): %+li bytes, %li bytes total, %li bytes peak\n", what, ptr, delta, mem_total, mem_peak);
+	assert(mem_total >= 0);
 }
 
 void *ipa_port_malloc(size_t size)
