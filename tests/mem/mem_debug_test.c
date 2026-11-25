@@ -42,7 +42,7 @@ int main(void)
 	assert(r);
 
 	/* a failed realloc keeps the old block and its accounting */
-	p = IPA_REALLOC(r, (size_t)-1 / 2);
+	p = IPA_REALLOC(r, (size_t)-1);
 	assert(!p);
 	IPA_FREE(r);
 
